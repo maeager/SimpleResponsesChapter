@@ -1,0 +1,254 @@
+% ***************************************************************
+% A Classic Thesis Style
+% An Homage to The Elements of Typographic Style
+%
+% Copyright (C) 2007 André Miede http://www.miede.de
+%
+% If you like the style then I would appreciate a postcard. My address
+% can be found in the file ClassicThesis.pdf. A collection of the
+% postcards I received so far is available online at
+% http://postcards.miede.de
+%
+% License:
+% This program is free software; you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation; either version 2 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program; see the file COPYING.  If not, write to
+% the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+% Boston, MA 02111-1307, USA.
+%
+% *****************************************************************
+% Note:
+%    * You must not use "u etc. in strings/commands that will be spaced out (use \"u or real umlauts instead)
+%    * Chapters must be marked with the \myChapter{Foo} command (sorry for the inconvenience at this point)
+%    * New enumeration (small caps): \begin{aenumerate} \end{aenumerate}
+%    * For margin notes: \graffito{}
+%    * Do not use bold fonts in this style, it is designed around them
+%    * Use tables as in the examples
+%    * See classicthesis-ldpkg.sty for useful commands
+% *****************************************************************
+% To Do:
+%    * support a List of Listings that looks like the other lists
+% *****************************************************************
+\documentclass[ twoside,openright,titlepage,fleqn,pointlessnumbers,headinclude,%1headlines,% 
+                10pt,a4paper,BCOR5mm,footinclude,cleardoubleempty,abstractoff % <--- obsolete, remove (todo)
+                ]{scrreprt}
+
+% \documentclass[a4paper,twoside,openright,titlepage,fleqn,%1headlines,%
+%                 pointlessnumbers,headinclude,BCOR5mm,%
+%                 %10pt,a4paper,footinclude,cleardoubleempty,abstractoff % <--- obsolete, remove (todo)
+%                 ]{scrreprt}
+
+% *****************************************************************
+% KOMA-Script setup (new, see commented line above)
+% *****************************************************************
+% \KOMAoptions{%
+%     paper=a4,%
+%     fontsize=11pt,%
+%     cleardoublepage=empty,%
+%     footinclude=true%
+% }
+%abstract=false }
+% *****************************************************************
+% Development Stuff
+% *****************************************************************
+%\listfiles
+%\usepackage[l2tabu, orthodox, abort]{nag}
+%\usepackage[warning, all]{onlyamsmath}
+% *****************************************************************
+% Re-usable information
+% *****************************************************************
+\newcommand{\myTitle}{Neural Modelling in the Auditory System\xspace}
+\newcommand{\myDegree}{Doctorate of Philosophy\xspace}
+\newcommand{\myName}{Michael Allan Eager\xspace}
+\newcommand{\myProf}{Dr. David B. Grayden\xspace}
+\newcommand{\myOtherProf}{Prof. Anthony N. Burkitt\xspace}
+\newcommand{\mySupervisor}{Dr. Hamish Meffin\xspace}
+\newcommand{\myFaculty}{\protect{Faculty of Medicine, Dentistry and Health Science}\xspace}
+\newcommand{\myDepartment}{Department of Otolaryngolgy\xspace}
+\newcommand{\myUni}{\protect{The University of Melbourne}\xspace}
+\newcommand{\myLocation}{Melbourne, Australia\xspace}
+\newcommand{\myTime}{February 2008\xspace}
+\newcommand{\myVersion}{Version 1.0\xspace}
+%*******************************************************
+% Packages with options that might require adjustments
+%*******************************************************
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman,american,australian]{babel}
+\usepackage[round,sort,numbers]{natbib}
+%\newcommand{\citenumfont}[1]{\textsuperscript{#1}}%{\textit{$^{#1}$}}
+\makeatletter % Reference list option change
+\renewcommand\@biblabel[1]{\textsuperscript{#1}} % from [1] to $^1$
+\makeatother
+
+
+\setcitestyle{aysep={}} %J Neuroscience Format does not have a comma between author and year
+%*******************************************************
+\usepackage{classicthesis-ldpkg}
+%*******************************************************
+% Options for classicthesis.sty:
+% tocaligned eulerchapternumbers drafting linedheaders listsseparated
+% subfig nochapters beramono eulermath parts minionpro pdfspacingsubfig,
+\usepackage[eulerchapternumbers,%drafting,pdfspacing,%
+            subfig,beramono,eulermath,parts]{classicthesis}
+
+%*******************************************************
+%\usepackage[section,below]{placeins} <--- not everybody wants this
+%\usepackage[all]{hypcap} <--- does not work with MiKTeX 2.6
+% ********************************************************************
+% Language/strings for backrefs (change here, thanks, Lorenzo)
+%*******************************************************
+%\renewcommand{\backrefnotcitedstring}{\relax}%(Not cited.)
+%\renewcommand{\backrefcitedsinglestring}[1]{(Citato a pagina~#1.)}
+%\renewcommand{\backrefcitedmultistring}[1]{(Citato alle pagine~#1.)}
+%\renewcommand{\backreftwosep}{ e~}
+%\renewcommand{\backreflastsep}{ e~}
+% ********************************************************************
+% Setup and Finetuning
+%*******************************************************
+\newlength{\abcd} % for ab..z string length calculation
+\newcommand{\myfloatalign}{\centering} % how all the floats will be aligned
+\setlength{\extrarowheight}{3pt} % increase table row height
+% ********************************************************************
+% Captions look and feel
+%*******************************************************
+\captionsetup{format=hang,font=small}
+% ********************************************************************
+% Where to look for graphics
+%*******************************************************
+\graphicspath{{./gfx/}{../figures/}}%{H:/My\ Pictures/}} % considered harmful according to l2tabu
+% ********************************************************************
+% Hyperreferences
+%*******************************************************
+
+\hypersetup{%
+    colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,%
+    breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
+    plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+    hypertexnames=true, pdfhighlight=/O,%hyperfootnotes=true,%nesting=true,%frenchlinks,%
+    %urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=webgreen, %pagecolor=RoyalBlue,%
+    % uncomment the following line if you want to have black links (e.g., for printing)
+    urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+    pdftitle={\myTitle},%
+    pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},%
+    pdfsubject={},%
+    pdfkeywords={Computational Neuroscience, Auditory},%
+    pdfcreator={pdfLaTeX %MiKTeX-pdfetex 2.5.2645 (1.30.6) (MiKTeX 2.5)%
+    %MiKTeX-pdfTeX 2.7.3235 (1.40.9) (MiKTeX 2.7)},
+    pdfeTeX 3.141592-1.21a-2.2 (Web2C 7.5.4)},
+    pdfproducer={LaTeX with hyperref and classicthesis}%
+}
+%********************************************************************
+% Hyphenation
+%*******************************************************
+%\hyphenation{put special hyphenation here}
+
+% ********************************************************************
+% GO!GO!GO! MOVE IT!
+%*******************************************************
+
+% Lengths from John Papandriopoulos' thesis format
+% A4 paper
+\paperwidth 210mm
+\paperheight 297mm
+
+% Binding margin
+\newlength{\bindmargin}
+	\addtolength{\bindmargin}{3.5cm}
+
+% We do want par margins
+\marginparwidth 2em
+\marginparsep 2em
+
+% Other margin
+\newlength{\othermargin}
+	\addtolength{\othermargin}{2.5cm}
+    \addtolength{\othermargin}{\marginparsep}
+    \addtolength{\othermargin}{\marginparwidth}
+
+% Header height
+\headheight 14pt
+
+% We don't want any margin for headers
+%\topmargin 0pt
+
+
+
+% Text width: paper width - bind margin - other margin
+\textwidth \paperwidth
+	\addtolength{\textwidth}{-\bindmargin}
+	\addtolength{\textwidth}{-\othermargin}
+
+% Text height
+\textheight \paperheight
+	\addtolength{\textheight}{-1in}
+	\addtolength{\textheight}{-\headsep}
+	\addtolength{\textheight}{-\footskip}
+	\addtolength{\textheight}{-\headheight}
+	\addtolength{\textheight}{-\topmargin}
+	\addtolength{\textheight}{-\voffset}
+	\addtolength{\textheight}{-1in}
+
+% Set the margins
+\evensidemargin \paperwidth
+	\addtolength{\evensidemargin}{-\textwidth}
+	\addtolength{\evensidemargin}{-\bindmargin}
+	\addtolength{\evensidemargin}{-1in}
+
+\oddsidemargin \paperwidth
+	\addtolength{\oddsidemargin}{-\textwidth}
+	\addtolength{\oddsidemargin}{-\othermargin}
+	\addtolength{\oddsidemargin}{-1in}
+
+\begin{document}
+\frenchspacing
+\raggedbottom
+\selectlanguage{australian} % american ngerman
+%\renewcommand*{\bibname}{new name}
+%\setbibpreamble{}
+\pagenumbering{roman}
+\pagestyle{plain}
+%********************************************************************
+% Frontmatter
+%*******************************************************
+\pagestyle{scrheadings}
+%\cleardoublepage
+%*******************************************************
+% Table of Contents copied from Contents.tex
+%*******************************************************
+\refstepcounter{dummy}
+\pdfbookmark[1]{\contentsname}{tableofcontents}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\markboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}
+
+%********************************************************************
+% Mainmatter
+%*******************************************************
+\pagenumbering{arabic}
+
+\include{../manuscript/Chapter03} % Generation of Cochlear Nucleus network from simple responses
+
+
+
+
+
+%********************************************************************
+% Other Stuff in the Back
+%*******************************************************
+\cleardoublepage
+\include{../manuscript/Bibliography}
+
+% ********************************************************************
+% Game Over: Restart, Restore or Quit?
+%*******************************************************
+\end{document}
+% ********************************************************************

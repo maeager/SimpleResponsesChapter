@@ -1,0 +1,300 @@
+
+% LaTeX file for generating the Model Description Table in Fig. 5 of
+%
+%  Nordlie E, Gewaltig M-O, Plesser HE (2009)
+%  Towards Reproducible Descriptions of Neuronal Network Models.
+%  PLoS Comput Biol 5(8): e1000456.
+%
+%  Paper URL : http://dx.doi.org/10.1371/journal.pcbi.1000456
+%  Figure URL: http://dx.doi.org/10.1371/journal.pcbi.1000456.g005
+%
+% This file is released under a
+%
+%   Creative Commons Attribution, non-commercial, share-alike licence
+%   http://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en
+%
+% with the following specifications:
+%
+%  1. When publishing tables generated from this LaTeX file and modified
+%     versions of it, you must cite the paper by Nordlie et al given above.
+%
+%  2. The non-commercial clause applies only to the distribution of THIS FILE
+%     and LaTeX source code files derived from it. You may commercially publish
+%     documents generated using this file and derivatived versions of this file.
+%
+% Contact: Hans Ekkehard Plesser, UMB (hans.ekkehard.plesser at umb.no)
+
+\documentclass{article}
+\input{../manuscript/user-defined}
+\input{../manuscript/glossary}
+
+\usepackage[margin=0.4in]{geometry} % get enough space on page
+
+\usepackage{tabularx}  % automatically adjusts column width in tables
+\usepackage{multirow}  % allows entries spanning several rows
+\usepackage{colortbl}  % allows coloring tables
+
+%\usepackage[fleqn]{amsmath}   % displayed equations flush left
+%\setlength{\mathindent}{0em}
+
+% use Helvetica for text, Pazo math fonts
+\usepackage{mathpazo}
+\usepackage[scaled=.95]{helvet}
+\renewcommand\familydefault{\sfdefault}
+
+\renewcommand\arraystretch{1.2}  % slightly more space in tables
+
+\pagestyle{empty}  % no header of footer
+
+
+\usepackage[dvips]{graphicx}
+\graphicspath{{/media/data/Work/cnstellate/TV_notch/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/}{/media/data/Work/thesis/ans2010/gfx/}}
+
+
+\begin{document}
+
+\section{Assymetric broadband inhibition of Tuberculo-ventral cells}
+% - A ------------------------------------------------------------------------------
+
+
+
+\noindent
+\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %
+\hdr{2}{A}{Model Summary}\\\hline
+\textbf{Populations}     & Five: HSR \& LSR ANFs, Golgi, DS, and TV cells \\\hline
+\textbf{Topology}        & Tono-topicity of the rat AN and CN \\\hline
+\textbf{Connectivity}    & ANF$\to${Golgi,DS,TV}, Golgi$\to$DS, DS$\to$TV  \\\hline
+\textbf{Neuron model}    &\begin{minipage}{0.5\textwidth}
+Golgi cell \begin{itemize}
+\item instantaneous-rate Poisson spike trains
+\item weighted sum of LSR instantaneous-rate vectors
+\item smoothing due to alpha function kernel
+\end{itemize}
+D-stellate cell\begin{itemize}
+\item biophysically-based HH-like single-compartment model
+\item type I-II current-clamp model
+\end{itemize}
+Tuberculo-ventral cell \begin{itemize}
+\item biophysically-based HH-like single-compartment model
+\item type I-c current-clamp model \citep{RothmanManis:2003b}
+\end{itemize}
+\end{minipage}\\\hline
+\textbf{Channel models}  &  $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
+\textbf{Synapse model}   & AMPA (\textit{ExpSyn}), GABA$_{\rm A}$ (\textit{Exp2Syn}), Glycine (\textit{Exp2Syn}) \\\hline
+\textbf{Input}           &  Notch-noise (Stop-band filtered white noise) \\\hline
+\textbf{Measurements}    &  First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance \\\hline
+\end{tabularx}
+
+\vspace{2ex}
+
+% - B -----------------------------------------------------------------------------
+
+\noindent\begin{tabularx}{0.95\textwidth}{|l|l|X|}\hline
+\hdr{3}{B}{Populations}\\\hline
+\textbf{Name} &            \textbf{Elements}            & \textbf{Size} \\\hline
+     HSR      &            Poisson generator            & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
+     LSR      &            Poisson generator            & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
+     GLG      &            Poisson generator            & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
+     DS       & Single-Compartment H-H model (type I-II)& $N_{\text{DS}}= 1$ per freq\. channel \\\hline
+     TV       & Single-Compartment H-H model (type I-c) & $N_{\text{TV}}= 1$ at CF=XXX kHz (channel 50)\\\hline
+\end{tabularx}
+
+\vspace{2ex}
+
+% - C ------------------------------------------------------------------------------
+
+\noindent\begin{tabularx}{0.95\textwidth}{|l|l|l|X|}\hline
+\hdr{4}{C}{Connectivity}\\\hline
+\textbf{Name} &  \textbf{Source}  & \textbf{Target}  & \textbf{Pattern} \\\hline
+   \ANFDS     & ANF (HSR and LSR) &    D-Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS \\\hline
+   \ANFTV     & ANF (HSR and LSR) & Tuberculoventral & Narrowband, centered at CF,spread negligent , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS \\\hline
+   \GLGDS     &       Golgi       &    D-Stellate    & Gaussian, centered at CF with spread \sGLGDS, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
+    \DSTV     &    D-Stellate     & Tuberculoventral & Gaussian, centered at CF with spread \sGLGDS, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
+\end{tabularx}
+
+\vspace{2ex}
+
+% - D ------------------------------------------------------------------------------
+
+% \noindent\begin{tabularx}{0.95\textwidth}{|p{0.150.95\textwidth}|X|}\hline
+% \hdr{2}{D}{Neuron and Synapse Model}\\\hline
+% \textbf{Name} &  \\\hline
+% \textbf{Type} & \\\hline
+% \raisebox{-4.5ex}{\parbox{0.95\textwidth}{\textbf{Subthreshold dynamics}}} &
+% \rule{1em}{0em}\vspace*{-3.5ex}
+%     \begin{equation*}
+%       \begin{array}{r@{\;=\;}lll}
+%       \tau \dot{V}(t) & -V(t) + R I(t) &\text{if} & t > t^*+\tau_{\text{rp}} \\
+%       V(t) & V_{\text{r}} & \text{else} \\[2ex]
+%       I(t) & \multicolumn{3}{l}{\frac{\tau}{R} \sum_{\tilde{t}} w
+%         \delta(t-(\tilde{t}+\Delta))}
+%       \end{array}
+%     \end{equation*}
+% \vspace*{-2.5ex}\rule{1em}{0em}
+%  \\\hline
+% \multirow{3}{*}{\textbf{Spiking}} &
+%    If $V(t-)<\theta \wedge V(t+)\geq \theta$
+% \vspace*{-1ex}
+% \begin{enumerate}\setlength{\itemsep}{-0.5ex}
+% \item set $t^* = t$
+% \item emit spike with time-stamp $t^*$
+% \end{enumerate}
+% \vspace*{-4ex}\rule{1em}{0em}
+% \\\hline
+% \end{tabularx}
+
+\vspace{2ex}
+
+\noindent
+\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %
+\hdr{2}{B}{Input/Ouput}\\\hline
+\textbf{Input Stimulus}  & Notch-noise (Stop-band filtered white noise)  \\\hline
+%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}
+%\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps}
+%\end{minipage}}\\\hline
+\textbf{Output} & Output of 100 TV cells, across the network, with 25 repetitions\\\hline
+%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}%
+%\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}
+%\end{minipage}}\\\hline
+%\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
+%\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
+\textbf{Measurements}    &  First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II DCN unit \citep{ReissYoung:2005}, Fig.~9. \\\hline
+\end{tabularx}
+\vspace{2ex}
+
+\noindent\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %{0.95\textwidth}
+\hdr{2}{C}{Optimisation} \\ \hline
+\textbf{Type}       & Hand-tuning and Principle-axis method \\\hline
+\textbf{Parameters}   & \\\hline
+Syn.~weight \DSTV & $\wDSTV \quad\to\quad [0.00001,0.05]\quad\mu{\rm S}$ \\\hline
+Syn.~weight ANF to DS       & $\wANFTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
+No.~LSR to DS       & $\nLSRTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
+No.~HSR to DS       & $\nHSRTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
+Spread of \DSTV       & $\sDSTV \quad\to\quad [0,5] \quad {\rm Channels}$\\\hline
+Offset \DSTV       & $\oDSTV \quad\to\quad [0,5] \quad {\rm Channels}$\\\hline
+%  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
+%   \textbf{Function}     & Weighted mean squared error see listing below  \\ \hline
+\end{tabularx}
+% D-----------------------------------
+
+\vspace{2ex}
+
+\noindent\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %{0.95\textwidth}
+\hdr{2}{D}{Results} \\\hline %\multicolumn{2}{|X|}{\includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}}\\%\multicolumn{2}{|X|}{Experimental Data of a single Type-II DCN unit \citep{ReissYoung:2005}, Fig.~9.}\\\hline
+\multicolumn{2}{|c|}{\turnbox{90}{\small{Rate (sp/s)}}%
+\begin{minipage}[c]{0.95\textwidth}
+\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_10_0.5.eps}%
+\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_12.5_0.5.eps}\\
+\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_10_0.5.eps}%
+\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_12.5_0.5.eps}\\
+\centering\small{Freq. Channel}\end{minipage}}\\
+\multicolumn{2}{|X|}{Fig. 7: AN (top) and CN rate-place profiles from the CN stellate model in response to half and 1 octave notch noise inputs. }\\\hline
+\textbf{Best Parameters} & {\begin{minipage}[c]{0.6\textwidth}\vspace{1ex}
+$\wDSTV=0.0029 \quad\mu{\rm S}$ \\
+$\wANFTV=0.00017 \quad\mu{\rm S}$ \\
+$\nHSRTV=8 \quad \mu{\rm S}$\\
+$\nLSRTV=14 \quad \mu{\rm S}$\\
+$\sDSTV=2.1$ \\
+$\oDSTV=0.24$ \\
+\end{minipage}}\\\hline
+\textbf{Error} & 0.0167  (MSE Normalised rate between 5-40kHz channels)\\\hline
+\end{tabularx}
+
+
+
+\clearpage
+\newpage
+\section{Verification}
+
+\subsection{Tone Response}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{RateLevel/psthsingle90.1.eps}%
+\includegraphics{RateLevel/TV_ratelevel.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{RateLevel/response_area.1.eps}%
+\includegraphics{RateLevel/response_area_log2.1.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+%\includegraphics{RateLevel/response_area.1.eps}
+\includegraphics{RateLevel/psthall90.1.eps}%
+\includegraphics{RateLevel/psthVlevel.1.eps}}
+\end{figure}
+
+
+\clearpage
+\subsection{Noise Response}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{NoiseRateLevel/psthsingle120.1.eps}%
+\includegraphics{NoiseRateLevel/TV_ratelevel.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{NoiseRateLevel/response_area.1.eps}%
+\includegraphics{NoiseRateLevel/response_area_log2.1.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+%\includegraphics{RateLevel/response_area.1.eps}
+\includegraphics{NoiseRateLevel/psthall90.1.eps}%
+\includegraphics{NoiseRateLevel/psthVlevel.1.eps}}
+\end{figure}
+
+
+\clearpage
+\subsection{Masked Noise and Tone}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.1.eps}\includegraphics{MaskedRateLevel/TV_ratelevel.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{MaskedRateLevel/response_area.1.eps}%
+\includegraphics{MaskedRateLevel/response_area_log2.1.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+%\includegraphics{RateLevel/response_area.1.eps}
+\includegraphics{MaskedRateLevel/psthall90.1.eps}%
+\includegraphics{MaskedRateLevel/psthVlevel.1.eps}}
+\end{figure}
+\clearpage
+\subsection{Masked Response Area}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{MaskedResponseCurve/psthsingle5810.1.eps}%
+\includegraphics{MaskedResponseCurve/TV_masked.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{MaskedResponseCurve/response_area.1.eps}%
+\includegraphics{MaskedResponseCurve/response_area_log2log2.1.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+%\includegraphics{RateLevel/response_area.1.eps}
+\includegraphics{MaskedResponseCurve/psthall5810.1.eps}%
+\includegraphics{MaskedResponseCurve/psthVmod.1.eps}}
+\end{figure}
+\clearpage
+
+
+% - F -----------------------------------------------------------------------------
+
+% \noindent\begin{tabularx}{0.95\textwidth}{|X|}\hline
+% \hdr{1}{F}{Measurements}\\\hline
+% %\\\hline
+% \end{tabularx}
+
+% ---------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \bibliographystyle{plainnat}%bmc_article} % Style BST file
+ \bibliography{../manuscript/bib/MyBib}
+
+
+
+\end{document}
+

@@ -1,0 +1,412 @@
+
+
+% LaTeX file for generating the Model Description Table in Fig. 5 of
+%
+%  Nordlie E, Gewaltig M-O, Plesser HE (2009)
+%  Towards Reproducible Descriptions of Neuronal Network Models.
+%  PLoS Comput Biol 5(8): e1000456.
+%
+%  Paper URL : http://dx.doi.org/10.1371/journal.pcbi.1000456
+%  Figure URL: http://dx.doi.org/10.1371/journal.pcbi.1000456.g005
+%
+% This file is released under a
+%
+%   Creative Commons Attribution, non-commercial, share-alike licence
+%   http://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en
+%
+% with the following specifications:
+%
+%  1. When publishing tables generated from this LaTeX file and modified
+%     versions of it, you must cite the paper by Nordlie et al given above.
+%
+%  2. The non-commercial clause applies only to the distribution of THIS FILE
+%     and LaTeX source code files derived from it. You may commercially publish
+%     documents generated using this file and derivatived versions of this file.
+%
+% Contact: Hans Ekkehard Plesser, UMB (hans.ekkehard.plesser at umb.no)
+
+\documentclass{article}
+% User defined commands
+\input{../manuscript/user-defined}
+
+\input{../manuscript/glossary}
+\usepackage[margin=0.2in]{geometry} % get enough space on page
+
+\usepackage{tabularx}  % automatically adjusts column width in tables
+\usepackage{multirow}  % allows entries spanning several rows
+\usepackage{colortbl}  % allows coloring tables
+%\usepackage{natbib}
+%\usepackage[fleqn]{amsmath}   % displayed equations flush left
+%\setlength{\mathindent}{0em}
+
+% use Helvetica for text, Pazo math fonts
+\usepackage{mathpazo}
+\usepackage[scaled=.95]{helvet}
+\renewcommand\familydefault{\sfdefault}
+
+\renewcommand\arraystretch{1.2}  % slightly more space in tables
+
+\pagestyle{empty}  % no header of footer
+
+% \hdr{ncols}{label}{title}
+%
+% Typeset header bar across table with ncols columns
+% with label at left margin and centered title
+%
+
+
+\graphicspath{{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}}
+
+\begin{document}
+
+\section{D-stellate cell click recovery: }
+% - A ------------------------------------------------------------------------------
+
+Onset-chopper units in the mammalian VCN have a wide-ranging influence on the primary cells of the VCN (stellate and bushy cells), the ipsilateral DCN and the contralateral CN \citep{NeedhamPaolini:2007}.  
+This experiment Influence of GABAergic input to Onset chopper units
+
+\textbf{Optimisation}    
+ Parameters for \GLGDS are optimised based on experimental click recovery date from \citep{BackoffPalombiEtAl:1997}.
+
+\noindent
+\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %
+%
+\hdr{2}{A}{Model Summary}\\\hline
+\textbf{Populations}     & ANF (HSR,LSR), Golgi, D-stellate \\\hline
+\textbf{Topology}        & Tonotopic,  Auditory system of the rat  \\\hline
+\textbf{Connectivity}    & Gaussian spread dependent on morphology and afferent connections  \\\hline
+\textbf{Auditory model}  & \citep{ZilanyBruce:2008} ANF phenomenological instantaneous-rate Poisson spike trains\\\hline
+\textbf{Neuron model}    &
+\begin{minipage}{0.5\textwidth}
+Golgi \begin{itemize}
+\item instantaneous-rate Poisson spike trains
+\item weighted sum of LSR instantaneous-rate vectors
+\item smoothing due to alpha function kernel
+\end{itemize}
+D-stellate\begin{itemize}
+\item biophysically-based HH-like single-compartment model
+\item type I-II current clamp model
+\end{itemize}
+\end{minipage}\\\hline
+\textbf{Channel models}  & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
+\textbf{Synapse model}   & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
+\textbf{Input Stimulus}  & Clicks with delay 2, 3, 4 and 8 ms\\\hline
+\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
+\end{tabularx}
+
+\vspace{2ex}
+
+% - B -----------------------------------------------------------------------------
+
+\noindent
+\begin{tabularx}{0.95\textwidth}{|l|X|X|}\hline %{0.95\textwidth}
+\hdr{3}{B}{Populations}\\\hline
+\textbf{Name} &            \textbf{Elements}            & \textbf{Number} \\\hline
+     HSR      &            Poisson generator            & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
+     LSR      &            Poisson generator            & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
+     GLG      &            Poisson generator            & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
+     DS       & Single-Compartment H-H model (type I-II)& $N_{\text{DS}}= 1$ at CF=5.6~kHz \\\hline
+\end{tabularx}
+\vspace{2ex}
+
+% - C ------------------------------------------------------------------------------
+
+\noindent
+\begin{tabularx}{0.95\textwidth}{|l|l|l|X|}\hline
+\hdr{4}{C}{Connectivity}\\\hline
+\textbf{Name}          &  \textbf{Source}  & \textbf{Target} & \textbf{Pattern} \\\hline
+$\textrm{ANF} \to \textrm{DS}$ & ANF (HSR and LSR) &   D-Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS \\\hline
+$\textrm{GLG} \to \textrm{DS}$ &       Golgi       &   D-Stellate    & Gaussian, centered at CF with spread \sGLGDS, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
+\end{tabularx}
+
+\vspace{2ex}
+
+% - D ------------------------------------------------------------------------------
+
+
+
+%\noindent\begin{tabularx}{0.95\textwidth}{|p{0.150.95\textwidth}|X|}\hline
+%\hdr{2}{D}{Neuron and Synapse Model}\\\hline
+% \textbf{Name} & Poisson spike generator \\\hline
+% \textbf{Type} & Leaky integrate-and-fire, $\delta$-current input\\\hline
+% \raisebox{-4.5ex}{\parbox{0.95\textwidth}{\textbf{Subthreshold dynamics}}} &
+% \rule{1em}{0em}\vspace*{-3.5ex}
+%     \begin{equation*}
+%       \begin{array}{r@{\;=\;}lll}
+% \tau \dot{V}(t) & -V(t) + R I(t) & \text{if} & t > t^*+\tau_{\text{rp}} \\
+%      V(t)       &  V_{\text{r}}  & \text{else} \\[2ex]
+%      I(t)       & \multicolumn{3}{l}{\frac{\tau}{R} \sum_{\tilde{t}} w \delta(t-(\tilde{t}+\Delta))}
+% \end{array}
+%     \end{equation*}
+% \vspace*{-2.5ex}\rule{1em}{0em}
+%  \\\hline
+ % \multirow{3}{*}{\textbf{Spiking}} &   If $V(t-)<\theta \wedge V(t+)\geq \theta$ \vspace*{-1ex}
+ % \begin{enumerate}\setlength{\itemsep}{-0.5ex}
+ % \item set $t^* = t$
+ % \item emit spike with time-stamp $t^*$
+ % \end{enumerate}
+ % \vspace*{-4ex}\rule{1em}{0em} \\\hline
+ % \end{tabularx}
+
+\vspace{2ex}
+
+% - E ------------------------------------------------------------------------------
+
+\noindent
+\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %{0.95\textwidth}
+\hdr{2}{E}{Optimisation} \\ \hline
+      \textbf{Type}       & Principle-axis method \\\hline
+   \textbf{Parameters}   & \\
+ & $\wGLGDS \quad\to\quad [0.00001,0.05]\quad\mu{\rm S}$ \\
+ & $\wANFDS \mathrm{ HSR }\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
+ & $\wANFDS \mathrm{ LSR }\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
+ & DS \GABAa synapse $ \tau_{GABA2} \quad [0.1,50.0]\quad {\rm ms}$\\\hline
+ & DS leak conductance $ \bar{g}_{leak} \quad [0.00001,0.05] \quad \mathrm{Scm}^{-2}$\\\hline
+
+\textbf{Fixed Parameters} & \\ \hline
+$\nGLGDS = 25$ & \\ \hline
+      $\wANFGLG$                    & \\ \hline
+      $\nLSRGLG$                    & \\ \hline
+      $\nHSRGLG$                    & \\ \hline
+      $\sANFGLG $                   & \\ \hline
+      $\dGLGDS = 0.5$ ms                    & Combination of conductance and synaptic delay. The effect of Golgi cells on DS is delayed by the extra 0.7~ms delay from ANF to Golgi, plus the slow peak of \GABAa inhibition.  \\\hline
+  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
+   \textbf{Function}     & Weighted mean squared error see listing below  \\ \hline
+\end{tabularx}
+\vspace{2ex}
+
+% - F -----------------------------------------------------------------------------
+
+\noindent\begin{tabularx}{0.95\textwidth}{|X|}\hline
+\hdr{1}{F}{Measurements}\\\hline
+PSTHs were generated from 25 stimulus repetitions. Each response to a click is measured for 2 ms after the minimum first spike latency for the unit.  The unit used in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
+\begin{minipage}[c]{0.6\textwidth}
+\vspace{1cm}
+DS Ouput \hspace{2in} Golgi Output
+\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\\
+  \captionsize{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
+  \end{minipage}\\ \hline
+\end{tabularx}
+
+ % ---------------------------------------------------------------------------------
+% \newpage
+% \begin{lstlisting}
+% func fun() {local f
+%       //Modify Variables
+%       param.w.x[glg][ds] = $2
+%       param.w.x[hsr][ds] = $3
+%       param.w.x[lsr][ds] = $3
+%       //Modify the network
+%       {create_cells() connect_cells(fileroot) SetRates()}
+%       // Simulate the network for N reps
+%       for j=0, reps-1{
+%          print j
+%          GenSpikes()
+%          run()
+%          DSvec.append(dstellate[50][0].spiketimes)
+%          //print startsw()-x, "secs"
+%       }
+%       DSvec = DSvec.histogram(0,tstop,0.1)
+%
+%       objref errorvec
+%       errorvec = new Vector()
+%       //Find the mean number of spikes in the first click
+%       maxrate = (DSvec.sum(240,260) + DSvec.sum(740,760)+ DSvec.sum(1340,1360))/3
+%       //Calc ratio of number of spikes in second click relative to mean first click
+%       errorvec.append( DSvec.sum(260,280) / maxrate )
+%       errorvec.append( DSvec.sum(780,800) / maxrate )
+%       errorvec.append( DSvec.sum(1420,1440) / maxrate )
+%       errorvec.plot(g
+%     return errorvec.meansqerr(targetclick)
+% }
+% \end{lstlisting}
+
+
+
+
+\begin{figure}
+\includegraphics[angle=-90,width=0.8\textwidth]{DSClickRecoveryExpData}\label{Ch3:fig:DSClickRecoveryExpData}
+\caption{Experimental Data of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.}
+\end{figure}
+
+%\parsep
+
+From the command line type:
+\begin{verbatim}
+$ ./i686/special DS_ClickRecovery.hoc
+\end{verbatim}
+in the \texttt{cnstellate} directory to simulate the optimisation for D-stellate click recovery.  The first run may take some time if the AN filters have not been previously saved, since the Zilany \& Bruce model requires 500~kHz resolution in the stimulus that is downsampled to 50~kHz.
+
+\clearpage
+\subsection{Results}
+
+
+\noindent\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %{0.95\textwidth}
+\hdr{2}{D}{Results} \\\hline%\multicolumn{2}{|c|}{\includegraphics[keepaspectratio,angle=-90,width=0.8\textwidth]{./gfx/DSClickRecoveryExpData}}\\
+\multicolumn{2}{|X|}{Fig. 6: Experimental Data ({\color{green} Green}) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result ({\color{blue} Blue}) shown in figure below. }\\\hline
+\multicolumn{2}{|X|}{\includegraphics[keepaspectratio=true,angle=-90,width=0.9\textwidth]{./gfx/DS_ClickRecovery_result.eps}}\\\hline
+\textbf{Best Parameters} &
+{\begin{minipage}[c]{0.6\textwidth}
+$\wGLGDS = 0.532 \quad{\rm nS}$ \\
+ $\wHSRDS = 0.16 \quad{\rm nS}$\\
+ $\wLSRDS = 13.1 \quad{\rm nS}$\\
+ $\tau_{GABA2} = 5.432 \quad{\rm ms}$\\
+$\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
+ $\bar{g}_{leak} = 0.0163 \quad\mathrm{Scm}^{-2}$\\
+\end{minipage}}\\\hline
+\textbf{Error} & 0.006671    unweighted (MSE of recovery spike rate / mask rate)\\\hline
+& 0.01447    final result (MSE of recovery spike rate / mask rate)\\\hline
+\end{tabularx}
+
+
+% \begin{figure}
+%   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_OptVars.eps}\\
+% %  \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Output.eps}\label{Ch3:fig:DSClickRecoveryOutput}
+%   \caption{Final Output Data of the D-stellate Click Recovery optimisation }
+% \end{figure}
+
+% \begin{figure}
+%   \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example1.eps}\\
+%   \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example10.eps}\\
+%   \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example13.eps}\\
+%   \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example19.eps}\\
+%   \caption{Click Recovery optimisation functions}
+% \end{figure}
+
+
+% \begin{figure}
+%   \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result.eps}\\
+% \end{figure}
+
+
+% \begin{figure}
+%   \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result1.eps}\\
+% \end{figure}
+
+
+% \begin{figure}
+%   \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result2.eps}\\
+%   \caption{Click Recovery optimisation }
+% \end{figure}
+
+
+
+
+% \begin{figure}
+% \begin{center}
+% \includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
+% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result_handtuned.eps}
+% \caption{Handtuned}
+% \label{hantuned}
+% \end{center}
+% \end{figure}
+
+% \begin{figure}
+% \begin{center}
+% %\includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
+% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_unweighted_8.eps}\\
+% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_weighted_0.eps}
+% \caption{Handtuned}
+% \label{hantuned}
+% \end{center}
+% \end{figure}
+
+
+%% Example optimisation points used by praxis 
+% \begin{figure}
+% \begin{center}
+% %\includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
+% \includegraphics[keepaspectratio=true,width=0.5\textwidth]{Praxis_123.eps}
+% \includegraphics[keepaspectratio=true,width=0.5\textwidth]{Praxis_456.eps}
+% \caption{Handtuned}
+% \label{hantuned}
+% \end{center}
+% \end{figure}
+
+\clearpage
+\newpage
+\section{Verification}
+
+\subsection{Tone Response}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{RateLevel/psthsingle90.2.eps}%
+\includegraphics{RateLevel/DS_ratelevel.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{RateLevel/response_area.2.eps}%
+\includegraphics{RateLevel/response_area_log2.2.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+%\includegraphics{RateLevel/response_area.2.eps}
+\includegraphics{RateLevel/psthall90.2.eps}%
+\includegraphics{RateLevel/psthVlevel.2.eps}}
+\end{figure}
+
+
+\clearpage
+\subsection{Noise Response}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{NoiseRateLevel/psthsingle120.2.eps}%
+\includegraphics{NoiseRateLevel/DS_ratelevel.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{NoiseRateLevel/response_area.2.eps}%
+\includegraphics{NoiseRateLevel/response_area_log2.2.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+%\includegraphics{RateLevel/response_area.2.eps}
+\includegraphics{NoiseRateLevel/psthall90.2.eps}%
+\includegraphics{NoiseRateLevel/psthVlevel.2.eps}}
+\end{figure}
+
+
+\clearpage
+\subsection{Masked Noise and Tone}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.2.eps}\includegraphics{MaskedRateLevel/DS_ratelevel.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{MaskedRateLevel/response_area.2.eps}%
+\includegraphics{MaskedRateLevel/response_area_log2.2.eps}}
+\end{figure}
+
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+%\includegraphics{RateLevel/response_area.2.eps}
+\includegraphics{MaskedRateLevel/psthall90.2.eps}%
+\includegraphics{MaskedRateLevel/psthVlevel.2.eps}}
+\end{figure}
+\clearpage
+\subsection{Masked Response Area}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{MaskedResponseCurve/psthsingle5810.2.eps}%
+\includegraphics{MaskedResponseCurve/DS_masked.eps}}
+\end{figure}
+\begin{figure}[h!]
+\centering\resizebox{0.95\textwidth}{!}{%
+\includegraphics{MaskedResponseCurve/response_area.2.eps}%
+\includegraphics{MaskedResponseCurve/response_area_log2log2.2.eps}}
+\end{figure}
+
+\begin{figure}[h!] 
+\centering\resizebox{0.95\textwidth}{!}{%
+%\includegraphics{RateLevel/response_area.2.eps}
+\includegraphics{MaskedResponseCurve/psthall5810.2.eps}%
+\includegraphics{MaskedResponseCurve/psthVmod.2.eps}}
+\end{figure}
+\clearpage
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \bibliographystyle{plainnat}%bmc_article} % Style BST file
+ \bibliography{../manuscript/bib/MyBib}
+ 
+\end{document}
+ 
