@@ -1,0 +1,202 @@
+#+LaTeX_CLASS: beamer
+#+MACRO: BEAMERMODE presentation
+#+MACRO: BEAMERTHEME default
+#+MACRO: BEAMERCOLORTHEME dove
+#+MACRO: BEAMERSUBJECT cochlear nucleus, neural modelling, simple optimisation
+#+MACRO: BEAMERINSTITUTE The University of Melbourne, Department of Otolaryngology, and the Bionic Ear Institute
+#+TITLE: Constructing realistic microcircuits: the Cochlear Nucleus stellate model
+#+AUTHOR: Michael A. Eager
+
+
+
+
+* Chapter 3: Simple optimisation of the cochlear nucleus stellate network
+
+
+
+** Overview
+
+   1. Introduction
+
+   2. Golgi Model: Rate level optimisation
+ 
+   3. D-stellate Model: Click delay
+
+   3. Questions
+    
+    
+** Introduction
+    
+*** Constructing the stellate model
+    
+    - subpoint a
+      
+    - subpoint b
+
+
+
+#+BEGIN_LaTeX
+\begin{lstlisting}[language=c]
+for (int i = 1; i != 10; ++i) 
+    std::cout << i << ": hello, world!"
+              << std::endl;
+\end{lstlisting}
+
+#+END_LaTeX
+
+
+#+LaTeX:\includegraphics[keepaspectratio=true,angle=-90,width=0.9\textwidth]{./gfx/DS_ClickRecovery_result}
+
+
+
+** Graphics
+
+*** a picture
+
+ #+BEGIN_ditaa blue.png -r -S
+ +---------+
+ | cBLU    |
+ |    +----+
+ |    |cPNK|
+ +----+----+
+  #+END_ditaa
+
+*** another picture
+
+
+** More interesting stuff
+
+*** some C++ code
+#+begin_LaTeX
+\begin{lstlisting}[language=c]
+for (int i = 1; i != 10; ++i) 
+    std::cout << i << ": hello, world!"
+              << std::endl;
+\end{lstlisting}
+#+end_LaTeX
+
+*** and some Python...
+
+#+begin_LaTeX
+\begin{lstlisting}[language=python]
+for i in range(1,10):
+        print i, "hello, world!"
+\end{lstlisting}
+#+end_LaTeX
+
+
+#+CAPTION:    The black-body emission of the disk around HR 4049
+#+LABEL:      fig:SED-HR4049
+#+ATTR_LaTeX: width=5cm,angle=90
+
+
+** Golgi Rate Level
+
+*** Experimental evidence
+
+#+LaTeX:\citep{BensonBerglundEtAl:1996}
+    1. LSR fibers proj to GCD
+#+LaTeX:\citep{FerragamoGolding:1998a} (mice, GCD \it{in vitro})
+    2. type-I~current clamp response
+    3. delay from ANFs of \~0.7~ms relative to the core VCN units.
+#+LaTeX:\citep{GhoshalKim:1997} (marginal shell)
+    4. monotonic response to tones and noise 
+
+*** Key factors in designing Golgi model
+
+- Choosing neural model: HH-type or Poisson
+
+- Problem of monotonic excitation at low level
+  - added HSR to model to avoid added computation of MSR
+
+- Spread of ANF to GCD more diffuse than core VCN
+ - are we spoiling the broth too early? 
+
+*** Implementation
+
+ 
+- Generate AN vectors in auditory filterbank
+- Create Golgi vectors from AN vectors
+  1. Foreach channel, create Golgi weighted vector across filterbank:
+     mu = channel position, sigma^2 = LSR to Golgi spread
+#+begin_LaTeX
+\begin{eqnarray}
+ w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{
+     -\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1] \\
+\mathbf{g}_i = \sum_{i=0}^{i=nchannels-1} w_L(i)\mathbf{L}_i +
+     w_L(i)\mathbf{L}_i \\
+\mathbf{G}_i = \mathbf{g}_i \ast f_{\rm golgi syn} \\
+\end{eqnarray}
+#+end_LaTeX
+
+
+  2. Create Golgi vectors by summating ANF inputs weighted by w_G   
+
+#+LaTeX:\[  f_X(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{ -\frac{(x-\mu)^2}{2\sigma^2}\right\} \]
+
+
+Create the Golgi Synaptic Function: Alpha Function 
+#+begin_LaTeX
+
+
+
+\begin{lstlisting}[language=c]
+objref golgi_synfilter
+func alpha(){//Alpha function synaptic/membrane filter
+     return $1*sg_tdres*exp(-($1*sg_tdres)/golgi_syn_filter_tau)
+}
+proc CreateGolgiSynFilter(){
+     golgi_synfilter = new Vector(sg_rate*10*golgi_syn_filter_tau)
+     golgi_synfilter.indgen().apply("alpha")  //apply alpha function
+     golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum()) //scale and normalise
+}
+CreateGolgiSynFilter()	
+
+...
+
+proc SetRate() {local i,j,spon_factor
+	w = new Vector(nchannels)
+	w.indgen()
+	gaussian_mean = channel
+	gaussian_variance = golgi_spatial_filter_variance
+	w.apply("gaussian").mul(weight_sum)
+	tempsout = new Vector(LSRout[0].size)
+	sout = new Vector(LSRout[0].size)
+	for i=0,nchannels-1  {
+	tempsout.add(LSRout[i].c.mul(w.x[i]))
+	}
+	spon_factor = LSRout[0].x[0]/tempsout.x[0]
+	tempsout.mul(spon_factor).add(golgi_spon)
+	convolve(tempsout,golgi_synfilter,sout)
+	s.SetFibreRate(sout,spiketimes,sg_tdres)
+//print "golgi[",i,"][",j,"]: Process ",pnm.myid," mean ", sout.mean()
+	objref tempsout
+}
+
+\end{lstlisting}
+#+end_LaTeX
+
+
+
+
+
+*** Optimisation Procedure
+    
+*** Results
+
+- golgi_spatial_filter_variance_LSR = 2.4837
+- golgi_syn_filter_scale_factor = 1.00
+- weight_sum_LSR = 0.5166
+- weight_sum_HSR = 0.0487
+- golgi_spon = 3.7271
+
+
+
+
+
+   
+   
+   
+
+
+   
