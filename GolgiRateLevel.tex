@@ -11,14 +11,14 @@
 % \usepackage{natbib}
 % \usepackage[fleqn]{amsmath} % displayed equations flush left
 % \setlength{\mathindent}{0em}
-
+\usepackage{todo}
 % use Helvetica for text, Pazo math fonts
 \usepackage{mathpazo} \usepackage[scaled=.95]{helvet}
 \renewcommand\familydefault{\sfdefault}
 
 \renewcommand\arraystretch{1.2} % slightly more space in tables
 
-\pagestyle{empty} % no header of footer
+%\pagestyle{empty} % no header of footer
 
 % \hdr{ncols}{label}{title}
 %
@@ -32,10 +32,10 @@
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Golgi Cell Optimisation: Modelling GABAegic VCN units from
+\section{Golgi Cell Optimisation: Modelling GABAergic VCN units from
   monotonic marginal shell units}
 
 % Modelling in the auditory periphery has benefited extensively from
@@ -43,33 +43,36 @@
 % in acoustic \it{in vivo} experiments.
 
 
-The source of GABAergic inputs to cells in the mammalian CN is somewhat
-contentious. Despite studies showing that GABAergic inputs to the CN generally
-arise in the peri-olivary regions of the medulla in cats
-\citep{OstapoffBensonEtAl:1997} and birds
-\citep{LachicaRubsamenEtAl:1995,YangMonsivaisEtAl:1999}, slice preparations of
-the isolated murine VCN have shown sensitivity to bicuculine in TS and DS cells
-\citep{FerragamoGoldingEtAl:1998a}.  The only known source of GABA intrinsic to
-the VCN are the golgi cells of the granule cell domain (GCD) overlying the VCN
+The source of GABAergic inputs to cells in the mammalian CN is
+somewhat contentious. Despite studies showing that GABAergic inputs to
+the CN generally arise in the peri-olivary regions of the medulla in
+cats \citep{OstapoffBensonEtAl:1997} and birds
+\citep{LachicaRubsamenEtAl:1995,YangMonsivaisEtAl:1999}, slice
+preparations of the isolated murine VCN have shown sivity to
+bicuculine in TS and DS cells \citep{FerragamoGoldingEtAl:1998a}.  The
+only known source of GABA intrinsic to the VCN are the golgi cells of
+the granule cell domain (GCD) overlying the VCN
 \citep[Fig.~\ref{fig:CNdiagram}]{Mugnaini:1985,FerragamoGoldingEtAl:1998}. Inputs
-to golgi cells are more complicated than VCN cells in the core regions. Golgi
-cells are sparse in the GCD, surrounded by the many, smaller excitatory granule
-cells. Extracellular recordings from the GCD (most likely from golgi cells
-since granule cell somata are $<10 \mu m$) indicate a monotonic increase in
-firing rate with increasing sound intensity \citep{GhoshalKim:1997}. The
-presence of GABAergic inputs to TS, DS and TV cells has been verified by
-labeled terminals adjacent to the soma and dendrites
-\citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003} and
-release from inhibition in their response areas with ionotopopheretic
-application of the GABA antagonist, bicuculine
+to golgi cells are more complicated than VCN cells in the core
+regions. Golgi cells are sparse in the GCD, surrounded by the many,
+smaller excitatory granule cells. Extracellular recordings from the
+GCD (most likely from golgi cells since granule cell somata are $<10
+\mu m$) indicate a monotonic increase in firing rate with increasing
+sound intensity \citep{GhoshalKim:1997}. The presence of GABAergic
+inputs to TS, DS and TV cells has been verified by labeled terminals
+adjacent to the soma and dendrites
+\citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003}
+and release from inhibition in their response areas with
+ionotopopheretic application of the GABA antagonist, bicuculine
 \citep{EvansZhao:1998,CasparyBackoffEtAl:1994,BackoffShadduckEtAl:1999,FerragamoGoldingEtAl:1998a}.
-Post-onset GABAergic inhibition in DS cells is a major influence on the PSTH of
-On-C neurons \citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
-excitation to auditory nerve shocks suggests golgi cells are activated by type
-II ANFs and low spontaneous rate type I ANFs
-\citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}. Therefore, type II
-and LS type I ANFs could be involved in gain control through GABAergic
-modulation of activity in the VCN.
+Post-onset GABAergic inhibition in DS cells is a major influence on
+the PSTH of On-C neurons
+\citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
+excitation to auditory nerve shocks suggests golgi cells are activated
+by type II ANFs and low spontaneous rate type I ANFs
+\citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}. Therefore,
+type II and LS type I ANFs could be involved in gain control through
+GABAergic modulation of activity in the VCN.
 
 The lack of extensive experimental data meant that a phenomenological model
 would be preferred over the Hogkin-Huxley type neural model. A number of steps
@@ -77,15 +80,18 @@ were taken to investigate the golgi cell model.
 
 The known GABAergic input to VCN units comes primarily from the superior olive
 (ref), but the presence of active GABA synapses in isolated VCN slices by
-Ferragammo \citet{FerragamoGoldingEtAl:1998a} led to further investigation of
-golgi cells in the granule cell domain by \citet{FerragamoGoldingEtAl:1998a}.
-Ferragamo et~al.~showed that golgi cells have a classic type-I current
-response, which suggest they integrate inputs.  Ghosal and Kim
-\citeyear{GhoshalKim:1997} suggested that golgi cells provide some sort of
+\citet{FerragamoGoldingEtAl:1998} led to further investigation of
+golgi cells in the granule cell domain. \citet{FerragamoGoldingEtAl:1998a}
+showed that golgi cells have a classic type-I current
+response, which suggest they integrate inputs, and their response to
+AN shocks were delayed by approximately 0.7~ms relative to the core
+VCN units .  Ghosal and Kim
+\citet{GhoshalKim:1997} examined the VCN marginal shell in cats (equivalent to the
+GCD in mice) that golgi cells provide some sort of
 automatic gain control to the principle VCN units, through their monotonic
 responses to tones and noise.
 
-
+ 
 
 
 
@@ -118,7 +124,9 @@ reduced the information to tabular format as suggested by
 \citet{NordlieGewaltigEtAl:2009}.
 
 
-\todo{* Model Summary 
+\todo{
+
+  * Model Summary 
 * Populations 
 * Connectivity 
 * Neuron and Synapse Model 
@@ -147,7 +155,7 @@ reduced the information to tabular format as suggested by
 % - A
 % ------------------------------------------------------------------------------
 \noindent
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline 
  \textbf{Populations}   & ANF(HSR,LSR) and Golgi \\\hline 
    \textbf{Topology}    & Tonotopic - 100 frequency channels based on
@@ -181,9 +189,8 @@ Golgi: instantaneous-rate Poisson model developed from ANF inputs\\
 \noindent\begin{tabularx}{\linewidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
 \textbf{Name} & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-  $\textrm{ANF} \to \textrm{GLG}$ & ANF (HSR and LSR) & Golgi & \begin{minipage}[c]{0.5\textwidth}
-    Gaussian, centered at CF, spread of LSR \sLSRGLG was optimised, spread of HSR \sHSRGLG is fixed due to its replication of granule cells in the model, weight for LSR \wLSRGLG and HSR \wHSRGLG are determined  for all synapses, number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to ensure conductance and dendritic filtering are included.
-\end{minipage} \\\hline
+  $\textrm{ANF} \to \textrm{GLG}$ & ANF (HSR and LSR) & Golgi &  Gaussian, centered at CF, spread of LSR \sLSRGLG was optimised, spread of HSR \sHSRGLG is fixed due to its replication of granule cells in the model, weight for LSR \wLSRGLG and HSR \wHSRGLG are determined  for all synapses, number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to ensure conductance and dendritic filtering are included.
+ \\\hline
  \end{tabularx}
 
 \vspace{2ex}
@@ -218,7 +225,7 @@ $\mathbf{w}_{LSR} = N(\textrm{CF channel},\sLSRGLG)$,  $\mathbf{w}_{HSR} = N(\te
 % -----------------------------------------------------------------------------
 \vspace{2ex}
 \noindent
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %
 \hdr{2}{B}{Input/Ouput}\\\hline \textbf{Input Stimulus} & Rate Level
 function, 21~kHz tone at SPL -15 to 85 dB (20 ms delay, 2ms cosine squared
       on/off ramp)\\\hline \textbf{Measurements}        & Mean rate of instantaneous rate
@@ -226,19 +233,17 @@ profile or PSTH sampled from poisson spike-generator (25 repetitions). \\\hline
 \end{tabularx}
 \vspace{2ex}
 
-\noindent\begin{tabularx}{\textwidth}{|X|X|X|X|}\hline
+\noindent\begin{tabularx}{0.95\textwidth}{|X|X|X|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline 
          \textbf{Name}          &  \textbf{Source}  & 
         \textbf{Target}         & \textbf{Pattern} \\\hline 
-$\textrm{ANF} \to \textrm{GLG}$ & ANF (HSR and LSR) & Golgi & 
-\begin{minipage}[c]{0.3\textwidth} Gaussian, centered at CF, spread
+$\textrm{ANF} \to \textrm{GLG}$ & ANF (HSR and LSR) & Golgi & Gaussian, centered at CF, spread
 of LSR \sANFGLG was optimised, spread of HSR was fixed due to the
 lack of evidence replication of granule cells in the model, weight
 for LSR \wLSRGLG and HSR \wHSRGLG are determined for all synapses,
 number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing
 function to ensure conductance and dendritic filtering are
-included.
-\end{minipage} \\\hline
+included. \\\hline
 \end{tabularx}
 \vspace{2ex}
 
@@ -246,7 +251,7 @@ included.
 % % - D
 % % ------------------------------------------------------------------------------
 % % \begin{etabular}{|l|l|X|}%{3}{A}{Parameters}
-%   \noindent\begin{tabularx}{\textwidth}{|l|r|c|X|}\hline
+%   \noindent\begin{tabularx}{0.95\textwidth}{|l|r|c|X|}\hline
 %     \hdr{4}{A}{Parameters}\\\hline \textbf{Name} &
 %     \textbf{Initial}&\textbf{Range}&\textbf{Comments} \\ \hline
 %     \wANFGLG& 1 	&	& Spontaneous rate  \\
@@ -259,7 +264,7 @@ included.
 % % \end{etabular}
 
 \noindent
-\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
+\begin{tabularx}{0.8\textwidth}{|l|X|}\hline %{\textwidth}
 \hdr{2}{C}{Optimisation} \\ \hline 
         \textbf{Type}         & Simplex method
 \\\hline 
@@ -294,6 +299,7 @@ monotonic with a high threshold.
 \begin{figure}[htb]
   \centering
   \resizebox{0.8\textwidth}{!}{\includegraphics{./gfx/GhoshalKim}}
+\caption{Figure copied from \citep{GhoshalKim:1997} unit S03-07 (CF 21~kHz)}
 \end{figure}
 
 

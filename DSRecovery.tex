@@ -66,7 +66,7 @@ Onset-chopper units in the mammalian VCN have a wide-ranging influence on the pr
 This experiment Influence of GABAergic input to Onset chopper units
 
 \textbf{Optimisation}    
- Parameters for \GLGDS are optimised based on experimental click recovery date from \citep{BackoffPalombiEtAl:1997}.
+ Parameters for \GLGDS are optimised based on experimental click recovery data from \citep{BackoffPalombiEtAl:1997}.
 
 \noindent
 \begin{tabularx}{0.95\textwidth}{|l|X|}\hline %
@@ -114,7 +114,7 @@ D-stellate\begin{itemize}
 \noindent
 \begin{tabularx}{0.95\textwidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
-\textbf{Name}          &  \textbf{Source}  & \textbf{Target} & \textbf{Pattern} \\\hline
+        \textbf{Name}          &  \textbf{Source}  & \textbf{Target} & \textbf{Pattern} \\\hline
 $\textrm{ANF} \to \textrm{DS}$ & ANF (HSR and LSR) &   D-Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS \\\hline
 $\textrm{GLG} \to \textrm{DS}$ &       Golgi       &   D-Stellate    & Gaussian, centered at CF with spread \sGLGDS, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
 \end{tabularx}
@@ -242,9 +242,7 @@ in the \texttt{cnstellate} directory to simulate the optimisation for D-stellate
 
 
 \noindent\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %{0.95\textwidth}
-\hdr{2}{D}{Results} \\\hline%\multicolumn{2}{|c|}{\includegraphics[keepaspectratio,angle=-90,width=0.8\textwidth]{./gfx/DSClickRecoveryExpData}}\\
-\multicolumn{2}{|X|}{Fig. 6: Experimental Data ({\color{green} Green}) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result ({\color{blue} Blue}) shown in figure below. }\\\hline
-\multicolumn{2}{|X|}{\includegraphics[keepaspectratio=true,angle=-90,width=0.9\textwidth]{./gfx/DS_ClickRecovery_result.eps}}\\\hline
+\hdr{2}{D}{Results} \\\hline
 \textbf{Best Parameters} &
 {\begin{minipage}[c]{0.6\textwidth}
 $\wGLGDS = 0.532 \quad{\rm nS}$ \\
@@ -257,6 +255,14 @@ $\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
 \textbf{Error} & 0.006671    unweighted (MSE of recovery spike rate / mask rate)\\\hline
 & 0.01447    final result (MSE of recovery spike rate / mask rate)\\\hline
 \end{tabularx}
+
+\begin{figure}[hp!]
+  \centering
+\includegraphics[keepaspectratio=true,angle=-90,width=0.9\textwidth]{./gfx/DS_ClickRecovery_result.eps}
+%\includegraphics[keepaspectratio,angle=-90,width=0.8\textwidth]{./gfx/DSClickRecoveryExpData}\\
+\caption{Experimental Data ({\color{green} Green}) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result ({\color{blue} Blue}) shown in figure below. }
+\label{fig:DS_ClickRecovery_result}  
+\end{figure}
 
 
 % \begin{figure}
