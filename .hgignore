@@ -1,0 +1,31 @@
+syntax: glob
+*.curvs
+*.connect
+*.bak
+*.sav
+*~
+*.o
+*.backup
+*.out
+*.aux
+*.bbl
+*.blg
+*.lot
+*.lof
+*.log
+*.toc
+_region_.*
+_region_.prv/*
+mpi/*
+gui/*
+i686/*
+.svn/*
+$pfebk/*
+*.ps
+
+syntax: regexp
+.*\#.*\#$
+
+glob:*.diff
+glob:tags
+glob:*.orig
