@@ -1,42 +1,10 @@
-\documentclass{article}
-% User defined commands
-\input{../manuscript/user-defined}
-
-\input{../manuscript/glossary}
-%\usepackage[margin=0.2in]{geometry} % get enough space on page
-
-\usepackage{tabularx} % automatically adjusts column width in tables
-\usepackage{multirow} % allows entries spanning several rows
-\usepackage{colortbl} % allows coloring tables
-% \usepackage{natbib}
-% \usepackage[fleqn]{amsmath} % displayed equations flush left
-% \setlength{\mathindent}{0em}
-\usepackage{todo}
-% use Helvetica for text, Pazo math fonts
-\usepackage{mathpazo} \usepackage[scaled=.95]{helvet}
-\renewcommand\familydefault{\sfdefault}
-
-\renewcommand\arraystretch{1.2} % slightly more space in tables
-
-%\pagestyle{empty} % no header of footer
-
-% \hdr{ncols}{label}{title}
-%
-% Typeset header bar across table with ncols columns with label at
-% left margin and centered title
-%
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \graphicspath{{/media/data/Work/cnstellate/golgi_RateLevel/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/Responses/}}
-
-\begin{document}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Golgi Cell Optimisation: Modelling GABAergic VCN units from
-  monotonic marginal shell units}
+\section{Golgi Cell Optimisation: Modelling GABAergic VCN units from monotonic marginal shell units}
 
 % Modelling in the auditory periphery has benefited extensively from
 % the work of Liberman, Greewood, Patterson, Young, Sachs and others,
@@ -74,6 +42,8 @@ by type II ANFs and low spontaneous rate type I ANFs
 type II and LS type I ANFs could be involved in gain control through
 GABAergic modulation of activity in the VCN.
 
+\medskip{}
+
 The lack of extensive experimental data meant that a phenomenological model
 would be preferred over the Hogkin-Huxley type neural model. A number of steps
 were taken to investigate the golgi cell model.
@@ -91,9 +61,7 @@ GCD in mice) that golgi cells provide some sort of
 automatic gain control to the principle VCN units, through their monotonic
 responses to tones and noise.
 
- 
-
-
+\medskip{}
 
 % (Reference) showed that in adult animals high-spontaneous rate ANFs do not
 % project to the GCD; they do show that low-spontaneous rate ANFs do project into
@@ -101,111 +69,92 @@ responses to tones and noise.
    
 
 In the creation of the golgi cell model, we can reduce the explicit
-responses of Golgi cells down to:
-\begin{itemize}
+responses of Golgi cells down to:\begin{itemize}\setlength{\itemsep}{-1em}
 \item type-I~current clamp response,
 \item monotonic response to tones and noise, and
-\item delay from ANFs of \~0.7~ms relative to the core VCN units.
+\item delay from ANFs of approx. 0.7~ms relative to the core VCN units.
 \end{itemize}
-
 
 In Chapter \ref{Chapter5:GA} and previous publications \citep{EagerGraydenEtAl:2006a}
 
 
-\subsection{Golgi Model}
+
 
 Monotonic rate-level data from GCD in VCN \citep{GhoshalKim:1996} unit S03-07
 (CF 21~kHz) was used to optimise parameters ${\rm golgi\_spon}$, \wLSRGLG,
 \wHSRGLG, and  \sANFGLG.  The optimisation method was a default  using the principle-axis method.
 
+\begin{figure}[hp!]
+  \centering
+  \includegraphics[width=0.9\textwidth,trim=0 110mm 1 55mm]{gfx/GolgiDiagram}
+  \caption{ The golgi instantaneous-rate profile was generated using ANF
+    profiles. $\mu$ and $\sigma$ control the spread of connections
+    across frequency channels, and $\mathbf{w}$ is
+    the weighted sum of HSR and LSR instantaneous-rate vectors,
+    $\alpha$ is the synaptic and dendritic smoothing function.}
+\end{figure}
+
+
+
+\newpage
+\subsection{Golgi Model Summary}
+\vspace{1ex}
+% - A ------------------------------------------------------------------------------
 
 To summarise the neural model used in this optimisation, I have
 reduced the information to tabular format as suggested by
 \citet{NordlieGewaltigEtAl:2009}.
 
 
-\todo{
-
-  * Model Summary 
-* Populations 
-* Connectivity 
-* Neuron and Synapse Model 
-* Input 
-* Measurement
-}
-
-
-
-
-
-\begin{figure}[hp!]
-  \centering
-  \includegraphics[width=0.9\textwidth,trim=0 110mm 1 55mm]{./gfx/GolgiFilter}
-  \caption{ Poisson instantaneous-rate profile was generated using ANF
-    profiles. $s$ is the spread of frequency channels based, $w$ is
-    the weighted sum of HSR and LSR instantaneous-rate vectors,
-    $\alpha$ is a smoothing function (alpha function kernel).}
-\end{figure}
-
-
-
-
-
-\vspace{2ex}
-% - A
-% ------------------------------------------------------------------------------
-\noindent
-\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %
+\noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline 
  \textbf{Populations}   & ANF(HSR,LSR) and Golgi \\\hline 
-   \textbf{Topology}    & Tonotopic - 100 frequency channels based on
-   Rat basilar membrane \citep{Greenwood:1990} and audiogram \citep{HeffnerKoayEtAl:2001}\\\hline
+   \textbf{Topology}    & Tonotopic - 100 frequency channels based on Rat basilar membrane \citep{Greenwood:1990} and audiogram \citep{HeffnerKoayEtAl:2001}\\\hline
  \textbf{Connectivity}  & Place-based Gaussian spread of connections \\\hline
- \textbf{Neuron model}  & Poisson instantaneous-rate model with refractory effects \\\hline
+ \textbf{Neuron model}  & ANFs: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruceEtAl:2009} \\
+& Golgi: instantaneous-rate Poisson model developed from ANF inputs\\\hline
 \textbf{Channel models} & --- \\\hline 
 \textbf{Synapse model}  & alpha function smoothing kernel \\\hline
-    \textbf{Input}      & Independent fixed-rate Poisson spike trains to all neurons \\\hline
+\textbf{Input}      & 21 kHz tone (50 ms, 5 ms on/off ramp, 20 ms delay) at various sound levels  \\\hline
  \textbf{Measurements}  & Mean rate, spike activity \\\hline
- \textbf{Neuron model}  &
-\begin{minipage}[c]{0.5\textwidth} 
-ANFs: \citeauthor{ZilanyBruceEtAl:2009},  instantaneous-rate Poisson model  \\
-Golgi: instantaneous-rate Poisson model developed from ANF inputs\\
-\end{minipage} \\\hline
 \end{tabularx}
 
 % - B -----------------------------------------------------------------------------
-
 \noindent\begin{tabularx}{\linewidth}{|l|X|X|}\hline %{\linewidth}
 \hdr{3}{B}{Populations}\\\hline
   \textbf{Name}   & \textbf{Elements} & \textbf{Number} \\\hline
     HSR     & Zilany \& Bruce model        & $N_{\text{HSR}} = 50$ per freq. channel \\\hline
     LSR     & Zilany \& Bruce model        & $N_{\text{LSR}}= 20$  per freq. channel \\\hline
-    GLG     & Filtered instantaneous rate model, Poisson spike-generator with refractory effects & $N_{\text{GLG}}= 1$  per freq. channel  \\\hline
+    GLG     & Instantaneous rate Poisson model, spike-generator with refractory effects & $N_{\text{GLG}}= 1$  per freq. channel  \\\hline
 \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 
 % - C ------------------------------------------------------------------------------
-
 \noindent\begin{tabularx}{\linewidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
 \textbf{Name} & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-  $\textrm{ANF} \to \textrm{GLG}$ & ANF (HSR and LSR) & Golgi &  Gaussian, centered at CF, spread of LSR \sLSRGLG was optimised, spread of HSR \sHSRGLG is fixed due to its replication of granule cells in the model, weight for LSR \wLSRGLG and HSR \wHSRGLG are determined  for all synapses, number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to ensure conductance and dendritic filtering are included.
- \\\hline
+  \multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} & LSR & Golgi &
+  Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
+ & HSR & Golgi & Fixed gaussian spatial spread, centered at CF (\sHSRGLG =) \\\hline
  \end{tabularx}
+\footnotesize{due to its replication of granule cells in the model. weight for LSR \wLSRGLG and HSR \wHSRGLG are determined  for all synapses, number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to ensure conductance and dendritic filtering are included.}
 
-\vspace{2ex}
+\vspace{1ex}
 % - D ------------------------------------------------------------------------------
-\noindent\begin{tabularx}{\linewidth}{|p{0.15\linewidth}|X|}\hline
+\noindent\begin{tabularx}{\linewidth}{|l|X|}\hline
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
-\textbf{Name} & Golgi Phenomenological Model \\\hline
-\textbf{Type} & Poisson instantaneous-rate model, ANF inst. rate input\\\hline
-\textbf{Golgi Phenomenological Model} & \begin{minipage}[c]{0.6\textwidth}
-$\mathbf{w}_{LSR} = N(\textrm{CF channel},\sLSRGLG)$,  $\mathbf{w}_{HSR} = N(\textrm{CF channel},\sHSRGLG)$  \\ 
-\texttt{for \textit{i}=0, nchannels} \\
-	$\mathbf{x}_i = \mathbf{w}_{LSR}(i)\mathbf{LSR}_i+\mathbf{w}_{HSR}(i)\cdot\mathbf{HSR}_i$ \\
-\texttt{end}
-	$\mathbf{x} = \mathbf{x}_i\circledast\mathbf{a}$  //Convolve profile with Alpha kernel\\
-\end{minipage} \\\hline
+            \textbf{Name}             & Golgi Phenomenological Model \\\hline
+            \textbf{Type}             & Poisson instantaneous-rate model, ANF inst. rate input\\\hline
+\multirow{4}{*}{\textbf{Golgi Model}} & $\mathbf{w}_{LSR} = N(\textrm{CF channel},\sLSRGLG)$,  $\mathbf{w}_{HSR} = N(\textrm{CF channel},\sHSRGLG)$  \\ 
+                                      & $w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1]$ \\
+                                      & $\mathbf{g}_i = \sum^{i} w_{LSR}(i)\mathbf{L}_i + w_{HSR}(i)\mathbf{H}_i$ \\
+                                      & $\mathbf{G}_i = \mathbf{g}_i * \alpha$  \\ \hline
+%\end{eqnarray}
+% $\mathbf{w}_{LSR} = N(\textrm{CF channel},\sLSRGLG)$,  $\mathbf{w}_{HSR} = N(\textrm{CF channel},\sHSRGLG)$  \\ 
+% &\texttt{for \textit{i}=0, nchannels} \\
+% &	$\quad\mathbf{x}_i = \mathbf{w}_{LSR}(i)\cdot\mathbf{LSR}_i+\mathbf{w}_{HSR}(i)\cdot\mathbf{HSR}_i$ \\
+% &\texttt{end} \\
+% &	$\mathbf{x} = \mathbf{x}_i\circledast\mathbf{a}$  \texttt{//Convolve profile with Alpha kernel}\\\hline
 % \multirow{3}{*}{\textbf{Spiking}} &
 %    If $V(t-)<\theta \wedge V(t+)\geq \theta$
 % \vspace*{-1ex}
@@ -217,64 +166,30 @@ $\mathbf{w}_{LSR} = N(\textrm{CF channel},\sLSRGLG)$,  $\mathbf{w}_{HSR} = N(\te
 % \\\hline
 \end{tabularx}
 
-\vspace{2ex}
-
-
-
-% - B
-% -----------------------------------------------------------------------------
-\vspace{2ex}
-\noindent
-\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %
-\hdr{2}{B}{Input/Ouput}\\\hline \textbf{Input Stimulus} & Rate Level
-function, 21~kHz tone at SPL -15 to 85 dB (20 ms delay, 2ms cosine squared
-      on/off ramp)\\\hline \textbf{Measurements}        & Mean rate of instantaneous rate
-profile or PSTH sampled from poisson spike-generator (25 repetitions). \\\hline
+% - E -----------------------------------------------------------------------------
+\vspace{1ex}
+\noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
+\hdr{2}{E}{Input/Ouput}\\\hline 
+\textbf{Input Stimulus} & Rate Level function, 21~kHz tone at SPL -15
+to 85 dB (20 ms delay, 2ms cosine squared on/off ramp)\\\hline 
+\textbf{Measurements}        & Mean rate of instantaneous rate profile or PSTH sampled from poisson spike-generator (25 repetitions). \\\hline
 \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 
-\noindent\begin{tabularx}{0.95\textwidth}{|X|X|X|X|}\hline
-\hdr{4}{C}{Connectivity}\\\hline 
-         \textbf{Name}          &  \textbf{Source}  & 
-        \textbf{Target}         & \textbf{Pattern} \\\hline 
-$\textrm{ANF} \to \textrm{GLG}$ & ANF (HSR and LSR) & Golgi & Gaussian, centered at CF, spread
-of LSR \sANFGLG was optimised, spread of HSR was fixed due to the
-lack of evidence replication of granule cells in the model, weight
-for LSR \wLSRGLG and HSR \wHSRGLG are determined for all synapses,
-number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing
-function to ensure conductance and dendritic filtering are
-included. \\\hline
+
+
+\noindent\begin{tabularx}{\linewidth}{|X|c|c|c|}\hline %{\textwidth}
+\hdr{4}{C}{Optimisation} \\ \hline 
+     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
+   Spatial spread $\ANFGLG$     &     $\sANFGLG$     &     [0,10]     & 2.48 \\\hline 
+Dendritic Filter time constant& $\tau_{\ANFGLG}$ &    [0,20] ms   & 5.01\\\hline 
+     Weighted sum of HSR      &    $\wHSRGLG$    &      [0,5]     & 0.517 \\\hline 
+     Weighted sum of HSR      &    $\wLSRGLG$    &      [0,5]     & 0.0487\\\hline 
+      Spontaneous Rate        &  \texttt{golgi\_spon} &  [0,50] sp/ms  & 3.73 \\\hline
 \end{tabularx}
-\vspace{2ex}
 
 
-% % - D
-% % ------------------------------------------------------------------------------
-% % \begin{etabular}{|l|l|X|}%{3}{A}{Parameters}
-%   \noindent\begin{tabularx}{0.95\textwidth}{|l|r|c|X|}\hline
-%     \hdr{4}{A}{Parameters}\\\hline \textbf{Name} &
-%     \textbf{Initial}&\textbf{Range}&\textbf{Comments} \\ \hline
-%     \wANFGLG& 1 	&	& Spontaneous rate  \\
-%     \nLSRGLG& 0.5 	&	&weight of LSR ANFs to Golgi cells          \\
-%     \nHSRGLG& 0.1 	&	&weight of HSR ANFs to Golgi cells        \\
-%     \sANFGLG& 3 	&	&spatial spread of LSR ANFs to DS cells             \\
-%     \dANFGLG& - & &delay of ANFs to Golgi \\ \hline \hline
-%   \end{tabularx}
-%   \vspace{2ex}
-% % \end{etabular}
 
-\noindent
-\begin{tabularx}{0.8\textwidth}{|l|X|}\hline %{\textwidth}
-\hdr{2}{C}{Optimisation} \\ \hline 
-        \textbf{Type}         & Simplex method
-\\\hline 
-     \textbf{Parameters}      & \\\hline 
-   Spatial spread \ANFGLG     & $\sANFGLG \quad\to [0,10] $ \\\hline 
-Dendritic Filter time constant& $\tau_{\ANFGLG} \quad\to [0,20]$ ms\\\hline 
-     Weighted sum of HSR      & $\wHSRGLG \quad\to [0,5] $\\\hline 
-     Weighted sum of HSR      & $\wLSRGLG\quad\to [0,5] $\\\hline 
-      Spontaneous Rate        & ${\rm golgi\_spon} \to [0,50]$ sp/ms \\\hline
-\end{tabularx}
 
 % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
 % \caption{Optimisation Results for Golgi Model using Rate Level data
@@ -299,121 +214,118 @@ monotonic with a high threshold.
 \begin{figure}[htb]
   \centering
   \resizebox{0.8\textwidth}{!}{\includegraphics{./gfx/GhoshalKim}}
-\caption{Figure copied from \citep{GhoshalKim:1997} unit S03-07 (CF 21~kHz)}
+\caption{Rate level response of unit S03-07 (CF 21~kHz) from Fig2
+  \citep{GhoshalKim:1997} }
 \end{figure}
 
 
 \begin{figure}[htb]
   \centering \turnbox{90}{\small{Rate (sp/s)}}
   \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{./gfx/GolgiRateLevel2}}\\
-  \small{Level (dB SPL)}
+  \caption{ Rate Level (dB SPL)}
 \end{figure}
 
-\subsubsection{Best Parameters}
-
-\begin{minipage}[c]{0.5\textwidth}%
-  $\sANFGLG = 2.48 $ \\
-  $\tau_{\ANFGLG} = 5.0$ ms\\
-  $\wHSRGLG = 0.517 $ \\
-  $\wLSRGLG = 0.0487 $ \\
-  \textit{golgi\_spon} $=  3.727 $ sp/ms \\
-\end{minipage}
 
 \textbf{Error} 0.021 (MSE re max rate)
 
 
 
-\clearpage \newpage
-\section{Verification}
-\subsection{Tone Response}
+% \clearpage \newpage
+% \section{Verification}
+% \subsection{Tone Response}
 
-\begin{figure}[h]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{RateLevel/psthsingle90.3.eps}%
-    \includegraphics{RateLevel/G_ratelevel.eps}}
-\end{figure}
-\begin{figure}[h]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{RateLevel/response_area.3.eps}%
-    \includegraphics{RateLevel/response_area_log2.3.eps}}
-\end{figure}
-\begin{figure}[h]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    % \includegraphics{RateLevel/response_area.3.eps}
-    \includegraphics{RateLevel/psthall90.3.eps}%
-    \includegraphics{RateLevel/psthVlevel.3.eps}}
-\end{figure}
-
-
-
-\clearpage
-\subsection{Noise Response}
-\begin{figure}[h]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{NoiseRateLevel/psthsingle120.3.eps}%
-    \includegraphics{NoiseRateLevel/G_ratelevel.eps}}
-\end{figure}
-\begin{figure}[h]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{NoiseRateLevel/response_area.3.eps}%
-    \includegraphics{NoiseRateLevel/response_area_log2.3.eps}}
-\end{figure}
-\begin{figure}[h]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    % \includegraphics{RateLevel/response_area.3.eps}
-    \includegraphics{NoiseRateLevel/psthall90.3.eps}%
-    \includegraphics{NoiseRateLevel/psthVlevel.3.eps}}
-\end{figure}
-
-
-\clearpage
-\subsection{Masked Noise and Tone}
-\begin{figure}[h!]
-  \centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.3.eps}\includegraphics{MaskedRateLevel/G_ratelevel.eps}}
-\end{figure}
-\begin{figure}[h!]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{MaskedRateLevel/response_area.3.eps}%
-    \includegraphics{MaskedRateLevel/response_area_log2.3.eps}}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    % \includegraphics{RateLevel/response_area.3.eps}
-    \includegraphics{MaskedRateLevel/psthall90.3.eps}%
-    \includegraphics{MaskedRateLevel/psthVlevel.3.eps}}
-\end{figure}
-\clearpage
-\subsection{Masked Response Area}
-\begin{figure}[h!]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{MaskedResponseCurve/psthsingle5810.3.eps}%
-    \includegraphics{MaskedResponseCurve/G_masked.eps}}
-\end{figure}
-\begin{figure}[h!]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{MaskedResponseCurve/response_area.3.eps}%
-    \includegraphics{MaskedResponseCurve/response_area_log2log2.3.eps}}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering\resizebox{0.95\textwidth}{!}{%
-    % \includegraphics{RateLevel/response_area.3.eps}
-    \includegraphics{MaskedResponseCurve/psthall5810.3.eps}%
-    \includegraphics{MaskedResponseCurve/psthVmod.3.eps}}
-\end{figure}
-\clearpage
+% \begin{figure}[h]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     \includegraphics{RateLevel/psthsingle90.3.eps}%
+%     \includegraphics{RateLevel/G_ratelevel.eps}}
+% \end{figure}
+% \begin{figure}[h]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     \includegraphics{RateLevel/response_area.3.eps}%
+%     \includegraphics{RateLevel/response_area_log2.3.eps}}
+% \end{figure}
+% \begin{figure}[h]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     % \includegraphics{RateLevel/response_area.3.eps}
+%     \includegraphics{RateLevel/psthall90.3.eps}%
+%     \includegraphics{RateLevel/psthVlevel.3.eps}}
+% \end{figure}
 
 
 
+% \clearpage
+% \subsection{Noise Response}
+% \begin{figure}[h]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     \includegraphics{NoiseRateLevel/psthsingle120.3.eps}%
+%     \includegraphics{NoiseRateLevel/G_ratelevel.eps}}
+% \end{figure}
+% \begin{figure}[h]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     \includegraphics{NoiseRateLevel/response_area.3.eps}%
+%     \includegraphics{NoiseRateLevel/response_area_log2.3.eps}}
+% \end{figure}
+% \begin{figure}[h]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     % \includegraphics{RateLevel/response_area.3.eps}
+%     \includegraphics{NoiseRateLevel/psthall90.3.eps}%
+%     \includegraphics{NoiseRateLevel/psthVlevel.3.eps}}
+% \end{figure}
+
+
+% \clearpage
+% \subsection{Masked Noise and Tone}
+% \begin{figure}[h!]
+%   \centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.3.eps}\includegraphics{MaskedRateLevel/G_ratelevel.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     \includegraphics{MaskedRateLevel/response_area.3.eps}%
+%     \includegraphics{MaskedRateLevel/response_area_log2.3.eps}}
+% \end{figure}
+
+% \begin{figure}[h!]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     % \includegraphics{RateLevel/response_area.3.eps}
+%     \includegraphics{MaskedRateLevel/psthall90.3.eps}%
+%     \includegraphics{MaskedRateLevel/psthVlevel.3.eps}}
+% \end{figure}
+% \clearpage
+% \subsection{Masked Response Area}
+% \begin{figure}[h!]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     \includegraphics{MaskedResponseCurve/psthsingle5810.3.eps}%
+%     \includegraphics{MaskedResponseCurve/G_masked.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     \includegraphics{MaskedResponseCurve/response_area.3.eps}%
+%     \includegraphics{MaskedResponseCurve/response_area_log2log2.3.eps}}
+% \end{figure}
+
+% \begin{figure}[h!]
+%   \centering\resizebox{0.95\textwidth}{!}{%
+%     % \includegraphics{RateLevel/response_area.3.eps}
+%     \includegraphics{MaskedResponseCurve/psthall5810.3.eps}%
+%     \includegraphics{MaskedResponseCurve/psthVmod.3.eps}}
+% \end{figure}
+% \clearpage
 
 
 % \todo{add stuff here}
 
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliographystyle{plainnat}%bmc_article} % Style BST file
-\bibliography{../manuscript/bib/MyBib}
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \bibliographystyle{plainnat}%bmc_article} % Style BST file
+% \bibliography{../manuscript/bib/MyBib}
  
-\end{document}
+% \end{document}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: t
+%%% End: 

@@ -1,57 +1,5 @@
 
-% LaTeX file for generating the Model Description Table in Fig. 5 of
-%
-%  Nordlie E, Gewaltig M-O, Plesser HE (2009)
-%  Towards Reproducible Descriptions of Neuronal Network Models.
-%  PLoS Comput Biol 5(8): e1000456.
-%
-%  Paper URL : http://dx.doi.org/10.1371/journal.pcbi.1000456
-%  Figure URL: http://dx.doi.org/10.1371/journal.pcbi.1000456.g005
-%
-% This file is released under a
-%
-%   Creative Commons Attribution, non-commercial, share-alike licence
-%   http://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en
-%
-% with the following specifications:
-%
-%  1. When publishing tables generated from this LaTeX file and modified
-%     versions of it, you must cite the paper by Nordlie et al given above.
-%
-%  2. The non-commercial clause applies only to the distribution of THIS FILE
-%     and LaTeX source code files derived from it. You may commercially publish
-%     documents generated using this file and derivatived versions of this file.
-%
-% Contact: Hans Ekkehard Plesser, UMB (hans.ekkehard.plesser at umb.no)
-
-\documentclass{article}
-\input{../manuscript/user-defined}
-\input{../manuscript/glossary}
-
-\usepackage[margin=0.4in]{geometry} % get enough space on page
-
-\usepackage{tabularx}  % automatically adjusts column width in tables
-\usepackage{multirow}  % allows entries spanning several rows
-\usepackage{colortbl}  % allows coloring tables
-
-%\usepackage[fleqn]{amsmath}   % displayed equations flush left
-%\setlength{\mathindent}{0em}
-
-% use Helvetica for text, Pazo math fonts
-\usepackage{mathpazo}
-\usepackage[scaled=.95]{helvet}
-\renewcommand\familydefault{\sfdefault}
-
-\renewcommand\arraystretch{1.2}  % slightly more space in tables
-
-\pagestyle{empty}  % no header of footer
-
-
-\usepackage[dvips]{graphicx}
-\graphicspath{{/media/data/Work/cnstellate/TV_notch/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/}{/media/data/Work/thesis/ans2010/gfx/}}
-
-
-\begin{document}
+ \graphicspath{{/media/data/Work/cnstellate/TV_notch/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/}{/media/data/Work/thesis/ans2010/gfx/}}
 
 \section{Assymetric broadband inhibition of Tuberculo-ventral cells}
 % - A ------------------------------------------------------------------------------
@@ -202,99 +150,99 @@ $\oDSTV=0.24$ \\
 
 
 
-\clearpage
-\newpage
-\section{Verification}
+% \clearpage
+% \newpage
+% \section{Verification}
 
-\subsection{Tone Response}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{RateLevel/psthsingle90.1.eps}%
-\includegraphics{RateLevel/TV_ratelevel.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{RateLevel/response_area.1.eps}%
-\includegraphics{RateLevel/response_area_log2.1.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-%\includegraphics{RateLevel/response_area.1.eps}
-\includegraphics{RateLevel/psthall90.1.eps}%
-\includegraphics{RateLevel/psthVlevel.1.eps}}
-\end{figure}
-
-
-\clearpage
-\subsection{Noise Response}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{NoiseRateLevel/psthsingle120.1.eps}%
-\includegraphics{NoiseRateLevel/TV_ratelevel.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{NoiseRateLevel/response_area.1.eps}%
-\includegraphics{NoiseRateLevel/response_area_log2.1.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-%\includegraphics{RateLevel/response_area.1.eps}
-\includegraphics{NoiseRateLevel/psthall90.1.eps}%
-\includegraphics{NoiseRateLevel/psthVlevel.1.eps}}
-\end{figure}
+% \subsection{Tone Response}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% \includegraphics{RateLevel/psthsingle90.1.eps}%
+% \includegraphics{RateLevel/TV_ratelevel.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% \includegraphics{RateLevel/response_area.1.eps}%
+% \includegraphics{RateLevel/response_area_log2.1.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% %\includegraphics{RateLevel/response_area.1.eps}
+% \includegraphics{RateLevel/psthall90.1.eps}%
+% \includegraphics{RateLevel/psthVlevel.1.eps}}
+% \end{figure}
 
 
-\clearpage
-\subsection{Masked Noise and Tone}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.1.eps}\includegraphics{MaskedRateLevel/TV_ratelevel.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{MaskedRateLevel/response_area.1.eps}%
-\includegraphics{MaskedRateLevel/response_area_log2.1.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-%\includegraphics{RateLevel/response_area.1.eps}
-\includegraphics{MaskedRateLevel/psthall90.1.eps}%
-\includegraphics{MaskedRateLevel/psthVlevel.1.eps}}
-\end{figure}
-\clearpage
-\subsection{Masked Response Area}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{MaskedResponseCurve/psthsingle5810.1.eps}%
-\includegraphics{MaskedResponseCurve/TV_masked.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{MaskedResponseCurve/response_area.1.eps}%
-\includegraphics{MaskedResponseCurve/response_area_log2log2.1.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-%\includegraphics{RateLevel/response_area.1.eps}
-\includegraphics{MaskedResponseCurve/psthall5810.1.eps}%
-\includegraphics{MaskedResponseCurve/psthVmod.1.eps}}
-\end{figure}
-\clearpage
+% \clearpage
+% \subsection{Noise Response}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% \includegraphics{NoiseRateLevel/psthsingle120.1.eps}%
+% \includegraphics{NoiseRateLevel/TV_ratelevel.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% \includegraphics{NoiseRateLevel/response_area.1.eps}%
+% \includegraphics{NoiseRateLevel/response_area_log2.1.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% %\includegraphics{RateLevel/response_area.1.eps}
+% \includegraphics{NoiseRateLevel/psthall90.1.eps}%
+% \includegraphics{NoiseRateLevel/psthVlevel.1.eps}}
+% \end{figure}
 
 
-% - F -----------------------------------------------------------------------------
+% \clearpage
+% \subsection{Masked Noise and Tone}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.1.eps}\includegraphics{MaskedRateLevel/TV_ratelevel.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% \includegraphics{MaskedRateLevel/response_area.1.eps}%
+% \includegraphics{MaskedRateLevel/response_area_log2.1.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% %\includegraphics{RateLevel/response_area.1.eps}
+% \includegraphics{MaskedRateLevel/psthall90.1.eps}%
+% \includegraphics{MaskedRateLevel/psthVlevel.1.eps}}
+% \end{figure}
+% \clearpage
+% \subsection{Masked Response Area}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% \includegraphics{MaskedResponseCurve/psthsingle5810.1.eps}%
+% \includegraphics{MaskedResponseCurve/TV_masked.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% \includegraphics{MaskedResponseCurve/response_area.1.eps}%
+% \includegraphics{MaskedResponseCurve/response_area_log2log2.1.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+% \centering\resizebox{0.95\textwidth}{!}{%
+% %\includegraphics{RateLevel/response_area.1.eps}
+% \includegraphics{MaskedResponseCurve/psthall5810.1.eps}%
+% \includegraphics{MaskedResponseCurve/psthVmod.1.eps}}
+% \end{figure}
+% \clearpage
+
+
+% % - F -----------------------------------------------------------------------------
 
 % \noindent\begin{tabularx}{0.95\textwidth}{|X|}\hline
 % \hdr{1}{F}{Measurements}\\\hline
 % %\\\hline
 % \end{tabularx}
 
-% ---------------------------------------------------------------------------------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \bibliographystyle{plainnat}%bmc_article} % Style BST file
- \bibliography{../manuscript/bib/MyBib}
 
 
+ 
 
-\end{document}
-
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: t
+%%% End: 
