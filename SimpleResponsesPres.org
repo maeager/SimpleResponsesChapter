@@ -7,13 +7,15 @@
 #+TITLE: Constructing realistic microcircuits: the Cochlear Nucleus stellate model
 #+AUTHOR: Michael A. Eager
 #+LaTeX_header:\usepackage{xspace}\input{../manuscript/glossary}
+#+LaTeX_header:\usepackage{palatino}
+#+LaTeX_header:\usepackage{mathpazo}
 
 * Chapter 3: Simple optimisation of the cochlear nucleus stellate network
 ** Introduction
 Cochlear Nucleus Stellate Network
 \par
 #+begin_LaTeX
-       \makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{gfx/CNnetwork.jpg}}%
+       \makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{gfx/CNnetwork.jpg}}
 #+end_LaTeX
     
 ** General methods in optimisation of neural models
@@ -27,26 +29,41 @@ Further implementation for ``tono-topic'' connections in auditory system
 #+ATTR_LaTeX: width=7cm
 [[./CNConn.png]]
 
-* Golgi Model: Fitting simple model to rate level data
-** Golgi (GABA) Model :  Experimental evidence
+** Basics of Optimisation in NEURON
+
+#+begin_LaTeX
+\begin{lstlisting}
+objref pvec
+pvec = new Vector()
+proc err(){ /* create error function */}
+...
+proc runprax(){
+     attr_praxis(0.0001, 0.001, 3)
+     fit_praxis(NPARAMS,"err",&pvec.x[0])
+}
+\end{lstlisting}
+#+end_LaTeX
+
+* Golgi Cell Model: Fitting simple model to rate level data
+** Golgi Cell Model :  Experimental evidence
 Anatomical \citep{BensonBerglundEtAl:1996}
  - LSR fibers proj to GCD
 Morphological \citep{FerragamoGoldingEtAl:1998a}
  - small cell (12-15 micron soma), uniform dendrites and axonal collaterals 100 micron 
 Intracellular \cite{FerragamoGoldingEtAl:1998a} (mice, GCD /in vitro/)
- - type-I~current clamp response
+ - type-I current clamp response
  - delay from shock to AN of 0.7 ms relative to the core VCN units.
 Physiological \citep{GhoshalKim:1997} (marginal shell, 5 units)
  - monotonic response to tones and noise 
-
-** Golgi (GABA) Model :  Key factors in designing Golgi model
+   
+** Golgi Cell Model :  Key design factors
  - Choosing neural model: HH-type or Poisson
  - Problem of monotonic excitation at low level
   - added HSR to model to avoid added computation of MSR
  - Spread of ANF to GCD ARE broader than core VCN
 #  - are we spoiling the broth too early? 
 
-** Golgi (GABA) Model :  Implementation
+** Golgi Cell Model :  Implementation
  - Generate  auditory filterbank vectors (*L* and *H*) and golgi alpha function
  - Create Golgi vectors from AN vectors
   1. For each channel, create 2 Golgi weighted vector across filterbank:\mu = channel position, \sigma = spatial spread of LSR  connections to Golgi
@@ -61,31 +78,35 @@ Physiological \citep{GhoshalKim:1997} (marginal shell, 5 units)
 #+end_LaTeX
  - Create spikes from golgi vectors using Jackson's spike generator 
 
-** Golgi (GABA) Model :  Optimisation Procedure
-*Parameters*:
- - =golgi_spatial_filter_variance_LSR=: spatial variance \LSRGLG
- - =golgi_syn_filter_scale_factor=: alpha function scale factor
- - =weight_sum_LSR, weight_sum_HSR=: golgi weighted vector sums factor
- - =golgi_spon=: spontaneous rate of golgi model
+** Golgi Cell Model :  Optimisation Procedure
+
+#+begin_LaTeX
+\noindent\begin{tabularx}{\linewidth}{|X|c|c|c|}\hline 
+     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
+   Spatial spread $\ANFGLG$     &     $\sANFGLG$     &     [0,10]     & 2.48 \\\hline 
+Dendritic Filter time constant& $\tau_{\ANFGLG}$ &    [0,20] ms   & 5.01\\\hline 
+     Weighted sum of HSR      &    $\wHSRGLG$    &      [0,5]     & 0.517 \\\hline 
+     Weighted sum of HSR      &    $\wLSRGLG$    &      [0,5]     & 0.0487\\\hline 
+      Spontaneous Rate        &  \texttt{golgi\_spon} &  [0,50] sp/ms  & 3.73 \\\hline
+\end{tabularx}
+#+end_LaTeX
+
 *Fitting Data*: 
  - monotonic rate-level curve, unit S03-07 (CF 21 kHz) Ghoshal and Kim (1997) 
 *Optimisation*: 
  - Measure spike rate of golgi model at several sound levels, calc mean squared error between experimental data and golgi
   model data
 
-** Golgi (GABA) Model :  Results
-*Best Parameters*
-- =golgi_spatial_filter_variance_LSR= = 2.4837
-- =golgi_syn_filter_scale_factor= = 1.00
-- =weight_sum_LSR= = 0.5166
-- =weight_sum_HSR= = 0.0487
-- =golgi_spon= = 3.7271
+** Golgi Cell Model :  Results
 
-** Golgi (GABA) Model :  Outcomes
+
+
+
+** Golgi Cell Model :  Outcomes
  - Good fit of golgi model to Ghoshal and Kim data, using just the tone  rate-level.
  - dominance of LSR weight parameter over HSR weight benefits the addition of HSR despite no evidence for axons in GCD, here it adds a background effect similar to the granule cells or type-II ANFs 
 
-* D-stellate Cell Model: GABAergic effects on click recovery
+* D-stellate (DS) Cell Model: GABAergic effects on click recovery
 ** D Stellate Cell Model:  Experimental evidence
 Morphological 
  - large Multipolar cell
@@ -102,22 +123,12 @@ Physiological
  - high sync index, Low-pass MTF
  - monotonic response to tones and noise 
 
-** D Stellate Cell Model:  Key factors in designing D-stellate cell model
-Choosing neural model: type I-II Rothman and Manis model
- - with/without dendrites
- - variable KLT, leak conductance
-Problems
- - ANF spread to DS cells well documented (decision made to
-    fix params due to large computational task of calc response area) 
- - short delay recovery responses (2,3,4 ms) were not successful upon
-    first model, included DS leak and KLT conductances to allow cell
-    behaviour to be fit
- - The effect of Golgi cells on DS is delayed by the extra 0.7 ms delay from ANF to Golgi, plus the slow peak of \GABAa inhibition.
-    
+** D Stellate Cell Model:  Key design factors
 ** D Stellate Cell Model:  Implementation
- - Generate AN vectors in auditory filterbank
- - Create Golgi filterbank
- - Pass AN and Golgi spikes onto single DS cell model in NEURON
+
+- Generate AN vectors in auditory filterbank
+- Create Golgi filterbank
+- Pass AN and Golgi spikes onto single DS cell model in NEURON
 
 ** D Stellate Cell Model : Optimisation Procedure
 #+begin_LaTeX
@@ -137,6 +148,7 @@ Problems
 #+end_LaTeX
 
 ** D Stellate Cell Model:  Optimisation Procedure
+
 *Fitting Data*: 
  - Click recovery data from \citep{BackoffPalombiEtAl:1997}
 *Optimisation*:
@@ -145,9 +157,11 @@ Problems
  - Measure DS response for 2ms.  Calc mean squared error between ratio of recovery response (Weighting required)
 
 ** D Stellate Cell Model:  Results
+
 #+LaTeX:\includegraphics[keepaspectratio=true,angle=-90,width=0.9\textwidth]{./gfx/DS_ClickRecovery_result}
    
 ** D Stellate Cell Model:  Results
+   
 *Best Parameters*
 #+begin_LaTeX
 \begin{tabularx}{0.95\textwidth}{lX}
@@ -165,6 +179,7 @@ $\bar{g}_{leak}$ & $0.0163 \quad\mathrm{Scm}^{-2}$\\
  - 0.01447    final result (MSE of recovery spike rate / mask rate)
 
 ** D Stellate Cell Model:  Outcomes
+
 - DS cell model and synaptic inputs are fitted to a reasonable degree
 - Weighting procedure was needed to emphasise curvature of recovery at narrow click separation
 
@@ -183,13 +198,7 @@ Physiological \citep{Rhode:1999,SpirouDavisEtAl:1999}
  - poor response to noise and clicks
  - asymmetric response to notch noise \citep{ReissYoung:2005}
 
-** Tuberculoventral Cell Model:  Key factors in designing TV model
- - Choosing neural model: type I-classic Rothman and Manis model
- - Problems
-  - larger network of CN model produces longer simulation time
-  - inverting responses of data in single cell to match TV rate place
-    data across network
-
+** Tuberculoventral Cell Model:  Key design factors
 ** Tuberculoventral Cell Model:  Implementation
  - Generate AN vectors in auditory filterbank
  - Create Golgi vectors from AN vectors
@@ -248,8 +257,62 @@ Physiological \citep{Rhode:1999,SpirouDavisEtAl:1999}
 * Bibliography
 
 #+BIBLIOGRAPHY: ../manuscript/bib/MyBib plainnat option:-d
- #+begin_LaTeX
-  \bibliographystyle{plainnat}
-  \bibliography{../manuscript/bib/MyBib}
- #+bend_LaTeX
+# #+begin_LaTeX
+#  \bibliographystyle{plainnat}
+#  \bibliography{../manuscript/bib/MyBib}
+# #+bend_LaTeX
 
+
+## Some Hints
+
+# For technical presentations, motivation is key 
+# Why did you, as
+# speaker, take the bus across town or the train halfway across Europe
+# or a transatlantic flight just to come and talk about this stuff?  
+# Why did the audience turn up at your session? Presumably something in the
+# title or abstract caught their eye. (Perhaps they're only here to
+# listen to the talk AFTER yours!).  Just getting up from your desk to
+# come to the presentation shows some level of motivation from you AND
+# the audience. Honour that motivation.  Why is what you're presenting
+# important?  
+# Why should they (the audience) be interested?  What is it
+# about your findings that might be applicable to somebody else and move
+# forward their understanding of this area? HINT - it's not page after
+# page of detailed methods!!
+
+
+# Manuscript structure:
+# Introduction
+# Methods
+# Results
+# Discussion
+# Conclusions
+# Peer review presentation structure
+# Introduction Motivation
+# Premise / Conclusions
+# Methods
+# Results
+# Conclusions Applicability / Applications.
+# Discussion, assumptions, caveats, applicability to other cases
+
+# Peer Review:
+
+# SPEAKER WANTS technical review, input, ideas, validation of
+# work. AUDIENCE WANTS to know how ideas might be applicable to their
+# situation.  Presenter likely to have worked on this topic for
+# considerable time. Understands the data, context etc. Audience don't
+# have this information SO need to spend reasonable amount of time
+# explaining context, assumptions, specifics of this
+# situation. (Fantastic post by Zen Faulkes on this topic).  Ensure that
+# your presentation meets the needs of BOTH you and the audience
+# i.e. Don't just show how clever you are - aim to get to the point
+# where the audience understands and can give you what YOU want out of
+# the meeting (ideas, feedback, new direction). HELP the audience to see
+# how what you're presenting could be applicable for them (application
+# in new areas, lessons learned etc).  If you over-egg technical stuff
+# then audience split into 2 camps: Engaged but lost / Disengaged and
+# thinking of other stuff. Type 1 turns into Type 2 quite quickly if you
+# don't work hard to get them back. Stop & check understanding from time
+# to time. Summarise. Paraphrase. Recap. Don't just ask "Any
+# questions?".  For peer review of ALL technical details - write a
+# manuscript. DON'T present.
