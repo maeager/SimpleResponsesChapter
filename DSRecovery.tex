@@ -1,65 +1,7 @@
 
-
-% % LaTeX file for generating the Model Description Table in Fig. 5 of
-% %
-% %  Nordlie E, Gewaltig M-O, Plesser HE (2009)
-% %  Towards Reproducible Descriptions of Neuronal Network Models.
-% %  PLoS Comput Biol 5(8): e1000456.
-% %
-% %  Paper URL : http://dx.doi.org/10.1371/journal.pcbi.1000456
-% %  Figure URL: http://dx.doi.org/10.1371/journal.pcbi.1000456.g005
-% %
-% % This file is released under a
-% %
-% %   Creative Commons Attribution, non-commercial, share-alike licence
-% %   http://creativecommons.org/licenses/by-nc-sa/3.0/de/deed.en
-% %
-% % with the following specifications:
-% %
-% %  1. When publishing tables generated from this LaTeX file and modified
-% %     versions of it, you must cite the paper by Nordlie et al given above.
-% %
-% %  2. The non-commercial clause applies only to the distribution of THIS FILE
-% %     and LaTeX source code files derived from it. You may commercially publish
-% %     documents generated using this file and derivatived versions of this file.
-% %
-% % Contact: Hans Ekkehard Plesser, UMB (hans.ekkehard.plesser at umb.no)
-
-% \documentclass{article}
-% % User defined commands
-% \input{../manuscript/user-defined}
-
-% \input{../manuscript/glossary}
-% \usepackage[margin=0.2in]{geometry} % get enough space on page
-
-% \usepackage{tabularx}  % automatically adjusts column width in tables
-% \usepackage{multirow}  % allows entries spanning several rows
-% \usepackage{colortbl}  % allows coloring tables
-% %\usepackage{natbib}
-% %\usepackage[fleqn]{amsmath}   % displayed equations flush left
-% %\setlength{\mathindent}{0em}
-
-% % use Helvetica for text, Pazo math fonts
-% \usepackage{mathpazo}
-% \usepackage[scaled=.95]{helvet}
-% \renewcommand\familydefault{\sfdefault}
-
-% \renewcommand\arraystretch{1.2}  % slightly more space in tables
-
-% \pagestyle{empty}  % no header of footer
-
-% % \hdr{ncols}{label}{title}
-% %
-% % Typeset header bar across table with ncols columns
-% % with label at left margin and centered title
-% %
-
-
-% \graphicspath{{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}}
-
-% \begin{document}
 \graphicspath{{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}}
-\section{D-stellate cell click recovery: }
+\section[DS Cell Model]{D-Stellate Cell Model: optimisation using click recovery responses}
+\label{sec:d-stellate-cell-model}
 % - A ------------------------------------------------------------------------------
 
 Onset-chopper units in the mammalian VCN have a wide-ranging influence
@@ -103,7 +45,10 @@ Problems
 
 %%%%%%%%%%%%%%%%%%%Copied from original jneurometh article
 
-DS cells have an onset-chopping (On-C) PSTH to tones and noise
+\subsection{Background}
+
+  
+D-stelate (DS) cells have an onset-chopping (On-C) PSTH to tones and noise
 \citep{SmithRhode:1989,NeedhamPaolini:2006}. Intracellular responses to sounds
 indicate the bandwidth of inputs to DS neurons typically ranges from two
 octaves below CF to one octave above CF
@@ -111,73 +56,60 @@ octaves below CF to one octave above CF
 the inhibitory neurotransmitter glycine and synapse widely in the VCN and DCN.
 They also send a commissural projection to the contralateral cochlear nucleus
 that mediates fast inhibition between the nuclei
-\citep{NeedhamPaolini:2003,NeedhamPaolini:2006}. Tuberculoventral  (TV) cells
-are glycinergic, inhibitory cells found in the deep layers of the DCN that send
-axon collaterals to the VCN. They are characterized as having a non-monotonic
-response to tones with increasing sound level and respond poorly to broadband
-noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}.
-Anterograde labeling in the DCN suggests TV cells project tonotopically to the
-AVCN not just on-CF, but also to the low and high frequency side bands in the
-AVCN \citep{MunirathinamOstapoffEtAl:2004,OstapoffMorestEtAl:1999}.
-Ultra-structural labeling of synapses in the rat DCN suggest TV cells are
-inhibited by glycinergic DS cells and from sources in the DCN but excitatory
-inputs were not found from TS cells in the rat \citep{Rubio:2005}. Evidence in
-the mouse suggests otherwise since intracellular responses from labeled TV
-cells in the mouse show clear excitatory input from TS cells and diffuse
-inhibitory input from DS cells
-\citep{ZhangOertel:1993b,WickesbergOertel:1993}.
+\citep{NeedhamPaolini:2003,NeedhamPaolini:2006}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Post-onset GABAergic inhibition in DS cells is a major influence on the PSTH
+of On-C neurons \citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
+excitation to auditory nerve shocks suggests golgi cells are activated by type
+II ANFs and low spontaneous rate type I ANFs
+\citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}. Therefore, type II
+and LS type I ANFs could be involved in gain control through GABAergic
+modulation of activity in the VCN.
+
 
 
 
 \subsection{Implementation}
+
 \textbf{Optimisation}    
  Parameters for \GLGDS are optimised based on experimental click recovery data from \citep{BackoffPalombiEtAl:1997}.
 
 \noindent
-\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %
+\begin{tabularx}{\textwidth}{|l|X|}\hline %
 %
 \hdr{2}{A}{Model Summary}\\\hline
 \textbf{Populations}     & ANF (HSR,LSR), Golgi, D-stellate \\\hline
 \textbf{Topology}        & Tonotopic,  Auditory system of the rat  \\\hline
 \textbf{Connectivity}    & Gaussian spread dependent on morphology and afferent connections  \\\hline
 \textbf{Auditory model}  & \citep{ZilanyBruce:2008} ANF phenomenological instantaneous-rate Poisson spike trains\\\hline
-\textbf{Neuron model}    &\begin{minipage}{0.5\textwidth}
-Golgi \begin{itemize}
-\item instantaneous-rate Poisson spike trains
-\item weighted sum of LSR instantaneous-rate vectors
-\item smoothing due to alpha function kernel
-\end{itemize}
-D-stellate\begin{itemize}
-\item biophysically-based HH-like single-compartment model
-\item type I-II current clamp model
-\end{itemize}
-\end{minipage}\\\hline
+\multirow{2}{*}{\textbf{Neuron model}}    & Golgi: instantaneous-rate Poisson spike trains
+&D-stellate: HH-like single-compartment model (Type I-II RM model)
 \textbf{Channel models}  & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
 \textbf{Synapse model}   & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
-\textbf{Input Stimulus}  & Clicks with delay 2, 3, 4 and 8 ms\\\hline
-\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
+\textbf{Input Stimulus}  & Mask/Recovery click trains with delay 2, 3, 4 and 8
+ms, separated by 50 ms\\\hline
+\textbf{Measurements}    & PSTH sampled at each recovery click for 2 ms to measure click recovery\\\hline
 \end{tabularx}
-
 \vspace{2ex}
 
 % - B -----------------------------------------------------------------------------
 
 \noindent
-\begin{tabularx}{0.95\textwidth}{|l|X|X|}\hline %{0.95\textwidth}
+\begin{tabularx}{\textwidth}{|l|X|X|}\hline %{\textwidth}
 \hdr{3}{B}{Populations}\\\hline
 \textbf{Name} &            \textbf{Elements}            & \textbf{Number} \\\hline
-     HSR      &            Poisson generator            & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
-     LSR      &            Poisson generator            & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
-     GLG      &            Poisson generator            & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
-     DS       & Single-Compartment H-H model (type I-II)& $N_{\text{DS}}= 1$ at CF=5.6~kHz \\\hline
+     HSR      &            Poisson generator with refractory effects           & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
+     LSR      &            ''            & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
+     GLG      &            ''            & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
+     DS       &  Type I-II RM model & $N_{\text{DS}}= 1$ at CF=5.6~kHz \\\hline
 \end{tabularx}
 \vspace{2ex}
 
 % - C ------------------------------------------------------------------------------
 
 \noindent
-\begin{tabularx}{0.95\textwidth}{|l|l|l|X|}\hline
+\begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
         \textbf{Name}          &  \textbf{Source}  & \textbf{Target} & \textbf{Pattern} \\\hline
 $\textrm{ANF} \to \textrm{DS}$ & ANF (HSR and LSR) &   D-Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS \\\hline
@@ -190,11 +122,11 @@ $\textrm{GLG} \to \textrm{DS}$ &       Golgi       &   D-Stellate    & Gaussian,
 
 
 
-%\noindent\begin{tabularx}{0.95\textwidth}{|p{0.150.95\textwidth}|X|}\hline
+%\noindent\begin{tabularx}{\textwidth}{|p{0.150.95\textwidth}|X|}\hline
 %\hdr{2}{D}{Neuron and Synapse Model}\\\hline
 % \textbf{Name} & Poisson spike generator \\\hline
 % \textbf{Type} & Leaky integrate-and-fire, $\delta$-current input\\\hline
-% \raisebox{-4.5ex}{\parbox{0.95\textwidth}{\textbf{Subthreshold dynamics}}} &
+% \raisebox{-4.5ex}{\parbox{\textwidth}{\textbf{Subthreshold dynamics}}} &
 % \rule{1em}{0em}\vspace*{-3.5ex}
 %     \begin{equation*}
 %       \begin{array}{r@{\;=\;}lll}
@@ -218,7 +150,7 @@ $\textrm{GLG} \to \textrm{DS}$ &       Golgi       &   D-Stellate    & Gaussian,
 % - E ------------------------------------------------------------------------------
 
 \noindent
-\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %{0.95\textwidth}
+\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
 \hdr{2}{E}{Optimisation} \\ \hline
       \textbf{Type}       & Principle-axis method \\\hline
    \textbf{Parameters}   & \\
@@ -240,9 +172,12 @@ $\nGLGDS = 25$ & \\ \hline
 \end{tabularx}
 \vspace{2ex}
 
+
+
+
 % - F -----------------------------------------------------------------------------
 
-\noindent\begin{tabularx}{0.95\textwidth}{|X|}\hline
+\noindent\begin{tabularx}{\textwidth}{|X|}\hline
 \hdr{1}{F}{Measurements}\\\hline
 PSTHs were generated from 25 stimulus repetitions. Each response to a click is measured for 2 ms after the minimum first spike latency for the unit.  The unit used in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
 \begin{minipage}[c]{0.6\textwidth}
@@ -286,6 +221,21 @@ DS Ouput \hspace{2in} Golgi Output
 % }
 % \end{lstlisting}
 
+\begin{tabularx}{\textwidth}{XXXX} 
+\textbf{Parameters} &        \textbf{Range}         & \\ \hline
+     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
+Weight of HSR syn on DS       &        \wHSRDS       &         [0.01,50] nS          &$0.532 \quad{\rm nS}$ \\          
+Weight of LSR syn on DS       &        \wLSRDS       &         [0.01,50] nS          &$0.16 \quad{\rm nS}$\\            
+\GABAa synapse rise constant  &    $\tau_{GABA1}$    &        [0.01,10.0] ms         &$13.1 \quad{\rm nS}$\\            
+\GABAa synapse decay constant &    $\tau_{GABA2}$    &         [0.1,50.0] ms         &$5.432 \quad{\rm ms}$\\           
+DS cell leak conductance      &   $\bar{g}_{leak}$   & [0.01,50] $\mu{\rm Scm}^{-2}$ &$0.262 \quad{\rm ms}$\\           
+\end{tabularx}									      $0.0163 \quad\mathrm{Scm}^{-2}$\\ 
+
+\begin{tabularx}{\textwidth}{lcX} 
+\textbf{Fixed Parameters} & \textbf{Value}& \\ \hline
+         \nGLGDS          &            25             & Number of GABA syn on DS cells                                                                                                                                                  \\
+         \dGLGDS          &          0.5 ms           & Combination of conductance and synaptic delay.  \\
+\end{tabularx}
 
 
 
@@ -306,7 +256,7 @@ in the \texttt{cnstellate} directory to simulate the optimisation for D-stellate
 \subsection{Results}
 
 
-\noindent\begin{tabularx}{0.95\textwidth}{|l|X|}\hline %{0.95\textwidth}
+\noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
 \hdr{2}{D}{Results} \\\hline
 \textbf{Best Parameters} &
 {\begin{minipage}[c]{0.6\textwidth}
@@ -401,17 +351,17 @@ $\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
 
 % \subsection{Tone Response}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{RateLevel/psthsingle90.2.eps}%
 % \includegraphics{RateLevel/DS_ratelevel.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{RateLevel/response_area.2.eps}%
 % \includegraphics{RateLevel/response_area_log2.2.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % %\includegraphics{RateLevel/response_area.2.eps}
 % \includegraphics{RateLevel/psthall90.2.eps}%
 % \includegraphics{RateLevel/psthVlevel.2.eps}}
@@ -421,17 +371,17 @@ $\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
 % \clearpage
 % \subsection{Noise Response}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{NoiseRateLevel/psthsingle120.2.eps}%
 % \includegraphics{NoiseRateLevel/DS_ratelevel.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{NoiseRateLevel/response_area.2.eps}%
 % \includegraphics{NoiseRateLevel/response_area_log2.2.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % %\includegraphics{RateLevel/response_area.2.eps}
 % \includegraphics{NoiseRateLevel/psthall90.2.eps}%
 % \includegraphics{NoiseRateLevel/psthVlevel.2.eps}}
@@ -441,16 +391,16 @@ $\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
 % \clearpage
 % \subsection{Masked Noise and Tone}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.2.eps}\includegraphics{MaskedRateLevel/DS_ratelevel.eps}}
+% \centering\resizebox{\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.2.eps}\includegraphics{MaskedRateLevel/DS_ratelevel.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{MaskedRateLevel/response_area.2.eps}%
 % \includegraphics{MaskedRateLevel/response_area_log2.2.eps}}
 % \end{figure}
 
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % %\includegraphics{RateLevel/response_area.2.eps}
 % \includegraphics{MaskedRateLevel/psthall90.2.eps}%
 % \includegraphics{MaskedRateLevel/psthVlevel.2.eps}}
@@ -458,34 +408,28 @@ $\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
 % \clearpage
 % \subsection{Masked Response Area}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{MaskedResponseCurve/psthsingle5810.2.eps}%
 % \includegraphics{MaskedResponseCurve/DS_masked.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{MaskedResponseCurve/response_area.2.eps}%
 % \includegraphics{MaskedResponseCurve/response_area_log2log2.2.eps}}
 % \end{figure}
 
 % \begin{figure}[h!] 
-% \centering\resizebox{0.95\textwidth}{!}{%
+% \centering\resizebox{\textwidth}{!}{%
 % %\includegraphics{RateLevel/response_area.2.eps}
 % \includegraphics{MaskedResponseCurve/psthall5810.2.eps}%
 % \includegraphics{MaskedResponseCurve/psthVmod.2.eps}}
 % \end{figure}
 % \clearpage
 
-% %
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%  \bibliographystyle{plainnat}%bmc_article} % Style BST file
-%  \bibliography{../manuscript/bib/MyBib}
- 
-% \end{document}
  
 
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "SimpleResponses"
-%%% TeX-PDF-mode: t
+%%% TeX-PDF-mode: nil
 %%% End: 

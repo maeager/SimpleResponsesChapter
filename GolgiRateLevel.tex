@@ -4,8 +4,9 @@
 \graphicspath{{/media/data/Work/cnstellate/golgi_RateLevel/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/Responses/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Golgi Cell Optimisation: Modelling GABAergic VCN units from monotonic marginal shell units}
-
+\section[Golgi Cell Model]{Golgi Cell Model: Optimisation using
+  monotonic rate-level responses in marginal shell units}
+\label{sec:golgi-cell-model}
 % Modelling in the auditory periphery has benefited extensively from
 % the work of Liberman, Greewood, Patterson, Young, Sachs and others,
 % in acoustic \it{in vivo} experiments.
@@ -16,29 +17,33 @@ contentious. Despite studies showing that GABAergic inputs to the CN generally
 arise in the peri-olivary regions of the medulla in cats
 \citep{OstapoffBensonEtAl:1997} and birds
 \citep{LachicaRubsamenEtAl:1995,YangMonsivaisEtAl:1999}, slice preparations of
-the isolated murine VCN have shown sivity to bicuculine in TS and DS cells
+the isolated murine VCN have shown sensitivity to bicuculine in TS and DS cells
 \citep{FerragamoGoldingEtAl:1998a}.  The only known source of GABA intrinsic
 to the VCN are the golgi cells of the granule cell domain (GCD) overlying the
 VCN
-\citep[Fig.~\ref{fig:CNdiagram}]{Mugnaini:1985,FerragamoGoldingEtAl:1998}. Inputs
-to golgi cells are more complicated than VCN cells in the core regions. Golgi
-cells are sparse in the GCD, surrounded by the many, smaller excitatory
-granule cells. Extracellular recordings from the GCD (most likely from golgi
-cells since granule cell somata are $<10 \mu m$) indicate a monotonic increase
-in firing rate with increasing sound intensity \citep{GhoshalKim:1997}. The
+\citep[Fig.~\ref{fig:CNdiagram}]{Mugnaini:1985,FerragamoGoldingEtAl:1998}. The
 presence of GABAergic inputs to TS, DS and TV cells has been verified by
 labeled terminals adjacent to the soma and dendrites
 \citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003} and
 release from inhibition in their response areas with ionotopopheretic
 application of the GABA antagonist, bicuculine
 \citep{EvansZhao:1998,CasparyBackoffEtAl:1994,BackoffShadduckEtAl:1999,FerragamoGoldingEtAl:1998a}.
-Post-onset GABAergic inhibition in DS cells is a major influence on the PSTH
-of On-C neurons \citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
-excitation to auditory nerve shocks suggests golgi cells are activated by type
-II ANFs and low spontaneous rate type I ANFs
-\citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}. Therefore, type II
-and LS type I ANFs could be involved in gain control through GABAergic
-modulation of activity in the VCN.
+
+
+Inputs to golgi cells are more complicated than VCN cells in the core regions. Golgi
+cells are sparse in the GCD, surrounded by the many, smaller excitatory
+granule cells, that form small en passant endings . Type II ANFs create diffuse glutamatergic release sites
+in the GCD \citep{HurdHutsonEtAl:1999,BensonBrown:2004} that may
+stimulate NMDA glutamate receptors in golgi cells \citep{FerragamoGoldingEtAl:1998a}. 
+
+
+
+Extracellular recordings from the GCD by \citet{GhoshalKim:1997}, are most likely from golgi
+cells since granule cell somata are less than  $10 \mu m$ and very
+narrow axons. The majority of recorded
+units showed a monotonic increase in firing rate with increasing sound
+intensity \citep{GhoshalKim:1997}. 
+
 
 \medskip{}
 
@@ -66,6 +71,14 @@ responses to tones and noise.
 % the GCD, albeit more profusely than in the core on the VCN.
    
 
+
+
+\newpage
+\subsection{Implementation}
+\vspace{1ex}
+% - A ------------------------------------------------------------------------
+
+
 In the creation of the golgi cell model, we can reduce the explicit
 responses of Golgi cells down to:\begin{itemize}\setlength{\itemsep}{-1em}
 \item type-I~current clamp response,
@@ -73,14 +86,29 @@ responses of Golgi cells down to:\begin{itemize}\setlength{\itemsep}{-1em}
 \item delay from ANFs of approx. 0.7~ms relative to the core VCN units.
 \end{itemize}
 
-In Chapter \ref{Chapter5:GA} and previous publications \citep{EagerGraydenEtAl:2006a}
-
-
+In Chapter \ref{sec:GAChapter} and previous publications \citep{EagerGraydenEtAl:2006a}
 
 
 Monotonic rate-level data from GCD in VCN \citep{GhoshalKim:1996} unit S03-07
 (CF 21~kHz) was used to optimise parameters ${\rm golgi\_spon}$, \wLSRGLG,
 \wHSRGLG, and  \sANFGLG.  The optimisation method was a default  using the principle-axis method.
+
+
+To summarise the neural model used in this optimisation, I have
+reduced the information to tabular format as suggested by
+\citet{NordlieGewaltigEtAl:2009}.
+
+
+
+due to its replication of granule cells in the model. weight for LSR \wLSRGLG and HSR \wHSRGLG are determined  for all synapses, number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to ensure conductance and dendritic filtering are included.
+
+** Golgi Cell Model :  Key design factors
+ - Choosing neural model: HH-type or Poisson
+ - Problem of monotonic excitation at low level
+  - added HSR to model to avoid added computation of MSR
+ - Spread of ANF to GCD ARE broader than core VCN
+#  - are we spoiling the broth too early? 
+
 
 \begin{figure}[hp!]
   \centering
@@ -91,17 +119,6 @@ Monotonic rate-level data from GCD in VCN \citep{GhoshalKim:1996} unit S03-07
     the weighted sum of HSR and LSR instantaneous-rate vectors,
     $\alpha$ is the synaptic and dendritic smoothing function.}
 \end{figure}
-
-
-
-\newpage
-\subsection{Golgi Model Summary}
-\vspace{1ex}
-% - A ------------------------------------------------------------------------
-
-To summarise the neural model used in this optimisation, I have
-reduced the information to tabular format as suggested by
-\citet{NordlieGewaltigEtAl:2009}.
 
 
 \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
@@ -133,9 +150,8 @@ reduced the information to tabular format as suggested by
 \textbf{Name} & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
   \multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} & LSR & Golgi &
   Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
- & HSR & Golgi & Fixed gaussian spatial spread, centered at CF (\sHSRGLG =) \\\hline
+ & HSR & Golgi & Fixed Gaussian spatial spread, centered at CF (\sHSRGLG =) \\\hline
  \end{tabularx}
-\footnotesize{due to its replication of granule cells in the model. weight for LSR \wLSRGLG and HSR \wHSRGLG are determined  for all synapses, number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to ensure conductance and dendritic filtering are included.}
 
 \vspace{1ex}
 % - D ------------------------------------------------------------------------------
@@ -147,6 +163,7 @@ reduced the information to tabular format as suggested by
                                       & $w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1]$ \\
                                       & $\mathbf{g}_i = \sum^{i} w_{LSR}(i)\mathbf{L}_i + w_{HSR}(i)\mathbf{H}_i$ \\
                                       & $\mathbf{G}_i = \mathbf{g}_i * \alpha$  \\ \hline
+\end{tabularx}
 %\end{eqnarray}
 % $\mathbf{w}_{LSR} = N(\textrm{CF channel},\sLSRGLG)$,  $\mathbf{w}_{HSR} = N(\textrm{CF channel},\sHSRGLG)$  \\ 
 % &\texttt{for \textit{i}=0, nchannels} \\
@@ -162,22 +179,22 @@ reduced the information to tabular format as suggested by
 % \end{enumerate}
 % \vspace*{-4ex}\rule{1em}{0em}
 % \\\hline
-\end{tabularx}
+
 
 % - E -----------------------------------------------------------------------------
 \vspace{1ex}
 \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
-\hdr{2}{E}{Input/Ouput}\\\hline 
+\hdr{2}{E}{Input/Output}\\\hline 
 \textbf{Input Stimulus} & Rate Level function, 21~kHz tone at SPL -15
 to 85 dB (20 ms delay, 2ms cosine squared on/off ramp)\\\hline 
-\textbf{Measurements}        & Mean rate of instantaneous rate profile or PSTH sampled from poisson spike-generator (25 repetitions). \\\hline
+\textbf{Measurements}        & Mean rate of instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions). \\\hline
 \end{tabularx}
 \vspace{1ex}
 
 
 
 \noindent\begin{tabularx}{\linewidth}{|X|c|c|c|}\hline %{\textwidth}
-\hdr{4}{C}{Optimisation} \\ \hline 
+\hdr{4}{F}{Optimisation} \\ \hline 
      \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
    Spatial spread $\ANFGLG$     &     $\sANFGLG$     &     [0,10]     & 2.48 \\\hline 
 Dendritic Filter time constant& $\tau_{\ANFGLG}$ &    [0,20] ms   & 5.01\\\hline 
@@ -203,6 +220,7 @@ Dendritic Filter time constant& $\tau_{\ANFGLG}$ &    [0,20] ms   & 5.01\\\hline
 % \caption{Optimisation Results for Golgi Model using Rate Level data
 %   from }\label{Ch3:fig:GolgiRL}
 
+\clearpage
 \subsection{Results}
 Fig. 4: Golgi model (Green) and spike based output (Pink) was used to
 fit the experimental data of unit S03-07 (CF 21~kHz) from
@@ -335,5 +353,5 @@ monotonic with a high threshold.
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: "SimpleResponses"
-%%% TeX-PDF-mode: t
+%%% TeX-PDF-mode: nil
 %%% End: 

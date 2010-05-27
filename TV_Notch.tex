@@ -1,11 +1,11 @@
 
 \graphicspath{{/media/data/Work/cnstellate/TV_notch/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/}{/media/data/Work/thesis/ans2010/gfx/}}
-
-\section{Tuberculo-ventral cell model: Asymmetric broadband inhibition }
+\newpage
+\section[TV Cell Model]{Tuberculo-ventral cell model: Asymmetric broadband inhibition }
+\label{sec:tv-cell-model}
 % - A ------------------------------------------------------------------------------
 
 \subsection{Background}
-
 
 Tuberculoventral (TV) cells are glycinergic, inhibitory cells found in
 the deep layers of the DCN that send axon collaterals to the VCN. They
@@ -26,9 +26,7 @@ cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
 
 \subsection{Implementation}
 
-
-\noindent
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline
 \textbf{Populations}     & Five: HSR \& LSR ANFs, Golgi, DS, and TV cells \\\hline
 \textbf{Topology}        & Tono-topicity of the rat AN and CN \\\hline
@@ -60,12 +58,12 @@ Tuberculo-ventral cell \begin{itemize}
 
 \noindent\begin{tabularx}{\textwidth}{|l|l|X|}\hline
 \hdr{3}{B}{Populations}\\\hline
-\textbf{Name} &            \textbf{Elements}            & \textbf{Size} \\\hline
-     HSR      &            Poisson generator            & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
-     LSR      &            Poisson generator            & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
-     GLG      &            Poisson generator            & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
-     DS       & Single-Compartment H-H model (type I-II)& $N_{\text{DS}}= 1$ per freq\. channel \\\hline
-     TV       & Single-Compartment H-H model (type I-c) & $N_{\text{TV}}= 1$ at CF=XXX kHz (channel 50)\\\hline
+\textbf{Name} &    \textbf{Elements}    & \textbf{Size} \\\hline
+     HSR      &    Poisson generator    & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
+     LSR      &    Poisson generator    & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
+     GLG      &    Poisson generator    & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
+     DS       &   Type I-II RM model    & $N_{\text{DS}}= 1$ per freq\. channel \\\hline
+     TV       & Type I-classic RM model & $N_{\text{TV}}= 1$ per freq\. channel\\\hline
 \end{tabularx}
 
 \vspace{2ex}
@@ -116,7 +114,7 @@ Tuberculo-ventral cell \begin{itemize}
 
 \noindent
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{B}{Input/Ouput}\\\hline
+\hdr{2}{E}{Input/Ouput}\\\hline
 \textbf{Input Stimulus}  & Notch-noise (Stop-band filtered white noise)  \\\hline
 %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}
 %\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps}
@@ -131,48 +129,63 @@ Tuberculo-ventral cell \begin{itemize}
 \end{tabularx}
 \vspace{2ex}
 
-\noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{0.95\textwidth}
-\hdr{2}{C}{Optimisation} \\ \hline
-\textbf{Type}       & Principle-axis method \\\hline
-\textbf{Parameters}   & \\\hline
-Syn.~weight \DSTV & $\wDSTV \quad\to\quad [0.00001,0.05]\quad\mu{\rm S}$ \\\hline
-Syn.~weight ANF to DS       & $\wANFTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
-No.~LSR to DS       & $\nLSRTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
-No.~HSR to DS       & $\nHSRTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
-Spread of \DSTV       & $\sDSTV \quad\to\quad [0,5] \quad {\rm Channels}$\\\hline
-Offset \DSTV       & $\oDSTV \quad\to\quad [0,5] \quad {\rm Channels}$\\\hline
+% \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{0.95\textwidth}
+% \hdr{2}{F}{Optimisation} \\ \hline
+% \textbf{Type}       & Principle-axis method \\\hline
+% \textbf{Parameters}   & \\\hline
+% Syn.~weight \DSTV & $\wDSTV \quad\to\quad [0.00001,0.05]\quad\mu{\rm S}$ \\\hline
+% Syn.~weight ANF to DS       & $\wANFTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
+% No.~LSR to DS       & $\nLSRTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
+% No.~HSR to DS       & $\nHSRTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
+% Spread of \DSTV       & $\sDSTV \quad\to\quad [0,5] \quad {\rm Channels}$\\\hline
+% Offset \DSTV       & $\oDSTV \quad\to\quad [0,5] \quad {\rm Channels}$\\\hline
 %  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
 %   \textbf{Function}     & Weighted mean squared error see listing below  \\ \hline
-\end{tabularx}
+%\end{tabularx}
 % D-----------------------------------
 
-\vspace{2ex}
-
-\noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{0.95\textwidth}
-\hdr{2}{D}{Results} \\\hline %\multicolumn{2}{|X|}{\includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}}\\%\multicolumn{2}{|X|}{Experimental Data of a single Type-II DCN unit \citep{ReissYoung:2005}, Fig.~9.}\\\hline
-\multicolumn{2}{|c|}{\turnbox{90}{\small{Rate (sp/s)}}%
-\begin{minipage}[c]{0.95\textwidth}
-\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_10_0.5.eps}%
-\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_12.5_0.5.eps}\\
-\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_10_0.5.eps}%
-\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_12.5_0.5.eps}\\
-\centering\small{Freq. Channel}\end{minipage}}\\
-\multicolumn{2}{|X|}{Fig. 7: AN (top) and CN rate-place profiles from the CN stellate model in response to half and 1 octave notch noise inputs. }\\\hline
-\textbf{Best Parameters} & {\begin{minipage}[c]{0.6\textwidth}\vspace{1ex}
-$\wDSTV=0.0029 \quad\mu{\rm S}$ \\
-$\wANFTV=0.00017 \quad\mu{\rm S}$ \\
-$\nHSRTV=8 \quad \mu{\rm S}$\\
-$\nLSRTV=14 \quad \mu{\rm S}$\\
-$\sDSTV=2.1$ \\
-$\oDSTV=0.24$ \\
-\end{minipage}}\\\hline
-\textbf{Error} & 0.0167  (MSE Normalised rate between 5-40kHz channels)\\\hline
+\begin{tabularx}{\linewidth}{Xccc}
+\hdr{4}{F}{Optimisation} \\ \hline
+     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
+Weight of DS syn on TV                           &       \wDSTV        &  [0.01,50] nS  & 0.0029 $\mu$S\\
+Weight of ANF syn on TV                          &       \wANFTV       &  [0.01,50] nS  & 0.00017 $\mu$S\\
+No.~LSR to TV                                    &       \nLSRTV       &     [0,64]     & 8           \\
+No.~HSR to TV                                    &       \nHSRTV       &     [0,64]     & 14          \\
+Spread of DS connections onto TV                 &       \sDSTV        &     [0,10]     & 2.1         \\
+Offset of DS connections onto TV &       \oDSTV        &     [0,10]     & 0.24        \\
 \end{tabularx}
+
+
+\clearpage
+\subsection{Results} 
+
+\begin{figure}[htb]
+  \centering
+\includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
+\caption{Experimental Data of a single Type-II DCN unit \citep{ReissYoung:2005}, Fig.~9.}
+  \label{fig:TVReissFig9}
+\end{figure}
+
+
+\begin{figure}[tbh]
+  \centering
+%\resizebox{5in}{!}{
+\turnbox{90}{\small{Rate (sp/s)}}%
+\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_10_0.5.eps}\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_12.5_0.5.eps}\\
+\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_10_0.5.eps}\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_12.5_0.5.eps}
+%\small{Freq\. Channel}
+%}
+\caption{AN (top) and CN rate-place profiles from the CN stellate
+  model in response to half and 1 octave notch noise inputs. }
+\label{fig:TVResults}
+\end{figure}
+
+
+\textbf{Error} 0.0167  (MSE Normalised rate between 5-40kHz channels)
+
 
 
 \subsection{Optimisation Results}
-
-
 
 
 % \clearpage

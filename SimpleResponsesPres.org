@@ -18,12 +18,15 @@ Cochlear Nucleus Stellate Network
        \makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{gfx/CNnetwork.jpg}}
 #+end_LaTeX
     
-** General methods in optimisation of neural models
-To summarise the neural models used in this optimisation, I have
-reduced the information into tabular format as suggested by
-\citet{NordlieGewaltigEtAl:2009}.
-\par
-Further implementation for ``tono-topic'' connections in auditory system 
+** 
+ Reasoning behind a detailed model of CN stellate cells
+#+begin_LaTeX
+       \makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{../figures/May2003-Fig.png}}
+#+end_LaTeX
+\citep[][Speech Comm.]{May:2003}
+
+** General methods in neural network models
+``tono-topic'' connections in auditory system 
 #+CAPTION:    Topographic connections in cochlear nucleus
 #+LABEL:      fig:CNConn
 #+ATTR_LaTeX: width=7cm
@@ -34,8 +37,11 @@ Further implementation for ``tono-topic'' connections in auditory system
 #+begin_LaTeX
 \begin{lstlisting}
 objref pvec
-pvec = new Vector()
-proc err(){ /* create error function */}
+pvec = new Vector()    //List of parameters
+...
+func err(){ /* cost function */
+...
+}
 ...
 proc runprax(){
      attr_praxis(0.0001, 0.001, 3)
@@ -100,11 +106,13 @@ Dendritic Filter time constant& $\tau_{\ANFGLG}$ &    [0,20] ms   & 5.01\\\hline
 ** Golgi Cell Model :  Results
 
 
+#+LaTeX:\makebox[0pt][l]{\includegraphics[angle=-90]{./gfx/GolgiRateLevel2}
 
 
 ** Golgi Cell Model :  Outcomes
  - Good fit of golgi model to Ghoshal and Kim data, using just the tone  rate-level.
- - dominance of LSR weight parameter over HSR weight benefits the addition of HSR despite no evidence for axons in GCD, here it adds a background effect similar to the granule cells or type-II ANFs 
+ - Dominance of LSR weight parameter over HSR weight 
+   - no evidence for HSR axons in GCD, here it adds a background effect similar to the granule cells or type-II ANFs 
 
 * D-stellate (DS) Cell Model: GABAergic effects on click recovery
 ** D Stellate Cell Model:  Experimental evidence
@@ -124,6 +132,13 @@ Physiological
  - monotonic response to tones and noise 
 
 ** D Stellate Cell Model:  Key design factors
+- counter intuitive: slow synapse controlling click recovery less than
+  the delay and time constant of the synapse => add KLT and leak
+  conductance to change Rothman and Manis CN model
+- DS-DS possible \citep{FerragamoGoldingEtAl:1998}, TV-DS possible \citep{ZhangOertel:1993b}
+- limit simulation time reduced due to golgi and Poisson models
+  providing input to single DS cell model
+
 ** D Stellate Cell Model:  Implementation
 
 - Generate AN vectors in auditory filterbank
@@ -132,14 +147,15 @@ Physiological
 
 ** D Stellate Cell Model : Optimisation Procedure
 #+begin_LaTeX
-\begin{tabularx}{\textwidth}{lcX} 
-\textbf{Parameters} &         \textbf{Range}        & \\ \hline
-      \wHSRDS       &         [0.01,50] nS          & Weight of HSR syn on DS                                                                                                                                                         \\
-      \wLSRDS       &         [0.01,50] nS          & Weight of LSR syn on DS                                                                                                                                                         \\
-  $\tau_{GABA1}$    &        [0.01,10.0] ms         & \GABAa synapse rise constant                                                                                                                                                   \\
-  $\tau_{GABA2}$    &         [0.1,50.0] ms         & \GABAa synapse decay constant                                                                                                                                                   \\
- $\bar{g}_{leak}$   & [0.01,50] $\mu{\rm Scm}^{-2}$ & DS cell leak conductance                                                                                                                                                        \\
-\end{tabularx}
+\begin{tabularx}{\textwidth}{XXXX} 
+\textbf{Parameters} &        \textbf{Range}         & \\ \hline
+     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
+Weight of HSR syn on DS       &        \wHSRDS       &         [0.01,50] nS          &$0.532 \quad{\rm nS}$ \\          
+Weight of LSR syn on DS       &        \wLSRDS       &         [0.01,50] nS          &$0.16 \quad{\rm nS}$\\            
+\GABAa synapse rise constant  &    $\tau_{GABA1}$    &        [0.01,10.0] ms         &$13.1 \quad{\rm nS}$\\            
+\GABAa synapse decay constant &    $\tau_{GABA2}$    &         [0.1,50.0] ms         &$5.432 \quad{\rm ms}$\\           
+DS cell leak conductance      &   $\bar{g}_{leak}$   & [0.01,50] $\mu{\rm Scm}^{-2}$ &$0.262 \quad{\rm ms}$\\           
+\end{tabularx}									      $0.0163 \quad\mathrm{Scm}^{-2}$\\ 
 \begin{tabularx}{\textwidth}{lcX} 
 \textbf{Fixed Parameters} & \textbf{Value}& \\ \hline
          \nGLGDS          &            25             & Number of GABA syn on DS cells                                                                                                                                                  \\
@@ -152,28 +168,16 @@ Physiological
 *Fitting Data*: 
  - Click recovery data from \citep{BackoffPalombiEtAl:1997}
 *Optimisation*:
- - Pass 5 double clicks with recovery periods
-  (2,3,4,8,16 ms) through model.  
- - Measure DS response for 2ms.  Calc mean squared error between ratio of recovery response (Weighting required)
+ - Mask/Recovery clicks with recovery periods (2,3,4,8,16 ms)  
+ - Measure DS cell recovery response for 2ms 
+ - Calc mean squared error normalised to masking response
+ - Huristics: Weighting required to ensure short periods recovered
 
 ** D Stellate Cell Model:  Results
 
 #+LaTeX:\includegraphics[keepaspectratio=true,angle=-90,width=0.9\textwidth]{./gfx/DS_ClickRecovery_result}
    
 ** D Stellate Cell Model:  Results
-   
-*Best Parameters*
-#+begin_LaTeX
-\begin{tabularx}{0.95\textwidth}{lX}
-    \wGLGDS      & $0.532 \quad{\rm nS}$ \\
-    \wHSRDS      & $0.16 \quad{\rm nS}$\\
-    \wLSRDS      & $13.1 \quad{\rm nS}$\\
- $\tau_{GABA2}$  & $5.432 \quad{\rm ms}$\\
- $\tau_{GABA1}$  & $0.262 \quad{\rm ms}$\\
-$\bar{g}_{leak}$ & $0.0163 \quad\mathrm{Scm}^{-2}$\\
-\end{tabularx}
-#+end_LaTeX
-
 *Error*  
  - 0.006671    unweighted (MSE of recovery spike rate / mask rate)
  - 0.01447    final result (MSE of recovery spike rate / mask rate)
@@ -199,6 +203,12 @@ Physiological \citep{Rhode:1999,SpirouDavisEtAl:1999}
  - asymmetric response to notch noise \citep{ReissYoung:2005}
 
 ** Tuberculoventral Cell Model:  Key design factors
+
+Notch noise stimulus => need more TV cells across frequency
+input SPL and weight of excitation affect spiking output
+Rat model (no TS-TV) but has been shown in other small mammals
+ 
+
 ** Tuberculoventral Cell Model:  Implementation
  - Generate AN vectors in auditory filterbank
  - Create Golgi vectors from AN vectors
@@ -207,14 +217,14 @@ Physiological \citep{Rhode:1999,SpirouDavisEtAl:1999}
 
 ** Tuberculoventral Cell Model:  Optimisation Procedure
 #+begin_LaTeX
-\begin{tabularx}{\linewidth}{lcX}
-\textbf{Parameters} & \textbf{Range} & \\ \hline
-      \wDSTV        &  [0.01,50] nS  & Weight of DS syn on TV                           \\
-      \wANFTV       &  [0.01,50] nS  & Weight of ANF syn on TV                          \\
-      \nLSRTV       &     [0,64]     & No.~LSR to TV                                    \\
-      \nHSRTV       &     [0,64]     & No.~HSR to TV                                    \\
-      \sDSTV        &     [1,10]     & Spread of DS connections onto TV                 \\
-      \oDSTV        &     [0,10]     & Offset of center point of DS connections onto TV \\
+\begin{tabularx}{\linewidth}{XXXX}
+     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
+Weight of DS syn on TV                           &       \wDSTV        &  [0.01,50] nS  & 0.0029 $\mu$S\\
+Weight of ANF syn on TV                          &       \wANFTV       &  [0.01,50] nS  & 0.00017 $\mu$S\\
+No.~LSR to TV                                    &       \nLSRTV       &     [0,64]     & 8           \\
+No.~HSR to TV                                    &       \nHSRTV       &     [0,64]     & 14          \\
+Spread of DS connections onto TV                 &       \sDSTV        &     [0,10]     & 2.1         \\
+Offset of DS connections onto TV &       \oDSTV        &     [0,10]     & 0.24        \\
 \end{tabularx}
 #+end_LaTeX
 
@@ -236,31 +246,24 @@ Physiological \citep{Rhode:1999,SpirouDavisEtAl:1999}
 # #+LaTeX:\includegraphics[keepaspectratio=true,clip,width=0.9\textwidth]{./gfx/CN_rateplace_10_05.pdf}
  
 ** Tuberculoventral Cell Model:  Results
-*Best Parameters*
-#+begin_LaTeX
-\begin{tabularx}{0.5\textwidth}{lXX}
-\wDSTV  & 0.0029 $\mu$S\\
-\wANFTV & 0.00017 $\mu$S \\
-\nHSRTV & 8  \\
-\nLSRTV & 14  \\
-\sDSTV  & 2.1 \\
-\oDSTV  & 0.24 \\
-\end{tabularx}
-#+end_LaTeX
 
 *Error*  0.0167  (MSE Normalised rate between 5-40kHz channels)
  - only one run before ANS, needs more verification 
 
 ** Tuberculoventral Cell Model:  Outcomes
- - Parallel simulation of CN model
+ - Parallel simulation of full network CN model
+ - 
 
 * Bibliography
 
-#+BIBLIOGRAPHY: ../manuscript/bib/MyBib plainnat option:-d
+ #+BIBLIOGRAPHY: ../manuscript/bib/MyBib plainnat 
+
+# option:-d
+
 # #+begin_LaTeX
-#  \bibliographystyle{plainnat}
-#  \bibliography{../manuscript/bib/MyBib}
-# #+bend_LaTeX
+#  \bibliographystyle{plainnatt}
+#  \bibliography{../manuscript/bib/MyBibt}
+# #+end_LaTeX
 
 
 ## Some Hints
