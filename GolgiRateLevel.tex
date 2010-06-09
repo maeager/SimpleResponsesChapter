@@ -1,7 +1,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{/media/data/Work/cnstellate/golgi_RateLevel/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/Responses/}}
+\graphicspath{{/media/data/Work/cnstellate/golgi/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/Responses/}{../figures/}{./gfx/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[Golgi Cell Model]{Golgi Cell Model: Optimisation using
@@ -11,31 +11,56 @@
 % the work of Liberman, Greewood, Patterson, Young, Sachs and others,
 % in acoustic \it{in vivo} experiments.
 
+\subsection{Golgi Cell Literature}
 
-The source of GABAergic inputs to cells in the mammalian CN is somewhat
-contentious. Despite studies showing that GABAergic inputs to the CN generally
-arise in the peri-olivary regions of the medulla in cats
-\citep{OstapoffBensonEtAl:1997} and birds
-\citep{LachicaRubsamenEtAl:1995,YangMonsivaisEtAl:1999}, slice preparations of
-the isolated murine VCN have shown sensitivity to bicuculine in TS and DS cells
-\citep{FerragamoGoldingEtAl:1998a}.  The only known source of GABA intrinsic
-to the VCN are the golgi cells of the granule cell domain (GCD) overlying the
-VCN
-\citep[Fig.~\ref{fig:CNdiagram}]{Mugnaini:1985,FerragamoGoldingEtAl:1998}. The
-presence of GABAergic inputs to TS, DS and TV cells has been verified by
-labeled terminals adjacent to the soma and dendrites
-\citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003} and
-release from inhibition in their response areas with ionotopopheretic
-application of the GABA antagonist, bicuculine
+The source of GABAergic inputs to cells in the mammalian CN is
+somewhat contentious. Despite studies showing that GABAergic inputs to
+the CN generally arise in the peri-olivary regions of the medulla in
+cats \citep{OstapoffBensonEtAl:1997} and birds
+\citep{LachicaRubsamenEtAl:1995,YangMonsivaisEtAl:1999}, slice
+preparations of the isolated murine VCN have shown sensitivity to
+bicuculine in TS and DS cells \citep{FerragamoGoldingEtAl:1998a}.  The
+only known source of GABA intrinsic to the VCN are the golgi cells of
+the granule cell domain (GCD) overlying the VCN
+\citep[Fig.~\ref{fig:CNdiagram}]{Mugnaini:1985,FerragamoGoldingEtAl:1998}.
+The presence of GABAergic inputs to TS, DS and TV cells has been
+verified by labeled terminals adjacent to the soma and dendrites
+\citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003}
+and release from inhibition in their response areas with
+ionotopopheretic application of the GABA antagonist, bicuculine
 \citep{EvansZhao:1998,CasparyBackoffEtAl:1994,BackoffShadduckEtAl:1999,FerragamoGoldingEtAl:1998a}.
 
+Other studies in the rat cochlear nucleus relating to the Golgi cell or GABA:
+\begin{itemize}
+\item \citep{MugnainiOsenEtAl:1980} Fine structure of granule cells
+  and related interneurons (termed {Golgi} cells) in the cochlear
+  nuclear complex of cat, rat and mouse
+\item GABAa expression in the rat brainstem  \citep{CamposCaboEtAl:2001}
+\item \citep{Alibardi:2003a} Ultrastructural distribution of
+  glycinergic and {{GABAergic}} neurons and axon terminals in the rat
+  dorsal cochlear nucleus, with emphasis on granule cell areas
+\item \citep{AwatramaniTurecekEtAl:2005} Staggered {Development} of
+  {GABAergic} and {Glycinergic} {Transmission} in the {MNTB}
+\end{itemize}
 
-Inputs to golgi cells are more complicated than VCN cells in the core regions. Golgi
-cells are sparse in the GCD, surrounded by the many, smaller excitatory
-granule cells, that form small en passant endings . Type II ANFs create diffuse glutamatergic release sites
-in the GCD \citep{HurdHutsonEtAl:1999,BensonBrown:2004} that may
-stimulate NMDA glutamate receptors in golgi cells \citep{FerragamoGoldingEtAl:1998a}. 
+Role of GABA in the VCN
+\begin{itemize}
+\item Effects of microiontophoretically applied glycine and {GABA} on
+  neuronal response patterns in the cochlear nuclei
+  \citep{CasparyHaveyEtAl:1979}
+\end{itemize}
 
+\citep{Alibardi:2003a} rat CN complex -> Golgi-stellate cells
+(fusiform layer: 2) in DCN contact granule and unipolar brush cells
+
+
+Inputs to golgi cells are more complicated than VCN cells in the core
+regions. Golgi cells are sparse in the GCD, surrounded by the many,
+smaller excitatory granule cells, that form small en passant
+endings. Type II ANFs create diffuse glutamatergic release sites in
+the GCD \citep{HurdHutsonEtAl:1999,BensonBrown:2004} that may
+stimulate NMDA glutamate receptors in golgi cells
+\citep{FerragamoGoldingEtAl:1998a}.
 
 
 Extracellular recordings from the GCD by \citet{GhoshalKim:1997}, are most likely from golgi
@@ -71,6 +96,13 @@ responses to tones and noise.
 % the GCD, albeit more profusely than in the core on the VCN.
    
 
+\begin{figure}[htb]
+  \centering
+\resizebox{0.8\textwidth}{!}{\includegraphics{NoFigure}}
+%  \resizebox{0.8\textwidth}{!}{\includegraphics{GhoshalKim}}
+\caption{Rate level response of unit S03-07 (CF 21~kHz) from Fig2
+  \citep{GhoshalKim:1997} }
+\end{figure}
 
 
 \newpage
@@ -86,12 +118,12 @@ responses of Golgi cells down to:\begin{itemize}\setlength{\itemsep}{-1em}
 \item delay from ANFs of approx. 0.7~ms relative to the core VCN units.
 \end{itemize}
 
-In Chapter \ref{sec:GAChapter} and previous publications \citep{EagerGraydenEtAl:2006a}
+In Chapter~\ref{sec:GAChapter} and previous publications \citep{EagerGraydenEtAl:2006a}
 
 
 Monotonic rate-level data from GCD in VCN \citep{GhoshalKim:1996} unit S03-07
 (CF 21~kHz) was used to optimise parameters ${\rm golgi\_spon}$, \wLSRGLG,
-\wHSRGLG, and  \sANFGLG.  The optimisation method was a default  using the principle-axis method.
+\wHSRGLG, and  \sANFGLG\@.  The optimisation method was a default  using the principle-axis method.
 
 
 To summarise the neural model used in this optimisation, I have
@@ -107,7 +139,7 @@ due to its replication of granule cells in the model. weight for LSR \wLSRGLG an
  - Problem of monotonic excitation at low level
   - added HSR to model to avoid added computation of MSR
  - Spread of ANF to GCD ARE broader than core VCN
-#  - are we spoiling the broth too early? 
+  - are we spoiling the broth too early? 
 
 
 \begin{figure}[hp!]
@@ -130,7 +162,7 @@ due to its replication of granule cells in the model. weight for LSR \wLSRGLG an
 & Golgi: instantaneous-rate Poisson model developed from ANF inputs\\\hline
 \textbf{Channel models} & --- \\\hline 
 \textbf{Synapse model}  & alpha function smoothing kernel \\\hline
-\textbf{Input}      & 21 kHz tone (50 ms, 5 ms on/off ramp, 20 ms delay) at various sound levels  \\\hline
+\textbf{Input}      & Pure tones (21 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), 0-100 dB SPL  \\\hline
  \textbf{Measurements}  & Mean rate, spike activity \\\hline
 \end{tabularx}
 
@@ -138,9 +170,9 @@ due to its replication of granule cells in the model. weight for LSR \wLSRGLG an
 \noindent\begin{tabularx}{\linewidth}{|l|X|X|}\hline %{\linewidth}
 \hdr{3}{B}{Populations}\\\hline
   \textbf{Name}   & \textbf{Elements} & \textbf{Number} \\\hline
-    HSR     & Zilany \& Bruce model        & $N_{\text{HSR}} = 50$ per freq. channel \\\hline
-    LSR     & Zilany \& Bruce model        & $N_{\text{LSR}}= 20$  per freq. channel \\\hline
-    GLG     & Instantaneous rate Poisson model, spike-generator with refractory effects & $N_{\text{GLG}}= 1$  per freq. channel  \\\hline
+    HSR     & \citeauthor{ZilanyBruceEtAl:2009}  model        & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
+    LSR     & \citeauthor{ZilanyBruceEtAl:2009} model        & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
+    GLG     & Instantaneous rate Poisson model, spike-generator with refractory effects & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -158,7 +190,7 @@ due to its replication of granule cells in the model. weight for LSR \wLSRGLG an
 \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
             \textbf{Name}             & Golgi Phenomenological Model \\\hline
-            \textbf{Type}             & Poisson instantaneous-rate model, ANF inst. rate input\\\hline
+            \textbf{Type}             & Poisson instantaneous-rate model, ANF instantaneous rate input\\\hline
 \multirow{4}{*}{\textbf{Golgi Model}} & $\mathbf{w}_{LSR} = N(\textrm{CF channel},\sLSRGLG)$,  $\mathbf{w}_{HSR} = N(\textrm{CF channel},\sHSRGLG)$  \\ 
                                       & $w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1]$ \\
                                       & $\mathbf{g}_i = \sum^{i} w_{LSR}(i)\mathbf{L}_i + w_{HSR}(i)\mathbf{H}_i$ \\
@@ -227,18 +259,12 @@ fit the experimental data of unit S03-07 (CF 21~kHz) from
 \citep{GhoshalKim:1996} (Red).  LSR mean rate (Blue) of 21~kHz unit is
 monotonic with a high threshold.
 
-\begin{figure}[htb]
-  \centering
-  \resizebox{0.8\textwidth}{!}{\includegraphics{./gfx/GhoshalKim}}
-\caption{Rate level response of unit S03-07 (CF 21~kHz) from Fig2
-  \citep{GhoshalKim:1997} }
-\end{figure}
 
 
 \begin{figure}[htb]
   \centering \turnbox{90}{\small{Rate (sp/s)}}
-  \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{./gfx/GolgiRateLevel2}}\\
-  \caption{ Rate Level (dB SPL)}
+%  \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{GolgiRateLevel2}}\\
+  \caption{Rate Level (dB SPL)}
 \end{figure}
 
 
@@ -247,85 +273,85 @@ monotonic with a high threshold.
 
 
 % \clearpage \newpage
-% \section{Verification}
-% \subsection{Tone Response}
+\section{Verification}
+\subsection{Tone Response}
 
-% \begin{figure}[h]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     \includegraphics{RateLevel/psthsingle90.3.eps}%
-%     \includegraphics{RateLevel/G_ratelevel.eps}}
-% \end{figure}
-% \begin{figure}[h]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     \includegraphics{RateLevel/response_area.3.eps}%
-%     \includegraphics{RateLevel/response_area_log2.3.eps}}
-% \end{figure}
-% \begin{figure}[h]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     % \includegraphics{RateLevel/response_area.3.eps}
-%     \includegraphics{RateLevel/psthall90.3.eps}%
-%     \includegraphics{RateLevel/psthVlevel.3.eps}}
-% \end{figure}
-
-
-
-% \clearpage
-% \subsection{Noise Response}
-% \begin{figure}[h]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     \includegraphics{NoiseRateLevel/psthsingle120.3.eps}%
-%     \includegraphics{NoiseRateLevel/G_ratelevel.eps}}
-% \end{figure}
-% \begin{figure}[h]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     \includegraphics{NoiseRateLevel/response_area.3.eps}%
-%     \includegraphics{NoiseRateLevel/response_area_log2.3.eps}}
-% \end{figure}
-% \begin{figure}[h]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     % \includegraphics{RateLevel/response_area.3.eps}
-%     \includegraphics{NoiseRateLevel/psthall90.3.eps}%
-%     \includegraphics{NoiseRateLevel/psthVlevel.3.eps}}
-% \end{figure}
+\begin{figure}[h]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    \includegraphics{RateLevel/psthsingle90.3.eps}%
+    \includegraphics{RateLevel/G_ratelevel.eps}}
+\end{figure}
+\begin{figure}[h]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    \includegraphics{RateLevel/response_area.3.eps}%
+    \includegraphics{RateLevel/response_area_log2.3.eps}}
+\end{figure}
+\begin{figure}[h]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    % \includegraphics{RateLevel/response_area.3.eps}
+    \includegraphics{RateLevel/psthall90.3.eps}%
+    \includegraphics{RateLevel/psthVlevel.3.eps}}
+\end{figure}
 
 
-% \clearpage
-% \subsection{Masked Noise and Tone}
-% \begin{figure}[h!]
-%   \centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.3.eps}\includegraphics{MaskedRateLevel/G_ratelevel.eps}}
-% \end{figure}
-% \begin{figure}[h!]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     \includegraphics{MaskedRateLevel/response_area.3.eps}%
-%     \includegraphics{MaskedRateLevel/response_area_log2.3.eps}}
-% \end{figure}
 
-% \begin{figure}[h!]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     % \includegraphics{RateLevel/response_area.3.eps}
-%     \includegraphics{MaskedRateLevel/psthall90.3.eps}%
-%     \includegraphics{MaskedRateLevel/psthVlevel.3.eps}}
-% \end{figure}
-% \clearpage
-% \subsection{Masked Response Area}
-% \begin{figure}[h!]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     \includegraphics{MaskedResponseCurve/psthsingle5810.3.eps}%
-%     \includegraphics{MaskedResponseCurve/G_masked.eps}}
-% \end{figure}
-% \begin{figure}[h!]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     \includegraphics{MaskedResponseCurve/response_area.3.eps}%
-%     \includegraphics{MaskedResponseCurve/response_area_log2log2.3.eps}}
-% \end{figure}
+\clearpage
+\subsection{Noise Response}
+\begin{figure}[h]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    \includegraphics{NoiseRateLevel/psthsingle120.3.eps}%
+    \includegraphics{NoiseRateLevel/G_ratelevel.eps}}
+\end{figure}
+\begin{figure}[h]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    \includegraphics{NoiseRateLevel/response_area.3.eps}%
+    \includegraphics{NoiseRateLevel/response_area_log2.3.eps}}
+\end{figure}
+\begin{figure}[h]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    % \includegraphics{RateLevel/response_area.3.eps}
+    \includegraphics{NoiseRateLevel/psthall90.3.eps}%
+    \includegraphics{NoiseRateLevel/psthVlevel.3.eps}}
+\end{figure}
 
-% \begin{figure}[h!]
-%   \centering\resizebox{0.95\textwidth}{!}{%
-%     % \includegraphics{RateLevel/response_area.3.eps}
-%     \includegraphics{MaskedResponseCurve/psthall5810.3.eps}%
-%     \includegraphics{MaskedResponseCurve/psthVmod.3.eps}}
-% \end{figure}
-% \clearpage
+
+\clearpage
+\subsection{Masked Noise and Tone}
+\begin{figure}[h!]
+  \centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.3.eps}\includegraphics{MaskedRateLevel/G_ratelevel.eps}}
+\end{figure}
+\begin{figure}[h!]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    \includegraphics{MaskedRateLevel/response_area.3.eps}%
+    \includegraphics{MaskedRateLevel/response_area_log2.3.eps}}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    % \includegraphics{RateLevel/response_area.3.eps}
+    \includegraphics{MaskedRateLevel/psthall90.3.eps}%
+    \includegraphics{MaskedRateLevel/psthVlevel.3.eps}}
+\end{figure}
+\clearpage
+\subsection{Masked Response Area}
+\begin{figure}[h!]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    \includegraphics{MaskedResponseCurve/psthsingle5810.3.eps}%
+    \includegraphics{MaskedResponseCurve/G_masked.eps}}
+\end{figure}
+\begin{figure}[h!]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    \includegraphics{MaskedResponseCurve/response_area.3.eps}%
+    \includegraphics{MaskedResponseCurve/response_area_log2log2.3.eps}}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering\resizebox{0.95\textwidth}{!}{%
+    % \includegraphics{RateLevel/response_area.3.eps}
+    \includegraphics{MaskedResponseCurve/psthall5810.3.eps}%
+    \includegraphics{MaskedResponseCurve/psthVmod.3.eps}}
+\end{figure}
+\clearpage
 
 
 % \todo{add stuff here}

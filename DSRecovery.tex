@@ -56,7 +56,7 @@ octaves below CF to one octave above CF
 the inhibitory neurotransmitter glycine and synapse widely in the VCN and DCN.
 They also send a commissural projection to the contralateral cochlear nucleus
 that mediates fast inhibition between the nuclei
-\citep{NeedhamPaolini:2003,NeedhamPaolini:2006}. 
+\citep{NeedhamPaolini:2003,NeedhamPaolini:2006}.  \citep{Oertel:1997}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Post-onset GABAergic inhibition in DS cells is a major influence on the PSTH
@@ -69,6 +69,7 @@ modulation of activity in the VCN.
 
 
 
+\citep{BackoffPalombiEtAl:1997}
 
 \subsection{Implementation}
 
@@ -82,9 +83,9 @@ modulation of activity in the VCN.
 \textbf{Populations}     & ANF (HSR,LSR), Golgi, D-stellate \\\hline
 \textbf{Topology}        & Tonotopic,  Auditory system of the rat  \\\hline
 \textbf{Connectivity}    & Gaussian spread dependent on morphology and afferent connections  \\\hline
-\textbf{Auditory model}  & \citep{ZilanyBruce:2008} ANF phenomenological instantaneous-rate Poisson spike trains\\\hline
-\multirow{2}{*}{\textbf{Neuron model}}    & Golgi: instantaneous-rate Poisson spike trains
-&D-stellate: HH-like single-compartment model (Type I-II RM model)
+\textbf{Input model}  &  ANF phenomenological instantaneous-rate Poisson spike trains\citep{ZilanyBruce:2008}\\\hline
+\multirow{2}{*}{\textbf{Neuron model}}    & Golgi: instantaneous-rate Poisson spike trains\\
+&D-stellate: HH-like single-compartment model (Type 1-2 RM model)\\
 \textbf{Channel models}  & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
 \textbf{Synapse model}   & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
 \textbf{Input Stimulus}  & Mask/Recovery click trains with delay 2, 3, 4 and 8
@@ -221,15 +222,23 @@ DS Ouput \hspace{2in} Golgi Output
 % }
 % \end{lstlisting}
 
+
+
+
+
+
+
+
+
 \begin{tabularx}{\textwidth}{XXXX} 
-\textbf{Parameters} &        \textbf{Range}         & \\ \hline
-     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
-Weight of HSR syn on DS       &        \wHSRDS       &         [0.01,50] nS          &$0.532 \quad{\rm nS}$ \\          
-Weight of LSR syn on DS       &        \wLSRDS       &         [0.01,50] nS          &$0.16 \quad{\rm nS}$\\            
-\GABAa synapse rise constant  &    $\tau_{GABA1}$    &        [0.01,10.0] ms         &$13.1 \quad{\rm nS}$\\            
-\GABAa synapse decay constant &    $\tau_{GABA2}$    &         [0.1,50.0] ms         &$5.432 \quad{\rm ms}$\\           
-DS cell leak conductance      &   $\bar{g}_{leak}$   & [0.01,50] $\mu{\rm Scm}^{-2}$ &$0.262 \quad{\rm ms}$\\           
-\end{tabularx}									      $0.0163 \quad\mathrm{Scm}^{-2}$\\ 
+     \textbf{Parameters}      &  \textbf{Name}   &        \textbf{Range}         & \textbf{Best Values} \\\hline 
+     Weight of GLG on DS      &     \wGLGDS      &         [0.01,50] nS          & $0.532 \quad{\rm nS}$ \\	       
+   Weight of HSR syn on DS    &     \wHSRDS      &          [0.01,50] nS         & $0.16 \quad{\rm nS}$\\      
+   Weight of LSR syn on DS    &     \wLSRDS      &          [0.01,50] nS         & $13.1 \quad{\rm nS}$\\       
+\GABAa synapse rise constant  &  $\tau_{GABA1}$  &         [0.01,10.0] ms        & $5.432 \quad{\rm ms}$\\       
+\GABAa synapse decay constant &  $\tau_{GABA2}$  &         [0.1,50.0] ms         & $0.262 \quad{\rm ms}$\\      
+  DS cell leak conductance    & $\bar{g}_{leak}$ & [0.01,50] $\mu{\rm Scm}^{-2}$ & $0.0163 \quad\mathrm{Scm}^{-2}$\\
+\end{tabularx}									      
 
 \begin{tabularx}{\textwidth}{lcX} 
 \textbf{Fixed Parameters} & \textbf{Value}& \\ \hline

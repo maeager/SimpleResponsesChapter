@@ -1,66 +1,197 @@
 #+LaTeX_CLASS: beamer
+#+BEAMER_FRAME_LEVEL: 2
 #+MACRO: BEAMERMODE presentation
 #+MACRO: BEAMERTHEME default
-#+MACRO: BEAMERCOLORTHEME dove
+#+MACRO: BEAMERCOLORTHEME lily
 #+MACRO: BEAMERSUBJECT cochlear nucleus, neural modelling, simple optimisation
 #+MACRO: BEAMERINSTITUTE The University of Melbourne, Department of Otolaryngology, and the Bionic Ear Institute
 #+TITLE: Constructing realistic microcircuits: the Cochlear Nucleus stellate model
 #+AUTHOR: Michael A. Eager
 #+LaTeX_header:\usepackage{xspace}\input{../manuscript/glossary}
-#+LaTeX_header:\usepackage{palatino}
-#+LaTeX_header:\usepackage{mathpazo}
+#    #+  LaTeX_header:\usepackage[origletters,vara,varf,varGamma,varPi]{arev}  
+#+LaTeX_header:\usepackage{arev} %lucidabr}  %{palatino}
+#+   LaTeX_header    :\usepackage{mathpazo} % arevmath} %
 
-* Chapter 3: Simple optimisation of the cochlear nucleus stellate network
+#+BIBLIOGRAPHY: ../manuscript/bib/MyBib plainnat 
+
+* Constructing realistic microcircuits: the Cochlear Nucleus stellate model 
 ** Introduction
-Cochlear Nucleus Stellate Network
-\par
-#+begin_LaTeX
-       \makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{gfx/CNnetwork.jpg}}
+
+#+begin_LaTeX:
+\begin{columns}[c]
+\column{2.5in}
+\small{Information bottleneck at Auditory Nerve\\
+{}\\
+Cochlear Nucleus\\
+    Ventral (Antero/Postero)\\
+    Dorsal (Cerebellum features) \\
+    Outer shell\\
+{}\\
+Six pathways leading out of the Coclear Nucleus\\
+}
+\column{2.5in}
+\framebox{\includegraphics[width=2.25in,keepaspectratio]{gfx/Cat_Human_CN.jpg}}
+\end{columns}
 #+end_LaTeX
-    
-** 
- Reasoning behind a detailed model of CN stellate cells
-#+begin_LaTeX
-       \makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{../figures/May2003-Fig.png}}
+
+** Cochlear Nucleus Stellate Network
+
+# #+CAPTION:    
+# #+LABEL:      fig:EagerCN
+# #+ATTR_LaTeX: width=\columnwidth
+#    [[./gfx/CNnetwork.jpg]]
+ 
+
+#+begin_LaTeX 
+\makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{gfx/CNnetwork.jpg}}
 #+end_LaTeX
-\citep[][Speech Comm.]{May:2003}
+   
+** Unique Features in VCN
+   What makes Chopper units so Robust ?
+   - Neural Processing in Chopper dependent on microcircuit or cell properties
+   - Spectral and Temporal effects seen in speech
+
+#  #+CAPTION:    Spectral processing in the cochlear nucleus \small{\citep[][Speech Comm.]{May:2003}}
+#  #+LABEL:      fig:May
+#  #+ATTR_LaTeX: width=0.8\textwidth
+# [[../figures/May2003-Fig.png]]
+
+#+begin_LaTeX
+\makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{../figures/May2003-Fig.png}}
+#+end_LaTeX
+
+\small{\citep[][Speech Comm.]{May:2003}}
+
+** Unique Features in VCN
+
+   D-stellate (DS) cells
+   - Glycinergic, wide dendrites, coincidence detector 
+     - resetting active K channels, enhancing/tuning TS & TV at high SPL
+   Tuberculo-ventral (TV) 
+   - narrow filter with delay 
+     - tuning at low SPL, echo suppression
+   Golgi Cells
+   - GABAergic inter-neuron in outer CN shell 
+     - regulate excitation, Automatic Gain Control
+
+** Unique Features in VCN
+   
+ Potassium and Hyper-polarising Current Channels
+
+#+begin_LaTeX:
+\includegraphics[width=0.5\columnwidth,clip,trim=0 0 0 3mm]{./gfx/RothmanManisDynamics.pdf}
+#+end_LaTeX
+
+\small{\citep[J~Neurophysiol]{RothmanManis:2003a}}
+
+
+
+
+* The Problem of Parameters 
+
+** Optimisation of Neural Networks
+
+*** Realistic neural networks
+    - Large parameter space 
+      - Cell-based: size, morphology
+      - Current channels: density, location, conductance 
+      - Network based: 
+	- Synapses: number, weight 
+        - Distribution: place-based, location on cell
+
+    - Neural Model: Poisson, I&F, Simplified HH, Hodgkin-Huxley models
+
+    - Stochastisity
+      - Input noise
+      - Synaptic noise 
+      - Indeterminate connectivity
+
+
+** Fitting Cell Types
+   
+ Intracellular behaviour unique to every cell\\
+ Fit to \citet{RothmanManis:2003a}
+#+begin_LaTeX:
+\includegraphics[width=0.7\columnwidth,clip,trim=5mm 5mm 15mm 5mm]{./gfx/IntraCellTypes.jpg}
+#+end_LaTeX
+
+#  #+CAPTION:    Rothman and Manis current-clamp in VCN
+#  #+LABEL:      fig:May
+#  #+ATTR_LaTeX: width=0.8\textheight
+# [[./gfx/RothmanManisDynamics.pdf]]
 
 ** General methods in neural network models
-``tono-topic'' connections in auditory system 
-#+CAPTION:    Topographic connections in cochlear nucleus
+   - Topographical connections between cell groups
+     - Intra-nuclei connections: Gaussian place-based
+
+#+CAPTION:    ``Tono-topic'' connections in cochlear nucleus
 #+LABEL:      fig:CNConn
-#+ATTR_LaTeX: width=7cm
+#+ATTR_LaTeX: width=0.9\textwidth
 [[./CNConn.png]]
 
-** Basics of Optimisation in NEURON
 
-#+begin_LaTeX
-\begin{lstlisting}
-objref pvec
-pvec = new Vector()    //List of parameters
-...
-func err(){ /* cost function */
-...
-}
-...
-proc runprax(){
-     attr_praxis(0.0001, 0.001, 3)
-     fit_praxis(NPARAMS,"err",&pvec.x[0])
-}
-\end{lstlisting}
-#+end_LaTeX
+
+** Basics of Optimisation
+   
+   1) Define model
+   2) Vector of Parameters
+   3) Error function that takes in parameter vector outputs fitness value
+    - Stimulus -> AN model -> Golgi -> Spike Generation
+    - Run N times (saving data i.e spikes, voltages)
+    - Process output, Calculate error relative to reference
+   4) Run Principle-Axis method
+   5) Set attributes of optimisation
+
+
+# ** Genetic Algorithms
+#    - Avoid local minima
+#    - Solution is evolved from simple building blocks
+#    - Genome \rightarrow Network Params \rightarrow Evaluation using NEURON \rightarrow Fitness
+
+
+
+# #+begin_LaTeX
+#    \begin{lstlisting}
+#    objref pvec
+#    pvec = new Vector()    //List of parameters
+#    ...
+#    func err(){ /* cost function */
+#    ...
+#    }
+#    ...
+#    proc runprax(){
+#    attr_praxis(0.0001, 0.001, 3)
+#    fit_praxis(NPARAMS,"err",&pvec.x[0])
+#    }
+#    \end{lstlisting}
+# #+end_LaTeX
 
 * Golgi Cell Model: Fitting simple model to rate level data
 ** Golgi Cell Model :  Experimental evidence
-Anatomical \citep{BensonBerglundEtAl:1996}
- - LSR fibers proj to GCD
-Morphological \citep{FerragamoGoldingEtAl:1998a}
- - small cell (12-15 micron soma), uniform dendrites and axonal collaterals 100 micron 
-Intracellular \cite{FerragamoGoldingEtAl:1998a} (mice, GCD /in vitro/)
- - type-I current clamp response
- - delay from shock to AN of 0.7 ms relative to the core VCN units.
-Physiological \citep{GhoshalKim:1997} (marginal shell, 5 units)
- - monotonic response to tones and noise 
+   Anatomical 
+   - LSR fibers project to GCD \citep{BensonBerglundEtAl:1996}
+   Morphological \citep{FerragamoGoldingEtAl:1998a}
+   - small cell (12-15 micron soma), uniform dendrites and axonal collaterals 100 micron 
+   Intracellular \cite{FerragamoGoldingEtAl:1998a} (mice, GCD /in vitro/)
+   - type-I current clamp response
+   - delay from shock to AN of 0.7 ms relative to the core VCN units.
+
+** Golgi Cell Model :  Experimental evidence
+#+begin_LaTeX   
+\begin{columns}[c]
+\column{2.5in}
+\textbf{Physiological} 
+   \begin{itemize} 
+   \item \citep{GhoshalKim:1997} (marginal shell, 5 units)
+   \item monotonic response to tones and noise 
+\end{itemize}
+\column{2.5in}
+\framebox{\includegraphics[width=0.8\columnwidth,keepaspectratio]{./gfx/GhoshalKim.png}}
+\end{columns}
+#+end_LaTeX
+
+# \small{Rate level response of unit S03-07 (CF 21~kHz) \citep[Fig.2]{GhoshalKim:1997}}
+
    
 ** Golgi Cell Model :  Key design factors
  - Choosing neural model: HH-type or Poisson
@@ -70,207 +201,251 @@ Physiological \citep{GhoshalKim:1997} (marginal shell, 5 units)
 #  - are we spoiling the broth too early? 
 
 ** Golgi Cell Model :  Implementation
- - Generate  auditory filterbank vectors (*L* and *H*) and golgi alpha function
- - Create Golgi vectors from AN vectors
-  1. For each channel, create 2 Golgi weighted vector across filterbank:\mu = channel position, \sigma = spatial spread of LSR  connections to Golgi
-  2. Create Golgi vectors by summating ANF inputs weighted by *w*   
-  3. Convolve the golgi vector with the alpha synaptic function 
-#+begin_LaTeX
-\begin{eqnarray}
- w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1] \\
-\mathbf{g}_i = \sum^{i} w_L(i)\mathbf{L}_i + w_H(i)\mathbf{H}_i \\
-\mathbf{G}_i = \mathbf{g}_i * f_{\alpha} 
-\end{eqnarray}
-#+end_LaTeX
- - Create spikes from golgi vectors using Jackson's spike generator 
+   - Generate  auditory filterbank vectors (*L* and *H*)
+   - Golgi Cell Dendritic filter: alpha function
+#    - Create Golgi vectors from AN vectors
+#     1. For each channel, create 2 Golgi weighted vector across filterbank:\mu = channel position, \sigma = spatial spread of LSR  connections to Golgi
+#     2. Create Golgi vectors by summating ANF inputs weighted by *w*   
+#     3. Convolve the golgi vector with the alpha synaptic function 
+
+# #+begin_LaTeX
+#      \begin{eqnarray}
+#      w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1] \\
+#      \mathbf{g}_i = \sum^{i} w_L(i)\mathbf{L}_i + w_H(i)\mathbf{H}_i \\
+#      \mathbf{G}_i = \mathbf{g}_i * f_{\alpha} 
+#      \end{eqnarray}
+# #+end_LaTeX
+#    - Create spikes from golgi vectors using Jackson's spike generator 
+
+# ** Golgi Cell Model: Implementation
+
+#+CAPTION:    Golgi Cell Model
+#+LABEL:      fig:Golgi
+#+ATTR_LaTeX: width=8cm trim=0 110mm 1 55mm
+   [[./gfx/GolgiDiagram.pdf]]
+  
 
 ** Golgi Cell Model :  Optimisation Procedure
 
-#+begin_LaTeX
-\noindent\begin{tabularx}{\linewidth}{|X|c|c|c|}\hline 
-     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
-   Spatial spread $\ANFGLG$     &     $\sANFGLG$     &     [0,10]     & 2.48 \\\hline 
-Dendritic Filter time constant& $\tau_{\ANFGLG}$ &    [0,20] ms   & 5.01\\\hline 
-     Weighted sum of HSR      &    $\wHSRGLG$    &      [0,5]     & 0.517 \\\hline 
-     Weighted sum of HSR      &    $\wLSRGLG$    &      [0,5]     & 0.0487\\\hline 
-      Spontaneous Rate        &  \texttt{golgi\_spon} &  [0,50] sp/ms  & 3.73 \\\hline
-\end{tabularx}
-#+end_LaTeX
-
 *Fitting Data*: 
- - monotonic rate-level curve, unit S03-07 (CF 21 kHz) Ghoshal and Kim (1997) 
+   - monotonic rate-level curve, unit S03-07 (CF 21 kHz) Ghoshal and Kim (1997) 
 *Optimisation*: 
- - Measure spike rate of golgi model at several sound levels, calc mean squared error between experimental data and golgi
-  model data
+   - Measure spike rate of golgi model at several sound levels, calc mean squared error between experimental data and golgi
+   model data
 
 ** Golgi Cell Model :  Results
 
+#+CAPTION:    Rate-Level output of Golgi Cell Model
+#+LABEL:      fig:Golgi
+#+ATTR_LaTeX: width=6cm angle=-90
+   [[./gfx/GolgiRateLevel2.pdf]]
 
-#+LaTeX:\makebox[0pt][l]{\includegraphics[angle=-90]{./gfx/GolgiRateLevel2}
+** Golgi Cell Model :  Results
 
+| Parameter                | Range | Best Value |
+|--------------------------+-------+------------|
+| \sANFGLG   (chan.)       |  0-10 | 2.48       |
+| \tau_{\ANFGLG} (ms)      |  0-20 | 5.01       |
+| \wLSRGLG      (unitless) |   0-5 | 0.515      |
+| \wHSRGLG      (unitless) |   0-5 | 0.0487     |
+| Spon. rate    (spikes/s) |  0-50 | 3.37       |
 
 ** Golgi Cell Model :  Outcomes
- - Good fit of golgi model to Ghoshal and Kim data, using just the tone  rate-level.
- - Dominance of LSR weight parameter over HSR weight 
-   - no evidence for HSR axons in GCD, here it adds a background effect similar to the granule cells or type-II ANFs 
+ 
+  - Good fit of golgi model to Ghoshal and Kim data, using just the tone  rate-level.
+  - Dominance of LSR weight parameter over HSR weight 
+   - no evidence for HSR axons in GCD, here it adds background activity similar to the granule cells or type-II ANFs 
+
+  - Fast processing of golgi output using Poisson rate model
 
 * D-stellate (DS) Cell Model: GABAergic effects on click recovery
+
+*Morphological* 
+   - large Multipolar cell
+   - electrotonic dendrites stretching 200 microns (one third of VCN), one half DCN, cCN 
+   - receive large number of ANF syn to dend and soma
+   - receive large number of Gly and GABA syn to soma dend
+*Intracellular*
+   - type I-II current clamp response
+   - presence of Ih and small amounts of KLT currents
+   - delay from shock to ANFs less than 1 ms 
+
 ** D Stellate Cell Model:  Experimental evidence
-Morphological 
- - large Multipolar cell
- - electrotonic dendrites stretching 200 microns (one third of VCN), one half DCN, cCN 
- - receive large number of ANF syn to dend and soma
- - receive large number of Gly and GABA syn to soma dend
-Intracellular
- - type I-II current clamp response
- - presence of Ih and small amounts of KLT currents
- - delay from shock to ANFs less than 1 ms 
-Physiological 
- - Onset chopper PSTH, fast narrow FSL 
- - Wide response area (+1 oct and -2 oct)
- - high sync index, Low-pass MTF
- - monotonic response to tones and noise 
+
+*Physiological* 
+   - Onset chopper PSTH, fast narrow FSL 
+   - Wide response area (+1 oct and -2 oct)
+   - high sync index, Low-pass MTF
+   - monotonic response to tones and noise 
 
 ** D Stellate Cell Model:  Key design factors
-- counter intuitive: slow synapse controlling click recovery less than
-  the delay and time constant of the synapse => add KLT and leak
-  conductance to change Rothman and Manis CN model
-- DS-DS possible \citep{FerragamoGoldingEtAl:1998}, TV-DS possible \citep{ZhangOertel:1993b}
-- limit simulation time reduced due to golgi and Poisson models
-  providing input to single DS cell model
+Neural Model \rightarrow Type I-II RM model
+     
+GABA synapse: counter intuitive -> slow synapse controlling click recovery less than
+     the delay and time constant of the synapse => add KLT and leak
+     conductance to change Rothman and Manis CN model
+
+DS-DS possible \citep{FerragamoGoldingEtAl:1998}, TV-DS possible \citep{ZhangOertel:1993b}
+
+Simulation time reduced due to golgi and Poisson models
+     providing input to single DS cell model
 
 ** D Stellate Cell Model:  Implementation
 
-- Generate AN vectors in auditory filterbank
-- Create Golgi filterbank
-- Pass AN and Golgi spikes onto single DS cell model in NEURON
+   - Generate AN vectors in auditory filterbank
+   - Create Golgi filterbank
+   - Pass AN and Golgi spikes onto single DS cell model in NEURON
 
-** D Stellate Cell Model : Optimisation Procedure
-#+begin_LaTeX
-\begin{tabularx}{\textwidth}{XXXX} 
-\textbf{Parameters} &        \textbf{Range}         & \\ \hline
-     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
-Weight of HSR syn on DS       &        \wHSRDS       &         [0.01,50] nS          &$0.532 \quad{\rm nS}$ \\          
-Weight of LSR syn on DS       &        \wLSRDS       &         [0.01,50] nS          &$0.16 \quad{\rm nS}$\\            
-\GABAa synapse rise constant  &    $\tau_{GABA1}$    &        [0.01,10.0] ms         &$13.1 \quad{\rm nS}$\\            
-\GABAa synapse decay constant &    $\tau_{GABA2}$    &         [0.1,50.0] ms         &$5.432 \quad{\rm ms}$\\           
-DS cell leak conductance      &   $\bar{g}_{leak}$   & [0.01,50] $\mu{\rm Scm}^{-2}$ &$0.262 \quad{\rm ms}$\\           
-\end{tabularx}									      $0.0163 \quad\mathrm{Scm}^{-2}$\\ 
-\begin{tabularx}{\textwidth}{lcX} 
-\textbf{Fixed Parameters} & \textbf{Value}& \\ \hline
-         \nGLGDS          &            25             & Number of GABA syn on DS cells                                                                                                                                                  \\
-         \dGLGDS          &          0.5 ms           & Combination of conductance and synaptic delay.  \\
-\end{tabularx}
-#+end_LaTeX
+   *Parameters*
+   - \wGLGDS , \wLSRDS , \wHSRDS (nS)
+   - \tau_{GABA1}, \tau_{GABA2}  (ms)
+   - g_{leak} (\mu{}Scm^{-2}) 
+
+   - \nGLGDS = 25 , let weight control inhibition                                                                                                                                                  \\
+   - \dGLGDS = 0.5 ms, Combination of conductance and synaptic delay
 
 ** D Stellate Cell Model:  Optimisation Procedure
 
-*Fitting Data*: 
- - Click recovery data from \citep{BackoffPalombiEtAl:1997}
-*Optimisation*:
- - Mask/Recovery clicks with recovery periods (2,3,4,8,16 ms)  
- - Measure DS cell recovery response for 2ms 
- - Calc mean squared error normalised to masking response
- - Huristics: Weighting required to ensure short periods recovered
+   *Fitting Data*: 
+   - Click recovery data from \citep{BackoffPalombiEtAl:1997}
+   *Optimisation*:
+   - Mask/Recovery clicks with recovery periods (2,3,4,8,16 ms)  
+   - Measure DS cell recovery response for 2ms 
+   - Calc mean squared error normalised to masking response
+   - Heuristics: Weighting required to ensure short periods recovered
 
 ** D Stellate Cell Model:  Results
 
-#+LaTeX:\includegraphics[keepaspectratio=true,angle=-90,width=0.9\textwidth]{./gfx/DS_ClickRecovery_result}
+#+CAPTION:    Click Recovery in DS Cell Model
+#+LABEL:      fig:DSResult
+#+ATTR_LaTeX: width=6cm keepaspectratio=true angle=-90
+   [[./gfx/DS_ClickRecovery_result.pdf]]
    
-** D Stellate Cell Model:  Results
-*Error*  
- - 0.006671    unweighted (MSE of recovery spike rate / mask rate)
- - 0.01447    final result (MSE of recovery spike rate / mask rate)
+   *Error*  
+   - 0.006671    unweighted (MSE of recovery spike rate / mask rate)
+   - 0.01447    final result (MSE of recovery spike rate / mask rate)
+
+** D Stellate Cell Model : Optimisation Results
+
+| Name                           | Range          | Best Values |
+|--------------------------------+----------------+-------------|
+| \wGLGDS (nS)                   | [0.01,50]      |       0.532 |
+| \wHSRDS (nS)                   | [0.01,50]      |        0.16 |
+| \wLSRDS (nS)                   | [0.01,50]      |        13.1 |
+| \tau_{GABA1}  (ms)             | [0.01,10.0]    |       5.432 |
+| \tau_{GABA2}  (ms)             | [0.1,50.0]     |       0.262 |
+| g_{leak} (\mu{}Scm^{-2})       | [0.01,50]      |      0.0163 |
+
+
 
 ** D Stellate Cell Model:  Outcomes
 
-- DS cell model and synaptic inputs are fitted to a reasonable degree
-- Weighting procedure was needed to emphasise curvature of recovery at narrow click separation
+   - DS cell model and synaptic inputs are fitted to a reasonable degree
+   - Weighting procedure was needed to emphasise curvature of recovery at narrow click separation
 
 * Tuberculoventral Cell Model: Asymmetric wide-band inhibition affects TV response to notch noise
 ** Tuberculoventral Cell Model:  Experimental evidence
-Morphological 
- - vertical/multipolar cell in deep layer of DCN \citep{Rhode:1999}
- - receive small  number of ANF syn to dend 
- - receive large number of Gly and GABA syn to soma dend
-Intracellular \citep{OertelWickesberg:1993}
- - type I current clamp response
- - presence of glycine
-Physiological \citep{Rhode:1999,SpirouDavisEtAl:1999}
- - type II, wide chopper PSTH 
- - Narrow response area, non-monotonic RL
- - poor response to noise and clicks
- - asymmetric response to notch noise \citep{ReissYoung:2005}
+*Morphological* 
+   - vertical/multipolar cell in deep layer of DCN \citep{Rhode:1999}
+   - receive small  number of ANF syn to dend 
+   - receive large number of Gly and GABA syn to soma dend
+*Intracellular* 
+   - type I current clamp response
+   - presence of glycine \citep{OertelWickesberg:1993}
+
+** Tuberculoventral Cell Model:  Experimental evidence
+
+*Physiological* 
+   - Type II, wide chopper PSTH  \citep{Rhode:1999,SpirouDavisEtAl:1999}
+   - Narrow response area, non-monotonic RL
+   - poor response to noise and clicks
+   - asymmetric response to notch noise \citep{ReissYoung:2005}
+
+#+begin_LaTeX
+\makebox[0pt][l]{\includegraphics[height=3cm,keepaspectratio]{gfx/TV_Reiss}}
+#+end_LaTeX
+
 
 ** Tuberculoventral Cell Model:  Key design factors
 
-Notch noise stimulus => need more TV cells across frequency
-input SPL and weight of excitation affect spiking output
-Rat model (no TS-TV) but has been shown in other small mammals
- 
+   - Rat model (no TS-TV) but has been shown in other mammals
+   - Unable to include other DCN inputs
+   - Model must show \DSTV inhibition and offset of distribution 
+     - Notch noise stimulus \rightarrow need more TV cells across frequency
+   - Input SPL and weight of excitation affect spiking output
+   - Larger network \rightarrow Computational problems
+     - Solution: Paralellise model 
 
 ** Tuberculoventral Cell Model:  Implementation
- - Generate AN vectors in auditory filterbank
- - Create Golgi vectors from AN vectors
- - Generate  AN and Golgi spikes 
- - TV and DS cell models simulated in NEURON
+ 
+   - Generate AN vectors in auditory filterbank
+   - Create Golgi vectors from AN vectors
+   - Generate  AN and Golgi spikes 
+   - TV and DS cell models simulated in NEURON
+   - use parallel NEURON to speed computing cost function  
+
 
 ** Tuberculoventral Cell Model:  Optimisation Procedure
-#+begin_LaTeX
-\begin{tabularx}{\linewidth}{XXXX}
-     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
-Weight of DS syn on TV                           &       \wDSTV        &  [0.01,50] nS  & 0.0029 $\mu$S\\
-Weight of ANF syn on TV                          &       \wANFTV       &  [0.01,50] nS  & 0.00017 $\mu$S\\
-No.~LSR to TV                                    &       \nLSRTV       &     [0,64]     & 8           \\
-No.~HSR to TV                                    &       \nHSRTV       &     [0,64]     & 14          \\
-Spread of DS connections onto TV                 &       \sDSTV        &     [0,10]     & 2.1         \\
-Offset of DS connections onto TV &       \oDSTV        &     [0,10]     & 0.24        \\
-\end{tabularx}
-#+end_LaTeX
 
 *Fitting Data*: 
- - Notch noise data from \citep{ReissYoung:2005} 
+   - Notch noise data from \citep{ReissYoung:2005}
 *Optimisation*: 
- - Measure DS and TV response across network.  Calc
-  mean squared error between Reiss data and TV mean rate response (Weighting required)
+   - Measure DS and TV response across network.  Calc mean squared error between Reiss data and TV mean rate response (Weighting required)
 
-# ** Tuberculoventral Cell Model:  Results
 
-# #+CAPTION:    Tuberculoventral, DS and golgi rate-place response to 10 kHz, 1/2 oct Notch noise
-# #+LABEL:      fig:TV_rateplace
-# #+ATTR_LaTeX: width=0.8\columnwidth clip
-#    [[gfx/CN_rateplace_10_05.pdf]]
 
-# ** Tuberculoventral Cell Model:  Results
 
-# #+LaTeX:\includegraphics[keepaspectratio=true,clip,width=0.9\textwidth]{./gfx/CN_rateplace_10_05.pdf}
- 
+** Tuberculoventral Cell Model:  Results
+#+CAPTION:    Click Recovery in DS Cell Model
+#+LABEL:      fig:DSResult
+#+ATTR_LaTeX: width=6cm keepaspectratio=true
+[[./gfx/CN_rateplace_10_05.pdf]]
+
+   *Error*  0.0167  (MSE Normalised rate between 5-40kHz channels)
+#   - only one run before ANS, needs more verification 
+
+
 ** Tuberculoventral Cell Model:  Results
 
-*Error*  0.0167  (MSE Normalised rate between 5-40kHz channels)
- - only one run before ANS, needs more verification 
+| Parameters           |   Range | Best Value |
+|----------------------+---------+------------|
+| \wDSTV    (nS)       | 0.01-50 |        2.9 |
+| \wANFTV   (nS)       | 0.01-50 |       0.17 |
+| \nLSRTV              |    0-64 |          8 |
+| \nHSRTV              |    0-64 |         14 |
+| spread \DSTV (chan.) |    0-30 |        2.1 |
+| offset \DSTV (chan.) |    0-10 |       0.24 |
+
 
 ** Tuberculoventral Cell Model:  Outcomes
- - Parallel simulation of full network CN model
- - 
+   - Parallel simulation of full network, enhances further investigation of TS cells
+   - \TVDS has limited effects 
+   - \DSTV spread equivalent in terms of octave:
+     - offset 0.24 chan \rightarrow 0.35 oct. similar to \citep{ReissYoung:2005}
 
-* Bibliography
+* Questions ?
 
- #+BIBLIOGRAPHY: ../manuscript/bib/MyBib plainnat 
+** Acknowledgements
 
-# option:-d
 
-# #+begin_LaTeX
-#  \bibliographystyle{plainnatt}
-#  \bibliography{../manuscript/bib/MyBibt}
-# #+end_LaTeX
+  *Supervisors*
+    Dr. David Grayden, Dr. Hamish Meffin, Prof. Anthony Burkitt
+   
+  *NEURON*
+    http://www.neuron.yale.edu
+
+  *Computing Facilities*
+    - 9 Dual CPU PCs: Dept. Otolaryngolgy
+    - 64 CPU SGI/Altix: Dept. Electrical \& Electronic Engineering
+
+** OTHER
 
 
 ## Some Hints
 
-# For technical presentations, motivation is key 
-# Why did you, as
-# speaker, take the bus across town or the train halfway across Europe
+For technical presentations, motivation is key 
+ Why did you, as
+ speaker, take the bus across town or the train halfway across Europe
 # or a transatlantic flight just to come and talk about this stuff?  
 # Why did the audience turn up at your session? Presumably something in the
 # title or abstract caught their eye. (Perhaps they're only here to
@@ -319,3 +494,9 @@ Offset of DS connections onto TV &       \oDSTV        &     [0,10]     & 0.24  
 # to time. Summarise. Paraphrase. Recap. Don't just ask "Any
 # questions?".  For peer review of ALL technical details - write a
 # manuscript. DON'T present.
+
+
+#+begin_LaTeX:
+\bibliographystyle{plainnat} 
+\bibliography{../manuscript/bib/MyBib}
+#+end_LaTeX
