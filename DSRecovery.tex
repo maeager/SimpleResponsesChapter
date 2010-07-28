@@ -2,48 +2,28 @@
 \graphicspath{{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}}
 \section[DS Cell Model]{D-Stellate Cell Model: optimisation using click recovery responses}
 \label{sec:d-stellate-cell-model}
-% - A ------------------------------------------------------------------------------
 
+
+This section shows the GABAergic input and intrinsic
+cell properties  influence the behaviour Onset chopper units.
 Onset-chopper units in the mammalian VCN have a wide-ranging influence
-on the primary cells of the VCN (stellate and bushy cells), the
-ipsilateral DCN and the contralateral CN \citep{NeedhamPaolini:2007}.  
+on the primary cells of the VCN (stellate and bushy neurons \citep{RhodeSmithEtAl:1983}), the
+ipsilateral DCN (type II and type IV EIRA units) and the contralateral CN \citep{NeedhamPaolini:2007}.  
 
-This experiment shows the GABAergic input and intrinsic
-cell properties  influence the behaviour Onset chopper units
+\medskip{}
 
 
-** D Stellate Cell Model:  Experimental evidence
-Morphological 
-  - large Multipolar cell
-  - electrotonic dendrites stretching 200 microns (one third of VCN), one half DCN, cCN 
-  - receive large number of ANF syn to dend and soma
-  - receive large number of Gly and GABA syn to soma dend
-Intracellular
-  + type I-II current clamp response
-  + presence of Ih and small amounts of KLT currents
-  + delay from shock to ANFs less than 1 ms 
-Physiological 
-  - Onset chopper PSTH, fast narrow FSL 
-  - Wide response area (+1 oct and -2 oct)
-  - high sync index, Low-pass MTF
-  - monotonic response to tones and noise 
+% Large multipolar or stellate cells in the VCN have been shown to have
+% 3-4 long dendrites stretching 200 microns (or one third of the VCN)
+% and their axonal collaterals cover the same region in the VCN, almost
+% one half of the DCN, and are one source of the commisural projection
+% to the contralateral cochlear nucleus.
 
-** D Stellate Cell Model:  Key factors in designing D-stellate cell model
-
-Choosing neural model: type I-II Rothman and Manis model
-  - with/without dendrites
-  - variable KLT, leak conductance
-
-Problems
-  - ANF spread to DS cells well documented (decision made to
-    fix params due to large computational task of calc response area) 
-  - short delay recovery responses (2,3,4 ms) were not successful upon
-    first model, included DS leak and KLT conductances to allow cell
-    behaviour to be fit
-  - The effect of Golgi cells on DS is delayed by the extra 0.7 ms delay from ANF to Golgi, plus the slow peak of \GABAa inhibition.
 
 
 %%%%%%%%%%%%%%%%%%%Copied from original jneurometh article
+
+
 
 \subsection{Background}
 
@@ -68,13 +48,63 @@ and LS type I ANFs could be involved in gain control through GABAergic
 modulation of activity in the VCN.
 
 
+\medskip{}
 
-\citep{BackoffPalombiEtAl:1997}
+[Discuss AM coding by DS cells]
+\citep{CasparyPalombiEtAl:2002} GABA blockers in the VCN has the effects of changing the behaviour in the response to AM in the IC.
+\citep{BackoffShadduckEtAl:1999} AM coding effects of GABA in the Chinchilla CN.
+\citep{CasparyBackoffEtAl:1994}
+Caspary et al. worked on the effects of GABA in in the VCN. 
+
+Zhang and Winter looked at the response area of VCN onset units to determine GABA on/off freq
+
+Smith and Rhode, Smith et al. looked at OnC respnse area and two-tone
+
+
 
 \subsection{Implementation}
+ 
+Key factors in designing D-stellate cell model
 
-\textbf{Optimisation}    
- Parameters for \GLGDS are optimised based on experimental click recovery data from \citep{BackoffPalombiEtAl:1997}.
+\medskip{}
+
+Choosing neural model: type I-II Rothman and Manis model
+  - with/without dendrites
+  - variable KLT, leak conductance
+
+\begin{itemize}
+\item  ANF spread to DS cells well documented (decision made to
+    fix params due to large computational task of calc response area) 
+\item  short delay recovery responses (2,3,4 ms) were not successful upon
+    first model, included DS leak and KLT conductances to allow cell
+    behaviour to be fit
+  \item The effect of Golgi cells on DS is delayed by the extra 0.7 ms
+    delay from ANF to Golgi, plus the slow peak of \GABAa inhibition.
+\end{itemize}
+
+\medskip{}
+
+Optimisation parameters for \GLGDS are optimised based on experimental
+click recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed
+parameters included the number of golgi cells to DS cells ($\nGLGDS =
+25$), the spread of ANFs to DS cells $\ANFDS$, and the extra delay from the auditory
+nerve.  The first spike latency in DS cells 2.8 ± 0.09 ms
+\citep{RhodeSmith:1986}.The addition of 0.5 ms to \ANFDS connections
+is a combination of conductance and synaptic delay. The effect of
+Golgi cells on DS is delayed by the extra 0.7~ms delay from ANF to
+Golgi, plus the slow peak of \GABAa inhibition.  
+The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and fairly broad so the
+estimate is set so that 2 octaves below and 1 octave above CF are
+within 2 standard deviations \citep{PaoliniClark:1999}.
+
+\medskip{}
+
+The optimisation function was a weighted mean squared error between
+the experimental and simulated data, from an array where the elements
+were the number of spikes in a 2 ms window after a click.  The input
+stimulus was a series of masker/response clicks, with the click
+intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
+
 
 \noindent
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
@@ -83,9 +113,9 @@ modulation of activity in the VCN.
 \textbf{Populations}     & ANF (HSR,LSR), Golgi, D-stellate \\\hline
 \textbf{Topology}        & Tonotopic,  Auditory system of the rat  \\\hline
 \textbf{Connectivity}    & Gaussian spread dependent on morphology and afferent connections  \\\hline
-\textbf{Input model}  &  ANF phenomenological instantaneous-rate Poisson spike trains\citep{ZilanyBruce:2008}\\\hline
+\textbf{Input model}  &  ANF phenomenological instantaneous-rate Poisson spike trains\citep{ZilanyBruceEtAl:2009}\\\hline
 \multirow{2}{*}{\textbf{Neuron model}}    & Golgi: instantaneous-rate Poisson spike trains\\
-&D-stellate: HH-like single-compartment model (Type 1-2 RM model)\\
+&D-stellate: HH-like single-compartment model (Type 1-2 RM model)\\ \hline
 \textbf{Channel models}  & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
 \textbf{Synapse model}   & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
 \textbf{Input Stimulus}  & Mask/Recovery click trains with delay 2, 3, 4 and 8
@@ -119,6 +149,9 @@ $\textrm{GLG} \to \textrm{DS}$ &       Golgi       &   D-Stellate    & Gaussian,
 
 \vspace{2ex}
 
+
+
+
 % - D ------------------------------------------------------------------------------
 
 
@@ -151,25 +184,15 @@ $\textrm{GLG} \to \textrm{DS}$ &       Golgi       &   D-Stellate    & Gaussian,
 % - E ------------------------------------------------------------------------------
 
 \noindent
-\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
-\hdr{2}{E}{Optimisation} \\ \hline
-      \textbf{Type}       & Principle-axis method \\\hline
-   \textbf{Parameters}   & \\
- & $\wGLGDS \quad\to\quad [0.00001,0.05]\quad\mu{\rm S}$ \\
- & $\wANFDS \mathrm{ HSR }\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
- & $\wANFDS \mathrm{ LSR }\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
- & DS \GABAa synapse $ \tau_{GABA2} \quad [0.1,50.0]\quad {\rm ms}$\\\hline
- & DS leak conductance $ \bar{g}_{leak} \quad [0.00001,0.05] \quad \mathrm{Scm}^{-2}$\\\hline
-
-\textbf{Fixed Parameters} & \\ \hline
-$\nGLGDS = 25$ & \\ \hline
-      $\wANFGLG$                    & \\ \hline
-      $\nLSRGLG$                    & \\ \hline
-      $\nHSRGLG$                    & \\ \hline
-      $\sANFGLG $                   & \\ \hline
-      $\dGLGDS = 0.5$ ms                    & Combination of conductance and synaptic delay. The effect of Golgi cells on DS is delayed by the extra 0.7~ms delay from ANF to Golgi, plus the slow peak of \GABAa inhibition.  \\\hline
-  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
-   \textbf{Function}     & Weighted mean squared error see listing below  \\ \hline
+\begin{tabularx}{\textwidth}{|X|X|X|X|}\hline %{\textwidth}
+\hdr{4}{E}{Optimisation} \\ \hline
+     \textbf{Parameters}      &  \textbf{Name}   &        \textbf{Range}         & \textbf{Best Values} \\\hline 
+     Weight of GLG on DS      &     \wGLGDS      &         [0.01,50] nS          & $0.532 \quad{\rm nS}$ \\	\hline  
+   Weight of HSR syn on DS    &     \wHSRDS      &          [0.01,50] nS         & $0.16 \quad{\rm nS}$\\      \hline
+   Weight of LSR syn on DS    &     \wLSRDS      &          [0.01,50] nS         & $13.1 \quad{\rm nS}$\\       \hline
+\GABAa synapse rise constant  &  $\tau_{GABA1}$  &         [0.01,10.0] ms        & $5.432 \quad{\rm ms}$\\       \hline
+\GABAa synapse decay constant &  $\tau_{GABA2}$  &         [0.1,50.0] ms         & $0.262 \quad{\rm ms}$\\      \hline
+  DS cell leak conductance    & $\bar{g}_{leak}$ & [0.01,50] $\mu{\rm Scm}^{-2}$ & $0.0163 \quad\mathrm{Scm}^{-2}$\\ \hline
 \end{tabularx}
 \vspace{2ex}
 
@@ -179,14 +202,17 @@ $\nGLGDS = 25$ & \\ \hline
 % - F -----------------------------------------------------------------------------
 
 \noindent\begin{tabularx}{\textwidth}{|X|}\hline
-\hdr{1}{F}{Measurements}\\\hline
-PSTHs were generated from 25 stimulus repetitions. Each response to a click is measured for 2 ms after the minimum first spike latency for the unit.  The unit used in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
-\begin{minipage}[c]{0.6\textwidth}
-\vspace{1cm}
-DS Ouput \hspace{2in} Golgi Output
-\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\\
-  \captionsize{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
-  \end{minipage}\\ \hline
+  \hdr{1}{F}{Measurements}\\\hline 
+PSTHs were generated from 25
+  stimulus repetitions. Each response to a click is measured for 2 ms
+  after the minimum first spike latency for the unit.  The unit used
+  in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
+% \begin{minipage}[c]{0.6\textwidth}
+% \vspace{1cm}
+% DS Ouput \hspace{2in} Golgi Output
+% %\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\\
+%   \captionsize{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
+%   \end{minipage}\\ \hline
 \end{tabularx}
 
  % ---------------------------------------------------------------------------------
@@ -230,55 +256,31 @@ DS Ouput \hspace{2in} Golgi Output
 
 
 
-\begin{tabularx}{\textwidth}{XXXX} 
-     \textbf{Parameters}      &  \textbf{Name}   &        \textbf{Range}         & \textbf{Best Values} \\\hline 
-     Weight of GLG on DS      &     \wGLGDS      &         [0.01,50] nS          & $0.532 \quad{\rm nS}$ \\	       
-   Weight of HSR syn on DS    &     \wHSRDS      &          [0.01,50] nS         & $0.16 \quad{\rm nS}$\\      
-   Weight of LSR syn on DS    &     \wLSRDS      &          [0.01,50] nS         & $13.1 \quad{\rm nS}$\\       
-\GABAa synapse rise constant  &  $\tau_{GABA1}$  &         [0.01,10.0] ms        & $5.432 \quad{\rm ms}$\\       
-\GABAa synapse decay constant &  $\tau_{GABA2}$  &         [0.1,50.0] ms         & $0.262 \quad{\rm ms}$\\      
-  DS cell leak conductance    & $\bar{g}_{leak}$ & [0.01,50] $\mu{\rm Scm}^{-2}$ & $0.0163 \quad\mathrm{Scm}^{-2}$\\
-\end{tabularx}									      
-
-\begin{tabularx}{\textwidth}{lcX} 
-\textbf{Fixed Parameters} & \textbf{Value}& \\ \hline
-         \nGLGDS          &            25             & Number of GABA syn on DS cells                                                                                                                                                  \\
-         \dGLGDS          &          0.5 ms           & Combination of conductance and synaptic delay.  \\
-\end{tabularx}
 
 
-
-\begin{figure}
+\begin{figure}[htb]
 \includegraphics[angle=-90,width=0.8\textwidth]{DSClickRecoveryExpData}\label{Ch3:fig:DSClickRecoveryExpData}
 \caption{Experimental Data of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.}
 \end{figure}
 
 %\parsep
 
-From the command line type:
-\begin{verbatim}
-$ ./i686/special DS_ClickRecovery.hoc
-\end{verbatim}
-in the \texttt{cnstellate} directory to simulate the optimisation for D-stellate click recovery.  The first run may take some time if the AN filters have not been previously saved, since the Zilany \& Bruce model requires 500~kHz resolution in the stimulus that is downsampled to 50~kHz.
+% From the command line type:
+% \begin{verbatim}
+% $ ./i686/special DS_ClickRecovery.hoc
+% \end{verbatim}
+% in the \texttt{cnstellate} directory to simulate the optimisation for D-stellate click recovery.  The first run may take some time if the AN filters have not been previously saved, since the Zilany \& Bruce model requires 500~kHz resolution in the stimulus that is downsampled to 50~kHz.
 
 \clearpage
 \subsection{Results}
 
 
-\noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
-\hdr{2}{D}{Results} \\\hline
-\textbf{Best Parameters} &
-{\begin{minipage}[c]{0.6\textwidth}
-$\wGLGDS = 0.532 \quad{\rm nS}$ \\
- $\wHSRDS = 0.16 \quad{\rm nS}$\\
- $\wLSRDS = 13.1 \quad{\rm nS}$\\
- $\tau_{GABA2} = 5.432 \quad{\rm ms}$\\
-$\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
- $\bar{g}_{leak} = 0.0163 \quad\mathrm{Scm}^{-2}$\\
-\end{minipage}}\\\hline
-\textbf{Error} & 0.006671    unweighted (MSE of recovery spike rate / mask rate)\\\hline
-& 0.01447    final result (MSE of recovery spike rate / mask rate)\\\hline
-\end{tabularx}
+% \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
+% \hdr{2}{D}{Results} \\\hline
+% \end{minipage}}\\\hline
+% \textbf{Error} & 0.006671    unweighted (MSE of recovery spike rate / mask rate)\\\hline
+% & 0.01447    final result (MSE of recovery spike rate / mask rate)\\\hline
+% \end{tabularx}
 
 \begin{figure}[hp!]
   \centering
@@ -358,7 +360,7 @@ $\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
 \newpage
 \subsection{Verification}
 
-% \subsection{Tone Response}
+ \subsection{Tone Response}
 % \begin{figure}[h!]
 % \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{RateLevel/psthsingle90.2.eps}%
@@ -378,7 +380,7 @@ $\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
 
 
 % \clearpage
-% \subsection{Noise Response}
+ \subsection{Noise Response}
 % \begin{figure}[h!]
 % \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{NoiseRateLevel/psthsingle120.2.eps}%
@@ -398,7 +400,7 @@ $\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
 
 
 % \clearpage
-% \subsection{Masked Noise and Tone}
+ \subsection{Masked Noise and Tone}
 % \begin{figure}[h!]
 % \centering\resizebox{\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.2.eps}\includegraphics{MaskedRateLevel/DS_ratelevel.eps}}
 % \end{figure}
@@ -415,7 +417,7 @@ $\tau_{GABA1} = 0.262 \quad{\rm ms}$\\
 % \includegraphics{MaskedRateLevel/psthVlevel.2.eps}}
 % \end{figure}
 % \clearpage
-% \subsection{Masked Response Area}
+ \subsection{Masked Response Area}
 % \begin{figure}[h!]
 % \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{MaskedResponseCurve/psthsingle5810.2.eps}%
