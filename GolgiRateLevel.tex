@@ -21,13 +21,13 @@ cats \citep{OstapoffBensonEtAl:1997} and birds
 preparations of the isolated murine VCN have shown sensitivity to
 bicuculine in TS and DS cells \citep{FerragamoGoldingEtAl:1998a}.  The
 only known source of GABA intrinsic to the VCN are the golgi cells of
-the granule cell domain (GCD) overlying the VCN
+the granule cell domain (GCD) overlying the VCN 
 \citep[Fig.~\ref{fig:CNdiagram}]{Mugnaini:1985,FerragamoGoldingEtAl:1998}.
 The presence of GABAergic inputs to TS, DS and TV cells has been
 verified by labeled terminals adjacent to the soma and dendrites
 \citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003}
 and release from inhibition in their response areas with
-ionotopopheretic application of the GABA antagonist, bicuculine
+ionotopopheretic application of the \GABA antagonist, bicuculine
 \citep{EvansZhao:1998,CasparyBackoffEtAl:1994,BackoffShadduckEtAl:1999,FerragamoGoldingEtAl:1998a}.
 
 \medskip{}
@@ -120,7 +120,7 @@ responses to tones and noise.
 \subsection{Implementation}
 
 In the creation of the golgi cell model, we can reduce the explicit
-responses of Golgi cells down to three major details: a) golgi cells are integrators due to their type-I~current clamp response, b) golgi cells are (most likely) monotonic to tones and noise, and
+responses of Golgi cells down to three major details: a) golgi cells are integrators due to their type-I~current clamp response, b) golgi cells are (most likely) monotonic to tone and noise rate increases, and
 c) they have a significant delay of first spike latency relative to the core VCN units.
 
 
@@ -128,9 +128,6 @@ In Chapter~\ref{sec:GAChapter} and previous publications \citep{EagerGraydenEtAl
 golgi cell responses, we have decided to simulate the response of
 golgi cells using inputs from the auditory model's instantaneous rate outputs rather
 than simulating the neural membrane. 
-
-%The golgi cell template is similar to the previous CNcell template, so
-%that minimal changes need to be made to other sections of code.
 
 
 The instantaneous rate vector of a golgi cell model at CF channel
@@ -148,6 +145,7 @@ The instantaneous rate vector of a golgi cell model at CF channel
 
 \medskip{}
 
+\yellowbox{this needs to be removed}
 [NEURON code methods] Each golgi cell template consists of a spike generator, \emph{s}, and vector
 objects representing the instantaneous rate, the spike times and
 accumulated  spike times of the golgi cell. Parameters identifying
@@ -264,11 +262,11 @@ to 85 dB (20 ms delay, 2ms cosine squared on/off ramp)\\\hline
 \noindent\begin{tabularx}{\linewidth}{|X|c|c|c|}\hline %{\textwidth}
 \hdr{4}{F}{Optimisation} \\ \hline 
      \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
-   Spatial spread $\ANFGLG$     &     $\sANFGLG$     &     [0,10]     & 2.48 \\\hline 
-Dendritic Filter time constant& $\tau_{\ANFGLG}$ &    [0,20] ms   & 5.01\\\hline 
-     Weighted sum of HSR      &    $\wHSRGLG$    &      [0,5]     & 0.517 \\\hline 
-     Weighted sum of HSR      &    $\wLSRGLG$    &      [0,5]     & 0.0487\\\hline 
-      Spontaneous Rate        &  \texttt{golgi\_spon} &  [0,50] sp/ms  & 3.73 \\\hline
+   Spatial spread $\ANFGLG$ (channel units)    &     $\sANFGLG$     &     [0,10]     & 2.48 \\\hline 
+Dendritic Filter time constant (ms)& $\tau_{\ANFGLG}$ &    [0,20]   & 5.01\\\hline 
+     Weighted sum of HSR (unitless)     &    $\wHSRGLG$    &      [0,5]     & 0.517 \\\hline 
+     Weighted sum of HSR (unitless)     &    $\wLSRGLG$    &      [0,5]     & 0.0487\\\hline 
+     Golgi spontaneous rate (spikes per second)       &  \texttt{golgi\_spon} &  [0,50]  & 3.73 \\\hline
 \end{tabularx}
 
 

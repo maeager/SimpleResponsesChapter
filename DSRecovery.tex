@@ -184,15 +184,15 @@ $\textrm{GLG} \to \textrm{DS}$ &       Golgi       &   D-Stellate    & Gaussian,
 % - E ------------------------------------------------------------------------------
 
 \noindent
-\begin{tabularx}{\textwidth}{|X|X|X|X|}\hline %{\textwidth}
+\begin{tabularx}{\textwidth}{|X|c|c|c|}\hline %{\textwidth}
 \hdr{4}{E}{Optimisation} \\ \hline
      \textbf{Parameters}      &  \textbf{Name}   &        \textbf{Range}         & \textbf{Best Values} \\\hline 
-     Weight of GLG on DS      &     \wGLGDS      &         [0.01,50] nS          & $0.532 \quad{\rm nS}$ \\	\hline  
-   Weight of HSR syn on DS    &     \wHSRDS      &          [0.01,50] nS         & $0.16 \quad{\rm nS}$\\      \hline
-   Weight of LSR syn on DS    &     \wLSRDS      &          [0.01,50] nS         & $13.1 \quad{\rm nS}$\\       \hline
-\GABAa synapse rise constant  &  $\tau_{GABA1}$  &         [0.01,10.0] ms        & $5.432 \quad{\rm ms}$\\       \hline
-\GABAa synapse decay constant &  $\tau_{GABA2}$  &         [0.1,50.0] ms         & $0.262 \quad{\rm ms}$\\      \hline
-  DS cell leak conductance    & $\bar{g}_{leak}$ & [0.01,50] $\mu{\rm Scm}^{-2}$ & $0.0163 \quad\mathrm{Scm}^{-2}$\\ \hline
+     Weight of GLG on DS (nS)      &     \wGLGDS      &         [0.01,50]          & 0.532 \\	\hline	
+   Weight of HSR syn on DS (nS)	  &	\wHSRDS	     &		[0.01,50]	   & 0.16 \\	   \hline
+   Weight of LSR syn on DS  (nS)  &	\wLSRDS	     &		[0.01,50]	   & 13.1 \\	    \hline
+\GABAa synapse rise constant  (ms)&  $\tau_{GABA1}$  &	       [0.01,10.0]	   & 5.432\\	     \hline
+\GABAa synapse decay constant (ms)&  $\tau_{GABA2}$  &	       [0.1,50.0]	   & 0.262\\	    \hline
+  DS cell leak conductance (mS per cm$^2$)   & $\bar{g}_{leak}$ & [1e-5,5e-2]  & 0.0163 \\ \hline
 \end{tabularx}
 \vspace{2ex}
 
