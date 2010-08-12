@@ -1,0 +1,63 @@
+\noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
+\hdr{2}{A}{Model Summary}\\\hline 
+ \textbf{Populations}   & ANF (HSR,LSR) and Golgi cells \\\hline 
+   \textbf{Topology}    & Tonotopic - 100 frequency channels based on basilar membrane \citep{Greenwood:1990} and audiogram \citep{HeffnerHeffner:1985}\\\hline
+ \textbf{Connectivity}  & Place-based Gaussian spread of connections \\\hline
+ \textbf{Neuron model}  & ANFs: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruceEtAl:2009} \\
+                        & Golgi: instantaneous-rate Poisson model developed from ANF inputs\\\hline
+\textbf{Channel models} & --- \\\hline 
+\textbf{Synapse model}  & alpha function smoothing kernel \\\hline
+    \textbf{Input}      & Pure tones (21 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range 0-100 dB SPL  \\\hline
+ \textbf{Measurements}  & Mean rate of instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions).\\\hline
+\end{tabularx}
+\vspace{1ex}
+
+% - B ------------------------------------------------------------------------
+\noindent\begin{tabularx}{\linewidth}{|l|X|X|}\hline %{\linewidth}
+\hdr{3}{B}{Populations}\\\hline
+\textbf{Name} &                             \textbf{Elements}                             & \textbf{Number} \\\hline
+     HSR      &                 \citeauthor{ZilanyBruceEtAl:2009}  model                  & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
+     LSR      &                  \citeauthor{ZilanyBruceEtAl:2009} model                  & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
+     GLG      & Instantaneous rate Poisson model, spike-generator with refractory effects & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
+\end{tabularx}
+\vspace{1ex}
+
+% - C ------------------------------------------------------------------------------
+\noindent\begin{tabularx}{\linewidth}{|l|l|l|X|}\hline
+\hdr{4}{C}{Connectivity}\\\hline
+                 \textbf{Name}                   & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
+\multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       LSR       &      Golgi      & 
+Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
+                                                 &       HSR       &      Golgi      & Fixed Gaussian spatial spread, centered at CF (\sHSRGLG =) \\\hline
+\end{tabularx}
+\vspace{1ex}
+
+% - D ------------------------------------------------------------------------------
+\noindent\begin{tabularx}{\linewidth}{|l|X|}\hline
+\hdr{2}{D}{Neuron and Synapse Model}\\\hline
+            \textbf{Name}             & Golgi Phenomenological Model \\\hline
+            \textbf{Type}             & Poisson instantaneous-rate model, ANF instantaneous rate input\\\hline
+\multirow{4}{*}{\textbf{Golgi Model}} & $\mathbf{w}_{LSR} = N(\textrm{CF channel},\sLSRGLG)$,  $\mathbf{w}_{HSR} = N(\textrm{CF channel},\sHSRGLG)$  \\ 
+                                      & $w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1]$ \\
+                                      & $\mathbf{g}_i = \sum^{i} w_{LSR}(i)\mathbf{L}_i + w_{HSR}(i)\mathbf{H}_i$ \\
+                                      & $\mathbf{G}_i = \mathbf{g}_i * \alpha$  \\ \hline
+\end{tabularx}
+\vspace{1ex}
+
+% - E -----------------------------------------------------------------------------
+% \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
+% \hdr{2}{E}{Input/Output}\\\hline 
+% \textbf{Input Stimulus} & Rate Level function, 21~kHz tone at SPL -15 to 85 dB (20 ms delay, 2ms cosine squared on/off ramp)\\\hline 
+%  \textbf{Measurements}  & Mean rate of instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions). \\\hline
+% \end{tabularx}
+% \vspace{1ex}
+
+\noindent\begin{tabularx}{\linewidth}{|X|c|c|c|}\hline %{\textwidth}
+\hdr{4}{E}{Optimisation} \\ \hline 
+           \textbf{Parameters}             &    \textbf{Name}     & \textbf{Range} & \textbf{Best Values} \\\hline 
+ Spatial spread $\ANFGLG$ (channel unit)   &      $\sANFGLG$      &     [0,10]     & 2.48 \\\hline 
+    Dendritic Filter time constant (ms)    &   $\tau_{\ANFGLG}$     &     [0,20]     & 5.01\\\hline 
+      Weighted sum of HSR (unitless)       &      $\wHSRGLG$      &     [0,5]      & 0.517 \\\hline 
+      Weighted sum of HSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
+Golgi spontaneous rate (spikes per second) & \texttt{golgi\_spon} &     [0,50]     & 3.73 \\\hline
+\end{tabularx}

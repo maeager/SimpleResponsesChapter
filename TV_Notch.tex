@@ -24,36 +24,36 @@ intracellular responses from labeled TV cells in the mouse show clear
 excitatory input from TS cells and diffuse inhibitory input from DS
 cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
 
-\medskip{} \citep{SpirouDavisEtAl:1999}
+\medskip{} 
 
-% Vertical cells receive monosynaptic excitatory input from auditory
-% nerve ﬁbers \citep{OertelWu:1989}\citep{ZhangOertel:1993b}. Taken
-% together, these two results suggest that low SR auditory nerve ﬁbers
-% may form the major excitatory input to type II cells. If true, this
-% hypothesis also could explain the ﬁnding that type II units have
-% consistently higher thresholds than DCN principal cells \citep{YoungBrownell:1976} because low SR auditory nerve ﬁbers also have
-% elevated thresholds relative to the lowest threshold auditory nerve
-% ﬁbers \citep{Liberman:1978}. However, patterns of auditory nerve
-% innervation of the DCN are most consistent with high SR ﬁber
-% innervation of vertical cell somata and low SR ﬁber innervation of
-% dendrites \citep{Liberman:1993}. In that case, the low spontaneous rates
-% and high sound thresholds of type II units might be caused by a high
-% intrinsic electrical threshold \citep{HancockDavisEtAl:1997}; this is
-% consistent with the responses of vertical cells to intracellular
-% current injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
+TV or vertical cells receive monosynaptic excitatory input from auditory
+nerve ﬁbers \citep{OertelWu:1989}\citep{ZhangOertel:1993b}. Taken
+together, these two results suggest that low SR auditory nerve ﬁbers
+may form the major excitatory input to type II cells. If true, this
+hypothesis also could explain the ﬁnding that type II units have
+consistently higher thresholds than DCN principal cells \citep{YoungBrownell:1976} because low SR auditory nerve ﬁbers also have
+elevated thresholds relative to the lowest threshold auditory nerve
+ﬁbers \citep{Liberman:1978}. However, patterns of auditory nerve
+innervation of the DCN are most consistent with high SR ﬁber
+innervation of vertical cell somata and low SR ﬁber innervation of
+dendrites \citep{Liberman:1993}. In that case, the low spontaneous rates
+and high sound thresholds of type II units might be caused by a high
+intrinsic electrical threshold \citep{HancockDavisEtAl:1997}; this is
+consistent with the responses of vertical cells to intracellular
+current injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
 
 
-% Type II units also supply an inhibitory input to the VCN \citep{WickesbergOertel:1990}, but the role of type II terminals in the VCN is
-% less clear. Three different hypotheses have been raised. The ﬁrst is
-% that this projection modulates the response thresholds of VCN
-% neurons \citep{PaoliniClark:1998}. This hypoth-
+Type II units also supply an inhibitory input to the VCN \citep{WickesbergOertel:1990}, but the role of type II terminals in the VCN is
+less clear. Three different hypotheses have been raised. The ﬁrst is
+that this projection modulates the response thresholds of VCN
+neurons \citep{PaoliniClark:1998}. 
 The role of type II units in spectral processing is that of a
 narrowband inhibitor. Responses of DCN principal cells are strongly
 inhibited by this narrowband source. As a result, DCN principal cells
-are inhibited by sharp spectral peaks close to their BF.
+are inhibited by sharp spectral peaks close to their BF \citep{SpirouDavisEtAl:1999}.
 
 
-\subsubsection{Synaptic organization: unresolved issues}
+%\subsubsection{Synaptic organization: unresolved issues}
 
 % Despite the coherent picture developed in the preceding text, there
 % are some remaining uncertainties about type II synaptic
@@ -86,7 +86,7 @@ are inhibited by sharp spectral peaks close to their BF.
 % at present. More information about the anatomic inputs to vertical
 % cells, especially their dendritic inputs, is required.
 
-\subsubsection{Functional role of type II units}
+%\subsubsection{Functional role of type II units}
 % The role of type II units in spectral processing is that of a
 % narrowband inhibitor. Responses of DCN principal cells are strongly
 % inhibited by this narrowband source. As a result, DCN principal
@@ -190,123 +190,7 @@ are inhibited by sharp spectral peaks close to their BF.
 
 \subsection{Implementation}
 
-\noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{A}{Model Summary}\\\hline
-\textbf{Populations}     & Five: HSR \& LSR ANFs, Golgi, DS, and TV cells \\\hline
-\textbf{Topology}        & Tono-topicity of the rat AN and CN \\\hline
-\textbf{Connectivity}    & ANF$\to${Golgi,DS,TV}, Golgi$\to$DS, DS$\to$TV  \\\hline
-\multirow{2}{*}{\textbf{Neuron model}}    & Golgi: instantaneous-rate Poisson spike trains\\
-&D-stellate: HH-like single-compartment model (Type 1-2 RM model)\\ 
-& Tuberculo-ventral cell:  HH-like single-compartment model (Type-I classic) \\\hline
-\textbf{Channel models}  &  $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
-\textbf{Synapse model}   & AMPA (\textit{ExpSyn}), GABA$_{\rm A}$ (\textit{Exp2Syn}), Glycine (\textit{Exp2Syn}) \\\hline
-\textbf{Input}           &  Notch-noise (Stop-band filtered white noise) \\\hline
-\textbf{Measurements}    &  First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance \\\hline
-\end{tabularx}
-
-\vspace{2ex}
-
-% - B -----------------------------------------------------------------------------
-
-\noindent\begin{tabularx}{\textwidth}{|l|l|X|}\hline
-\hdr{3}{B}{Populations}\\\hline
-\textbf{Name} &    \textbf{Elements}    & \textbf{Size} \\\hline
-     HSR      &    Poisson generator    & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
-     LSR      &    Poisson generator    & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
-     GLG      &    Poisson generator    & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
-     DS       &   Type I-II RM model    & $N_{\text{DS}}= 1$ per freq\. channel \\\hline
-     TV       & Type I-classic RM model & $N_{\text{TV}}= 1$ per freq\. channel\\\hline
-\end{tabularx}
-
-\vspace{2ex}
-
-% - C ------------------------------------------------------------------------------
-
-\noindent\begin{tabularx}{\textwidth}{|l|X|l|X|}\hline
-\hdr{4}{C}{Connectivity}\\\hline
-\textbf{Name} &  \textbf{Source}  & \textbf{Target}  & \textbf{Pattern} \\\hline
-   \ANFDS     & ANF &    D-Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS \\\hline
-   \ANFTV     & ANF & Tuberculo-ventral & Narrowband, centered at CF,spread negligent , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS \\\hline
-   \GLGDS     & Golgi  &    D-Stellate    & Gaussian, centered at CF with spread \sGLGDS, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
-    \DSTV     &    D-Stellate     & Tuberculoventral & Gaussian, centered at CF with spread \sGLGDS, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
-\end{tabularx}
-
-\vspace{2ex}
-
-% - D ------------------------------------------------------------------------------
-
-% \noindent\begin{tabularx}{\textwidth}{|p{0.150.95\textwidth}|X|}\hline
-% \hdr{2}{D}{Neuron and Synapse Model}\\\hline
-% \textbf{Name} &  \\\hline
-% \textbf{Type} & \\\hline
-% \raisebox{-4.5ex}{\parbox{0.95\textwidth}{\textbf{Subthreshold dynamics}}} &
-% \rule{1em}{0em}\vspace*{-3.5ex}
-%     \begin{equation*}
-%       \begin{array}{r@{\;=\;}lll}
-%       \tau \dot{V}(t) & -V(t) + R I(t) &\text{if} & t > t^*+\tau_{\text{rp}} \\
-%       V(t) & V_{\text{r}} & \text{else} \\[2ex]
-%       I(t) & \multicolumn{3}{l}{\frac{\tau}{R} \sum_{\tilde{t}} w
-%         \delta(t-(\tilde{t}+\Delta))}
-%       \end{array}
-%     \end{equation*}
-% \vspace*{-2.5ex}\rule{1em}{0em}
-%  \\\hline
-% \multirow{3}{*}{\textbf{Spiking}} &
-%    If $V(t-)<\theta \wedge V(t+)\geq \theta$
-% \vspace*{-1ex}
-% \begin{enumerate}\setlength{\itemsep}{-0.5ex}
-% \item set $t^* = t$
-% \item emit spike with time-stamp $t^*$
-% \end{enumerate}
-% \vspace*{-4ex}\rule{1em}{0em}
-% \\\hline
-% \end{tabularx}
-
-\vspace{2ex}
-
-\noindent
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{E}{Input/Ouput}\\\hline
-\textbf{Input Stimulus}  & Notch-noise (Stop-band filtered white noise)  \\\hline
-%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}
-%\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps}
-%\end{minipage}}\\\hline
-\textbf{Output} & Output of 100 TV cells, across the network, with 25 repetitions\\\hline
-%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}%
-%\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}
-%\end{minipage}}\\\hline
-%\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
-%\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
-\textbf{Measurements}    &  First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II DCN unit \citep{ReissYoung:2005}, Fig.~9. \\\hline
-\end{tabularx}
-\vspace{2ex}
-
-% \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{0.95\textwidth}
-% \hdr{2}{F}{Optimisation} \\ \hline
-% \textbf{Type}       & Principle-axis method \\\hline
-% \textbf{Parameters}   & \\\hline
-% Syn.~weight \DSTV & $\wDSTV \quad\to\quad [0.00001,0.05]\quad\mu{\rm S}$ \\\hline
-% Syn.~weight ANF to DS       & $\wANFTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
-% No.~LSR to DS       & $\nLSRTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
-% No.~HSR to DS       & $\nHSRTV \quad\to\quad [0.00001,0.05] \quad \mu{\rm S}$\\\hline
-% Spread of \DSTV       & $\sDSTV \quad\to\quad [0,5] \quad {\rm Channels}$\\\hline
-% Offset \DSTV       & $\oDSTV \quad\to\quad [0,5] \quad {\rm Channels}$\\\hline
-%  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
-%   \textbf{Function}     & Weighted mean squared error see listing below  \\ \hline
-%\end{tabularx}
-% D-----------------------------------
-
-\begin{tabularx}{\linewidth}{|X|c|c|c|}
-\hdr{4}{F}{Optimisation} \\ \hline
-     \textbf{Parameters}      &  \textbf{Name}   & \textbf{Range} & \textbf{Best Values} \\\hline 
-Weight of DS syn on TV                           &       \wDSTV        &  [0.01,50] nS  & 0.0029 $\mu$S\\
-Weight of ANF syn on TV                          &       \wANFTV       &  [0.01,50] nS  & 0.00017 $\mu$S\\
-No.~LSR to TV                                    &       \nLSRTV       &     [0,64]     & 8           \\
-No.~HSR to TV                                    &       \nHSRTV       &     [0,64]     & 14          \\
-Spread of DS connections onto TV                 &       \sDSTV        &     [0,10]     & 2.1         \\
-Offset of DS connections onto TV &       \oDSTV        &     [0,10]     & 0.24        \\ \hline
-\end{tabularx}
-
+\input{TV_NotchTable.tex}
 
 \clearpage
 \subsection{Results} 

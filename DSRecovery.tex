@@ -106,114 +106,17 @@ stimulus was a series of masker/response clicks, with the click
 intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 
 
-\noindent
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
-%
-\hdr{2}{A}{Model Summary}\\\hline
-\textbf{Populations}     & ANF (HSR,LSR), Golgi, D-stellate \\\hline
-\textbf{Topology}        & Tonotopic,  Auditory system of the rat  \\\hline
-\textbf{Connectivity}    & Gaussian spread dependent on morphology and afferent connections  \\\hline
-\textbf{Input model}  &  ANF phenomenological instantaneous-rate Poisson spike trains\citep{ZilanyBruceEtAl:2009}\\\hline
-\multirow{2}{*}{\textbf{Neuron model}}    & Golgi: instantaneous-rate Poisson spike trains\\
-&D-stellate: HH-like single-compartment model (Type 1-2 RM model)\\ \hline
-\textbf{Channel models}  & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
-\textbf{Synapse model}   & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
-\textbf{Input Stimulus}  & Mask/Recovery click trains with delay 2, 3, 4 and 8
-ms, separated by 50 ms\\\hline
-\textbf{Measurements}    & PSTH sampled at each recovery click for 2 ms to measure click recovery\\\hline
-\end{tabularx}
-\vspace{2ex}
-
-% - B -----------------------------------------------------------------------------
-
-\noindent
-\begin{tabularx}{\textwidth}{|l|X|X|}\hline %{\textwidth}
-\hdr{3}{B}{Populations}\\\hline
-\textbf{Name} &            \textbf{Elements}            & \textbf{Number} \\\hline
-     HSR      &            Poisson generator with refractory effects           & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
-     LSR      &            ''            & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
-     GLG      &            ''            & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
-     DS       &  Type I-II RM model & $N_{\text{DS}}= 1$ at CF=5.6~kHz \\\hline
-\end{tabularx}
-\vspace{2ex}
-
-% - C ------------------------------------------------------------------------------
-
-\noindent
-\begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
-\hdr{4}{C}{Connectivity}\\\hline
-        \textbf{Name}          &  \textbf{Source}  & \textbf{Target} & \textbf{Pattern} \\\hline
-$\textrm{ANF} \to \textrm{DS}$ & ANF (HSR and LSR) &   D-Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS \\\hline
-$\textrm{GLG} \to \textrm{DS}$ &       Golgi       &   D-Stellate    & Gaussian, centered at CF with spread \sGLGDS, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
-\end{tabularx}
-
-\vspace{2ex}
 
 
 
 
-% - D ------------------------------------------------------------------------------
-
-
-
-%\noindent\begin{tabularx}{\textwidth}{|p{0.150.95\textwidth}|X|}\hline
-%\hdr{2}{D}{Neuron and Synapse Model}\\\hline
-% \textbf{Name} & Poisson spike generator \\\hline
-% \textbf{Type} & Leaky integrate-and-fire, $\delta$-current input\\\hline
-% \raisebox{-4.5ex}{\parbox{\textwidth}{\textbf{Subthreshold dynamics}}} &
-% \rule{1em}{0em}\vspace*{-3.5ex}
-%     \begin{equation*}
-%       \begin{array}{r@{\;=\;}lll}
-% \tau \dot{V}(t) & -V(t) + R I(t) & \text{if} & t > t^*+\tau_{\text{rp}} \\
-%      V(t)       &  V_{\text{r}}  & \text{else} \\[2ex]
-%      I(t)       & \multicolumn{3}{l}{\frac{\tau}{R} \sum_{\tilde{t}} w \delta(t-(\tilde{t}+\Delta))}
-% \end{array}
-%     \end{equation*}
-% \vspace*{-2.5ex}\rule{1em}{0em}
-%  \\\hline
- % \multirow{3}{*}{\textbf{Spiking}} &   If $V(t-)<\theta \wedge V(t+)\geq \theta$ \vspace*{-1ex}
- % \begin{enumerate}\setlength{\itemsep}{-0.5ex}
- % \item set $t^* = t$
- % \item emit spike with time-stamp $t^*$
- % \end{enumerate}
- % \vspace*{-4ex}\rule{1em}{0em} \\\hline
- % \end{tabularx}
-
-\vspace{2ex}
-
-% - E ------------------------------------------------------------------------------
-
-\noindent
-\begin{tabularx}{\textwidth}{|X|c|c|c|}\hline %{\textwidth}
-\hdr{4}{E}{Optimisation} \\ \hline
-     \textbf{Parameters}      &  \textbf{Name}   &        \textbf{Range}         & \textbf{Best Values} \\\hline 
-     Weight of GLG on DS (nS)      &     \wGLGDS      &         [0.01,50]          & 0.532 \\	\hline	
-   Weight of HSR syn on DS (nS)	  &	\wHSRDS	     &		[0.01,50]	   & 0.16 \\	   \hline
-   Weight of LSR syn on DS  (nS)  &	\wLSRDS	     &		[0.01,50]	   & 13.1 \\	    \hline
-\GABAa synapse rise constant  (ms)&  $\tau_{GABA1}$  &	       [0.01,10.0]	   & 5.432\\	     \hline
-\GABAa synapse decay constant (ms)&  $\tau_{GABA2}$  &	       [0.1,50.0]	   & 0.262\\	    \hline
-  DS cell leak conductance (mS per cm$^2$)   & $\bar{g}_{leak}$ & [1e-5,5e-2]  & 0.0163 \\ \hline
-\end{tabularx}
-\vspace{2ex}
-
-
-
-
-% - F -----------------------------------------------------------------------------
-
-\noindent\begin{tabularx}{\textwidth}{|X|}\hline
-  \hdr{1}{F}{Measurements}\\\hline 
-PSTHs were generated from 25
-  stimulus repetitions. Each response to a click is measured for 2 ms
-  after the minimum first spike latency for the unit.  The unit used
-  in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
 % \begin{minipage}[c]{0.6\textwidth}
 % \vspace{1cm}
 % DS Ouput \hspace{2in} Golgi Output
 % %\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\\
 %   \captionsize{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
 %   \end{minipage}\\ \hline
-\end{tabularx}
+
 
  % ---------------------------------------------------------------------------------
 % \newpage
@@ -253,7 +156,7 @@ PSTHs were generated from 25
 
 
 
-
+\input{DSRecoveryTable.tex}
 
 
 

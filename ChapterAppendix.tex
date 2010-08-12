@@ -1,0 +1,240 @@
+\graphicspath{{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/Responses/}{../figures/}{./gfx/}}
+
+%\renewcommand{\setthesubsection}{\Alph{subsection}}
+\begin{appendix}
+\section{Appendix}
+\label{sec:chp3appendix}
+\subsection{Conversion of Auditory model}
+
+
+The steps for converting \citet{ZilanyBruce:2007} auditory model to
+accommodate a rat are the position on the basilar membrane to
+characteristic frequency mapping function (\texttt{cochlea\_x2f()}), the
+reciprocal frequency to position function (\texttt{cochlea\_f2x()}), a
+delay function, and an appropriate audiogram mapping using a MATLAB
+routine \texttt{fitaudiogram.m}.  Specific Added support for rat species
+are included in the NMODL file \texttt{an\_bruce.mod} and \texttt{an\_zilany\_v4.mod}, so that specific
+parameters can be passed from NEURON to the auditory model.  Rat
+basilar membrane frequency mapping in \texttt{cochlea\_f2x()} and
+\texttt{cochlea\_x2f()} included using data obtained from the Boston University Earlab
+website, \url{earlab.bu.edu} .  Compression variables for the IHC and OHC
+components of the Zilany Bruce model are fit using audiogram data of a
+rat.  The audiogram in Fig. \ref{fig:AudThresholdRat} was used to
+generate the compression data for the rat model.
+
+\medskip{}
+
+\begin{lstlisting}[label=lst:makeaudiogram,caption=Using fitaudiogram.m to create COHC and CIHC vectors for the cat.]
+ x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0)
+ [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2))
+ dlmwrite ("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g")
+\end{lstlisting}
+
+
+\begin{lstlisting}[label=lst:cataudiogram,caption=Portion of cat\_audiogram.txt]
+...
+125	37	0	0.025
+250	22	0	0.3
+500	8	0.65	0.7
+1000	3	0.9	0.9
+2000	1	0.95	1
+4000	1	0.95	1
+...
+\end{lstlisting}
+
+
+\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to freuencies in \texttt{cf} vector (Utilities.hoc)]
+...
+objref audiogram,cohc,cihc
+proc GetAudiogramData(){
+  ...
+   file.ropen(audiogram_file)
+   audiogram.scanf(file,nrows,4)
+  ...
+// Interpolate compression data to cf positions
+   cohc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(2).c)
+   cihc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(3).c)
+}
+GetAudiogramData() 
+...
+\end{lstlisting}
+
+\medskip{}
+
+\begin{figure}[htb]
+\begin{center}
+\resizebox{5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}%Audiograms.jpg}}
+\caption{Hearing threshold of the domestic cat by Heffner and Heffner
+  1985 \citep{HeffnerHeffner:1985} ( Data file
+  heffner\_1985a\_felis\_p347\_3.txt obtained from [earlab.bu.edu])}
+\label{fig:AudThresholdRat}
+\end{center}
+\end{figure}
+
+
+The formula for the latency of acoustic stimulation to reach a
+particular point on the basilar membrane comprises a fixed conduction
+delay plus an additional delay that is an exponential function of the
+distance from the stapes. The frequency mapping function is defined
+as:
+\[
+ f = A\times10^{\left(a*d/L\right)} - K
+ \]
+where \emph{d} is distance along the basilar membrane from the stapes.
+
+\medskip{}
+
+This equation is suitable since it uses the mapping function
+\texttt{cochlea\_x2f} and its inverse, \texttt{cochlea\_f2x}, which is
+different for cat, rat and humans.  The data listed in
+Table~\ref{tab:f2x} shows the currently accepted parameters for each
+species.
+
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{lccccc}
+    \hline
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+& A & a & k & L \\
+Human &165.4	&2.1	&1.0(0.88)	&35     \\
+Cat&456&	2.1&0.8&25 \\
+Rat&7613.3	&0928	&1.0&	8.03     \\
+    \hline
+  \end{tabular}
+  \caption{Frequency to basilar membrane distance function parameters \citep{FitzGeraldBurkittEtAl:2001}. Data obtained from \url{http:\/\/earlab.bu.edu.} and }\label{tab:f2x}
+\end{table}
+
+
+In the cat, \citet{CarneyYin:1988} fitted the latency vs CF curve from
+click responses in the cat to obtain the equation: \( delay (msec) =
+A_0 * {\rm exp}( -x / A_1 ) * 1e-3 - 1.0/CF \) where $x = cochlea\_f2x(species, cf)$, $A_0 = 8.13$ (ms), $A_1 = 6.49$
+(nm). \citet{HeinzZhangEtAl:2001} then corrected the peak click to
+match the onset delay of ANFs and this has been retained in the model
+used here \citep{ZilanyBruceEtAl:2009}: \(delay = A_0 * {\rm exp}(-x / A_1) * 1e-3
+\) where $A_0 = 3.0$, $A_1 = 12.5$. In
+humans, the delay function is: \( delay = 4.915 +
+0.3631 * {\rm exp}(0.11324*x) , 5<x<35 (mm) \).
+
+\medskip{}
+
+Steps for converting any Carney Auditory Model written in C for
+MATLAB to a NEURON NMODL compatible C file.  
+\begin{enumerate} 
+\item Remove mex headers 
+\item remove \texttt{mexfunction}, this is
+  replaced with equivalent NMODL function that retrieves variables and
+  returns the equivalent vectors
+\item Find and replace all vector or memory allocation routines with functions
+  in scopmath.h
+\begin{itemize} 
+\item \texttt{mxCalloc}$\Rightarrow$\texttt{makevector}
+\item \texttt{mxFree} $\Rightarrow$ \texttt{freevector}
+\end{itemize} 
+\item Replace random generator functions \texttt{drand48()} to
+  \texttt{scop\_random()} and let random seed be set in NEURON or replace \texttt{srand(seed)} with
+  \texttt{set\_seed(seed)}. 
+\item Calls to MATLAB functions within a mex file The most recent model  within the mex file.  This was
+  converted to a simple double array of random values with scoplib's
+  \texttt{normrand(0,1)} function.
+\begin{itemize}
+\item builtin \texttt{randn} $\Rightarrow$ generate an array gaussian random numbers with scoplib's
+  \texttt{normrand(0,1)} function
+\item builtin \texttt{resample} $\Rightarrow$ implementation of a reliable resampling function in C, using
+  a real-time resample library (libresample [reference needed]).
+\item M-file \texttt{ffGn}  $\Rightarrow$ generate a C function that implements a the fast fractional Gaussian noise generator
+\end{itemize}
+
+\end{enumerate}
+
+
+
+
+
+\subsection{Golgi Cell Model}
+
+ \yellownote{More detail in golgi model}
+Each golgi cell template consists of a spike generator, \emph{s}, and vector
+objects representing the instantaneous rate, the spike times and
+accumulated  spike times of the golgi cell. Parameters identifying
+each cell include the \emph{channel} number, CF and bandwidth of ANF
+input (actually the variance of the weight each auditory filter
+channel contributes to the firing of the cell).
+
+The instantaneous rate vector of a golgi cell model at CF channel
+\emph{i} is created by :
+\begin{itemize}
+ \item a selection of ANF input channels centred at \emph{i} with a
+ spread, \sLSRGLG;
+ \item the instantaneous rate vectors of the LSR ANF's in each channel
+ are weighted (with a gaussian function (mean=\emph{i},
+ s.d.=$\sqrt{\sLSRGLG}$) and the weighted vectors are averaged; and
+ \item the weighted average vector is convolved with an alpha function
+ of time constant 5, to simulate the synaptic and membrane dynamics of
+ golgi cells
+\end{itemize}
+
+ \medskip{}
+
+\begin{lstlisting}[caption=Create golgi cell rate vector within Golgi template (in CNcell.tem)]
+weight_sum_LSR = 1
+weight_sum_HSR = 0.01
+golgi_spon = 1
+golgi_spatial_filter_variance = 4
+golgi_syn_filter_tau = 0.0005  // s
+golgi_syn_filter_scale_factor=1
+objref golgi_synfilter
+
+func alpha(){ //Alpha function synaptic/membrane filter
+  return $1*sg_tdres*exp(-($1*sg_tdres)/golgi_syn_filter_tau)
+}
+proc CreateGolgiSynFilter(){ 
+  golgi_synfilter = new Vector(sg_rate*10*golgi_syn_filter_tau)
+  golgi_synfilter.indgen().apply("alpha")  // create alpha function
+  golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum()) 
+}
+CreateGolgiSynFilter()
+...
+begintemplate Golgicell
+...
+proc SetRate2() {local i,j,spon_factor
+...
+//Calculate weight vectors based on this cell's position
+  gaussian_mean = channel
+  gaussian_variance = golgi_spatial_filter_variance_LSR
+  wLSR.apply("gaussian").mul(weight_sum_LSR)
+  gaussian_variance = golgi_spatial_filter_variance_HSR
+  wHSR.apply("gaussian").mul(weight_sum_HSR)
+
+// Add LSR and HSR vectors to tempsout, check weights 
+  for i=0,nchannels-1  {
+    if (wLSR.x[i]>0.001) tempsout.add(LSRout[i].c.add(-Lowspont).mul(wLSR.x[i]))
+    if (wHSR.x[i]>0.001) tempsout.add(HSRout[i].c.add(-Highspont).mul(wHSR.x[i]))
+  }
+//Correct for spontaneous rate
+  tempsout.add(golgi_spon)
+//Smooth AN input by convolution with alpha-function to simulate dendritic filtering
+    convolve(tempsout,golgi_synfilter,sout)
+//Add conduction delay to inst. rate profile to ensure accurate FSL
+    for i = 0, param.delay.x[lsr][glg]*sg_rate/1000{
+        sout.insrt(0,golgi_spon)
+        sout.remove(sout.size-1)
+    }
+//Push vector to spike generator, s
+    s.SetFibreRate(sout,spiketimes,sg_tdres)
+}
+...
+endtemplate Golgicell
+\end{lstlisting}
+
+\end{appendix}
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: nil
+%%% End: 
