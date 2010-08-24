@@ -9,17 +9,17 @@
 
 The steps for converting \citet{ZilanyBruce:2007} auditory model to
 accommodate a rat are the position on the basilar membrane to
-characteristic frequency mapping function (\texttt{cochlea\_x2f()}), the
-reciprocal frequency to position function (\texttt{cochlea\_f2x()}), a
+characteristic frequency mapping function (\mbox{\textsf{cochlea\_x2f()}}), the
+reciprocal frequency to position function (\mbox{\textsf{cochlea\_f2x()}}), a
 delay function, and an appropriate audiogram mapping using a MATLAB
-routine \texttt{fitaudiogram.m}.  Specific Added support for rat species
-are included in the NMODL file \texttt{an\_bruce.mod} and \texttt{an\_zilany\_v4.mod}, so that specific
+routine \mbox{\textsf{fitaudiogram.m}}.  Specific Added support for rat species
+are included in the NMODL file \mbox{\textsf{an\_bruce.mod}} and \mbox{\textsf{an\_zilany\_v4.mod}}, so that specific
 parameters can be passed from NEURON to the auditory model.  Rat
-basilar membrane frequency mapping in \texttt{cochlea\_f2x()} and
-\texttt{cochlea\_x2f()} included using data obtained from the Boston University Earlab
-website, \url{earlab.bu.edu} .  Compression variables for the IHC and OHC
+basilar membrane frequency mapping in \mbox{\textsf{cochlea\_f2x()}} and
+\mbox{\textsf{cochlea\_x2f()}} included using data obtained from the Boston University Earlab
+website, \url{earlab.bu.edu}.  Compression variables for the IHC and OHC
 components of the Zilany Bruce model are fit using audiogram data of a
-rat.  The audiogram in Fig. \ref{fig:AudThresholdRat} was used to
+rat.  The audiogram in Fig.~\ref{fig:AudThresholdRat} was used to
 generate the compression data for the rat model.
 
 \medskip{}
@@ -43,7 +43,7 @@ generate the compression data for the rat model.
 \end{lstlisting}
 
 
-\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to freuencies in \texttt{cf} vector (Utilities.hoc)]
+\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to freuencies in \textsf{cf} vector (Utilities.hoc)]
 ...
 objref audiogram,cohc,cihc
 proc GetAudiogramData(){
@@ -51,7 +51,7 @@ proc GetAudiogramData(){
    file.ropen(audiogram_file)
    audiogram.scanf(file,nrows,4)
   ...
-// Interpolate compression data to cf positions
+/* Interpolate compression data to cf positions */
    cohc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(2).c)
    cihc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(3).c)
 }
@@ -65,8 +65,8 @@ GetAudiogramData()
 \begin{center}
 \resizebox{5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}%Audiograms.jpg}}
 \caption{Hearing threshold of the domestic cat by Heffner and Heffner
-  1985 \citep{HeffnerHeffner:1985} ( Data file
-  heffner\_1985a\_felis\_p347\_3.txt obtained from [earlab.bu.edu])}
+  1985 \citep{HeffnerHeffner:1985} (Data file
+  \mbox{heffner\_1985a\_felis\_p347\_3.txt} obtained from [earlab.bu.edu])}
 \label{fig:AudThresholdRat}
 \end{center}
 \end{figure}
@@ -85,7 +85,7 @@ where \emph{d} is distance along the basilar membrane from the stapes.
 \medskip{}
 
 This equation is suitable since it uses the mapping function
-\texttt{cochlea\_x2f} and its inverse, \texttt{cochlea\_f2x}, which is
+\mbox{\textsf{cochlea\_x2f()}} and its inverse, \mbox{\textsf{cochlea\_f2x()}}, which is
 different for cat, rat and humans.  The data listed in
 Table~\ref{tab:f2x} shows the currently accepted parameters for each
 species.
@@ -102,13 +102,13 @@ Cat&456&	2.1&0.8&25 \\
 Rat&7613.3	&0928	&1.0&	8.03     \\
     \hline
   \end{tabular}
-  \caption{Frequency to basilar membrane distance function parameters \citep{FitzGeraldBurkittEtAl:2001}. Data obtained from \url{http:\/\/earlab.bu.edu.} and }\label{tab:f2x}
+  \caption{Frequency to basilar membrane distance function parameters \citep{FitzGeraldBurkittEtAl:2001}. Data obtained from \url{earlab.bu.edu.}}\label{tab:f2x}
 \end{table}
 
 
 In the cat, \citet{CarneyYin:1988} fitted the latency vs CF curve from
 click responses in the cat to obtain the equation: \( delay (msec) =
-A_0 * {\rm exp}( -x / A_1 ) * 1e-3 - 1.0/CF \) where $x = cochlea\_f2x(species, cf)$, $A_0 = 8.13$ (ms), $A_1 = 6.49$
+A_0 * {\rm exp}( -x / A_1 ) * 1e-3 - 1.0/CF \) where $x = \mathsf{cochlea\_f2x(species, cf)}$ is thedistance alongthe basilar membrane, $A_0 = 8.13$ (ms), $A_1 = 6.49$
 (nm). \citet{HeinzZhangEtAl:2001} then corrected the peak click to
 match the onset delay of ANFs and this has been retained in the model
 used here \citep{ZilanyBruceEtAl:2009}: \(delay = A_0 * {\rm exp}(-x / A_1) * 1e-3
@@ -122,27 +122,27 @@ Steps for converting any Carney Auditory Model written in C for
 MATLAB to a NEURON NMODL compatible C file.  
 \begin{enumerate} 
 \item Remove mex headers 
-\item remove \texttt{mexfunction}, this is
+\item remove \textsf{mexfunction}, this is
   replaced with equivalent NMODL function that retrieves variables and
   returns the equivalent vectors
 \item Find and replace all vector or memory allocation routines with functions
   in scopmath.h
 \begin{itemize} 
-\item \texttt{mxCalloc}$\Rightarrow$\texttt{makevector}
-\item \texttt{mxFree} $\Rightarrow$ \texttt{freevector}
+\item \textsf{mxCalloc}$\Rightarrow$\textsf{makevector}
+\item \textsf{mxFree} $\Rightarrow$ \textsf{freevector}
 \end{itemize} 
-\item Replace random generator functions \texttt{drand48()} to
-  \texttt{scop\_random()} and let random seed be set in NEURON or replace \texttt{srand(seed)} with
-  \texttt{set\_seed(seed)}. 
+\item Replace random generator functions \textsf{drand48()} to
+  \mbox{\textsf{scop\_random()}} and let random seed be set in NEURON or replace \textsf{srand(seed)} with
+  \mbox{\textsf{set\_seed(seed)}}. 
 \item Calls to MATLAB functions within a mex file The most recent model  within the mex file.  This was
   converted to a simple double array of random values with scoplib's
-  \texttt{normrand(0,1)} function.
+  \mbox{\textsf{normrand(0,1)}} function.
 \begin{itemize}
-\item builtin \texttt{randn} $\Rightarrow$ generate an array gaussian random numbers with scoplib's
-  \texttt{normrand(0,1)} function
-\item builtin \texttt{resample} $\Rightarrow$ implementation of a reliable resampling function in C, using
+\item builtin \textsf{randn} $\Rightarrow$ generate an array gaussian random numbers with scoplib's
+  \mbox{\textsf{normrand(0,1)}} function
+\item builtin \textsf{resample} $\Rightarrow$ implementation of a reliable resampling function in C, using
   a real-time resample library (libresample [reference needed]).
-\item M-file \texttt{ffGn}  $\Rightarrow$ generate a C function that implements a the fast fractional Gaussian noise generator
+\item M-file \textsf{ffGn} $\Rightarrow$ generate a C function that implements a the fast fractional Gaussian noise generator
 \end{itemize}
 
 \end{enumerate}
@@ -176,21 +176,21 @@ The instantaneous rate vector of a golgi cell model at CF channel
 
  \medskip{}
 
-\begin{lstlisting}[caption=Create golgi cell rate vector within Golgi template (in CNcell.tem)]
+\begin{lstlisting}[label=GolgiTemplate,caption=Create golgi cell rate vector within Golgi template (in CNcell.tem)]
 weight_sum_LSR = 1
 weight_sum_HSR = 0.01
-golgi_spon = 1
-golgi_spatial_filter_variance = 4
-golgi_syn_filter_tau = 0.0005  // s
+golgi_spon = 1                             /* spikes per second */
+golgi_spatial_filter_variance = 4          /* channel */
+golgi_syn_filter_tau = 0.0005              /* seconds */
 golgi_syn_filter_scale_factor=1
 objref golgi_synfilter
 
-func alpha(){ //Alpha function synaptic/membrane filter
+func alpha(){ /*Alpha function synaptic/membrane filter*/
   return $1*sg_tdres*exp(-($1*sg_tdres)/golgi_syn_filter_tau)
 }
-proc CreateGolgiSynFilter(){ 
+proc CreateGolgiSynFilter(){  /* create alpha function */
   golgi_synfilter = new Vector(sg_rate*10*golgi_syn_filter_tau)
-  golgi_synfilter.indgen().apply("alpha")  // create alpha function
+  golgi_synfilter.indgen().apply("alpha")  
   golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum()) 
 }
 CreateGolgiSynFilter()
@@ -199,38 +199,111 @@ begintemplate Golgicell
 ...
 proc SetRate2() {local i,j,spon_factor
 ...
-//Calculate weight vectors based on this cell's position
+/* Calculate weight vectors based on this cell's position */
   gaussian_mean = channel
   gaussian_variance = golgi_spatial_filter_variance_LSR
   wLSR.apply("gaussian").mul(weight_sum_LSR)
   gaussian_variance = golgi_spatial_filter_variance_HSR
   wHSR.apply("gaussian").mul(weight_sum_HSR)
 
-// Add LSR and HSR vectors to tempsout, check weights 
+/* Add LSR and HSR vectors to tempsout, check weights */
   for i=0,nchannels-1  {
     if (wLSR.x[i]>0.001) tempsout.add(LSRout[i].c.add(-Lowspont).mul(wLSR.x[i]))
     if (wHSR.x[i]>0.001) tempsout.add(HSRout[i].c.add(-Highspont).mul(wHSR.x[i]))
   }
-//Correct for spontaneous rate
+/* Correct for spontaneous rate */
   tempsout.add(golgi_spon)
-//Smooth AN input by convolution with alpha-function to simulate dendritic filtering
+/* Smooth AN input to simulate dendritic filtering */
     convolve(tempsout,golgi_synfilter,sout)
-//Add conduction delay to inst. rate profile to ensure accurate FSL
+/* Add conduction delay to rate profile */
     for i = 0, param.delay.x[lsr][glg]*sg_rate/1000{
         sout.insrt(0,golgi_spon)
         sout.remove(sout.size-1)
     }
-//Push vector to spike generator, s
+/* Push vector to spike generator object, s */
     s.SetFibreRate(sout,spiketimes,sg_tdres)
 }
 ...
 endtemplate Golgicell
 \end{lstlisting}
 
+
+\subsection{Cochlear nucleus cell templates}
+
+The cochlear nucleus cell models were introduced by \citet{RothmanManis:2003b}, after exploratory studies on the potassium currents of murine cochlear nucleus neurons \citep{RothmanManis:2003,RothmanManis:2003a}. Listing~\ref{lst:CellTemplate}  shows 
+
+\begin{lstlisting}[label=lst:CellTemplate,caption=Rothman and Manis cochlear nucleus cell template (in CNcell.tem)]
+begintemplate CNcell
+  public soma, dend, AMPA, GlyR, GABAA, spiketimes, spikecount
+  public spikes,connect2target, synlist,cf,model,channel
+...
+proc init() { local model
+  create soma
+   synlist = new List()
+    spiketimes = new Vector()
+    lastspikecount = 0
+    spikes = new Vector()
+    
+    if($1 == 0) set_tstellate() //Tstellate cell
+    if($1 == 1) set_tuberc() //Tubervuloventral cell
+    if($1 == 2) set_dstellate() //Dstellate cell
+    if($1 == 3) set_golgi() //golgi cell
+    cf = $2
+    channel=$3
+
+    soma {
+	insert rm  /* Na, KHT, Ih, leak currents */
+        eh_rm = -43 
+
+      AMPA = new ExpSyn(0.5)
+      AMPA.tau  = ampa_decay
+      AMPA.e 	= ampa_erev
+
+      GlyR = new Exp2Syn(0.5)
+      GlyR.tau2	= gly_decay
+      GlyR.tau1	= gly_rise
+      GlyR.e 	= gly_erev
+
+      GABAA = new Exp2Syn(0.5)
+      GABAA.tau2 	= gaba_decay
+      GABAA.tau1 	= gaba_rise
+      GABAA.e 	= gaba_erev
+    }
+
+
+      ena = 50		// mV
+      ek  = -70		//  mV
+
+
+  }	// end init()
+
+
+func nstomho() {//convert S to nS/cm2
+ return (1E-9*$1/somaarea)
+}
+
+func qt(){ //temperature quotient in current channels
+ if(numarg()==1){//quality, temperature coefficient for Ih conductance	
+ 	return 1.3^((celsius-22)/10)
+ } else {
+	return 2^((celsius-22)/10)
+ }
+}
+proc set_tstellate() {
+ soma {
+	insert ka
+	...
+	ghbar_rm = nstomho(0.5)*qt(1)
+        ...  
+ }
+}
+...
+endtemplate CNcell 
+
+\end{lstlisting}
+
+
 \end{appendix}
-
-
-
 
 
 %%% Local Variables: 
