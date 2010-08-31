@@ -5,6 +5,8 @@
 % User defined commands
 %\usepackage{quotation}
 
+\usepackage{appendix}
+\usepackage[showlabels]{preview}
 
 \usepackage{xspace}
 % My glossary
@@ -20,7 +22,7 @@
 
 % \begin{synopsis}
 %   Modelling large biophysically-based neural network models is
-% 	 complicated by the large parameter space, various sources of
+% 	 comlicated by the large parameter space, various sources of
 % 	 experimental data and the existence of stochasticity in
 % 	 neural networks.
 %\end{synopsis}
@@ -35,42 +37,6 @@
 \newpage
 % \input{Tstellate.tex}
 \newpage
-
-\section{Discussion}
-
-\yellownote{Discuss the relevance of creating the CN stellate model,
-  especially the methods.}  The T-stellate cell microcircuit in the
-cochlear nucleus is one of the most interesting neural features of the
-auditory system.  It enables a high-fidelity sensory input to be
-passed to higher order centres, by reproducing the spectrum in a
-robust fashion \citep{BlackburnSachs:1990,May:2003} and
-synchronisation to significant periodic frequencies
-\citep{KeilsonRichardsEtAl:1997}.
-
-
-
-\medskip{} 
-
-\yellownote{Discuss the Golgi cell optimisation.  Is the filter-based
-  approach effective at meeting the goal of simulating data from
-  \citet{GhoshalKim:1997}?}  The Golgi cell model optimised in section
-\ref{sec:golgi-cell-model} reproduces the experimental data of a
-single unit in the marginal shell of the VCN \citep{GhoshalKim:1997}.
-
-\medskip{}
-
-Discuss the DS cell model optimisation.  What were the reasons for
-using cell-based parameters, and why is this necessary?  Why aren't
-the spread of ANF inputs to DS cells optimised based on your methods?
-How does the optimisation routine replicate DS responses to other
-stimuli, when there are already plenty?
-
-\medskip{}
-
-Discuss the TV cell optimisation. Is the goal of replicating wide-band
-inhibition offset necessary, or is rate ratio between TS/DS/TV the
-most important?  Mammalian studies show that the TV cells receive
-input from TS cells, but not in rats
 
 
 \section{Conclusion}
@@ -87,8 +53,8 @@ topography.  I followed the neural network modeling format as
 suggested by \citet{NordlieGewaltigEtAl:2009} so that other
 researchers may easily reproduce this work.
 
+\appendix
 \input{ChapterAppendix.tex}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \bibliographystyle{plainnat}%bmc_article} % Style BST file

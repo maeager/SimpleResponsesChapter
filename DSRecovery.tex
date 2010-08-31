@@ -4,11 +4,12 @@
 \label{sec:d-stellate-cell-model}
 
 
-This section shows the GABAergic input and intrinsic
-cell properties  influence the behaviour Onset chopper units.
-Onset-chopper units in the mammalian VCN have a wide-ranging influence
-on the primary cells of the VCN (stellate and bushy neurons \citep{RhodeSmithEtAl:1983}), the
-ipsilateral DCN (type II and type IV EIRA units) and the contralateral CN \citep{NeedhamPaolini:2007}.  
+This section shows the GABAergic input and intrinsic cell properties
+influence the behaviour Onset chopper units.  Onset-chopper units in
+the mammalian VCN have a wide-ranging influence on the primary cells
+of the VCN (stellate and bushy neurons \citep{RhodeSmithEtAl:1983}),
+the ipsilateral DCN (type II and type IV EIRA units) and the
+contralateral CN \citep{NeedhamPaolini:2007}.
 
 \medskip{}
 
@@ -28,35 +29,38 @@ ipsilateral DCN (type II and type IV EIRA units) and the contralateral CN \citep
 \subsection{Background}
 
   
-D-stelate (DS) cells have an onset-chopping (On-C) PSTH to tones and noise
-\citep{SmithRhode:1989,NeedhamPaolini:2006}. Intracellular responses to sounds
-indicate the bandwidth of inputs to DS neurons typically ranges from two
-octaves below CF to one octave above CF
-\citep{PalmerJiangEtAl:1996,PaoliniClark:1999}. DS cell axon terminals contain
-the inhibitory neurotransmitter glycine and synapse widely in the VCN and DCN.
-They also send a commissural projection to the contralateral cochlear nucleus
-that mediates fast inhibition between the nuclei
-\citep{NeedhamPaolini:2003,NeedhamPaolini:2006}.  \citep{Oertel:1997}
+D-stelate (DS) cells have an onset-chopping (On-C) PSTH to tones and
+noise \citep{SmithRhode:1989,NeedhamPaolini:2006}. Intracellular
+responses to sounds indicate the bandwidth of inputs to DS neurons
+typically ranges from two octaves below CF to one octave above CF
+\citep{PalmerJiangEtAl:1996,PaoliniClark:1999}. DS cell axon terminals
+contain the inhibitory neurotransmitter glycine and synapse widely in
+the VCN and DCN.  They also send a commissural projection to the
+contralateral cochlear nucleus that mediates fast inhibition between
+the nuclei \citep{NeedhamPaolini:2003,NeedhamPaolini:2006}.
+\citep{Oertel:1997}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Post-onset GABAergic inhibition in DS cells is a major influence on the PSTH
-of On-C neurons \citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
-excitation to auditory nerve shocks suggests golgi cells are activated by type
-II ANFs and low spontaneous rate type I ANFs
-\citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}. Therefore, type II
-and LS type I ANFs could be involved in gain control through GABAergic
-modulation of activity in the VCN.
+Post-onset GABAergic inhibition in DS cells is a major influence on
+the PSTH of On-C neurons
+\citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
+excitation to auditory nerve shocks suggests golgi cells are activated
+by type II ANFs and low spontaneous rate type I ANFs
+\citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}. Therefore,
+type II and LS type I ANFs could be involved in gain control through
+GABAergic modulation of activity in the VCN.
 
 
 \medskip{}
 
-[Discuss AM coding by DS cells]
-\citep{CasparyPalombiEtAl:2002} GABA blockers in the VCN has the effects of changing the behaviour in the response to AM in the IC.
-\citep{BackoffShadduckEtAl:1999} AM coding effects of GABA in the Chinchilla CN.
-\citep{CasparyBackoffEtAl:1994}
-Caspary et al. worked on the effects of GABA in in the VCN. 
+[Discuss AM coding by DS cells] \citep{CasparyPalombiEtAl:2002} GABA
+blockers in the VCN has the effects of changing the behaviour in the
+response to AM in the IC.  \citep{BackoffShadduckEtAl:1999} AM coding
+effects of GABA in the Chinchilla CN.  \citep{CasparyBackoffEtAl:1994}
+Caspary et al. worked on the effects of GABA in in the VCN.
 
-Zhang and Winter looked at the response area of VCN onset units to determine GABA on/off freq
+Zhang and Winter looked at the response area of VCN onset units to
+determine GABA on/off freq
 
 Smith and Rhode, Smith et al. looked at OnC respnse area and two-tone
 
@@ -87,15 +91,15 @@ Choosing neural model: type I-II Rothman and Manis model
 Optimisation parameters for \GLGDS are optimised based on experimental
 click recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed
 parameters included the number of golgi cells to DS cells ($\nGLGDS =
-25$), the spread of ANFs to DS cells $\ANFDS$, and the extra delay from the auditory
-nerve.  The first spike latency in DS cells 2.8 ± 0.09 ms
-\citep{RhodeSmith:1986}.The addition of 0.5 ms to \ANFDS connections
-is a combination of conductance and synaptic delay. The effect of
-Golgi cells on DS is delayed by the extra 0.7~ms delay from ANF to
-Golgi, plus the slow peak of \GABAa inhibition.  
-The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and fairly broad so the
-estimate is set so that 2 octaves below and 1 octave above CF are
-within 2 standard deviations \citep{PaoliniClark:1999}.
+25$), the spread of ANFs to DS cells $\ANFDS$, and the extra delay
+from the auditory nerve.  The first spike latency in DS cells 2.8 ±
+0.09 ms \citep{RhodeSmith:1986}.The addition of 0.5 ms to \ANFDS
+connections is a combination of conductance and synaptic delay. The
+effect of Golgi cells on DS is delayed by the extra 0.7~ms delay from
+ANF to Golgi, plus the slow peak of \GABAa inhibition.  The spread ANF
+to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and fairly
+broad so the estimate is set so that 2 octaves below and 1 octave
+above CF are within 2 standard deviations \citep{PaoliniClark:1999}.
 
 \medskip{}
 
@@ -162,8 +166,8 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 
 
 \begin{figure}[htb]
-\includegraphics[angle=-90,width=0.8\textwidth]{DSClickRecoveryExpData}\label{Ch3:fig:DSClickRecoveryExpData}
-\caption{Experimental Data of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.}
+%\includegraphics[angle=-90,width=0.8\textwidth]{DSClickRecoveryExpData}
+\caption{Experimental Data of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.}\label{Ch3:fig:DSClickRecoveryExpData}
 \end{figure}
 
 %\parsep

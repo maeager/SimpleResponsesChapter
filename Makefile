@@ -48,7 +48,7 @@ export LC_ALL		?= C
 #
 # If you specify sources here, all other files with the same suffix
 # will be treated as if they were _include_ files.
-#onlysources.tex	?= AuditoryModel.tex AM_Responses.tex SimpleResponsesChapter.tex GolgiRateLevel.tex DS_ClickRecovery.tex TV_Notch.tex TStellate.tex 
+onlysources.tex	?= SimpleResponses.tex #AuditoryModel.tex AM_Responses.tex SimpleResponsesChapter.tex GolgiRateLevel.tex DS_ClickRecovery.tex TV_Notch.tex TStellate.tex 
 #onlysources.tex.sh	?=
 #onlysources.tex.pl	?=
 #onlysources.tex.py	?=
@@ -599,6 +599,7 @@ PERL		?= perl
 PYTHON		?= python
 RST2LATEX	?= rst2latex.py
 # == EPS Generation ==
+DIA		?= dia --nosplash # Diagram Editor
 OCTAVE		?= octave3.2	# Matlab/Octave
 CONVERT		?= convert	# ImageMagick
 DOT		?= dot		# GraphViz

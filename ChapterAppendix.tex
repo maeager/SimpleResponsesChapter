@@ -1,4 +1,4 @@
-\graphicspath{{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/Responses/}{../figures/}{./gfx/}}
+\graphicspath{{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/Responses/}{../figures/}{./gfx/}}
 
 %\renewcommand{\setthesubsection}{\Alph{subsection}}
 \begin{appendix}
@@ -24,6 +24,7 @@ generate the compression data for the rat model.
 
 \medskip{}
 
+Listing \ref{lst:makeaudiogram}
 \begin{lstlisting}[label=lst:makeaudiogram,caption=Using fitaudiogram.m to create COHC and CIHC vectors for the cat.]
  x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0)
  [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2))

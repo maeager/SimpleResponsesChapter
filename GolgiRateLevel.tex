@@ -101,8 +101,8 @@ monotonic responses to tones and noise.
 
 \begin{figure}[htb]
   \centering
-\resizebox{0.8\textwidth}{!}{\includegraphics{NoFigure}}
-%  \resizebox{0.8\textwidth}{!}{\includegraphics{GhoshalKim}}
+%\resizebox{0.8\textwidth}{!}{\includegraphics{NoFigure}}
+ \resizebox{0.8\textwidth}{!}{\includegraphics{GhoshalKim}}
 \caption{Rate level response of unit S03-07 (CF 22.7~kHz) from Fig2
   \citep{GhoshalKim:1997} }
 \end{figure}
@@ -145,7 +145,7 @@ Due to its replication of granule cells in the model, weight for LSR \wLSRGLG an
 
 \begin{figure}[hp!]
   \centering
-%  \resizebox{}{}{\includegraphics[width=0.9\textwidth,trim=0 110mm 1 55mm]{gfx/GolgiDiagram}}\\
+  \resizebox{0.8\textwidth}{!}{\includegraphics{gfx/GolgiDiagram}}\\
   \caption{ The golgi instantaneous-rate profile was generated using ANF
     profiles. $\mu$ and $\sigma$ control the spread of connections
     across frequency channels, and $\mathbf{w}$ is
@@ -154,7 +154,7 @@ Due to its replication of granule cells in the model, weight for LSR \wLSRGLG an
 \end{figure}
 
 \yellownote{TODO: explain the tables below}
-
+\newpage
 \input{GolgiRateLevelTable.tex}
 
 
@@ -176,7 +176,6 @@ Due to its replication of granule cells in the model, weight for LSR \wLSRGLG an
 \clearpage
 \subsection{Results}
 
-
 Golgi model (Green) and spike based output (Pink) was used to
 fit the experimental data of unit S03-07 (CF 21~kHz) from
 \citep{GhoshalKim:1996} (Red).  LSR mean rate (Blue) of 21~kHz unit is
@@ -189,7 +188,7 @@ Figure \ref{fig:golgiresults} shows the output of the optimised golgi cell model
 
 \begin{figure}[htb]
   \centering %\turnbox{90}{\small{Rate (sp/s)}}
-%  \resizebox{0.7\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}\\%{GolgiRateLevel-2}}\\
+  \resizebox{0.6\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}\\%{GolgiRateLevel-2}}\\
   \caption{Golgi cell model optimisation results with the best response obtaining a minimum error 0.021 (spikes/s, average mean squared error of experimental and data points). }\label{fig:golgiresults}
 \end{figure}
 
@@ -237,8 +236,8 @@ Figure \ref{fig:golgiresults} shows the output of the optimised golgi cell model
 
 
 % \clearpage \newpage
-\section{Verification}
- \subsection{Tone Response}
+\subsection{Verification of Golgi cell model}
+ \subsubsection{Tone Responses}
 
 % \begin{figure}[h]
 %   \centering\resizebox{0.95\textwidth}{!}{%
@@ -260,7 +259,7 @@ Figure \ref{fig:golgiresults} shows the output of the optimised golgi cell model
 
 
 % \clearpage
- \subsection{Noise Response}
+ \subsubsection{Noise Responses}
 % \begin{figure}[h]
 %   \centering\resizebox{0.95\textwidth}{!}{%
 %     \includegraphics{NoiseRateLevel/psthsingle120.3.eps}%
@@ -280,7 +279,7 @@ Figure \ref{fig:golgiresults} shows the output of the optimised golgi cell model
 
 
 % \clearpage
- \subsection{Masked Noise and Tone}
+ \subsubsection{Masking Responses}
 % \begin{figure}[h!]
 %   \centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.3.eps}\includegraphics{MaskedRateLevel/G_ratelevel.eps}}
 % \end{figure}
@@ -297,7 +296,7 @@ Figure \ref{fig:golgiresults} shows the output of the optimised golgi cell model
 %     \includegraphics{MaskedRateLevel/psthVlevel.3.eps}}
 % \end{figure}
 % \clearpage
- \subsection{Masked Response Area}
+
 % \begin{figure}[h!]
 %   \centering\resizebox{0.95\textwidth}{!}{%
 %     \includegraphics{MaskedResponseCurve/psthsingle5810.3.eps}%
