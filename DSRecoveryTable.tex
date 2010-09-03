@@ -1,12 +1,12 @@
 {\small\linespread{0.5}
 \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline
-         \textbf{Populations}          & ANF (HSR,LSR), Golgi, D-stellate \\\hline
+         \textbf{Populations}          & ANF (HSR,LSR), Golgi, and  D-stellate cells\\\hline
           \textbf{Topology}            & Tonotopic,  Auditory system of the rat  \\\hline
         \textbf{Connectivity}          & Gaussian spread dependent on morphology and afferent connections  \\\hline
          \textbf{Input model}          & Auditory nerve model \citep{ZilanyBruceEtAl:2009}\\\hline
 \multirow{2}{*}{\textbf{Neuron model}} & Golgi: instantaneous-rate Poisson spike trains\\
-                                       & D-stellate: HH-like single-compartment model (Type 1-2 RM model)\\ \hline
+                                       & D-stellate: R\&M single-compartment neuron (Type 1-2 R\&M model)\\ \hline
        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
         \textbf{Synapse model}         & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
        \textbf{Input Stimulus}         & Mask/Recovery click trains with delay 2, 3, 4 and 8
@@ -35,7 +35,7 @@ ms, separated by 50 ms\\\hline
 % - C ------------------------------------------------------------------------------
 
 \noindent
-\begin{tabularx}{\textwidth}{|X|X|X|X|}\hline
+\begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
         \textbf{Name}          & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
 $\textrm{ANF} \to \textrm{DS}$ &       ANF       &   D-Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS \\\hline

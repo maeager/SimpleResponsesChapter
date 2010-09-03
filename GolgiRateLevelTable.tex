@@ -30,7 +30,7 @@
                  \textbf{Name}                   & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
 \multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       LSR       &      Golgi      & 
 Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
-                                                 &       HSR       &      Golgi      & Fixed Gaussian spatial spread, centered at CF (\sHSRGLG =) \\\hline
+                                                 &       HSR       &      Golgi      & Fixed Gaussian spatial spread, centered at CF ($\sHSRGLG=2$) \\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -41,11 +41,12 @@ Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
  \textbf{Type} & Instantaneous Poisson rate model \citep{ZilanyBruceEtAl:2009} \\\hline
  \textbf{Spiking} & ANF spiking model \citep{Jackson:2003} \\\hline
             \textbf{Name}             & Golgi cell model \\\hline
-            \textbf{Type}             & Instantaneous Poisson-rate model, ANF instantaneous rate input\\\hline
-\multirow{4}{*}{\textbf{Golgi Model}} & $\mathbf{w}_{LSR} = N(\textrm{channel},\sLSRGLG)$,  $\mathbf{w}_{HSR} = N(\textrm{channel},\sHSRGLG)$  \\ 
-                                      & $w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1]$ \\
-                                      & $\mathbf{g}_i = \sum^{i} w_{LSR}(i)\mathbf{L}_i + w_{HSR}(i)\mathbf{H}_i$, weighted sum of AN input \\
-                                      & $\mathbf{G}_i = \mathbf{g}_i * \alpha $, convulve $g$ with alpha function  \\ \hline
+            \textbf{Type}             & Instantaneous Poisson-rate model, ANF instantaneous rate input\\ \hline
+% \multirow{4}{*}{\textbf{Golgi Model}} & $\mathbf{w}_{LSR}=w_{LSR}(i,p_{CF})=\frac{1}{\sigma \sqrt{2\pi}}\exp\left\{-\frac{(i-p_{CF})^2}{2\sigma^2}\right\}, \sigma^2 = \sHSRGLG$ \\ 
+% &$\mathbf{w}_{HSR}=w_{HSR}(i,p_{CF})=\frac{1}{\sigma \sqrt{2\pi}}\exp\left\{-\frac{(i-p_{CF})^2}{2\sigma^2}\right\}, \sigma^2 = \sHSRGLG$\\
+%                                       & $i \in [0,nchannels-1]$, $p_{CF}$ position in filterbank given characteristic frequency \\
+%                                       & $\mathbf{g}_{CF} = \mathbf{w}_{LSR}\dot\mathbf{L} + \mathbf{w}\dot\mathbf{H}$ \\
+%                                       & $\mathbf{G}_{CF} = \mathbf{g}_{CF} \ast \mathbf{\alpha} $, convulve instantaneous rate vector with alpha function  \\ \hline
 \end{tabularx}
 \vspace{1ex}
 
