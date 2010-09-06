@@ -600,7 +600,7 @@ PYTHON		?= python
 RST2LATEX	?= rst2latex.py
 # == EPS Generation ==
 DIA		?= dia --nosplash # Diagram Editor
-OCTAVE		?= octave3.2	# Matlab/Octave
+OCTAVE		?= octave	# Matlab/Octave
 CONVERT		?= convert	# ImageMagick
 DOT		?= dot		# GraphViz
 DOT2TEX		?= dot2tex	# dot2tex - add options (not -o) as needed
@@ -612,12 +612,11 @@ PNGTOPNM	?= pngtopnm	# From NetPBM - step 1 for png -> eps
 PPMTOPGM	?= ppmtopgm	# From NetPBM - (gray) step 2 for png -> eps
 PNMTOPS		?= pnmtops	# From NetPBM - step 3 for png -> eps
 GUNZIP		?= gunzip	# GZipped EPS
-OCTAVE		?= octave3.2	# GNU octave >3.2
 # == Beamer Enlarged Output ==
 PSNUP		?= psnup
 # == Viewing Stuff ==
 VIEW_POSTSCRIPT	?= gv
-VIEW_PDF	?= xpdf
+VIEW_PDF	?= okular
 VIEW_GRAPHICS	?= display
 
 # Command options for embedding fonts and postscript->pdf conversion

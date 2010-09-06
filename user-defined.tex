@@ -4,7 +4,7 @@
 %%
 %%
 
-\hyphenation{cross-talk au-di-tory adap-ta-tion phe-nomeno-log-i-cal syn-a-pse}
+%\hyphenation{cross-talk au-di-tory adap-ta-tion phe-nomeno-log-i-cal syn-a-pse}
 
 %%
 %% Sample custom-configuration
@@ -59,7 +59,7 @@
 
   % \usepackage[pdftex]{hyperref}  % uncomment if using hyperref
 %  \usepackage[ps2pdf]{thumbpdf}
- \DeclareGraphicsExtensions{.eps}
+ \DeclareGraphicsExtensions{.eps,.bmp}
   \else
  \DeclareGraphicsExtensions{.png,.pdf,.jpg,.JPEG}
   \usepackage{epstopdf}
@@ -76,6 +76,8 @@
             citecolor=blue, %   (ditto)
             urlcolor=blue,  %   (ditto)
             ]{hyperref}
+ \DeclareGraphicsExtensions{.eps,.bmp}
+
 \fi
 
 
@@ -162,28 +164,26 @@
 \newcounter{continuedlist}
 
 % Continued list environment
-\newenvironment{continuedlist}{%
-	\begin{enumerate}%
-		% Space out each item
-		\setlength{\itemsep}{1.25em}%
-		% Start the enumeration from the previous value
-		\setcounter{enumi}{\value{continuedlist}}%
-}{ %
-		% Save the counter to continue it later
-		\setcounter{continuedlist}{\value{enumi}}%
-	\end{enumerate}%
-	%\vspace{1.25em}%
-	\vspace{1em}%
-}
+% \newenvironment{continuedlist}{ %
+% 	\begin{enumerate}%
+% 		% Space out each item
+% 		\setlength{\itemsep}{1.25em}%
+% 		% Start the enumeration from the previous value
+% 		\setcounter{enumi}{\value{continuedlist}} %
+% }{ %
+%   % Save the counter to continue it later
+%   \setcounter{continuedlist}{\value{enumi}}%
+%   \end{enumerate}%
+%   % \vspace{1.25em}% 
+%   \vspace{1em}%
+% }
 
-% Spaced out list environment
-\newenvironment{spacedoutlist}{%
-	\begin{itemize}%
-		% Space out each item
-		\setlength{\itemsep}{1.25em}%
-}{%
-	\end{itemize}%
-}
+% % Spaced out list environment
+% \newenvironment{spacedoutlist}{%
+% 	\begin{itemize}%
+% 		% Space out each item
+% 		\setlength{\itemsep}{1.25em}%
+% }{\end{itemize}}
 
 
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -234,7 +234,7 @@
 \usepackage{xspace}
 \usepackage{rotating}
 
-\newcommand{\hdr}[3]{ %
+\newcommand{\hdr}[3]{%
 \multicolumn{#1}{|l|}{\color{white}\cellcolor[gray]{0.0}%
 \textbf{\makebox[0pt]{#2}\hspace{0.5\linewidth}\makebox[0pt][c]{#3}}%
 }}

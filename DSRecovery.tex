@@ -1,5 +1,5 @@
 
-\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}}
+\graphicspath{{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}{../figures/}{./gfx/}}
 \section[DS Cell Model]{D-Stellate Cell Model: optimisation using click recovery responses}
 \label{sec:d-stellate-cell-model}
 
@@ -35,7 +35,7 @@ responses to sounds indicate the bandwidth of inputs to DS neurons
 typically ranges from two octaves below CF to one octave above CF
 \citep{PalmerJiangEtAl:1996,PaoliniClark:1999}. DS cell axon terminals
 contain the inhibitory neurotransmitter glycine and synapse widely in
-the VCN and DCN.  They also send a commissural projection to the
+the VCN and DCN\@.  They also send a commissural projection to the
 contralateral cochlear nucleus that mediates fast inhibition between
 the nuclei \citep{NeedhamPaolini:2003,NeedhamPaolini:2006}.
 \citep{Oertel:1997}
@@ -59,12 +59,12 @@ GABAergic modulation of activity in the VCN.
 blockers in the VCN has the effects of changing the behaviour in the
 response to AM in the IC.  \citep{BackoffShadduckEtAl:1999} AM coding
 effects of GABA in the Chinchilla CN.  \citep{CasparyBackoffEtAl:1994}
-Caspary et al. worked on the effects of GABA in in the VCN.
+Caspary and colleagues worked on the effects of GABA in in the VCN\@.
 
 Zhang and Winter looked at the response area of VCN onset units to
 determine GABA on/off freq
 
-Smith and Rhode, Smith et al. looked at OnC respnse area and two-tone
+Smith and Rhode, Smith and others looked at OnC respnse area and two-tone
 
 
 
@@ -117,13 +117,13 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
    in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
 
 
-
-% \begin{minipage}[c]{0.6\textwidth}
-% \vspace{1cm}
-% DS Ouput \hspace{2in} Golgi Output
-% %\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\\
-%   \captionsize{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
-%   \end{minipage}\\ \hline
+\begin{figure}[htb]
+  \centering
+\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\\
+\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{Ch3:fig:GClickRecoveryPSTH}
+   \caption{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
+ \end{figure}
+ % \end{minipage}\\ \hline
 
 
  % ---------------------------------------------------------------------------------
@@ -168,21 +168,14 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 \begin{figure}[htb]
 \centering
 %\resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
-%\resizebox{5in}{!}{\includegraphics[angle=-90]{DSClickRecoveryExpData}}
+%\includegraphics[keepaspectratio,angle=-90,width=0.8\textwidth]{DSClickRecoveryExpData}
 \caption{Experimental Data of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.}\label{Ch3:fig:DSClickRecoveryExpData}
 \end{figure}
 
 %\parsep
 
-% From the command line type:
-% \begin{verbatim}
-% $ ./i686/special DS_ClickRecovery.hoc
-% \end{verbatim}
-% in the \texttt{cnstellate} directory to simulate the optimisation for D-stellate click recovery.  The first run may take some time if the AN filters have not been previously saved, since the Zilany \& Bruce model requires 500~kHz resolution in the stimulus that is downsampled to 50~kHz.
-
 \clearpage
 \subsection{Results}
-
 
 % \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
 % \hdr{2}{D}{Results} \\\hline
@@ -193,8 +186,8 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 
 \begin{figure}[htb!]
   \centering
-%\resizebox{3.5in}{!}{\includegraphics{NoFigure}}
-%\resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true,angle=-90,width=0.9\textwidth]{./gfx/DS_ClickRecovery_result.eps}}
+\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
+%\resizebox{3.5in}{!}{\includegraphics[angle=-90]{./gfx/DS_ClickRecovery_result.eps}}
 %\includegraphics[keepaspectratio,angle=-90,width=0.8\textwidth]{./gfx/DSClickRecoveryExpData}\\
 \caption{Experimental Data ({\color{green} Green}) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result ({\color{blue} Blue}) shown in figure below.} \label{fig:DS_ClickRecovery_result}  
 \end{figure}
@@ -215,9 +208,6 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 % \end{figure}
 
 
-% \begin{figure}
-%   \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result.eps}\\
-% \end{figure}
 
 
 % \begin{figure}
@@ -253,16 +243,12 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 % \end{figure}
 
 
-%% Example optimisation points used by praxis 
-% \begin{figure}
-% \begin{center}
-% %\includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
-% \includegraphics[keepaspectratio=true,width=0.5\textwidth]{Praxis_123.eps}
-% \includegraphics[keepaspectratio=true,width=0.5\textwidth]{Praxis_456.eps}
-% \caption{Handtuned}
-% \label{hantuned}
-% \end{center}
-% \end{figure}
+Example optimisation points used by praxis 
+\begin{figure}[htb]
+\centering
+\resizebox{0.9\textwidth}{!}{\includegraphics{Praxis_123.eps}\includegraphics{Praxis_456.eps}}
+ \caption{Optimisation progression in normalised space in three of the six parameters used in the DS model optimisation.} \label{fig:DShandtuned}
+ \end{figure}
 
 
  \clearpage

@@ -83,7 +83,7 @@ further investigation of golgi cells in the granule cell
 domain. \citet{FerragamoGoldingEtAl:1998a} showed that golgi cells
 have a classic type-I current response, which suggest they integrate
 inputs, and their response to AN shocks were delayed by approximately
-0.7~ms relative to the core VCN units .  Ghosal and Kim
+0.7~ms relative to the core VCN units.  Ghosal and Kim
 \citet{GhoshalKim:1997} examined the VCN marginal shell in cats
 (equivalent to the GCD in mice) that golgi cells provide some sort of
 automatic gain control to the principle VCN units, through their
@@ -95,13 +95,12 @@ monotonic responses to tones and noise.
 % project to the GCD; they do show that low-spontaneous rate ANFs do project into
 % the GCD, albeit more profusely than in the core on the VCN.
    
-\yellownote{Inclusion of Ghoshal figure needs agreement}
+\yellownote{Inclusion of Ghoshal figure needs agreement, fill in caption}
 \begin{figure}[htb]
   \centering
 %\resizebox{3.5in}{!}{\includegraphics{NoFigure}}
-% \resizebox{0.8\textwidth}{!}{\includegraphics{GhoshalKim}}
-\caption{Rate level response of unit S03-07 (CF 22.7~kHz) 
-  \citep[from~Fig.~2]{GhoshalKim:1997} }\label{fig:GolgiKimFig2}
+ \resizebox{0.8\textwidth}{!}{\includegraphics{GhoshalKim}}
+\caption{Rate level response of 6 units \citep[from~Fig.~2]{GhoshalKim:1997}. S03-07 (CF 22.7~kHz) }\label{fig:GolgiKimFig2}
 \end{figure}
 
 
@@ -119,7 +118,7 @@ In Chapter~\ref{sec:GAChapter} and previous publications \citep{EagerGraydenEtAl
 golgi cell responses, we have decided to simulate the response of
 golgi cells using inputs from the auditory model's instantaneous rate outputs rather
 than simulating the neural membrane with Hodgkin-Huxley models.  A number of steps
-were taken to investigate the golgi cell model (a further detailed explanation is in the chapter Appendix~\ref{sec:chp3appendix}).
+were taken to investigate the golgi cell model. A further detailed explanation of the implementation is in the chapter Appendix~\ref{sec:chp3appendix}.
 
 \medskip{}
 
@@ -144,9 +143,9 @@ Choosing neural model: HH-type or Poisson
 
 \begin{figure}[hp!]
   \centering
-%  \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
-  %\resizebox{0.8\textwidth}{!}{\includegraphics{gfx/GolgiDiagram}}\\
-  \caption{ The golgi instantaneous-rate profile was generated using ANF
+  \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
+%  \resizebox{0.9\textwidth}{!}{\includegraphics{gfx/GolgiDiagram.eps}}\\
+  \caption{The golgi instantaneous-rate profile was generated using ANF
     profiles. $\mu$ and $\sigma$ control the spread of connections
     across frequency channels, and $\mathbf{w}$ is
     the weighted sum of HSR and LSR instantaneous-rate vectors,
@@ -182,14 +181,14 @@ fit the experimental data of unit S03-07 (CF 21~kHz) from
 monotonic with a high threshold.
 
 \yellownote{TODO: expand results output}
-Figure \ref{fig:GolgiResult} shows the output of the optimised golgi cell model.
+Figure~\ref{fig:GolgiResult} shows the output of the optimised golgi cell model.
 \textbf{Error} 0.021 (MSE re max rate)
 
 
 \begin{figure}[htb]
   \centering %\turnbox{90}{\small{Rate (sp/s)}}
-%  \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
-%  \resizebox{0.6\textwidth}{!}{\includegraphics[angle=-90]{GolgiRateLevel-2}} \\
+  \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
+%  \resizebox{\textwidth}{!}{\includegraphics[angle=-90]{GolgiRateLevel-2.eps}} \\
   \caption{Golgi cell model optimisation results with the best response obtaining a minimum error 0.021 (spikes/s, average mean squared error of experimental and data points). }\label{fig:GolgiResult}
 \end{figure}
 
