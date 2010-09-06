@@ -99,7 +99,7 @@ monotonic responses to tones and noise.
 \begin{figure}[htb]
   \centering
 %\resizebox{3.5in}{!}{\includegraphics{NoFigure}}
- \resizebox{0.8\textwidth}{!}{\includegraphics{GhoshalKim}}
+ \resizebox{\textwidth}{!}{\includegraphics{GhoshalKim}}
 \caption{Rate level response of 6 units \citep[from~Fig.~2]{GhoshalKim:1997}. S03-07 (CF 22.7~kHz) }\label{fig:GolgiKimFig2}
 \end{figure}
 
@@ -112,7 +112,13 @@ responses of Golgi cells down to three major details: a) golgi cells are integra
 c) they have a significant delay of first spike latency relative to the core VCN units. The lack of extensive experimental data meant that a Poisson rate neural model
 would be preferred over the Hogkin-Huxley type neural model. 
 
-\medskip{}
+The golgi cell model is implemented as an instantaneous-rate Poisson
+was generated using ANF profiles and an alpha function. Connections
+across frequency channels of HSR and LSR ANF responses to golgi cells
+were determined by $\mu$ and $\sigma$ variables, which control the
+Gaussian distribution. The weighted sum of HSR and LSR
+instantaneous-rate vectors, $\alpha$ is the synaptic and dendritic
+smoothing function.  \medskip{}
 
 In Chapter~\ref{sec:GAChapter} and previous publications \citep{EagerGraydenEtAl:2006a}, the golgi cell model was implemented as a single-compartment conductance  neuron. Due to the unavailability of sufficient data regarding \emph{in vivo}
 golgi cell responses, we have decided to simulate the response of
@@ -129,7 +135,7 @@ method was a default using the principle-axis method.
 
 \medskip{}
 
-Due to its replication of granule cells in the model, weight for LSR (\wLSRGLG) and HSR (\wHSRGLG) are determined for all synapses, number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to ensure conductance and dendritic filtering are included.
+Due to its replication of granule cells in the model, weight for LSR (\wLSRGLG) and HSR (\wHSRGLG) are determined for all synapses, number \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to ensure conductance and dendritic filtering are included.  
 
 \subsubsection{Key design factors}
 
@@ -141,16 +147,16 @@ Choosing neural model: HH-type or Poisson
   - are we spoiling the broth too early? 
 
 
-\begin{figure}[hp!]
-  \centering
-  \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
-%  \resizebox{0.9\textwidth}{!}{\includegraphics{gfx/GolgiDiagram.eps}}\\
-  \caption{The golgi instantaneous-rate profile was generated using ANF
-    profiles. $\mu$ and $\sigma$ control the spread of connections
-    across frequency channels, and $\mathbf{w}$ is
-    the weighted sum of HSR and LSR instantaneous-rate vectors,
-    $\alpha$ is the synaptic and dendritic smoothing function.}\label{fig:GolgiDiagram}
-\end{figure}
+% \begin{figure}[hp!]
+%   \centering
+%   \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
+% %  \resizebox{0.9\textwidth}{!}{\includegraphics{gfx/GolgiDiagram.eps}}\\
+%   \caption{The golgi instantaneous-rate profile was generated using ANF
+%     profiles. $\mu$ and $\sigma$ control the spread of connections
+%     across frequency channels, and $\mathbf{w}$ is
+%     the weighted sum of HSR and LSR instantaneous-rate vectors,
+%     $\alpha$ is the synaptic and dendritic smoothing function.}\label{fig:GolgiDiagram}
+% \end{figure}
 
 \yellownote{TODO: explain the tables below}
 \newpage
@@ -187,8 +193,8 @@ Figure~\ref{fig:GolgiResult} shows the output of the optimised golgi cell model.
 
 \begin{figure}[htb]
   \centering %\turnbox{90}{\small{Rate (sp/s)}}
-  \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
-%  \resizebox{\textwidth}{!}{\includegraphics[angle=-90]{GolgiRateLevel-2.eps}} \\
+%  \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
+  \resizebox{\textwidth}{!}{\includegraphics[angle=-90]{GolgiRateLevel-2.eps}} \\
   \caption{Golgi cell model optimisation results with the best response obtaining a minimum error 0.021 (spikes/s, average mean squared error of experimental and data points). }\label{fig:GolgiResult}
 \end{figure}
 
