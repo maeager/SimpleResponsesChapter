@@ -23,7 +23,6 @@ syntax: glob
 *.temp
 _region_.*
 _region_.prv/*
-gfx/*
 .svn/*
 $pfebk/*
 *.ps

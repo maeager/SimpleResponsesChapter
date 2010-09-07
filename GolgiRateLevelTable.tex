@@ -1,14 +1,14 @@
-
-{\small\linespread{0.5}
+\clearpage
+{\small%\linespread{0.5}
 \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline 
  \textbf{Populations}   & ANF (HSR,LSR) and Golgi cells \\\hline 
    \textbf{Topology}    & Tonotopic - 100 frequency channels (0.2-40 kHz) based on basilar membrane \citep{Greenwood:1990} and audiogram \citep{HeffnerHeffner:1985}\\\hline
  \textbf{Connectivity}  & Place-based Gaussian spread of connections \\\hline
- \textbf{Neuron model}  & ANFs: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruceEtAl:2009} \\
+ \textbf{Neuron model}  & ANFs: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\
                         & Golgi: instantaneous-rate Poisson model developed from ANF inputs\\\hline
 \textbf{Channel models} & --- \\\hline 
-\textbf{Synapse model}  & alpha function smoothing kernel \\\hline
+\textbf{Synapse model}  & Synapto-dendritic filter: alpha function, $\alpha(t) = $  \\\hline
     \textbf{Input}      & Pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range 0-100 dB SPL  \\\hline
  \textbf{Measurements}  & Mean rate of instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions).\\\hline
 \end{tabularx}
@@ -18,9 +18,9 @@
 \noindent\begin{tabularx}{\linewidth}{|l|X|X|}\hline %{\linewidth}
 \hdr{3}{B}{Populations}\\\hline
 \textbf{Name} &                             \textbf{Elements}                             & \textbf{Number} \\\hline
-     HSR      &  \citeauthor{ZilanyBruceEtAl:2009}  Auditory Nerve model                  & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
-     LSR      &   \citeauthor{ZilanyBruceEtAl:2009} Auditory Nerve model                  & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
-     GLG      & Instantaneous rate Poisson model, spike-generator with refractory effects & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
+     HSR      &   Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{HSR}} = 50\times\mathsf{nchannel}$ \\\hline
+     LSR      &  Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{LSR}}= 20\times\mathsf{nchannel}$ \\\hline
+     GLG      & Instantaneous-rate Poisson neuron & $N_{\text{GLG}}= 1$, at CF = 22.7~kHz  \\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -28,8 +28,7 @@
 \noindent\begin{tabularx}{\linewidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
                  \textbf{Name}                   & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       LSR       &      Golgi      & 
-Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
+\multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       LSR       &      Golgi      & Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
                                                  &       HSR       &      Golgi      & Fixed Gaussian spatial spread, centered at CF ($\sHSRGLG=2$) \\\hline
 \end{tabularx}
 \vspace{1ex}
@@ -38,7 +37,7 @@ Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
 \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
  \textbf{Name} & AN model \\\hline
- \textbf{Type} & Instantaneous Poisson rate model \citep{ZilanyBruceEtAl:2009} \\\hline
+ \textbf{Type} & Instantaneous Poisson rate model \citep{ZilanyBruce:2007} \\\hline
  \textbf{Spiking} & ANF spiking model \citep{Jackson:2003} \\\hline
             \textbf{Name}             & Golgi cell model \\\hline
             \textbf{Type}             & Instantaneous Poisson-rate model, ANF instantaneous rate input\\ \hline
@@ -62,7 +61,7 @@ Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
 \hdr{4}{E}{Optimisation} \\ \hline 
            \textbf{Parameters}             &    \textbf{Name}     & \textbf{Range} & \textbf{Best Values} \\\hline 
  Spatial spread $\ANFGLG$ (channel unit)   &      $\sANFGLG$      &     [0,10]     & 2.48  \\\hline 
- Dendritic Filter time constant (ms)     &   $\tau_{\ANFGLG}$     &     [0,20]       & 5.01  \\\hline 
+ Synaptodendritic filter time constant (ms)     &   $\tau_{\ANFGLG}$     &     [0,20]       & 5.01  \\\hline 
       Weighted sum of HSR (unitless)       &      $\wHSRGLG$      &     [0,5]      & 0.517 \\\hline 
       Weighted sum of HSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
 Golgi spontaneous rate (spikes per second) & \texttt{golgi\_spon} &     [0,50]     & 3.73  \\\hline

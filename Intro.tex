@@ -28,6 +28,8 @@ design and methods for the construction of the model will provide
 insights relevant to other neural network models, especially those
 that use highly-specific sensory pathways.
 
+\medskip{}
+
 Though it remains the case that ``choices, assumptions, and guesses
 (are) an integral part of neuronal modeling''
 \citep{SegevBurkeEtAl:1998}, there is much to be gained from
@@ -86,7 +88,7 @@ cells and models:
 
 \begin{figure}[htb]
   \centering
-%  \input{gfx/CNcircuit.pspicture}
+  \includegraphics[width=0.9\textwidth]{gfx/CNcircuit}
   \caption{Cochlear nucleus stellate microcircuit}
   \label{fig:microcircuit}
 \end{figure}
@@ -112,8 +114,10 @@ by the middle ear bones to vibrations in the inner ear (cochlea). They
 are then transformed to chemical signals in the inner hair cells and
 then to electrical potentials of the auditory nerve fibres. This
 processing enters a bottle-neck at the auditory nerve, where a group
-of highly specialised hetrogeneous neurons in the cochelar nucleus
+of highly specialised heterogeneous neurons in the cochelar nucleus
 process the incoming information in several feature-based methods including temporal, spectral, onset and notch-detecting information pathways.
+
+\medskip{}
 
 The auditory system is topographically ordered from the basilar
 membrane to the cortex in terms of frequency selectivity, also called
@@ -128,12 +132,13 @@ fibres have a higher threshold and wider dynamic range than HSR fibres
 smaller, unmyelinated type 2 ANFs, which suggests they play a
 different role in sound processing to HSR fibres.
 
+\medskip{}
 
 \begin{figure}[tbh]
   \begin{center}
 %    \includegraphics[keepaspectratio=true]{NoFigure}
     \resizebox{2.25in}{!}{\includegraphics[width=2.25in,keepaspectratio]{gfx/Cat_Human_CN}}
-    \caption{Cochlear nucleus innervation in Man and Cat [citation needed]}
+    \caption{Cochlear nucleus innervation in Man and Cat \citep[find out which publication printed this!][needs permission]{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}}
     \label{fig:CNdiagram}
   \end{center}
 \end{figure}
@@ -148,6 +153,7 @@ modeling in the auditory system over the last 30 years have preferred
 the use of simulating one frequency channel to represent a single
 neuron's response \citep{DavisVoigt:1991,Carney:1993}.
 
+\medskip{}
 
 \yellownote{a paragraph on the history of AN modelling
   \citep{LeakeSnyderEtAl:1993,ArnesenOsen:1978,CloptonWinfieldEtAl:1974}.
@@ -188,7 +194,7 @@ noise, that enhances the behaviour of long-term dependence in ANFs
 
 \medskip{}
 
-\yellownote{ Why is it the cat model? updating Carney model?} Updating of the Carney auditory model has led to the
+\yellownote{Why is it the cat model? updating Carney model?} Updating of the Carney auditory model has led to the
 change in the model's configuration from an original implementation of
 the rat model.  The default species is the cat and will be used in the
 data presented in this chapter.
@@ -197,7 +203,7 @@ data presented in this chapter.
   \begin{center}
 %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/ZilanyCarney-JASA-2009-Fig2.eps}}
-    \caption{Auditory periphery model with dual power-law synapse \citep[originally printed in ]{ZilanyBruceEtAl:2009}.}
+    \caption{Auditory periphery model with dual power-law synapse \citep[originally printed in ][\textbf{needs permission}]{ZilanyBruceEtAl:2009}.}
     \label{fig:ZilanyBruceFig}
   \end{center}
 \end{figure}\yellownote{if this figure is used it needs to be verified by the original authors}
@@ -216,6 +222,8 @@ parameters for each fibre, these are:
   responds above the spontaneous rate
 \item characteristic frequency (CF)
 \end{itemize}
+
+\medskip{}
 
 % \begin{figure}[tbp]
 %   \begin{center}
@@ -260,6 +268,8 @@ The channels are separated using even spatial distance (based on the
 basilar membrane and auditory nerve separation) with centre frequency
 calculated by the Greenwood function for the cat
 \citep{Greenwood:1990}.
+
+\medskip{}
 
 Figure~\ref{fig:CNconn} shows the method for Gaussian spread of
 connections between cell types in the CN\@.  The channels are separated
