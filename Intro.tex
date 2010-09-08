@@ -8,9 +8,6 @@
   wells as across populations of different cells.  - \emph{\citet{Shamma:1998}}
 \end{quotation}
 
-% Modelling in the auditory periphery has benefited extensively from
-% the work of Liberman, Greewood, Patterson, Young, Sachs and others,
-% in acoustic \texttt{in vivo} experiments.
 
 
 % =========================================================================
@@ -49,7 +46,7 @@ NEURON).  \yellownote{See further on neural detail in auditory system
   optimisation.}  To develop and optimise detailed neural models and
 neural network models, reproducible research methods are required. In
 this chapter we use a tabular method, introduced by
-\citet{NordlieGewaltigEtAl:2009}, to summarise the model used in each
+\citet{NordlieGewaltigEtAl:2009}, to summarise the neural models used in each
 optimisation step. This method aims to show a consistent and
 recognisable format for presenting various neural network models and
 their constituents.  The tables consist of A) the model summary, B)
@@ -59,37 +56,42 @@ and synapse models, and E) optimisation parameters.
 \medskip{}
 
 In this chapter, I construct the stellate network of the cochlear
-nucleus using a sequential method.  The parameters of each cell type
+nucleus (Fig.~\ref{fig:microcircuit}) using a sequential method.  The parameters of each cell type
 are fixed based on experimental data or are optimised based solely on
-responses to simple stimuli. The network model draws on the following
+responses to simple stimuli.  Each cell type is shown with its excitatory-inhibitory responses area (EIRA) and PSTH (although this may vary within cell type). Golgi cells (G) receive a range of fibres centred on BF
+The stellate network model drawn in Fig.~\ref{fig:microcircuit} describes the following
 cells and models:
-\begin{itemize}
+\begin{enumerate}
 \item the Carney phenomenological auditory model
   \citet{ZilanyBruceEtAl:2009}: This model provides spiking input to
   cochlear nucleus neurons across frequencies and spontaneous rate
-  types of the auditory nerve from an arbitrary input stimulus.  The
-  model was adapted to produce fixed responses for high and low SR
-  auditory nerve fibres (ANF).
+  types of the auditory nerve from an arbitrary input stimulus. The
+  base line in Fig.~\ref{fig:microcircuit} is a simplification of
+  auditory nerve fibres (ANF) from low best frequency (BF) to high BF
+  (left to right). The model reproduces responses for high and low SR
+  ANFs at 100 sections across the frequency range.
 \item the Golgi cell: a GABAergic VCN marginal shell unit that is
   presumed to regulate excitability in the granule cell domain and
-  core VCN units \citep{FerragamoGoldingEtAl:1998}.
+  core VCN units \citep{FerragamoGoldingEtAl:1998}. The only \emph{in vivo} study shows a type I/III response area and PSTHs with unusual or chopper characteristics in marginal shell units\citep{GhoshalKim:1997}. 
 \item the D-stellate cell: the glycinergic, large multipolar cell with
-  onset-chopper PSTH response acts as a co\-incidence detector and
-  wide-band inhibitor in the VCN and DCN\@; and
-\item the Tuberculo\-ventral cell: a glycinergic, type-II EIRA unit in
-  the deep layer of the DCN\@.  This cell acts as a delayed
+  onset-chopper PSTH response acts as a coincidence detector. Its
+  large dendritic area increases its response to noise allowing it to
+  behave as a wide-band inhibitor in the VCN, DCN, and contralateral CN 
+  \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
+\item the Tuberculoventral cell: a glycinergic, type-II EIRA unit in
+  the deep layer of the DCN \citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed
   echo-suppressor and narrow-band inhibitor, with recurrent
-  connections between D- and T-stellate cells in the VCN
+  connections between D- and T-stellate cells in the VCN \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}; and 
 \item the T-stellate cell: one of the major output projection cells of
   the cochlear nucleus to the inferior colliculus, this multipolar
   neuron has been shown to have robust spectral representation and
-  enhanced synchronisation to modulation.
+  enhanced synchronisation to modulation in speech sounds \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 \end{itemize}
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.9\textwidth]{gfx/CNcircuit}
-  \caption{Cochlear nucleus stellate microcircuit}
+  \caption{Cochlear nucleus stellate microcircuit (see text for details). }
   \label{fig:microcircuit}
 \end{figure}
 
@@ -105,29 +107,45 @@ experimental data with which to fit the parameters.  \yellownote{In
 
 \section{Auditory Model}
 
+
+
 Advanced auditory fidelity and localisation is an exceptional feature
 of hearing perception in animals, despite the input at the
-round-window of the cochlea being one-dimensional.  Sound enters the
-ear and are transformed to neural signals in the auditory
-nerve. Mechanical vibrations at the eardrum (tympanum) are conducted
-by the middle ear bones to vibrations in the inner ear (cochlea). They
-are then transformed to chemical signals in the inner hair cells and
-then to electrical potentials of the auditory nerve fibres. This
-processing enters a bottle-neck at the auditory nerve, where a group
-of highly specialised heterogeneous neurons in the cochelar nucleus
-process the incoming information in several feature-based methods including temporal, spectral, onset and notch-detecting information pathways.
+round-window of the cochlea being one-dimensional.  Modelling in the
+auditory periphery has benefited extensively from the work of
+Liberman, Greenwood, Patterson, Young, Sachs and others, in acoustic
+\texttt{in vivo} experiments. The methods of modeling in the auditory
+system over the last 30 years have expanded our understanding of the
+mechanical processes in the middle ear and cochleae, and specialised
+synapse between the inner hair cell and the auditory nerve
+\citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
+
+
+To understand the auditory system, one must first understand the
+processes in which sound enters the ear and is then transformed to
+neural signals in the auditory nerve. Mechanical vibrations at the
+eardrum (tympanum) are conducted by the middle ear bones to vibrations
+in the inner ear (cochlea). They are then transformed to chemical
+signals in the inner hair cells and then to electrical potentials of
+the auditory nerve fibres. This processing enters a bottle-neck at the
+auditory nerve, where a group of highly specialised heterogeneous
+neurons in the cochelar nucleus process the incoming information in
+several pathways including temporal, spectral, onset and
+other feature-based information pathways.
 
 \medskip{}
 
 The auditory system is topographically ordered from the basilar
 membrane to the cortex in terms of frequency selectivity, also called
-tonotopicity.  The population of auditory nerve fibres (ANFs,
-Fig.~\ref{fig:CNdiagram}), bifurcate after entering the cochlear
-nucleus to innervate the VCN and DCN\@, retaining their tonotopic
-order \citep{Lorente:1981}. Type 1 ANFs are categorised into high
-spontaneous rate (HSR) and low spontaneous rate (LSR) fibres [citation needed]. LSR
-fibres have a higher threshold and wider dynamic range than HSR fibres
-[citation needed]. They also project to the granule cell domain (GCD)
+tonotopicity \citep{YoungOertel:2004}.  The population of auditory
+nerve fibres (ANFs, Fig.~\ref{fig:CNdiagram}), bifurcate after
+entering the cochlear nucleus to innervate the VCN and DCN\@,
+retaining their tonotopic order
+\citep{Lorente:1981,Liberman:1982,Liberman:1993}. Type 1 ANFs are
+categorised into high spontaneous rate (HSR) and low spontaneous rate
+(LSR) fibres \citep{Liberman:1978}, where LSR fibres have a higher
+threshold and wider dynamic range than HSR fibres. They also project
+to the granule cell domain (GCD)
 \citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the
 smaller, unmyelinated type 2 ANFs, which suggests they play a
 different role in sound processing to HSR fibres.
@@ -138,7 +156,7 @@ different role in sound processing to HSR fibres.
   \begin{center}
 %    \includegraphics[keepaspectratio=true]{NoFigure}
     \resizebox{2.25in}{!}{\includegraphics[width=2.25in,keepaspectratio]{gfx/Cat_Human_CN}}
-    \caption{Cochlear nucleus innervation in Man and Cat \citep[find out which publication printed this!][needs permission]{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}}
+    \caption{Cochlear nucleus innervation in Man and Cat. \citep[find out which publication printed this!][needs permission]{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}}
     \label{fig:CNdiagram}
   \end{center}
 \end{figure}
@@ -148,10 +166,7 @@ different role in sound processing to HSR fibres.
 
 \yellownote{Discuss auditory model history. Expand reasons for wanting
   to create a biophysically realistic model of the CN\@. Discuss reason
-  for using whole network in TV and TS optimisation} The methods of
-modeling in the auditory system over the last 30 years have preferred
-the use of simulating one frequency channel to represent a single
-neuron's response \citep{DavisVoigt:1991,Carney:1993}.
+  for using whole network in TV and TS optimisation} 
 
 \medskip{}
 
@@ -167,16 +182,15 @@ needed to represent sounds and transformations that occur in the
 central auditory system.
 
 
-\yellownote{a paragraph on the inner working of the AN model}
-
+\yellownote{AN model paragraph has been changed}
 The auditory nerve inputs to the cochlear nucleus model neurons are
 provided by phenomenological auditory periphery models: the ARLO model
 \citep{HeinzZhangEtAl:2001}; the Bruce model
 \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}; and the
 Zilany model \citep{ZilanyBruceEtAl:2009}. The AN model consists of
-an outer/middle ear pre-processing filter, a cochlear filterbank,
+an outer/middle ear pre-processing filter, a cochlea filterbank,
 IHC-to-AN synapse model and dead-time modified Poisson spike
-generator, as shown in Fig.~\ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001} incorporated cochlear filters
+generator, as shown in Fig.~\ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001} incorporated cochlea filters
 based on the critical bandwidths obtained from psycho\-physical
 experiments in humans. The ARLO model of the cat auditory periphery,
 with non-linear compression and two-tone suppression, is used in this
@@ -203,15 +217,15 @@ data presented in this chapter.
   \begin{center}
 %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/ZilanyCarney-JASA-2009-Fig2.eps}}
-    \caption{Auditory periphery model with dual power-law synapse \citep[originally printed in ][\textbf{needs permission}]{ZilanyBruceEtAl:2009}.}
+    \caption{Auditory periphery model with dual power-law synapse \citep[originally printed in ][]{ZilanyBruceEtAl:2009}.}
     \label{fig:ZilanyBruceFig}
   \end{center}
-\end{figure}\yellownote{if this figure is used it needs to be verified by the original authors}
-
+\end{figure}\yellownote{if this figure is used it needs permission by the original authors}
 
 
 \subsubsection{Physiological Responses}
 
+\yellownote{TODO: serious reworking to be done here}
 Analysis of the frequency response area of ANF generates known
 parameters for each fibre, these are:
 \begin{itemize}
@@ -258,7 +272,7 @@ parameters for each fibre, these are:
 \subsection{Neural models}
 
 [Discuss R\&M model]
-\yellownote{TODO: replication of other work or slight change that needs to be shown or too general to go in this chapter (put in Methods Chapter}
+\yellownote{TODO: Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
 
 \medskip{}
 
@@ -267,7 +281,7 @@ parameters for each fibre, these are:
 The channels are separated using even spatial distance (based on the
 basilar membrane and auditory nerve separation) with centre frequency
 calculated by the Greenwood function for the cat
-\citep{Greenwood:1990}.
+\citep{Greenwood:1990}. \yellownote{More detail in Appendix}
 
 \medskip{}
 

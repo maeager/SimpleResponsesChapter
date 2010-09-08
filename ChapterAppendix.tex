@@ -1,8 +1,8 @@
 \graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/Responses/}}
 
 %\renewcommand{\setthesubsection}{\Alph{subsection}}
-%\begin{appendix}
-\chapter{cnstellate NEURON model}
+\chapter{Chapter 3 Appendix}
+\section{\sf{cnstellate} NEURON model}
 
 The cochlear nucleus stellate microcircuit software code used in this chapter is
 called \textsf{cnstellate} and is implemented in NEURON, NMODL and C source
@@ -74,18 +74,24 @@ Listing~\ref{lst:makeaudiogram}
 ...
 \end{lstlisting}
 
+\begin{figure}[htb]
+\begin{center}
+\resizebox{0.7\textwidth}{!}{\includegraphics[keepaspectratio=true]{./gfx/getaudiogram}}
+\caption{Getting audiogram compression values for Zilany model in NEURON. Data file \mbox{heffner\_1985a\_felis\_p347\_3.txt} (obtained from [earlab.bu.edu]) is used in \sf{fitaudiogram.m} to generate outer and inner hair cell compression values. When used in the \sf{cnstellate} model in NEURON, the compression values are interpolated to frequency positions in the \sf{cf} vector.}\label{fig:GetAudiogram}
+\end{center}
+\end{figure}
 
 \begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get
   audiogram data and interpolate to freuencies in \textsf{cf} vector (
   \mbox{\textsf{Utilities.hoc}})]
-\ellipsis
+...
 objref audiogram,cohc,cihc
 proc GetAudiogramData(){
 ...
    file.ropen(audiogram_file)
    audiogram.scanf(file,nrows,4)
 ...
-/* Interpolate compression data to cf positions */
+// Interpolate compression data to cf positions 
    cohc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(2).c)
    cihc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(3).c)
 }
@@ -110,9 +116,10 @@ The formula for the latency of acoustic stimulation to reach a particular point
 on the basilar membrane comprises a fixed conduction delay plus an additional
 delay that is an exponential function of the distance from the stapes. The
 frequency mapping function is defined as:
-\[
- f = A\times10^{\left(a*d/L\right)} - K
- \]
+\begin{equation}
+  \label{eq:delay}
+ f = A\times10^{\left(a*d/L\right)} - K  
+\end{equation}
 where \emph{d} is distance along the basilar membrane from the stapes.
 
 \medskip{}
@@ -126,14 +133,14 @@ Table~\ref{tab:f2x} shows the currently accepted parameters for each species.
 \begin{table}[h]
   \centering
   \begin{tabular}{lccccc}
-    \hline
-    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-& A & a & k & L \\
-Human &165.4	&2.1	&1.0(0.88)	&35     \\
-Cat&456&	2.1&0.8&25 \\
-Rat&7613.3	&0928	&1.0&	8.03     \\
-    \hline
-  \end{tabular}
+\hline
+% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      &   A   &   a  &     k     & L \\
+Human & 165.4 &  2.1 & 1.0(0.88) & 35\\
+ Cat  &  456  &  2.1 &    0.8    & 25 \\
+ Rat  & 7613.3& 0928 &    1.0    & 8.03 \\
+\hline
+\end{tabular}
   \caption{Frequency to basilar membrane distance function parameters \citep{FitzGeraldBurkittEtAl:2001}. Data obtained from \url{earlab.bu.edu.}}\label{tab:f2x}
 \end{table}
 
@@ -209,16 +216,16 @@ created by :
    within Golgi template (in CNcell.tem)]
 weight_sum_LSR = 1
 weight_sum_HSR = 0.01
-golgi_spon = 1                             /* spikes per second */
-golgi_spatial_filter_variance = 4          /* channel */
-golgi_syn_filter_tau = 0.0005              /* seconds */
+golgi_spon = 1                    // spikes per second
+golgi_spatial_filter_variance = 4 // channel 
+golgi_syn_filter_tau = 0.0005     // seconds 
 golgi_syn_filter_scale_factor=1
 objref golgi_synfilter
 
-func alpha(){ /* Alpha function synaptic/membrane filter */
+func alpha(){ // Alpha function synaptic/membrane filter 
   return $1*sg_tdres*exp(-($1*sg_tdres)/golgi_syn_filter_tau)
 }
-proc CreateGolgiSynFilter(){ /* create alpha function */
+proc CreateGolgiSynFilter(){ // create alpha function 
   golgi_synfilter = new Vector(sg_rate*10*golgi_syn_filter_tau)
   golgi_synfilter.indgen().apply("alpha")  
   golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum()) 
@@ -229,28 +236,28 @@ begintemplate Golgicell
 ...
 proc SetRate2() {local i,j,spon_factor
 ...
-/* Calculate weight vectors based on this cell's position */
+// Calculate weight vectors based on this cell's position 
   gaussian_mean = channel
   gaussian_variance = golgi_spatial_filter_variance_LSR
   wLSR.apply("gaussian").mul(weight_sum_LSR)
   gaussian_variance = golgi_spatial_filter_variance_HSR
   wHSR.apply("gaussian").mul(weight_sum_HSR)
 
-/* Add LSR and HSR vectors to tempsout, check weights */
+// Add LSR and HSR vectors to tempsout, check weights 
   for i=0,nchannels-1  {
     if (wLSR.x[i]>0.001) tempsout.add(LSRout[i].c.add(-Lowspont).mul(wLSR.x[i]))
     if (wHSR.x[i]>0.001) tempsout.add(HSRout[i].c.add(-Highspont).mul(wHSR.x[i]))
   }
-/* Correct for spontaneous rate */
+// Correct for spontaneous rate 
   tempsout.add(golgi_spon)
-/* Smooth AN input to simulate dendritic filtering */
+// Smooth AN input to simulate dendritic filtering 
     convolve(tempsout,golgi_synfilter,sout)
-/* Add conduction delay to rate profile */
+// Add conduction delay to rate profile 
     for i = 0, param.delay.x[lsr][glg]*sg_rate/1000{
         sout.insrt(0,golgi_spon)
         sout.remove(sout.size-1)
     }
-/* Push vector to spike generator object, s */
+// Push vector to spike generator object, s 
     s.SetFibreRate(sout,spiketimes,sg_tdres)
 }
 ...
@@ -279,42 +286,47 @@ proc init(){local model
   lastspikecount = 0
   spikes = new Vector()
     
-  if($1 == 0) set_tstellate() //Tstellate cell
-  if($1 == 1) set_tuberc() //Tubervuloventral cell
-  if($1 == 2) set_dstellate() //Dstellate cell
-  if($1 == 3) set_golgi() //golgi cell
+  if($1 == 0) set_tstellate()    //T-stellate cell
+  if($1 == 1) set_tuberc()       //Tubervuloventral cell
+  if($1 == 2) set_dstellate()    //D-stellate cell
+  if($1 == 3) set_golgi()        //Golgi cell
   cf = $2
   channel=$3
 
   soma {
-    insert rm  /* Na, KHT, Ih, leak currents */
+    insert rm  // Na, KHT, Ih, leak currents 
     eh_rm = -43 
-/* insert AMPA synapse */
+// insert AMPA synapse 
     AMPA = new ExpSyn(0.5)
     AMPA.tau  = ampa_decay
     AMPA.e 	= ampa_erev
-/* insert Glycinergic inhibitory synapse */
+// insert Glycinergic inhibitory synapse 
     GlyR = new Exp2Syn(0.5)
     GlyR.tau2	= gly_decay
     GlyR.tau1	= gly_rise
     GlyR.e 	= gly_erev
-/* insert GABA-A inhibitory synapse */
+// insert GABA-A inhibitory synapse 
     GABAA = new Exp2Syn(0.5)
     GABAA.tau2 	= gaba_decay
     GABAA.tau1 	= gaba_rise
     GABAA.e 	= gaba_erev
    }
-/* Set reversal potentials */
+// Set reversal potentials 
       ena = 50		// mV
       ek  = -70		//  mV
-  }	// end init()
-\
+ }
 endtemplate CNcell 
 
 \end{lstlisting}
 
 \section{D-stellate cell model optimisation}
 
+Example optimisation points used by praxis 
+\begin{figure}[htb]
+\centering
+\resizebox{0.9\textwidth}{!}{\includegraphics{Praxis_123.eps}\includegraphics{Praxis_456.eps}}
+ \caption{Optimisation progression in normalised space in three of the six parameters used in the DS model optimisation.} \label{fig:DShandtuned}
+ \end{figure}
 
 
 
