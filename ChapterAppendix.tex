@@ -1,15 +1,15 @@
 \graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/Responses/}}
 
 %\renewcommand{\setthesubsection}{\Alph{subsection}}
-\chapter{Chapter 3 Appendix}
-\section{\sf{cnstellate} NEURON model}
+\chapter{Chapter 3 Appendix}\label{sec:ch3appendix}
+\section{\textsf{cnstellate} NEURON model}
 
 The cochlear nucleus stellate microcircuit software code used in this chapter is
 called \textsf{cnstellate} and is implemented in NEURON, NMODL and C source
 code. Acknowledgments should be made to M.S.A. Zilany and colleagues for their
 work on the AN model, Dominic Mazzoni for the real-time resample library
 interface, and \citet{MiglioreCanniaEtAl:2006} for the parallel NEURON
-implementation \textsf{netmod}.
+neural network model \textsf{netmod}.
 
 From the command line type:
 \begin{verbatim}
@@ -77,7 +77,7 @@ Listing~\ref{lst:makeaudiogram}
 \begin{figure}[htb]
 \begin{center}
 \resizebox{0.7\textwidth}{!}{\includegraphics[keepaspectratio=true]{./gfx/getaudiogram}}
-\caption{Getting audiogram compression values for Zilany model in NEURON. Data file \mbox{heffner\_1985a\_felis\_p347\_3.txt} (obtained from [earlab.bu.edu]) is used in \sf{fitaudiogram.m} to generate outer and inner hair cell compression values. When used in the \sf{cnstellate} model in NEURON, the compression values are interpolated to frequency positions in the \sf{cf} vector.}\label{fig:GetAudiogram}
+\caption{Getting audiogram compression values for Zilany model in NEURON. Data file \mbox{heffner\_1985a\_felis\_p347\_3.txt} (obtained from [earlab.bu.edu]) is used in \textsf{fitaudiogram.m} to generate outer and inner hair cell compression values. When used in the \textsf{cnstellate} model in NEURON, the compression values are interpolated to frequency positions in the \textsf{cf} vector.}\label{fig:GetAudiogram}
 \end{center}
 \end{figure}
 
@@ -106,7 +106,7 @@ GetAudiogramData()
 %\resizebox{5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}%Audiograms.jpg}}
 \caption{Hearing threshold of the domestic cat by Heffner and Heffner
   1985 \citep{HeffnerHeffner:1985} (Data file
-  \mbox{heffner\_1985a\_felis\_p347\_3.txt} obtained from [earlab.bu.edu])}
+  \mbox{\textsf{heffner\_1985a\_felis\_p347\_3.txt}} obtained from [earlab.bu.edu])}
 \label{fig:AudThresholdRat}
 \end{center}
 \end{figure}

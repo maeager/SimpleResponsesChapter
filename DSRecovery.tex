@@ -9,7 +9,7 @@ influence the behaviour Onset chopper units.  Onset-chopper units in
 the mammalian VCN have a wide-ranging influence on the primary cells
 of the VCN (stellate and bushy neurons \citep{RhodeSmithEtAl:1983}),
 the ipsilateral DCN (type II and type IV EIRA units) and the
-contralateral CN \citep{NeedhamPaolini:2007}.
+contra\-lateral CN \citep{NeedhamPaolini:2007}.
 
 \medskip{}
 
@@ -19,9 +19,6 @@ contralateral CN \citep{NeedhamPaolini:2007}.
 % and their axonal collaterals cover the same region in the VCN, almost
 % one half of the DCN, and are one source of the commisural projection
 % to the contralateral cochlear nucleus \citep{NeedhamPaolini:2007}.
-
-
-
 %%%%%%%%%%%%%%%%%%%Copied from original jneurometh article
 
 
@@ -55,14 +52,14 @@ GABAergic modulation of activity in the VCN.
 
 \medskip{}
 
-[Discuss AM coding by DS cells] \citep{CasparyPalombiEtAl:2002} GABA
+\yellownote{Discuss AM coding by DS cells}  GABA
 blockers in the VCN has the effects of changing the behaviour in the
-response to AM in the IC.  \citep{BackoffShadduckEtAl:1999} AM coding
-effects of GABA in the Chinchilla CN.  \citep{CasparyBackoffEtAl:1994}
+response to AM in the IC \citep{CasparyPalombiEtAl:2002}.  AM coding
+effects of GABA in the Chinchilla CN  \citep{BackoffShadduckEtAl:1999}.  \citep{CasparyBackoffEtAl:1994}
 Caspary and colleagues worked on the effects of GABA in in the VCN\@.
 
 Zhang and Winter looked at the response area of VCN onset units to
-determine GABA on/off freq
+determine GABA on/off freq.
 
 Smith and Rhode, Smith and others looked at OnC respnse area and two-tone
 
@@ -84,7 +81,7 @@ Choosing neural model: type I-II Rothman and Manis model
 \item  short delay recovery responses (2,3,4 ms) were not successful upon
     first model, included DS leak and KLT conductances to allow cell
     behaviour to be fit
-  \item The effect of Golgi cells on DS is delayed by the extra 0.7 ms
+\item The effect of Golgi cells on DS is delayed by the extra 0.7 ms
     delay from ANF to Golgi, plus the slow peak of \GABAa inhibition.
 \end{itemize}
 
@@ -117,17 +114,17 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
    in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
 
 
-\begin{figure}[htb]
-  \centering
-\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{Ch3:fig:DSClickRecoveryPSTH}\\
-\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{Ch3:fig:GClickRecoveryPSTH}
-   \caption{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
- \end{figure}
- % \end{minipage}\\ \hline
+% \begin{figure}[htb]
+%   \centering
+% \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{fig:DSClickRecoveryPSTH}\\
+% \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{fig:GClickRecoveryPSTH}
+%    \caption{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
+%  \end{figure}
+
 
 
  % ---------------------------------------------------------------------------------
-% \newpage
+ \newpage
 % \begin{lstlisting}
 % func fun() {local f
 %       //Modify Variables
@@ -163,11 +160,11 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 \input{DSRecoveryTable.tex}
 
 
-
+\clearpage
 
 \begin{figure}[htb]
 \centering
-%\resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
+\resizebox{5in}{!}{\includegraphics{NoFigure}}
 %\includegraphics[keepaspectratio,angle=-90,width=0.8\textwidth]{DSClickRecoveryExpData}
 \caption{Experimental Data of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.}\label{Ch3:fig:DSClickRecoveryExpData}
 \end{figure}
@@ -188,7 +185,6 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
   \centering
 \resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
 %\resizebox{3.5in}{!}{\includegraphics[angle=-90]{./gfx/DS_ClickRecovery_result.eps}}
-%\includegraphics[keepaspectratio,angle=-90,width=0.8\textwidth]{./gfx/DSClickRecoveryExpData}\\
 \caption{Experimental Data ({\color{green} Green}) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result ({\color{blue} Blue}) shown in figure below.} \label{fig:DS_ClickRecovery_result}  
 \end{figure}
 
@@ -241,15 +237,6 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 % \label{hantuned}
 % \end{center}
 % \end{figure}
-
-
-Example optimisation points used by praxis 
-\begin{figure}[htb]
-\centering
-\resizebox{0.9\textwidth}{!}{\includegraphics{Praxis_123.eps}\includegraphics{Praxis_456.eps}}
- \caption{Optimisation progression in normalised space in three of the six parameters used in the DS model optimisation.} \label{fig:DShandtuned}
- \end{figure}
-
 
  \clearpage
 %\newpage
