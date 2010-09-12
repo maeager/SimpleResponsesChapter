@@ -3,6 +3,7 @@
 \section[DS Cell Model]{D-Stellate Cell Model: optimisation using click recovery responses}
 \label{sec:d-stellate-cell-model}
 
+\subsection{Introduction}
 
 This section shows the GABAergic input and intrinsic cell properties
 influence the behaviour Onset chopper units.  Onset-chopper units in
@@ -20,48 +21,45 @@ contra\-lateral CN \citep{NeedhamPaolini:2007}.
 % one half of the DCN, and are one source of the commisural projection
 % to the contralateral cochlear nucleus \citep{NeedhamPaolini:2007}.
 %%%%%%%%%%%%%%%%%%%Copied from original jneurometh article
-
-
-
-\subsection{Background}
-
   
-D-stelate (DS) cells have an onset-chopping (On-C) PSTH to tones and
-noise \citep{SmithRhode:1989,NeedhamPaolini:2006}. Intracellular
-responses to sounds indicate the bandwidth of inputs to DS neurons
-typically ranges from two octaves below CF to one octave above CF
-\citep{PalmerJiangEtAl:1996,PaoliniClark:1999}. DS cell axon terminals
-contain the inhibitory neurotransmitter glycine and synapse widely in
-the VCN and DCN\@.  They also send a commissural projection to the
-contralateral cochlear nucleus that mediates fast inhibition between
-the nuclei \citep{NeedhamPaolini:2003,NeedhamPaolini:2006}.
-\citep{Oertel:1997}
+D-stellate (DS) cells are large multipolar neurons in the VCN and have an
+onset-chopping (On-C) PSTH to tones and noise \citep{SmithRhode:1989,
+  NeedhamPaolini:2006}.  They typically have 3-4 long dendrites stretching 200
+microns (or one third of the VCN) and their axonal collaterals cover the same
+region in the VCN, almost one half of the DCN, and are one source of the
+commisural projection to the contralateral cochlear nucleus
+\citep{Cant:1992,Cant:1981,SchofieldCant:1996,CantBenson:2003,
+  NeedhamPaolini:2007, PaoliniClark:1999}. Intracellular responses to sounds
+indicate the bandwidth of inputs to DS neurons typically ranges from two octaves
+below CF to one octave above CF \citep{PalmerJiangEtAl:1996,
+  JiangPalmerEtAl:1996, PaoliniClark:1999}. DS cell axon terminals contain the
+inhibitory neurotransmitter glycine and synapse widely in the VCN and DCN\@.
+They also send a commissural projection to the contralateral cochlear nucleus
+that mediates fast inhibition between the nuclei \citep{NeedhamPaolini:2003,
+  NeedhamPaolini:2006, Oertel:1997}.
 
 
 \medskip{}
 
-Post-onset GABAergic inhibition in DS cells is a major influence on
-the PSTH of On-C neurons
-\citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
-excitation to auditory nerve shocks suggests golgi cells are activated
-by type II ANFs and low spontaneous rate type I ANFs
-\citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}. Therefore,
-type II and LS type I ANFs could be involved in gain control through
-GABAergic modulation of activity in the VCN.
-
+Post-onset GABAergic inhibition in DS cells is a major influence on the PSTH of
+On-C neurons \citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
+excitation to auditory nerve shocks suggests golgi cells are activated by type
+II ANFs and low spontaneous rate type I ANFs \citep{BensonBerglundEtAl:1996,
+  FerragamoGoldingEtAl:1998}. Therefore, type II and LS type I ANFs could be
+involved in gain control through GABAergic modulation of activity in the VCN.
 
 \medskip{}
 
-\yellownote{Discuss AM coding by DS cells}  GABA
-blockers in the VCN has the effects of changing the behaviour in the
-response to AM in the IC \citep{CasparyPalombiEtAl:2002}.  AM coding
-effects of GABA in the Chinchilla CN  \citep{BackoffShadduckEtAl:1999}.  \citep{CasparyBackoffEtAl:1994}
-Caspary and colleagues worked on the effects of GABA in in the VCN\@.
+\yellownote{Discuss AM coding by DS cells} GABA blockers in the VCN has the
+effects of changing the behaviour in the response to AM in the IC
+\citep{CasparyPalombiEtAl:2002}.  AM coding effects of GABA in the Chinchilla CN
+\citep{BackoffShadduckEtAl:1999}.  \citep{CasparyBackoffEtAl:1994} Caspary and
+colleagues worked on the effects of GABA in in the VCN\@.
 
 Zhang and Winter looked at the response area of VCN onset units to
-determine GABA on/off freq.
+determine GABA on/off freq. 
 
-Smith and Rhode, Smith and others looked at OnC respnse area and two-tone
+Smith and Rhode, Smith and others looked at OnC response area and two-tone
 
 
 
@@ -72,7 +70,7 @@ Key factors in designing D-stellate cell model
 \medskip{}
 
 Choosing neural model: type I-II Rothman and Manis model
-  - with/without dendrites
+  - with/without dendrites: dendrites are 
   - variable KLT, leak conductance
 
 \begin{itemize}

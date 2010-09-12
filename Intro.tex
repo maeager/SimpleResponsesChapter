@@ -90,7 +90,7 @@ cells and models:
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[width=0.9\textwidth]{gfx/CNcircuit}
+  \includegraphics[width=\textwidth]{gfx/CNcircuit}
   \caption{Cochlear nucleus stellate microcircuit (see text for details). }
   \label{fig:microcircuit}
 \end{figure}
@@ -141,12 +141,12 @@ tonotopicity \citep{YoungOertel:2004}.  The population of auditory
 nerve fibres (ANFs, Fig.~\ref{fig:CNdiagram}), bifurcate after
 entering the cochlear nucleus to innervate the VCN and DCN\@,
 retaining their tonotopic order
-\citep{Lorente:1981,Liberman:1982,Liberman:1993}. Type 1 ANFs are
+\citep{Lorente:1981, Liberman:1982, Liberman:1993}. Type 1 ANFs are
 categorised into high spontaneous rate (HSR) and low spontaneous rate
 (LSR) fibres \citep{Liberman:1978}, where LSR fibres have a higher
 threshold and wider dynamic range than HSR fibres. They also project
 to the granule cell domain (GCD)
-\citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the
+\citep{RyugoParks:2003, RyugoHaenggeliEtAl:2003} along with the
 smaller, unmyelinated type 2 ANFs, which suggests they play a
 different role in sound processing to HSR fibres.
 
@@ -171,7 +171,7 @@ different role in sound processing to HSR fibres.
 \medskip{}
 
 \yellownote{a paragraph on the history of AN modelling
-  \citep{LeakeSnyderEtAl:1993,ArnesenOsen:1978,CloptonWinfieldEtAl:1974}.
+  \citep{LeakeSnyderEtAl:1993, ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.
   Perhaps Rose et al 1959 would be better suited here}
 %
 \medskip{}
@@ -182,36 +182,33 @@ needed to represent sounds and transformations that occur in the
 central auditory system.
 
 
-\yellownote{AN model paragraph has been changed}
-The auditory nerve inputs to the cochlear nucleus model neurons are
-provided by phenomenological auditory periphery models: the ARLO model
-\citep{HeinzZhangEtAl:2001}; the Bruce model
-\citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}; and the
-Zilany model \citep{ZilanyBruceEtAl:2009}. The AN model consists of
-an outer/middle ear pre-processing filter, a cochlea filterbank,
-IHC-to-AN synapse model and dead-time modified Poisson spike
-generator, as shown in Fig.~\ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001} incorporated cochlea filters
-based on the critical bandwidths obtained from psycho\-physical
-experiments in humans. The ARLO model of the cat auditory periphery,
-with non-linear compression and two-tone suppression, is used in this
-study except in the vowel simulation where the human auditory
-periphery model is used.
+\yellownote{AN model paragraph has been changed} The auditory nerve inputs to
+the cochlear nucleus model neurons are provided by phenomenological auditory
+periphery models: the ARLO model \citep{HeinzZhangEtAl:2001}; the Bruce model
+\citep{BruceSachsEtAl:2003, ZilanyBruce:2006, ZilanyBruce:2007}; and the Zilany
+model \citep{ZilanyBruceEtAl:2009}. The AN model consists of an outer/middle ear
+pre-processing filter, a cochlea filterbank, IHC-to-AN synapse model and
+dead-time modified Poisson spike generator, as shown in
+Fig.~\ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001} incorporated cochlea
+filters based on the critical bandwidths obtained from psycho\-physical
+experiments in humans. The ARLO model of the cat auditory periphery, with
+non-linear compression and two-tone suppression, is used in this study except in
+the vowel simulation where the human auditory periphery model is used.
 
 \medskip{}
 
-The \citet{ZilanyBruce:2007} model improves the previous AN model by an additional signal
-path and its predictions have matched a wide range of physiological
-data in normal and impaired cat data. The most recent AN model
-comprises an power-law synapse model, with internal $1/f$
-noise, that enhances the behaviour of long-term dependence in ANFs
-\citep{ZilanyBruceEtAl:2009}.
+The \citet{ZilanyBruce:2007} model improves the previous AN model by an
+additional signal path and its predictions have matched a wide range of
+physiological data in normal and impaired cat data. The most recent AN model
+comprises an power-law synapse model, with internal $1/f$ noise, that enhances
+the behaviour of long-term dependence in ANFs \citep{ZilanyBruceEtAl:2009}.
 
 \medskip{}
 
-\yellownote{Why is it the cat model? updating Carney model?} Updating of the Carney auditory model has led to the
-change in the model's configuration from an original implementation of
-the rat model.  The default species is the cat and will be used in the
-data presented in this chapter.
+\yellownote{Why is it the cat model? updating Carney model?} Updating of the
+Carney auditory model has led to the change in the model's configuration from an
+original implementation of the rat model.  The default species is the cat and
+will be used in the data presented in this chapter.
 
 \begin{figure}[tbh]
   \begin{center}
@@ -293,7 +290,7 @@ using even spatial distance used for the AN filterbank.
 \begin{figure}[tbh]
   \begin{center}
 %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-    \resizebox{0.8\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
+    \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
 %    \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
     \caption{Gaussian connection between cell types in cochlear
       nucleus. }
