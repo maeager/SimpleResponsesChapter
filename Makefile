@@ -39,7 +39,7 @@ version		:= 2.2.0-rc5
 #
 # This can be pdflatex or latex - you can change this by adding the following line to your Makefile.ini:
 BUILD_STRATEGY := latex
-# BUILD_STRATEGY		?= pdflatex
+# BUILD_STRATEGY		?= pdflatex -shell-escape
 #
 # Sets LC_ALL=C, by default, so that the locale-aware tools, like sort, be
 # # immune to changes to the locale in the user environment.
@@ -2993,7 +2993,7 @@ clean-auxiliary:
 	$(QUIET)$(call clean-files,$(graph_stem).*)
 
 .PHONY: clean-nographics
-clean-nographics: clean-tex clean-deps clean-backups clean-auxiliary ;
+clean-nographics: clean-tex clean-deps clean-backups clean-auxiliary
 
 .PHONY: clean
 clean:	clean-tex clean-deps clean-backups clean-auxiliary

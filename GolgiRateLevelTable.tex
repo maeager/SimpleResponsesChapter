@@ -1,5 +1,9 @@
 \clearpage
 {\small%\linespread{0.5}
+  \begin{table}[h]
+    \caption{Golgi cell model summary}
+    \label{tab:GolgiCellModelSummary}
+  \end{table}
 \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline 
  \textbf{Populations}   & ANF (HSR,LSR) and Golgi cells \\\hline 
@@ -66,4 +70,15 @@
       Weighted sum of HSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
 Golgi spontaneous rate (spikes per second) & \texttt{golgi\_spon} &     [0,50]     & 3.73  \\\hline
 \end{tabularx}
+
+
 }
+
+% \begin{ntab}{4}{|X|c|c|c|}{E}{Optimisation NTAB}
+% \textbf{Parameters}             &    \textbf{Name}     & \textbf{Range} & \textbf{Best Values} \\\hline 
+%  Spatial spread $\ANFGLG$ (channel unit)   &      $\sANFGLG$      &     [0,10]     & 2.48  \\\hline 
+%  Synaptodendritic filter time constant (ms)     &   $\tau_{\ANFGLG}$     &     [0,20]       & 5.01  \\\hline 
+%       Weighted sum of HSR (unitless)       &      $\wHSRGLG$      &     [0,5]      & 0.517 \\\hline 
+%       Weighted sum of HSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
+% Golgi spontaneous rate (spikes per second) & \texttt{golgi\_spon} &     [0,50]     & 3.73  \\\hline
+% \end{ntab}

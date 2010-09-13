@@ -13,8 +13,8 @@ neural network model \textsf{netmod}.
 
 From the command line type:
 \begin{verbatim}
-$ ./buildnrn.sh
-$ ./i686/special DS_ClickRecovery.hoc
+    $ ./buildnrn.sh
+    $ ./i686/special DS_ClickRecovery.hoc
 \end{verbatim}
 in the \textsf{cnstellate} directory to simulate the optimisation for D-stellate
 click recovery.  The \textsf{buildnrn.sh} command initially calls the standard
@@ -27,6 +27,24 @@ model requires 500~kHz resolution in the stimulus, this is then downsampled to
 \citep{ZilanyBruceEtAl:2009} only needs 100~kHz sampling rate for stimulus below
 20~kHz. The directory for the saved AN responses is determined by the variable
 \textsf{ANsoundspath}.
+
+\begin{lstlisting}[label=lst:headerlines,caption={Headerlines in \mbox{\textsf{DS\_Recover\.hoc}} show a typical setup in a \texsf{cnstellate} setup.}]
+load_file("nrngui.hoc")
+//load_file("par_netpar.hoc") //uncomment for parallel mode
+//load_file("par_init.hoc")   //uncomment for parallel mode
+
+load_file("mathslib.hoc")     //mathematical procedures from netmod
+load_file("Params.hoc")       //default parameters for cnstellate  
+load_file("Utilities.hoc")    //My utility functions 
+load_file("NetworkParameters.hoc")//NetworkParameter class
+load_file("AuditoryNerve.hoc")//ANChannel and AuditoryNerve classes 
+load_file("par_CNcell.tem")   //CNCell class
+//Model parameters unique to current simulation
+load_file("parameters_DS_ClickRecovery.hoc") 
+load_file("CochlearNucleus.hoc")//CochlearNucleus class and set-up
+
+\end{lstlisting}
+
 
 \section{Auditory nerve model}
 
@@ -41,10 +59,8 @@ Accommodation of different species is implemented within the procedures
 membrane to characteristic frequency mapping function
 (\mbox{\textsf{cochlea\_x2f()}}), the reciprocal frequency to position function
 (\mbox{\textsf{cochlea\_f2x()}}), and the delay function
-(\mbox{\textsf{delay\_species()}}).  Audiograms from the appropriate species are
-mapped using a MATLAB routine \mbox{\textsf{fitaudiogram.m}}.
-
- so that
+(\mbox{\textsf{delay\_species()}}).  Figure~\ref{fig:GetAudiogram} shows how audiograms from the appropriate species are
+mapped using a MATLAB routine \mbox{\textsf{fitaudiogram.m}} so that
 specific parameters can be passed from NEURON to the auditory model.  Rat
 basilar membrane frequency mapping in \mbox{\textsf{cochlea\_f2x()}} and
 \mbox{\textsf{cochlea\_x2f()}} included using data obtained from the Boston
@@ -280,10 +296,10 @@ begintemplate CNcell
   public spikes,connect2target, synlist,cf,model,channel
 ...
 proc init(){local model
-  create soma
+  create soma //NEURON's section macro 
+
   synlist = new List()
   spiketimes = new Vector()
-  lastspikecount = 0
   spikes = new Vector()
     
   if($1 == 0) set_tstellate()    //T-stellate cell
@@ -329,6 +345,38 @@ Example optimisation points used by praxis
  \end{figure}
 
 
+ % ---------------------------------------------------------------------------------
+ \newpage
+% \begin{lstlisting}
+% func fun() {local f
+%       //Modify Variables
+%       param.w.x[glg][ds] = $2
+%       param.w.x[hsr][ds] = $3
+%       param.w.x[lsr][ds] = $3
+%       //Modify the network
+%       {create_cells() connect_cells(fileroot) SetRates()}
+%       // Simulate the network for N reps
+%       for j=0, reps-1{
+%          print j
+%          GenSpikes()
+%          run()
+%          DSvec.append(dstellate[50][0].spiketimes)
+%          //print startsw()-x, "secs"
+%       }
+%       DSvec = DSvec.histogram(0,tstop,0.1)
+%
+%       objref errorvec
+%       errorvec = new Vector()
+%       //Find the mean number of spikes in the first click
+%       maxrate = (DSvec.sum(240,260) + DSvec.sum(740,760)+ DSvec.sum(1340,1360))/3
+%       //Calc ratio of number of spikes in second click relative to mean first click
+%       errorvec.append( DSvec.sum(260,280) / maxrate )
+%       errorvec.append( DSvec.sum(780,800) / maxrate )
+%       errorvec.append( DSvec.sum(1420,1440) / maxrate )
+%       errorvec.plot(g
+%     return errorvec.meansqerr(targetclick)
+% }
+% \end{lstlisting}
 
 
 %\end{appendix}
