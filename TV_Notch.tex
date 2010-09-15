@@ -110,8 +110,10 @@ by sharp spectral peaks close to their BF
 
 The experimental data by \citet{ReissYoung:2005} was recorded from adult cats,
 with the notch noise produced in the frequency domain (accounting for
-calibration of the ear canal speaker spectrum). The notch sweep was presented to
-individual units from 1 octave below to 1 octave above its CF. 
+calibration of the ear canal speaker spectrum) and sampled with fixed random
+phases in the time domain. The notch noise presented in this optimisation
+routine was generated in Octave using frozen Gaussian noise (100kHz sampling
+rate) and a Chebyshev type II band reject filter.
 
 \input{TV_NotchTable.tex}
 

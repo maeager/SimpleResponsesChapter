@@ -435,7 +435,7 @@ Simulation time reduced due to golgi and Poisson models
     http://www.neuron.yale.edu
 
   *Computing Facilities*
-    - 9 Dual CPU PCs: Dept. Otolaryngolgy
+    - PC cluster: Dept. Otolaryngolgy
     - 64 CPU SGI/Altix: Dept. Electrical \& Electronic Engineering
 
 ** OTHER
