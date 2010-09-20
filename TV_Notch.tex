@@ -115,18 +115,42 @@ phases in the time domain. The notch noise presented in this optimisation
 routine was generated in Octave using frozen Gaussian noise (100kHz sampling
 rate) and a Chebyshev type II band reject filter.
 
-\input{TV_NotchTable.tex}
-
-\clearpage
-\subsection{Results} 
+The experimental data, shown in Fig.~\ref{fig:TVReissFig9}, is the average
+responses of type II units to notch sweeps.  The optimisation routine would be
+prohibitive if it was to run several repetitions of different notch stimuli to
+the model. The implementation in this optimisation uses a single notch
+presentation across an entire network, the fitness function must take into
+account the relative position of the notch when comparing the experimental data.
+For example, when presented with a notch noise filtered between (5kHz-10kHz), a
+unit with CF of 5kHz will see a falling edge of a 1 octave notch, whereas, a
+unit with CF of 10kHz, will see a rising edge of a half octave notch.  Figure
+\ref{fig:TVNotchDiagram} shows the combination of the type II unit notch data
+for 1 octave
 
 \begin{figure}[htb]
   \centering
 \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
 %\includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
-\caption{Experimental Data of a single Type-II DCN unit \citep{ReissYoung:2005}, Fig.~9.}
+\caption{Experimental data of a single Type-II DCN unit \citep{ReissYoung:2005}, Fig.~9.}
   \label{fig:TVReissFig9}
+\end{figure}\yellownote{Permission needed for Reiss and Young figures}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[keepaspectratio,width=0.7\textwidth]{./gfx/TV_NotchDataConfig}
+  \caption{Expected mean rate response to notch noise in the TV cells is created
+    from 1 octave notch sweeps (top) for the falling edge and from half octave
+    notch sweeps (bottom) for the rising edge. (Top and bottom figures from
+    Fig.~9 \citep*{ReissYoung:2005})}
+  \label{fig:TVNotchDiagram}
 \end{figure}
+
+\input{TV_NotchTable.tex}
+
+\clearpage
+\subsection{Results} 
+
+
 
 
 \begin{figure}[tbh]

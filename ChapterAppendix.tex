@@ -20,7 +20,8 @@ in the \textsf{cnstellate} directory to simulate the optimisation for D-stellate
 click recovery.  The \textsf{buildnrn.sh} command initially calls the standard
 \textsf{nrnivmodl} to convert all *.mod files in the directory to a compiled
 library, that can be imported into NEURON; then appends the libresample
-interface to the compiled library. The first run may take some time if the AN
+interface to the compiled library. The 
+first run may take some time if the AN
 responses have not been previously saved, since the Zilany \& Bruce version 3
 model requires 500~kHz resolution in the stimulus, this is then downsampled to
 50~kHz and saved for further use. Version 4 of the AN model
@@ -71,24 +72,41 @@ compression data for the rat model.
 
 \medskip{}
 
-Listing~\ref{lst:makeaudiogram}
-\begin{lstlisting}[label=lst:makeaudiogram,caption=Using  \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for the cat.]
- x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0)
- [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2))
- dlmwrite ("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g")
-\end{lstlisting}
+% Listing~\ref{lst:makeaudiogram}
+% \begin{lstlisting}[label=lst:makeaudiogram,caption=Using  \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for the cat.]
+%  x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0)
+%  [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2))
+%  dlmwrite ("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g")
+% \end{lstlisting}
 
 
-\begin{lstlisting}[label=lst:cataudiogram,caption=Portion of \mbox{\textsf{cat\_audiogram\.txt}}]
-...
-125	37	0	0.025
-250	22	0	0.3
-500	8	0.65	0.7
-1000	3	0.9	0.9
-2000	1	0.95	1
-4000	1	0.95	1
-...
-\end{lstlisting}
+% \begin{lstlisting}[label=lst:cataudiogram,caption=Portion of \mbox{\textsf{cat\_audiogram\.txt}}]
+% ...
+% 125	37	0	0.025
+% 250	22	0	0.3
+% 500	8	0.65	0.7
+% 1000	3	0.9	0.9
+% 2000	1	0.95	1
+% 4000	1	0.95	1
+% ...
+% \end{lstlisting}
+% \begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get
+%   audiogram data and interpolate to freuencies in \textsf{cf} vector (
+%   \mbox{\textsf{Utilities.hoc}})]
+% ...
+% objref audiogram,cohc,cihc
+% proc GetAudiogramData(){
+% ...
+%    file.ropen(audiogram_file)
+%    audiogram.scanf(file,nrows,4)
+% ...
+% // Interpolate compression data to cf positions 
+%    cohc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(2).c)
+%    cihc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(3).c)
+% }
+% GetAudiogramData() 
+% ...
+% \end{lstlisting}
 
 \begin{figure}[htb]
 \begin{center}
@@ -97,23 +115,7 @@ Listing~\ref{lst:makeaudiogram}
 \end{center}
 \end{figure}
 
-\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get
-  audiogram data and interpolate to freuencies in \textsf{cf} vector (
-  \mbox{\textsf{Utilities.hoc}})]
-...
-objref audiogram,cohc,cihc
-proc GetAudiogramData(){
-...
-   file.ropen(audiogram_file)
-   audiogram.scanf(file,nrows,4)
-...
-// Interpolate compression data to cf positions 
-   cohc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(2).c)
-   cihc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(3).c)
-}
-GetAudiogramData() 
-...
-\end{lstlisting}
+
 
 \medskip{}
 
@@ -381,6 +383,16 @@ Example optimisation points used by praxis
 
 %\end{appendix}
 
+\section[TV cell]{Tuberculoventral cell model optimisation}
+
+
+\begin{figure}[htb]
+\begin{center}
+\resizebox{5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+\caption{Extracting experimental data in references using g3data.}
+\label{fig:Extractdata}
+\end{center}
+\end{figure}
 
 %%% Local Variables: 
 %%% mode: latex
