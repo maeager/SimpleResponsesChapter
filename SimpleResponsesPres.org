@@ -191,7 +191,6 @@ Six pathways leading out of the Coclear Nucleus\\
 #+end_LaTeX
 
 # \small{Rate level response of unit S03-07 (CF 21~kHz) \citep[Fig.2]{GhoshalKim:1997}}
-
    
 ** Golgi Cell Model :  Key design factors
  - Choosing neural model: HH-type or Poisson

@@ -119,17 +119,19 @@ The experimental data, shown in Fig.~\ref{fig:TVReissFig9}, is the average
 responses of type II units to notch sweeps.  The optimisation routine would be
 prohibitive if it was to run several repetitions of different notch stimuli to
 the model. The implementation in this optimisation uses a single notch
-presentation across an entire network, the fitness function must take into
+presentation across an entire network. Accordingly, the fitness function must take into
 account the relative position of the notch when comparing the experimental data.
 For example, when presented with a notch noise filtered between (5kHz-10kHz), a
-unit with CF of 5kHz will see a falling edge of a 1 octave notch, whereas, a
+unit with CF of 5kHz will see a falling edge of a 1 octave notch, whereas a
 unit with CF of 10kHz, will see a rising edge of a half octave notch.  Figure
 \ref{fig:TVNotchDiagram} shows the combination of the type II unit notch data
-for 1 octave
+for 1 octave.
+
+The sound level in the \citet{ReissYoung:2005} data further complicates the situation.  The spectrum is processed and scaled at each point in the notch sweep.
 
 \begin{figure}[htb]
   \centering
-\resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
+  \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}}
 %\includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
 \caption{Experimental data of a single Type-II DCN unit \citep{ReissYoung:2005}, Fig.~9.}
   \label{fig:TVReissFig9}
@@ -137,7 +139,7 @@ for 1 octave
 
 \begin{figure}[htb]
   \centering
-  \includegraphics[keepaspectratio,width=0.7\textwidth]{./gfx/TV_NotchDataConfig}
+  \resizebox{0.7\textwidth}{!}{\includegraphics{./gfx/TV_NotchDataConfig}
   \caption{Expected mean rate response to notch noise in the TV cells is created
     from 1 octave notch sweeps (top) for the falling edge and from half octave
     notch sweeps (bottom) for the rising edge. (Top and bottom figures from
@@ -167,8 +169,7 @@ for 1 octave
 \label{fig:TVResults}
 \end{figure}
 
-
-\textbf{Error} 0.0167  (MSE Normalised rate between 5-40kHz channels)
+First Error of 0.0167  (MSE Normalised rate between 4.57-18.68 kHz channels), was run in Dec 2009. \yellownote{More work is being done now on a more recent result}
 
 
 

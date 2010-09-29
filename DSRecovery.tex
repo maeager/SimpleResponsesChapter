@@ -145,10 +145,13 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 
 \begin{figure}[htb!]
   \centering
-\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
-%\resizebox{3.5in}{!}{\includegraphics[angle=-90]{./gfx/DS_ClickRecovery_result.eps}}
+%\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
+\resizebox{0.9\textwidth}{!}{\includegraphics{./gfx/DS_ClickRecovery_result.eps}}
 \caption{Experimental Data ({\color{green} Green}) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result ({\color{blue} Blue}) shown in figure below.} \label{fig:DS_ClickRecovery_result}  
 \end{figure}
+
+The optimisation parameters show a clear favouritism toward the LSR input rather than the HSR input to DS units. While this may not seem ideal for fast co-incidence detection, the large number of HSR inputs makes up for the small synaptic weight that was obtained in the optimisation.
+
 
 
 % \begin{figure}
@@ -281,7 +284,16 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 % \end{figure}
 % \clearpage
 
- 
+
+\subsection{Effects of $g_{leak}$ and $g_{LKT}$ on DS resting membrane potential}
+
+The resting membrane potential of these large multipolar cells has been shown to be in the range of 3-5 MOhms \yellownote{citation needed here}. A quick observation of the parameter space around the optimisation results for $g_{leak}$ and $g_{LKT}$ is shown in Fig.~\ref{fig:leakVltk}.  
+
+ \begin{figure}[h!]
+\centering\resizebox{\textwidth}{!}{ \includegraphics{leakvltk.eps}}
+\caption{Resting Membrane potential calculated for leak conductance and KLT conductance changes around the previously obtained best values for these parameters.}\label{fig:leakVltk}
+ \end{figure}
+
 
 %%% Local Variables: 
 %%% mode: latex
