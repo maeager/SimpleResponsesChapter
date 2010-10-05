@@ -111,7 +111,7 @@ compression data for the rat model.
 \begin{figure}[htb]
 \begin{center}
 \resizebox{0.7\textwidth}{!}{\includegraphics[keepaspectratio=true]{./gfx/getaudiogram}}
-\caption{Getting audiogram compression values for Zilany model in NEURON. Data file \mbox{heffner\_1985a\_felis\_p347\_3.txt} (obtained from [earlab.bu.edu]) is used in \textsf{fitaudiogram.m} to generate outer and inner hair cell compression values. When used in the \textsf{cnstellate} model in NEURON, the compression values are interpolated to frequency positions in the \textsf{cf} vector.}\label{fig:GetAudiogram}
+\caption{Getting audiogram compression values for Zilany model in NEURON\@. Data file \mbox{heffner\_1985a\_felis\_p347\_3.txt} (obtained from [earlab.bu.edu]) is used in \textsf{fitaudiogram.m} to generate outer and inner hair cell compression values. When used in the \textsf{cnstellate} model in NEURON, the compression values are interpolated to frequency positions in the \textsf{cf} vector.}\label{fig:GetAudiogram}
 \end{center}
 \end{figure}
 
@@ -240,10 +240,10 @@ golgi_syn_filter_tau = 0.0005     // seconds
 golgi_syn_filter_scale_factor=1
 objref golgi_synfilter
 
-func alpha(){ // Alpha function synaptic/membrane filter 
+func alpha(){// Alpha function synaptic/membrane filter 
   return $1*sg_tdres*exp(-($1*sg_tdres)/golgi_syn_filter_tau)
 }
-proc CreateGolgiSynFilter(){ // create alpha function 
+proc CreateGolgiSynFilter(){// create alpha function 
   golgi_synfilter = new Vector(sg_rate*10*golgi_syn_filter_tau)
   golgi_synfilter.indgen().apply("alpha")  
   golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum()) 
@@ -262,7 +262,7 @@ proc SetRate2() {local i,j,spon_factor
   wHSR.apply("gaussian").mul(weight_sum_HSR)
 
 // Add LSR and HSR vectors to tempsout, check weights 
-  for i=0,nchannels-1  {
+  for i=0,nchannels-1 {
     if (wLSR.x[i]>0.001) tempsout.add(LSRout[i].c.add(-Lowspont).mul(wLSR.x[i]))
     if (wHSR.x[i]>0.001) tempsout.add(HSRout[i].c.add(-Highspont).mul(wHSR.x[i]))
   }
@@ -271,7 +271,7 @@ proc SetRate2() {local i,j,spon_factor
 // Smooth AN input to simulate dendritic filtering 
     convolve(tempsout,golgi_synfilter,sout)
 // Add conduction delay to rate profile 
-    for i = 0, param.delay.x[lsr][glg]*sg_rate/1000{
+    for i = 0,param.delay.x[lsr][glg]*sg_rate/1000 {
         sout.insrt(0,golgi_spon)
         sout.remove(sout.size-1)
     }

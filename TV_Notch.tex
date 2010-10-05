@@ -1,7 +1,7 @@
 
-\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/TV_notch/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/}{/media/data/Work/thesis/ans2010/gfx/}}
+\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
 \newpage
-\section[TV Cell Model]{Tuberculo-ventral cell model: Asymmetric broadband inhibition }
+\section[TV Cell Model]{Tuberculoventral cell model: Optimisation to notch-noise response}
 \label{sec:TV-cell-model}
 % - A ------------------------------------------------------------------------------
 
@@ -119,27 +119,55 @@ The experimental data, shown in Fig.~\ref{fig:TVReissFig9}, is the average
 responses of type II units to notch sweeps.  The optimisation routine would be
 prohibitive if it was to run several repetitions of different notch stimuli to
 the model. The implementation in this optimisation uses a single notch
-presentation across an entire network. Accordingly, the fitness function must take into
-account the relative position of the notch when comparing the experimental data.
-For example, when presented with a notch noise filtered between (5kHz-10kHz), a
-unit with CF of 5kHz will see a falling edge of a 1 octave notch, whereas a
-unit with CF of 10kHz, will see a rising edge of a half octave notch.  Figure
-\ref{fig:TVNotchDiagram} shows the combination of the type II unit notch data
-for 1 octave.
+presentation across an entire network. Accordingly, the fitness function must
+take into account the relative position of the notch when comparing the
+experimental data.  For example, when presented with a notch noise filtered
+between (5kHz-10kHz), a unit with CF of 5kHz will see a falling edge of a 1
+octave notch, whereas a unit with CF of 10kHz, will see a rising edge of a half
+octave notch.  Figure~\ref{fig:TVNotchDiagram} shows the combination of the type
+II unit notch data for 1 octave.
 
-The sound level in the \citet{ReissYoung:2005} data further complicates the situation.  The spectrum is processed and scaled at each point in the notch sweep.
+The sound level in the \citet{ReissYoung:2005} data further complicates the
+situation.  The power spectrum is maintained at a constant level per frequency
+band (dB per Hz$^2$) and this is processed and scaled at each point in the notch
+sweep.  For a single presentation used in this experiment the sound level plays
+an important part in stimulating the ANFs and contributing interneurons.  The
+experimental data shown in Fig.~\ref{fig:TVReissFig9}, show the mean response to
+notch sweeps at 22 db/Hz$^2$.
+
+Higher thresholds in type~II DCN units \citep{SpirouDavisEtAl:1999} and the
+presence of multiple inhibitory synapses \citep{Alibardi:2006} suggest TV cells
+either receive a strong inhibitory influence or a lower RMP\@. Another possibility
+is that the resting membrane potential may increase the threshold for excitatory
+inputs to generate action potentials.
+
+\yellownote{I allowed HSR2TV weight value go negative to give a constant
+  inhibitory input. Then on 2 other runs I shifted the reversal potential of the
+  leak current to -70 and -75.}
+
+The big issue with the optimisation of population mean rate responses is that
+the model could be over simplified.  The HSR response is flat and the DS
+response has a regular onset spike but rare throughout the stimulus, which
+detracts from the purpose of using a whole network to optimise parameters for
+synaptic inputs regarding TV cells.  The TV rate response could therefore just
+be modeled on the LSR response using a simple gradient-decent
+method. \yellownote{Population mean rate: Pros: fairly stable for smallish
+  repetitions, Cons: removes timing}
+ 
+
 
 \begin{figure}[htb]
   \centering
   \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}}
-%\includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
-\caption{Experimental data of a single Type-II DCN unit \citep{ReissYoung:2005}, Fig.~9.}
+  % \includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
+  \caption{Experimental data of a single Type-II DCN unit
+    \citep{ReissYoung:2005}, Fig.~9.}
   \label{fig:TVReissFig9}
 \end{figure}\yellownote{Permission needed for Reiss and Young figures}
 
 \begin{figure}[htb]
   \centering
-  \resizebox{0.7\textwidth}{!}{\includegraphics{./gfx/TV_NotchDataConfig}
+  \resizebox{0.7\textwidth}{!}{\includegraphics{./gfx/TV_NotchDataConfig}}
   \caption{Expected mean rate response to notch noise in the TV cells is created
     from 1 octave notch sweeps (top) for the falling edge and from half octave
     notch sweeps (bottom) for the rising edge. (Top and bottom figures from
@@ -149,8 +177,10 @@ The sound level in the \citet{ReissYoung:2005} data further complicates the situ
 
 \input{TV_NotchTable.tex}
 
+
+
 \clearpage
-\subsection{Results} 
+\subsection{Optimisation Results} 
 
 
 
@@ -163,22 +193,85 @@ The sound level in the \citet{ReissYoung:2005} data further complicates the situ
 %\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_10_0.5.eps}\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_12.5_0.5.eps}
 %\small{Freq\. Channel}
 %}
+
 \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
 \caption{AN (top) and CN rate-place profiles from the CN stellate
   model in response to half and 1 octave notch noise inputs. }
 \label{fig:TVResults}
 \end{figure}
 
-First Error of 0.0167  (MSE Normalised rate between 4.57-18.68 kHz channels), was run in Dec 2009. \yellownote{More work is being done now on a more recent result}
+First Error of 0.0167 (MSE Normalised rate between 4.57-18.68 kHz channels), was
+run in Dec 2009. \yellownote{More work is being done now on a more recent
+  result}
 
 
 
-\subsection{Optimisation Results}
+\begin{figure}[h!]
+  \centering
+  \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/spl50/TV_Notch_result.eps}}
+  \caption{Optimisation results for stimulus at 50 dB SPL.  }
+  \label{fig:TV_resultspl50}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
+  \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_result.eps}}
+  \caption{Optimisation results for the reference notch response compressed
+    (lower notch) and expanded (upper notch).}
+  \label{fig:TV_result}
+\end{figure}
+
+
+
+Complicated issues in TV model optimisation:
+\begin{itemize}
+\item Input model: reverting back to original Zilany model (2006-2007)
+\item Golgi model: from previous tests 
+\item DS model: from previous tests.  Sustained portion does not fire enough
+  even at high notch level (spl=90).  TV response heavily dependant on DS input.
+\item TV model: Difficult to reconstruct model by changing number or offset
+  during optimisation.
+\item TV model: DS2TV connections are STILL randomly selected given number,
+  spread and offset
+  \begin{itemize}
+  \item connections can be fixed by using mean and sd, but this discrete method can be crude
+  \end{itemize}
+\item Experimental data: rate vs notch position is relative to BF of unit
+\item Experimental data: sound level dependant on BF and notch position, this
+  means that the relative spectrum level may be variable along the network
+\end{itemize}
+
+By setting the reversal potential of TV cells to -75~mV, the optimisation
+produced the following results in Figure~\ref{fig:TV_resultErev75}. In this
+figure, the TV rate-place profile gains no benefit from the reduced reversal
+potential.  Some contributing factors that may explain the poor optimisation
+performance are the low firing of DS cells and the notch stimulus sound level
+remained at 90 dB SPL.
+\begin{figure}[h!]
+  \centering
+  \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/Erev-70/TV_Notch_result.eps}}
+  \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/Erev-75/TV_Notch_result.eps}}
+  \caption{Optimisation results for TV Notch model with the reversal potential
+    of TV cells is -75~mV.  }
+  \label{fig:TV_resultErev75}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
+  \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_spl.eps}}
+  \caption{Optimisation results for TV Notch model with stimulus sound levels at
+    110, 90 and 50 dB SPL.}
+  \label{fig:TV_result_spl}
+\end{figure}
+q
+
 
 
 % \clearpage
 % \newpage
-\section{Verification}
+\subsection{Verification}
 
 % \subsection{Tone Response}
 % \begin{figure}[h!]

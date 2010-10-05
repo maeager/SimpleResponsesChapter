@@ -13,6 +13,8 @@
 
 \DeclareGraphicsRule{eps.gz}{eps}{.eps.bb}{zcat #1}
 
+%\includeonly{TV_Notch}
+
 \graphicspath{{./gfx/}{../figures/}}
 \begin{document}
 
@@ -29,17 +31,17 @@
 % 	 neural networks.
 %\end{synopsis}
 
-\input{Intro.tex}
+\include{Intro}
 \newpage
-\input{GolgiRateLevel.tex}
+\include{GolgiRateLevel}
 \newpage
-\input{DSRecovery.tex}
+\include{DSRecovery}
 \newpage
-\input{TV_Notch.tex}
+\include{TV_Notch}
 \newpage
-% \input{Tstellate.tex}
+% \include{Tstellate.tex}
 \newpage
-\input{Discussion.tex}
+\include{Discussion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Conclusion}
@@ -60,7 +62,7 @@ researchers may easily reproduce this work.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %\begin{appendicies}\label{sec:chp3appendix}
 \appendix
-\input{ChapterAppendix.tex}
+\include{ChapterAppendix}
 %\end{appendicies}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
