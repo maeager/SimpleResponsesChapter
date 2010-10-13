@@ -1,5 +1,5 @@
 
-\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
+\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
 \newpage
 \section[TV Cell Model]{Tuberculoventral cell model: Optimisation to notch-noise response}
 \label{sec:TV-cell-model}
@@ -7,53 +7,48 @@
 
 \subsection{Background}
 
-Tuberculoventral (TV) cells are glycinergic, inhibitory cells found in
-the deep layers of the DCN that send axon collaterals to the
-VCN\@. They are characterized as having a non-monotonic response to
-tones with increasing sound level and respond poorly to broadband
-noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005},
-as shown in Fig.~\ref{fig:SpirouFig1}.  Anterograde labeling in the
-DCN suggests TV cells project tonotopically to the AVCN not just
-on-CF, but also to the low and high frequency side bands in the AVCN
-\citep{MunirathinamOstapoffEtAl:2004,OstapoffMorestEtAl:1999}.
-Ultra-structural labeling of synapses in the rat DCN suggest TV cells
-are inhibited by glycinergic DS cells and from sources in the DCN but
-excitatory inputs were not found from TS cells in the rat
-\citep{Rubio:2005}. Evidence in the mouse suggests otherwise since
-intracellular responses from labeled TV cells in the mouse show clear
-excitatory input from TS cells and diffuse inhibitory input from DS
-cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
+Tuberculoventral (TV) cells are glycinergic, inhibitory cells found in the deep
+layers of the DCN that send axon collaterals to the VCN\@. They are
+characterized as having a non-monotonic response to tones with increasing sound
+level and respond poorly to broadband noise
+\citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}, as shown in
+Fig.~\ref{fig:SpirouFig1}.  Anterograde labeling in the DCN suggests TV cells
+project tonotopically to the AVCN not just on-CF, but also to the low and high
+frequency side bands in the AVCN
+\citep{MunirathinamOstapoffEtAl:2004,OstapoffMorestEtAl:1999}.  Ultra-structural
+labeling of synapses in the rat DCN suggest TV cells are inhibited by
+glycinergic DS cells and from sources in the DCN but excitatory inputs were not
+found from TS cells in the rat \citep{Rubio:2005}. Evidence in the mouse
+suggests otherwise since intracellular responses from labeled TV cells in the
+mouse show clear excitatory input from TS cells and diffuse inhibitory input
+from DS cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
 
 \medskip{} 
 
-TV or vertical cells receive monosynaptic excitatory input from
-auditory nerve ﬁbers
-\citep{OertelWu:1989}\citep{ZhangOertel:1993b}. Taken together, these
-two results suggest that low SR auditory nerve ﬁbers may form the
-major excitatory input to type II cells. If true, this hypothesis also
-could explain the ﬁnding that type II units have consistently higher
-thresholds than DCN principal cells \citep{YoungBrownell:1976} because
-low SR auditory nerve ﬁbers also have elevated thresholds relative to
-the lowest threshold auditory nerve ﬁbers
-\citep{Liberman:1978}. However, patterns of auditory nerve innervation
-of the DCN are most consistent with high SR ﬁber innervation of
-vertical cell somata and low SR ﬁber innervation of dendrites
-\citep{Liberman:1993}. In that case, the low spontaneous rates and
-high sound thresholds of type II units might be caused by a high
-intrinsic electrical threshold \citep{HancockDavisEtAl:1997}; this is
-consistent with the responses of vertical cells to intracellular
-current injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
+TV or vertical cells receive monosynaptic excitatory input from auditory nerve
+ﬁbers \citep{OertelWu:1989}\citep{ZhangOertel:1993b}. Taken together, these two
+results suggest that low SR auditory nerve ﬁbers may form the major excitatory
+input to type II cells. If true, this hypothesis also could explain the ﬁnding
+that type II units have consistently higher thresholds than DCN principal cells
+\citep{YoungBrownell:1976} because low SR auditory nerve ﬁbers also have
+elevated thresholds relative to the lowest threshold auditory nerve ﬁbers
+\citep{Liberman:1978}. However, patterns of auditory nerve innervation of the
+DCN are most consistent with high SR ﬁber innervation of vertical cell somata
+and low SR ﬁber innervation of dendrites \citep{Liberman:1993}. In that case,
+the low spontaneous rates and high sound thresholds of type II units might be
+caused by a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997};
+this is consistent with the responses of vertical cells to intracellular current
+injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
 
 
 Type II units also supply an inhibitory input to the VCN
-\citep{WickesbergOertel:1990}, but the role of type II terminals in
-the VCN is less clear. Three different hypotheses have been
-raised. The ﬁrst is that this projection modulates the response
-thresholds of VCN neurons \citep{PaoliniClark:1998}.  The role of type
-II units in spectral processing is that of a narrowband
-inhibitor. Responses of DCN principal cells are strongly inhibited by
-this narrowband source. As a result, DCN principal cells are inhibited
-by sharp spectral peaks close to their BF
+\citep{WickesbergOertel:1990}, but the role of type II terminals in the VCN is
+less clear. Three different hypotheses have been raised. The ﬁrst is that this
+projection modulates the response thresholds of VCN neurons
+\citep{PaoliniClark:1998}.  The role of type II units in spectral processing is
+that of a narrowband inhibitor. Responses of DCN principal cells are strongly
+inhibited by this narrowband source. As a result, DCN principal cells are
+inhibited by sharp spectral peaks close to their BF
 \citep{SpirouDavisEtAl:1999}.
 
 \begin{figure}[htb]
@@ -97,11 +92,10 @@ by sharp spectral peaks close to their BF
 \item Unable to include other DCN inputs
 \item Model must show \DSTV inhibition and offset of distribution
 
-
 \item Notch noise stimulus $\rightarrow$ need more TV cells across
   frequency
 \item Input SPL and weight of excitation affect spiking output
-\item Larger network $\rightarrow$ Computational problems
+\item Larger network $\rightarrow$ increased computational load
 \item Solution: Paralellise model
 \end{itemize}
 
@@ -115,6 +109,8 @@ phases in the time domain. The notch noise presented in this optimisation
 routine was generated in Octave using frozen Gaussian noise (100kHz sampling
 rate) and a Chebyshev type II band reject filter.
 
+\medskip{}
+
 The experimental data, shown in Fig.~\ref{fig:TVReissFig9}, is the average
 responses of type II units to notch sweeps.  The optimisation routine would be
 prohibitive if it was to run several repetitions of different notch stimuli to
@@ -127,6 +123,8 @@ octave notch, whereas a unit with CF of 10kHz, will see a rising edge of a half
 octave notch.  Figure~\ref{fig:TVNotchDiagram} shows the combination of the type
 II unit notch data for 1 octave.
 
+\medskip{}
+
 The sound level in the \citet{ReissYoung:2005} data further complicates the
 situation.  The power spectrum is maintained at a constant level per frequency
 band (dB per Hz$^2$) and this is processed and scaled at each point in the notch
@@ -134,6 +132,8 @@ sweep.  For a single presentation used in this experiment the sound level plays
 an important part in stimulating the ANFs and contributing interneurons.  The
 experimental data shown in Fig.~\ref{fig:TVReissFig9}, show the mean response to
 notch sweeps at 22 db/Hz$^2$.
+
+\medskip{}
 
 Higher thresholds in type~II DCN units \citep{SpirouDavisEtAl:1999} and the
 presence of multiple inhibitory synapses \citep{Alibardi:2006} suggest TV cells
@@ -145,6 +145,8 @@ inputs to generate action potentials.
   inhibitory input. Then on 2 other runs I shifted the reversal potential of the
   leak current to -70 and -75.}
 
+\medskip{}
+
 The big issue with the optimisation of population mean rate responses is that
 the model could be over simplified.  The HSR response is flat and the DS
 response has a regular onset spike but rare throughout the stimulus, which
@@ -155,7 +157,6 @@ method. \yellownote{Population mean rate: Pros: fairly stable for smallish
   repetitions, Cons: removes timing}
  
 
-
 \begin{figure}[htb]
   \centering
   \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}}
@@ -165,7 +166,8 @@ method. \yellownote{Population mean rate: Pros: fairly stable for smallish
   \label{fig:TVReissFig9}
 \end{figure}\yellownote{Permission needed for Reiss and Young figures}
 
-\begin{figure}[htb]
+
+\begin{figure}[h!]
   \centering
   \resizebox{0.7\textwidth}{!}{\includegraphics{./gfx/TV_NotchDataConfig}}
   \caption{Expected mean rate response to notch noise in the TV cells is created
@@ -185,42 +187,42 @@ method. \yellownote{Population mean rate: Pros: fairly stable for smallish
 
 
 
-\begin{figure}[tbh]
-  \centering
-%\resizebox{5in}{!}{
-%\turnbox{90}{\small{Rate (sp/s)}}%
-%\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_10_0.5.eps}\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_12.5_0.5.eps}\\
-%\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_10_0.5.eps}\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_12.5_0.5.eps}
-%\small{Freq\. Channel}
-%}
+% \begin{figure}[tbh]
+%   \centering
+% %\resizebox{5in}{!}{
+% %\turnbox{90}{\small{Rate (sp/s)}}%
+% %\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_10_0.5.eps}\includegraphics[keepaspectratio=true,width=0.45\textwidth]{AN_rateplace_12.5_0.5.eps}\\
+% %\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_10_0.5.eps}\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_12.5_0.5.eps}
+% %\small{Freq\. Channel}
+% %}
 
-\resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
-\caption{AN (top) and CN rate-place profiles from the CN stellate
-  model in response to half and 1 octave notch noise inputs. }
-\label{fig:TVResults}
-\end{figure}
+% \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
+% \caption{AN (top) and CN rate-place profiles from the CN stellate
+%   model in response to half and 1 octave notch noise inputs. }
+% \label{fig:TVResults}
+% \end{figure}
 
-First Error of 0.0167 (MSE Normalised rate between 4.57-18.68 kHz channels), was
-run in Dec 2009. \yellownote{More work is being done now on a more recent
-  result}
-
-
-
-\begin{figure}[h!]
-  \centering
-  \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/spl50/TV_Notch_result.eps}}
-  \caption{Optimisation results for stimulus at 50 dB SPL.  }
-  \label{fig:TV_resultspl50}
-\end{figure}
+% First Error of 0.0167 (MSE Normalised rate between 4.57-18.68 kHz channels), was
+% run in Dec 2009. \yellownote{More work is being done now on a more recent
+%   result}
 
 
-\begin{figure}[h!]
-  \centering
-  \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_result.eps}}
-  \caption{Optimisation results for the reference notch response compressed
-    (lower notch) and expanded (upper notch).}
-  \label{fig:TV_result}
-\end{figure}
+
+% \begin{figure}[h!]
+%   \centering
+%   \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/spl50/TV_Notch_result.eps}}
+%   \caption{Optimisation results for stimulus at 50 dB SPL.  }
+%   \label{fig:TV_resultspl50}
+% \end{figure}
+
+
+% \begin{figure}[h!]
+%   \centering
+%   \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_result.eps}}
+%   \caption{Optimisation results for the reference notch response compressed
+%     (lower notch) and expanded (upper notch).}
+%   \label{fig:TV_result}
+% \end{figure}
 
 
 
@@ -257,16 +259,121 @@ remained at 90 dB SPL.
   \label{fig:TV_resultErev75}
 \end{figure}
 
+\medskip{}
 
-\begin{figure}[h!]
+Figure~\ref{fig:TV_result_spl} shows the optimisation results for different input sound intensities.  The performance improves when reducing the sound level of the notch stimulus from 110 down to 50 dB SPL.    
+\begin{figure}[!h]
   \centering
   \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_spl.eps}}
   \caption{Optimisation results for TV Notch model with stimulus sound levels at
-    110, 90 and 50 dB SPL.}
+    110, 90, 70 and 50 dB SPL.}
   \label{fig:TV_result_spl}
 \end{figure}
-q
 
+% D-----------------------------------
+\begin{tabularx}{\linewidth}{|X|c|c|c|}
+\hdr{4}{F}{Optimisation} \\ \hline
+              \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
+        Weight of DS syn on TV  ($\mu$S)         &    \wDSTV     &  [1e-5,0.005]  & 0.0029 \\
+       Weight of ANF syn on TV  ($\mu$S)         &    \wANFTV    &  [1e-5,0.005]  & 0.00017 \\
+         Number of synapses, LSR to TV           &    \nLSRTV    &     [0,64]     & 8           \\
+         Number of synapses, HSR to TV           &    \nHSRTV    &     [0,64]     & 14          \\
+Spread of DS connections onto TV (channel units) &    \sDSTV     &     [0,10]     & 2.1         \\
+Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,10]     & 0.24        \\ \hline
+\end{tabularx}
+
+% D-----------------------------------
+\begin{tabularx}{\linewidth}{|X|c|c|c|}
+\hdr{4}{F}{Optimisation} \\ \hline
+              \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
+  Number of synapses, DS to TV           &    \nLSRTV    &     [0,300]     & 8           \\
+  Number of synapses, LSR to TV           &    \nLSRTV    &     [0,300]     & 8           \\
+  Number of synapses, HSR to TV           &    \nHSRTV    &     [0,300]     & 14          \\
+Spread of connections from DS onto TV (channel units) &    \sDSTV     &     [0,100]     & 2.1         \\
+Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,100]     & 0.24        \\ \hline
+\end{tabularx}
+
+
+\clearpage
+\subsection{Refining TV Notch optimisation}
+
+% Figure~\ref{fig:TV_result_Run1} shows the optimisation results for .
+% \begin{figure}[h!]
+%   \centering
+%   \resizebox{\textwidth}{!}{\includegraphics{Run1/spl90/TV_Notch_result.eps}}
+%   \resizebox{\textwidth}{!}{\includegraphics{Run1/spl50/TV_Notch_result.eps}}
+%   \resizebox{\textwidth}{!}{\includegraphics{Run1/Erev-70/TV_Notch_result.eps}}
+%   \caption{Optimisation results for a refined TV Notch model with stimulus sound levels at  90 and 50 dB SPL and Erev=-70 mV.}
+%   \label{fig:TV_result_Run1}
+% \end{figure}
+
+
+To encompass the use of changing the number and spread of synaptic connections a new error function was created to delete all synapses then reconnect the network with the new parameters. Figure~\ref{fig:TV_result_Run2} shows the optimisation results for different
+input sound intensities.  The performance improves when reducing the sound level
+of the notch stimulus from 110 down to 50 dB SPL.
+\begin{figure}[h!]
+  \centering
+  \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
+  \resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result.eps}}
+  \caption{Optimisation results for a refined TV Notch model with stimulus sound levels at 70 and 50 dB SPL.  The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV. The second group of 3 runs included the parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
+  \label{fig:TV_result_Run2}
+\end{figure}
+
+\begin{center}
+\begin{minipage}[h]{0.5\linewidth}
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
+\hdr{4}{}{Optimisation A} \\ \hline
+        & Run 1  & Run 2  & Run 3       \\ \hline
+\nDSTV  &   43   &   23   & 32     \\    
+\wDSTV  & 0.0017 & 0.0017 & 0.0067  \\
+\nLSRTV &   29   &   32   & 32     \\
+\nHSRTV &  1.3   &  1.3   & 1.3         \\
+\wLSRTV & 0.0019 & 0.0019 & 0.0019      \\
+\wHSRTV & 0.0013 & 0.0013 & 0.0013      \\ \hline
+ Error  & 499.20 & 514.86 & 518.54  \\ \hline
+\end{tabularx}  
+\end{minipage}%
+\begin{minipage}[h]{0.5\linewidth}
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
+\hdr{4}{}{Optimisation B} \\ \hline
+       &   Run 1    &   Run 2    & Run 3       \\ \hline
+  \sDSTV  & 13 & 7& 17 \\ 
+$E_{leak}$ mV& -65.89& -67.22 & 7 -67.22\\ 
+  \oDSTV  &  2.1   &  2.1   & -7.9    \\ 
+  \nDSTV  & 17& 17& 16 \\ 
+  \wDSTV  & 0.0017 & 0.0017 & 0.0017 \\ \hline
+  Error   & 435.47& 457.63& 492.55  \\ \hline
+\end{tabularx}
+\end{minipage}
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.5\linewidth}
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
+\hdr{4}{F}{Optimisation}              \\ \hline
+       &   Run 1    &   Run 2    & Run 3       \\ \hline
+\nDSTV &   39    &   49    & 59
+\wDSTV & 0.0217  & 0.0217  & 0.0258     \\       
+\nLSRTV&   21    &   21    & 23      \\       
+\nHSRTV&   15    &   15    & 14      \\       
+\wLSRTV& 0.0069  & 0.0069  & 0.0115     \\       
+\wHSRTV& 0.0013  & 0.0013  & 0.0013       \\       \hline
+Error  & 1255.34 & 1028.70 & 1082.85     \\       \hline
+\end{tabularx}
+\end{minipage}%
+\begin{minipage}{0.5\linewidth}
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
+\hdr{4}{}{Optimisation}   \\ \hline
+       &   Run 1    &   Run 2    & Run 3       \\ \hline
+ \sDSTV   &  21.3   &  31.31  & 21.31      \\       
+$E_{leak}$ & -74.96  & -74.96  & -74.96      \\       
+ \oDSTV   &  22.03  &  22.03  & 22.03       \\       
+ \nDSTV   &   15    &   15    & 15      \\       
+ \wDSTV   & 0.01478 & 0.01478 & 0.01478     \\       \hline
+  Error   & 599.37  &  539.1  & 586.74     \\       \hline
+\end{tabularx}           
+\end{minipage}
+\end{center}
 
 
 % \clearpage

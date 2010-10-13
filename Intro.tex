@@ -35,23 +35,37 @@ experimented cochlear nucleus. The developments in computational power
 and enhanced experimental techniques in multi-unit recordings are
 enabling more detailed neural models. Examples of parameter estimation
 and fitting in neural models are also becoming more advanced, for
-example NeuroFitter \citep{citation} and MultiRunFitter (a feature in
-NEURON).  \yellownote{See further on neural detail in auditory system
-  \citep{LuRubioEtAl:2008}}
+example NeuroFitter \citep{VanAchardEtAl:2007} and MultiRunFitter (a feature in
+NEURON).  
+%\yellownote{See further on neural detail in auditory system\citep{LuRubioEtAl:2008}}
+
+
 
 \medskip{}
 
-\yellownote{Discuss use of Poisson models vs HH-like models.  Discuss
-  single cell simulation vs whole network simulation during
-  optimisation.}  To develop and optimise detailed neural models and
-neural network models, reproducible research methods are required. In
-this chapter we use a tabular method, introduced by
-\citet{NordlieGewaltigEtAl:2009}, to summarise the neural models used in each
-optimisation step. This method aims to show a consistent and
-recognisable format for presenting various neural network models and
-their constituents.  The tables consist of A) the model summary, B)
-cell type populations, C) connectivity between cell types, D) neuron
-and synapse models, and E) optimisation parameters.
+\yellownote{Discuss use of Poisson models vs HH-like models.  Discuss single
+  cell simulation vs whole network simulation during optimisation.}  To develop
+and optimise detailed neural models and neural network models, reproducible
+research methods are required. In this chapter we use a tabular method,
+introduced by \citet{NordlieGewaltigEtAl:2009}, to summarise the neural models
+used in each optimisation step. The tables consist of A) the model summary, B)
+cell type populations, C) connectivity between cell types, D) neuron and synapse
+models, and E) optimisation parameters.  This method aims to show a consistent
+and recognisable format for presenting various neural network models and their
+constituents.
+
+\begin{itemize}
+\item specify function or model we want to optimise
+\item specify criteria we want to satisfy
+\item specify the parameters that will be adjusted, 
+    and any constraints on those parameters and finally
+\item perform the optimization
+\end{itemize}
+
+In attempting to create a realistic microcircuit the parameter optimisation
+routine could be performed all at once or reiterated in sequential stages. The
+parameters chosen in the sequential optimisation stages should be chosen so that
+they do not influence the properties of previously fitted parameters.
 
 \medskip{}
 
@@ -104,10 +118,7 @@ experimental data with which to fit the parameters.  \yellownote{In
   below. Discuss the use of the Carney model in the CN stellate
   model.}
 
-
 \section{Auditory Model}
-
-
 
 Advanced auditory fidelity and localisation is an exceptional feature
 of hearing perception in animals, despite the input at the

@@ -204,8 +204,16 @@ NEURON NMODL compatible C file.
 \end{enumerate}
 
 
+\section{Optimisation}
 
+The optimisation  routine used in this chapter was NEURON's \textsf{fit\_praxis}, which uses the algorithm PRAXIS \citep{Brent:1976}.
 
+ \begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure.]
+proc runprax(){
+  attr_praxis(0.0001, 0.01, 3)
+  fit_praxis(NPARAMS,"TV_Notch_err",&pvec.x[0])
+}
+\end{lstlisting}
 
 \section{Golgi Cell Model}
 
@@ -339,7 +347,7 @@ endtemplate CNcell
 
 \section{D-stellate cell model optimisation}
 
-Example optimisation points used by praxis 
+Example optimisation points used by fit_praxis 
 \begin{figure}[htb]
 \centering
 \resizebox{0.9\textwidth}{!}{\includegraphics{Praxis_123.eps}\includegraphics{Praxis_456.eps}}

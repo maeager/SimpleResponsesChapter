@@ -618,7 +618,7 @@ PYTHON		?= python
 RST2LATEX	?= rst2latex.py
 # == EPS Generation ==
 DIA		?= dia --nosplash # Diagram Editor
-OCTAVE		?= octave	# Matlab/Octave
+OCTAVE		?= octave -q	# Matlab/Octave quiet
 CONVERT		?= convert	# ImageMagick
 DOT		?= dot		# GraphViz
 DOT2TEX		?= dot2tex	# dot2tex - add options (not -o) as needed
@@ -655,7 +655,7 @@ ECHO		:= $(if $(FIXED_ECHO),$(FIXED_ECHO),$(ECHO))
 
 define determine-gnuplot-output-extension
 $(if $(shell $(WHICH) $(GNUPLOT)),
-     $(if $(findstring unknown or ambiguous, $(shell $(GNUPLOT) -e "set terminal pdf" 2>&1)),
+     $(if $(findstring unknown or ambiguous, $(shell $(GNUPLOT) -e "set terminal pdfcairo" 2>&1)),
 	  eps, pdf),
      none)
 endef
@@ -1841,6 +1841,7 @@ $(SED) \
 -e '}' \
 -e 'd' \
 $1
+
 endef
 
 # Colorize GraphViz errors
