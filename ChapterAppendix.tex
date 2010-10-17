@@ -208,10 +208,10 @@ NEURON NMODL compatible C file.
 
 The optimisation  routine used in this chapter was NEURON's \textsf{fit\_praxis}, which uses the algorithm PRAXIS \citep{Brent:1976}.
 
- \begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure.]
+\begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure.]
 proc runprax(){
   attr_praxis(0.0001, 0.01, 3)
-  fit_praxis(NPARAMS,"TV_Notch_err",&pvec.x[0])
+  fit_praxis(NPARAMS,"error_fcn",&pvec.x[0])
 }
 \end{lstlisting}
 
@@ -277,14 +277,14 @@ proc SetRate2() {local i,j,spon_factor
 // Correct for spontaneous rate 
   tempsout.add(golgi_spon)
 // Smooth AN input to simulate dendritic filtering 
-    convolve(tempsout,golgi_synfilter,sout)
+  convolve(tempsout,golgi_synfilter,sout)
 // Add conduction delay to rate profile 
-    for i = 0,param.delay.x[lsr][glg]*sg_rate/1000 {
+  for i = 0,param.delay.x[lsr][glg]*sg_rate/1000 {
         sout.insrt(0,golgi_spon)
         sout.remove(sout.size-1)
-    }
+  }
 // Push vector to spike generator object, s 
-    s.SetFibreRate(sout,spiketimes,sg_tdres)
+  s.SetFibreRate(sout,spiketimes,sg_tdres)
 }
 ...
 endtemplate Golgicell
@@ -306,7 +306,7 @@ begintemplate CNcell
   public spikes,connect2target, synlist,cf,model,channel
 ...
 proc init(){local model
-  create soma //NEURON's section macro 
+  create soma    //primary section
 
   synlist = new List()
   spiketimes = new Vector()

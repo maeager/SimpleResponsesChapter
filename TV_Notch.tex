@@ -270,28 +270,28 @@ Figure~\ref{fig:TV_result_spl} shows the optimisation results for different inpu
   \label{fig:TV_result_spl}
 \end{figure}
 
-% D-----------------------------------
-\begin{tabularx}{\linewidth}{|X|c|c|c|}
-\hdr{4}{F}{Optimisation} \\ \hline
-              \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
-        Weight of DS syn on TV  ($\mu$S)         &    \wDSTV     &  [1e-5,0.005]  & 0.0029 \\
-       Weight of ANF syn on TV  ($\mu$S)         &    \wANFTV    &  [1e-5,0.005]  & 0.00017 \\
-         Number of synapses, LSR to TV           &    \nLSRTV    &     [0,64]     & 8           \\
-         Number of synapses, HSR to TV           &    \nHSRTV    &     [0,64]     & 14          \\
-Spread of DS connections onto TV (channel units) &    \sDSTV     &     [0,10]     & 2.1         \\
-Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,10]     & 0.24        \\ \hline
-\end{tabularx}
+% % D-----------------------------------
+% \begin{tabularx}{\linewidth}{|X|c|c|c|}
+% \hdr{4}{F}{Optimisation} \\ \hline
+%               \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
+%         Weight of DS syn on TV  ($\mu$S)         &    \wDSTV     &  [1e-5,0.005]  & 0.0029 \\
+%        Weight of ANF syn on TV  ($\mu$S)         &    \wANFTV    &  [1e-5,0.005]  & 0.00017 \\
+%          Number of synapses, LSR to TV           &    \nLSRTV    &     [0,64]     & 8           \\
+%          Number of synapses, HSR to TV           &    \nHSRTV    &     [0,64]     & 14          \\
+% Spread of DS connections onto TV (channel units) &    \sDSTV     &     [0,10]     & 2.1         \\
+% Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,10]     & 0.24        \\ \hline
+% \end{tabularx}
 
-% D-----------------------------------
-\begin{tabularx}{\linewidth}{|X|c|c|c|}
-\hdr{4}{F}{Optimisation} \\ \hline
-              \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
-  Number of synapses, DS to TV           &    \nLSRTV    &     [0,300]     & 8           \\
-  Number of synapses, LSR to TV           &    \nLSRTV    &     [0,300]     & 8           \\
-  Number of synapses, HSR to TV           &    \nHSRTV    &     [0,300]     & 14          \\
-Spread of connections from DS onto TV (channel units) &    \sDSTV     &     [0,100]     & 2.1         \\
-Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,100]     & 0.24        \\ \hline
-\end{tabularx}
+% % D-----------------------------------
+% \begin{tabularx}{\linewidth}{|X|c|c|c|}
+% \hdr{4}{F}{Optimisation} \\ \hline
+%               \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
+%   Number of synapses, DS to TV           &    \nLSRTV    &     [0,300]     & 8           \\
+%   Number of synapses, LSR to TV           &    \nLSRTV    &     [0,300]     & 8           \\
+%   Number of synapses, HSR to TV           &    \nHSRTV    &     [0,300]     & 14          \\
+% Spread of connections from DS onto TV (channel units) &    \sDSTV     &     [0,100]     & 2.1         \\
+% Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,100]     & 0.24        \\ \hline
+% \end{tabularx}
 
 
 \clearpage
@@ -315,7 +315,7 @@ of the notch stimulus from 110 down to 50 dB SPL.
   \centering
   \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
   \resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result.eps}}
-  \caption{Optimisation results for a refined TV Notch model with stimulus sound levels at 70 and 50 dB SPL.  The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV. The second group of 3 runs included the parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
+  \caption{Optimisation results for a refined TV Notch model with stimulus sound levels at 70 and 50 dB SPL\@.  The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV\@. The second group of 3 runs included the parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
   \label{fig:TV_result_Run2}
 \end{figure}
 
@@ -338,7 +338,7 @@ of the notch stimulus from 110 down to 50 dB SPL.
 \hdr{4}{}{Optimisation B} \\ \hline
        &   Run 1    &   Run 2    & Run 3       \\ \hline
   \sDSTV  & 13 & 7& 17 \\ 
-$E_{leak}$ mV& -65.89& -67.22 & 7 -67.22\\ 
+$E_{leak}$& -65.89& -67.22 & 7 -67.22\\ 
   \oDSTV  &  2.1   &  2.1   & -7.9    \\ 
   \nDSTV  & 17& 17& 16 \\ 
   \wDSTV  & 0.0017 & 0.0017 & 0.0017 \\ \hline
@@ -348,32 +348,36 @@ $E_{leak}$ mV& -65.89& -67.22 & 7 -67.22\\
 \end{center}
 
 \begin{center}
-\begin{minipage}{0.5\linewidth}
+\begin{minipage}{0.48\linewidth}
 \begin{tabularx}{\textwidth}{|X|c|c|c|}
-\hdr{4}{F}{Optimisation}              \\ \hline
-       &   Run 1    &   Run 2    & Run 3       \\ \hline
+\hdr{4}{}{Optimisation A} \\ \hline
+       &   Run 1    &   Run 2    & Run 3  \\ \hline
 \nDSTV &   39    &   49    & 59
 \wDSTV & 0.0217  & 0.0217  & 0.0258     \\       
 \nLSRTV&   21    &   21    & 23      \\       
 \nHSRTV&   15    &   15    & 14      \\       
 \wLSRTV& 0.0069  & 0.0069  & 0.0115     \\       
-\wHSRTV& 0.0013  & 0.0013  & 0.0013       \\       \hline
-Error  & 1255.34 & 1028.70 & 1082.85     \\       \hline
+\wHSRTV& 0.0013  & 0.0013  & 0.0013       \\ \hline
+Error  & 1255.34 & 1028.70 & 1082.85     \\  \hline
 \end{tabularx}
-\end{minipage}%
-\begin{minipage}{0.5\linewidth}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
 \begin{tabularx}{\textwidth}{|X|c|c|c|}
-\hdr{4}{}{Optimisation}   \\ \hline
-       &   Run 1    &   Run 2    & Run 3       \\ \hline
- \sDSTV   &  21.3   &  31.31  & 21.31      \\       
-$E_{leak}$ & -74.96  & -74.96  & -74.96      \\       
- \oDSTV   &  22.03  &  22.03  & 22.03       \\       
- \nDSTV   &   15    &   15    & 15      \\       
- \wDSTV   & 0.01478 & 0.01478 & 0.01478     \\       \hline
-  Error   & 599.37  &  539.1  & 586.74     \\       \hline
+\hdr{4}{}{Optimisation B}   \\ \hline
+           & Run 1  & Run 2  & Run 3       \\ \hline
+  \sDSTV   &  21.3  & 31.31  & 21.31      \\       
+$E_{leak}$ & -74.96 & -74.96 & -74.96      \\       
+  \oDSTV   & 22.03  & 22.03  & 22.03       \\       
+  \nDSTV   &   15   &   15   & 15      \\       
+  \wDSTV   & 0.0148 & 0.0148 & 0.0148     \\       \hline
+  Error    & 599.37 & 539.1  & 586.74     \\       \hline
 \end{tabularx}           
 \end{minipage}
 \end{center}
+
+
+
+
 
 
 % \clearpage
