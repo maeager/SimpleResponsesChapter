@@ -634,7 +634,7 @@ GUNZIP		?= gunzip	# GZipped EPS
 PSNUP		?= psnup
 # == Viewing Stuff ==
 VIEW_POSTSCRIPT	?= gv
-VIEW_PDF	?= xpdf
+VIEW_PDF	?= okular
 VIEW_GRAPHICS	?= display
 
 # Command options for embedding fonts and postscript->pdf conversion
@@ -2160,6 +2160,11 @@ convert-dot-tex		= $(DOT2TEX) '$1' > '$2'
 
 # Converts svg files into .eps files
 #
+# $(call convert-dia,<dia file>,<eps file>,[gray])
+convert-dia	= $(DIA) $(if $(filter %.pdf,$2)--export=,--filter=eps-pango --export)='$2' '$1'
+
+# Converts svg files into .eps files
+#
 # $(call convert-svg,<svg file>,<eps file>,[gray])
 convert-svg	= $(INKSCAPE) --without-gui $(if $(filter %.pdf,$2)--export-pdf=,--export-eps)='$2' '$1'
 
@@ -2672,6 +2677,10 @@ endif
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-svg,$<,$@,$(GRAY))
 
+%.eps: %.dia $(if $(GRAY),$(gray_eps_file))
+	$(QUIET)$(call echo-graphic,$^,$@)
+	$(QUIET)$(call convert-dia,$<,$@,$(GRAY))
+
 %.eps: %.jpg $(if $(GRAY),$(gray_eps_file))
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-jpg,$<,$@,$(GRAY))
@@ -2868,7 +2877,7 @@ _check_programs:
 	done
 
 .PHONY: _check_gpi_files
-_check_gpi_files:
+:
 	$(QUIET)$(ECHO) "== Checking all .gpi files for common errors =="; \
 	$(ECHO); \
 	for f in $(files.gpi); do \

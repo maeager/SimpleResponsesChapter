@@ -29,7 +29,7 @@ model requires 500~kHz resolution in the stimulus, this is then downsampled to
 20~kHz. The directory for the saved AN responses is determined by the variable
 \textsf{ANsoundspath}.
 
-\begin{lstlisting}[label=lst:headerlines,caption={Headerlines in \mbox{\textsf{DS\_Recover\.hoc}} show a typical setup in a \texsf{cnstellate} setup.}]
+\begin{lstlisting}[label=lst:headerlines,caption={Headerlines in \mbox{\textsf{DS\_Recover\.hoc}} show a typical setup in a \textsf{cnstellate} setup.}]
 load_file("nrngui.hoc")
 //load_file("par_netpar.hoc") //uncomment for parallel mode
 //load_file("par_init.hoc")   //uncomment for parallel mode
@@ -40,10 +40,15 @@ load_file("Utilities.hoc")    //My utility functions
 load_file("NetworkParameters.hoc")//NetworkParameter class
 load_file("AuditoryNerve.hoc")//ANChannel and AuditoryNerve classes 
 load_file("par_CNcell.tem")   //CNCell class
-//Model parameters unique to current simulation
-load_file("parameters_DS_ClickRecovery.hoc") 
 load_file("CochlearNucleus.hoc")//CochlearNucleus class and set-up
 
+//Model parameters unique to current simulation
+load_file("parameters_DS_ClickRecovery.hoc") 
+
+  //Create model
+  create_cells()
+  connect_cells()
+  connect_CNcells()
 \end{lstlisting}
 
 
@@ -192,7 +197,7 @@ NEURON NMODL compatible C file.
   \textsf{srand(seed)} with \mbox{\textsf{set\_seed(seed)}}.
 \item Calls to MATLAB functions within a mex file The most recent model within
   the mex file.  This was converted to a simple double array of random values
-  with scoplib's \mbox{\textsf{normrand(0,1)}} function.
+  with the \mbox{\textsf{normrand(0,1)}} function in \mbox{\textsf{scoplib.h}}.
 \begin{itemize}
 \item builtin \textsf{randn} $\Rightarrow$ generate an array gaussian random numbers with scoplib's
   \mbox{\textsf{normrand(0,1)}} function

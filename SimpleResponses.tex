@@ -1,4 +1,7 @@
-\documentclass[11pt,a4paper,twoside]{book} % Use the UniMelb Dissertation Template
+\documentclass[11pt,a4paper %
+%,twoside
+%,draft
+]{book} % Use the UniMelb Dissertation Template
 %\usepackage{../manuscript/style/uomthesis}
 % User defined commands
 \input{user-defined}
@@ -10,6 +13,12 @@
 \usepackage{appendix}
 \usepackage[showlabels]{preview}
 
+\hoffset=-0.5in
+%\marginparwidth=60mm
+\oddsidemargin=0mm
+\textwidth=16cm
+\renewcommand{\baselinestretch}{1}
+
 \DeclareGraphicsRule{eps.gz}{eps}{.eps.bb}{zcat #1}
 
 %\includeonly{TV_Notch}
@@ -20,7 +29,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{chapter}{2}
-\chapter[Simple Responses]{Creating the Cochlear Nucleus stellate-cell network from experimental data}
+\chapter[Simple Responses]{Creating the Cochlear Nucleus Stellate Network}
 \label{sec:SimpleResponsesChapter}
 
 % \begin{synopsis}
