@@ -65,6 +65,29 @@ Smith and Rhode, Smith and others looked at OnC response area and two-tone
 
 \subsection{Implementation}
  
+Optimisation parameters for \GLGDS are optimised based on experimental
+click recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed
+parameters included the number of golgi cells to DS cells ($\nGLGDS =
+25$), the spread of ANFs to DS cells $\ANFDS$, and the extra delay
+from the auditory nerve.  The first spike latency in DS cells 2.8 ±
+0.09 ms \citep{RhodeSmith:1986}.The addition of 0.5 ms to \ANFDS
+connections is a combination of conductance and synaptic delay. The
+effect of Golgi cells on DS is delayed by the extra 0.7~ms delay from
+ANF to Golgi, plus the slow peak of \GABAa inhibition.  The spread ANF
+to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and fairly
+broad so the estimate is set so that 2 octaves below and 1 octave
+above CF are within 2 standard deviations \citep{PaoliniClark:1999}.
+
+\begin{figure}[htb]
+\centering
+%\resizebox{5in}{!}{\includegraphics{NoFigure}}
+\includegraphics[keepaspectratio,angle=-90,width=\textwidth]{DSClickRecoveryExpData}
+\caption{Experimental Data of GABAergic influence on D-stellate cells from
+  \citep{BackoffPalombiEtAl:1997}, Fig.~3.}\label{fig:DSClickRecoveryExpData}
+\end{figure}
+
+\medskip{}
+
 Key factors in designing D-stellate cell model
 
 \medskip{}
@@ -85,31 +108,15 @@ Choosing neural model: type I-II Rothman and Manis model
 
 \medskip{}
 
-Optimisation parameters for \GLGDS are optimised based on experimental
-click recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed
-parameters included the number of golgi cells to DS cells ($\nGLGDS =
-25$), the spread of ANFs to DS cells $\ANFDS$, and the extra delay
-from the auditory nerve.  The first spike latency in DS cells 2.8 ±
-0.09 ms \citep{RhodeSmith:1986}.The addition of 0.5 ms to \ANFDS
-connections is a combination of conductance and synaptic delay. The
-effect of Golgi cells on DS is delayed by the extra 0.7~ms delay from
-ANF to Golgi, plus the slow peak of \GABAa inhibition.  The spread ANF
-to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and fairly
-broad so the estimate is set so that 2 octaves below and 1 octave
-above CF are within 2 standard deviations \citep{PaoliniClark:1999}.
-\medskip{}
 
-The optimisation function was a weighted mean squared error between
-the experimental and simulated data, from an array where the elements
-were the number of spikes in a 2 ms window after a click.  The input
-stimulus was a series of masker/response clicks, with the click
-intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
-
-
- PSTHs were generated from 25
-   stimulus repetitions. Each response to a click is measured for 2 ms
-   after the minimum first spike latency for the unit.  The unit  used
-   in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
+The optimisation function was a weighted mean squared error between the
+experimental and simulated data, from an array where the elements were the
+number of spikes in a 2 ms window after a click.  The input stimulus was a
+series of masker/response clicks, with intervals of 2, 3, 4, 8, and
+16 ms, separated by 50 ms. PSTHs were generated from 25 stimulus
+repetitions. Each response to a click is measured for 2 ms after the minimum
+first spike latency for the unit.  The unit used in the optimisation has a CF of
+5.8~kHz (equivalent to channel no. 50).
 
 
 % \begin{figure}[htb]
@@ -123,14 +130,6 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 
 
 \clearpage
-
-\begin{figure}[htb]
-\centering
-%\resizebox{5in}{!}{\includegraphics{NoFigure}}
-\includegraphics[keepaspectratio,angle=-90,width=0.8\textwidth]{DSClickRecoveryExpData}
-\caption{Experimental Data of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.}\label{Ch3:fig:DSClickRecoveryExpData}
-\end{figure}
-
 %\parsep
 
 \clearpage
@@ -146,11 +145,14 @@ intervals of 2, 3, 4, 8, 16 ms, and a separation of 50 ms.
 \begin{figure}[htb!]
   \centering
 %\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
-\resizebox{0.9\textwidth}{!}{\includegraphics{./gfx/DS_ClickRecovery_result.eps}}
+\resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{./gfx/DS_ClickRecovery_result.eps}}
 \caption{Experimental Data ({\color{green} Green}) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result ({\color{blue} Blue}) shown in figure below.} \label{fig:DS_ClickRecovery_result}  
 \end{figure}
 
-The optimisation parameters show a clear favouritism toward the LSR input rather than the HSR input to DS units. While this may not seem ideal for fast co-incidence detection, the large number of HSR inputs makes up for the small synaptic weight that was obtained in the optimisation.
+The optimisation parameters show a clear favouritism toward the LSR input rather
+than the HSR input to DS units. While this may not seem ideal for fast
+co-incidence detection, the large number of HSR synapses makes up for the small
+weight that was obtained in the optimisation.
 
 
 
@@ -207,7 +209,7 @@ The optimisation parameters show a clear favouritism toward the LSR input rather
 %\newpage
 \subsection{Verification}
 
- \subsection{Tone Responses}
+% \subsection{Tone Responses}
 % \begin{figure}[h!]
 % \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{RateLevel/psthsingle90.2.eps}%
@@ -227,7 +229,7 @@ The optimisation parameters show a clear favouritism toward the LSR input rather
 
 
 % \clearpage
- \subsection{Noise Responses}
+% \subsection{Noise Responses}
 % \begin{figure}[h!]
 % \centering\resizebox{\textwidth}{!}{%
 % \includegraphics{NoiseRateLevel/psthsingle120.2.eps}%
@@ -247,7 +249,7 @@ The optimisation parameters show a clear favouritism toward the LSR input rather
 
 
 % \clearpage
- \subsection{Masked Noise and Tone Responses}
+% \subsection{Masked Noise and Tone Responses}
 % \begin{figure}[h!]
 % \centering\resizebox{\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.2.eps}\includegraphics{MaskedRateLevel/DS_ratelevel.eps}}
 % \end{figure}

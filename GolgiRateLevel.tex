@@ -1,5 +1,4 @@
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/Responses/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,20 +145,20 @@ method was a default using the principle-axis method.
    \centering
 %   \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
   \resizebox{0.9\textwidth}{!}{\includegraphics{gfx/GolgiDiagram.eps}}\\
-  
-   \caption{The golgi instantaneous-rate profile was generated using ANF
-     profiles. $\mu$ and $\sigma$ control the spread of connections
-     across frequency channels, and $\mathbf{w}$ is
-     the weighted sum of HSR and LSR instantaneous-rate vectors,
-     $\alpha$ is the synaptic and dendritic smoothing function.}\label{fig:GolgiDiagram}
+  \caption{The golgi instantaneous-rate profile was generated using a weighted sum ANF
+     profiles and a alpha function smoothing filter to mimic dendritic and synaptic filtering. The Gaussian spread of connections is independent for HSR and LSR auditory filters, with the mean equal to CF channel of unit. The alpha function includes a delay of 2.5 ms, 0.7 ms greater than the core VCN units as shown by \citet{GhoshalKim:1997}. The final stage sets the spontaneous rate by addition at t=0 and changes any negative values to zero in the rate profile.  
+%     across frequency channels is Gaussian, and $\mathbf{w}$ is
+%    the weighted sum of HSR and LSR instantaneous-rate vectors,
+%     $\alpha$ is the synaptic and dendritic smoothing function.
+}\label{fig:GolgiDiagram}
  \end{figure}
 
 \medskip{}
 
-Due to its replication of granule cells in the model, weight for LSR
-(\wLSRGLG) and HSR (\wHSRGLG) are determined for all synapses, number
-\nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to
-ensure conductance and dendritic filtering are included.
+% Due to its replication of granule cells in the model, weight for LSR
+% (\wLSRGLG) and HSR (\wHSRGLG) are determined for all synapses, number
+% \nLSRDS and \nHSRDS, delay \dANFGLG added to smoothing function to
+% ensure conductance and dendritic filtering are included.
 
 \subsubsection{Key design factors}
 
@@ -256,7 +255,7 @@ Figure~\ref{fig:GolgiResult} shows the output of the optimised golgi cell model.
 
 % \clearpage \newpage
 \subsection{Verification of Golgi cell model}
- \subsubsection{Tone Responses}
+% \subsubsection{Tone Responses}
 
 % \begin{figure}[h]
 %   \centering\resizebox{0.95\textwidth}{!}{%
@@ -278,7 +277,7 @@ Figure~\ref{fig:GolgiResult} shows the output of the optimised golgi cell model.
 
 
 % \clearpage
- \subsubsection{Noise Responses}
+% \subsubsection{Noise Responses}
 % \begin{figure}[h]
 %   \centering\resizebox{0.95\textwidth}{!}{%
 %     \includegraphics{NoiseRateLevel/psthsingle120.3.eps}%
@@ -298,7 +297,7 @@ Figure~\ref{fig:GolgiResult} shows the output of the optimised golgi cell model.
 
 
 % \clearpage
- \subsubsection{Masking Responses}
+% \subsubsection{Masking Responses}
 % \begin{figure}[h!]
 %   \centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.3.eps}\includegraphics{MaskedRateLevel/G_ratelevel.eps}}
 % \end{figure}
@@ -334,20 +333,6 @@ Figure~\ref{fig:GolgiResult} shows the output of the optimised golgi cell model.
 %     \includegraphics{MaskedResponseCurve/psthVmod.3.eps}}
 % \end{figure}
 % \clearpage
-
-
-% \todo{add stuff here}
-
-
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \bibliographystyle{plainnat}%bmc_article} % Style BST file
-% \bibliography{../manuscript/bib/MyBib}
- 
-
-
-
-
 
 
 %%% Local Variables: 

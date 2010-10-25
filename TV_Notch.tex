@@ -101,17 +101,16 @@ rate) and a Chebyshev type II band reject filter.
 \medskip{}
 
 The experimental data, shown in Fig.~\ref{fig:TVReissFig9}, is the average
-responses of type II units to notch sweeps.  
+responses of type II units to notch sweeps.
 
-The optimisation routine would be prohibitive if it was a notch sweep
-simulated on a single neuron; therefore, this optimisation
-uses a single notch presentation across an entire
-network of TV cells. Accordingly, the fitness function must take into account the
-relative position of cells in the network when comparing the experimental data. 
-For example, when presented with a notch noise filtered between
-5kHz and 10kHz, a unit with CF of 5kHz will see a falling edge of a 1
-octave notch, whereas a unit with CF of 10kHz, will see a rising edge
-of a half octave notch.  Figure~\ref{fig:TVNotchDiagram} shows the
+The optimisation routine would be prohibitive if it was a notch sweep simulated
+on a single neuron; therefore, this optimisation uses a single notch
+presentation across an entire network of TV cells. Accordingly, the fitness
+function must take into account the relative position of cells in the network
+when comparing the experimental data.  For example, when presented with a notch
+noise filtered between 5kHz and 10kHz, a unit with CF of 5kHz will see a falling
+edge of a 1 octave notch, whereas a unit with CF of 10kHz, will see a rising
+edge of a half octave notch.  Figure~\ref{fig:TVNotchDiagram} shows the
 combination of the type II unit notch data for 1 octave.
 
 \medskip{}
@@ -139,13 +138,13 @@ increase the threshold for excitatory inputs to generate action potentials.
 \medskip{}
 
 The big issue with the optimisation of population mean rate responses is that
-the model could be over simplified.  The HSR response is flat and the DS
-response has a regular onset spike but rare throughout the stimulus, which
-detracts from the purpose of using a whole network to optimise parameters for
-synaptic inputs regarding TV cells.  The TV rate response could therefore just
-be modeled on the LSR response using a simple gradient-decent
-method. \yellownote{Population mean rate: Pros: fairly stable for smallish
-  repetitions, Cons: removes timing}
+the model could be over simplified and remove timing information.  The HSR rate
+response is generally flat at medium to high sound intensities. DS cell response has a regular onset spike but
+has a low rate throughout the stimulus, which detracts from the purpose of using a whole
+network to optimise parameters for synaptic inputs regarding TV cells.  The TV
+rate response could therefore just be modeled on the LSR response using a simple
+gradient-decent method. \yellownote{Population mean rate: Pros: fairly stable
+  for smallish repetitions, Cons: removes timing}
  
 
 \begin{figure}[htb]
@@ -174,9 +173,6 @@ method. \yellownote{Population mean rate: Pros: fairly stable for smallish
 
 \clearpage
 \subsection{Optimisation Results} 
-
-
-
 
 % \begin{figure}[tbh]
 %   \centering
@@ -423,6 +419,23 @@ $E_{leak}$& -65.89& -67.22 & 7 -67.22\\
   \label{fig:TV_result_Run2_70}
 \end{figure}
 
+The eventual result of the TV cell optimisation, highlighted in the following
+table, was derived from Run 1A and Run 1B in the set using 70 dB SPL
+stimulus. \yellownote{Explain the table a bit more.}
+% D-----------------------------------
+\begin{tabularx}{\linewidth}{|X|c|c|c|}
+\hdr{4}{F}{Optimisation} \\ \hline
+              \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
+        Number of DS synapses onto TV cells ($\mu$S)         &    \nDSTV     &  [0,100]  & 17 \\
+        Weight of DS synapses onto TV cells ($\mu$S)         &    \wDSTV     &  [1e-5,0.005]  & 0.0029 \\
+         Number of synapses, LSR to TV           &    \nLSRTV    &     [0,100]     & 29           \\
+         Number of synapses, HSR to TV           &    \nHSRTV    &     [0,100]     & 1          \\
+       Weight of LSR syn on TV  ($\mu$S)         &    \wLSRTV    &  [1e-5,0.005]  & 0.00017 \\
+       Weight of HSR syn on TV  ($\mu$S)         &    \wHSRTV    &  [1e-5,0.005]  & 0.00017 \\
+Spread of DS connections onto TV (channel units) &    \sDSTV     &     [0,100]     & 13         \\
+Offset of DS connections onto TV (channel units) &    \oDSTV     &     [-10,30]     & 2.1        \\ 
+Reversal potential of leak current in TV cells (mV)& $E_{rev}$ & [-80,-50] & -65.89 \\ \hline
+\end{tabularx}
 
 
 
@@ -443,7 +456,7 @@ SPL was setup up in the AN model for use by the CN stellate model.
   the centre frequency of the notch and not the CF of the unit of interest.}
 
 Figure~\ref{fig:TV_SweepUnit70} shows the response of a unit with similar CF (TV
-unit 70, CF=12.76~kHz) to notch and band-pass noise.
+unit 70, CF=12.76~kHz) to notch and band-pass noise. 
 
 \begin{figure}[h!]
   \centering
@@ -451,9 +464,21 @@ unit 70, CF=12.76~kHz) to notch and band-pass noise.
   \resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{./TV_Notch/BestSweep.eps}}\\
   \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/Reiss_Fig9_E+F.eps}}\\
   \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/Reiss_Fig10A+B.eps}}
-  \caption{Response of optimised TV cell (CF=12.76~kHz) to notch and band sweeps with stimulus sound level at 50 dB SPL\@. Mean rate responses are plotted against the rising edge frequency of the notch and falling edge of the band-pass in octaves relative to 12.7~kHz. Middle row is the}
+  \resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{./TV_Notch/Best-Offset2/BestSweep.eps}}\\
+  \caption{Response of optimised TV cell (CF=12.76~kHz) to notch and band sweeps with stimulus sound level at 50 dB SPL\@. Mean rate responses are plotted against the rising edge frequency of the notch and falling edge of the band-pass in octaves relative to 12.7~kHz. Middle row is from Figure 9 E and F in Reiss and Young, second bottom row is from Figure 10 A and B. }
   \label{fig:TV_SweepUnit70}
 \end{figure}
+
+
+\yellownote{The final error score was best in 70dB runs, but this is not exactly what I wanted.  the 22dB in Reiss }
+
+% \begin{figure}[h!]
+%   \centering
+% %  \resizebox{\textwidth}{!}{\includegraphics{NoFigure}}
+%   \resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{./TV_Notch/Best-Offset2/BestSweep.eps}}\\
+%   \caption{Response of TV cell (CF=12.76~kHz, with optimised parameters except offset) and DS cell to half octave notch and band sweeps with stimulus sound level at 50 dB SPL\@. Mean rate responses are plotted against the rising edge frequency of the notch and falling edge of the band-pass in octaves relative to 12.7~kHz.}
+%   \label{fig:TV_SweepUnit}
+% \end{figure}
 
 
 % \subsection{Tone Response}
