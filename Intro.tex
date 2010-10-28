@@ -1,4 +1,5 @@
- 
+
+% =========================================================================
 
 \begin{quotation}
   To understand brain function, the focus of [our] investigations must
@@ -7,8 +8,6 @@
   responses are distributed over a population of similar cells as
   wells as across populations of different cells.  - \emph{\citet{Shamma:1998}}
 \end{quotation}
-
-
 
 % =========================================================================
 
@@ -52,7 +51,8 @@ and synapse models, and E) optimisation parameters.  This method aims to show a
 consistent and recognisable format for presenting various neural network models
 and their constituents.
 
-\begin{itemize}
+
+The standard methods for optimisation \begin{itemize}
 \item specify function or model we want to optimise
 \item specify criteria we want to satisfy
 \item specify the parameters that will be adjusted, 
@@ -67,12 +67,14 @@ they do not influence the properties of previously fitted parameters.
 
 \medskip{}
 
-In this chapter, I construct the stellate network of the cochlear
-nucleus (Fig.~\ref{fig:microcircuit}) using a sequential method.  The parameters of each cell type
-are fixed based on experimental data or are optimised based solely on
-responses to simple stimuli.  Each cell type is shown with its excitatory-inhibitory responses area (EIRA) and PSTH (although this may vary within cell type). Golgi cells (G) receive a range of fibres centred on BF
-The stellate network model drawn in Fig.~\ref{fig:microcircuit} describes the following
-cells and models:
+In this chapter, I construct the stellate network of the cochlear nucleus
+(Fig.~\ref{fig:microcircuit}) using a sequential method.  The parameters of each
+cell type are fixed based on experimental data or are optimised based solely on
+responses to simple stimuli.  Each cell type is shown with its
+excitatory-inhibitory responses area (EIRA) and PSTH (although this may vary
+within cell type). Golgi cells (G) receive a range of fibres centred on BF The
+stellate network model drawn in Fig.~\ref{fig:microcircuit} describes the
+following cells and models:
 \begin{enumerate}
 \item the Carney phenomenological auditory model
   \citet{ZilanyBruceEtAl:2009}: This model provides spiking input to

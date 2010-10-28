@@ -1,5 +1,5 @@
 \graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
-\newpage
+
 \section[TV Cell Model]{Tuberculoventral cell model: Optimisation to notch-noise response}
 \label{sec:TV-cell-model}
 % - A ------------------------------------------------------------------------------
@@ -101,17 +101,16 @@ rate) and a Chebyshev type II band reject filter.
 \medskip{}
 
 The experimental data, shown in Fig.~\ref{fig:TVReissFig9}, is the average
-responses of type II units to notch sweeps.
-
-The optimisation routine would be prohibitive if it was a notch sweep simulated
-on a single neuron; therefore, this optimisation uses a single notch
-presentation across an entire network of TV cells. Accordingly, the fitness
-function must take into account the relative position of cells in the network
-when comparing the experimental data.  For example, when presented with a notch
-noise filtered between 5kHz and 10kHz, a unit with CF of 5kHz will see a falling
-edge of a 1 octave notch, whereas a unit with CF of 10kHz, will see a rising
-edge of a half octave notch.  Figure~\ref{fig:TVNotchDiagram} shows the
-combination of the type II unit notch data for 1 octave.
+responses of type II units to notch sweeps. The optimisation routine would be
+prohibitive if it was a notch sweep simulated on a single neuron; therefore,
+this optimisation uses a single notch presentation across an entire network of
+TV cells. Accordingly, the fitness function must take into account the relative
+position of cells in the network when comparing the experimental data.  For
+example, when presented with a notch noise filtered between 5kHz and 10kHz, a
+unit with CF of 5kHz will see a falling edge of a 1 octave notch, whereas a unit
+with CF of 10kHz, will see a rising edge of a half octave notch.
+Figure~\ref{fig:TVNotchDiagram} shows the combination of the type II unit notch
+data for 1 octave.
 
 \medskip{}
 
@@ -171,7 +170,7 @@ gradient-decent method. \yellownote{Population mean rate: Pros: fairly stable
 
 
 
-\clearpage
+
 \subsection{Optimisation Results} 
 
 % \begin{figure}[tbh]
@@ -283,7 +282,7 @@ of the notch stimulus from 110 down to 50 dB SPL.
 % \end{tabularx}
 
 
-\clearpage
+
 \subsection{Refining TV Notch optimisation}
 
 % Figure~\ref{fig:TV_result_Run1} shows the optimisation results for .
@@ -304,6 +303,7 @@ results for different input sound intensities.  The performance improves when
 reducing the sound level of the notch stimulus from 110 down to 50 dB SPL.
 \yellownote{TODO: show a simple rate-level plot of HSR, LSR , golgi, DS, basic
   TV}
+
 \begin{figure}[thb]
   \centering
 %  \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
@@ -319,7 +319,7 @@ reducing the sound level of the notch stimulus from 110 down to 50 dB SPL.
 
 % 50 dB Run
 \begin{center}
-\begin{minipage}{0.5\linewidth}
+\begin{minipage}{0.48\linewidth}
 \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation A} \\ \hline
        &   Run 1    &   Run 2    & Run 3  \\ \hline
@@ -332,7 +332,7 @@ reducing the sound level of the notch stimulus from 110 down to 50 dB SPL.
 Error  & 1255.34 & 1028.70 & 1082.85     \\  \hline
 \end{tabularx}
 \end{minipage}\hfill
-\begin{minipage}{0.45\linewidth}
+\begin{minipage}{0.48\linewidth}
 \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation B}   \\ \hline
            & Run 1  & Run 2  & Run 3       \\ \hline
@@ -379,6 +379,7 @@ synapses (29 to 1); and the increased need for DS cell inhibition with a high
 % \newpage
 
 % 70 dB Run
+
 \begin{center}
 \begin{minipage}[h]{0.5\linewidth}
 \begin{tabularx}{\textwidth}{|X|c|c|c|}
@@ -423,6 +424,8 @@ The eventual result of the TV cell optimisation, highlighted in the following
 table, was derived from Run 1A and Run 1B in the set using 70 dB SPL
 stimulus. \yellownote{Explain the table a bit more.}
 % D-----------------------------------
+\medskip{}
+
 \begin{tabularx}{\linewidth}{|X|c|c|c|}
 \hdr{4}{F}{Optimisation} \\ \hline
               \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
@@ -470,7 +473,7 @@ unit 70, CF=12.76~kHz) to notch and band-pass noise.
 \end{figure}
 
 
-\yellownote{The final error score was best in 70dB runs, but this is not exactly what I wanted.  the 22dB in Reiss }
+\yellownote{The final error score was best in 70dB runs, but this is not exactly what I wanted.  the 22dB in Reiss fit the tv rate-level response around mid way}
 
 % \begin{figure}[h!]
 %   \centering

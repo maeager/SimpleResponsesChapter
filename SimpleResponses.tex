@@ -8,16 +8,19 @@
 \input{glossary} % My glossary of terms
 
 % User defined commands
-\usepackage{pstricks}
-
+%\usepackage{pstricks}
 \usepackage{appendix}
 %\usepackage[showlabels]{preview}
 
-\hoffset=-0.4in
-%\marginparwidth=60mm
-\oddsidemargin=0mm
-\textwidth=15.5cm
-\renewcommand{\baselinestretch}{1.5}
+% \marginparwidth=3.5cm
+% \oddsidemargin=3.5cm
+ \topmargin=0pt
+ \headsep=10pt
+ \voffset=-1.54cm
+ \hoffset=-1.54cm  %default hoffset is zero plus extra 1inch
+ \textwidth=14cm
+ \textheight=26cm
+ \renewcommand{\baselinestretch}{1.2}
 
 \DeclareGraphicsRule{eps.gz}{eps}{.eps.bb}{zcat #1}
 
@@ -46,7 +49,6 @@
 \include{DSRecovery}
 \newpage
 \include{TV_Notch}
-\newpage
 % \include{Tstellate.tex}
 \newpage
 \include{Discussion}
@@ -54,8 +56,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Conclusion}
 
-In this chapter I developed a biophysically-realistic model of the
-T-stellate microcircuit in the cochlear nucleus.
+In this chapter biophysically-realistic model of the
+T-stellate microcircuit in the cochlear nucleus was developed.
 
 \medskip{}
 
@@ -80,3 +82,9 @@ researchers may easily reproduce this work.
 \listoftodos
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: tex-fold
+%%% TeX-PDF-mode: nil
+%%% End: 

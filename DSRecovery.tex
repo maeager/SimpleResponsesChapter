@@ -88,35 +88,35 @@ above CF are within 2 standard deviations \citep{PaoliniClark:1999}.
 
 \medskip{}
 
-Key factors in designing D-stellate cell model
+Key factors in designing D-stellate cell model are shown in the Nordlie table
+{tab:DScellModelSummary}. A type I-II single compartment neuron by
+\citet{RothmanManis:2003b} has the characteristics of a onset chopper model and
+fits well into a DS cell model. The choice of having a large multipolar neuron
+without dendrites was based on computational efficiency and ensuring that the
+model fit within the criteria for DS cells. The electrotonic dendrites of DS
+cells mean that the filtering in DS cells primarily controls the height of EPSCs
+reaching the soma \citep{WhiteYoungEtAl:1994}, hence a single compartment with
+graded weights should suffice. The inhibitory effect of Golgi cells on DS is
+delayed and occurs through a the slow peak of \GABAa inhibition, so optimisation
+of number and weight parameters is straight forward. ANF spread onto DS cells is
+well documented (-2 octaves below, 1 octave above), hence a decision made to fix
+this parameter due to large computational task of calculating bandwidth. Initial
+optimisation procedures were not successful at constraining the short delay
+recovery responses (2,3,4 ms), hence the DS leak and KLT conductance parameters
+were included to allow cell's input resistance behaviour to fit fast acting
+behaviour in the cell.
+
 
 \medskip{}
 
-Choosing neural model: type I-II Rothman and Manis model
-  - with/without dendrites: dendrites are 
-  - variable KLT, leak conductance
 
-\begin{itemize}
-\item  ANF spread to DS cells well documented (decision made to
-    fix params due to large computational task of calc response area) 
-\item  short delay recovery responses (2,3,4 ms) were not successful upon
-    first model, included DS leak and KLT conductances to allow cell
-    behaviour to be fit
-\item The effect of Golgi cells on DS is delayed by the extra 0.7 ms
-    delay from ANF to Golgi, plus the slow peak of \GABAa inhibition.
-\end{itemize}
-
-\medskip{}
-
-
-The optimisation function was a weighted mean squared error between the
-experimental and simulated data, from an array where the elements were the
-number of spikes in a 2 ms window after a click.  The input stimulus was a
-series of masker/response clicks, with intervals of 2, 3, 4, 8, and
-16 ms, separated by 50 ms. PSTHs were generated from 25 stimulus
-repetitions. Each response to a click is measured for 2 ms after the minimum
-first spike latency for the unit.  The unit used in the optimisation has a CF of
-5.8~kHz (equivalent to channel no. 50).
+The optimisation function is a weighted mean squared error between vectors from
+the experimental and simulated data. The vector elements were calculated from
+the number of spikes in a 2 ms window after a click.  The input stimulus was a
+series of masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms,
+separated by 50 ms, and repeated 25 stimulus times. Each response to a click is
+measured for 2 ms after the minimum first spike latency for the unit.  The unit
+used in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
 
 
 % \begin{figure}[htb]
@@ -128,11 +128,9 @@ first spike latency for the unit.  The unit used in the optimisation has a CF of
 
 \input{DSRecoveryTable.tex}
 
-
-\clearpage
 %\parsep
 
-\clearpage
+
 \subsection{Results}
 
 % \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
@@ -146,7 +144,7 @@ first spike latency for the unit.  The unit used in the optimisation has a CF of
   \centering
 %\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
 \resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{./gfx/DS_ClickRecovery_result.eps}}
-\caption{Experimental Data ({\color{green} Green}) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result ({\color{blue} Blue}) shown in figure below.} \label{fig:DS_ClickRecovery_result}  
+\caption{Optimisation results of DS cell. Experimental Data (-o-) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result () shown in figure below.} \label{fig:DS_ClickRecovery_result}  
 \end{figure}
 
 The optimisation parameters show a clear favouritism toward the LSR input rather
@@ -209,6 +207,7 @@ weight that was obtained in the optimisation.
 %\newpage
 \subsection{Verification}
 
+\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA.  Leave AM responses till next chapter}
 % \subsection{Tone Responses}
 % \begin{figure}[h!]
 % \centering\resizebox{\textwidth}{!}{%
@@ -290,7 +289,7 @@ weight that was obtained in the optimisation.
 \subsection{Effects of $g_{leak}$ and $g_{LKT}$ on DS resting membrane potential}
 
 The resting membrane potential of these large multipolar cells has been shown to be in the range of 3-5 MOhms \yellownote{citation needed here}. A quick observation of the parameter space around the optimisation results for $g_{leak}$ and $g_{LKT}$ is shown in Fig.~\ref{fig:leakVltk}.  
-
+\yellownote{Question: Is this section necessary?}
  \begin{figure}[h!]
    \centering
    \resizebox{\textwidth}{!}{\includegraphics{leakvltk}}
