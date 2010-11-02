@@ -12,18 +12,19 @@
 \usepackage{appendix}
 %\usepackage[showlabels]{preview}
 
+\usepackage{fullpage}
 % \marginparwidth=3.5cm
 % \oddsidemargin=3.5cm
- \topmargin=0pt
- \headsep=10pt
- \voffset=-1.54cm
- \hoffset=-1.54cm  %default hoffset is zero plus extra 1inch
- \textwidth=14cm
- \textheight=26cm
+% \topmargin=0pt
+% \headsep=10pt
+% \voffset=-1.54cm
+% \hoffset=-1.54cm  %default hoffset is zero plus extra 1inch
+% \textwidth=14cm
+% \textheight=26cm
  \renewcommand{\baselinestretch}{1.2}
 
 \DeclareGraphicsRule{eps.gz}{eps}{.eps.bb}{zcat #1}
-
+\newcommand{\figfont}[1]{\large{\textbf{\textsf{#1}}}}
 %\includeonly{TV_Notch}
 
 \graphicspath{{./gfx/}{../figures/}}
@@ -87,4 +88,5 @@ researchers may easily reproduce this work.
 %%% mode: latex
 %%% mode: tex-fold
 %%% TeX-PDF-mode: nil
+%%% TeX-master t
 %%% End: 

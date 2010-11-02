@@ -1,6 +1,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/Responses/}{/media/data/Work/cnstellate/Responses/}}
+\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/Resposnes/}{/media/data/Work/cnstellate/Responses/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[Golgi Cell Model]{Golgi Cell Model: Optimisation using
@@ -186,22 +186,55 @@ shows the model details to be used by the optimisation process.
 
 \subsection{Results}
 
-Figure~\ref{fig:GolgiResult} shows the output of the optimised golgi cell model.
-The final result produced a mean squared error of 0.021 (normailised to maximum
-rate). Golgi model (Green) and spike based output (Pink) was used to fit the
-experimental data of unit S03-07 (CF 21~kHz) from \citep{GhoshalKim:1996} (Red).
-LSR mean rate (Blue) of 21~kHz unit is monotonic with a high threshold.  The best parameters, in table~\ref{tab:GolgiCellModelSummary}E, show the effect of HSR inputs is minimal with the dominant input to golgi cells coming from LSR fibres.
+
+
+\begin{figure}[htb]
+  \centering 
+%  \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
+\hspace{2pt}\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill\\
+\resizebox{\textwidth}{!}{\includegraphics{./gfx/GolgiRateLevel_result2.eps}\hspace{1cm}\includegraphics{./gfx/GolgiRateLevel_result.eps}} \\
+% \hspace{1cm}\figfont{A}\hfill\\
+% \resizebox{\textwidth}{!}{\includegraphics{./gfx/GolgiRateLevel_result2.eps}} \\
+% \hspace{1cm}\figfont{B}\hfill \\
+% \resizebox{\textwidth}{!}{\includegraphics{./gfx/GolgiRateLevel_result.eps}} \\
+\caption{Golgi cell model optimisation result trials against unit S03-07 (CF 21~kHz) from \citep{GhoshalKim:1996}. A. The initial optimisation used only five sound levels (0, 15, 55, 75 and 85 dB SPL) and rate-model in its routine. The eventual best optimisation response (red squares) obtained a minimum error of 11.63 spikes/s (root mean squared) against the target response (blue). A rate-level curve (green circles) was generated from the spiking output only to show a big discrepancy in the spike-based rate-level and the monotonic rate-based rate-level. The lack of low level response indicated the need for some HSR input into the golgi cell model. B. A more detailed optimisation with 22 levels and included HSR inputs in the golgi cell model generated a closer fit to the Ghoshal and Kim data.  The final root mean squared error was 4.48 spikes/s.  }\label{fig:GolgiResult}
+\end{figure}
+
+
+
+Figure~\ref{fig:GolgiResult} shows the output of the optimisation trials for the
+golgi cell model.  The final result produced a root mean squared error of 0.021
+spikes per second (normalised to maximum rate of the fitting data). Golgi model
+and spike based output (Pink) was used to fit the experimental data of unit
+S03-07 (CF 21~kHz) from \citep{GhoshalKim:1996} (Red).  LSR mean rate (Blue) of
+21~kHz unit is monotonic with a high threshold.  The best parameters, in
+table~\ref{tab:GolgiCellModelSummary}E, show the effect of HSR inputs is minimal
+with the dominant input to golgi cells coming from LSR fibres.
+
+
+Golgi cell model optimisation result trials against unit S03-07 (CF 21~kHz) from
+\citep{GhoshalKim:1996}. A. The initial optimisation used only five sound levels
+(0, 15, 55, 75 and 85 dB SPL) and rate-model in its routine. The eventual best
+optimisation response (red squares) obtained a minimum error of 11.63 spikes/s
+(root mean squared) against the target response (blue). A rate-level curve
+(green circles) was generated from the spiking output only to show a big
+discrepancy in the spike-based rate-level and the monotonic rate-based
+rate-level. The lack of low level response indicated the need for some HSR input
+into the golgi cell model. B. A more detailed optimisation with 22 levels and
+included HSR inputs in the golgi cell model generated a closer fit to the
+Ghoshal and Kim data.  The final root mean squared error was 4.48 spikes/s.
+
 
 %\yellownote{TODO: expand results output}
 
 
 
-\begin{figure}[htb]
-  \centering %\turnbox{90}{\small{Rate (sp/s)}}
-%  \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
-  \resizebox{\textwidth}{!}{\includegraphics[angle=-90]{GolgiRateLevel_result.eps}} \\
-  \caption{Golgi cell model optimisation results with the best response obtaining a minimum error 0.021 (spikes/s, average mean squared error of experimental and data points). }\label{fig:GolgiResult}
-\end{figure}
+% \begin{figure}[htb]
+%   \centering %\turnbox{90}{\small{Rate (sp/s)}}
+% %  \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
+%   \resizebox{\textwidth}{!}{\includegraphics[angle=-90]{./gfx/GolgiRateLevel_result.eps}} \\
+%   \caption{Golgi cell model optimisation results with the best response obtaining a minimum error 0.021 (spikes/s, average mean squared error of experimental and data points). }\label{fig:GolgiResult}
+% \end{figure}
 
 
 %   % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\

@@ -211,7 +211,8 @@ NEURON NMODL compatible C file.
 
 \section{Optimisation}
 
-The optimisation  routine used in this chapter was NEURON's \textsf{fit\_praxis}, which uses the algorithm PRAXIS \citep{Brent:1976}.
+The optimisation routine used in this chapter was NEURON's \textsf{fit\_praxis},
+which uses the algorithm PRAXIS \citep{Brent:1976}.
 
 \begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure.]
 proc runprax(){
@@ -222,14 +223,13 @@ proc runprax(){
 
 \section{Golgi Cell Model}
 
-\yellownote{More detail in golgi model} Each golgi cell template consists of a
-spike generator, \emph{s}, and vector objects representing the instantaneous
-rate, the spike times and accumulated spike times of the golgi cell. Parameters
-identifying each cell include the \emph{channel} number, CF and bandwidth of ANF
-input (actually the variance of the weight each auditory filter channel
-contributes to the firing of the cell).
+Each golgi cell template consists of a spike generator, \emph{s}, and vector
+objects representing the instantaneous rate, the spike times and accumulated
+spike times of the golgi cell. Parameters identifying each cell include the
+\emph{channel} number, CF and bandwidth of ANF input (actually the variance of
+the weight each auditory filter channel contributes to the firing of the cell).
 
-The instantaneous rate vector of a golgi cell model at CF channel \emph{i} is
+The rate-based golgi cell model at CF channel \emph{i} is
 created by :
 \begin{itemize}
 \item a selection of ANF input channels centred at \emph{i} with a spread,
@@ -245,6 +245,7 @@ created by :
 
  \begin{lstlisting}[label=GolgiTemplate,caption=Create golgi cell rate vector
    within Golgi template (in CNcell.tem)]
+// Default Golgi model parameters 
 weight_sum_LSR = 1
 weight_sum_HSR = 0.01
 golgi_spon = 1                    // spikes per second
@@ -262,9 +263,12 @@ proc CreateGolgiSynFilter(){// create alpha function
   golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum()) 
 }
 CreateGolgiSynFilter()
-...
+\end{lstlisting}
+
+\begin{lstlisting}[label=GolgiTemplate,caption=Rate-based golgi cell model template (in par_CNcell.tem)]
 begintemplate Golgicell
-...
+public s,sout,spikes       //internal objects made public   
+public SetRate2,GenSpikes2 //functions made public
 proc SetRate2() {local i,j,spon_factor
 ...
 // Calculate weight vectors based on this cell's position 
