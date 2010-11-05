@@ -89,7 +89,7 @@ above CF are within 2 standard deviations \citep{PaoliniClark:1999}.
 \medskip{}
 
 Key factors in designing D-stellate cell model are shown in the Nordlie table
-{tab:DScellModelSummary}. A type I-II single compartment neuron by
+\ref{tab:DScellModelSummary}. A type I-II single compartment neuron by
 \citet{RothmanManis:2003b} has the characteristics of a onset chopper model and
 fits well into a DS cell model. The choice of having a large multipolar neuron
 without dendrites was based on computational efficiency and ensuring that the
@@ -110,7 +110,7 @@ behaviour in the cell.
 \medskip{}
 
 
-The optimisation function is a weighted mean squared error between vectors from
+The optimisation function is the square root of a mean squared error between vectors from
 the experimental and simulated data. The vector elements were calculated from
 the number of spikes in a 2 ms window after a click.  The input stimulus was a
 series of masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms,
@@ -140,17 +140,19 @@ used in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
 % & 0.01447    final result (MSE of recovery spike rate / mask rate)\\\hline
 % \end{tabularx}
 
-\begin{figure}[htb!]
-  \centering
-%\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
-\resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{./gfx/DS_ClickRecovery_result.eps}}
-\caption{Optimisation results of DS cell. Experimental Data (-o-) of GABAergic influence on D-stellate cells from \citep{BackoffPalombiEtAl:1997}, Fig.~3.  Best result () shown in figure below.} \label{fig:DS_ClickRecovery_result}  
-\end{figure}
 
 The optimisation parameters show a clear favouritism toward the LSR input rather
 than the HSR input to DS units. While this may not seem ideal for fast
 co-incidence detection, the large number of HSR synapses makes up for the small
 weight that was obtained in the optimisation.
+
+\begin{figure}[htb!]
+  \centering
+%\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
+\resizebox{0.8\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{./gfx/DS_ClickRecovery_result.eps}}
+\caption{Optimisation results of click recovery behaviour in DS cell (CF=5.8~kHz). The optimal response (blue circle) is obtained from Fig.~3 in \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of an OnC unit (CF=5.8~kHz).  Best result (green triangles) } \label{fig:DS_ClickRecovery_result}  
+\end{figure}
+
 
 
 
@@ -288,7 +290,7 @@ weight that was obtained in the optimisation.
 
 \subsection{Effects of $g_{leak}$ and $g_{LKT}$ on DS resting membrane potential}
 
-The resting membrane potential of these large multipolar cells has been shown to be in the range of 3-5 MOhms \yellownote{citation needed here}. A quick observation of the parameter space around the optimisation results for $g_{leak}$ and $g_{LKT}$ is shown in Fig.~\ref{fig:leakVltk}.  
+The resting membrane potential of these large multipolar cells has been shown to be in the range of 3-5 MOhms \yellownote{citation needed here}. A quick observation of the parameter space around the optimisation results for $g_{leak}$ and $g_{LKT}$ is shown in Figure ~\ref{fig:leakVltk}.  
 \yellownote{Question: Is this section necessary?}
  \begin{figure}[h!]
    \centering

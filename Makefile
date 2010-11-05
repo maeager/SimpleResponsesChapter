@@ -1902,7 +1902,7 @@ define ps2pdf
 		-dSAFER -dCompatibilityLevel=$(PS_COMPATIBILITY) \
 		$(if $3,$(PS_EMBED_OPTIONS)) \
 		-c .setpdfwrite \
-		-f '$1'
+		-f '$1' 
 endef
 
 # Colorize LaTeX output.
@@ -2053,7 +2053,7 @@ endef
 # $(call convert-gpi,<gpi file>,<output file>,[gray])
 #
 define convert-gpi
-$(ECHO) 'set terminal $(if $(filter %.pdf,$2),pdf enhanced,postscript enhanced eps)' \
+$(ECHO) 'set terminal $(if $(filter %.pdf,$2),pdfcairo enhanced,post enh )' \
 $(if $(filter %.pdf,$2),fsize ,)$(call get-default,$(strip \
 $(firstword \
 	$(shell \
