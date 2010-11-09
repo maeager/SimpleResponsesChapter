@@ -2,12 +2,12 @@
 % =========================================================================
 
 \begin{quotation}
-  To understand brain function, the focus of [our] investigations must
+  ``To understand brain function, the focus of [our] investigations must
   expand from detailed responses and structure of single cells to
   include unit responses to the activity of other cells, and how these
   responses are distributed over a population of similar cells as
-  wells as across populations of different cells.  - \emph{\citet{Shamma:1998}}
-\end{quotation}
+  wells as across populations of different cells.''  - \emph{\citet[,p.TODO]{Shamma:1998}}
+\end{quotation}\yellownote{Get page number of this quote}
 
 % =========================================================================
 
@@ -16,26 +16,25 @@
 Shihab Shamma calls upon the science community, particularly members
 of its physiology and neuroscience subgroups, to investigate the role
 of populations of neurons in to pay attention to the role of
-populations of neurons in neurophysiology. In this chapter I intend to
-draw on the wealth of experimental data accumulated by the auditory
-neuroscience community to create a detailed, biophysically-realistic
-neural network model of the cochlear nucleus stellate network.  The
+populations of neurons in neurophysiology. This chapter draws on the wealth of experimental data accumulated in auditory
+neuroscience to create a detailed, biophysically-realistic
+neural network model of the cochlear nucleus stellate cell network.  The
 design and methods for the construction of the model will provide
-insights relevant to other neural network models, especially those
-that use highly-specific sensory pathways.
+insights relevant to other neural network models of the brain, especially those
+that use highly-specific sensory pathways. \todo{One more sentence here - expand on idea at the start and link to next para.} 
 
 \medskip{}
 
-Though it remains the case that ``choices, assumptions, and guesses
-(are) an integral part of neuronal modeling''
-\citep{SegevBurkeEtAl:1998}, there is much to be gained from
-biophysically-realistic modeling approaches, especially in the heavily
-experimented cochlear nucleus. The developments in computational power
-and enhanced experimental techniques in multi-unit recordings are
-enabling more detailed neural models. Examples of parameter estimation
-and fitting in neural models are also becoming more advanced, for
+Although it remains the case that ``choices, assumptions, and guesses [are] an
+integral part of neuronal modeling'' \citep[\todo{page
+  no.}]{SegevBurkeEtAl:1998}, there is much to be gained from
+biophysically-realistic modelling approaches, especially in the heavily
+investigated cochlear nucleus in birds and mammals. Developments in
+computational power and enhanced experimental techniques in multi-unit
+recordings are enabling more detailed neural models to be developed. Examples of parameter
+estimation and fitting in neural models are also becoming more advanced, for
 example NeuroFitter \citep{VanAchardEtAl:2007} and MultiRunFitter (a feature in
-NEURON).  
+NEURON).\todo{which? need to explain my intentions}
 %\yellownote{See further on neural detail in auditory system\citep{LuRubioEtAl:2008}}
 
 \medskip{}
@@ -43,13 +42,13 @@ NEURON).
 % {Discuss use of Poisson models vs HH-like models.  Discuss single cell
 % simulation vs whole network simulation during optimisation.}
 To develop and optimise detailed neural models and neural network models,
-reproducible research methods are required. In this chapter we use a tabular
-method, introduced by \citet{NordlieGewaltigEtAl:2009}, to summarise the neural
+reproducible research methods are required. In this chapter, a tabular
+method introduced by \citet{NordlieGewaltigEtAl:2009} is used to summarise the neural
 models used in each optimisation step. The tables consist of A) the model
 summary, B) cell type populations, C) connectivity between cell types, D) neuron
 and synapse models, and E) optimisation parameters.  This method aims to show a
 consistent and recognisable format for presenting various neural network models
-and their constituents.
+and their constituents. \todo{this needs more explanation in the methods sections}
 
 
 The standard methods for optimisation \begin{itemize}
@@ -61,46 +60,46 @@ The standard methods for optimisation \begin{itemize}
 \end{itemize}
 
 In attempting to create a realistic microcircuit the parameter optimisation
-routine could be performed all at once or reiterated in sequential stages. The
+routine could be performed all at once or reiterated in sequential stages\todo{unclear sentence}. The
 parameters chosen in the sequential optimisation stages should be chosen so that
 they do not influence the properties of previously fitted parameters.
 
 \medskip{}
 
-In this chapter, I construct the stellate network of the cochlear nucleus
-(Fig.~\ref{fig:microcircuit}) using a sequential method.  The parameters of each
-cell type are fixed based on experimental data or are optimised based solely on
-responses to simple stimuli.  Each cell type is shown with its
-excitatory-inhibitory responses area (EIRA) and PSTH (although this may vary
-within cell type). Golgi cells (G) receive a range of fibres centred on BF The
-stellate network model drawn in Fig.~\ref{fig:microcircuit} describes the
-following cells and models:
+In this chapter, the connections within the stellate network
+(Fig.~\ref{fig:microcircuit}) are developed using a sequential method of
+optimisation steps.  The parameters of each cell type are determined based on
+experimental data or are optimised based solely on responses to simple stimuli.
+Each cell type is shown with its excitatory-inhibitory responses area (EIRA) and
+PSTH (although this may vary within cell type).\todo{what is this sentence
+  doing? explain the figure!}  The stellate network model drawn in
+Fig.~\ref{fig:microcircuit} describes the following cells and models:
 \begin{enumerate}
-\item the Carney phenomenological auditory model
+\item The Carney phenomenological auditory model
   \citet{ZilanyBruceEtAl:2009}: This model provides spiking input to
   cochlear nucleus neurons across frequencies and spontaneous rate
   types of the auditory nerve from an arbitrary input stimulus. The
   base line in Fig.~\ref{fig:microcircuit} is a simplification of
   auditory nerve fibres (ANF) from low best frequency (BF) to high BF
   (left to right). The model reproduces responses for high and low SR
-  ANFs at 100 sections across the frequency range.
-\item the Golgi cell: a GABAergic \VCN marginal shell unit that is presumed to
+  ANFs at 100 channels across the frequency range 200 Hz to 48 kHz.
+\item The Golgi cell: a GABAergic \VCN marginal shell unit that is presumed to
   regulate excitability in the granule cell domain and core \VCN units
-  \citep{FerragamoGoldingEtAl:1998}. The only \emph{in vivo} study shows a type
+  ~\citep{FerragamoGoldingEtAl:1998}. The only \textit{in vivo} study shows a type
   I/III response area and PSTHs with unusual or chopper characteristics in
-  marginal shell units\citep{GhoshalKim:1997}.
-\item the D-stellate cell: the glycinergic, large multipolar cell with
-  onset-chopper PSTH response acts as a coincidence detector. Its
+  marginal shell units~\citep{GhoshalKim:1997}.
+\item The D-stellate cell: a glycinergic, large multipolar cell with
+  onset-chopper PSTH response that acts as a coincidence detector. Its
   large dendritic area increases its response to noise allowing it to
   behave as a wide-band inhibitor in the VCN, DCN, and contralateral CN 
   \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
-\item the Tuberculoventral cell: a glycinergic, type-II EIRA unit in the deep
-  layer of the DCN \citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed
+\item The Tuberculoventral cell: a glycinergic, type-II EIRA unit in the deep
+  layer of the \DCN \citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed
   echo-suppressor and narrow-band inhibitor, with recurrent connections between
   D- and T-stellate cells in the \VCN
-  \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}; and
+  \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
 \item the T-stellate cell: one of the major output projection cells of the
-  cochlear nucleus to the inferior colliculus, this multipolar neuron has been
+  cochlear nucleus to the inferior colliculus. This multipolar neuron has been
   shown to have robust spectral representation and enhanced synchronisation to
   modulation in speech sounds
   \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
@@ -109,7 +108,7 @@ following cells and models:
 \begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth]{gfx/CNcircuit}
-  \caption{Cochlear nucleus stellate microcircuit (see text for details). }
+  \caption{Cochlear nucleus stellate microcircuit (see text for details).\todo{still put some text in here to describe it} }
   \label{fig:microcircuit}
 \end{figure}
 
@@ -128,23 +127,23 @@ of hearing perception in animals, despite the input at the
 round-window of the cochlea being one-dimensional.  Modelling in the
 auditory periphery has benefited extensively from the work of
 Liberman, Greenwood, Patterson, Young, Sachs and others, in acoustic
-\texttt{in vivo} experiments. The methods of modeling in the auditory
+\texttt{in vivo} experiments. Models of the auditory
 system over the last 30 years have expanded our understanding of the
-mechanical processes in the middle ear and cochleae, and specialised
+mechanical processes in the middle ear and cochlea, and the specialised
 synapse between the inner hair cell and the auditory nerve
 \citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
 
 
-To understand the auditory system, one must first understand the processes in
-which sound enters the ear and is then transformed to neural signals in the
-auditory nerve. Mechanical vibrations at the eardrum (tympanum) are conducted by
-the middle ear bones to vibrations in the inner ear (cochlea). They are then
-transformed to chemical signals in the inner hair cells and then to electrical
-potentials of the auditory nerve fibres. This processing enters a bottle-neck at
-the auditory nerve, where a group of highly specialised heterogeneous neurons in
-the cochelar nucleus process the incoming information in several pathways
-including temporal, spectral, onset and other feature-based information
-pathways.
+\todo{This probably goes in Chapter 2}To understand the auditory system, one
+must first understand the processes in which sound enters the ear and is then
+transformed to neural signals in the auditory nerve. Mechanical vibrations at
+the eardrum (tympanic membrane) are conducted by the middle ear bones to vibrations of fluid in
+the inner ear (cochlea). They are then transformed to chemical signals in the
+inner hair cells and then to electrical potentials of the auditory nerve
+fibres. This processing enters a bottle-neck at the auditory nerve, where a
+group of highly specialised heterogeneous neurons in the cochlear nucleus
+process the incoming information in several pathways including temporal,
+spectral, onset and other feature-based information pathways.\todo{reference}
 
 \medskip{}
 
