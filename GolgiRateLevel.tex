@@ -1,6 +1,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/Resposnes/}{/media/data/Work/cnstellate/Responses/}}
+\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/ResponsesNoCompression/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[Golgi Cell Model]{Golgi Cell Model: Optimisation using monotonic
@@ -52,7 +52,6 @@ the VCN are the golgi cells of the granule cell domain (GCD) overlying the VCN
 % \citep{Alibardi:2003a} rat CN complex -> Golgi-stellate cells (fusiform layer:
 % 2) in DCN contact granule and unipolar brush cells
 
-\medskip{}
 
 Inputs to golgi cells are more complicated than VCN cells in the core
 regions. Golgi cells are sparse in the GCD, surrounded by the many, smaller
@@ -90,14 +89,14 @@ VCN units \citep{FerragamoGoldingEtAl:1998}.
 % project to the GCD; they do show that low-spontaneous rate ANFs do project
 % into the GCD, albeit more profusely than in the core on the VCN.
    
-\yellownote{Inclusion of Ghoshal figure needs permission, fill in caption}
+
 \begin{figure}[ht!]
   \centering
   % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}
   \resizebox{0.5\textwidth}{!}{\includegraphics{GhoshalKim}}
   \caption{Rate level response of 6 units
-    \citep[from~Fig.~2]{GhoshalKim:1997}. %S03-07 (CF 22.7~kHz)
-  }\label{fig:GolgiKimFig2}
+    \citep[from~Fig.~2]{GhoshalKim:1997}. Unit S03-07 (CF 22.7~kHz) will be the unit chosen to optimise the Golgi cell model.
+  \yellownote{Inclusion of Ghoshal figure needs permission, fill in caption}}\label{fig:GolgiKimFig2}
 \end{figure}
 
 \subsection{Implementation}
@@ -223,9 +222,9 @@ indicated the need for some HSR input into the golgi cell model.
 A more detailed optimisation routine with 22 levels and an enhanced
 golgi cell model was used to generate a closer fit to the Ghoshal and
 Kim data (Figure~\ref{fig:GolgiResult}B).  The final error was 4.48
-spikes/s, which is a 60\% reduction from the initial optimisation.
+spikes/s, which is a 60\% reduction from the initial optimisation. 
 
-
+\yellownote{We are satisfied with the golgi cell response, now show a plot of simple responses of a generic cell in the centre of the network.}
 
 %   % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
 %   % \caption{Optimisation Results for Golgi Model using Rate Level data from
@@ -278,14 +277,21 @@ spikes/s, which is a 60\% reduction from the initial optimisation.
 
 
 %   \clearpage \newpage
-%   \subsection{Verification of Golgi cell model}
+   \subsection{Verification of Golgi cell model}
 %   \subsubsection{Tone Responses}
 
-%   \begin{figure}[h]
-%     \centering\resizebox{0.95\textwidth}{!}{%
-%     \includegraphics{RateLevel/psthsingle90.3.eps}%
-%     \includegraphics{RateLevel/G_ratelevel.eps}}
-%   \end{figure}
+
+
+
+\begin{figure}[h]
+     \centering
+\resizebox{0.95\textwidth}{!}{\includegraphics{RateLevel/G_ratelevel.eps} \includegraphics{RateLevel/response_area.3.eps}}
+\resizebox{0.95\textwidth}{!}{\includegraphics{NoiseRateLevel/G_ratelevel.eps} \includegraphics{MaskedResponseCurve/psthsingle5810.3.eps}}
+\caption{Response of optimised golgi cell model at the centre of the network (CF=5.8~kHz). }\label{fig:Golgi_verification}
+   \end{figure}
+
+
+
 %   \begin{figure}[h]
 %     \centering\resizebox{0.95\textwidth}{!}{%
 %     \includegraphics{RateLevel/response_area.3.eps}%

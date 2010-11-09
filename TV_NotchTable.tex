@@ -25,8 +25,8 @@
      HSR      &    Poisson generator    & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
      LSR      &    Poisson generator    & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
      GLG      &    Poisson generator    & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
-     DS       &   Type I-II RM model    & $N_{\text{DS}}= 1$ per freq\. channel \\\hline
-     TV       & Type I-classic RM model & $N_{\text{TV}}= 1$ per freq\. channel\\\hline
+     DS       &   Type I-II R\&M model    & $N_{\text{DS}}= 1$ per freq\. channel \\\hline
+     TV       & Type I-classic R\&M model & $N_{\text{TV}}= 1$ per freq\. channel\\\hline
 \end{tabularx}
 \vspace{2ex}
 
@@ -44,6 +44,14 @@
 \vspace{2ex}
 
 % - D ------------------------------------------------------------------------------
+
+\noindent\begin{tabularx}{\textwidth}{|l|X|}\hline
+\hdr{2}{D}{Neuron and Synapse Model}\\\hline
+ \textbf{Name} & TV cell model \\\hline
+ \textbf{Type} & Type 1-classic \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+ \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
+ \end{tabularx}
+\vspace{2ex}
 % \noindent\begin{tabularx}{\textwidth}{|p{0.150.95\textwidth}|X|}\hline
 % \hdr{2}{D}{Neuron and Synapse Model}\\\hline
 % \textbf{Name} &  \\\hline
