@@ -2,7 +2,7 @@
 #
 # gnuplot is available from http://www.gnuplot.info
 ## FONTSIZE 16
-# set term postscript enhanced color solid "Helvetica" 16
+#set terminal postscript eps enhanced defaultplex leveldefault color solid dashlength 1.0 linewidth 2.0 butt noclip palfuncparam 2000,0.003  "Helvetica" 18 
 # set output "DS_ClickRecovery_result.eps"
 # load 'default.gpi'
 set border 3
@@ -15,13 +15,13 @@ unset x2tics
 #set size noratio
 set xlabel "Probe Delay (ms)" font "Helvetica,18"
 set ylabel "Normalised Rate (spikes/s)" font "Helvetica,18"
-set xrange [0:20]
+set xrange [0:18]
 set yrange [0:1.2]
 set key
 set style line 1 lt 1 lw 1 pt 0 pi -1 ps 2  lc rgb '#BBBBBB'
-set style line 2 lt 1 lw 3 pt 2 #pi -1 ps 3  #lc rgb '#0060ad'
-set style line 3 lt 1 lw 3 pt 3 pi 1 ps 3
-set style line 4 lt 1 lw 3 pt 7 ps 3 #ps 1.5
+set style line 2 lt 1 lw 3 pt 2 ps 4  #lc rgb '#0060ad'
+set style line 3 lt 1 lw 3 pt 3 pi 1 ps 4
+set style line 4 lt 1 lw 3 pt 7 ps 4
 #
 plot "DS_ClickRecovery.Fit0.dat" using 1:5 with l notitle ls 1, \
  "DS_ClickRecovery.Fit1.dat" using 1:5 with l notitle ls 1, \

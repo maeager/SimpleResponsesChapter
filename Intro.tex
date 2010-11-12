@@ -7,7 +7,8 @@
   include unit responses to the activity of other cells, and how these
   responses are distributed over a population of similar cells as
   wells as across populations of different cells.''  - \emph{\citet[,p.TODO]{Shamma:1998}}
-\end{quotation}\yellownote{Get page number of this quote}
+\end{quotation}
+\yellownote{Get page number of this quote}
 
 % =========================================================================
 
@@ -23,7 +24,7 @@ design and methods for the construction of the model will provide
 insights relevant to other neural network models of the brain, especially those
 that use highly-specific sensory pathways. \todo{One more sentence here - expand on idea at the start and link to next para.} 
 
-\medskip{}
+%\medskip{}
 
 Although it remains the case that ``choices, assumptions, and guesses [are] an
 integral part of neuronal modeling'' \citep[\todo{page
@@ -37,7 +38,7 @@ example NeuroFitter \citep{VanAchardEtAl:2007} and MultiRunFitter (a feature in
 NEURON).\todo{which? need to explain my intentions}
 %\yellownote{See further on neural detail in auditory system\citep{LuRubioEtAl:2008}}
 
-\medskip{}
+%\medskip{}
 
 % {Discuss use of Poisson models vs HH-like models.  Discuss single cell
 % simulation vs whole network simulation during optimisation.}
@@ -64,7 +65,7 @@ routine could be performed all at once or reiterated in sequential stages\todo{u
 parameters chosen in the sequential optimisation stages should be chosen so that
 they do not influence the properties of previously fitted parameters.
 
-\medskip{}
+%\medskip{}
 
 In this chapter, the connections within the stellate network
 (Fig.~\ref{fig:microcircuit}) are developed using a sequential method of
@@ -85,13 +86,13 @@ Fig.~\ref{fig:microcircuit} describes the following cells and models:
   ANFs at 100 channels across the frequency range 200 Hz to 48 kHz.
 \item The Golgi cell: a GABAergic \VCN marginal shell unit that is presumed to
   regulate excitability in the granule cell domain and core \VCN units
-  ~\citep{FerragamoGoldingEtAl:1998}. The only \textit{in vivo} study shows a type
+  \citep{FerragamoGoldingEtAl:1998}. The only \textit{in vivo} study shows a type
   I/III response area and PSTHs with unusual or chopper characteristics in
   marginal shell units~\citep{GhoshalKim:1997}.
 \item The D-stellate cell: a glycinergic, large multipolar cell with
   onset-chopper PSTH response that acts as a coincidence detector. Its
   large dendritic area increases its response to noise allowing it to
-  behave as a wide-band inhibitor in the VCN, DCN, and contralateral CN 
+  behave as a wide-band inhibitor in the \VCN, \DCN, and contralateral CN 
   \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
 \item The Tuberculoventral cell: a glycinergic, type-II EIRA unit in the deep
   layer of the \DCN \citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed
@@ -105,14 +106,15 @@ Fig.~\ref{fig:microcircuit} describes the following cells and models:
   \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 \end{enumerate}
 
-\begin{figure}[htb]
+\begin{figure}[ht!]
   \centering
   \includegraphics[width=\textwidth]{gfx/CNcircuit}
-  \caption{Cochlear nucleus stellate microcircuit (see text for details).\todo{still put some text in here to describe it} }
+  \caption{Cochlear nucleus stellate microcircuit (see text for details). }
   \label{fig:microcircuit}
 \end{figure}
+\todo{still put some text in here to describe it}
 
-\medskip{}
+%\medskip{}
 
 Detailed model requires a good input model, a good neural model and
 experimental data with which to fit the parameters.  \yellownote{In
@@ -145,13 +147,13 @@ group of highly specialised heterogeneous neurons in the cochlear nucleus
 process the incoming information in several pathways including temporal,
 spectral, onset and other feature-based information pathways.\todo{reference}
 
-\medskip{}
+%\medskip{}
 
 The auditory system is topographically ordered from the basilar membrane to the
 cortex in terms of frequency selectivity, also called tonotopicity
 \citep{YoungOertel:2004}.  The population of auditory nerve fibres (ANFs,
 Fig.~\ref{fig:CNdiagram}), bifurcate after entering the cochlear nucleus to
-innervate the VCN and DCN\@, retaining their tonotopic order
+innervate the \VCN and \DCN\@, retaining their tonotopic order
 \citep{Lorente:1981, Liberman:1982, Liberman:1993}. Type 1 ANFs are categorised
 into high spontaneous rate (HSR) and low spontaneous rate (LSR) fibres
 \citep{Liberman:1978}, where LSR fibres have a higher threshold and wider
@@ -160,31 +162,31 @@ dynamic range than HSR fibres. They also project to the granule cell domain
 unmyelinated type 2 ANFs, which suggests they play a different role in sound
 processing to HSR fibres.
 
-\medskip{}
+%\medskip{}
 
 \begin{figure}[tbh]
   \begin{center}
 %    \includegraphics[keepaspectratio=true]{NoFigure}
     \resizebox{2.25in}{!}{\includegraphics[width=2.25in,keepaspectratio]{gfx/Cat_Human_CN}}
-    \caption{Cochlear nucleus innervation in Man and Cat. \citep[find out which publication printed this!][needs permission]{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}}
+    \caption{Cochlear nucleus innervation in Man and Cat. \citep[!find out which publication printed this!]{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}}
     \label{fig:CNdiagram}
   \end{center}
 \end{figure}
 
 
-\medskip{}
+%\medskip{}
 
 \yellownote{Discuss auditory model history. Expand reasons for wanting to create
   a biophysically realistic model of the CN\@. Discuss reason for using whole
   network in TV and TS optimisation}
 
-\medskip{}
+%\medskip{}
 
 \yellownote{a paragraph on the history of AN modelling
   \citep{LeakeSnyderEtAl:1993, ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.
   Perhaps Rose et al 1959 would be better suited here}
 %
-\medskip{}
+%\medskip{}
 
 In examining the properties of a detailed neural model of the cochlear nucleus,
 a realistic and phenomenologically sound auditory model is needed to represent
@@ -205,7 +207,7 @@ experiments in humans. The ARLO model of the cat auditory periphery, with
 non-linear compression and two-tone suppression, is used in this study except in
 the vowel simulation where the human auditory periphery model is used.
 
-\medskip{}
+%\medskip{}
 
 The \citet{ZilanyBruce:2007} model improves the previous AN model by an
 additional signal path and its predictions have matched a wide range of
@@ -213,7 +215,7 @@ physiological data in normal and impaired cat data. The most recent AN model
 comprises an power-law synapse model, with internal $1/f$ noise, that enhances
 the behaviour of long-term dependence in ANFs \citep{ZilanyBruceEtAl:2009}.
 
-\medskip{}
+%\medskip{}
 
 \yellownote{Why is it the cat model? updating Carney model?} Updating of the
 Carney auditory model has led to the change in the model's configuration from an
@@ -244,7 +246,7 @@ response area of ANF generates known parameters for each fibre, these are:
 \item characteristic frequency (CF)
 \end{itemize}
 
-\medskip{}
+%\medskip{}
 
 
 
@@ -265,7 +267,7 @@ response area of ANF generates known parameters for each fibre, these are:
 [Discuss R\&M model]
 \yellownote{TODO: Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
 
-\medskip{}
+%\medskip{}
 
 \subsection{Tonotopic connectivity}
 
@@ -274,7 +276,7 @@ basilar membrane and auditory nerve separation) with centre frequency
 calculated by the Greenwood function for the cat
 \citep{Greenwood:1990}. \yellownote{More detail in Appendix}
 
-\medskip{}
+%\medskip{}
 
 Figure~\ref{fig:CNconn} shows the method for Gaussian spread of
 connections between cell types in the CN\@.  The channels are separated
