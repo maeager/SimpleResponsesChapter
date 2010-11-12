@@ -241,9 +241,11 @@
 \textbf{\makebox[0pt]{#2}\hspace{0.5\linewidth}\makebox[0pt][c]{#3}}%
 }}
  % Nordelie table environment
-\newenvironment{ntab}[4]{\noindent\begin{tabularx}{\linewidth}{#2}\hline %
-\multicolumn{#1}{|l|}{\color{white}\cellcolor[gray]{0.0}\textbf{#3\hfill{}{#4}\hfill{}}}%
-}{\end{tabularx}
+\newenvironment{ntab}[4]{
+\noindent\begin{tabularx}{\linewidth}{#1}\hline 
+\multicolumn{#2}{|l|}{\color{white}\cellcolor[gray]{0.0}\textbf{#3\hfill{}{#4}\hfill{}}}
+}{
+\end{tabularx}
 \vspace{1ex}
 }
 
