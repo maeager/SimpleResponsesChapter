@@ -8,12 +8,11 @@
 This section shows the GABAergic input and intrinsic cell properties
 influence the behaviour Onset chopper units.  Onset-chopper units in
 the mammalian VCN have a wide-ranging influence on the primary cells
-of the VCN (stellate and bushy neurons \citep{RhodeSmithEtAl:1983}),
+of the VCN, especially stellate and bushy neurons \citep{RhodeSmithEtAl:1983},
 the ipsilateral \DCN (type II and type IV EIRA units) and the
 contra\-lateral CN \citep{NeedhamPaolini:2007}.
 
 %\medskip{}
-
 
 % Large multipolar or stellate cells in the VCN have been shown to have
 % 3-4 long dendrites stretching 200 microns (or one third of the VCN)
@@ -38,7 +37,6 @@ They also send a commissural projection to the contralateral cochlear nucleus
 that mediates fast inhibition between the nuclei \citep{NeedhamPaolini:2003,
   NeedhamPaolini:2006, Oertel:1997}.
 
-
 %\medskip{}
 
 Post-onset GABAergic inhibition in DS cells is a major influence on the PSTH of
@@ -50,47 +48,25 @@ involved in gain control through GABAergic modulation of activity in the VCN.
 
 %\medskip{}
 
-\yellownote{Discuss AM coding by DS cells} GABA blockers in the VCN has the
-effects of changing the behaviour in the response to AM in the IC
-\citep{CasparyPalombiEtAl:2002}.  AM coding effects of GABA in the Chinchilla CN
-\citep{BackoffShadduckEtAl:1999}.  \citep{CasparyBackoffEtAl:1994} Caspary and
-colleagues worked on the effects of GABA in in the VCN\@.
+% \yellownote{Discuss AM coding by DS cells} GABA blockers in the VCN has the
+% effects of changing the behaviour in the response to AM in the IC
+% \citep{CasparyPalombiEtAl:2002}.  AM coding effects of GABA in the Chinchilla CN
+% \citep{BackoffShadduckEtAl:1999}.  \citep{CasparyBackoffEtAl:1994} Caspary and
+% colleagues worked on the effects of GABA in in the VCN\@.
 
-Zhang and Winter looked at the response area of VCN onset units to
-determine GABA on/off freq. 
+% Zhang and Winter looked at the response area of VCN onset units to
+% determine GABA on/off freq. 
 
-Smith and Rhode, Smith and others looked at OnC response area and two-tone
-
+% Smith and Rhode, Smith and others looked at OnC response area and two-tone
 
 
 \subsection{Implementation}
  
-Optimisation parameters for \GLGDS are optimised based on experimental
-click recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed
-parameters included the number of golgi cells to DS cells ($\nGLGDS =
-25$), the spread of ANFs to DS cells $\ANFDS$, and the extra delay
-from the auditory nerve.  The first spike latency in DS cells 2.8 ±
-0.09 ms \citep{RhodeSmith:1986}.The addition of 0.5 ms to \ANFDS
-connections is a combination of conductance and synaptic delay. The
-effect of Golgi cells on DS is delayed by the extra 0.7~ms delay from
-ANF to Golgi, plus the slow peak of \GABAa inhibition.  The spread ANF
-to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and fairly
-broad so the estimate is set so that 2 octaves below and 1 octave
-above CF are within 2 standard deviations \citep{PaoliniClark:1999}.
-
-\begin{figure}[htb]
-\centering
-%\resizebox{5in}{!}{\includegraphics{NoFigure}}
-\includegraphics[keepaspectratio,angle=-90,width=\textwidth]{DSClickRecoveryExpData}
-\caption{Experimental Data of GABAergic influence on D-stellate cells from
-  \citep{BackoffPalombiEtAl:1997}, Fig.~3.}\label{fig:DSClickRecoveryExpData}
-\end{figure}
-
 %\medskip{}
-
-Key factors in designing D-stellate cell model are shown in the Nordlie table
-\ref{tab:DScellModelSummary}. A type I-II single compartment neuron by
-\citet{RothmanManis:2003b} has the characteristics of a onset chopper model and
+\input{DSRecoveryTable.tex}
+Key elements in designing D-stellate cell model are shown in the Nordlie
+table~\ref{tab:DScellModelSummary}A. A type I-II single compartment neuron by
+\citet{RothmanManis:2003b} has the characteristics of a onset chopper unit and
 fits well into a DS cell model. The choice of having a large multipolar neuron
 without dendrites was based on computational efficiency and ensuring that the
 model fit within the criteria for DS cells. The electrotonic dendrites of DS
@@ -108,15 +84,21 @@ behaviour in the cell.
 
 
 %\medskip{}
+Optimisation parameters for \GLGDS are optimised based on experimental
+click recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed
+parameters included the number of golgi cells to DS cells ($\nGLGDS =
+25$), the spread of ANFs to DS cells $\ANFDS$, and the extra delay
+from the auditory nerve.  The first spike latency in DS cells 2.8 ±
+0.09 ms \citep{RhodeSmith:1986}.The addition of 0.5 ms to \ANFDS
+connections is a combination of conductance and synaptic delay. The
+effect of Golgi cells on DS is delayed by the extra 0.7~ms delay from
+ANF to Golgi, plus the slow peak of \GABAa inhibition.  The spread ANF
+to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and fairly
+broad so the estimate is set so that 2 octaves below and 1 octave
+above CF are within 2 standard deviations \citep{PaoliniClark:1999}.
 
 
-The optimisation function is the square root of a mean squared error between vectors from
-the experimental and simulated data. The vector elements were calculated from
-the number of spikes in a 2 ms window after a click.  The input stimulus was a
-series of masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms,
-separated by 50 ms, and repeated 25 stimulus times. Each response to a click is
-measured for 2 ms after the minimum first spike latency for the unit.  The unit
-used in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
+
 
 
 % \begin{figure}[htb]
@@ -126,12 +108,19 @@ used in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
 %    \caption{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
 %  \end{figure}
 
-\input{DSRecoveryTable.tex}
+
 
 %\parsep
 
-
 \subsection{Results}
+
+The optimisation function is the square root of a mean squared error between vectors from
+the experimental and simulated data. The vector elements were calculated from
+the number of spikes in a 2 ms window after a click.  The input stimulus was a
+series of masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms,
+separated by 50 ms, and repeated 25 stimulus times. Each response to a click is
+measured for 2 ms after the minimum first spike latency for the unit.  The unit
+used in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
 
 % \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
 % \hdr{2}{D}{Results} \\\hline
@@ -209,7 +198,7 @@ weight that was obtained in the optimisation.
 %\newpage
 \subsection{Verification}
 
-\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA.  Leave AM responses till next chapter}
+\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA  Leave AM responses till next chapter}
 % \subsection{Tone Responses}
 % \begin{figure}[h!]
 % \centering\resizebox{\textwidth}{!}{%
@@ -290,12 +279,17 @@ weight that was obtained in the optimisation.
 
 \subsection{Effects of $g_{leak}$ and $g_{LKT}$ on DS resting membrane potential}
 
-The resting membrane potential of these large multipolar cells has been shown to be in the range of 3-5 MOhms \yellownote{citation needed here}. A quick observation of the parameter space around the optimisation results for $g_{leak}$ and $g_{LKT}$ is shown in Figure ~\ref{fig:leakVltk}.  
+The resting membrane potential of these large multipolar cells has been shown to
+be in the range of 3-5 MOhms \yellownote{citation needed here}. A quick
+observation of the parameter space around the optimisation results for
+$g_{leak}$ and $g_{LKT}$ is shown in Figure~\ref{fig:leakVltk}.
 \yellownote{Question: Is this section necessary?}
  \begin{figure}[h!]
    \centering
    \resizebox{\textwidth}{!}{\includegraphics{leakvltk}}
-   \caption{Resting Membrane potential calculated for leak conductance and KLT conductance changes around the previously obtained best values for these parameters.}\label{fig:leakVltk}
+   \caption{Resting Membrane potential calculated for leak conductance and KLT
+     conductance changes around the previously obtained best values for these
+     parameters.}\label{fig:leakVltk}
  \end{figure}
 
 

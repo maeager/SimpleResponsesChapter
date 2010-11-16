@@ -1,57 +1,73 @@
 %\clearpage
 {\small%\linespread{0.5}
   \begin{table}[h]
-    \caption{Golgi cell model summary}
+    \caption{Golgi cell model optimisation}
     \label{tab:GolgiCellModelSummary}
-  \end{table}
-\noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
+\end{table}
+
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}\hline %
 \hdr{2}{\ref{tab:GolgiCellModelSummary} A}{Model Summary}\\\hline 
 %\begin{ntab}{|l|X|}{2}{\ref{tab:GolgiCellModelSummary} A}{Model Summary}\\\hline
  \textbf{Populations}   & ANF (HSR,LSR) and Golgi cells \\\hline 
-   \textbf{Topology}    & Tonotopic - 100 frequency channels (0.2-40 kHz) based on basilar membrane \citep{Greenwood:1990} and audiogram \citep{HeffnerHeffner:1985}\\\hline
+   \textbf{Topology}    & Tonotopic - $N_{\text{channel}}=100$ frequency channels (0.2-40 kHz) separated evenly based on even place positions on the basilar membrane \citep{Greenwood:1990}\\\hline
  \textbf{Connectivity}  & Place-based Gaussian spread of connections \\\hline
  \textbf{Neuron model}  & ANFs: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\
                         & Golgi: instantaneous-rate Poisson model developed from ANF inputs\\\hline
-\textbf{Channel models} & --- \\\hline 
-\textbf{Synapse model}  & Synapto-dendritic filter: alpha function \\\hline
-    \textbf{Input}      & Pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range 0-100 dB SPL  \\\hline
- \textbf{Measurements}  & \todo{explain this better}Mean firing rate of Golgi cell instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions).\\\hline
-\end{tabularx}\vspace{1ex}
+%\textbf{Channel models} & --- \\\hline 
+\textbf{Synapse model}  & Synapto-dendritic smoothing alpha function \\\hline
+    \textbf{Input}      & 0-100 dB SPL pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range   \\\hline
+ \textbf{Measurements}  & Mean firing rate of Golgi cell instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions).\\\hline
+\end{tabularx}
+\todo{explain the Measurements part better}
+
+\vspace{1ex}
+
 %\end{ntab}
+
 % - B ------------------------------------------------------------------------
 \noindent\begin{tabularx}{\linewidth}{|l|X|X|}\hline %{\linewidth}
 \hdr{3}{\ref{tab:GolgiCellModelSummary} B}{Populations}\\\hline
 \textbf{Name} &                             \textbf{Elements}                             & \textbf{Number} \\\hline
-     HSR      &   Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{HSR}} = 50\times\mathsf{nchannel}$ \\\hline
-     LSR      &  Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{LSR}}= 20\times\mathsf{nchannel}$ \\\hline
-     GLG      & Instantaneous-rate Poisson neuron & $N_{\text{GLG}}= 1$, at CF = 22.7~kHz  \\\hline
+     HSR      &   Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{HSR}} = 0$ \\\hline
+     LSR      &  Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{LSR}}= 0$ \\\hline
+     GLG      & Instantaneous-rate Poisson neuron & 1 unit CF = 22.7~kHz (channel 76)  \\\hline
 \end{tabularx}
+
 \vspace{1ex}
 
 % - C ------------------------------------------------------------------------------
 \noindent\begin{tabularx}{\linewidth}{|l|l|l|X|}\hline
 \hdr{4}{\ref{tab:GolgiCellModelSummary} C}{Connectivity}\\\hline
                  \textbf{Name}                   & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       LSR       &      Golgi      & Gaussian spatial spread, centered at CF, variance determined by \sLSRGLG \\
-                                                 &       HSR       &      Golgi      & Fixed Gaussian spatial spread, centered at CF ($\sHSRGLG=2$) \\\hline
+\multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       LSR       &      Golgi      & Gaussian spatial spread, centered at CF, variance determined by variable \sLSRGLG \\
+                                                 &       HSR       &      Golgi      & Gaussian spatial spread, centered at CF, variance fixed at $\sHSRGLG=2$ \\\hline
 \end{tabularx}
 \vspace{1ex}
 
 % - D ------------------------------------------------------------------------------
 \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline
 \hdr{2}{\ref{tab:GolgiCellModelSummary} D}{Neuron and Synapse Model}\\\hline
- \textbf{Name} & AN model \\\hline
- \textbf{Type} & Instantaneous Poisson rate model \citep{ZilanyBruce:2007} \\\hline
- \textbf{Spiking} & ANF spiking model \citep{Jackson:2003} \\\hline
-            \textbf{Name}             & Golgi cell model \\\hline
-            \textbf{Type}             & Instantaneous Poisson-rate model, ANF instantaneous rate input\\ \hline
-% \multirow{4}{*}{\textbf{Golgi Model}} & $\mathbf{w}_{LSR}=w_{LSR}(i,p_{CF})=\frac{1}{\sigma \sqrt{2\pi}}\exp\left\{-\frac{(i-p_{CF})^2}{2\sigma^2}\right\}, \sigma^2 = \sHSRGLG$ \\ 
-% &$\mathbf{w}_{HSR}=w_{HSR}(i,p_{CF})=\frac{1}{\sigma \sqrt{2\pi}}\exp\left\{-\frac{(i-p_{CF})^2}{2\sigma^2}\right\}, \sigma^2 = \sHSRGLG$\\
-%                                       & $i \in [0,nchannels-1]$, $p_{CF}$ position in filterbank given characteristic frequency \\
-%                                       & $\mathbf{g}_{CF} = \mathbf{w}_{LSR}\dot\mathbf{L} + \mathbf{w}\dot\mathbf{H}$ \\
-%                                       & $\mathbf{G}_{CF} = \mathbf{g}_{CF} \ast \mathbf{\alpha} $, convulve instantaneous rate vector with alpha function  \\ \hline
+ \textbf{Name} & Golgi cell \\\hline
+ \textbf{Type} & Instantaneous-rate Poisson generator with refractory effects, derived from AN model inputs \\\hline
+%\raisebox{-4.5ex}{\parbox{\linewidth}{\textbf{Model Dynamics}}} & 
+\textbf{Model Dynamics} & 
+%\rule{1em}{0em}\vspace*{-3.5ex}
+    \begin{equation*}
+      \begin{array}{r@{\;=\;}ll}
+      G(t) & r( g(t) ) &\\%& \text{if } G(t) < 0 &G(t)=0 \\
+      g(t) & \mathbf{\alpha}\,\ast\,\left( \mathbf{w}_{L} \bullet \mathbf{L} + \mathbf{w}_{H} \bullet \mathbf{H} \right) & \\ %\mathbf{H},\mathbf{L} \to f(\text{channel},t) &\mathbf{w}_{\HSRGLG} \to f(\text{channel})\\
+      \mathbf{\alpha}&\alpha(t) = \left( t \cdot \exp(-t/\tau_{G}) \right),  & \text{normalised to 1}\dag \\
+     r(\mathbf{x}) & \mathbf{x}(t-\dANFGLG) - {x_0}+G_0, & x_0=x(0)  \\
+\mathbf{w}_{L,H} & w_{LSR,HSR \to GLG} \cdot \mathcal{N}(\text{channel},\sigma),& \sigma^2 = \sLSRGLG \\ 
+  \end{array}
+  \end{equation*}%
+% \vspace*{-2.5ex}\rule{1em}{0em} 
+\\\hline
+ \textbf{Spiking} & Renewal process with refractory effects  \citep{ZilanyBruce:2007,Jackson:2003} \\\hline
 \end{tabularx}
 \vspace{1ex}
+$\dag$The area under the alpha function, $\int \alpha(t) dt = (-\tau_{G}^2-t\cdot \tau_{G})\cdot \exp(-\frac{t}{\tau_{GLG}})$, is used to normalise the vector to 1. For a large enough filter length, the alpha function integral approximately equals $\tau_{GLG}^2$.
 
 % - E -----------------------------------------------------------------------------
 % \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
@@ -60,7 +76,6 @@
 %  \textbf{Measurements}  & Mean rate of instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions). \\\hline
 % \end{tabularx}
 % \vspace{1ex}
-
 }
 
 % \begin{ntab}{4}{|X|c|c|c|}{E}{Optimisation NTAB}
@@ -71,3 +86,9 @@
 %       Weighted sum of LSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
 % Golgi spontaneous rate (spikes per second) & \texttt{golgi\_spon} &     [0,50]     & 3.73  \\\hline
 % \end{ntab}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: nil
+%%% End: 
