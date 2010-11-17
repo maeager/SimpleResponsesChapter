@@ -1,6 +1,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/}}
+\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{../../cnstellate/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[Golgi Cell Model]{Golgi Cell Model: Optimisation using monotonic
@@ -121,13 +121,14 @@ by the computational neuroscience community. The topology of the ventral
 cochlear nucleus follows the same tonotopic organisation of the auditory nerve,
 with 100 evenly spaced frequency channels. The population of ANFs in Table
 \ref{tab:GolgiCellModelSummary}B are zero because there is no need for spiking
-ANF neurons in this optimisation routine.  The connectivity between ANFs and Golgi cells (Table
-\ref{tab:GolgiCellModelSummary}C) is a simple place-based Gaussian spread, as explained in the introduction ($\S$\ref{sec:tonot-conn})
+ANF neurons in this optimisation routine.  The connectivity between ANFs and
+Golgi cells (Table \ref{tab:GolgiCellModelSummary}C) is a simple place-based
+Gaussian spread, as explained in the introduction ($\S$\ref{sec:tonot-conn})
 
 \input{GolgiRateLevelTable.tex} 
 
-The Golgi cell model is implemented as an instantaneous-rate Poisson rate model
-, shown in Table \ref{tab:GolgiCellModelSummary}D and in
+The Golgi cell model is implemented as an instantaneous-rate Poisson rate model,
+shown in Table \ref{tab:GolgiCellModelSummary}D and in
 Figure~\ref{fig:GolgiDiagram} . The primary inputs are from the auditory model's
 instantaneous rate outputs with connections across frequency channels. HSR and
 LSR ANF inputs to Golgi cells were determined the Gaussian distribution in units
@@ -155,19 +156,20 @@ synaptic and dendritic smoothing filter.
 
 
 The weight vectors, $\mathbf{w}_{HSR}$ and $\mathbf{w}_{LSR}$, span the
-network's channels with size $N_{\rm channel}$. Instantaneous-rate profiles of
-the AN have size $N_{\rm channel}$ and length $N_{\rm stim}$ (stimulus duration
-/ sampling rate).  The intermediate step in the Golgi cell model, $r(\cdot)$,
-corrects the output rate for the desired spontaneous activity and performs
-rectification.  The $r$ function is a shift of the spontaneous rate of the
-smoothed vector, $g(t)$, to that defined by the Golgi cell model's spontaneous
-rate variable, $G_0$. The final step uses $\alpha(t)$ as the synapto-dendritic
-filtering function that is convolved with the resulting vector of the weighted
-sum of the two auditory nerve instantaneous-rate profiles. The alpha filter
-length was 10 times the time constant, $\Gtau$, and its area under the function
-was normalised to 1.  A more detailed explanation of the NEURON implementation
-of the Golgi cell model is in the chapter
-Appendix~\ref{sec:chp3appendix}.  %\medskip{}
+network's channels with size $N_{\rm channel}$, with a normal curve centred on
+the position in the channel and variance \sANFGLG. Instantaneous-rate profiles
+of the AN have size $N_{\rm channel}$ and length determined by the stimulus
+($N_{\rm stim}=$stimulus duration / sampling rate).  The intermediate step in
+the Golgi cell model, $r(\cdot)$, corrects the output rate for the desired
+spontaneous activity and performs rectification.  The $r$ function is a shift of
+the spontaneous rate of the smoothed vector, $g(t)$, to that defined by the
+Golgi cell model's spontaneous rate variable, $G_0$. The final step uses
+$\alpha(t)$ as the synapto-dendritic filtering function that is convolved with
+the resulting vector of the weighted sum of the two auditory nerve
+instantaneous-rate profiles. The alpha filter length was 10 times the time
+constant, $\Gtau$, and its area under the function was normalised to 1.  A more
+detailed explanation of the NEURON implementation of the Golgi cell model is in
+the chapter Appendix~\ref{sec:chp3appendix}.  %\medskip{}
 
 %Eq.~\ref{eq:alpha_Golgi}, 
 
@@ -209,17 +211,17 @@ Appendix~\ref{sec:chp3appendix}.  %\medskip{}
 
  \subsection{Results}
 
- Figure~\ref{fig:GolgiTestResult} shows the output of the test optimisation
+ Figure \ref{fig:GolgiTestResult} shows the output of the test optimisation
  trials for the Golgi cell model.  The testing trial used only five sound levels
  (0, 15, 55, 75 and 85 dB SPL) and detected the mean rate from the instantaneous
  profile in its fitting routine. The best response obtained a minimum error of
  11.63 spikes/s (root mean squared error) against the five points in the target
- experimental data of unit S03-07 (CF 21~kHz) from \citep{GhoshalKim:1996}. A
- rate-level curve (green circles, Fig.~\ref{fig:GolgiResult}A) was generated
- from the spiking output only to show a big discrepancy in the spike-based
- rate-level and the monotonic rate-based rate-level. The lack of low level
- response and a higher threshold indicated the need for some HSR input into the
- Golgi cell model.
+ experimental data of unit S03-07 (CF=21 kHz) from \citep{GhoshalKim:1996}. A
+ rate-level curve (green circles, Figure \ref{fig:GolgiTestResult}) was
+ generated from the spiking output only to show a big discrepancy in the
+ spike-based rate-level and the monotonic rate based rate-level. The lack of low
+ level response and a higher threshold indicated the need for some HSR input
+ into the Golgi cell model.
 %\medskip{}
 
 
@@ -238,24 +240,28 @@ Appendix~\ref{sec:chp3appendix}.  %\medskip{}
 The final optimisation routine with 22 levels and a Golgi cell model with HSR
 and LSR ANF inputs was used to generate a closer fit to the Ghoshal and Kim
 data. Figure~\ref{fig:GolgiResult} shows the rate-level output of the best model
-response andits best combination of parameters are shown in Table
+response and its best combination of parameters are shown in Table
 \ref{tab:GolgiCellModelSummary}E. The root mean squared error of the best
 response was 4.48 spikes/s.
 
 The parameters in Table \ref{tab:GolgiCellModelSummary}E were within the range
-of expected values. LSR inputs to the Golgi cell model outweighted HSR inputs by
-more than a factor of 10. The monotonic response of LSR fibres at high sound
+of expected values. LSR inputs to the Golgi cell model out-weighted HSR inputs
+by more than a factor of 10. The monotonic response of LSR fibres at high sound
 levels were necessary to create the large dynamic range in the Golgi cell model,
 the HSR fibres were just as necessary to provide some low level activity. The
 spontaneous rate parameter matches the base response of unit unit S03-07 in
 Figure~\ref{fig:GolgiResult}. The smoothing filter time constant of 5 ms is a
 typical value in membrane time constants for neural models and fits with the
-input resistance in intracellular recordings of  Golgi cells
-\citep{FerragamoGoldingEtAl:1998}.
-  
-% The input spread parameter is not well constrained by the optimisation fitness
-% routine with a pure tone input and a single neuron, but the result is
-% satisfactory given the uncertainty in LSR fibre's axonal organisation in the GCD. The dendritic widths in Golgi cells are \~100 micron and the frequency separation in the VCN core is \~70 microns, giving an expected result of 1.5 connectivity spread  hence the result of 2.48 channels gives added spread 
+input resistance in intracellular recordings of Golgi cells
+\citep{FerragamoGoldingEtAl:1998}. 
+\todo[inline]{ The input spread parameter is
+  not well constrained by the optimisation fitness routine with a pure tone
+  input and a single neuron, but the result is satisfactory given the
+  uncertainty in LSR fibre's axonal organisation in the GCD. The dendritic
+  widths in Golgi cells are \~100 micron and the frequency separation in the VCN
+  core is \~70 microns, giving an expected result of 1.5 connectivity spread
+  hence the result of 2.48 channels gives added frequency spread from LSR
+  fibres.}
 
 
 {%% Result table
@@ -263,7 +269,7 @@ input resistance in intracellular recordings of  Golgi cells
 \hdr{4}{\ref{tab:GolgiCellModelSummary}E}{Optimisation} \\ \hline 
            \textbf{Parameters}             &    \textbf{Name}     & \textbf{Range} & \textbf{Best Values} \\\hline 
  Spatial spread $\ANFGLG$ (channel unit)   &      $\sANFGLG$      &     [0,10]     & 2.48  \\\hline 
- Smoothing filter time constant (ms)&   \Gtau     &     [0,20]       & 5.01  \\\hline 
+ Smoothing filter time constant (ms)&   $\Gtau$     &     [0,20]       & 5.01  \\\hline 
       Weighted sum of HSR (unitless)       &      $\wHSRGLG$      &     [0,5]      & 0.517 \\\hline 
       Weighted sum of LSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
 Spontaneous rate in Golgi cell model (spikes per second) & \Gspon &     [0,50]     & 3.73  \\\hline
@@ -327,22 +333,20 @@ Spontaneous rate in Golgi cell model (spikes per second) & \Gspon &     [0,50]  
 %   \end{figure}
 
 %   \clearpage \newpage
-\subsection{Verification of Golgi cell model}
+%\subsection{Verification of Golgi cell model}
 %   \subsubsection{Tone Responses}
 
 
-% \begin{figure}[h]
-%      \centering
-% \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoCompression/G_ratelevel.eps}%
+ \begin{figure}[h]
+      \centering
+ \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoCompression/G_ratelevel.eps}\includegraphics{ResponsesNoCompression/RateLevel/psthsingle90.3.eps}}\\
 % %\includegraphics{ResponsesNoCompression/RateLevel/response_area.3.eps}
-% \includegraphics{ResponsesNoCompression/RateLevel/psthsingle90.3.eps}}
-% %\resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoCompression/MaskedResponseCurve3/G_ratelevel.eps}%
-% %\includegraphics{ResponsesNoCompression/MaskedResponseCurve3/psthsingle5810.3.eps}}
-% \label{fig:Golgi_verification}
-% \caption{Response of optimised Golgi cell model at the centre of the network (CF=5.8~kHz).}
-% \end{figure}
-
-%\resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoCompression/MaskedResponseCurve3/G_masked.eps}\includegraphics{ResponsesNoCompression/NoiseRateLevel/G_ratelevel.eps}}
+% }}
+%\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoCompression/RateLevel/psthsingle90.3.eps}}\\
+%\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoCompression/RateLevel/psthsingle50.3.eps}}\\
+ \label{fig:Golgi_verification}
+ \caption{Response of optimised Golgi cell model at the centre of the network (CF=5.8~kHz).}
+ \end{figure}
 
 
 %   \begin{figure}[h]
