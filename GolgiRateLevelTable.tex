@@ -51,23 +51,23 @@
  \textbf{Name} & Golgi cell \\\hline
  \textbf{Type} & Instantaneous-rate Poisson generator with refractory effects, derived from AN model inputs \\\hline
 %\raisebox{-4.5ex}{\parbox{\linewidth}{\textbf{Model Dynamics}}} & 
-\textbf{Model Dynamics} & 
+\textbf{Model Dynamics} & %
 %\rule{1em}{0em}\vspace*{-3.5ex}
     \begin{equation*}
       \begin{array}{r@{\;=\;}ll}
-      G(t) & r( g(t) ) &\\%& \text{if } G(t) < 0 &G(t)=0 \\
-      g(t) & \mathbf{\alpha}\,\ast\,\left( \mathbf{w}_{L} \bullet \mathbf{L} + \mathbf{w}_{H} \bullet \mathbf{H} \right) & \\ %\mathbf{H},\mathbf{L} \to f(\text{channel},t) &\mathbf{w}_{\HSRGLG} \to f(\text{channel})\\
-      \mathbf{\alpha}&\alpha(t) = \left( t \cdot \exp(-t/\tau_{G}) \right),  & \text{normalised to 1}\dag \\
-     r(\mathbf{x}) & \mathbf{x}(t-\dANFGLG) - {x_0}+G_0, & x_0=x(0)  \\
-\mathbf{w}_{L,H} & w_{LSR,HSR \to GLG} \cdot \mathcal{N}(\text{channel},\sigma),& \sigma^2 = \sLSRGLG \\ 
+      G(t) & \alpha(t)\,\ast\,g(t) &, \text{convolution of $\alpha(t)$ and $g(t)$}\\%& \text{if } G(t) < 0 &G(t)=0 \\
+      g(t) & r\left( \mathbf{w}_{L} \bullet \mathbf{L} + \mathbf{w}_{H} \bullet \mathbf{H} \right) & \\ %\mathbf{H},\mathbf{L} \to f(\text{channel},t) &\mathbf{w}_{\HSRGLG} \to f(\text{channel})\\
+     r(\mathbf{x}) & \max\{\mathbf{x}(t-\dANFGLG) - x(0) + \Gspon,0\} &  \\
+\mathbf{w}_{L,H} & w_{LSR,HSR \to GLG} \cdot \mathcal{N}(i,\sigma),& \sigma^2 = \sLSRGLG, i=\text{channel position} \\ 
+      \alpha(t) & \left( t \cdot \exp(-t/\Gtau) \right),  & \text{normalised to 1}\dag \\
   \end{array}
   \end{equation*}%
-% \vspace*{-2.5ex}\rule{1em}{0em} 
+%\vspace*{-2.5ex}\rule{1em}{0em} 
 \\\hline
  \textbf{Spiking} & Renewal process with refractory effects  \citep{ZilanyBruce:2007,Jackson:2003} \\\hline
 \end{tabularx}
 \vspace{1ex}
-$\dag$The area under the alpha function, $\int \alpha(t) dt = (-\tau_{G}^2-t\cdot \tau_{G})\cdot \exp(-\frac{t}{\tau_{GLG}})$, is used to normalise the vector to 1. For a large enough filter length, the alpha function integral approximately equals $\tau_{GLG}^2$.
+$\dag$The area under the alpha function, $\int \alpha(t) dt = (-\Gtau^2-t\cdot \Gtau)\cdot \exp(-\frac{t}{\Gtau})$, is used to normalise the vector to 1. For a large enough filter length, the alpha function integral approximately equals $\Gtau^2$, in this case $10\cdot\Gtau$ is used.
 
 % - E -----------------------------------------------------------------------------
 % \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %

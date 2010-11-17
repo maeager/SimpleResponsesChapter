@@ -15,7 +15,7 @@
 %%   own custom commands, packages, etc.
 %%
 
-
+%error 'You should modify this section and remove this error.'
 
 % for URLs
 \usepackage{url}
@@ -241,7 +241,8 @@
 
 \newcommand{\hdr}[3]{%
 \multicolumn{#1}{|l|}{\color{white}\cellcolor[gray]{0.0}%
-\textbf{\makebox[0pt]{#2}\hspace{0.5\linewidth}\makebox[0pt][c]{#3}}%
+\textbf{\makebox[0.05\linewidth][l]{#2}\hspace{0.45\linewidth}\makebox[0pt][c]{#3}}%
+%\textbf{\makebox[0pt]{#2}\hspace{0.5\linewidth}\makebox[0pt][c]{#3}}%
 }}
  % Nordelie table environment
 \newenvironment{ntab}[4]{
