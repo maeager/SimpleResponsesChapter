@@ -8,7 +8,7 @@
   responses are distributed over a population of similar cells as
   wells as across populations of different cells.''  - \textit{\citet[,p.TODO]{Shamma:1998}}
 \end{quotation}
-\yellownote{Get page number of this quote}
+\todo[inline]{Get page number of this quote}
 
 % =========================================================================
 
@@ -22,12 +22,12 @@ neuroscience to create a detailed, biophysically-realistic
 neural network model of the cochlear nucleus stellate cell network.  The
 design and methods for the construction of the model will provide
 insights relevant to other neural network models of the brain, especially those
-that use highly-specific sensory pathways. \todo{One more sentence here - expand on idea at the start and link to next para.} 
+that use highly-specific sensory pathways. \todo[inline]{One more sentence here - expand on idea at the start and link to next para.} 
 
 %\medskip{}
 
 Although it remains the case that ``choices, assumptions, and guesses [are] an
-integral part of neuronal modeling'' \citep[\todo{page
+integral part of neuronal modeling'' \citep[\todo[inline]{page
   no.}]{SegevBurkeEtAl:1998}, there is much to be gained from
 biophysically-realistic modelling approaches, especially in the heavily
 investigated cochlear nucleus in birds and mammals. Developments in
@@ -35,8 +35,8 @@ computational power and enhanced experimental techniques in multi-unit
 recordings are enabling more detailed neural models to be developed. Examples of parameter
 estimation and fitting in neural models are also becoming more advanced, for
 example NeuroFitter \citep{VanAchardEtAl:2007} and MultiRunFitter (a feature in
-NEURON).\todo{which? need to explain my intentions}
-%\yellownote{See further on neural detail in auditory system\citep{LuRubioEtAl:2008}}
+NEURON).\todo[inline]{which? need to explain my intentions}
+%\todo[inline]{See further on neural detail in auditory system\citep{LuRubioEtAl:2008}}
 
 %\medskip{}
 
@@ -49,7 +49,7 @@ models used in each optimisation step. The tables consist of A) the model
 summary, B) cell type populations, C) connectivity between cell types, D) neuron
 and synapse models, and E) optimisation parameters.  This method aims to show a
 consistent and recognisable format for presenting various neural network models
-and their constituents. \todo{this needs more explanation in the methods sections}
+and their constituents. \todo[inline]{this needs more explanation in the methods sections}
 
 
 The standard methods for optimisation \begin{itemize}
@@ -61,7 +61,7 @@ The standard methods for optimisation \begin{itemize}
 \end{itemize}
 
 In attempting to create a realistic microcircuit the parameter optimisation
-routine could be performed all at once or reiterated in sequential stages\todo{unclear sentence}. The
+routine could be performed all at once or reiterated in sequential stages\todo[inline]{unclear sentence}. The
 parameters chosen in the sequential optimisation stages should be chosen so that
 they do not influence the properties of previously fitted parameters.
 
@@ -72,7 +72,7 @@ In this chapter, the connections within the stellate network
 optimisation steps.  The parameters of each cell type are determined based on
 experimental data or are optimised based solely on responses to simple stimuli.
 Each cell type is shown with its excitatory-inhibitory responses area (EIRA) and
-PSTH (although this may vary within cell type). \todo{what is this sentence
+PSTH (although this may vary within cell type). \todo[inline]{what is this sentence
   doing? explain the figure!}  The stellate network model drawn in
 Fig.~\ref{fig:microcircuit} describes the following cells and models:
 \begin{enumerate}
@@ -112,12 +112,12 @@ Fig.~\ref{fig:microcircuit} describes the following cells and models:
   \caption{Cochlear nucleus stellate microcircuit (see text for details). }
   \label{fig:microcircuit}
 \end{figure}
-\todo{still put some text in here to describe it}
+\todo[inline]{still put some text in here to describe it}
 
 %\medskip{}
 
 Detailed model requires a good input model, a good neural model and experimental
-data with which to fit the parameters.  \yellownote{In this para: Connect the
+data with which to fit the parameters.  \todo[inline]{In this para: Connect the
   introduction section to the Auditory model below. Discuss the use of the
   Carney model in the CN stellate model.}
 
@@ -135,7 +135,7 @@ synapse between the inner hair cell and the auditory nerve
 \citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
 
 
-\todo{This probably goes in Chapter 2}To understand the auditory system, one
+\todo[inline]{This probably goes in Chapter 2}To understand the auditory system, one
 must first understand the processes in which sound enters the ear and is then
 transformed to neural signals in the auditory nerve. Mechanical vibrations at
 the eardrum (tympanic membrane) are conducted by the middle ear bones to vibrations of fluid in
@@ -144,7 +144,7 @@ inner hair cells and then to electrical potentials of the auditory nerve
 fibres. This processing enters a bottle-neck at the auditory nerve, where a
 group of highly specialised heterogeneous neurons in the cochlear nucleus
 process the incoming information in several pathways including temporal,
-spectral, onset and other feature-based information pathways.\todo{reference}
+spectral, onset and other feature-based information pathways.\todo[inline]{reference}
 
 %\medskip{}
 
@@ -175,13 +175,13 @@ processing to HSR fibres.
 
 %\medskip{}
 
-\yellownote{Discuss auditory model history. Expand reasons for wanting to create
+\todo[inline]{Discuss auditory model history. Expand reasons for wanting to create
   a biophysically realistic model of the CN\@. Discuss reason for using whole
   network in TV and TS optimisation}
 
 %\medskip{}
 
-\yellownote{a paragraph on the history of AN modelling
+\todo[inline]{a paragraph on the history of AN modelling
   \citep{LeakeSnyderEtAl:1993, ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.
   Perhaps Rose et al 1959 would be better suited here}
 %
@@ -192,7 +192,7 @@ a realistic and phenomenologically sound auditory model is needed to represent
 sounds and transformations that occur in the central auditory system.
 
 
-\yellownote{TODO: AN model paragraph has been changed - fix any comment related
+\todo[inline]{TODO: AN model paragraph has been changed - fix any comment related
   to new Zilany} The auditory nerve inputs to the cochlear nucleus model neurons
 are provided by phenomenological auditory periphery models: the ARLO model
 \citep{HeinzZhangEtAl:2001}; the Bruce model \citep{BruceSachsEtAl:2003,
@@ -216,7 +216,7 @@ the behaviour of long-term dependence in ANFs \citep{ZilanyBruceEtAl:2009}.
 
 %\medskip{}
 
-\yellownote{Why is it the cat model? updating Carney model?} Updating of the
+\todo[inline]{Why is it the cat model? updating Carney model?} Updating of the
 Carney auditory model has led to the change in the model's configuration from an
 original implementation of the rat model.  The default species is the cat and
 will be used in the data presented in this chapter.
@@ -229,12 +229,12 @@ will be used in the data presented in this chapter.
       \citep[originally printed in ][]{ZilanyBruceEtAl:2009}.}
     \label{fig:ZilanyBruceFig}
   \end{center}
-\end{figure}\yellownote{if this figure is used it needs permission by the original authors}
+\end{figure}\todo[inline]{if this figure is used it needs permission by the original authors}
 
 
 % \subsubsection{Physiological Responses}
 
-% \yellownote{TODO: serious reworking to be done here} Analysis of the frequency
+% \todo[inline]{TODO: serious reworking to be done here} Analysis of the frequency
 % response area of ANF generates known parameters for each fibre, these are:
 % \begin{itemize}
 % \item the spontaneous rate (SR), generated in silence and is
@@ -264,7 +264,7 @@ will be used in the data presented in this chapter.
 \subsection{Neural models}
 
 [Discuss R\&M model]
-\yellownote{TODO: Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
+\todo[inline]{TODO: Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
 
 %\medskip{}
 
@@ -273,7 +273,7 @@ will be used in the data presented in this chapter.
 The channels are separated using even spatial distance (based on the
 basilar membrane and auditory nerve separation) with centre frequency
 calculated by the Greenwood function for the cat
-\citep{Greenwood:1990}. \yellownote{More detail in Appendix}
+\citep{Greenwood:1990}. \todo[inline]{More detail in Appendix}
 
 %\medskip{}
 

@@ -24,7 +24,7 @@
 %\usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage[fleqn]{amsmath}   % displayed equations flush left
-\setlength{\mathindent}{0em}
+%\setlength{\mathindent}{0em}
 \usepackage{amsthm}
 \usepackage[mathscr]{eucal}
 
@@ -38,11 +38,13 @@
 \newcommand{\donotsplitoverpages}{\interdisplaylinepenalty=10000}
 
 %% Graphics
-%\ifx\pdftexversion\undefined
+% \ifx\pdftexversion\undefined
 %  \usepackage[dvips]{graphicx}
-%\else
+% \else
 %  \usepackage[pdftex]{graphicx}
-%\fi
+% \fi
+
+%% My Graphics and Hyperlinks stuff
 \usepackage{ifpdf}
  \ifpdf
    \pdfoutput=1
@@ -80,14 +82,14 @@
             linkcolor=blue, % override truly awful colour choices
             citecolor=blue, %   (ditto)
             urlcolor=blue,  %   (ditto)
-            ]{hyperref}
+ %            ]{hyperref}
  \DeclareGraphicsExtensions{.eps,.bmp}
-
 \fi
 
 
 % Enable IEEE macros
 %\usepackage{IEEEtrantools}
+
 % Use a plain bibliography style
 %\bibliographystyle{plain}
 % Use the IEEE bibliography style (sorted)
@@ -169,26 +171,29 @@
 \newcounter{continuedlist}
 
 % Continued list environment
-% \newenvironment{continuedlist}{ %
-% 	\begin{enumerate}%
-% 		% Space out each item
-% 		\setlength{\itemsep}{1.25em}%
-% 		% Start the enumeration from the previous value
-% 		\setcounter{enumi}{\value{continuedlist}} %
-% }{ %
-%   % Save the counter to continue it later
-%   \setcounter{continuedlist}{\value{enumi}}%
-%   \end{enumerate}%
-%   % \vspace{1.25em}% 
-%   \vspace{1em}%
-% }
+\newenvironment{continuedlist}{ %
+	\begin{enumerate}%
+		% Space out each item
+		\setlength{\itemsep}{1.25em}%
+		% Start the enumeration from the previous value
+		\setcounter{enumi}{\value{continuedlist}} %
+}{ %
+  % Save the counter to continue it later
+  \setcounter{continuedlist}{\value{enumi}}%
+  \end{enumerate}%
+  % \vspace{1.25em}% 
+  \vspace{1em}%
+}
 
-% % Spaced out list environment
-% \newenvironment{spacedoutlist}{%
-% 	\begin{itemize}%
-% 		% Space out each item
-% 		\setlength{\itemsep}{1.25em}%
-% }{\end{itemize}}
+% Spaced out list environment
+\newenvironment{spacedoutlist}{%
+	\begin{itemize}%
+		% Space out each item
+		\setlength{\itemsep}{1.25em}%
+}{\end{itemize}}
+
+
+%% My added packages
 
 
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -230,14 +235,12 @@
 % lineskip=-5pt  %
 % }
 
-
 \usepackage[sort,round,authoryear,nonamebreak]{natbib}
 \setcitestyle{aysep={}} % J Neurophys formatting
-
-
-
 \usepackage{xspace}
 \usepackage{rotating}
+\usepackage{tikz}
+\usepackage{calc}
 
 \newcommand{\hdr}[3]{%
 \multicolumn{#1}{|l|}{\color{white}\cellcolor[gray]{0.0}%
@@ -260,8 +263,6 @@
 
 
 
-\usepackage{tikz}
-\usepackage{calc}
 
 %\usepackage{mparhack}
 

@@ -257,7 +257,7 @@ created by :
 
  \medskip{}
 
- \begin{lstlisting}[label=GolgiTemplate,caption=Create golgi cell rate vector
+ \begin{lstlisting}[label=lstGolgiSyn,caption=Create golgi cell rate vector
    within Golgi template (in CNcell.tem)]
 // Default Golgi model parameters 
 weight_sum_LSR = 1
@@ -279,7 +279,7 @@ proc CreateGolgiSynFilter(){// create alpha function
 CreateGolgiSynFilter()
 \end{lstlisting}
 
-\begin{lstlisting}[label=GolgiTemplate,caption=Rate-based golgi cell model
+\begin{lstlisting}[label=lst:GolgiTemplate,caption=Rate-based golgi cell model
   template (in par\_CNcell.tem)]
 begintemplate Golgicell
 public s,sout,spikes       //internal objects made public   
@@ -381,7 +381,7 @@ Example optimisation points used by \textsf{fit\_praxis}
 \begin{figure}[htb]
 \centering
 \resizebox{0.9\textwidth}{!}{\includegraphics{Praxis_123.eps}\includegraphics{Praxis_456.eps}}
- \caption{Optimisation progression in normalised space in three of the six parameters used in the DS model optimisation.} \label{fig:DShandtuned}
+ \caption{Optimisation progression in normalised space in three of the six parameters used in the DS model optimisation.} \label{fig:praxis}
  \end{figure}
 
 
@@ -424,13 +424,13 @@ Example optimisation points used by \textsf{fit\_praxis}
 \section[TV cell]{Tuberculoventral cell model optimisation}
 
 
-\begin{figure}[htb]
-\begin{center}
-\resizebox{5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-\caption{Extracting experimental data in references using g3data.}
-\label{fig:Extractdata}
-\end{center}
-\end{figure}
+% \begin{figure}[htb]
+% \begin{center}
+% \resizebox{5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+% \caption{Extracting experimental data in references using g3data.}
+% \label{fig:Extractdata}
+% \end{center}
+% \end{figure}
 
 %%% Local Variables: 
 %%% mode: latex

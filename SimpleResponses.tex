@@ -1,8 +1,10 @@
-\documentclass[11pt,a4paper %
+\documentclass[11pt,a4paper,titlepage,twoside,openright]{book}
+
+%\documentclass[11pt,a4paper]
 %,twoside
 %,draft
-]{book} % Use the UniMelb Dissertation Template
-%\usepackage{../manuscript/style/uomthesis}
+%{book} % Use the UniMelb Dissertation Template
+\usepackage{style/uomthesis}
 % User defined commands
 \input{user-defined}
 \input{glossary} % My glossary of terms
@@ -12,28 +14,28 @@
 \usepackage{appendix}
 
 
-%\usepackage{fullpage}
- \marginparwidth=3.5cm
-\addtolength{\oddsidemargin}{-12mm}
+% 
+ \marginparwidth=3cm
+\addtolength{\oddsidemargin}{6mm}
  \topmargin=0pt
  \headsep=10pt
  \voffset=-1.54cm
  \hoffset=-1.54cm  %default hoffset is zero plus extra 1inch
  \textwidth=16cm
  \textheight=26cm
- \renewcommand{\baselinestretch}{1.2}
+ \renewcommand{\baselinestretch}{1.5}
+
 
 \DeclareGraphicsRule{eps.gz}{eps}{.eps.bb}{zcat #1}
 \newcommand{\figfont}[1]{\large{\textbf{\textsf{#1}}}}
-
 %\includeonly{TV_Notch}
-
 \graphicspath{{./gfx/}{../figures/}}
 
-\usepackage[showlabels]{preview}
-\PreviewEnvironment[{*[][]{}}]{tabularx}
-%\PreviewEnvironment[{*[][]{}}]{equation}
+%\usepackage[showlabels]{preview}
+%\PreviewEnvironment[{*[][]{}}]{tabularx}
+%\PreviewEnvironment[{*[][]{}}]{figure}
 %\PreviewEnvironment[{*[][]{}}]{array}
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,9 +72,9 @@ T-stellate microcircuit in the cochlear nucleus was developed.
 
 The methods used in this section are a practical and realistic means
 for constructing microcircuits with sensory or feature-based
-topography.  I followed the neural network modeling format as
-suggested by \citet{NordlieGewaltigEtAl:2009} so that other
-researchers may easily reproduce this work. \todo{avoid personal pronoun}
+topography.  The tabular format for neural network modeling as
+suggested by \citet{NordlieGewaltigEtAl:2009} was followed so that other
+researchers may easily reproduce this work. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 

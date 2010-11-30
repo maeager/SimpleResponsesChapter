@@ -1,31 +1,32 @@
 
 \graphicspath{{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}{../figures/}{./gfx/}}
-\section[DS Cell Model]{D-Stellate Cell Model: optimisation using click recovery responses}
+\section[DS Cell Model]{D-Stellate Cell Model: optimisation using click recovery
+  responses}
 \label{sec:d-stellate-cell-model}
 
 \subsection{Introduction}
 
-This section shows the GABAergic input and intrinsic cell properties
-influence the behaviour Onset chopper units.  Onset-chopper units in
-the mammalian VCN have a wide-ranging influence on the primary cells
-of the VCN, especially stellate and bushy neurons \citep{RhodeSmithEtAl:1983},
-the ipsilateral \DCN (type II and type IV EIRA units) and the
-contra\-lateral CN \citep{NeedhamPaolini:2007}.
+This section shows the GABAergic input and intrinsic cell properties influence
+the behaviour Onset chopper units.  Onset-chopper units in the mammalian \VCN
+have a wide-ranging influence on the primary cells of the \VCN, especially
+stellate and bushy neurons \citep{RhodeSmithEtAl:1983}, the ipsilateral \DCN
+(type II and type IV EIRA units) and the contra\-lateral CN
+\citep{NeedhamPaolini:2007}.
 
-%\medskip{}
+% \medskip{}
 
-% Large multipolar or stellate cells in the VCN have been shown to have
-% 3-4 long dendrites stretching 200 microns (or one third of the VCN)
-% and their axonal collaterals cover the same region in the VCN, almost
-% one half of the \DCN, and are one source of the commisural projection
-% to the contralateral cochlear nucleus \citep{NeedhamPaolini:2007}.
-%%%%%%%%%%%%%%%%%%%Copied from original jneurometh article
+% Large multipolar or stellate cells in the \VCN have been shown to have 3-4
+% long dendrites stretching 200 microns (or one third of the \VCN) and their
+% axonal collaterals cover the same region in the \VCN, almost one half of the
+% \DCN, and are one source of the commisural projection to the contralateral
+% cochlear nucleus \citep{NeedhamPaolini:2007}.
+%%%%%%%%%%%%%%%%%%% Copied from original jneurometh article
   
-D-stellate (DS) cells are large multipolar neurons in the VCN and have an
+D-stellate (DS) cells are large multipolar neurons in the \VCN and have an
 onset-chopping (On-C) PSTH to tones and noise \citep{SmithRhode:1989,
   NeedhamPaolini:2006}.  They typically have 3-4 long dendrites stretching 200
 microns (or one third of the \VCN) and their axonal collaterals cover the same
-region in the VCN, almost one half of the \DCN, and are one source of the
+region in the \VCN, almost one half of the \DCN, and are one source of the
 commisural projection to the contralateral cochlear nucleus
 \citep{Cant:1992,Cant:1981,SchofieldCant:1996,CantBenson:2003,
   NeedhamPaolini:2007, PaoliniClark:1999}. Intracellular responses to sounds
@@ -37,65 +38,62 @@ They also send a commissural projection to the contralateral cochlear nucleus
 that mediates fast inhibition between the nuclei \citep{NeedhamPaolini:2003,
   NeedhamPaolini:2006, Oertel:1997}.
 
-%\medskip{}
+% \medskip{}
 
 Post-onset GABAergic inhibition in DS cells is a major influence on the PSTH of
 On-C neurons \citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
 excitation to auditory nerve shocks suggests golgi cells are activated by type
 II ANFs and low spontaneous rate type I ANFs \citep{BensonBerglundEtAl:1996,
   FerragamoGoldingEtAl:1998}. Therefore, type II and LS type I ANFs could be
-involved in gain control through GABAergic modulation of activity in the VCN.
+involved in gain control through GABAergic modulation of activity in the \VCN.
 
-%\medskip{}
+% \medskip{}
 
-% \yellownote{Discuss AM coding by DS cells} GABA blockers in the VCN has the
+% \yellownote{Discuss AM coding by DS cells} GABA blockers in the \VCN has the
 % effects of changing the behaviour in the response to AM in the IC
-% \citep{CasparyPalombiEtAl:2002}.  AM coding effects of GABA in the Chinchilla CN
-% \citep{BackoffShadduckEtAl:1999}.  \citep{CasparyBackoffEtAl:1994} Caspary and
-% colleagues worked on the effects of GABA in in the VCN\@.
+% \citep{CasparyPalombiEtAl:2002}.  AM coding effects of GABA in the Chinchilla
+% CN \citep{BackoffShadduckEtAl:1999}.  \citep{CasparyBackoffEtAl:1994} Caspary
+% and colleagues worked on the effects of GABA in in the \VCN\@.
 
-% Zhang and Winter looked at the response area of VCN onset units to
-% determine GABA on/off freq. 
+% Zhang and Winter looked at the response area of \VCN onset units to determine
+% GABA on/off freq.
 
 % Smith and Rhode, Smith and others looked at OnC response area and two-tone
 
 
 \subsection{Implementation}
  
-%\medskip{}
-\input{DSRecoveryTable.tex}
-Key elements in designing D-stellate cell model are shown in the Nordlie
-table~\ref{tab:DScellModelSummary}A. A type I-II single compartment neuron by
-\citet{RothmanManis:2003b} has the characteristics of a onset chopper unit and
-fits well into a DS cell model. The choice of having a large multipolar neuron
-without dendrites was based on computational efficiency and ensuring that the
-model fit within the criteria for DS cells. The electrotonic dendrites of DS
-cells mean that the filtering in DS cells primarily controls the height of EPSCs
-reaching the soma \citep{WhiteYoungEtAl:1994}, hence a single compartment with
-graded weights should suffice. The inhibitory effect of Golgi cells on DS is
-delayed and occurs through a the slow peak of \GABAa inhibition, so optimisation
-of number and weight parameters is straight forward. ANF spread onto DS cells is
-well documented (-2 octaves below, 1 octave above), hence a decision made to fix
-this parameter due to large computational task of calculating bandwidth. Initial
-optimisation procedures were not successful at constraining the short delay
-recovery responses (2,3,4 ms), hence the DS leak and KLT conductance parameters
-were included to allow cell's input resistance behaviour to fit fast acting
-behaviour in the cell.
+% \medskip{}
+\input{DSRecoveryTable.tex} Key elements in designing D-stellate cell model are
+shown in the Nordlie table~\ref{tab:DScellModelSummary}A. A type I-II single
+compartment neuron by \citet{RothmanManis:2003b} has the characteristics of a
+onset chopper unit and has previously been used to simulate a DS cell model. The choice of having a
+large multipolar neuron without dendrites was based on computational efficiency
+and ensuring that the model fit within the criteria for DS cells. The
+electrotonic dendrites of DS cells mean that the filtering in DS cells primarily
+controls the height of EPSCs reaching the soma \citep{WhiteYoungEtAl:1994},
+hence a single compartment with graded weights should suffice. The inhibitory
+effect of Golgi cells on DS is delayed and occurs through a the slow peak of
+\GABAa inhibition, so optimisation of number and weight parameters is straight
+forward. ANF spread onto DS cells is well documented (-2 octaves below, 1 octave
+above), hence a decision made to fix this parameter due to large computational
+task of calculating bandwidth. Initial optimisation procedures were not
+successful at constraining the short delay recovery responses (2,3,4 ms), hence
+the DS leak and KLT conductance parameters were included to allow cell's input
+resistance behaviour to fit fast acting behaviour in the cell.
 
-
-%\medskip{}
-Optimisation parameters for \GLGDS are optimised based on experimental
-click recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed
-parameters included the number of golgi cells to DS cells ($\nGLGDS =
-25$), the spread of ANFs to DS cells $\ANFDS$, and the extra delay
-from the auditory nerve.  The first spike latency in DS cells 2.8 ±
-0.09 ms \citep{RhodeSmith:1986}.The addition of 0.5 ms to \ANFDS
-connections is a combination of conductance and synaptic delay. The
-effect of Golgi cells on DS is delayed by the extra 0.7~ms delay from
-ANF to Golgi, plus the slow peak of \GABAa inhibition.  The spread ANF
-to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and fairly
-broad so the estimate is set so that 2 octaves below and 1 octave
-above CF are within 2 standard deviations \citep{PaoliniClark:1999}.
+% \medskip{}
+Optimisation parameters for \GLGDS are optimised based on experimental click
+recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed parameters included
+the number of golgi cells to DS cells ($\nGLGDS = 25$), the spread of ANFs to DS
+cells $\ANFDS$, and the extra delay from the auditory nerve.  The first spike
+latency in DS cells 2.8 ± 0.09 ms \citep{RhodeSmith:1986}.The addition of 0.5 ms
+to \ANFDS connections is a combination of conductance and synaptic delay. The
+effect of Golgi cells on DS is delayed by the extra 0.7~ms delay from ANF to
+Golgi, plus the slow peak of \GABAa inhibition.  The spread ANF to DS cells
+(\sANFDSh,\sANFDSl) is arbitrary at this point and fairly broad so the estimate
+is set so that 2 octaves below and 1 octave above CF are within 2 standard
+deviations \citep{PaoliniClark:1999}.
 
 
 
@@ -103,24 +101,26 @@ above CF are within 2 standard deviations \citep{PaoliniClark:1999}.
 
 % \begin{figure}[htb]
 %   \centering
-% \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{fig:DSClickRecoveryPSTH}\\
-% \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{fig:GClickRecoveryPSTH}
-%    \caption{PSTH response of a D-stellate cell from the click recovery stimulus used in the optimisation.}
-%  \end{figure}
+%   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{fig:DSClickRecoveryPSTH}\\
+%   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{fig:GClickRecoveryPSTH}
+%   \caption{PSTH response of a D-stellate cell from the click recovery stimulus
+%   used in the optimisation.}
+% \end{figure}
 
 
 
-%\parsep
+% \parsep
 
 \subsection{Results}
 
-The optimisation function is the square root of a mean squared error between vectors from
-the experimental and simulated data. The vector elements were calculated from
-the number of spikes in a 2 ms window after a click.  The input stimulus was a
-series of masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms,
-separated by 50 ms, and repeated 25 stimulus times. Each response to a click is
-measured for 2 ms after the minimum first spike latency for the unit.  The unit
-used in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
+The optimisation function is the square root of a mean squared error between
+vectors from the experimental and simulated data. The vector elements were
+calculated from the number of spikes in a 2 ms window after a click.  The input
+stimulus was a series of masker-probe clicks, with intervals of 2, 3, 4, 8, and
+16 ms, separated by 50 ms, and repeated 25 stimulus times. Each response to a
+click is measured for 2 ms after the minimum first spike latency for the unit.
+The unit used in the optimisation has a CF of 5.8~kHz (equivalent to channel
+no. 50).
 
 % \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
 % \hdr{2}{D}{Results} \\\hline
@@ -137,9 +137,13 @@ weight that was obtained in the optimisation.
 
 \begin{figure}[htb!]
   \centering
-%\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
-\resizebox{0.8\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{DS_ClickRecovery_result}}
-\caption{Optimisation results of click recovery behaviour in DS cell (CF=5.8~kHz). The optimal response (blue circle) is obtained from Fig.~3 in \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of an OnC unit (CF=5.8~kHz).  Best result (green triangles) } \label{fig:DS_ClickRecovery_result}  
+  % \resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
+  \resizebox{0.8\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{DS_ClickRecovery_result}}
+  \caption{Optimisation results of click recovery behaviour in DS cell
+    (CF=5.8~kHz). The optimal response (blue circle) is obtained from Fig.~3 in
+    \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of
+    an OnC unit (CF=5.8~kHz).  Best result (green triangles)
+  } \label{fig:DS_ClickRecovery_result}
 \end{figure}
 
 
@@ -147,7 +151,7 @@ weight that was obtained in the optimisation.
 
 % \begin{figure}
 %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_OptVars.eps}\\
-% %  \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Output.eps}\label{Ch3:fig:DSClickRecoveryOutput}
+% %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Output.eps}\label{Ch3:fig:DSClickRecoveryOutput}
 %   \caption{Final Output Data of the D-stellate Click Recovery optimisation }
 % \end{figure}
 
@@ -176,121 +180,122 @@ weight that was obtained in the optimisation.
 
 
 % \begin{figure}
-% \begin{center}
-% \includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
-% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result_handtuned.eps}
-% \caption{Handtuned}
-% \label{hantuned}
-% \end{center}
+%   \begin{center}
+%     \includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
+%     \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result_handtuned.eps}
+%     \caption{Handtuned}
+%     \label{hantuned}
+%   \end{center}
 % \end{figure}
 
 % \begin{figure}
-% \begin{center}
-% %\includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
-% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_unweighted_8.eps}\\
-% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_weighted_0.eps}
-% \caption{Handtuned}
-% \label{hantuned}
-% \end{center}
+%   \begin{center}
+% %     \includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
+%     \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_unweighted_8.eps}\\
+%     \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_weighted_0.eps}
+%     \caption{Handtuned}
+%     \label{hantuned}
+%   \end{center}
 % \end{figure}
 
- \clearpage
-%\newpage
+\clearpage
+% \newpage
 \subsection{Verification}
 
-\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA  Leave AM responses till next chapter}
+\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA Leave AM responses
+  till next chapter}
 % \subsection{Tone Responses}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% \includegraphics{RateLevel/psthsingle90.2.eps}%
-% \includegraphics{RateLevel/DS_ratelevel.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{RateLevel/psthsingle90.2.eps}%
+%   \includegraphics{RateLevel/DS_ratelevel.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% \includegraphics{RateLevel/response_area.2.eps}%
-% \includegraphics{RateLevel/response_area_log2.2.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{RateLevel/response_area.2.eps}%
+%   \includegraphics{RateLevel/response_area_log2.2.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% %\includegraphics{RateLevel/response_area.2.eps}
-% \includegraphics{RateLevel/psthall90.2.eps}%
-% \includegraphics{RateLevel/psthVlevel.2.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+% %   \includegraphics{RateLevel/response_area.2.eps}
+%   \includegraphics{RateLevel/psthall90.2.eps}%
+%   \includegraphics{RateLevel/psthVlevel.2.eps}}
 % \end{figure}
 
 
 % \clearpage
 % \subsection{Noise Responses}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% \includegraphics{NoiseRateLevel/psthsingle120.2.eps}%
-% \includegraphics{NoiseRateLevel/DS_ratelevel.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{NoiseRateLevel/psthsingle120.2.eps}%
+%   \includegraphics{NoiseRateLevel/DS_ratelevel.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% \includegraphics{NoiseRateLevel/response_area.2.eps}%
-% \includegraphics{NoiseRateLevel/response_area_log2.2.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{NoiseRateLevel/response_area.2.eps}%
+%   \includegraphics{NoiseRateLevel/response_area_log2.2.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% %\includegraphics{RateLevel/response_area.2.eps}
-% \includegraphics{NoiseRateLevel/psthall90.2.eps}%
-% \includegraphics{NoiseRateLevel/psthVlevel.2.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+% %   \includegraphics{RateLevel/response_area.2.eps}
+%   \includegraphics{NoiseRateLevel/psthall90.2.eps}%
+%   \includegraphics{NoiseRateLevel/psthVlevel.2.eps}}
 % \end{figure}
 
 
 % \clearpage
 % \subsection{Masked Noise and Tone Responses}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.2.eps}\includegraphics{MaskedRateLevel/DS_ratelevel.eps}}
+%   \centering\resizebox{\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.2.eps}\includegraphics{MaskedRateLevel/DS_ratelevel.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% \includegraphics{MaskedRateLevel/response_area.2.eps}%
-% \includegraphics{MaskedRateLevel/response_area_log2.2.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{MaskedRateLevel/response_area.2.eps}%
+%   \includegraphics{MaskedRateLevel/response_area_log2.2.eps}}
 % \end{figure}
 
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% %\includegraphics{RateLevel/response_area.2.eps}
-% \includegraphics{MaskedRateLevel/psthall90.2.eps}%
-% \includegraphics{MaskedRateLevel/psthVlevel.2.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+% %   \includegraphics{RateLevel/response_area.2.eps}
+%   \includegraphics{MaskedRateLevel/psthall90.2.eps}%
+%   \includegraphics{MaskedRateLevel/psthVlevel.2.eps}}
 % \end{figure}
 % \clearpage
 % \subsection{Masked Response Area}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% \includegraphics{MaskedResponseCurve/psthsingle5810.2.eps}%
-% \includegraphics{MaskedResponseCurve/DS_masked.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{MaskedResponseCurve/psthsingle5810.2.eps}%
+%   \includegraphics{MaskedResponseCurve/DS_masked.eps}}
 % \end{figure}
 % \begin{figure}[h!]
-% \centering\resizebox{\textwidth}{!}{%
-% \includegraphics{MaskedResponseCurve/response_area.2.eps}%
-% \includegraphics{MaskedResponseCurve/response_area_log2log2.2.eps}}
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{MaskedResponseCurve/response_area.2.eps}%
+%   \includegraphics{MaskedResponseCurve/response_area_log2log2.2.eps}}
 % \end{figure}
 
-% \begin{figure}[h!] 
-% \centering\resizebox{\textwidth}{!}{%
-% %\includegraphics{RateLevel/response_area.2.eps}
-% \includegraphics{MaskedResponseCurve/psthall5810.2.eps}%
-% \includegraphics{MaskedResponseCurve/psthVmod.2.eps}}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+% %   \includegraphics{RateLevel/response_area.2.eps}
+%   \includegraphics{MaskedResponseCurve/psthall5810.2.eps}%
+%   \includegraphics{MaskedResponseCurve/psthVmod.2.eps}}
 % \end{figure}
 % \clearpage
 
 
-\subsection{Effects of $g_{leak}$ and $g_{LKT}$ on DS resting membrane potential}
+\subsection{Effects of $g_{leak}$ and $g_{LKT}$ on DS resting membrane
+  potential}
 
 The resting membrane potential of these large multipolar cells has been shown to
 be in the range of 3-5 MOhms \yellownote{citation needed here}. A quick
 observation of the parameter space around the optimisation results for
 $g_{leak}$ and $g_{LKT}$ is shown in Figure~\ref{fig:leakVltk}.
 \yellownote{Question: Is this section necessary?}
- \begin{figure}[h!]
-   \centering
-   \resizebox{\textwidth}{!}{\includegraphics{leakvltk}}
-   \caption{Resting Membrane potential calculated for leak conductance and KLT
-     conductance changes around the previously obtained best values for these
-     parameters.}\label{fig:leakVltk}
- \end{figure}
+\begin{figure}[h!]
+  \centering \resizebox{\textwidth}{!}{\includegraphics{leakvltk}}
+  \caption{Resting Membrane potential calculated for leak conductance and KLT
+    conductance changes around the previously obtained best values for these
+    parameters.}\label{fig:leakVltk}
+\end{figure}
 
 
 %%% Local Variables: 
@@ -299,3 +304,4 @@ $g_{leak}$ and $g_{LKT}$ is shown in Figure~\ref{fig:leakVltk}.
 %%% TeX-master: "SimpleResponses"
 %%% TeX-PDF-mode: nil
 %%% End: 
+
