@@ -50,16 +50,15 @@ summary, B) cell type populations, C) connectivity between cell types, D) neuron
 and synapse models, and E) optimisation parameters.  This method aims to show a
 consistent and recognisable format for presenting various neural network models
 and their constituents. \todo[inline]{this needs more explanation in the methods sections}
-
+%\medskip{}
 
 The standard methods for optimisation \begin{itemize}
 \item specify function or model we want to optimise
 \item specify criteria we want to satisfy
 \item specify the parameters that will be adjusted, 
     and any constraints on those parameters and finally
-\item perform the optimization
+\item perform the optimization.
 \end{itemize}
-
 In attempting to create a realistic microcircuit the parameter optimisation
 routine could be performed all at once or reiterated in sequential stages\todo[inline]{unclear sentence}. The
 parameters chosen in the sequential optimisation stages should be chosen so that
@@ -72,8 +71,8 @@ In this chapter, the connections within the stellate network
 optimisation steps.  The parameters of each cell type are determined based on
 experimental data or are optimised based solely on responses to simple stimuli.
 Each cell type is shown with its excitatory-inhibitory responses area (EIRA) and
-PSTH (although this may vary within cell type). \todo[inline]{what is this sentence
-  doing? explain the figure!}  The stellate network model drawn in
+PSTH (although this may vary within cell type). \todo[inline]{what is this
+  sentence doing? explain the figure!}  The stellate network model drawn in
 Fig.~\ref{fig:microcircuit} describes the following cells and models:
 \begin{enumerate}
 \item The Carney phenomenological auditory model
@@ -184,6 +183,7 @@ processing to HSR fibres.
 \todo[inline]{a paragraph on the history of AN modelling
   \citep{LeakeSnyderEtAl:1993, ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.
   Perhaps Rose et al 1959 would be better suited here}
+
 %
 %\medskip{}
 
@@ -191,6 +191,8 @@ In examining the properties of a detailed neural model of the cochlear nucleus,
 a realistic and phenomenologically sound auditory model is needed to represent
 sounds and transformations that occur in the central auditory system.
 
+%
+%\medskip{}
 
 \todo[inline]{TODO: AN model paragraph has been changed - fix any comment related
   to new Zilany} The auditory nerve inputs to the cochlear nucleus model neurons
@@ -208,28 +210,38 @@ the vowel simulation where the human auditory periphery model is used.
 
 %\medskip{}
 
-The \citet{ZilanyBruce:2007} model improves the previous AN model by an
-additional signal path and its predictions have matched a wide range of
-physiological data in normal and impaired cat data. The most recent AN model
-comprises an power-law synapse model, with internal $1/f$ noise, that enhances
-the behaviour of long-term dependence in ANFs \citep{ZilanyBruceEtAl:2009}.
+% The \citet{ZilanyBruce:2007} model improves the previous AN model by an
+% additional signal path and its predictions have matched a wide range of
+% physiological data in normal and impaired cat data. The most recent AN model
+% comprises an power-law synapse model, with internal $1/f$ noise, that enhances
+% the behaviour of long-term dependence in ANFs \citep{ZilanyBruceEtAl:2009}.
 
 %\medskip{}
 
-\todo[inline]{Why is it the cat model? updating Carney model?} Updating of the
-Carney auditory model has led to the change in the model's configuration from an
-original implementation of the rat model.  The default species is the cat and
-will be used in the data presented in this chapter.
+% \todo[inline]{Why is it the cat model? updating Carney model?} Updating of the
+% Carney auditory model has led to the change in the model's configuration from an
+% original implementation of the rat model.  The default species is the cat and
+% will be used in the data presented in this chapter.
 
-\begin{figure}[tbh]
-  \begin{center}
-%    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-    \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/ZilanyCarney-JASA-2009-Fig2.eps}}
-    \caption{Auditory periphery model with dual power-law synapse
-      \citep[originally printed in ][]{ZilanyBruceEtAl:2009}.}
-    \label{fig:ZilanyBruceFig}
-  \end{center}
-\end{figure}\todo[inline]{if this figure is used it needs permission by the original authors}
+% \begin{figure}[tbh]
+%   \begin{center}
+% %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+%     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/ZilanyCarney-JASA-2009-Fig2.eps}}
+%     \caption{Auditory periphery model with dual power-law synapse
+%       \citep[originally printed in ][]{ZilanyBruceEtAl:2009}.}
+%     \label{fig:ZilanyBruceFig}
+%   \end{center}
+% \end{figure}\todo[inline]{if this figure is used it needs permission by the original authors}
+
+
+\subsection{Spiking in Poisson neural models}
+
+The neural models used in the auditory nerve fibres and Golgi cell model are
+inhomogeneous Poisson processes. The instantaneous rate is passed through the
+Jackson model, which includes refractory effects typical of the auditory nerve
+fibres \citep{Jackson:2003,JacksonCarney:2005}.  Spike trains for each neuron in
+the model are created at the start of each repetition of the stimulus, but can
+be saved and loaded from file.
 
 
 % \subsubsection{Physiological Responses}

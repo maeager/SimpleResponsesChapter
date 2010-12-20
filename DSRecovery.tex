@@ -64,23 +64,25 @@ involved in gain control through GABAergic modulation of activity in the \VCN.
 \subsection{Implementation}
  
 % \medskip{}
-\input{DSRecoveryTable.tex} Key elements in designing D-stellate cell model are
+Key elements in designing D-stellate cell model are
 shown in the Nordlie table~\ref{tab:DScellModelSummary}A. A type I-II single
 compartment neuron by \citet{RothmanManis:2003b} has the characteristics of a
-onset chopper unit and has previously been used to simulate a DS cell model. The choice of having a
-large multipolar neuron without dendrites was based on computational efficiency
-and ensuring that the model fit within the criteria for DS cells. The
-electrotonic dendrites of DS cells mean that the filtering in DS cells primarily
-controls the height of EPSCs reaching the soma \citep{WhiteYoungEtAl:1994},
-hence a single compartment with graded weights should suffice. The inhibitory
-effect of Golgi cells on DS is delayed and occurs through a the slow peak of
-\GABAa inhibition, so optimisation of number and weight parameters is straight
-forward. ANF spread onto DS cells is well documented (-2 octaves below, 1 octave
-above), hence a decision made to fix this parameter due to large computational
-task of calculating bandwidth. Initial optimisation procedures were not
-successful at constraining the short delay recovery responses (2,3,4 ms), hence
-the DS leak and KLT conductance parameters were included to allow cell's input
-resistance behaviour to fit fast acting behaviour in the cell.
+onset chopper unit and has previously been used to simulate a DS cell model. The
+choice of having a large multipolar neuron without dendrites was based on
+computational efficiency and ensuring that the model fit within the criteria for
+DS cells. The electrotonic dendrites of DS cells mean that the filtering in DS
+cells primarily controls the height of EPSCs reaching the soma
+\citep{WhiteYoungEtAl:1994}, hence a single compartment with graded weights
+should suffice. The inhibitory effect of Golgi cells onto DS units are delayed and occurs
+through a the slow peak of \GABAa inhibition, so optimisation of number and
+weight parameters is straight forward. ANF spread onto DS cells is well
+documented (-2 octaves below, 1 octave above), hence a decision made to fix this
+parameter due to large computational task of calculating bandwidth. Initial
+optimisation procedures were not successful at constraining the short delay
+recovery responses (2,3,4 ms), hence the DS leak and KLT conductance parameters
+were included to allow cell's input resistance behaviour to fit fast acting
+behaviour in the cell.
+\input{DSRecoveryTable.tex} 
 
 % \medskip{}
 Optimisation parameters for \GLGDS are optimised based on experimental click
@@ -94,9 +96,6 @@ Golgi, plus the slow peak of \GABAa inhibition.  The spread ANF to DS cells
 (\sANFDSh,\sANFDSl) is arbitrary at this point and fairly broad so the estimate
 is set so that 2 octaves below and 1 octave above CF are within 2 standard
 deviations \citep{PaoliniClark:1999}.
-
-
-
 
 
 % \begin{figure}[htb]
@@ -129,6 +128,20 @@ no. 50).
 % & 0.01447    final result (MSE of recovery spike rate / mask rate)\\\hline
 % \end{tabularx}
 
+{% - E ------------------------------------------------------------------------------
+\noindent
+\begin{tabularx}{\textwidth}{|X|c|c|c|}\hline %{\textwidth}
+\hdr{4}{E}{Optimisation} \\ \hline
+        \textbf{Parameters}          &   \textbf{Name}  & \textbf{Range} & \textbf{Best Values} \\\hline 
+      Weight of GLG on DS (nS)       &     \wGLGDS      &   [0.01,50]    & 0.532 \\	\hline	
+    Weight of HSR syn on DS (nS)     &     \wHSRDS      &   [0.01,50]    & 0.16 \\	   \hline
+   Weight of LSR syn on DS  (nS)     &     \wLSRDS      &   [0.01,50]    & 13.1 \\	    \hline
+ \GABAa synapse rise constant  (ms)  &  $\tau_{GABA1}$  &  [0.01,10.0]   & 5.432\\	     \hline
+ \GABAa synapse decay constant (ms)  &  $\tau_{GABA2}$  &   [0.1,50.0]   & 0.262\\	    \hline
+DS cell leak conductance (mS/cm$^2$) & $\bar{g}_{leak}$ &  [1e-5,0.05]   & 0.0163 \\ \hline
+\end{tabularx}
+\vspace{2ex}
+}
 
 The optimisation parameters show a clear favouritism toward the LSR input rather
 than the HSR input to DS units. While this may not seem ideal for fast
@@ -148,13 +161,11 @@ weight that was obtained in the optimisation.
 
 
 
-
 % \begin{figure}
 %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_OptVars.eps}\\
 % %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Output.eps}\label{Ch3:fig:DSClickRecoveryOutput}
 %   \caption{Final Output Data of the D-stellate Click Recovery optimisation }
 % \end{figure}
-
 % \begin{figure}
 %   \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example1.eps}\\
 %   \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example10.eps}\\
@@ -162,8 +173,6 @@ weight that was obtained in the optimisation.
 %   \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example19.eps}\\
 %   \caption{Click Recovery optimisation functions}
 % \end{figure}
-
-
 
 
 % \begin{figure}
@@ -175,8 +184,6 @@ weight that was obtained in the optimisation.
 %   \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result2.eps}\\
 %   \caption{Click Recovery optimisation }
 % \end{figure}
-
-
 
 
 % \begin{figure}

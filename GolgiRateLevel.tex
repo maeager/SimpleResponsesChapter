@@ -150,8 +150,6 @@ synaptic and dendritic smoothing filter.
 \end{figure}
 
 
-
-
 The weight vectors, $\mathbf{w}_{HSR}$ and $\mathbf{w}_{LSR}$, span the
 network's channels with size $N_{\rm channel}$, with a normal curve centred on
 the position in the channel and variance \sANFGLG. Instantaneous-rate profiles
@@ -332,11 +330,18 @@ Spontaneous rate in Golgi cell model (spikes per second) & \Gspon &     [0,50]  
 %   \subsubsection{Tone Responses}
 
 
-After running the Golgi cell model with the optimisated parameters 
+After settling with the above optimisate parameters, the Golgi cell model was
+run with typical inputs to determine it's behaviour outside of the optimisation
+routine.  The Golgi cell at the centre of the network (CF=5.8 kHz) was tested and had monotonic responses to tones and noise similar to another Ghoshal and Kim unit Figure
+\ref{fig:Golgi_verification}C Figure \ref{fig:Golgi_verification}C shows the
+response of every Golgi cell model in the network to a 5.8 kHz tone, increased
+from 0 to 90 dB SPL.
 \begin{figure}[h]
 \centering
-\resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/response_area.3.eps}}\\
+\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill\\
 \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/G_ratelevel.eps}\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
+\figfont{C}\hfill\\
+\resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/response_area.3.eps}}\\
 % }}
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50.3.eps}}\\
