@@ -37,7 +37,7 @@ and low SR ﬁber innervation of dendrites \citep{Liberman:1993}. In that case,
 the low spontaneous rates and high sound thresholds of type II units might be
 caused by a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997};
 this is consistent with the responses of vertical cells to intracellular current
-injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
+injection \citep{DingVoigt:1997,ZhangOertel:1993b}.%/medskip{}
 
 
 Type II units also supply an inhibitory input to the \VCN
@@ -48,7 +48,7 @@ projection modulates the response thresholds of \VCN neurons
 that of a narrowband inhibitor. Responses of \DCN principal cells are strongly
 inhibited by this narrowband source. As a result, \DCN principal cells are
 inhibited by sharp spectral peaks close to their BF
-\citep{SpirouDavisEtAl:1999}.
+\citep{SpirouDavisEtAl:1999}.%/medskip{}
 
 \begin{figure}[htb]
   \centering
@@ -59,31 +59,31 @@ inhibited by sharp spectral peaks close to their BF
 \end{figure}\yellownote{Figure~\ref{fig:SpirouFig1} needs permission}
 
 
-\subsubsection{Key design factors}
+% \subsubsection{Key design factors}
 
 
-\textbf{Morphological}
-\begin{itemize}
-\item vertical/multipolar cell in deep layer of \DCN \citep{Rhode:1999}
-\item receive small number of ANF syn to dend
-\item receive large number of Gly and GABA syn to soma and dendrite
-\end{itemize}
+% \textbf{Morphological}
+% \begin{itemize}
+% \item vertical/multipolar cell in deep layer of \DCN \citep{Rhode:1999}
+% \item receive small number of ANF syn to dend
+% \item receive large number of Gly and GABA syn to soma and dendrite
+% \end{itemize}
 
 
 
 
 
-\begin{itemize}
-\item Rat model (no TS-TV) but has been shown in other mammals
-\item Unable to include other \DCN inputs
-\item Model must show \DSTV inhibition and offset of distribution
+% \begin{itemize}
+% \item Rat model (no TS-TV) but has been shown in other mammals
+% \item Unable to include other \DCN inputs
+% \item Model must show \DSTV inhibition and offset of distribution
 
-\item Notch noise stimulus $\rightarrow$ need more TV cells across
-  frequency
-\item Input SPL and weight of excitation affect spiking output
-\item Larger network $\rightarrow$ increased computational load
-\item Solution: Paralellise model
-\end{itemize}
+% \item Notch noise stimulus $\rightarrow$ need more TV cells across
+%   frequency
+% \item Input SPL and weight of excitation affect spiking output
+% \item Larger network $\rightarrow$ increased computational load
+% \item Solution: Paralellise model
+% \end{itemize}
 
 The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated with
 logarithmically constant notch widths and notch center frequencies ranging from 1 octave below to 1
@@ -138,12 +138,13 @@ increase the threshold for excitatory inputs to generate action potentials.
 
 The big issue with the optimisation of population mean rate responses is that
 the model could be over simplified and remove timing information.  The HSR rate
-response is generally flat at medium to high sound intensities. DS cell response has a regular onset spike but
-has a low rate throughout the stimulus, which detracts from the purpose of using a whole
-network to optimise parameters for synaptic inputs regarding TV cells.  The TV
-rate response could therefore just be modeled on the LSR response using a simple
-gradient-decent method. \yellownote{Population mean rate: Pros: fairly stable
-  for smallish repetitions, Cons: removes timing}
+response is generally flat at medium to high sound intensities. DS cell response
+has a regular onset spike but has a low rate throughout the stimulus, which
+detracts from the purpose of using a whole network to optimise parameters for
+synaptic inputs regarding TV cells.  The TV rate response could therefore just
+be modeled on the LSR response using a simple gradient-decent
+method. \yellownote{Population mean rate: Pros: fairly stable for smallish
+  repetitions, Cons: removes timing}
  
 
 \begin{figure}[htb]
