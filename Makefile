@@ -2409,7 +2409,8 @@ ifeq "$(strip $(BUILD_STRATEGY))" "latex"
 	    $(CAT) $@.log; \
 	    $(call remove-temporary-files,'$@.temp'); \
 	    $(sh_false); \
-	fi
+	fi; \
+	$(RM) -f %.ps %.dvi
 
 .SECONDARY: $(all_ps_targets)
 %.ps: %.dvi %.paper.make
