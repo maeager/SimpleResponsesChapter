@@ -1,6 +1,11 @@
-%% Glossary
+\usepackage{glossaries}
+
+\makeglossaries
+
+
 \newcommand{\VCN}{\protect{VCN}\xspace{}}
 \newcommand{\DCN}{\protect{DCN}\xspace{}}
+
 
 % ANF to Golgi
 \newcommand{\ANFGLG}{\protect{\textrm{{ANF}}\ensuremath{\to}\textrm{{GLG}}\xspace}}
@@ -154,3 +159,84 @@
 \newcommand{\GABAa}{\protect\textrm{GABA}$_{\textrm{A}}\xspace$}
 \newcommand{\Gspon}{\protect\ensuremath{SR_{\rm G}}}
 \newcommand{\Gtau}{\protect\ensuremath{\tau_{\rm G}}}
+
+
+
+%% Glossary
+\newacronym{ANN}{ANN}{artificial neural network}
+\newacronym{BNN}{BNN}{biophysically-realistic neural network}
+\newacronym{ANF}{ANF}{auditory nerve fibre}
+\newacronym{HSR}{HSR}{high spontaneous rate ANF}
+\newacronym{LSR}{LSR}{low spontaneous rate ANF}
+\newacronym{VCN}{\VCN}{ventral cochlear nucleus}
+\newacronym{DCN}{\DCN}{dorsal cochlear nucleus}
+
+% ANF to Golgi
+\newacronym{ANFGLG}{\ANFGLG}{connection from auditory nerve fibres to golgi cells}
+\newacronym{HSRGLG}{\HSRGLG}{connection from high-spontaneous rate ANFs to golgi cells}
+\newacronym{LSRGLG}{\LSRGLG}{connection from low-spontaneous rate ANFs to golgi cells}
+
+\newacronym{w}{\protect\ensuremath{w_{\textrm{{Pre}}\to\textrm{{Post}}}\xspace}}{synaptic weight of pre-synaptic cell type onto post-synaptic cell}
+\newacronym{n}{\protect\ensuremath{n_{\textrm{{Pre}}\to\textrm{{Post}}}\xspace}}{number of synapses from pre-synaptic cell type onto one post-synaptic cell}
+\newacronym{s}{\protect\ensuremath{s_{\textrm{{Pre}}\to\textrm{{Post}}}\xspace}}{frequency/spatial spread or distribution of pre-synaptic cell type onto one post-synaptic cell}
+\newacronym{o}{\protect\ensuremath{o_{\textrm{{Pre}}\to\textrm{{Post}}}\xspace}}{frequency/spatial offset (from centre frequency of post-synaptic cell) of pre-synaptic cell type onto post-synaptic cell}
+\newacronym{d}{\protect\ensuremath{d_{\textrm{{Pre}}\to\textrm{{Post}}}\xspace}}{delay of activation between pre-synaptic cell activation and post-synaptic cell receiving input}
+
+
+%ANF to D-stellate
+\newacronym{ANFDS}{\ANFDS}{connection from auditory nerve fibres to D-stellate cells}       
+\newacronym{HSRDS}{\HSRDS}{connection from high-spontaneous rate ANFs to D-stellate cells} 
+\newacronym{LSRDS}{\LSRDS}{connection from low-spontaneous rate ANFs to D-stellate cells}  
+
+%ANF to T-stellate
+\newacronym{ANFTS}{\ANFTS}{connection from auditory nerve fibres to T-stellate cells}       
+\newacronym{HSRTS}{\HSRTS}{connection from high-spontaneous rate ANFs to T-stellate cells} 
+\newacronym{LSRTS}{\LSRTS}{connection from low-spontaneous rate ANFs to T-stellate cells}  
+
+%ANF to Tuberculoventral
+\newacronym{ANFTV}{\ANFTV}{connection from auditory nerve fibres to Tuberculoventral cells}       
+\newacronym{HSRTV}{\HSRTV}{connection from high-spontaneous rate ANFs to Tuberculoventral cells} 
+\newacronym{LSRTV}{\LSRTV}{connection from low-spontaneous rate ANFs to Tuberculoventral cells}  
+
+%GLG to T-stellate
+\newacronym{GLGTS}{\GLGTS}{connection from golgi cells to T-stellate cells }
+%GLG to D-stellate
+\newacronym{GLGDS}{\GLGDS}{connection from golgi cells to D-stellate cells}
+%TS to D-stellate
+\newacronym{TSDS}{\TSDS}{connection from T-stellate cells to D-stellate cells}
+%TS to T-stellate
+\newacronym{TSTS}{\TSTS}{connection from T-stellate cells to other T-stellate cells}
+
+%TS to Tuberculoventral
+\newacronym{TSTV}{\TSTV}{connection from T-stellate cells to Tuberculoventral cells}
+% DS to Golgi
+\newacronym{DSGLG}{\DSGLG}{connection from  D-stellate cells to golgi cells}
+% %DS to D-stellate
+% \newacronym{DSDS}{\DSDS}{connection from  D-stellate cells to other D-stellate cells}
+%DS to T-stellate
+\newacronym{DSTV}{\DSTV}{connection from  D-stellate cells to Tuberculoventral cells}
+%DS to Tuberculoventral
+\newacronym{DSTS}{\DSTS}{connection from  D-stellate cells to T-stellate cells}
+% TV to Golgi
+\newacronym{TVGLG}{\TVGLG}{connection from Tuberculoventral cells to golgi cells}
+%TV to D-stellate
+\newacronym{TVDS}{\TVDS}{connection from Tuberculoventral cells to D-stellate cells}
+%TV to T-stellate
+\newacronym{TVTS}{\TVTS}{connection from Tuberculoventral cells to T-stellate cells}
+
+%TV to Tuberculoventral
+%\newacronym{TVTV}{\TVTV}{connection from Tuberculoventral cells to other TV cells}
+
+%Other common symbols
+\newacronym{GABAa}{\GABAa}{gaba-ergic synapse with a \GABAa receptor}
+\newacronym{Gspon}{\Gspon}{spontaneous rate in golgi cells}
+\newacronym{Gtau}{\Gtau}{membrane time-constant in golgi cells}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% mode: tex-fold
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: nil
+%%% End: 

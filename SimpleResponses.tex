@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,titlepage,twoside,openright]{book}
+\documentclass[11pt,a4paper,twoside,openright]{book}
 
 %\documentclass[11pt,a4paper]
 %,twoside
@@ -7,6 +7,8 @@
 \usepackage{style/uomthesis}
 % User defined commands
 \input{user-defined}
+
+
 \input{glossary} % My glossary of terms
 
 % User defined commands
@@ -14,7 +16,7 @@
 \usepackage{appendix}
 
 
-% 
+ 
 %  \marginparwidth=3cm
 % \addtolength{\oddsidemargin}{6mm}
 %  \topmargin=0pt
@@ -36,13 +38,27 @@
 %\PreviewEnvironment[{*[][]{}}]{figure}
 %\PreviewEnvironment[{*[][]{}}]{array}
 
-\begin{document}
+\lfoot{\footnotesize\today\ at \thistime\\Hg changeset \input{.hg/tags.cache}}
 
+\begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{chapter}{2}
 \chapter[Simple Responses]{Modelling the Cochlear Nucleus Stellate Network}
 \label{sec:SimpleResponsesChapter}
+
+		% TOC, LOF, LOT
+		{%
+			\singlespacing%
+                        \listoftodos
+			\tableofcontents%
+			%\listoffigures%
+			% Do not include a list of tables if you have less
+			% than 10 tables, as per SGS suggestion.
+			%\listoftables%
+                        \printglossary
+		   \clearpage%
+		}%
 
 % \begin{synopsis}
 %   Modelling large biophysically-based neural network models is
@@ -87,8 +103,7 @@ researchers may easily reproduce this work.
  \bibliographystyle{abbrvnat}%plainnat}%bmc_article} % Style BST file
  \bibliography{../manuscript/bib/MyBib}
 
-\newpage
-\listoftodos
+
 
 \end{document}
 

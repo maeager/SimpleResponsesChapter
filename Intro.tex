@@ -1,15 +1,12 @@
-
 % =========================================================================
-
 \begin{quotation}
   ``To understand brain function, the focus of [our] investigations must
   expand from detailed responses and structure of single cells to
   include unit responses to the activity of other cells, and how these
   responses are distributed over a population of similar cells as
-  wells as across populations of different cells.''  - \textit{\citet[,p.TODO]{Shamma:1998}}
+  wells as across populations of different cells.''  - \textit{\citet[p.]{Shamma:1998}}
 \end{quotation}
 \todo[inline]{Get page number of this quote}
-
 % =========================================================================
 
 \section{Introduction}
@@ -19,7 +16,7 @@ of its physiology and neuroscience subgroups, to investigate the role
 of populations of neurons in to pay attention to the role of
 populations of neurons in neurophysiology. This chapter draws on the wealth of experimental data accumulated in auditory
 neuroscience to create a detailed, biophysically-realistic
-neural network model of the cochlear nucleus stellate cell network.  The
+neural network (BNN) model of the cochlear nucleus stellate cell network.  The
 design and methods for the construction of the model will provide
 insights relevant to other neural network models of the brain, especially those
 that use highly-specific sensory pathways. 
@@ -53,7 +50,7 @@ consistent and recognisable format for presenting various neural network models
 and their constituents. \todo[inline]{this needs more explanation in the methods sections}
 %\medskip{}
 
-The standard methods for optimisation \begin{itemize}
+The standard methods for optimisation can be simply described with the following steps:\begin{itemize}
 \item specify function or model we want to optimise
 \item specify criteria we want to satisfy
 \item specify the parameters that will be adjusted, 
@@ -61,7 +58,7 @@ The standard methods for optimisation \begin{itemize}
 \item perform the optimization.
 \end{itemize}
 In attempting to create a realistic microcircuit the parameter optimisation
-routine could be performed all at once or reiterated in sequential stages\todo[inline]{unclear sentence}. The
+routine, these steps need to be reiterated in sequential stages. The
 parameters chosen in the sequential optimisation stages should be chosen so that
 they do not influence the properties of previously fitted parameters.
 
@@ -72,8 +69,10 @@ In this chapter, the connections within the stellate network
 optimisation steps.  The parameters of each cell type are determined based on
 experimental data or are optimised based solely on responses to simple stimuli.
 Each cell type is shown with its excitatory-inhibitory responses area (EIRA) and
-PSTH (although this may vary within cell type). \todo[inline]{what is this
-  sentence doing? explain the figure!}  The stellate network model drawn in
+PSTH (post-stimulus time histogram), although this may vary within cell types. 
+
+
+\todo[inline]{what is this sentence doing? explain the figure!}  The stellate network model drawn in
 Fig.~\ref{fig:microcircuit} describes the following cells and models:
 \begin{enumerate}
 \item The Carney phenomenological auditory model
@@ -116,7 +115,7 @@ Fig.~\ref{fig:microcircuit} describes the following cells and models:
 
 %\medskip{}
 
-Detailed model requires a good input model, a good neural model and experimental
+A detailed BNN model requires a good input model, a good neural model and experimental
 data with which to fit the parameters.  \todo[inline]{In this para: Connect the
   introduction section to the Auditory model below. Discuss the use of the
   Carney model in the CN stellate model.}
@@ -135,16 +134,6 @@ synapse between the inner hair cell and the auditory nerve
 \citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
 
 
-\todo[inline]{This probably goes in Chapter 2}To understand the auditory system, one
-must first understand the processes in which sound enters the ear and is then
-transformed to neural signals in the auditory nerve. Mechanical vibrations at
-the eardrum (tympanic membrane) are conducted by the middle ear bones to vibrations of fluid in
-the inner ear (cochlea). They are then transformed to chemical signals in the
-inner hair cells and then to electrical potentials of the auditory nerve
-fibres. This processing enters a bottle-neck at the auditory nerve, where a
-group of highly specialised heterogeneous neurons in the cochlear nucleus
-process the incoming information in several pathways including temporal,
-spectral, onset and other feature-based information pathways.\todo[inline]{reference}
 
 %\medskip{}
 
@@ -165,7 +154,6 @@ processing to HSR fibres.
 
 \begin{figure}[tbh]
   \begin{center}
-%    \includegraphics[keepaspectratio=true]{NoFigure}
     \resizebox{2.25in}{!}{\includegraphics[width=2.25in,keepaspectratio]{gfx/Cat_Human_CN}}
     \caption{Cochlear nucleus innervation in Man and Cat. \citep[!find out which publication printed this!]{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}}
     \label{fig:CNdiagram}
@@ -194,20 +182,22 @@ sounds and transformations that occur in the central auditory system.
 
 %
 %\medskip{}
-
-\todo[inline]{TODO: AN model paragraph has been changed - fix any comment related
-  to new Zilany} The auditory nerve inputs to the cochlear nucleus model neurons
-are provided by phenomenological auditory periphery models: the ARLO model
-\citep{HeinzZhangEtAl:2001}; the Bruce model \citep{BruceSachsEtAl:2003,
-  ZilanyBruce:2006, ZilanyBruce:2007}; and the Zilany model
-\citep{ZilanyBruceEtAl:2009}. The AN model consists of an outer/middle ear
-pre-processing filter, a cochlea filterbank, IHC-to-AN synapse model and
-dead-time modified Poisson spike generator, as shown in
-Fig.~\ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001} incorporated cochlea
-filters based on the critical bandwidths obtained from psycho\-physical
-experiments in humans. The ARLO model of the cat auditory periphery, with
-non-linear compression and two-tone suppression, is used in this study except in
-the vowel simulation where the human auditory periphery model is used.
+ \subsection{Response of Carney auditory model }
+The auditory nerve inputs to the cochlear nucleus
+ model neurons are provided by phenomenological auditory periphery models
+ originating from \citet{Carney:1993} . the ARLO model
+ \citep{HeinzZhangEtAl:2001}; the Bruce model \citep{BruceSachsEtAl:2003,
+   ZilanyBruce:2006, ZilanyBruce:2007}; and the Zilany model
+ \citep{ZilanyBruceEtAl:2009}. The AN model consists of an outer/middle ear
+ pre-processing filter, a cochlea filterbank, IHC-to-AN synapse model and
+ dead-time modified Poisson spike generator, as shown in
+ Fig.~\ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001} incorporated cochlea
+ filters based on the critical bandwidths obtained from psycho\-physical
+ experiments in humans. The ARLO model of the cat auditory periphery, with
+ non-linear compression and two-tone suppression, is used in this study except
+ in the vowel simulation where the human auditory periphery model is used.
+ \todo[inline]{TODO: AN model paragraph has been changed - fix any comment
+   related to new Zilany} 
 
 %\medskip{}
 
@@ -245,7 +235,7 @@ the model are created at the start of each repetition of the stimulus, but can
 be saved and loaded from file.
 
 
-% \subsubsection{Physiological Responses}
+
 
 % \todo[inline]{TODO: serious reworking to be done here} Analysis of the frequency
 % response area of ANF generates known parameters for each fibre, these are:
@@ -276,8 +266,8 @@ be saved and loaded from file.
 
 \subsection{Neural models}
 
-[Discuss R\&M model]
-\todo[inline]{TODO: Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
+
+\todo[inline]{[Discuss R\&M model] Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
 
 %\medskip{}
 
