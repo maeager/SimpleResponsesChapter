@@ -7,9 +7,8 @@
 \usepackage{style/uomthesis}
 % User defined commands
 \input{user-defined}
-
-
 \input{glossary} % My glossary of terms
+\makeglossary
 
 % User defined commands
 %\usepackage{pstricks}
@@ -32,20 +31,16 @@
 \newcommand{\figfont}[1]{\large{\textbf{\textsf{#1}}}}
 %\includeonly{TV_Notch}
 \graphicspath{{./gfx/}{../figures/}}
-
+\graphicspath{{../figures/}{/media/data/Work/thesis/SimpleResponsesChapter/}{/media/data/Work/thesis/SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/golgi/}{../../cnstellate/}}
 %\usepackage[showlabels]{preview}
 %\PreviewEnvironment[{*[][]{}}]{tabularx}
 %\PreviewEnvironment[{*[][]{}}]{figure}
 %\PreviewEnvironment[{*[][]{}}]{array}
 
-\lfoot{\footnotesize\today\ at \thistime\\Hg changeset \input{.hg/tags.cache}}
+\lfoot{\footnotesize\today\ at \thistime}
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\setcounter{chapter}{2}
-\chapter[Simple Responses]{Modelling the Cochlear Nucleus Stellate Network}
-\label{sec:SimpleResponsesChapter}
 
 		% TOC, LOF, LOT
 		{%
@@ -60,6 +55,13 @@
 		   \clearpage%
 		}%
 
+{\today\ Hg changeset \input{.hg/tags.cache}}
+
+\setcounter{chapter}{2}
+\chapter[Simple Responses]{Modelling the Cochlear Nucleus Stellate Network}
+\label{sec:SimpleResponsesChapter}
+
+
 % \begin{synopsis}
 %   Modelling large biophysically-based neural network models is
 % 	 comlicated by the large parameter space, various sources of
@@ -70,11 +72,15 @@
 \include{Intro}
 \newpage
 \include{GolgiRateLevel}
+\include{GolgiRateLevelTable}
 \newpage
 \include{DSRecovery}
+\include{DSRecoveryTable}
 \newpage
 \include{TV_Notch}
-% \include{Tstellate.tex}
+\include{TV_NotchTable}
+
+\section{T-stellate cell section ? } % \include{Tstellate.tex}
 \newpage
 \include{Discussion}
 
@@ -94,7 +100,7 @@ researchers may easily reproduce this work.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%\begin{appendicies}\label{sec:chp3appendix}
+%\begin{appendicies}
 \appendix
 \include{ChapterAppendix}
 %\end{appendicies}

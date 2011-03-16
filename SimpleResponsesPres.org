@@ -499,3 +499,4 @@ For technical presentations, motivation is key
 \bibliographystyle{plainnat} 
 \bibliography{../manuscript/bib/MyBib}
 #+end_LaTeX
+

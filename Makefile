@@ -871,7 +871,7 @@ sh_false	:= ! :
 
 # Turn off forceful rm (RM is usually mapped to rm -f)
 ifdef SAFE_RM
-RM	:= rm
+RM	:= rm -i
 endif
 
 # Turn command echoing back on with VERBOSE=1
@@ -1138,7 +1138,9 @@ default_stems.xvg		:= $(call get-stems,xvg,default)
 default_stems.svg		:= $(call get-stems,svg,default)
 default_stems.png		:= $(call get-stems,png,default)
 default_stems.jpg		:= $(call get-stems,jpg,default)
+default_stems.jpeg		:= $(call get-stems,jpeg,default)
 default_stems.eps.gz		:= $(call get-stems,eps.gz,default)
+default_stems.eps		:= $(call get-stems,eps,default)
 
 # List of all stems (all possible bare PDF targets created here):
 stems.tex		:= $(call get-stems,tex)
@@ -1154,7 +1156,9 @@ stems.xvg		:= $(call get-stems,xvg)
 stems.svg		:= $(call get-stems,svg)
 stems.png		:= $(call get-stems,png)
 stems.jpg		:= $(call get-stems,jpg)
+stems.jpeg		:= $(call get-stems,jpeg)
 stems.eps.gz		:= $(call get-stems,eps.gz)
+stems.eps		:= $(call get-stems,eps)
 
 # Utility function for creating larger lists of stems
 # $(call concat-stems,suffixes,[prefix])
@@ -1170,18 +1174,18 @@ graphic_source_extensions	:= fig \
 				   eps.gz
 
 ifeq "$(strip $(BUILD_STRATEGY))" "latex"
-graphic_source_extensions	+= png jpg
+graphic_source_extensions	+= png jpg jpeg
 graphic_target_extensions	:= eps ps
 endif
 
 ifeq "$(strip $(BUILD_STRATEGY))" "pdflatex"
 graphic_source_extensions	+= eps
-graphic_target_extensions	:= pdf png jpg mps tif
+graphic_target_extensions	:= pdf png jpg jpeg mps tif
 endif
 
 ifeq "$(strip $(BUILD_STRATEGY))" "xelatex"
 graphic_source_extensions	+= eps
-graphic_target_extensions	:= pdf png jpg mps tif
+graphic_target_extensions	:= pdf png jpg jpeg mps tif
 endif
 
 all_stems_source	:= $(call concat-stems,tex,all)
@@ -1319,7 +1323,6 @@ all_dvi_targets		:= $(addsuffix .dvi,$(stems_ssg))
 all_tex_targets		:= $(addsuffix .tex,$(stems_sg))
 all_d_targets		:= $(addsuffix .d,$(stems_ssg))
 all_graphics_targets	:= $(addsuffix .$(default_graphic_extension),$(stems_gg))
-intermediate_graphics_targets	:= $(if $(filter pdf,$(default_graphic_extension)),$(addsuffix .eps,$(stems_gg)),)
 all_pstex_targets	:= $(addsuffix .pstex_t,$(stems.fig))
 all_dot2tex_targets	:= $(addsuffix .dot_t,$(stems.dot))
 
@@ -1380,13 +1383,6 @@ octave_global	:= $(strip \
 # be parsed, the second is a list of files that will show up as dependencies in
 # the new .d file created here.
 #
-# NOTE: BSD sed does not understand \|, so we have to do something more
-# clunky to extract suitable extensions.
-#
-# Also, we do a little bit of funny rewriting up front (TARGETS=) to make sure
-# that we can properly backslash-escape spaces in file names (e.g, on Cygwin
-# for tex distributions that have "Program Files" in their name).
-#
 # $(call get-inputs,<parsed file>,<target files>)
 define get-inputs
 $(SED) \
@@ -1401,41 +1397,74 @@ $(SED) \
 -e '/\.dot_t$$/b addtargets' \
 -e 'd' \
 -e ':addtargets' \
--e 's/^/$2: /' \
-$1 | $(SORT) | $(UNIQ)
+-e 's!.*!$2: $$(call path-norm,&)!' \
+'$1' | $(SORT) | $(UNIQ)
 endef
 
 # $(call get-missing-inputs,<log file>,<target files>)
 define get-missing-inputs
 $(SED) \
--e '$$ b para' \
--e '/^$$/b para' \
--e 'H' \
--e 'd' \
--e ':para' \
--e 'x' \
--e '/^$$/d' \
--e 's/^\n*//' \
--e '/^! LaTeX Error: File /{' \
--e '  s/^/::DOUBLE_PARAGRAPH::/' \
+-e '$${' \
+-e '  /^$$/!{' \
+-e '    H' \
+-e '    s/.*//' \
+-e '  }' \
+-e '}' \
+-e '/^$$/!{' \
+-e '  H' \
+-e '  d' \
+-e '}' \
+-e '/^$$/{' \
+-e '  x' \
+-e '  s/^\(\n\)\(.*\)/\2\1/' \
+-e '}' \
+-e '/^::P\(P\{1,\}\)::/{' \
+-e '  s//::\1::/' \
+-e '  G' \
 -e '  h' \
 -e '  d' \
 -e '}' \
--e 's/^::DOUBLE_PARAGRAPH:://' \
--e '/Default extension: /!d' \
--e 's/[[:space:]]\{1,\}/ /g' \
--e 's/\n\{1,\}/ /g' \
--e 's/^.*File `//' \
--e 's/'"'"' not found\..*//' \
--e '/\.tex/!s/$$/.tex/' \
--e 's/[[:space:]]/\\ /g' \
+-e '/^::P::/{' \
+-e '  s//::0::/' \
+-e '  G' \
+-e '}' \
+-e 'b start' \
+-e ':needonemore' \
+-e 's/^/::P::/' \
+-e 'G' \
 -e 'h' \
--e 's/.*/# MISSING input "&" - (presence of comment affects build)/' \
--e 'p' \
--e 's/.*//' \
--e 'x' \
--e 's/^/$2: /' \
-$1 | $(SORT) | $(UNIQ)
+-e 'd' \
+-e ':needtwomore' \
+-e 's/^/::PP::/' \
+-e 'G' \
+-e 'h' \
+-e 'd' \
+-e ':needthreemore' \
+-e 's/^/::PPP::/' \
+-e 'G' \
+-e 'h' \
+-e 'd' \
+-e ':start' \
+-e '/^! LaTeX Error: File `/{' \
+-e '  b needtwomore' \
+-e '}' \
+-e '/^::0::\(.*\)/{' \
+-e '  s//\1/' \
+-e '  /Default extension: /!d' \
+-e '  s/.*File `\([^'"'"']*\)'"'"' not found.*/\1/' \
+-e '  s/[[:cntrl:]]//' \
+-e '  /\.tex/!s/$$/.tex/' \
+-e '  s/[[:space:]]/\\ /g' \
+-e '  h' \
+-e '  s/.*/# MISSING input "&" - (presence of comment affects build)/' \
+-e '  p' \
+-e '  s/.*//' \
+-e '  x' \
+-e '  s!^.*!$2: $$(call path-norm,&)!' \
+-e '  p' \
+-e '}' \
+-e 'd' \
+'$1' | $(SORT) | $(UNIQ)
 endef
 
 # Get source file for specified graphics stem.
@@ -1483,33 +1512,69 @@ endef
 #.log,$(addprefix $*.,d $(build_target_extension) _graphics)
 define get-graphics
 $(SED) \
--e '$$ b para' \
--e '/^$$/b para' \
--e 'H' \
--e 'd' \
--e ':para' \
--e 'x' \
--e '/^$$/d' \
--e 's/^\n*//' \
--e '/^! LaTeX Error: File `/{' \
--e '  s/^/::DOUBLE_PARAGRAPH::/' \
+-e '/^File: \(.*\) Graphic file (type [^)]*)/{' \
+-e '  s//\1/' \
+-e '  b addtargets' \
+-e '}' \
+-e '$${' \
+-e '  /^$$/!{' \
+-e '    H' \
+-e '    s/.*//' \
+-e '  }' \
+-e '}' \
+-e '/^$$/!{' \
+-e '  H' \
+-e '  d' \
+-e '}' \
+-e '/^$$/{' \
+-e '  x' \
+-e '  s/^\(\n\)\(.*\)/\2\1/' \
+-e '}' \
+-e '/^::P\(P\{1,\}\)::/{' \
+-e '  s//::\1::/' \
+-e '  G' \
 -e '  h' \
 -e '  d' \
 -e '}' \
--e 's/^::DOUBLE_PARAGRAPH:://' \
--e '/could not locate the file with any of these extensions:/{' \
+-e '/^::P::/{' \
+-e '  s//::0::/' \
+-e '  G' \
+-e '}' \
+-e 'b start' \
+-e ':needonemore' \
+-e 's/^/::P::/' \
+-e 'G' \
+-e 'h' \
+-e 'd' \
+-e ':needtwomore' \
+-e 's/^/::PP::/' \
+-e 'G' \
+-e 'h' \
+-e 'd' \
+-e ':needthreemore' \
+-e 's/^/::PPP::/' \
+-e 'G' \
+-e 'h' \
+-e 'd' \
+-e ':start' \
+-e '/^[^[:cntrl:]:]*:[[:digit:]]\{1,\}: LaTeX Error: File `/{' \
+-e '  s/\n//g' \
+-e '  b needonemore' \
+-e '}' \
+-e '/^::0::.*: LaTeX Error: File `/{' \
+-e '  /\n\n$$/{' \
+-e '    s/^::0:://' \
+-e '    b needonemore' \
+-e '  }' \
 -e '  s/\n\{1,\}/ /g' \
 -e '  s/[[:space:]]\{1,\}/ /g' \
 -e '  s/^.*File `//' \
--e '  s/'"'"' not found\..*//' \
+-e '  s/'"'"' not found\..*extensions: \([^[:space:]]*\).*/::::\1/' \
 -e '  h' \
--e '  s/.*/# MISSING stem "&" - (presence of comment affects build)/' \
+-e '  s/\(.*\)::::\(.*\)/# MISSING stem "\1" - allowed extensions are "\2" - leave comment here - it affects the build/' \
 -e '  p' \
 -e '  g' \
--e '  b addtargets' \
--e '}' \
--e '/.*File: \(.*\) Graphic file (type [^)]*).*/{' \
--e '  s//\1/' \
+-e '  s/::::.*//' \
 -e '  b addtargets' \
 -e '}' \
 -e 'd' \
@@ -1519,14 +1584,14 @@ $(SED) \
 -e 's/.*/-include &.gpi.d/' \
 -e 'p' \
 -e 'g' \
--e 's/.*/$(addprefix $1,.d): $$$$(call graphics-source,&)/' \
+-e 's!.*!$1.d: $$$$(call graphics-source,&)!' \
 -e 'p' \
 -e 's/.*//' \
 -e 'x' \
--e 's/.*/$(addprefix $1.,$(build_target_extension) _graphics): $$$$(call graphics-target,&)/' \
+-e 's!.*!$1.$(build_target_extension) $1._graphics: $$$$(call graphics-target,&)!' \
 -e 'p' \
 -e 'd' \
-$*.log
+$1.log
 endef
 
 # Checks for build failure due to pstex inclusion, and gives instructions.
@@ -1574,6 +1639,7 @@ endef
 define die-on-no-aux
 if [ ! -e '$1.aux' ]; then \
 	$(call colorize-latex-errors,$1.log); \
+	$(ECHO) "$(C_ERROR)Error: failed to create $1.aux$(C_RESET)"; \
 	exit 1; \
 fi
 endef
@@ -1589,9 +1655,9 @@ $(SED) \
 -e 's/[[:space:]]/\\&/g' \
 -e '/^TARGETS=/{' \
 -e '  h' \
--e '  s/^TARGETS=/$2: /p' \
+-e '  s!^TARGETS=!$2: !p' \
 -e '  g' \
--e '  s/^TARGETS=\(.*\)/\1: $1.tex/p' \
+-e '  s!^TARGETS=\(.*\)!\1: $1.tex!p' \
 -e '}' \
 -e 'd' \
 '$1.log' | $(SORT) | $(UNIQ)
@@ -1623,7 +1689,7 @@ $(SED) \
 -e 's/ \{1,\}$$//' \
 $1 | $(XARGS) $(KPSEWHICH) '#######' | \
 $(SED) \
--e 's/^/$2: /' | \
+-e 's!^!$2: !' | \
 \$(SORT) | $(UNIQ)
 endef
 
@@ -1661,7 +1727,7 @@ define make-gpi-d
 $(ECHO) '# vim: ft=make' > $2; \
 $(ECHO) 'ifndef INCLUDED_$(call cleanse-filename,$2)' >> $2; \
 $(ECHO) 'INCLUDED_$(call cleanse-filename,$2) := 1' >> $2; \
-$(call get-gpi-deps,$1,$(addprefix $(2:%.gpi.d=%).,$(GNUPLOT_OUTPUT_EXTENSION) gpi.d)) >> $2; \
+$(call get-gpi-deps,$1,$(addprefix $(2:%.gpi.d=%).,$(GPI_OUTPUT_EXTENSION) gpi.d)) >> $2; \
 $(ECHO) 'endif' >> $2;
 endef
 
@@ -1686,17 +1752,18 @@ $(SED) \
 -e '  x' \
 -e '  s/\\\{0,1\}\n//g' \
 -e '  s/^[[:space:]]*s\{0,1\}plot[[:space:]]*\(\[[^]]*\][[:space:]]*\)*/,/' \
--e '  s/[[:space:]]*\(['\''"][^'\''"]*['\''"]\)\{0,1\}[^,]*/\1/g' \
--e '  s/,['\''"]-\{0,1\}['\''"]//g' \
--e '  s/[,'\''"]\{1,\}/ /g' \
+-e '  s/[[:space:]]*\(['"'"'\'"'"''"'"'"][^'"'"'\'"'"''"'"'"]*['"'"'\'"'"''"'"'"]\)\{0,1\}[^,]*/\1/g' \
+-e '  s/,['"'"'\'"'"''"'"'"]-\{0,1\}['"'"'\'"'"''"'"'"]//g' \
+-e '  s/[,'"'"'\'"'"''"'"'"]\{1,\}/ /g' \
+-e '  s/.*:.*/$$(error Error: Filenames with colons are not allowed: &)/' \
 -e '  s!.*!$2: &!' \
 -e '  p' \
 -e ' }' \
 -e ' d' \
 -e '}' \
--e 's/^[[:space:]]*load[[:space:]]*['\''"]\([^'\''"]*\.gpi\)['\''"].*$$/-include \1.d/p' \
+-e 's/^[[:space:]]*load[[:space:]]*['"'"'\'"'"''"'"'"]\([^'"'"'\'"'"''"'"'"]*\.gpi\)['"'"'\'"'"''"'"'"].*$$/-include \1.d/p' \
 -e 'd' \
-$1
+'$1'
 endef
 
 # Parse .m files for data and loaded dependencies, output to stdout
@@ -1724,63 +1791,109 @@ endef
 # Note that we only ignore file not found errors for things that we know how to
 # build, like graphics files.
 #
+# Also note that the output of this is piped through sed again to escape any
+# backslashes that might have made it through.  This is to avoid sending things
+# like "\right" to echo, which interprets \r as LF.  In bash, we could just do
+# ${var//\\/\\\\}, but in other popular sh variants (like dash), this doesn't
+# work.
+#
 # $(call colorize-latex-errors,<log file>)
 define colorize-latex-errors
 $(SED) \
--e '$$ b para' \
--e '/^$$/b para' \
--e 'H' \
--e 'd' \
--e ':para' \
--e 'x' \
--e '/^$$/d' \
--e 's/^\n*//' \
--e '/^! LaTeX Error: File /{' \
--e '  s/^/::DOUBLE_PARAGRAPH::/' \
--e '  h' \
--e '  d' \
--e '}' \
--e 's/^::DOUBLE_PARAGRAPH:://' \
--e '/could not locate the file with any of these extensions:/d' \
--e '/Missing .begin.document/{' \
--e '  h' \
--e '  s/.*/Are you trying to build an include file?/' \
--e '  x' \
--e '  G' \
--e '}' \
--e '/ LaTeX Error: Cannot determine size/d' \
--e 's/.* LaTeX Error .*/$(C_ERROR)&$(C_RESET)/p' \
--e 's/Error: pdflatex (file .*/$(C_ERROR)& - try specifying it without an extension$(C_RESET)/p' \
--e '/.*\*hyperref using.*driver \(.*\)\*.*/{' \
--e '  s//\1/' \
--e '  /^$(hyperref_driver_pattern)$$/!{' \
+-e '$${' \
+-e '  /^$$/!{' \
+-e '    H' \
 -e '    s/.*//' \
--e '    p' \
--e '    s/.*/$(C_ERROR)--- Using incorrect driver for hyperref! ---$(C_RESET)/' \
--e '    p' \
--e '    s/.*/$(C_ERROR)$(hyperref_driver_error)$(C_RESET)/' \
--e '    p' \
 -e '  }' \
+-e '}' \
+-e '/^$$/!{' \
+-e '  H' \
 -e '  d' \
 -e '}' \
--e '/ LaTeX Error: Unknown graphics extension/{' \
--e '  s/^/     /' \
--e '  h' \
--e '  s/.*/--- Graphics extension error:/' \
+-e '/^$$/{' \
+-e '  x' \
+-e '  s/^\(\n\)\(.*\)/\2\1/' \
+-e '}' \
+-e '/^::P\(P\{1,\}\)::/{' \
+-e '  s//::\1::/' \
 -e '  G' \
 -e '  h' \
--e '  s/.*/--- If you specified the extension explicitly in your .tex file, try removing it./' \
--e '  H' \
--e '  g' \
--e '  s/.*/$(C_ERROR)&$(C_RESET)/' \
--e '  p' \
--e '  s/.*//' \
--e '  h' \
--e '  b' \
+-e '  d' \
 -e '}' \
--e 's/.*\(\n\{2,\}![[:space:]][^[:space:]]*[[:space:]]Error .*\)/$(C_ERROR)\1$(C_RESET)/p' \
+-e '/^::P::/{' \
+-e '  s//::0::/' \
+-e '  G' \
+-e '}' \
+-e 'b start' \
+-e ':needonemore' \
+-e 's/^/::P::/' \
+-e 'G' \
+-e 'h' \
 -e 'd' \
-$1
+-e ':needtwomore' \
+-e 's/^/::PP::/' \
+-e 'G' \
+-e 'h' \
+-e 'd' \
+-e ':needthreemore' \
+-e 's/^/::PPP::/' \
+-e 'G' \
+-e 'h' \
+-e 'd' \
+-e ':start' \
+-e '/^! LaTeX Error: File /{' \
+-e '  s/\n//g' \
+-e '  b needtwomore' \
+-e '}' \
+-e 's/^[^[:cntrl:]:]*:[[:digit:]]\{1,\}:/!!! &/' \
+-e 's/^\(.*\n\)\([^[:cntrl:]:]*:[[:digit:]]\{1,\}: .*\)/\1!!! \2/' \
+-e '/^!!! .* LaTeX Error: File /{' \
+-e '  s/\n//g' \
+-e '  b needonemore' \
+-e '}' \
+-e '/^::0::! LaTeX Error: File .*/{' \
+-e '  /\n\n$$/{' \
+-e '    s/^::0:://' \
+-e '    b needonemore' \
+-e '  }' \
+-e '  s/^::0::! //' \
+-e '  s/^\(.*not found.\).*Enter file name:.*\n\(.*[[:digit:]]\{1,\}\): Emergency stop.*/\2: \1/' \
+-e '  b error' \
+-e '}' \
+-e '/^::0::!!! .*LaTeX Error: File .*/{' \
+-e '  /\n\n$$/{' \
+-e '    s/^::0:://' \
+-e '    b needonemore' \
+-e '  }' \
+-e '  s/::0::!!! //' \
+-e '  /could not locate.*any of these extensions:/{' \
+-e '    d' \
+-e '  }' \
+-e '  s/\(not found\.\).*/\1/' \
+-e '  b error' \
+-e '}' \
+-e '/^\(.* LaTeX Error: Missing .begin.document.\.\).*/{' \
+-e '  s//\1 --- Are you trying to build an include file?/' \
+-e '  b error' \
+-e '}' \
+-e '/.*\(!!! .*Undefined control sequence\)[^[:cntrl:]]*\(.*\)/{' \
+-e '  s//\1: \2/' \
+-e '  s/\nl\.[[:digit:]][^[:cntrl:]]*\(\\[^\\[:cntrl:]]*\).*/\1/' \
+-e '  b error' \
+-e '}' \
+-e '/^\(!pdfTeX error:.*\)s*/{' \
+-e '  b error' \
+-e '}' \
+-e '/.*\(!!! [^[:cntrl:]]*\).*/{' \
+-e '  s//\1.  See log for more information./' \
+-e '  b error' \
+-e '}' \
+-e 'd' \
+-e ':error' \
+-e 's/^!\(!! \)\{0,1\}\(.*\)/$(C_ERROR)\2$(C_RESET)/' \
+-e 'p' \
+-e 'd' \
+'$1' | $(SED) -e 's/\\\\/\\\\\\\\/g'
 endef
 
 # Colorize Makeindex errors
@@ -1792,7 +1905,7 @@ $(SED) \
 -e '  p' \
 -e '}' \
 -e 'd' \
-$1
+'$1'
 endef
 
 # Colorize epstopdf errors
@@ -1806,7 +1919,7 @@ $(SED) \
 -e '  p' \
 -e '}' \
 -e 'd' \
-$1
+'$1'
 endef
 
 # Colorize GNUplot errors
@@ -1823,8 +1936,8 @@ $(SED) \
 -e '/, line [0-9]*:/{' \
 -e '  H' \
 -e '  /unknown.*terminal type/{' \
--e '    s/.*/--- Try changing the GNUPLOT_OUTPUT_EXTENSION variable to 'eps'./' \
--e '	H' \
+-e '    s/.*/--- Try changing the GNUPLOT_OUTPUT_EXTENSION variable to '"'"'eps'"'"'./' \
+-e '    H' \
 -e '  }' \
 -e '  /gpihead/{' \
 -e '    s/.*/--- This could be a Makefile bug - contact the maintainer./' \
@@ -1841,7 +1954,6 @@ $(SED) \
 -e '}' \
 -e 'd' \
 $1
-
 endef
 
 # Colorize GraphViz errors
@@ -1849,6 +1961,7 @@ endef
 # $(call colorize-dot-errors,<log file>)
 define colorize-dot-errors
 $(SED) \
+-e 's/.*not found.*/$(C_ERROR)&$(C_RESET)/p' \
 -e '/^Error:/,/context:/s/.*/$(C_ERROR)&$(C_RESET)/p' \
 -e 's/^Warning:.*/$(C_WARNING)&$(C_RESET)/p' \
 -e 'd' \
@@ -1958,30 +2071,30 @@ color_tex	:= \
 	-e '    s/.*\(Overfull.*\)/$(C_OVERFULL)\1$(C_RESET)/' \
 	-e '    b end' \
 	-e '  }' \
-	$(if $(VERBOSE),,-e '  d') \
+	-e '  d' \
 	-e '  :end' \
 	-e '  G' \
-	-e '}' \
+	-e '}'
 
 # Colorize BibTeX output.
-color_bib	:= \
-	$(SED) \
-	-e 's/^Warning--.*/$(C_WARNING)&$(C_RESET)/' -e 't' \
-	-e '/---/,/^.[^:]/{' \
-	-e '  H' \
-	-e '  /^.[^:]/{' \
-	-e '    x' \
-	-e '    s/\n\(.*\)/$(C_ERROR)\1$(C_RESET)/' \
-	-e '	p' \
-	-e '    s/.*//' \
-	-e '    h' \
-	-e '    d' \
-	-e '  }' \
-	-e '  d' \
-	-e '}' \
-	-e '/(.*error.*)/s//$(C_ERROR)&$(C_RESET)/' \
-	$(if $(VERBOSE),,-e 'd')
-
+color_bib := \
+$(SED) \
+-e 's/^Warning--.*/$(C_WARNING)&$(C_RESET)/' \
+-e 't' \
+-e '/---/,/^.[^:]/{' \
+-e '  H' \
+-e '  /^.[^:]/{' \
+-e '    x' \
+-e '    s/\n\(.*\)/$(C_ERROR)\1$(C_RESET)/' \
+-e '    p' \
+-e '    s/.*//' \
+-e '    h' \
+-e '    d' \
+-e '  }' \
+-e '  d' \
+-e '}' \
+-e '/(.*error.*)/s//$(C_ERROR)&$(C_RESET)/' \
+-e 'd'
 
 # Make beamer output big enough to print on a full page.  Landscape doesn't
 # seem to work correctly.
@@ -1995,7 +2108,7 @@ test-run-again	= $(EGREP) -q '^(.*Rerun .*|No file $1\.[^.]+\.)$$' $1.log
 # $(call test-log-for-need-to-run,<source stem>)
 define test-log-for-need-to-run
 $(SED) \
--e '/^No file $(call escape-dots,$1)\.aux\./d' \
+-e '/^No file $(call escape-fname-regex,$1)\.aux\./d' \
 $1.log \
 | $(EGREP) -q '^(.*Rerun .*|No file $1\.[^.]+\.|No file .+\.tex\.|LaTeX Warning: File.*)$$'
 endef
@@ -2003,7 +2116,7 @@ endef
 # LaTeX invocations
 #
 # $(call latex,<tex file>,[<extra LaTeX args>])
-run-latex	= $(latex_build_program) --interaction=batchmode $(if $2,$2,) $1 > /dev/null
+run-latex	= $(latex_build_program) -interaction=batchmode -file-line-error $(if $2,$2,) $1 > /dev/null
 
 # $(call latex-color-log,<LaTeX stem>)
 latex-color-log	= $(color_tex) $1.log
@@ -2050,23 +2163,48 @@ $(EPSTOPDF) '$1.cookie' --outfile='$2' > $1.log; \
 $(call colorize-epstopdf-errors,$1.log);
 endef
 
+# $(call default-gpi-fontsize,<output file>)
+#
+# Find the default fontsize given the *output* file (it is based on the output extension)
+#
+default-gpi-fontsize = $(if $(filter %.pdf,$1),$(DEFAULT_GPI_PDF_FONTSIZE),$(DEFAULT_GPI_EPS_FONTSIZE))
+
+# $(call gpi-fontsize,<gpi file>,<output file>)
+#
+# Find out what the gnuplot fontsize should be.  Tries, in this order:
+# - ##FONTSIZE comment in gpi file
+# - ##FONTSIZE comment in global gpi file
+# - default fontsize based on output type
+define gpi-fontsize
+$(strip $(firstword \
+	$(shell $(SED) -e 's/^\#\#FONTSIZE=\([[:digit:]]\{1,\}\)/\1/p' -e 'd' $1 $(strip $(gpi_global))) \
+	$(call default-gpi-fontsize,$2)))
+endef
+
+# $(call gpi-monochrome,<gpi file>,[gray])
+define gpi-monochrome
+$(strip $(if $2,monochrome,$(if $(shell $(EGREP) '^\#\#[[:space:]]*GRAY[[:space:]]*$$' $1 $(gpi_global)),monochrome,color)))
+endef
+
+# $(call gpi-font-entry,<output file>,<fontsize>)
+#
+# Get the font entry given the output file (type) and the font size.  For PDF
+# it uses fsize or font, for eps it just uses the bare number.
+gpi-font-entry = $(if $(filter %.pdf,$1),$(subst FONTSIZE,$2,$(GPI_FSIZE_SYNTAX)),$2)
+
+# $(call gpi-terminal,<gpi file><output file>,[gray])
+#
+# Get the terminal settings for a given gpi and its intended output file
+define gpi-terminal
+$(if $(filter %.pdf,$2),pdf enhanced,postscript enhanced eps) \
+$(call gpi-font-entry,$2,$(call gpi-fontsize,$1,$2)) \
+$(call gpi-monochrome,$1,$3)
+endef
+
 # $(call convert-gpi,<gpi file>,<output file>,[gray])
 #
 define convert-gpi
-$(ECHO) 'set terminal $(if $(filter %.pdf,$2),pdfcairo enhanced,post enh )' \
-$(if $(filter %.pdf,$2),fsize ,)$(call get-default,$(strip \
-$(firstword \
-	$(shell \
-		$(SED) \
-			-e 's/^\#\#FONTSIZE=\([[:digit:]]\{1,\}\)/\1/p' \
-			-e 'd' \
-			$1 $(strip $(gpi_global)) \
-	) \
-) \
-),$(if $(filter %.pdf,$2),$(DEFAULT_GPI_PDF_FONTSIZE),$(DEFAULT_GPI_EPS_FONTSIZE))) \
-$(strip $(if $3,monochrome,$(if \
-$(shell $(EGREP) '^\#\#[[:space:]]*GRAY[[:space:]]*$$' $< $(gpi_global)),\
-,color))) > $1head.make; \
+$(ECHO) 'set terminal $(call gpi-terminal,$1,$2,$3)' > $1head.make; \
 $(ECHO) 'set output "$2"' >> $1head.make; \
 $(if $(gpi_global),$(CAT) $(gpi_global) >> $1head.make;,) \
 fnames='$1head.make $1';\
@@ -2075,7 +2213,7 @@ $(if $(gpi_sed),\
 	fnames=$1.temp.make;,\
 ) \
 success=1; \
-if ! $(GNUPLOT) $$fnames 2>$1.log; then \
+if ! $(GNUPLOT) $$fnames 2> $1.log; then \
 	$(call colorize-gnuplot-errors,$1.log); \
 	success=0; \
 fi; \
@@ -2087,30 +2225,33 @@ endef
 # $(call convert-octave,<m file>,<output file>,[gray])
 #
 define convert-octave
+dir=$(shell dirname $1); \
+m_file=$(shell basename $1); \
+out_file=$(shell basename $2); \
 $(ECHO) $(if $(filter %.pdf,$2),fsize ,)$(call get-default,$(strip \
 $(firstword \
 	$(shell \
 		$(SED) \
 			-e 's/^\#\#FONTSIZE=\([[:digit:]]\{1,\}\)/\1/p' \
 			-e 'd' \
-			$1 $(strip $(octave_global)) \
+			$(m_file) $(strip $(octave_global)) \
 	) \
 ) \
 ),$(if $(filter %.pdf,$2),$(DEFAULT_GPI_PDF_FONTSIZE),$(DEFAULT_GPI_EPS_FONTSIZE))) \
-$(if $(octave_global),$(CAT) $(octave_global) >> $1head.make;,) \
-$(ECHO) 'print $(if $(filter %.pdf,$2),-dpdf,$(if $3,-deps2,-depsc2)) "$2"' >> $1head.make; \
-fnames='$1head.make $1';\
+$(if $(octave_global),$(CAT) $(octave_global) >> $(m_file)head.make;,) \
+$(ECHO) 'print $(if $(filter %.pdf,$2),-dpdf,$(if $3,-deps2,-depsc2)) "$out_file"' >> $(m_file)head.make; \
+fnames='$(m_file)head.make $(m_file)';\
 $(if $(octave_sed),\
-	$(SED) -f '$(octave_sed)' $$fnames > $1.temp.make; \
-	fnames=$1.temp.make;,\
+	$(SED) -f '$(octave_sed)' $$fnames > $(m_file).temp.make; \
+	fnames=$(m_file).temp.make;,\
 ) \
 success=1; \
-if ! $(OCTAVE) $$fnames 2>$1.log; then \
-	$(call colorize-octave-errors,$1.log); \
+if ! (cd dir;$(OCTAVE) $$fnames 2>$(m_file).log); then \
+	$(call colorize-octave-errors,$(m_file).log); \
 	success=0; \
 fi; \
-$(if $(octave_sed),$(call remove-temporary-files,$1.temp.make);,) \
-$(call remove-temporary-files,$1head.make); \
+$(if $(octave_sed),$(call remove-temporary-files,$(m_file).temp.make);,) \
+$(call remove-temporary-files,$(m_file)head.make); \
 [ "$$success" = "1" ] && $(sh_true) || $(sh_false);
 endef
 
@@ -2132,7 +2273,7 @@ $(PNGTOPNM) "$1" \
 	> "$2"
 endef
 
-# Creation of .eps files from .jpg files
+# Creation of .eps files from .jpg/.jpeg files
 #
 # Thanks to brubakee for this solution.
 #
@@ -2166,7 +2307,7 @@ convert-dia	= $(DIA) $(if $(filter %.pdf,$2)--export=,--filter=eps-pango --expor
 # Converts svg files into .eps files
 #
 # $(call convert-svg,<svg file>,<eps file>,[gray])
-convert-svg	= $(INKSCAPE) --without-gui $(if $(filter %.pdf,$2)--export-pdf=,--export-eps)='$2' '$1'
+convert-svg	= $(INKSCAPE) --without-gui $(if $(filter %.pdf,$2),--export-pdf,--export-eps)='$2' '$1'
 
 # Converts xvg files into .eps files
 #
@@ -2502,6 +2643,10 @@ endif
 			run=1; \
 			break; \
 		fi; \
+		if [ ! -e $*.1st.*.make ]; then \
+			run=1; \
+			break; \
+		fi; \
 	done; \
 	$(call remove-temporary-files,$*.bbl.cookie $*.run.cookie); \
 	$(MV) $*.auxtarget.cookie $*.auxtarget.make; \
@@ -2541,7 +2686,7 @@ endif
 		$(call run-bibtex,$*); \
 		$(TOUCH) $@.cookie; \
 	) \
-	if $(EGREP) -q 'bibstyle.(apacann|chcagoa|[^}]*annot)' '$*.aux'; then \
+	if $(EGREP) -q 'bibstyle.(apacite|apacann|chcagoa|[^}]*annot)' '$*.aux'; then \
 		$(call echo-build,** annotated extra latex **,output ignored,$(RESTARTS)-1); \
 		$(call run-latex,$*); \
 		$(CP) '$*.log' '$*.$(RESTARTS)-annotated.log'; \
@@ -2622,8 +2767,8 @@ ifeq "$(strip $(BUILD_STRATEGY))" "pdflatex"
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-eps-to-pdf,$<,$@,$(GRAY))
 
-ifeq "$(strip $(GNUPLOT_OUTPUT_EXTENSION))" "pdf"
-%.pdf:	%.gpi %.gpi.d $(gpi_sed)
+ifeq "$(strip $(GPI_OUTPUT_EXTENSION))" "pdf"
+%.pdf:	%.gpi %.gpi.d $(gpi_sed) $(gpi_global)
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-gpi,$<,$@,$(GRAY))
 endif
@@ -2642,8 +2787,8 @@ ifeq "$(strip $(BUILD_STRATEGY))" "xelatex"
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-eps-to-pdf,$<,$@,$(GRAY))
 
-ifeq "$(strip $(GNUPLOT_OUTPUT_EXTENSION))" "pdf"
-%.pdf:	%.gpi %.gpi.d $(gpi_sed)
+ifeq "$(strip $(GPI_OUTPUT_EXTENSION))" "pdf"
+%.pdf:	%.gpi %.gpi.d $(gpi_sed) $(gpi_global)
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-gpi,$<,$@,$(GRAY))
 endif
@@ -2658,7 +2803,7 @@ endif
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-octave,$<,$@,$(GRAY))
 
-%.eps:	%.gpi %.gpi.d $(gpi_sed)
+%.eps:	%.gpi %.gpi.d $(gpi_sed) $(gpi_global)
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-gpi,$<,$@,$(GRAY))
 
@@ -2674,21 +2819,31 @@ endif
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-xvg,$<,$@,$(GRAY))
 
+ifneq "$(default_graphic_extension)" "pdf"
+# We have a perfectly good build rule for svg to pdf, so we eliminate this to
+# avoid confusing make (it sometimes chooses to go svg -> eps -> pdf).
 %.eps: %.svg $(if $(GRAY),$(gray_eps_file))
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-svg,$<,$@,$(GRAY))
+
+# Similarly for these, we don't need eps if we have supported extensions
+# already.
+%.eps: %.jpg $(if $(GRAY),$(gray_eps_file))
+	$(QUIET)$(call echo-graphic,$^,$@)
+	$(QUIET)$(call convert-jpg,$<,$@,$(GRAY))
+
+%.eps: %.jpeg $(if $(GRAY),$(gray_eps_file))
+	$(QUIET)$(call echo-graphic,$^,$@)
+	$(QUIET)$(call convert-jpg,$<,$@,$(GRAY))
 
 %.eps: %.dia $(if $(GRAY),$(gray_eps_file))
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-dia,$<,$@,$(GRAY))
 
-%.eps: %.jpg $(if $(GRAY),$(gray_eps_file))
-	$(QUIET)$(call echo-graphic,$^,$@)
-	$(QUIET)$(call convert-jpg,$<,$@,$(GRAY))
-
 %.eps: %.png $(if $(GRAY),$(gray_eps_file))
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-png,$<,$@,$(GRAY))
+endif
 
 %.eps: %.eps.gz $(if $(GRAY),$(gray_eps_file))
 	$(QUIET)$(call echo-graphic,$^,$@)
@@ -2748,7 +2903,7 @@ endif
 %.$(build_target_extension).1st.make %.d %.aux %.aux.make %.fls: %.tex
 	$(QUIET)$(call echo-build,$<,$*.d $*.$(build_target_extension).1st.make,$(RESTARTS)-1)
 	$(QUIET)\
-	$(call run-latex,$<,--recorder) || $(sh_true); \
+	$(call run-latex,$<,-recorder) || $(sh_true); \
 	$(CP) '$*.log' '$*.$(RESTARTS)-1.log'; \
 	$(call die-on-import-sty,$*.log); \
 	$(call die-on-dot2tex,$*.log); \
@@ -2850,7 +3005,6 @@ _all_programs:
 _check_programs:
 	$(QUIET)$(ECHO) "== Checking Makefile Dependencies =="; $(ECHO)
 	$(QUIET) \
-	$(ECHO) hi; \
 	allprogs=`\
 	 ($(call output-all-programs)) | \
 	 $(SED) \
@@ -2878,7 +3032,7 @@ _check_programs:
 	done
 
 .PHONY: _check_gpi_files
-:
+_check_gpi_files:
 	$(QUIET)$(ECHO) "== Checking all .gpi files for common errors =="; \
 	$(ECHO); \
 	for f in $(files.gpi); do \
@@ -2993,7 +3147,7 @@ clean-tex: clean-deps
 # even want to keep pstex functionality, so my motivation is not terribly high
 # for doing it right.
 clean-graphics:
-	$(QUIET)$(call clean-files,$(all_graphics_targets) $(intermediate_graphics_targets) *.gpi.d *.pstex *.pstex_t *.dot_t)
+	$(QUIET)$(call clean-files,$(all_graphics_targets) *.gpi.d *.pstex *.pstex_t *.dot_t)
 
 .PHONY: clean-backups
 clean-backups:
@@ -3004,13 +3158,13 @@ clean-auxiliary:
 	$(QUIET)$(call clean-files,$(graph_stem).*)
 
 .PHONY: clean-nographics
-clean-nographics: clean-tex clean-deps clean-backups clean-auxiliary
+clean-nographics: clean-tex clean-deps clean-backups clean-auxiliary ;
 
 .PHONY: clean
-clean:	clean-tex clean-deps clean-backups clean-auxiliary
+clean:	clean-tex clean-deps clean-backups clean-auxiliary ;
 
 .PHONY: clean-all
-clean-all: clean-generated clean-tex clean-graphics clean-deps clean-backups clean-auxiliary
+clean-all: clean-generated clean-tex clean-graphics clean-deps clean-backups clean-auxiliary ;
 
 
 #
@@ -3063,6 +3217,12 @@ define help_text
 #        debugging tricks is to do this:
 #
 #        make -d SHELL_DEBUG=1 VERBOSE=1 2>&1 | less
+#
+#    KEEP_TEMP:
+#        When set, this allows .make and other temporary files to stick around
+#        long enough to do some debugging.  This can be useful when trying to
+#        figure out why gnuplot is not doing the right things, for example
+#        (e.g., look for *head.make).
 #
 # STANDARD AUXILIARY FILES:
 #
@@ -3512,7 +3672,7 @@ define help_text
 #        terminal definition in the .gpi file makes it harder for you, the one
 #        writing the document, to preview your graphics, e.g., with
 #
-#           gnuplot -persist myfile.gpi
+#           gnuplot --persist myfile.gpi
 #
 #        so don't do specify a terminal or an output file in your .gpi files.
 #
@@ -3594,100 +3754,101 @@ endef
 #
 # DEPENDENCY CHART:
 #
-#digraph "g" {
-#    rankdir=TB
-#    size="9,9"
-#    edge [fontsize=12 weight=10]
-#    node [shape=box fontsize=14 style=rounded]
+# digraph "g" {
+#     rankdir=TB
+#     size="9,9"
+#     edge [fontsize=12 weight=10]
+#     node [shape=box fontsize=14 style=rounded]
 #
-#    eps [
-#        shape=Mrecord
-#        label="{{<gpi> GNUplot|<epsgz> GZip|<dot> Dot|<fig> XFig}|<eps> eps}"
-#        ]
-#    pstex [label="%.pstex"]
-#    pstex_t [label="%.pstex_t"]
-#    tex_outputs [shape=point]
-#    extra_tex_files [shape=point]
-#    gpi_data [label="<data>"]
-#    gpi_includes [label="_include_.gpi"]
-#    aux [label="%.aux"]
-#    fls [label="%.fls"]
-#    idx [label="%.idx"]
-#    glo [label="%.glo"]
-#    ind [label="%.ind"]
-#    log [label="%.log"]
-#    tex_sh [label="%.tex.sh"]
-#    rst [label="%.rst"]
-#    tex [
-#        shape=record
-#        label="<tex> %.tex|<include> _include_.tex"
-#        ]
-#    include_aux [label="_include_.aux"]
-#    file_bib [label=".bib"]
-#    bbl [label="%.bbl"]
-#    dvi [label="%.dvi"]
-#    ps [label="%.ps"]
-#    pdf [label="%.pdf"]
-#    fig [label=".fig"]
-#    dot [label=".dot"]
-#    gpi [label=".gpi"]
-#    eps_gz [label=".eps.gz"]
+#     eps [
+#         shape=Mrecord
+#         label="{{<gpi> GNUplot|<epsgz> GZip|<dot> Dot|<fig> XFig}|<eps> eps}"
+#         ]
+#     pstex [label="%.pstex"]
+#     pstex_t [label="%.pstex_t"]
+#     tex_outputs [shape=point]
+#     extra_tex_files [shape=point]
+#     gpi_data [label="<data>"]
+#     gpi_includes [label="_include_.gpi"]
+#     aux [label="%.aux"]
+#     fls [label="%.fls"]
+#     idx [label="%.idx"]
+#     glo [label="%.glo"]
+#     ind [label="%.ind"]
+#     log [label="%.log"]
+#     tex_sh [label="%.tex.sh"]
+#     rst [label="%.rst"]
+#     tex [
+#         shape=record
+#         label="<tex> %.tex|<include> _include_.tex"
+#         ]
+#     include_aux [label="_include_.aux"]
+#     file_bib [label=".bib"]
+#     bbl [label="%.bbl"]
+#     dvi [label="%.dvi"]
+#     ps [label="%.ps"]
+#     pdf [label="%.pdf"]
+#     fig [label=".fig"]
+#     dot [label=".dot"]
+#     gpi [label=".gpi"]
+#     eps_gz [label=".eps.gz"]
 #
-#    gpi_files [shape=point]
+#     gpi_files [shape=point]
 #
-#    rst -> tex:tex [label="reST"]
-#    tex_sh -> tex:tex [label="sh"]
-#    tex_pl -> tex:tex [label="perl"]
-#    tex_py -> tex:tex [label="python"]
-#    tex -> tex_outputs [label="latex"]
-#    tex_outputs -> dvi
-#    tex_outputs -> aux
-#    tex_outputs -> log
-#    tex_outputs -> fls
-#    tex_outputs -> idx
-#    tex_outputs -> include_aux
-#    aux -> bbl [label="bibtex"]
-#    file_bib -> bbl [label="bibtex"]
-#    idx -> ind [label="makeindex"]
-#    glo -> gls [label="makeindex"]
-#    nlo -> nls [label="makeindex"]
-#    gls -> extra_tex_files
-#    nls -> extra_tex_files
-#    ind -> extra_tex_files
-#    bbl -> extra_tex_files
-#    eps -> extra_tex_files
-#    extra_tex_files -> dvi [label="latex"]
-#    gpi_files -> eps:gpi [label="gnuplot"]
-#    gpi -> gpi_files
-#    gpi_data -> gpi_files
-#    gpi_includes -> gpi_files
-#    eps_gz -> eps:epsgz [label="gunzip"]
-#    fig -> eps:fig [label="fig2dev"]
-#    fig -> pstex [label="fig2dev"]
-#    fig -> pstex_t [label="fig2dev"]
-#    pstex -> pstex_t [label="fig2dev"]
-#    dot -> eps:dot [label="dot"]
-#    dvi -> ps [label="dvips"]
-#    include_aux -> bbl [label="bibtex"]
-#    ps -> pdf [label="ps2pdf"]
+#     rst -> tex:tex [label="reST"]
+#     tex_sh -> tex:tex [label="sh"]
+#     tex_pl -> tex:tex [label="perl"]
+#     tex_py -> tex:tex [label="python"]
+#     tex -> tex_outputs [label="latex"]
+#     tex_outputs -> dvi
+#     tex_outputs -> aux
+#     tex_outputs -> log
+#     tex_outputs -> fls
+#     tex_outputs -> idx
+#     tex_outputs -> include_aux
+#     aux -> bbl [label="bibtex"]
+#     file_bib -> bbl [label="bibtex"]
+#     idx -> ind [label="makeindex"]
+#     glo -> gls [label="makeindex"]
+#     nlo -> nls [label="makeindex"]
+#     gls -> extra_tex_files
+#     nls -> extra_tex_files
+#     ind -> extra_tex_files
+#     bbl -> extra_tex_files
+#     eps -> extra_tex_files
+#     extra_tex_files -> dvi [label="latex"]
+#     gpi_files -> eps:gpi [label="gnuplot"]
+#     gpi -> gpi_files
+#     gpi_data -> gpi_files
+#     gpi_includes -> gpi_files
+#     eps_gz -> eps:epsgz [label="gunzip"]
+#     fig -> eps:fig [label="fig2dev"]
+#     fig -> pstex [label="fig2dev"]
+#     fig -> pstex_t [label="fig2dev"]
+#     pstex -> pstex_t [label="fig2dev"]
+#     dot -> eps:dot [label="dot"]
+#     dvi -> ps [label="dvips"]
+#     include_aux -> bbl [label="bibtex"]
+#     ps -> pdf [label="ps2pdf"]
 #
-#    edge [ color=blue label="" style=dotted weight=1 fontcolor=blue]
-#    fls -> tex:include [label="INPUT: *.tex"]
-#    fls -> file_bib [label="INPUT: *.aux"]
-#    aux -> file_bib [label="\\bibdata{...}"]
-#    include_aux -> file_bib [label="\\bibdata{...}"]
-#    log -> gpi [label="Graphic file"]
-#    log -> fig [label="Graphic file"]
-#    log -> eps_gz [label="Graphic file"]
-#    log -> dot [label="Graphic file"]
-#    log -> idx [label="No file *.ind"]
-#    log -> glo [label="No file *.gls"]
-#    log -> nlo [label="No file *.nls"]
-#    gpi -> gpi_data [label="plot '...'"]
-#    gpi -> gpi_includes [label="load '...'"]
-#    tex:tex -> ps [label="paper"]
-#    tex:tex -> pdf [label="embedding"]
-#}
+#     edge [ color=blue label="" style=dotted weight=1 fontcolor=blue]
+#     fls -> tex:include [label="INPUT: *.tex"]
+#     fls -> file_bib [label="INPUT: *.aux"]
+#     aux -> file_bib [label="\\bibdata{...}"]
+#     include_aux -> file_bib [label="\\bibdata{...}"]
+#     log -> gpi [label="Graphic file"]
+#     log -> fig [label="Graphic file"]
+#     log -> eps_gz [label="Graphic file"]
+#     log -> dot [label="Graphic file"]
+#     log -> idx [label="No file *.ind"]
+#     log -> glo [label="No file *.gls"]
+#     log -> nlo [label="No file *.nls"]
+#     gpi -> gpi_data [label="plot '...'"]
+#     gpi -> gpi_includes [label="load '...'"]
+#     tex:tex -> ps [label="paper"]
+#     tex:tex -> pdf [label="embedding"]
+# }
+#
 
 #
 # DEPENDENCY CHART SCRIPT

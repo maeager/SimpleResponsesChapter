@@ -51,6 +51,6 @@ set style line 3 lt 1 lw 3 pt 5 lc rgb '#dd181f' ps 1.5
 #set label 5  ' spon      3.73'	      at graph 0.1,0.75
 #set label 6 'RMS error 4.48 sp/s' at graph 0.1,0.5
 
-plot "./golgi/GolgiRateLevel_Opt.dat" using 1:2 title "Target Response" with lp ls 2, \
-     "./golgi/GolgiRateLevel_Opt.dat" using 1:3 title "Fitted Response" with lp ls 3
+plot "./gfx/golgi/GolgiRateLevel_Opt.dat" using 1:2 title "Target Response" with lp ls 2, \
+     "./gfx/golgi/GolgiRateLevel_Opt.dat" using 1:3 title "Fitted Response" with lp ls 3
      

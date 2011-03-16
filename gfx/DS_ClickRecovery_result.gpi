@@ -1,3 +1,4 @@
+#!/usr/bin/env gnuplot
 # DS Click Recovery results
 #
 # gnuplot is available from http://www.gnuplot.info
@@ -46,3 +47,4 @@ plot "DS_ClickRecovery.Fit0.dat" using 1:5 with l notitle ls 1, \
  "DS_ClickRecovery.Fit.dat" using 1:3 title "Optimal Response" with linespoints ls 3 lc "red", \
  "DS_ClickRecovery.Fit.dat" using 1:2 with linespoints title "Mask Click" ls 2 lc "blue", \
  "DS_ClickRecovery.Fit.dat" using 1:5 with linespoints title "Probe Click" ls 4 lc "cyan"
+

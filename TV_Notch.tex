@@ -1,4 +1,4 @@
-\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
+%\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
 
 \section[TV Cell Model]{Tuberculoventral cell model: Optimisation to notch-noise response}
 \label{sec:TV-cell-model}
@@ -53,10 +53,10 @@ inhibited by sharp spectral peaks close to their BF
 \begin{figure}[htb]
   \centering
 %\resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
-\includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/Spirou-Fig1-type2}
+\includegraphics[keepaspectratio,width=0.8\textwidth]{Spirou-Fig1-type2}
 \caption{Experimental data of a single Type-II \DCN unit \citep[Fig.~1]{SpirouDavisEtAl:1999}.}
   \label{fig:SpirouFig1}
-\end{figure}\yellownote{Figure~\ref{fig:SpirouFig1} needs permission}
+\end{figure}\todo[inline]{Figure~\ref{fig:SpirouFig1} needs permission}
 
 
 % \subsubsection{Key design factors}
@@ -157,9 +157,9 @@ method. \yellownote{Population mean rate: Pros: fairly stable for smallish
 \end{figure}\yellownote{Permission needed for Reiss and Young figures}
 
 
-\begin{figure}[h!]
+\begin{figure}[htb]
   \centering
-  \resizebox{0.7\textwidth}{!}{\includegraphics{./gfx/TV_NotchDataConfig}}
+  \resizebox{0.7\textwidth}{!}{\includegraphics{TV_NotchDataConfig}}
   \caption{Expected mean rate response to notch noise in the TV cells is created
     from 1 octave notch sweeps (top) for the falling edge and from half octave
     notch sweeps (bottom) for the rising edge. (Top and bottom figures from
@@ -167,7 +167,7 @@ method. \yellownote{Population mean rate: Pros: fairly stable for smallish
   \label{fig:TVNotchDiagram}
 \end{figure}
 
-\input{TV_NotchTable.tex}
+%\input{TV_NotchTable.tex}
 
 
 
@@ -251,7 +251,7 @@ Complicated issues in TV model optimisation:
 Figure~\ref{fig:TV_result_spl} shows the optimisation results for different
 input sound intensities.  The performance improves when reducing the sound level
 of the notch stimulus from 110 down to 50 dB SPL.
-\begin{figure}[!h]
+\begin{figure}[!ht]
   \centering
   \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_spl.eps}}
   \caption{Optimisation results for TV Notch model with stimulus sound levels at

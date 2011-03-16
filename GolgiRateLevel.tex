@@ -1,6 +1,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{../../cnstellate/}}
+%\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{../../cnstellate/}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[Golgi Cell Model]{Golgi Cell Model: Optimisation using monotonic
@@ -119,7 +119,7 @@
  Golgi cells (Table \ref{tab:GolgiCellModelSummary}C) is a simple place-based
  Gaussian spread, as explained in the introduction ($\S$\ref{sec:tonot-conn})
 
- \input{GolgiRateLevelTable.tex}
+% \input{GolgiRateLevelTable.tex}
 
  The Golgi cell model is implemented as an instantaneous-rate Poisson rate
  model, shown in Table \ref{tab:GolgiCellModelSummary}D and in
@@ -132,9 +132,9 @@
 
  \begin{figure}[h!]
   \centering
-  % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
+  \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
 %  \resizebox{0.9\textwidth}{!}{\includegraphics{gfx/GolgiDiagram.eps}}\\
-  \resizebox{0.9\textwidth}{!}{\input{gfx/GolgiDiagram.tex}}\\
+%  \resizebox{0.9\textwidth}{!}{\input{gfx/GolgiDiagram.tex}}\\
   \caption{The Golgi instantaneous-rate profile was generated using a weighted
     sum ANF profiles and a alpha function smoothing filter to mimic dendritic
     and synaptic filtering. The Gaussian spread of connections is independent
@@ -161,7 +161,7 @@
  cell. The alpha filter length was 10 times the time constant, $\Gtau$, and its
  area under the function was normalised to 1.  A more detailed explanation of
  the NEURON implementation of the Golgi cell model is in the chapter
- Appendix~\ref{sec:chp3appendix}.  %\medskip{}
+ Appendix~\ref{sec:chp3:appendix}.  %\medskip{}
 
 %Eq.~\ref{eq:alpha_Golgi}, 
 
@@ -219,7 +219,7 @@
 
 \begin{figure}[htb]
   \centering
-  \resizebox{0.8\textwidth}{!}{\includegraphics{./gfx/GolgiRateLevel_result2.eps}}\\
+  \resizebox{0.8\textwidth}{!}{\includegraphics{GolgiRateLevel_result2.eps}}\\
   \caption{Initial trial results of the Golgi cell model optimisation.
     Responses of the Golgi cell model (blue triangles) compared five five sound
     level (0,15, 55, 75 and 85 dB SPL) against 5 point in the target response
@@ -270,9 +270,9 @@ Spontaneous rate in Golgi cell model (spikes per second) & \Gspon &     [0,50]  
 \begin{figure}[htb]
   \centering
   % \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
-  \resizebox{\textwidth}{!}{\includegraphics{./gfx/GolgiRateLevel_result.eps}} \\
+  \resizebox{\textwidth}{!}{\includegraphics{GolgiRateLevel_result.eps}} \\
   % \hspace{1cm}\figfont{A}\hfill\\
-  % \resizebox{\textwidth}{!}{\includegraphics{./gfx/GolgiRateLevel_result2.eps}} \\
+  %\resizebox{\textwidth}{!}{\includegraphics{GolgiRateLevel_result2.eps}} \\
   % \hspace{1cm}\figfont{B}\hfill \\
   % \resizebox{\textwidth}{!}{\includegraphics{./gfx/GolgiRateLevel_result.eps}} \\
   \caption{Golgi cell model optimisation result trials against unit
@@ -335,7 +335,7 @@ and had monotonic responses to tones and noise similar to another Ghoshal and
 Kim unit Figure \ref{fig:Golgi_verification}C Figure
 \ref{fig:Golgi_verification}C shows the response of every Golgi cell model in
 the network to a 5.8 kHz tone, increased from 0 to 90 dB SPL.
-\begin{figure}[h]
+\begin{figure}[htb]
   \centering
   \figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill\\
   \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/G_ratelevel.eps}\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\

@@ -13,8 +13,8 @@
    height="640.75677"
    id="svg2936"
    version="1.1"
-   inkscape:version="0.47pre4 r22446"
-   sodipodi:docname="getaudiogram.svg">
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="getaudiogram.eps">
   <defs
      id="defs2938">
     <marker
@@ -310,11 +310,11 @@
      inkscape:showpageshadow="true"
      borderlayer="false"
      showguides="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="1000"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1">
+     inkscape:window-width="571"
+     inkscape:window-height="497"
+     inkscape:window-x="867"
+     inkscape:window-y="143"
+     inkscape:window-maximized="0">
     <sodipodi:guide
        position="48.914927,116.58125"
        orientation="0,744.09448"
@@ -481,13 +481,13 @@
     </g>
     <text
        style="font-size:22.96385956px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
-       x="265.08841"
+       x="239.08841"
        y="636.57037"
        id="text72">
       <tspan
-         x="265.08841"
+         x="239.08841"
          y="636.57037"
-         id="tspan74">MATLAB/Octave</tspan>
+         id="tspan74">MATLAB/GNU Octave</tspan>
     </text>
     <g
        transform="matrix(1.7940796,0,0,1.7940796,-208.86486,604.27875)"
@@ -677,7 +677,7 @@
        id="text8823"
        transform="translate(-59.241722,392.90569)"><tspan
          sodipodi:role="line"
-         id="tspan8825"></tspan></text>
+         id="tspan8825" /></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot8831"
@@ -698,7 +698,7 @@
        sodipodi:cy="456.06729"
        sodipodi:rx="82.25666"
        sodipodi:ry="61.56316"
-       d="m 310.98001,433.45256 a 82.25666,61.56316 0 0 1 152.2285,-1.43096"
+       d="m 310.98001,433.45256 c 16.68802,-31.62329 64.46912,-47.13407 106.72209,-34.6443 20.50225,6.06037 36.89657,18.02593 45.50641,33.21334"
        transform="translate(-57.241722,478.90569)"
        sodipodi:start="3.5177422"
        sodipodi:end="5.8819175"
@@ -711,7 +711,7 @@
        sodipodi:cy="456.06729"
        sodipodi:rx="82.25666"
        sodipodi:ry="61.56316"
-       d="m 310.98001,433.45256 a 82.25666,61.56316 0 0 1 152.2285,-1.43096"
+       d="m 310.98001,433.45256 c 16.68802,-31.62329 64.46912,-47.13407 106.72209,-34.6443 20.50225,6.06037 36.89657,18.02593 45.50641,33.21334"
        transform="translate(-325.69505,479.11525)"
        sodipodi:start="3.5177422"
        sodipodi:end="5.8819175"
@@ -724,7 +724,7 @@
        sodipodi:cy="456.06729"
        sodipodi:rx="82.25666"
        sodipodi:ry="61.56316"
-       d="m 310.98001,433.45256 a 82.25666,61.56316 0 0 1 152.2285,-1.43096"
+       d="m 310.98001,433.45256 c 16.68802,-31.62329 64.46912,-47.13407 106.72209,-34.6443 20.50225,6.06037 36.89657,18.02593 45.50641,33.21334"
        transform="translate(220.8127,483.0459)"
        sodipodi:start="3.5177422"
        sodipodi:end="5.8819175"
