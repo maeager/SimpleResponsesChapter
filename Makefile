@@ -607,6 +607,7 @@ PDFLATEX	?= pdflatex
 XELATEX		?= xelatex
 EPSTOPDF	?= epstopdf
 MAKEINDEX	?= makeindex
+MAKEGLOSSARY    ?= makeglossaries
 KPSEWHICH	?= kpsewhich
 GS		?= gs
 # = OPTIONAL PROGRAMS =
@@ -2132,6 +2133,18 @@ fi; \
 [ "$$success" = "1" ] && $(sh_true) || $(sh_false);
 endef
 
+# $(call run-makeindex,<input>,<output>,<log>,<extra flags>)
+define run-makeglossary
+success=1; \
+if ! $(MAKEGLOSSARY) -q $1 -t $3 -o $2 $4 > /dev/null || $(EGREP) -q '^!!' $3; then \
+	$(call colorize-makeindex-errors,$3); \
+	$(RM) -f '$2'; \
+	success=0; \
+fi; \
+[ "$$success" = "1" ] && $(sh_true) || $(sh_false);
+endef
+
+
 # This runs the given script to generate output, and it uses MAKE_RESTARTS to
 # ensure that it never runs it more than once for a particular root make
 # invocation.
@@ -2713,7 +2726,7 @@ endif
 # Create the glossary file
 %.gls:	%.glo %.tex
 	$(QUIET)$(call echo-build,$<,$@)
-	$(QUIET)$(call run-makeindex,$<,$@,$*.glg,-s nomencl.ist)
+	$(QUIET)$(call run-makeglossary,$<,$@,$*.glg) #,-s nomencl.ist)
 
 # Create the nomenclature file
 %.nls:	%.nlo %.tex
