@@ -3,7 +3,7 @@
 %\renewcommand{\setthesubsection}{\Alph{subsection}}
 \section{Chapter 3 Appendix}\label{sec:ch3:appendix}
 
-\subsection{General tools}
+\subsection{General neural modeling tools}
 
 \subsubsection{Optimisation}
 
@@ -19,9 +19,9 @@ proc runprax(){
 \end{lstlisting}
 
 
-\subsubsection{Data extraction}
+\subsubsection{Data extraction}\label{sec:data-extraction}
 
-\todo[inline]{ Special comments on the use of g3data to extract datapoints from PDF literature documents }
+\todo[inline]{Special comments on the use of g3data to extract datapoints from PDF literature documents }
 
  \begin{figure}[htb]
  \begin{center}
@@ -32,7 +32,7 @@ proc runprax(){
  \end{figure}
 
 
-\subsection{\textsf{cnstellate} NEURON model}
+\subsection{\textsf{cnstellate} NEURON model}\label{sec:cnstellate-neur-model}
 
 The cochlear nucleus stellate microcircuit software code used in this chapter is
 called \textsf{cnstellate} and is implemented in NEURON, NMODL and C source
@@ -84,7 +84,7 @@ load_file("parameters_DS_ClickRecovery.hoc")
 \end{lstlisting}
 
 
-\subsubsection{Auditory nerve input}
+\subsubsection{Auditory nerve input}\label{sec:APDX:auditory-nerve-input}
 
 The auditory model implementation in NEURON is a conversion from the MATLAB
 interface to NEURON's NMODL interface. Version 3 of the AN model
@@ -108,7 +108,7 @@ Compression variables for the IHC and OHC components of the Zilany model are fit
 using audiogram data of a rat.  The audiogram in Fig.~\ref{fig:AudThresholdRat}
 was used to generate the compression data for the rat model.
 
-\medskip{}
+\smallskip{}
 
 % Listing~\ref{lst:makeaudiogram}
 % \begin{lstlisting}[label=lst:makeaudiogram,caption=Using
@@ -163,7 +163,7 @@ was used to generate the compression data for the rat model.
 
 
 
-\medskip{}
+\smallskip{}
 
 \begin{figure}[htb]
   \begin{center}
@@ -187,7 +187,7 @@ frequency mapping function is defined as:
 \end{equation}
 where \emph{d} is distance along the basilar membrane from the stapes.
 
-\medskip{}
+\smallskip{}
 
 This equation is suitable since it uses the mapping function
 \mbox{\textsf{cochlea\_x2f()}} and its inverse, \mbox{\textsf{cochlea\_f2x()}},
@@ -219,7 +219,7 @@ onset delay of ANFs and this has been retained in the model used here
 where $A_0 = 3.0$, $A_1 = 12.5$. In humans, the delay function is: \( delay =
 4.915 + 0.3631 * {\rm exp}(0.11324*x) , 5<x<35 (mm) \).
 
-\medskip{}
+\smallskip{}
 
 Steps for converting any Carney Auditory Model written in C for MATLAB to a
 NEURON NMODL compatible C file.
@@ -251,7 +251,7 @@ NEURON NMODL compatible C file.
 
 \end{enumerate}
 
-\subsubsection[CN cells]{Cochlear nucleus cell templates}
+\subsubsection[CN cells]{Cochlear nucleus cell templates}\label{sec:APDX:Cell_templates}
 
 The cochlear nucleus cell models were introduced by \citet{RothmanManis:2003b},
 after exploratory studies on the potassium currents of murine cochlear nucleus
@@ -313,7 +313,7 @@ endtemplate CNcell
 
 
 
-\subsubsection[Golgi model]{Golgi cell model optimisation}
+\subsubsection[Golgi model]{Golgi cell model optimisation}\label{sec:APDX:golgi-cell-model}
 
 Each golgi cell template consists of a spike generator, \emph{s}, and vector
 objects representing the instantaneous rate, the spike times and accumulated
@@ -333,7 +333,7 @@ created by :
   constant 5, to simulate the synaptic and membrane dynamics of golgi cells
 \end{itemize}
 
- \medskip{}
+ \smallskip{}
 
  \begin{lstlisting}[label=lstGolgiSyn,caption=Create golgi cell rate vector
    within Golgi template (in CNcell.tem)]
@@ -397,7 +397,7 @@ endtemplate Golgicell
 
 
 
-\subsubsection[D-stellate cell model]{D-stellate cell model optimisation}
+\subsubsection[D-stellate cell model]{D-stellate cell model optimisation}\label{sec:APDX:d-stellate-cell}
 
 Example optimisation points used by \textsf{fit\_praxis} 
 \begin{figure}[htb]
@@ -443,7 +443,7 @@ Example optimisation points used by \textsf{fit\_praxis}
 
 %\end{appendix}
 
-\subsubsection[TV cell model]{Tuberculoventral cell model optimisation}
+\subsubsection[TV cell model]{Tuberculoventral cell model optimisation}\label{sec:APDX:tuberc-cell-model}
 
 \begin{verbatim}
     $ ./buildnrn.sh

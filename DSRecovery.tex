@@ -1,10 +1,9 @@
 
 %\graphicspath{{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}{../figures/}{./gfx/}}
 \section[DS Cell Model]{D-Stellate Cell Model: optimisation using click recovery
-  responses}
-\label{sec:d-stellate-cell-model}
+  responses}\label{sec:d-stellate-cell-model}
 
-\subsection{Introduction}
+\subsection{Introduction}\label{sec:DS:introduction}
 
 This section shows the GABAergic input and intrinsic cell properties influence
 the behaviour Onset chopper units.  Onset-chopper units in the mammalian \VCN
@@ -13,7 +12,7 @@ stellate and bushy neurons \citep{RhodeSmithEtAl:1983}, the ipsilateral \DCN
 (type II and type IV EIRA units) and the contra\-lateral CN
 \citep{NeedhamPaolini:2007}.
 
-% \medskip{}
+\smallskip{}
 
 % Large multipolar or stellate cells in the \VCN have been shown to have 3-4
 % long dendrites stretching 200 microns (or one third of the \VCN) and their
@@ -38,7 +37,7 @@ They also send a commissural projection to the contralateral cochlear nucleus
 that mediates fast inhibition between the nuclei \citep{NeedhamPaolini:2003,
   NeedhamPaolini:2006, Oertel:1997}.
 
-% \medskip{}
+\smallskip{}
 
 Post-onset GABAergic inhibition in DS cells is a major influence on the PSTH of
 On-C neurons \citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency of
@@ -47,7 +46,7 @@ II ANFs and low spontaneous rate type I ANFs \citep{BensonBerglundEtAl:1996,
   FerragamoGoldingEtAl:1998}. Therefore, type II and LS type I ANFs could be
 involved in gain control through GABAergic modulation of activity in the \VCN.
 
-% \medskip{}
+\smallskip{}
 
 % \yellownote{Discuss AM coding by DS cells} GABA blockers in the \VCN has the
 % effects of changing the behaviour in the response to AM in the IC
@@ -61,9 +60,9 @@ involved in gain control through GABAergic modulation of activity in the \VCN.
 % Smith and Rhode, Smith and others looked at OnC response area and two-tone
 
 
-\subsection{Implementation}
+\subsection{Implementation}\label{sec:DS:implementation}
  
-% \medskip{}
+
 Key elements in designing D-stellate cell model are
 shown in the Nordlie table~\ref{tab:DScellModelSummary}A. A type I-II single
 compartment neuron by \citet{RothmanManis:2003b} has the characteristics of a
@@ -85,7 +84,8 @@ behaviour in the cell.
 
 %\input{DSRecoveryTable.tex} 
 
-% \medskip{}
+\smallskip{}
+
 Optimisation parameters for \GLGDS are optimised based on experimental click
 recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed parameters included
 the number of golgi cells to DS cells ($\nGLGDS = 25$), the spread of ANFs to DS
@@ -109,9 +109,7 @@ deviations \citep{PaoliniClark:1999}.
 
 
 
-% \parsep
-
-\subsection{Results}
+\subsection{Results}\label{sec:DS:results}
 
 The DS cell optimisation function, derived from mask and recovery responses to clicks by \citet{BackoffPalombiEtAl:1997}, was tested 
 
@@ -123,6 +121,9 @@ series of masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms,
 separated by 50 ms, and repeated 25 stimulus times. Each response to a click is
 measured for 2 ms after the minimum first spike latency for the unit.  The unit
 used in the optimisation has a CF of 5.8~kHz (equivalent to channel no. 50).
+
+
+\smallskip
 
 % \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
 % \hdr{2}{D}{Results} \\\hline
@@ -210,7 +211,7 @@ weight that was obtained in the optimisation.
 
 \clearpage
 % \newpage
-\subsection{Verification}
+\subsection{Verification}\label{sec:DS:verification}
 
 \yellownote{Small presentation of PSTH, RL, NRL, MRC and RA Leave AM responses
   till next chapter}
@@ -292,14 +293,16 @@ weight that was obtained in the optimisation.
 % \clearpage
 
 
-\subsection{Effects of $g_{leak}$ and $g_{LKT}$ on DS resting membrane
-  potential}
+\subsection{(Optional) Effects of $g_{leak}$ and $g_{LKT}$ on DS resting membrane
+  potential}\label{sec:DS:effects-g_leak-g_lkt}
+
+\yellownote{This section is optional}
+
 
 The resting membrane potential of these large multipolar cells has been shown to
 be in the range of 3-5 MOhms \yellownote{citation needed here}. A quick
 observation of the parameter space around the optimisation results for
 $g_{leak}$ and $g_{LKT}$ is shown in Figure~\ref{fig:leakVltk}.
-\yellownote{Question: Is this section necessary?}
 
 \begin{figure}[h!]
   \centering 

@@ -9,7 +9,7 @@
 \todo[inline]{Get page number of this quote}
 % =========================================================================
 
-\section{Introduction}
+\section{Introduction}\label{sec:CN:introduction}
 
 Shihab Shamma calls upon the science community, particularly members of its
 physiology and neuroscience subgroups, to investigate the role of populations of
@@ -22,7 +22,7 @@ will provide insights relevant to other neural network models of the brain,
 especially those that use highly-specific sensory pathways.  \todo[inline]{One
   more sentence here - expand on idea at the start and link to next para.}
 
-%\medskip{}
+\smallskip{}
 
 Although it remains the case that ``choices, assumptions, and guesses [are] an
 integral part of neuronal modeling'' \citep{SegevBurkeEtAl:1998} \todo[inline]{page
@@ -36,7 +36,7 @@ example NeuroFitter \citep{VanAchardEtAl:2007} and MultiRunFitter (a feature in
 NEURON).\todo[inline]{which? need to explain my intentions}
 \todo[inline]{See further on neural detail in auditory system\citep{LuRubioEtAl:2008}}
 
-%\medskip{}
+\smallskip{}
 
 % {Discuss use of Poisson models vs HH-like models.  Discuss single cell
 % simulation vs whole network simulation during optimisation.}
@@ -49,7 +49,7 @@ and synapse models, and E) optimisation parameters.  This method aims to show a
 consistent and recognisable format for presenting various neural network models
 and their constituents. \todo[inline]{this needs more explanation in the methods sections}
 
-%\medskip{}
+\smallskip{}
 
 The standard methods for optimisation can be simply described with the following steps:\begin{itemize}
 \item specify function or model we want to optimise
@@ -63,7 +63,7 @@ routine, these steps need to be reiterated in sequential stages. The
 parameters chosen in the sequential optimisation stages should be chosen so that
 they do not influence the properties of previously fitted parameters.
 
-%\medskip{}
+\smallskip{}
 
 In this chapter, the connections within the stellate network
 (Fig.~\ref{fig:microcircuit}) are developed using a sequential method of
@@ -97,7 +97,7 @@ Fig.~\ref{fig:microcircuit} describes the following cells and models:
 \item The Tuberculoventral cell: a glycinergic, type-II EIRA unit in the deep
   layer of the \DCN~\citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed
   echo-suppressor and narrow-band inhibitor, with recurrent connections between
-  D- and T-stellate cells in the \VCN~
+  D-and T-stellate cells in the \VCN\ x 
   \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
 \item the T-stellate cell: one of the major output projection cells of the
   cochlear nucleus to the inferior colliculus. This multipolar neuron has been
@@ -114,26 +114,28 @@ Fig.~\ref{fig:microcircuit} describes the following cells and models:
 \end{figure}
 \todo[inline]{still put some text in here to describe it}
 
-%\medskip{}
+\smallskip{}
 
 A detailed BNN model requires a good input model, a good neural model and experimental
 data with which to fit the parameters.  \todo[inline]{In this para: Connect the
   introduction section to the Auditory model below. Discuss the use of the
   Carney model in the CN stellate model.}
 
-\section{Auditory Model}
+\section{Auditory Model}\label{sec:CN:auditory-model}
 
-Advanced auditory fidelity and localisation is an exceptional feature of hearing
-perception in animals, despite the input at the round-window of the cochlea
-being one-dimensional.  Modelling in the auditory periphery has benefited
-extensively from the work of Liberman, Greenwood, Patterson, Young, Sachs and
-others, in acoustic \texttt{in vivo} experiments. Models of the auditory system
-over the last 30 years have expanded our understanding of the mechanical
-processes in the middle ear and cochlea, and the specialised synapse between the
-inner hair cell and the auditory nerve
+Advanced auditory fidelity and localisation is an exceptional feature
+of hearing perception in animals.  This speciality works to a high
+degree despite the input at the round-window of the cochlea being
+one-dimensional and very noisy.  Modelling in the auditory periphery
+has benefited extensively from the work of Liberman, Greenwood,
+Patterson, Young, Sachs and others, in acoustic \texttt{in vivo}
+experiments. Models of the auditory system over the last 30 years have
+expanded our understanding of the mechanical processes in the middle
+ear and cochlea, and the specialised synapse between the inner hair
+cell and the auditory nerve
 \citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
 
-%\medskip{}
+\smallskip{}
 
 The auditory system is topographically ordered from the basilar membrane to the
 cortex in terms of frequency selectivity, also called tonotopicity
@@ -148,39 +150,39 @@ dynamic range than HSR fibres. They also project to the granule cell domain
 unmyelinated type 2 ANFs, which suggests they play a different role in sound
 processing to HSR fibres.
 
-%\medskip{}
+\smallskip{}
 
 \begin{figure}[tbh]
   \begin{center}
-    \resizebox{2.25in}{!}{\includegraphics[width=2.25in,keepaspectratio]{gfx/Cat_Human_CN}}
+    \resizebox{2.25in}{!}{\includegraphics[width=2.25in,keepaspectratio]{Cat_Human_CN}}
     \caption{Cochlear nucleus innervation in Man and Cat. \citep[!find out which publication printed this!]{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}}
-    \label{fig:CNdiagram}
+    \label{fig:CN_Cat_Human}
   \end{center}
 \end{figure}
 
 
-%\medskip{}
+\smallskip{}
 
 \todo[inline]{Discuss auditory model history. Expand reasons for wanting to create
   a biophysically realistic model of the CN\@. Discuss reason for using whole
   network in TV and TS optimisation}
 
-%\medskip{}
+\smallskip{}
 
 \todo[inline]{a paragraph on the history of AN modelling
   \citep{LeakeSnyderEtAl:1993, ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.
   Perhaps Rose et al 1959 would be better suited here}
 
 %
-%\medskip{}
+\smallskip{}
 
 In examining the properties of a detailed neural model of the cochlear nucleus,
 a realistic and phenomenologically sound auditory model is needed to represent
 sounds and transformations that occur in the central auditory system.
 
 %
-%\medskip{}
-\subsection{Response of Carney auditory model }
+\smallskip{}
+\subsection{Response of auditory models}\label{sec:CN:resp-audit-models}
 
 The auditory nerve inputs to the cochlear nucleus model neurons are provided by
 phenomenological auditory periphery models originating from
@@ -197,7 +199,7 @@ the vowel simulation where the human auditory periphery model is used.
 \todo[inline]{TODO: AN model paragraph has been changed - fix any comment
   related to new Zilany}
 
-%\medskip{}
+\smallskip{}
 
 % The \citet{ZilanyBruce:2007} model improves the previous AN model by an
 % additional signal path and its predictions have matched a wide range of
@@ -205,7 +207,7 @@ the vowel simulation where the human auditory periphery model is used.
 % comprises an power-law synapse model, with internal $1/f$ noise, that enhances
 % the behaviour of long-term dependence in ANFs \citep{ZilanyBruceEtAl:2009}.
 
-%\medskip{}
+\smallskip{}
 
 % \todo[inline]{Why is it the cat model? updating Carney model?} Updating of the
 % Carney auditory model has led to the change in the model's configuration from an
@@ -223,7 +225,7 @@ the vowel simulation where the human auditory periphery model is used.
  \end{figure}\todo[inline]{if this figure is used it needs permission by the original authors}
 
 
-\subsection{Spiking in Poisson neural models}
+\subsection{Spiking in Poisson neural models}\label{sec:CN:spiking-poiss-neur}
 
 The neural models used in the auditory nerve fibres and Golgi cell model are
 inhomogeneous Poisson processes. The instantaneous rate is passed through the
@@ -248,7 +250,7 @@ be saved and loaded from file.
 % \item characteristic frequency (CF)
 % \end{itemize}
 
-%\medskip{}
+\smallskip{}
 
 
 
@@ -262,23 +264,23 @@ be saved and loaded from file.
 % \end{figure}
 
 
-\section{Cochlear Nucleus Stellate microcircuit}
+\section{Cochlear Nucleus Stellate microcircuit}\label{sec:CN:cochl-nucl-stell}
 
 \subsection{Neural models}
 
 
 \todo[inline]{[Discuss R\&M model] Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
 
-%\medskip{}
+\smallskip{}
 
-\subsection{Tonotopic connectivity}\label{sec:tonot-conn}
+\subsection{Tonotopic connectivity}\label{sec:CN:tonot-conn}
 
 The channels are separated using even spatial distance (based on the
 basilar membrane and auditory nerve separation) with centre frequency
 calculated by the Greenwood function for the cat
 \citep{Greenwood:1990}. \todo[inline]{More detail in Appendix}
 
-%\medskip{}
+\smallskip{}
 
 Figure~\ref{fig:CNconn} shows the method for Gaussian spread of
 connections between cell types in the CN\@.  The channels are separated
@@ -295,6 +297,8 @@ using the same Greenwood function as used for the AN filterbank.
     \label{fig:CNconn}
   \end{center}
 \end{figure}
+
+\smallskip{}
 
 
 

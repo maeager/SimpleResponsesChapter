@@ -4,11 +4,13 @@
 %,twoside
 %,draft
 %{book} % Use the UniMelb Dissertation Template
-\usepackage{style/uomthesis}
+\usepackage{../hg/manuscript/style/uomthesis}
 % User defined commands
-\input{user-defined}
-\input{glossary} % My glossary of terms
-\makeglossary
+\input{../hg/manuscript/user-defined}
+
+\usepackage[acronym]{glossaries}
+\input{../hg/manuscript/misc/glossary} % My glossary of terms
+\makeglossaries
 
 % User defined commands
 %\usepackage{pstricks}
@@ -27,8 +29,8 @@
 %  \renewcommand{\baselinestretch}{1.5}
 
 
-\DeclareGraphicsRule{eps.gz}{eps}{.eps.bb}{zcat #1}
-\newcommand{\figfont}[1]{\large{\textbf{\textsf{#1}}}}
+%\DeclareGraphicsRule{eps.gz}{eps}{.eps.bb}{zcat #1}
+%\newcommand{\figfont}[1]{\large{\textbf{\textsf{#1}}}}
 %\includeonly{TV_Notch}
 \graphicspath{{./gfx/}{../figures/}}
 \graphicspath{{../figures/}{/media/data/Work/thesis/SimpleResponsesChapter/}{/media/data/Work/thesis/SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/golgi/}{../../cnstellate/}}
@@ -45,13 +47,12 @@
 		% TOC, LOF, LOT
 		{%
 			\singlespacing%
-                        \listoftodos
 			\tableofcontents%
 			%\listoffigures%
 			% Do not include a list of tables if you have less
 			% than 10 tables, as per SGS suggestion.
 			%\listoftables%
-                        \printglossary
+                        \printglossaries
 		   \clearpage%
 		}%
 
@@ -80,7 +81,9 @@
 \include{TV_Notch}
 \include{TV_NotchTable}
 
-\section{T-stellate cell section ? } % \include{Tstellate.tex}
+%\section{T-stellate cell section ? } 
+% \include{Tstellate.tex}
+
 \newpage
 \include{Discussion}
 
@@ -90,7 +93,7 @@
 In this chapter biophysically-realistic model of the
 T-stellate microcircuit in the cochlear nucleus was developed.
 
-%\medskip{}
+smallskip{}
 
 The methods used in this section are a practical and realistic means
 for constructing microcircuits with sensory or feature-based
@@ -107,8 +110,10 @@ researchers may easily reproduce this work.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
  \bibliographystyle{abbrvnat}%plainnat}%bmc_article} % Style BST file
- \bibliography{../manuscript/bib/MyBib}
+ \bibliography{../hg/manuscript/bib/MyBib}
 
+\newpage
+\listoftodos
 
 
 \end{document}
