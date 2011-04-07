@@ -6,7 +6,7 @@
   responses are distributed over a population of similar cells as
   wells as across populations of different cells.''  - \textit{\citet[p.]{Shamma:1998}}
 \end{quotation}
-\todo[inline]{Get page number of this quote}
+\yellownote{Get page number of this quote}
 % =========================================================================
 
 \section{Introduction}\label{sec:CN:introduction}
@@ -19,13 +19,13 @@ accumulated in auditory neuroscience to create a detailed,
 biophysically-realistic neural network (BNN) model of the cochlear nucleus
 stellate cell network. The design and methods for the construction of the model
 will provide insights relevant to other neural network models of the brain,
-especially those that use highly-specific sensory pathways.  \todo[inline]{One
+especially those that use highly-specific sensory pathways.  \yellownote{One
   more sentence here - expand on idea at the start and link to next para.}
 
 \smallskip{}
 
 Although it remains the case that ``choices, assumptions, and guesses [are] an
-integral part of neuronal modeling'' \citep{SegevBurkeEtAl:1998} \todo[inline]{page
+integral part of neuronal modeling'' \citep{SegevBurkeEtAl:1998} \yellownote{page
   no.}, there is much to be gained from
 biophysically-realistic modelling approaches, especially in the heavily
 investigated cochlear nucleus in birds and mammals. Developments in
@@ -33,8 +33,8 @@ computational power and enhanced experimental techniques in multi-unit
 recordings are enabling more detailed neural models to be developed. Examples of parameter
 estimation and fitting in neural models are also becoming more advanced, for
 example NeuroFitter \citep{VanAchardEtAl:2007} and MultiRunFitter (a feature in
-NEURON).\todo[inline]{which? need to explain my intentions}
-\todo[inline]{See further on neural detail in auditory system\citep{LuRubioEtAl:2008}}
+NEURON).\yellownote{which? need to explain my intentions}
+\yellownote{See further on neural detail in auditory system\citep{LuRubioEtAl:2008}}
 
 \smallskip{}
 
@@ -47,7 +47,7 @@ models used in each optimisation step. The tables consist of A) the model
 summary, B) cell type populations, C) connectivity between cell types, D) neuron
 and synapse models, and E) optimisation parameters.  This method aims to show a
 consistent and recognisable format for presenting various neural network models
-and their constituents. \todo[inline]{this needs more explanation in the methods sections}
+and their constituents. \yellownote{this needs more explanation in the methods sections}
 
 \smallskip{}
 
@@ -69,11 +69,11 @@ In this chapter, the connections within the stellate network
 (Fig.~\ref{fig:microcircuit}) are developed using a sequential method of
 optimisation steps.  The parameters of each cell type are determined based on
 experimental data or are optimised based solely on responses to simple stimuli.
-Each cell type is shown with its excitatory-inhibitory responses area (EIRA) and
-PSTH (post-stimulus time histogram), although this may vary within cell types. 
+Each cell type is shown with its \gls{EIRA} and
+\gls{PSTH}, although this may vary within cell types. 
 
 
-\todo[inline]{what is this sentence doing? explain the figure!}  The stellate network model drawn in
+\yellownote{what is this sentence doing? explain the figure!}  The stellate network model drawn in
 Fig.~\ref{fig:microcircuit} describes the following cells and models:
 \begin{enumerate}
 \item The Carney phenomenological auditory model
@@ -84,17 +84,17 @@ Fig.~\ref{fig:microcircuit} describes the following cells and models:
   auditory nerve fibres (ANF) from low best frequency (BF) to high BF
   (left to right). The model reproduces responses for high and low SR
   ANFs at 100 channels across the frequency range 200 Hz to 48 kHz.
-\item The Golgi cell: a GABAergic \VCN~marginal shell unit that is presumed to
+\item The Golgi cell: a {GABA}ergic \VCN~marginal shell unit that is presumed to
   regulate excitability in the granule cell domain and core \VCN units
   \citep{FerragamoGoldingEtAl:1998}. The only \textit{in vivo} study shows a type
-  I/III response area and PSTHs with unusual or chopper characteristics in
+  I/III response area and characterised {PSTH} with unusual or chopper characteristics in
   marginal shell units~\citep{GhoshalKim:1997}.
 \item The D-stellate cell: a glycinergic, large multipolar cell with
   onset-chopper PSTH response that acts as a coincidence detector. Its
   large dendritic area increases its response to noise allowing it to
   behave as a wide-band inhibitor in the \VCN, \DCN, and contralateral CN 
   \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
-\item The Tuberculoventral cell: a glycinergic, type-II EIRA unit in the deep
+\item The Tuberculoventral cell: a glycinergic, type-II {EIRA} unit in the deep
   layer of the \DCN~\citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed
   echo-suppressor and narrow-band inhibitor, with recurrent connections between
   D-and T-stellate cells in the \VCN\ x 
@@ -112,12 +112,12 @@ Fig.~\ref{fig:microcircuit} describes the following cells and models:
   \caption{Cochlear nucleus stellate microcircuit (see text for details). }
   \label{fig:microcircuit}
 \end{figure}
-\todo[inline]{still put some text in here to describe it}
+\yellownote{still put some text in here to describe it}
 
 \smallskip{}
 
 A detailed BNN model requires a good input model, a good neural model and experimental
-data with which to fit the parameters.  \todo[inline]{In this para: Connect the
+data with which to fit the parameters.  \yellownote{In this para: Connect the
   introduction section to the Auditory model below. Discuss the use of the
   Carney model in the CN stellate model.}
 
@@ -143,7 +143,7 @@ cortex in terms of frequency selectivity, also called tonotopicity
 Fig.~\ref{fig:CNdiagram}), bifurcate after entering the cochlear nucleus to
 innervate the \VCN and \DCN\@, retaining their tonotopic order
 \citep{Lorente:1981, Liberman:1982, Liberman:1993}. Type 1 ANFs are categorised
-into high spontaneous rate (HSR) and low spontaneous rate (LSR) fibres
+into \gls{HSR} and \gls{LSR} fibres
 \citep{Liberman:1978}, where LSR fibres have a higher threshold and wider
 dynamic range than HSR fibres. They also project to the granule cell domain
 (GCD) \citep{RyugoParks:2003, RyugoHaenggeliEtAl:2003} along with the smaller,
@@ -163,13 +163,13 @@ processing to HSR fibres.
 
 \smallskip{}
 
-\todo[inline]{Discuss auditory model history. Expand reasons for wanting to create
+\yellownote{Discuss auditory model history. Expand reasons for wanting to create
   a biophysically realistic model of the CN\@. Discuss reason for using whole
   network in TV and TS optimisation}
 
 \smallskip{}
 
-\todo[inline]{a paragraph on the history of AN modelling
+\yellownote{a paragraph on the history of AN modelling
   \citep{LeakeSnyderEtAl:1993, ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.
   Perhaps Rose et al 1959 would be better suited here}
 
@@ -186,7 +186,7 @@ sounds and transformations that occur in the central auditory system.
 
 The auditory nerve inputs to the cochlear nucleus model neurons are provided by
 phenomenological auditory periphery models originating from
-\citet{Carney:1993}. the ARLO model \citep{HeinzZhangEtAl:2001}; the Bruce model
+\citet{Carney:1993}. The ARLO model \citep{HeinzZhangEtAl:2001}; the Bruce model
 \citep{BruceSachsEtAl:2003, ZilanyBruce:2006, ZilanyBruce:2007}; and the Zilany
 model \citep{ZilanyBruceEtAl:2009}. The AN model consists of an outer/middle ear
 pre-processing filter, a cochlea filterbank, IHC-to-AN synapse model and
@@ -196,7 +196,7 @@ filters based on the critical bandwidths obtained from psycho\-physical
 experiments in humans. The ARLO model of the cat auditory periphery, with
 non-linear compression and two-tone suppression, is used in this study except in
 the vowel simulation where the human auditory periphery model is used.
-\todo[inline]{TODO: AN model paragraph has been changed - fix any comment
+\yellownote{TODO: AN model paragraph has been changed - fix any comment
   related to new Zilany}
 
 \smallskip{}
@@ -209,7 +209,7 @@ the vowel simulation where the human auditory periphery model is used.
 
 \smallskip{}
 
-% \todo[inline]{Why is it the cat model? updating Carney model?} Updating of the
+% \yellownote{Why is it the cat model? updating Carney model?} Updating of the
 % Carney auditory model has led to the change in the model's configuration from an
 % original implementation of the rat model.  The default species is the cat and
 % will be used in the data presented in this chapter.
@@ -222,7 +222,7 @@ the vowel simulation where the human auditory periphery model is used.
        \citep[originally printed in ][]{ZilanyBruceEtAl:2009}.}
      \label{fig:ZilanyBruceFig}
    \end{center}
- \end{figure}\todo[inline]{if this figure is used it needs permission by the original authors}
+ \end{figure}\yellownote{if this figure is used it needs permission by the original authors}
 
 
 \subsection{Spiking in Poisson neural models}\label{sec:CN:spiking-poiss-neur}
@@ -237,7 +237,7 @@ be saved and loaded from file.
 
 
 
-% \todo[inline]{TODO: serious reworking to be done here} 
+% \yellownote{TODO: serious reworking to be done here} 
 
 %Analysis of the frequency
 % response area of ANF generates known parameters for each fibre, these are:
@@ -269,7 +269,7 @@ be saved and loaded from file.
 \subsection{Neural models}
 
 
-\todo[inline]{[Discuss R\&M model] Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
+\yellownote{[Discuss R\&M model] Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
 
 \smallskip{}
 
@@ -278,7 +278,7 @@ be saved and loaded from file.
 The channels are separated using even spatial distance (based on the
 basilar membrane and auditory nerve separation) with centre frequency
 calculated by the Greenwood function for the cat
-\citep{Greenwood:1990}. \todo[inline]{More detail in Appendix}
+\citep{Greenwood:1990}. \yellownote{More detail in Appendix}
 
 \smallskip{}
 

@@ -64,19 +64,20 @@
  approximately 0.7~ms relative to the core \VCN units
  \citep{FerragamoGoldingEtAl:1998}.
 
-\smallskip{}
+ \smallskip{}
 
- Extracellular recordings from labelled Golgi cells is not available in the
- literature.  The GCD (or marginal shell in cats) has been studied by one group
- \citet{GhoshalKim:1997}, and any extracellular spikes are most likely from
- Golgi cells since granule cell somata are less than $10{}\mu{m}$ and their
- narrow axons are unlikely to ellicit electrical activity in the electrodes. The
- majority of recorded units showed a monotonic increase in firing rate with
- increasing sound intensity
- \citep[Figure~\ref{fig:GolgiKimFig2}][]{GhoshalKim:1997}.  The general
- assumption of the functional role of Golgi cells is to regulate granule cells
- but they may also provide automatic gain control to the principle \VCN units,
- through their monotonic responses to tones and noise.
+ Extracellular recordings from labelled Golgi cells is not available
+ in the literature.  The GCD (or marginal shell in cats) has been
+ studied by one group \citet{GhoshalKim:1997}, and any extracellular
+ spikes are most likely from Golgi cells since granule cell somata are
+ less than $10{}\mu{m}$ and their narrow axons are unlikely to ellicit
+ electrical activity in the electrodes. The majority of recorded units
+ showed a monotonic increase in firing rate with increasing sound
+ intensity \citep[Figure~\ref{fig:GolgiKimFig2}][]{GhoshalKim:1997}.
+ The general assumption of the functional role of Golgi cells is to
+ regulate granule cells but they may also provide automatic gain
+ control to the principle \VCN units, through their monotonic
+ responses to tones and noise.
 
 \smallskip{}
 
@@ -84,13 +85,19 @@
    \centering
   % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}
   \resizebox{0.95\textwidth}{!}{\includegraphics{GhoshalKim}}
-  \caption{Rate level response of 6 units \citep[from Fig.~2]{GhoshalKim:1997}. Unit S03-07 (CF 22.7~kHz) at the top will be the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown.}\label{fig:GolgiKimFig2}
+  \caption{Rate level response of 6 units \citep[from
+    Fig.~2]{GhoshalKim:1997}. Unit S03-07 (CF 22.7~kHz) at the top
+    will be the unit chosen to optimise the Golgi cell model as it is
+    monotonic, and has the median maximum rate of all the units
+    shown.}\label{fig:GolgiKimFig2}
 \end{figure}
-  \yellownote{Inclusion of Ghoshal figure needs permission, fill in caption}
+\yellownote{Inclusion of Ghoshal figure needs permission, fill in
+  caption}
 
 \subsection{Implementation}\label{sec:Golgi:implementation}
 
-In the creation of the Golgi cell model, we can reduce the explicit behaviour of Golgi cells down to three major details:
+In the creation of the Golgi cell model, we can reduce the explicit
+behaviour of Golgi cells down to three major details:
  \begin{enumerate}
  \item Golgi cells are classic repetitively-firing neurons due to
    their type-I~current clamp response
@@ -134,14 +141,14 @@ spread, as explained in the introduction ($\S$~\ref{sec:tonot-conn})
 \smallskip{}
 
 The Golgi cell model is implemented as an instantaneous-rate Poisson
- rate model, shown in Table~\ref{tab:GolgiCellModelSummary}D and in
- Figure~\ref{fig:GolgiDiagram}. The primary inputs are from the
- auditory model's instantaneous rate outputs with connections across
- frequency channels. HSR and LSR ANF inputs to Golgi cells were
- determined the Gaussian distribution in units of channel separation
- in the network. The weighted sum of HSR and LSR instantaneous-rate
- vectors are smoothed out by an alpha function mimicking a synaptic
- and dendritic smoothing filter.
+rate model, shown in Table~\ref{tab:GolgiCellModelSummary}D and in
+Figure~\ref{fig:GolgiDiagram}. The primary inputs are from the
+auditory model's instantaneous rate outputs with connections across
+frequency channels. HSR and LSR ANF inputs to Golgi cells were
+determined the Gaussian distribution in units of channel separation in
+the network. The weighted sum of HSR and LSR instantaneous-rate
+vectors are smoothed out by an alpha function mimicking a synaptic and
+dendritic smoothing filter.
 
  \begin{figure}[h!]
   \centering
@@ -177,8 +184,9 @@ the alpha function, $\alpha(t)$, as the synapto-dendritic filtering
 mechanism in the Golgi cell. The alpha filter length was 10 times the
 time constant, \Gtau, and its area under the function was normalised
 to 1.  A more detailed explanation of the NEURON implementation of the
-Golgi cell model is in the chapter
-Appendix~\ref{sec:chp3:appendix}.  %\smallskip{}
+Golgi cell model is in the section Appendix~\ref{sec:chp3:appendix}.  
+
+\smallskip{}
 
 %Eq.~\ref{eq:alpha_Golgi}, 
 
@@ -265,7 +273,9 @@ rate parameter matches the base response of unit unit S03-07 in
 Figure~\ref{fig:GolgiResult}. The smoothing filter time constant of 5
 ms is a typical value in membrane time constants for neural models and
 fits with the input resistance in intracellular recordings of Golgi
-cells \citep{FerragamoGoldingEtAl:1998}.  \todo[inline]{The input
+cells \citep{FerragamoGoldingEtAl:1998}.  
+
+\yellownote{The input
   spread parameter is not well constrained by the optimisation fitness
   routine with a pure tone input and a single neuron, but the result
   is satisfactory given the uncertainty in LSR fibre's axonal
@@ -284,8 +294,8 @@ cells \citep{FerragamoGoldingEtAl:1998}.  \todo[inline]{The input
            \textbf{Parameters}             &    \textbf{Name}     & \textbf{Range} & \textbf{Best Values} \\\hline 
  Spatial spread $\ANFGLG$ (channel unit)   &      $\sANFGLG$      &     [0,10]     & 2.48  \\\hline 
  Smoothing filter time constant (ms)&   $\Gtau$     &     [0,20]       & 5.01  \\\hline 
-      Weighted sum of HSR (unitless)       &      $\wHSRGLG$      &     [0,5]      & 0.517 \\\hline 
-      Weighted sum of LSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
+      Weighted sum of HSR (unit-less)       &      $\wHSRGLG$      &     [0,5]      & 0.517 \\\hline 
+      Weighted sum of LSR (unit-less)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
 Spontaneous rate in Golgi cell model (spikes per second) & \Gspon &     [0,50]     & 3.73  \\\hline
 \end{tabularx}
 }
@@ -351,16 +361,16 @@ Spontaneous rate in Golgi cell model (spikes per second) & \Gspon &     [0,50]  
 %   \subsubsection{Tone Responses}
 
 
-After settling with the above optimisate parameters, the Golgi cell model was
-run with typical inputs to determine it's behaviour outside of the optimisation
-routine.  The Golgi cell at the centre of the network (CF=5.8 kHz) was tested
-and had monotonic responses to tones and noise similar to another Ghoshal and
-Kim unit Figure~\ref{fig:Golgi_verification}C shows the response of every Golgi cell model in
-the network to a 5.8~kHz tone, increased from 0 to 90 dB~{SPL}.
+After settling with the above optimised parameters, the Golgi cell
+model was run with typical inputs to determine it's behaviour outside
+of the optimisation routine.  The Golgi cell at the centre of the
+network (CF=5.8 kHz) was tested and had monotonic responses to tones
+and noise similar to another Ghoshal and Kim unit
+Figure~\ref{fig:Golgi_verification}C shows the response of every Golgi
+cell model in the network to a 5.8~kHz tone, increased from 0 to 90
+dB~{SPL}.
 
 \smallskip{}
-
-
 
 \begin{figure}[htb]
   \centering

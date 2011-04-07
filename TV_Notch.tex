@@ -1,4 +1,4 @@
-%\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
+% \graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
 
 \section[TV Cell Model]{Tuberculoventral cell model: Optimisation to notch-noise response}
 \label{sec:TV-cell-model}
@@ -28,9 +28,9 @@ excitatory input from TS cells and diffuse inhibitory input from DS cells
 TV or vertical cells receive monosynaptic excitatory input from auditory
 nerve ﬁbers \citep{OertelWu:1989,ZhangOertel:1993b}. Taken together, these
 two results suggest that low SR auditory nerve ﬁbers may form the major
-excitatory input to type II cells. If true, this hypothesis also could
+excitatory input to type~II cells. If true, this hypothesis also could
 explain the ﬁnding that type II units have consistently higher thresholds
-than \DCN principal cells \citep{YoungBrownell:1976} because low SR
+than \DCN principal cells \citep{YoungBrownell:1976} because LSR
 auditory nerve ﬁbers also have elevated thresholds relative to the lowest
 threshold auditory nerve ﬁbers \citep{Liberman:1978}. However, patterns of
 auditory nerve innervation of the \DCN are most consistent with high SR
@@ -43,14 +43,14 @@ injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
 
 \smallskip{}
 
-Type II units also supply an inhibitory input to the \VCN
-\citep{WickesbergOertel:1990}, but the role of type II terminals in the \VCN is
-less clear. Three different hypotheses have been raised. The ﬁrst is that this
-projection modulates the response thresholds of \VCN neurons
-\citep{PaoliniClark:1998}.  The role of type II units in spectral processing is
-that of a narrowband inhibitor. Responses of \DCN principal cells are strongly
-inhibited by this narrowband source. As a result, \DCN principal cells are
-inhibited by sharp spectral peaks close to their BF
+Type~II units also supply an inhibitory input to the \VCN
+\citep{WickesbergOertel:1990}, but the role of type~II terminals in the
+\VCN is less clear. Three different hypotheses have been raised. The ﬁrst
+is that this projection modulates the response thresholds of \VCN neurons
+\citep{PaoliniClark:1998}.  The role of type~II units in spectral
+processing is that of a narrowband inhibitor. Responses of \DCN principal
+cells are strongly inhibited by this narrowband source. As a result, \DCN
+principal cells are inhibited by sharp spectral peaks close to their \BF
 \citep{SpirouDavisEtAl:1999}.
 
 \smallskip{}
@@ -59,10 +59,77 @@ inhibited by sharp spectral peaks close to their BF
   \centering
 %\resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
 \includegraphics[keepaspectratio,width=0.8\textwidth]{Spirou-Fig1-type2}
-\caption{Experimental data of a single Type-II~DCN unit \citep[Fig.~1]{SpirouDavisEtAl:1999}.}
+\caption{Experimental data of a single Type-II~DCN unit
+  \citep[Fig.~1]{SpirouDavisEtAl:1999}.}
   \label{fig:SpirouFig1}
-\end{figure}\todo[inline]{Figure~\ref{fig:SpirouFig1} needs permission}
+\end{figure}\yellownote{Figure~\ref{fig:SpirouFig1} needs permission}
 
+
+\subsection{Modeling of Tuberculoventral cells}
+
+\citet{ArleKim:1991a} were the first to show type~II \EIRA with simple
+McCullock-Pitts point neuron models.
+
+
+{\it (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
+  inhibitory mechanism to create type II unit responses in a model of
+  the DCN. In that model, each cell population was described by a
+  mathematical formula for its steady-state rate-level function. This
+  level of abstraction was used to focus specifically on the role of
+  network connectivity in determining the steady-state behavior of DCN
+  units. The level of abstraction employed in our model allows for
+  examination of temporal response properties including PST histograms
+  and cross-correlation analysis.}
+
+\citep{DunnVetterEtAl:1996} 
+
+
+
+
+Modelling of Type~II units in the \DCN has been thoroughly categorised by
+Kevin Davis and colleagues
+\citep{YoungDavis:2002,HancockDavisEtAl:2001,DavisYoung:2000,SpirouDavisEtAl:1999,HancockDavisEtAl:1997,DavisVoigt:1996,DavisVoigt:1994,DavisVoigt:1991}.
+
+Low spontaneous rate is created in a neural model by either
+increasing the intrinsic spiking threshold or lowering the synaptic
+strength of the inputs. Intracellular observations in decerebrate gerbils
+show higher thresholds in type~II units \citep{DingVoigt:1997}; and
+observations of hyperpolarisation responses to off \gls{BF} tones in
+intracellularlly recorded type II units.
+
+Another case for type II behaviour of no spontaneous activity, is a
+preference of \LSR, high threshold AN fibres over \HSR fibres to synapse
+with \TV cells. Whether \LSR fibres preference the deep layers of the CN
+are yet to be confirmed
+\citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
+
+\smallskip{}
+
+\citep{Rhode:1999} Vertical cells in gerbils (mainly type III)
+
+\smallskip{}
+
+The intrinsic mechanism is more favourable in Type II units, provided there
+is sufficient inhibition and excitation
+\citep{HancockDavisEtAl:1997}. Lateral inhibition was disregarded in favour
+of wide-band inhibition \citep{HancockDavisEtAl:1997}.
+
+\smallskip{}
+
+Work by Reed and Blum
+\citep{ReedBlum:1995,BlumReedEtAl:1995,ReedBlum:1997,BlumReed:1998} on the
+circuitry of the DCN showed that wide-band inhibition was necessary for the
+principal cells of the DCN including type II units.
+
+\smallskip{}
+
+With retrograde labelling in the DCN three types of ventro-tubercular units
+in rats were identified \citet{FriedlandPongstapornEtAl:2003}, as apposed
+to only two types in cats \citep{SmithRhode:1989,OertelWuEtAl:1990}. These
+units are identified as TS and DS cells, with the third in rats identified
+as small adendritic neurons.
+
+\smallskip{}
 
 % \subsubsection{Key design factors}
 
@@ -87,21 +154,21 @@ inhibited by sharp spectral peaks close to their BF
 %   frequency
 % \item Input SPL and weight of excitation affect spiking output
 % \item Larger network $\rightarrow$ increased computational load
-% \item Solution: Paralellise model
+% \item Solution: Parallelism model
 % \end{itemize}
 
-The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated with
-logarithmically constant notch widths and notch center frequencies ranging from 1 octave below to 1
-octave above BF in $1/50$ octave steps. 
+The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated
+with logarithmically constant notch widths and notch center frequencies
+ranging from 1 octave below to 1 octave above BF in $1/50$ octave steps.
 
 \subsection{Implementation}
 
-The experimental data by \citet{ReissYoung:2005} was recorded from adult cats,
-with the notch noise produced in the frequency domain (accounting for
-calibration of the ear canal speaker spectrum) and sampled with fixed random
-phases in the time domain. The notch noise presented in this optimisation
-routine was generated in Octave using frozen Gaussian noise (100kHz sampling
-rate) and a Chebyshev type II band reject filter.
+The experimental data by \citet{ReissYoung:2005} was recorded from adult
+cats, with the notch noise produced in the frequency domain (accounting for
+calibration of the ear canal speaker spectrum) and sampled with fixed
+random phases in the time domain. The notch noise presented in this
+optimisation routine was generated in Octave using frozen Gaussian noise
+(100kHz sampling rate) and a Chebyshev type II band reject filter.
 
 \smallskip{}
 
@@ -588,6 +655,7 @@ unit 70, CF=12.76~kHz) to notch and band-pass noise.
 
 
  
+
 
 %%% Local Variables: 
 %%% mode: latex
