@@ -2,20 +2,20 @@
 {\small
 %\linespread{0.5}
   \begin{table}[htb]
-    \caption{Golgi cell model (Nordlie table format)}
+    \caption{Golgi cell model summary (Nordlie format)}
     \label{tab:GolgiCellModelSummary}
 \end{table}
 \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline 
 %\begin{ntab}{|l|X|}{2}{\ref{tab:GolgiCellModelSummary} A}{Model Summary}\\\hline
- \textbf{Populations}   & ANF (HSR,LSR) and Golgi cells \\\hline 
+ \textbf{Populations}   & \ANF~(\HSR,\LSR) and Golgi cells \\\hline 
    \textbf{Topology}    & Tonotopic - $N_{\text{channel}}=100$ frequency channels (0.2-40 kHz) separated evenly based on even place positions on the basilar membrane \citep{Greenwood:1990}\\\hline
  \textbf{Connectivity}  & Place-based Gaussian spread of connections \\\hline
- \textbf{Neuron model}  & ANFs: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\
+ \textbf{Neuron model}  & \ANFs: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\
                         & Golgi: instantaneous-rate Poisson model developed from ANF inputs\\\hline
 %\textbf{Channel models} & --- \\\hline 
 \textbf{Synapse model}  & Synapto-dendritic smoothing alpha function \\\hline
-    \textbf{Input}      & 0-100 dB SPL pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range   \\\hline
+    \textbf{Input}      & 0-100 dB \SPL~pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range   \\\hline
  \textbf{Measurements}  & Mean firing rate of Golgi cell instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions).\\\hline
 \end{tabularx}
 \yellownote{explain the Measurements part better}
@@ -28,9 +28,9 @@
 \noindent\begin{tabularx}{\linewidth}{|l|X|X|}\hline %{\linewidth}
 \hdr{3}{B}{Populations}\\\hline
 \textbf{Name} &                             \textbf{Elements}                             & \textbf{Number} \\\hline
-     HSR      &   Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{HSR}} = 0$ \\\hline
-     LSR      &  Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{LSR}}= 0$ \\\hline
-     GLG      & Instantaneous-rate Poisson neuron & 1 unit CF = 22.7~kHz (channel 76)  \\\hline
+     \HSR      &   Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{HSR}} = 0$ \\\hline
+     \LSR      &  Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{LSR}}= 0$ \\\hline
+     \GLG      & Instantaneous-rate Poisson neuron & 1 unit CF = 22.7~kHz (channel 76)  \\\hline
 \end{tabularx}
 
 \vspace{1ex}
@@ -39,8 +39,8 @@
 \noindent\begin{tabularx}{\linewidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
                  \textbf{Name}                   & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       LSR       &      Golgi      & Gaussian spatial spread, centered at CF, variance determined by variable \sLSRGLG \\
-                                                 &       HSR       &      Golgi      & Gaussian spatial spread, centered at CF, variance fixed at $\sHSRGLG=2$ \\\hline
+\multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       \LSR       &      \GLG      & Gaussian spatial spread, centered at \CF, variance determined by variable \sLSRGLG \\
+                                                 &       \HSR       &      \GLG      & Gaussian spatial spread, centered at \CF, variance fixed at $\sHSRGLG=2$ \\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -66,7 +66,7 @@
  \textbf{Spiking} & Renewal process with refractory effects  \citep{ZilanyBruce:2007,Jackson:2003} \\\hline
 \end{tabularx}
 \vspace{2ex}
-$\dag$\footnotesize{Synatic filter is normalised, by setting the area under the alpha function to one. For a large enough filter length, the alpha function integral ($\int \alpha(t) dt = (-\Gtau^2-t\cdot \Gtau)\cdot \exp(-\frac{t}{\Gtau})$) approximately equals $\Gtau^2$. In this case $10\cdot\Gtau$ is used for the filter length.}
+$\dag$\footnotesize{Synatic filter is normalised, by setting the area under the alpha function to one. For a large enough filter length, the alpha function integral ($\int \alpha(t) dt = (-\Gtau^2 - t \cdot \Gtau)\cdot \exp(-\frac{t}{\Gtau})$) approximately equals $\Gtau^2$. In this case $10 \cdot \Gtau$ is used for the filter length.}
 
 % - E -----------------------------------------------------------------------------
 % \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %

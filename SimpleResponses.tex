@@ -16,9 +16,9 @@
 % User defined commands
 %\usepackage{pstricks}
 \usepackage{appendix}
+\usepackage[notcite]{showkeys}
 
 
- 
 %  \marginparwidth=3cm
 % \addtolength{\oddsidemargin}{6mm}
 %  \topmargin=0pt
@@ -35,12 +35,24 @@
 %\includeonly{TV_Notch}
 \graphicspath{{./gfx/}{../figures/}}
 \graphicspath{{../figures/}{/media/data/Work/thesis/SimpleResponsesChapter/}{/media/data/Work/thesis/SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/golgi/}{../../cnstellate/}}
+
 %\usepackage[showlabels]{preview}
 %\PreviewEnvironment[{*[][]{}}]{tabularx}
 %\PreviewEnvironment[{*[][]{}}]{figure}
 %\PreviewEnvironment[{*[][]{}}]{array}
 
 \lfoot{\footnotesize\today\ at \thistime}
+
+% \usepackage[T1]{fontenc}
+% \usepackage{fontspec}
+% \usepackage{graphicx} 
+% \defaultfontfeatures{Mapping=tex-text}
+% \setromanfont{Gentium}
+% \setromanfont [BoldFont={Gentium Basic Bold},
+%                 ItalicFont={Gentium Basic Italic}]{Gentium Basic}
+% \setsansfont{Charis SIL}
+% \setmonofont[Scale=0.8]{DejaVu Sans Mono}
+
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -49,10 +61,10 @@
 		{%
 			\singlespacing%
 			\tableofcontents%
-			%\listoffigures%
+			\listoffigures%
 			% Do not include a list of tables if you have less
 			% than 10 tables, as per SGS suggestion.
-			%\listoftables%
+			\listoftables%
                         \printglossaries
 		   \clearpage%
 		}%
@@ -93,16 +105,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Conclusion}
 
-In this chapter biophysically-realistic model of the
-T-stellate microcircuit in the cochlear nucleus was developed.
+In this chapter biophysically-realistic model of the T-stellate microcircuit in
+the cochlear nucleus was developed.
 
 \smallskip{}
 
-The methods used in this section are a practical and realistic means
-for constructing microcircuits with sensory or feature-based
-topography.  The tabular format for neural network modeling as
-suggested by \citet{NordlieGewaltigEtAl:2009} was followed so that other
-researchers may easily reproduce this work. 
+The methods used in this section are a practical and realistic means for
+constructing microcircuits with sensory or feature-based topography.  The
+tabular format for neural network modeling as suggested by
+\citet{NordlieGewaltigEtAl:2009} was followed so that other researchers may
+easily reproduce this work.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
