@@ -59,15 +59,15 @@ inhibited by sharp spectral peaks close to their
   \centering
   % \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
   \includegraphics[keepaspectratio,width=0.8\textwidth]{Spirou-Fig1-type2}
-  \caption{Experimental data of a single Type-II~DCN~unit
-    \citep[Fig.~1]{SpirouDavisEtAl:1999}.}
+  \caption[Experimental data of a single Type-II~DCN~unit]{Experimental data of
+    a single Type-II~DCN~unit \citep[Fig.~1]{SpirouDavisEtAl:1999}.}
   \label{fig:SpirouFig1}
 \end{figure}\yellownote{Figure~\ref{fig:SpirouFig1} needs permission}
 
 
 \subsection{Modeling of Tuberculoventral cells}
 
-\yellownote{ Expand previous studies  of the DCN incl. TV cells}
+\yellownote{Expand previous studies  of the DCN incl. TV cells}
 
 \citet{ArleKim:1991a} were the first to show type~II \EIRA~with simple
 McCullock-Pitts point neuron models.
@@ -223,18 +223,18 @@ method. \yellownote{Population mean rate: Pros: fairly stable for smallish
 \begin{figure}[htb]
   \centering \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}}
   % \includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
-  \caption{Experimental data of a single Type-II DCN unit
-    \citep{ReissYoung:2005}, Fig.~9.}
+  \caption[Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit
+    \citep[,~Fig.~9]{ReissYoung:2005}.}
   \label{fig:TVReissFig9}
 \end{figure}\yellownote{Permission needed for Reiss and Young figures}
 
 
 \begin{figure}[htb]
   \centering \resizebox{0.7\textwidth}{!}{\includegraphics{TV_NotchDataConfig}}
-  \caption{Expected mean rate response to notch noise in the TV cells is created
-    from 1 octave notch sweeps (top) for the falling edge and from half octave
-    notch sweeps (bottom) for the rising edge. (Top and bottom figures from
-    Fig.~9 \citep*{ReissYoung:2005})}
+  \caption[TV model optimisation configuration]{Expected mean rate response to
+    notch noise in the TV cells is created from 1 octave notch sweeps (top) for
+    the falling edge and from half octave notch sweeps (bottom) for the rising
+    edge. (Top and bottom figures from Fig.~9 \citep*{ReissYoung:2005})}
   \label{fig:TVNotchDiagram}
 \end{figure}
 
@@ -327,12 +327,12 @@ of the notch stimulus from 110 down to 50 dB \SPL.
 \begin{figure}[!ht]
   \centering
   \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_spl.eps}}
-  \caption{Optimisation results for TV Notch model with stimulus sound levels at
-    110, 90, 70 and 50 dB SPL.}
+  \caption[TV cell model: optimisation results]{Optimisation results for TV
+    Notch model with stimulus sound levels at 110, 90, 70 and 50 dB SPL.}
   \label{fig:TV_result_spl}
 \end{figure}
 
-% % D-----------------------------------
+% % D~----------------------------------
 % \begin{tabularx}{\linewidth}{|X|c|c|c|}
 %   \hdr{4}{F}{Optimisation} \\ \hline \textbf{Parameters} & \textbf{Name} &
 %   \textbf{Range} & \textbf{Best Values} \\\hline
@@ -345,7 +345,7 @@ of the notch stimulus from 110 down to 50 dB \SPL.
 %   \\ \hline
 % \end{tabularx}
 
-% % D-----------------------------------
+% % D~----------------------------------
 % \begin{tabularx}{\linewidth}{|X|c|c|c|}
 %   \hdr{4}{F}{Optimisation} \\ \hline \textbf{Parameters} & \textbf{Name} &
 %   \textbf{Range} & \textbf{Best Values} \\\hline
@@ -387,11 +387,11 @@ dB \SPL\@.  \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi,
   \centering
   % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
   % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result.eps}}
-  \caption{Optimisation results for a refined TV Notch model with stimulus sound
-    levels at 50 dB SPL\@.  The first three runs used the parameters
-    \nDSTV,\wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV\@. The second group of 3
-    runs included the parameters \sDSTV, reversal potential of TV cells, \oDSTV,
-    \nDSTV, \wDSTV.}
+  \caption[Optimisation results for a refined TV cell model]{Optimisation
+    results for a refined TV cell model with stimulus sound levels at 50 dB
+    SPL\@.  The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV,
+    \nHSRTV, \wLSRTV, \wHSRTV\@. The second group of 3 runs included the
+    parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
   \label{fig:TV_result_Run2_50}
 \end{figure}
 
@@ -491,11 +491,12 @@ synapses (29 to 1); and the increased need for \DS~cell inhibition with a high
   \centering
   % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
   % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result.eps}}
-  \caption{Optimisation results for a refined TV Notch model with stimulus sound
-    levels at 70 dB SPL\@.  The first three runs used the parameters
-    \nDSTV,\wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV\@. The second group of 3
-    runs included the parameters \sDSTV, reversal potential of TV cells, \oDSTV,
-    \nDSTV, \wDSTV.}
+  \caption[Multiple results for a refined TV cell model with stimulus sound
+  levels at 70 dB SPL]{Optimisation results for a refined TV Notch model with
+    stimulus sound levels at 70 dB SPL\@.  The first three runs used the
+    parameters \nDSTV,\wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV\@. The second
+    group of 3 runs included the parameters \sDSTV, reversal potential of TV
+    cells, \oDSTV, \nDSTV, \wDSTV.}
   \label{fig:TV_result_Run2_70}
 \end{figure}
 
@@ -510,7 +511,7 @@ The eventual result of the \TV~cell optimisation, highlighted in the following
 table, was derived from Run 1A and Run 1B in the set using 70 dB
 \SPL~stimulus. \yellownote{Explain the table a bit more. }
 
-% D-----------------------------------
+% D~----------------------------------
 
 \smallskip{}
 
@@ -519,12 +520,12 @@ table, was derived from Run 1A and Run 1B in the set using 70 dB
                     \textbf{Range}                     & \textbf{Best Values} \\\hline
     Number of \DS~synapses onto \TV~cells ($\mu$S)     &    \nDSTV     &   [0,100]    & 17 \\
     Weight of \DS~synapses onto \TV~cells ($\mu$S)     &    \wDSTV     & [1e-5,0.005] & 0.0029 \\
-           Number of synapses, \LSR~to \TV             &    \nLSRTV    &   [0,100]    & 29           \\
-           Number of synapses, \HSR~to \TV             &    \nHSRTV    &   [0,100]    & 1          \\
-         Weight of \LSR~syn on \TV~ ($\mu$S)           &    \wLSRTV    & [1e-5,0.005] & 0.00017 \\
-         Weight of \HSR~syn on \TV~ ($\mu$S)           &    \wHSRTV    & [1e-5,0.005] & 0.00017 \\
-  Spread of \DS~connections onto \TV~(channel units)   &    \sDSTV     &   [0,100]    & 13         \\
-  Offset of \DS~connections onto \TV~(channel units)   &    \oDSTV     &   [-10,30]   & 2.1        \\
+           Number of synapses, \LSR~to \TV~cells             &    \nLSRTV    &   [0,100]    & 29           \\
+           Number of synapses, \HSR~to \TV~cells             &    \nHSRTV    &   [0,100]    & 1          \\
+         Weight of \LSR~syn on \TV~cells   ($\mu$S)           &    \wLSRTV    & [1e-5,0.005] & 0.00017 \\
+         Weight of \HSR~syn on \TV~cells   ($\mu$S)           &    \wHSRTV    & [1e-5,0.005] & 0.00017 \\
+  Spread of \DS~connections onto \TV~cells (channel)   &    \sDSTV     &   [0,100]    & 13         \\
+  Offset of \DS~connections onto \TV~cells (channel)   &    \oDSTV     &   [-10,30]   & 2.1        \\
  Reversal potential of leak current in \TV~cells (mV)  &   $E_{rev}$   &  [-80,-50]   & 
 -65.89 \\ \hline
 \end{tabularx}
@@ -562,7 +563,8 @@ Figure~\ref{fig:TV_SweepUnit70} shows the response of a unit with similar
   \resizebox{\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig9_E+F.eps}}\\
   \resizebox{\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig10A+B.eps}}
   \resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{TV_Notch/Best-Offset2/BestSweep.eps}}\\
-  \caption{Response of optimised TV cell (CF=12.76~kHz) to notch and band sweeps
+  \caption[Response of optimised TV cell (CF=12.76~kHz) to notch and band
+  sweeps]{Response of optimised TV cell (CF=12.76~kHz) to notch and band sweeps
     with stimulus sound level at 50 dB SPL\@. Mean rate responses are plotted
     against the rising edge frequency of the notch and falling edge of the
     band-pass in octaves relative to 12.7~kHz. Middle row is from Figure 9 E and

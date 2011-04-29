@@ -1,6 +1,6 @@
 
 %\graphicspath{{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}{../figures/}{./gfx/}}
-\section[DS Cell Model]{D-Stellate Cell Model: optimisation using click recovery
+\section[DS Cell Model]{D~Stellate Cell Model: optimisation using click recovery
   responses}\label{sec:d-stellate-cell-model}
 
 \subsection{Introduction}\label{sec:DS:introduction}
@@ -21,7 +21,7 @@ of the \VCN, especially stellate and bushy neurons
 % cochlear nucleus \citep{NeedhamPaolini:2007}.
 %%%%%%%%%%%%%%%%%%% Copied from original jneurometh article
   
-D-stellate (DS) cells are large multipolar neurons in the \VCN~and have an
+\DS~cells are large multipolar neurons in the \VCN~and have an
 onset-chopping (On-C) \PSTH~to tones and noise \citep{SmithRhode:1989,
   NeedhamPaolini:2006}.  They typically have 3-4 long dendrites stretching 200
 microns (or one third of the \VCN) and their axonal collaterals cover the same
@@ -64,7 +64,7 @@ GABAergic modulation of activity in the \VCN\@.
 \subsection{Implementation}\label{sec:DS:implementation}
  
 
-Key elements in designing D-stellate cell model are shown in the
+Key elements in designing D~stellate cell model are shown in the
 Nordlie table~\ref{tab:DScellModelSummary}A. A type I-II single
 compartment neuron by \citet{RothmanManis:2003b} has the
 characteristics of a onset chopper unit and has previously been used
@@ -72,7 +72,7 @@ to simulate a \DS~cell model. The choice of having a large multipolar
 neuron without dendrites was based on computational efficiency and
 ensuring that the model fit within the criteria for DS cells. The
 electrotonic dendrites of \DS~cells mean that the filtering in
-\DS~cells primarily controls the height of {\EPSP}s reaching the soma
+\DS~cells primarily controls the height of excitatory {\PSP}s reaching the soma
 \citep{WhiteYoungEtAl:1994}, hence a single compartment with graded
 weights should suffice. The inhibitory effect of Golgi cells onto
 \DS~units are delayed and occurs through a the slow peak of
@@ -106,7 +106,7 @@ standard deviations \citep{PaoliniClark:1999}.
 %   \centering
 %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{fig:DSClickRecoveryPSTH}\\
 %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{fig:GClickRecoveryPSTH}
-%   \caption{PSTH response of a D-stellate cell from the click recovery stimulus
+%   \caption{PSTH response of a D~stellate cell from the click recovery stimulus
 %   used in the optimisation.}
 % \end{figure}
 
@@ -173,7 +173,7 @@ weight that was obtained in the optimisation.
 % \begin{figure}
 %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_OptVars.eps}\\
 % %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Output.eps}\label{Ch3:fig:DSClickRecoveryOutput}
-%   \caption{Final Output Data of the D-stellate Click Recovery optimisation }
+%   \caption{Final Output Data of the D~stellate Click Recovery optimisation }
 % \end{figure}
 % \begin{figure}
 %   \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example1.eps}\\
@@ -313,9 +313,9 @@ $g_{leak}$ and $g_{KLT}$ is shown in Figure~\ref{fig:leakVltk}.
   \centering 
 \resizebox{\textwidth}{!}{\includegraphics{NoFigure}}
 %\resizebox{\textwidth}{!}{\includegraphics{leakvltk}}
-  \caption{Resting Membrane potential calculated for leak conductance and KLT
-    conductance changes around the previously obtained best values for these
-    parameters.}\label{fig:leakVltk}
+\caption[DS RMP dynamics]{Resting Membrane potential calculated for leak
+  conductance and KLT conductance changes around the previously obtained best
+  values for these parameters.}\label{fig:leakVltk}
 \end{figure}
 
 

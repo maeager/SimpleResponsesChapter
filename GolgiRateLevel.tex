@@ -148,8 +148,8 @@ with 100 evenly spaced frequency channels. The population of \ANFs~in
 Table~\ref{tab:GolgiCellModelSummary}B are zero because there is no need for
 spiking \ANF~neurons, only the instantaneous profiles of each frequency channel
 is used in the Golgi model.  The connectivity between \ANFs~and Golgi cells
-(Table ~\ref{tab:GolgiCellModelSummary}C) is a simple place-based Gaussian
-spread, as explained in the introduction ($\S$~\ref{sec:tonot-conn})
+(Table~\ref{tab:GolgiCellModelSummary}C) is a simple place-based Gaussian
+spread, as explained in the introduction ($\S$~\ref{sec:CN:tonot-conn})
 
 % \input{GolgiRateLevelTable.tex}
 
@@ -159,7 +159,7 @@ spread, as explained in the introduction ($\S$~\ref{sec:tonot-conn})
   \centering
  % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
 %  \resizebox{0.9\textwidth}{!}{\includegraphics{GolgiDiagram.eps}}\\
-  \resizebox{0.9\textwidth}{!}{\input{gfx/GolgiDiagram.tex}}\\
+  \resizebox{0.9\textwidth}{!}{\input{/media/data/Work/thesis/SimpleResponsesChapter/gfx/GolgiDiagram.tex}}\\
   \caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile was
     generated using a weighted sum ANF profiles and a alpha function smoothing
     filter to mimic dendritic and synaptic filtering. The Gaussian spread of
@@ -188,7 +188,7 @@ function, $\alpha(t)$, as the synapto-dendritic filtering mechanism in the Golgi
 cell. The alpha filter length was 10 times the time constant, \Gtau, and its
 area under the function was normalised to 1.  A more detailed explanation of the
 NEURON implementation of the Golgi cell model is in the section
-Appendix~\ref{sec:chp3:appendix}.
+Appendix~\ref{sec:ch3:appendix}.
 
 \smallskip{}
 
@@ -263,17 +263,17 @@ Golgi cell model.
 The final optimisation routine with 22 levels and a Golgi cell model with
 \HSR~and \LSR~\ANF~inputs was used to generate a closer fit to the Ghoshal and
 Kim data. Figure~\ref{fig:GolgiResult} shows the rate-level output of the best
-model response and its best combination of parameters are shown in Table
-\ref{tab:GolgiCellModelSummary}E. The root mean squared error of the best
-response was 4.48 spikes/s.
+model response and its best combination of parameters are shown in
+Table~\ref{tab:GolgiCellModelSummary}E. The root mean squared error of the best
+response was 4.48~spikes per second.
 
 The parameters in Table~\ref{tab:GolgiCellModelSummary}E were within the range
 of expected values. \LSR~inputs to the Golgi cell model out-weighted \HSR~inputs
 by more than a factor of 10. The monotonic response of \LSR~fibres at high sound
 levels were necessary to create the large dynamic range in the Golgi cell model,
 the \HSR~fibres were just as necessary to provide some low level activity. The
-spontaneous rate parameter matches the base response of unit unit S03-07 in
-Figure~\ref{fig:GolgiResult}. The smoothing filter time constant of 5 ms is a
+spontaneous rate parameter matches the base response of unit S03-07 in
+Figure~\ref{fig:GolgiResult}. The smoothing filter time constant of 5 msec is a
 typical value in membrane time constants for neural models and fits with the
 input resistance in intracellular recordings of Golgi cells
 \citep{FerragamoGoldingEtAl:1998}.
@@ -379,9 +379,9 @@ cell model in the network to a 5.8~kHz tone, increased from 0 to 90 dB~{SPL}.
 % }}
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50.3.eps}}\\
- \label{fig:Golgi_verification}
+
  \caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell
-   model at the centre of the network (CF=5.8~kHz).}
+   model at the centre of the network (CF=5.8~kHz).} \label{fig:Golgi_verification}
 \end{figure}
 
 

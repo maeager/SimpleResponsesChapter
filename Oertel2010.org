@@ -1,0 +1,175 @@
+#+TITLE: Summary of Oertel et el. 2010
+#+LaTeX_CLASS: djcb-org-article
+#+LATEX_HEADER: \usepackage[sort,round]{natbib}
+#+AUTHOR: Michael Eager
+#+BIBLIOGRAPHY: ../hg/manuscript/bib/MyBib plainnat 
+
+** \citet*{OertelWrightEtAl:2010} The multiple functions of T stellate/multipolar/chopper cells in the ventral cochlear nucleus
+
+** Definitions/ naming conventions: 
+   - histology staining  
+     --multipolar (Nissl staining) and stellate (Golgi impregnation) \cite{Osen:1969,BrawerMorestEtAl:1974,Lorente:1981}
+   - axonal projections
+     -- *T* trapezoid body or ventral acoustic stria (T stellate), and *D* dorsal acoustic stria (D stellate) \cite{OertelWuEtAl:1990}
+     -- T stellates project locally in VCN and deep layer of DCN -> match Chopper \citep{RhodeOertelEtAl:1983,SmithRhode:1989}
+     -- D stellate projections wide in VCN,DCN and cCN -> match OnC  \citep{SmithRhode:1989}
+   - somatic innervation: type 1 (few somatic) type II (many somatic and dendritic) Cant \cite{Cant:1981}
+   - anatomical and physiological: \citet{SmithRhode:1989}
+     -- T stellate -> type 1 -> chopping PSTH
+     -- D stellate -> type 2 -> OnC PSTH
+   - Chopper subdivision:
+     -- sustained and transient (no evidence for anatomical differences in T~stellate cells)
+   - dendritic differences \citep{DoucetRyugo:1997,DoucetRyugo:2006}
+     -- planar (T)
+     -- radial (D)
+
+** Acoustic Response of T stellate cells
+
+- regular, tonic response to tones \citep{RhodeOertelEtAl:1983,SmithRhode:1989,BlackburnSachs:1989}
+- "Chopping" precise regular timing that degrades throughout stimulus\citep{YoungRobertEtAl:1988,BlackburnSachs:1989}
+  -- sustained (70%) -> constant rate, ISI histogram sharp, CV < 0.3, CV constant
+  -- transient (30%) -> rate decreases, CV starts below 0.3 then varies
+- Inhibition 
+  -- Gly, GABA tuned on frequency to reduce peak excitation \citep{CasparyBackoffEtAl:1994}
+  -- inhibitory side bands mainly D stellate \cite{FerragamoGoldingEtAl:1998a} but periolivary also contribute \cite{AdamsWarr:1976,Adams:1983,ShoreHelfertEtAl:1991,OstapoffBensonEtAl:1997}
+\citep{PalombiCaspary:1992,RhodeSmith:1986,NelkenYoung:1994,PaoliniClareyEtAl:2005,PaoliniClareyEtAl:2004}  
+- sustained firing despite AN adaptation 
+  -> signals the sound intensity consistently, hence precise level information
+  -> Phasic also do level, but tonic suits encoding of spectrum across population since encoding the peaks and valleys is relatively independent of time after onset of sound \cite{BlackburnSachs:1990,May:2003,MayPrellEtAl:1998,MaySachs:1998}
+  -> suits encong of envelope of sounds, important for speech (envelops under 50 Hz \cite{ShannonZengEtAl:1995} 
+- AM coding in choppers encoded over wide range of intensities \cite{RhodeGreenberg:1994,FrisinaSmithEtAl:1990} 
+  -- other work in Am coding by CN neurons  \citep{Moller:1972,Moller:1974a,Moller:1974,MooreCashin:1974,Frisina:1984,PalmerWinterEtAl:1986,KimRhodeEtAl:1986,WinterPalmer:1990a,Palmer:1990,PalmerWinter:1992,FrisinaSmithEtAl:1990a,Frisina:1983,GorodetskaiaBibikov:1985,RhodeGreenberg:1994,ShofnerSheftEtAl:1996,FrisinaKarcichEtAl:1996,DAngeloSterbingEtAl:2003,Aggarwal:2003} 
+- phasic firing in AN maintained by bushy 
+  -- phasic info important: enhances formant transitions, and provides accurate information about the location of sound sources even in reverberant environments, critical in hearing 
+
+** Making phasic input tonic
+
+   steady depolarising current shows intracellular ability to be tonic BUT - how does the input remain stable
+
+     1. feed-forward excitation in TS cells
+       - axon collaterals in local isofrequency (most cells in PVCN are TS cells)
+     2. co-activation of phasic inhibition
+	- DS inhibition ispi and contralaterally
+	  -- onset inhibition strongest, affecting TS cells after first spike
+	  -- broad tuning sharpens FSL 
+	- TV sharply tuned inhibition (Ferr98)
+	 -- TV response variable and non-monotonic
+         -- \citep{Rhode:1999}  labelled TV cells phasic in aneasthetised cats
+	 -- unanesthetised cats and gerbils are phasic or tonic  \citep{DingVoigt:1997,ShofnerYoung:1985}
+	- Others - Glycine from ipsi periolivary region, GABA from both
+          periolivary regions
+          \citep{AdamsWarr:1976,ShoreHelfertEtAl:1991,OstapoffBensonEtAl:1997}
+     3. Absense of LT potassium in TS
+	- labelled \citep{ManisMarx:1991,BalOertel:2001,FerragamoOertel:2002,CaoShatadalEtAl:2007}
+	- unlabelled \citep{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b,Rothman:1999}
+
+     4. Activation of NMDA
+       - \citep{CaoOertel:2010} shows TS cells activate large currents through NMDA receptors
+       - NMDA longer lasting, reducing phasic nature of input
+     5. Little synaptic depression
+	- SD less tahn bushy and octopus \citep{WuOertel:1987,ChandaXu-Friedman:2010,CaoOertel:2010}
+	- excitation of TS adapts less than other VCN neurons
+
+**  Mechanisms of tonic firing obscure temporal features
+
+     - sFSL largest in TS of core VCN units by 1msec -> onset inhibition + longer integration time \citep{GisbergenGrashuisEtAl:1975,GisbergenGrashuisEtAl:1975a,GisbergenGrashuisEtAl:1975b,YoungRobertEtAl:1988,PaoliniClareyEtAl:2004}
+     - integration window longest for choppers \citep{McGinleyOertel:2006}
+     - inhibition from high CF units alters FSL to tones \citep{Wickesberg:1996}
+
+     - Onset: Volley of Excitation + feedforward excitation + DS inhibition 
+     - After onset: Phasic excitation + feedforward excitation + NMDA activation + TV inhibition (+ small DS inhibition) + GABA inhibition = stable excitation but loss of temporal features
+
+** Neuromodulatory effects in T stellate cells
+
+   - sensitive to neuromodulatory currents \citep{FujinoOertel:2001}
+     - high input resistance -> amplify small current inputs \citep{FujinoOertel:2001}
+     - no LKT in TS,  LKT makes bushy and optopus insensitive to steady currents \citep{OertelFujino:2001,McGinleyOertel:2006}
+     - Ih higher in TS & activated more at lower potentials than in bushy and octopus, so that it is less active at rest
+     - high resistance -> greater voltage changes in small modulating current -> Ih can be modulated by G-protein coupled receptors, hence making TS more excitable when Ih activated \citep{RodriguesOertel:2006}
+
+
+   1. Driving inputs
+Proximal dendrites and at the soma:
+     - ANF provide glutamatergic excitation for T stellates  \citep{Cant:1981,FerragamoGoldingEtAl:1998a,Alibardi:1998a}
+      -- only 5 or 6 in mice \citep{FerragamoGoldingEtAl:1998a,CaoOertel:2010}
+     - Recurrent excitation from other T stellate cells \citep{FerragamoGoldingEtAl:1998a}
+     - Glycine from DS cells \citep{FerragamoGoldingEtAl:1998a}
+     - Glycine from TV cells \citep{WickesbergOertel:1990,ZhangOertel:1993b}
+
+  2. Neuromodulatory 
+     No signs of PSP or PSCs hence distal or G-protein coupled, effects on time-course minimal
+
+a. Golgi cells (GABA)
+-- no IPSPs or IPSCs but presence of GABAa receptors and response changes to bicuculine \citep{WuOertel:1986,OertelWickesberg:1993,FerragamoGoldingEtAl:1998a} 
+-- dend filter obscures PSPs
+-- Golgi cells are GABAergic and lie within the granule cell domains around the VCN and terminate near the fine distal dendrites of T stellate cells
+b. Periolivary cells (GABA + GAD - glutamic acid decarboxylase) 
+-- observed in PVCN close to TS \citep{AdamsMugnaini:1987}
+-- GAD effectively Glycine \citep{GoldingOertel:1997}
+-- can also arise from GABAergic neurons in ipsi LNTB and DM Periolivary
+c. VNTB cells (ACh)
+-- collateral branches of OC go to GCD \citep{MellottMottsEtAl:2011,SherriffHenderson:1994,OsenRoth:1969}
+-- TS have nicotinic and muscarinic ACh receptors \citep{FujinoOertel:2001}
+-- ACh input to TS, together with OC-cochlea, enhances spectral peaks in noise  \citep{FujinoOertel:2001}
+d. NE and 5HT
+-- Raphe nuclei (5HT)
+-- Locus coeruleus Peribrachial cells (NE)
+-- both terminate in PVCN \citep{KlepperHerbert:1991,Thompson:2003,ThompsonLauder:2005,Thompson:2003a,ThompsonWiechmann:2002,BehrensSchofieldEtAl:2002,ThompsonThompson:2001,ThompsonThompson:2001a,ThompsonMooreEtAl:1995,ThompsonThompsonEtAl:1994}
+-- both increase firing in T stellates \citep{OertelWrightEtAl:2010} in presence of glut and gly blockers -> hence act on post synapse (TS cells)
+-- both G-protein coupled, both act on either pre or post synaptic cells
+-- NE affects probabilty of release at calyx of Held 
+-- NE increases firing rate of choppers \citep{KosslVater:1989,Ebert:1996}
+-- 5HT excites or inhibits choppers /in vivo/ \citep{EbertOstwald:1992}
+
+** Major ascending output 
+   - review \citep{DoucetRyugo:2006}
+
+TS cell axons exit the CN through the trapezoidal body, cross the midline and ultimately terminate in the cIC \citep{Adams:1979}
+
+   - Collaterals: local, DCN, LSO cVNTB cVNLL \citep{Warr:1969,SmithJorisEtAl:1993,Thompson:1998,DoucetRyugo:2003}
+
+1. Deep DCN (bulk of acoustic input?)
+-- in mice TS terminals > ANF \citep{CaoMcGinleyEtAl:2008}
+-- on CF \citep{SmithRhode:1989,FriedlandPongstapornEtAl:2003,DoucetRyugo:1997}
+-- DCN review \citep{OertelYoung:2004}
+
+2. LSO excitation
+-- TS project to LSO \citep{Thompson:1998,DoucetRyugo:2003,ThompsonThompson:1991a}
+-- LSO detect interaural intensity differences primarily from ipsi Bushy cells and contra MNTB (inhib)
+
+3. OC feedback
+a. MOC: cVNTB excitation 
+-- involved in efferent feedback loop, ACh-ergic MOC neurons TS synapses in cVNTB \citep{WarrBeck:1996,Warr:1992,Warr:1982,VeneciaLibermanEtAl:2005,ThompsonThompson:1991,SmithJorisEtAl:1993}
+-- feedback direct to TS is positive, but efferent MOC-OHC-ANF reduces activation of ANF \citep{WarrenLiberman:1970,WiederholdKiang:1970}
+-- other RobertsonMulders:2000,WinterRobertsonEtAl:1989
+b. LOC
+-- TS terminate in vicinity of LOC neurons \citep{Warr:1982,ThompsonThompson:1988,ThompsonThompson:1991,DoucetRyugo:2003} 
+-- feedback through LOC-cochlea-ANF loop -> TS affect/regulate response of LOC. hence ANF.
+-- LOC balance inputs from both ears \citep{DarrowEtAl:2006}
+
+c. VNLL
+-- The functional consequences of these direct and indirect connections with TS cells with the IC are not well understood
+
+** TS cells in birds
+
+** Summary
+
+As a population, T stellate cells encode the spectrum of sounds. They
+receive acoustic input from the auditory nerve fibers. Several
+mechanisms contribute to that transformation: Feed-forward excitation
+through other T stellate cells, co-activation of excitation and
+inhibition, reduction in synaptic depression, and the amplification of
+excitatory synaptic current over time through NMDA receptors. They
+deliver that information to nuclei that make use of spectral
+information.  T stellate cells terminate in the DCN, to olivocochlear
+efferent neurons, to the lateral superior olive, to the contralateral
+inferior colliculus. These targets use spectral information to
+localize sounds, to adjust the sensitivity of the inner ear, and to
+recognise and understand sounds. Birds also process sounds through
+neurons that resemble T stellate cells in their projections and also
+in their cellular properties, attesting to the fundamental importance
+that T stellate-like cells have for hearing in vertebrates.
+
+
+#+LaTeX: \bibliographystyle{plainnat}
+#+LaTeX: \bibliography{../hg/manuscript/bib/MyBib}
