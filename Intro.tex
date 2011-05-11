@@ -10,19 +10,15 @@
 \yellownote{Get page number of this quote}
 % =========================================================================
 
-\gls{d}
+% \gls{d}
 
+% \gls{w}
 
-\gls{w}
+% \gls{s}
 
+% \gls{n}
 
-\gls{s}
-
-
-\gls{n}
-
-
-\gls{o}
+% \gls{o}
 
 \section{Introduction}\label{sec:CN:introduction}
 
@@ -30,14 +26,13 @@ Shihab Shamma calls upon the science community, particularly members of its
 physiology and neuroscience subgroups, to investigate the role of populations of
 neurons in to pay attention to the role of populations of neurons in
 neurophysiology. This chapter draws on the wealth of experimental data
-accumulated in auditory neuroscience to create a detailed,
-biophysically-realistic neural network (BNN) model of the cochlear nucleus
+accumulated in auditory neuroscience to create a detailed, \BNN~model of the cochlear nucleus
 stellate cell network. The design and methods for the construction of the model
 shall provide insights relevant to other neural network models of the brain,
 especially those that use highly-specific sensory pathways.  \yellownote{One
   more sentence here - expand on idea at the start and link to next para.}
 
-\smallskip{}
+%\smallskip{}
 
 Although it remains the case that ``choices, assumptions, and guesses [are] an
 integral part of neuronal modeling'' \citep{SegevBurkeEtAl:1998}
@@ -46,13 +41,13 @@ modelling approaches, especially in the heavily investigated cochlear nucleus in
 birds and mammals. Developments in computational power and enhanced experimental
 techniques in multi-unit recordings are enabling more detailed neural models to
 be developed. Examples of parameter estimation and fitting in neural models are
-also becoming more advanced, for example NeuroFitter \citep{VanAchardEtAl:2007}
-and MultiRunFitter (a feature in NEURON).\yellownote{need to explain my
-  intentions}
+also becoming more advanced, for example SSNNS,
+\citep{SichtigSchafferEtAl:2008}, NeuroFitter \citep{VanAchardEtAl:2007} and
+MultiRunFitter (a feature in NEURON).\yellownote{need to explain my intentions}
 
 \yellownote{See  neural detail in auditory system\citep{LuRubioEtAl:2008}}
 
-\smallskip{}
+%\smallskip{}
 
 % {Discuss use of Poisson models vs HH-like models.  Discuss single cell
 % simulation vs whole network simulation during optimisation.}
@@ -66,7 +61,7 @@ show a consistent and recognisable format for presenting various neural network
 models and their constituents. \yellownote{this needs more explanation in the
   methods sections}
 
-\smallskip{}
+%\smallskip{}
 
 The standard methods for optimisation can be simply described with the following
 steps:\begin{itemize}
@@ -81,7 +76,7 @@ routine, these steps need to be reiterated in sequential stages. The parameters
 chosen in the sequential optimisation stages should be chosen so that they do
 not influence the properties of previously fitted parameters.
 
-\smallskip{}
+%\smallskip{}
 
 In this chapter, the connections within the stellate network
 (Fig.~\ref{fig:microcircuit}) are developed using a sequential method of
@@ -103,16 +98,18 @@ and models:
   high BF (left to right). The model reproduces responses for high and low SR
   ANFs at 100 channels across the frequency range 200 Hz to 48 kHz.
 \item The Golgi cell: a {GABA}ergic \VCN~marginal shell unit that is presumed to
-  regulate excitability in the granule cell domain and core \VCN~units
-  \citep{FerragamoGoldingEtAl:1998}. Only one \textit{in vivo} study shows a
-  type I/III response area and characterised {PSTH} with unusual or chopper
-  characteristics in marginal shell units~\citep{GhoshalKim:1997}.
+  regulate excitability in the \GCD and core \VCN~units
+  \citep{FerragamoGoldingEtAl:1998}. Only one \textit{in vivo} study has
+  recorded extracellular data in the marginal shell area of the
+  \CN~\citep{GhoshalKim:1997}. The presumed characteristics of Golgi cells are
+  taken from that study and are defined by a monotonic response to tones and
+  noise, a type I/III \EIRA, and an unusual or chopper {\PSTH}.
 \item The D~stellate cell: a glycinergic, large multipolar cell with
-  onset-chopper \PSTH response that acts as a coincidence detector. Its large
+  \OnC~\PSTH~response that acts as a coincidence detector. Its large
   dendritic area increases its response to noise allowing it to behave as a
   wide-band inhibitor in the \VCN, \DCN, and contralateral CN
   \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
-\item The Tuberculoventral cell: a glycinergic, type-II {EIRA} unit in the deep
+\item The Tuberculoventral cell: a glycinergic, type II {\EIRA} unit in the deep
   layer of the \DCN~\citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed
   echo-suppressor and narrow-band inhibitor, with recurrent connections between
   D~and T~stellate cells in the \VCN\
@@ -132,7 +129,7 @@ and models:
 \end{figure}
 \yellownote{still put some text in here to describe it}
 
-\smallskip{}
+%\smallskip{}
 
 A detailed \BNN model requires a good input model, a good neural model and
 experimental data with which to fit the parameters.  \yellownote{In this para:
@@ -143,7 +140,7 @@ experimental data with which to fit the parameters.  \yellownote{In this para:
 
 Advanced auditory fidelity and localisation is an exceptional feature of hearing
 perception in animals.  This speciality works to a high degree despite the input
-at the round-window of the cochlea being one-dimensional and very noisy.
+at the round window of the cochlea being one dimensional and very noisy.
 Modelling in the auditory periphery has benefited extensively from the work of
 Liberman, Greenwood, Patterson, Young, Sachs and others, in acoustic \texttt{in
   vivo} experiments. Models of the auditory system over the last 30 years have
@@ -151,7 +148,7 @@ expanded our understanding of the mechanical processes in the middle ear and
 cochlea, and the specialised synapse between the inner hair cell and the
 auditory nerve \citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
 
-\smallskip{}
+%\smallskip{}
 
 The auditory system is topographically ordered from the basilar membrane to the
 cortex in terms of frequency selectivity, also called tonotopicity
@@ -165,7 +162,7 @@ the \GCD~\citep{RyugoParks:2003, RyugoHaenggeliEtAl:2003} along with the
 smaller, unmyelinated type 2 \ANFs, which suggests they play a different role in
 sound processing to \HSR fibres.
 
-\smallskip{}
+%\smallskip{}
 
 \begin{figure}[tbh]
   \begin{center}
@@ -177,27 +174,27 @@ sound processing to \HSR fibres.
 \end{figure}
 
 
-\smallskip{}
+%\smallskip{}
 
 \yellownote{Discuss auditory model history. Expand reasons for wanting to create
   a biophysically realistic model of the CN\@. Discuss reason for using whole
   network in TV and TS optimisation}
 
-\smallskip{}
+%\smallskip{}
 
 \yellownote{a paragraph on the history of AN modelling
   \citep{LeakeSnyderEtAl:1993, ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.
   Perhaps Rose et al 1959 would be better suited here}
 
 %
-\smallskip{}
+%\smallskip{}
 
 In examining the properties of a detailed neural model of the cochlear nucleus,
 a realistic and phenomenologically sound auditory model is needed to represent
 sounds and transformations that occur in the central auditory system.
 
 %
-\smallskip{}
+%\smallskip{}
 \subsection{Auditory model}\label{sec:CN:resp-audit-models}
 
 The auditory nerve inputs to the cochlear nucleus model neurons are provided by
@@ -215,7 +212,7 @@ the vowel simulation where the human auditory periphery model is used.
 \yellownote{TODO: AN model paragraph has been changed - fix any comment related
   to new Zilany}
 
-\smallskip{}
+%\smallskip{}
 
 % The \citet{ZilanyBruce:2007} model improves the previous AN model by an
 % additional signal path and its predictions have matched a wide range of
@@ -223,7 +220,7 @@ the vowel simulation where the human auditory periphery model is used.
 % comprises an power-law synapse model, with internal $1/f$ noise, that enhances
 % the behaviour of long-term dependence in ANFs \citep{ZilanyBruceEtAl:2009}.
 
-\smallskip{}
+%\smallskip{}
 
 % \yellownote{Why is it the cat model? updating Carney model?} Updating of the
 % Carney auditory model has led to the change in the model's configuration from an
@@ -266,7 +263,7 @@ be saved and loaded from file.
 % \item characteristic frequency (CF)
 % \end{itemize}
 
-\smallskip{}
+%\smallskip{}
 
 
 
@@ -287,7 +284,7 @@ be saved and loaded from file.
 
 \yellownote{[Discuss R\&M model] Is this a replication of other work or have I changed it enough that it needs to be shown or too general to go in this chapter (put in Methods Chapter}
 
-\smallskip{}
+%\smallskip{}
 
 \subsection{Tonotopic connectivity}\label{sec:CN:tonot-conn}
 
@@ -296,7 +293,7 @@ basilar membrane and auditory nerve separation) with centre frequency
 calculated by the Greenwood function for the cat
 \citep{Greenwood:1990}. \yellownote{Expand section on connectivity}
 
-\smallskip{}
+%\smallskip{}
 
 Figure~\ref{fig:CNconn} shows the method for Gaussian spread of
 connections between cell types in the \CN\@.  The channels are separated
@@ -324,7 +321,7 @@ using the same Greenwood function as used for the AN filterbank.
   \end{center}
 \end{figure}
 
-\smallskip{}
+%\smallskip{}
 
 
 

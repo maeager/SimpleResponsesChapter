@@ -24,7 +24,7 @@ suggests otherwise since intracellular responses from labeled \TV~cells in the
 mouse show clear excitatory input from \TS~cells and diffuse inhibitory input
 from \DS~cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
 
-\smallskip{}
+%\smallskip{}
 
 TV or vertical cells receive mono-synaptic excitatory input from auditory nerve
 ﬁbers \citep{OertelWu:1989,ZhangOertel:1993b}. Taken together, these two results
@@ -41,7 +41,7 @@ a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997}; this is
 consistent with the responses of vertical cells to intracellular current
 injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
 
-\smallskip{}
+%\smallskip{}
 
 Type~II units also supply an inhibitory input to the
 \VCN~\citep{WickesbergOertel:1990}, but the role of type~II terminals in the
@@ -53,7 +53,7 @@ inhibited by this narrowband source. As a result, \DCN~principal cells are
 inhibited by sharp spectral peaks close to their
 \BF~\citep{SpirouDavisEtAl:1999}.
 
-\smallskip{}
+%\smallskip{}
 
 \begin{figure}[htb]
   \centering
@@ -101,25 +101,25 @@ of \LSR, high threshold \AN~fibres over \HSR~fibres to synapse with
 be confirmed
 \citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
 
-\smallskip{}
+%\smallskip{}
 
 \citep{Rhode:1999} Vertical cells in gerbils (mainly type III)
 
-\smallskip{}
+%\smallskip{}
 
 The intrinsic mechanism is more favourable in Type II units, provided there is
 sufficient inhibition and excitation \citep{HancockDavisEtAl:1997}. Lateral
 inhibition was disregarded in favour of wide-band inhibition
 \citep{HancockDavisEtAl:1997}.
 
-\smallskip{}
+%\smallskip{}
 
 Work by Reed and Blum
 \citep{ReedBlum:1995,BlumReedEtAl:1995,ReedBlum:1997,BlumReed:1998} on the
 circuitry of the \DCN~showed that wide-band inhibition was necessary for the
 principal cells of the \DCN~including type II units.
 
-\smallskip{}
+%\smallskip{}
 
 With retrograde labelling in the \DCN~three types of ventro-tubercular units in
 rats were identified \citet{FriedlandPongstapornEtAl:2003}, as apposed to only
@@ -129,7 +129,7 @@ adendritic neurons.
 
 \yellownote{The above paragraphs need to be cleaned up and worked into the idea of generating BNN models using a simple approach}
 
-\smallskip{}
+%\smallskip{}
 
 % \subsubsection{Key design factors}
 
@@ -169,7 +169,7 @@ phases in the time domain. The notch noise presented in this optimisation
 routine was generated in Octave using frozen Gaussian noise (100kHz sampling
 rate) and a Chebyshev type II band reject filter.
 
-\smallskip{}
+%\smallskip{}
 
 The experimental data, shown in Fig.~\ref{fig:TVReissFig9}, is the average
 responses of type II units to notch sweeps. The optimisation routine would be
@@ -183,7 +183,7 @@ unit with \CF~of 10kHz, will see a rising edge of a half octave notch.
 Figure~\ref{fig:TVNotchDiagram} shows the combination of the type II unit notch
 data for 1 octave.
 
-\smallskip{}
+%\smallskip{}
 
 The sound level in the \citet{ReissYoung:2005} data further complicates the
 situation.  The power spectrum is maintained at a constant level per frequency
@@ -193,7 +193,7 @@ an important part in stimulating the \ANFs~and contributing interneurons.  The
 experimental data shown in Fig.~\ref{fig:TVReissFig9}, show the mean response to
 notch sweeps at 22 db/Hz$^{1/2}$.
 
-\smallskip{}
+%\smallskip{}
 
 Higher thresholds in type~II \DCN~units \citep{SpirouDavisEtAl:1999} and the
 presence of multiple inhibitory synapses \citep{Alibardi:2006} suggest \TV~cells
@@ -205,7 +205,7 @@ increase the threshold for excitatory inputs to generate action potentials.
 % inhibitory input. Then on 2 other runs I shifted the reversal potential of the
 % leak current to -70 and -75.}
 
-\smallskip{}
+%\smallskip{}
 
 The big issue with the optimisation of population mean rate responses is that
 the model could be over simplified and remove timing information.  The \HSR~rate
@@ -217,7 +217,7 @@ just be modeled on the \LSR~response using a simple gradient-decent
 method. \yellownote{Population mean rate: Pros: fairly stable for smallish
   repetitions, Cons: removes timing}
  
-\smallskip{}
+%\smallskip{}
 
 
 \begin{figure}[htb]
@@ -319,7 +319,7 @@ Complicated issues in \TV~model optimisation:
 %   \label{fig:TV_resultErev75}
 % \end{figure}
 
-\smallskip{}
+%\smallskip{}
 
 Figure~\ref{fig:TV_result_spl} shows the optimisation results for different
 input sound intensities.  The performance improves when reducing the sound level
@@ -381,7 +381,7 @@ improves when reducing the sound level of the notch stimulus from 110 down to 50
 dB \SPL\@.  \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi,
   DS, basic TV }
 
-\smallskip{}
+%\smallskip{}
 
 \begin{figure}[thb]
   \centering
@@ -396,46 +396,58 @@ dB \SPL\@.  \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi,
 \end{figure}
 
 
+
 % 50 dB Run
-\begin{center}
-  \begin{minipage}{0.48\linewidth}
-    \begin{tabularx}{\textwidth}{|X|c|c|c|}
-\hdr{4}{}{Optimisation A} \\ \hline 
-       &  Run 1  &  Run 2  & Run 3 \\ \hline
-\nDSTV &   39    &   49    & 59 \\
-\wDSTV & 0.0217  & 0.0217  & 0.0258     \\
-\nLSRTV&   21    &   21    & 23      \\
-\nHSRTV&   15    &   15    & 14      \\
-\wLSRTV& 0.0069  & 0.0069  & 0.0115     \\
-\wHSRTV& 0.0013  & 0.0013  & 0.0013 \\ \hline 
-Error  & 1255.34 & 1028.70 & 1082.85 \\ \hline
-\end{tabularx}
-  \end{minipage}\hfill
-  \begin{minipage}{0.48\linewidth}
-    \begin{tabularx}{\textwidth}{|X|c|c|c|}
-\hdr{4}{}{Optimisation B} \\ \hline 
-             & Run 1  & Run 2  & Run 3 \\ \hline
-   \sDSTV    &  21.3  & 31.31  & 21.31      \\
- $E_{leak}$  & -74.96 & -74.96 & -74.96      \\
-   \oDSTV    & 22.03  & 22.03  & 22.03       \\
-   \nDSTV    &   15   &   15   & 15      \\
-   \wDSTV    & 0.0148 & 0.0148 & 0.0148 \\ 
-\hline Error & 599.37 & 539.1  & 586.74 \\ \hline
-\end{tabularx}
-  \end{minipage}
-\end{center}
+\begin{table}
+%\floatbox{table}[\FBwidth]{%
+\caption{DS cell model optimisation.}\label{tab:DSresults}%
+%}%
+%\begin{subfloatrow}
+    \subfloat[First optimisation run.]{\label{tab:DSresults:one}%
+%  \begin{minipage}{0.48\linewidth}
+    \begin{tabularx}{0.48\textwidth}{|X|c|c|c|}
+\hdr{4}{}{Optimisation Parameters A} \\ \hline 
+                &  Run 1  &  Run 2  & Run 3   \\ \midrule
+    \nDSTV      &   39    &   49    & 59      \\
+\wDSTV~($\mu$S) & 0.0217  & 0.0217  & 0.0258  \\
+    \nLSRTV     &   21    &   21    & 23      \\
+    \nHSRTV     &   15    &   15    & 14      \\
+\wLSRTV~($\mu$S)& 0.0069  & 0.0069  & 0.0115  \\
+\wHSRTV~($\mu$S)& 0.0013  & 0.0013  & 0.0013  \\ \midrule 
+     Error      & 1255.34 & 1028.70 & 1082.85 \\ \bottomrule
+\end{tabularx}%
+}\quad
+\subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
+\label{tab:DSresults:two}%
+%  \end{minipage}\hfill
+%  \begin{minipage}{0.48\linewidth}
+    \begin{tabularx}{0.48\textwidth}{|X|c|c|c|}
+\hdr{4}{}{Optimisation Parameters B} \\ \hline 
+                 & Run 1  & Run 2  & Run 3  \\ \midrule
+\sDSTV~(channel) &  21.3  & 31.31  & 21.31  \\
+\Eleak~(mV)      & -74.96 & -74.96 & -74.96   \\
+\oDSTV~(channel) & 22.03  & 22.03  & 22.03  \\
+     \nDSTV      &   15   &   15   & 15     \\
+\wDSTV~($\mu$S)  & 0.0148 & 0.0148 & 0.0148 \\ \midrule
+  \hline Error   & 599.37 & 539.1  & 586.74 \\ \bottomrule
+\end{tabularx}%
+}
+%\end{subfloatrow} 
+%  \end{minipage}
+\end{table}
+
 
 The first set of parameters (\nDSTV, \wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV)
 were run three times to strengthen the validity of the optimisation results. The
 obvious outcome from this sets results are the dominance of \LSR~fibre
 excitatory inputs over \HSR~fibres; and the large counter-balance of \DS~cell
-inhibition on \TV~cells. The second set of parameters (\sDSTV, $E_{leak}$
+inhibition on \TV~cells. The second set of parameters (\sDSTV, \Eleak
 \oDSTV, \nDSTV, \wDSTV) were run for an additional three runs to stabilise the
 \DSTV~parameters.  \nDSTV~and \wDSTV~were included in both sets and showed a
 large decrease due to the effect of the \TV~cell's leak reversal potential
-$E_{leak}$ scaling down to -75 mV\@.
+\Eleak scaling down to -75 mV\@.
 
-\smallskip{}
+%\smallskip{}
 
 The eventual result of the offset parameter ($\oDSTV = 22.03$) was
 unexpected. The offset is equivalent in octaves of 2.5 octaves at the lowest
@@ -445,7 +457,7 @@ the location in the network. This is most likely caused by a local minimum in
 the optimisation and noise in the model prevented the routine from finding lower
 scores.
 
-\smallskip{}
+%\smallskip{}
 
 Another optimisation run at 70 dB \SPL~produced a better result for the offset
 parameter and the overall error value of the fitness function.  The offset of
@@ -458,31 +470,30 @@ synapses (29 to 1); and the increased need for \DS~cell inhibition with a high
 % \clearpage \newpage
 
 % 70 dB Run
-
 \begin{center}
   \begin{minipage}[h]{0.48\linewidth}
     \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation A} \\ \hline 
-             & Run 1  & Run 2  & Run 3 \\ \hline
-   \nDSTV    &   43   &   23   & 32     \\
-   \wDSTV    & 0.0017 & 0.0017 & 0.0067  \\
-  \nLSRTV    &   29   &   32   & 32     \\
-  \nHSRTV    &   1    &   1    & 1         \\
-  \wLSRTV    & 0.0019 & 0.0019 & 0.0019      \\
-  \wHSRTV    & 0.0013 & 0.0013 & 0.0013 \\ 
-\hline Error & 499.20 & 514.86 & 518.54 \\ \hline
+                 & Run 1  & Run 2  & Run 3  \\ \hline
+     \nDSTV      &   43   &   23   & 32     \\
+\wDSTV~($\mu$S)  & 0.0017 & 0.0017 & 0.0067 \\
+    \nLSRTV      &   29   &   32   & 32     \\
+    \nHSRTV      &   1    &   1    & 1      \\
+\wLSRTV~($\mu$S) & 0.0019 & 0.0019 & 0.0019 \\
+\wHSRTV~($\mu$S) & 0.0013 & 0.0013 & 0.0013 \\ 
+  \hline Error   & 499.20 & 514.86 & 518.54 \\ \hline
 \end{tabularx}
   \end{minipage}\hfill
   \begin{minipage}[h]{0.48\linewidth}
     \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation B} \\ \hline 
-             & Run 1  & Run 2  & Run 3 \\ \hline
-   \sDSTV    &   13   &   7    & 17 \\
- $E_{leak}$  & -65.89 & -67.22 & 7 -67.22\\
-   \oDSTV    &  2.1   &  2.1   & -7.9    \\
-   \nDSTV    &   17   &   17   & 16 \\
-   \wDSTV    & 0.0017 & 0.0017 & 0.0017 \\ 
-\hline Error & 435.47 & 457.63 & 492.55 \\ \hline
+                 & Run 1  & Run 2  & Run 3  \\ \hline
+\sDSTV~(channel) &   13   &   7    & 17     \\
+\Eleak~(mV)  & -65.89 & -67.22 & -67.22 \\
+\oDSTV~(channel) &  2.1   &  2.1   & -7.9   \\
+     \nDSTV      &   17   &   17   & 16     \\
+\wDSTV ($\mu$S)  & 0.0017 & 0.0017 & 0.0017 \\ 
+  \hline Error   & 435.47 & 457.63 & 492.55 \\ \hline
 \end{tabularx}
   \end{minipage}
 \end{center}
@@ -504,33 +515,32 @@ synapses (29 to 1); and the increased need for \DS~cell inhibition with a high
   what I wanted. The 22dB in Reiss fit the TV rate-level response around mid
   way}
 
-
-\smallskip{}
+%\smallskip{}
 
 The eventual result of the \TV~cell optimisation, highlighted in the following
 table, was derived from Run 1A and Run 1B in the set using 70 dB
-\SPL~stimulus. \yellownote{Explain the table a bit more. }
+\SPL~stimulus. \yellownote{Explain the table below more. }
 
 % D~----------------------------------
 
-\smallskip{}
+%\smallskip{}
 
 \begin{tabularx}{\linewidth}{|X|c|c|c|}
-\hdr{4}{F}{Optimisation} \\ \hline \textbf{Parameters} & \textbf{Name} & 
-                    \textbf{Range}                     & \textbf{Best Values} \\\hline
-    Number of \DS~synapses onto \TV~cells ($\mu$S)     &    \nDSTV     &   [0,100]    & 17 \\
-    Weight of \DS~synapses onto \TV~cells ($\mu$S)     &    \wDSTV     & [1e-5,0.005] & 0.0029 \\
-           Number of synapses, \LSR~to \TV~cells             &    \nLSRTV    &   [0,100]    & 29           \\
-           Number of synapses, \HSR~to \TV~cells             &    \nHSRTV    &   [0,100]    & 1          \\
-         Weight of \LSR~syn on \TV~cells   ($\mu$S)           &    \wLSRTV    & [1e-5,0.005] & 0.00017 \\
-         Weight of \HSR~syn on \TV~cells   ($\mu$S)           &    \wHSRTV    & [1e-5,0.005] & 0.00017 \\
-  Spread of \DS~connections onto \TV~cells (channel)   &    \sDSTV     &   [0,100]    & 13         \\
-  Offset of \DS~connections onto \TV~cells (channel)   &    \oDSTV     &   [-10,30]   & 2.1        \\
- Reversal potential of leak current in \TV~cells (mV)  &   $E_{rev}$   &  [-80,-50]   & 
--65.89 \\ \hline
+\hdr{4}{F}{Optimisation} \\ \hline 
+                \textbf{Parameters}                  & \textbf{Name} & \textbf{Range}& \textbf{Best Values} \\\hline
+       Number of \DS~synapses onto \TV~cells         &    \nDSTV     &    [0,100]    & 17 \\
+   Weight of \DS~synapses onto \TV~cells ($\mu$S)    &    \wDSTV     & [1e-5,0.005]  & 0.0029 \\
+   Number of synapses, \LSR$\rightarrow$\TV~cells     &    \nLSRTV    &    [0,100]    & 29           \\
+   Number of synapses, \HSR$\rightarrow$\TV~cells     &    \nHSRTV    &    [0,100]    & 1          \\
+     Weight of \LSR~syn on \TV~cells   ($\mu$S)      &    \wLSRTV    & [1e-5,0.005]  & 0.00017 \\
+     Weight of \HSR~syn on \TV~cells   ($\mu$S)      &    \wHSRTV    & [1e-5,0.005]  & 0.00017 \\
+ Spread of \DS~connections onto \TV~cells (channel)  &    \sDSTV     &    [0,100]    & 13         \\
+ Offset of \DS~connections onto \TV~cells (channel)  &    \oDSTV     &   [-10,30]    & 2.1        \\
+Reversal potential of leak current in \TV~cells (mV) &   \Eleak   &   [-80,-50]   & -65.89 \\ \hline
 \end{tabularx}
 
 \yellownote{Pull everything about the TV cell model together.}
+
 
 \subsection{Verification}
 
@@ -545,12 +555,10 @@ optimal filter number.  The half octave sweep was calculated from
 -2~to~2~octaves away from 12.7~kHz at 1/32$^{nd}$ increments with
 logarithmically constant notch widths\footnotemark. A 50 ms stimulus at 50 dB
 SPL was setup up in the \AN~model for use by the \CN~stellate model.
-
 \footnotetext{Logarithmically constant means the notch width is calculated at
   the centre frequency of the notch and not the \CF~of the unit of interest.}
 
-
-\smallskip{}
+%\smallskip{}
 
 
 Figure~\ref{fig:TV_SweepUnit70} shows the response of a unit with similar
