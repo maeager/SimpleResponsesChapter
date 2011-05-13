@@ -1,7 +1,7 @@
 % \graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/Responses/}}
 
 % \renewcommand{\setthesubsection}{\Alph{subsection}}
-\section{Chapter 3 Appendix}\label{sec:ch3:appendix}
+\section{Chapter 3 Appendix    \label{sec:ch3:appendix}}
 
 \subsection{General neural modeling tools}
 
@@ -12,12 +12,14 @@ which uses the algorithm PRAXIS~\citep{Brent:1976}.
 
 \begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run
   fitting procedure.]
-  proc runprax(){ attr_praxis(0.0001, 0.01, 3)
-    fit_praxis(NPARAMS,"error_fcn",&pvec.x[0]) }
+  proc runprax(){ 
+    attr_praxis(0.0001, 0.01, 3)
+    fit_praxis(NPARAMS,"error_fcn",&pvec.x[0]) 
+}
 \end{lstlisting}
 
 
-\subsubsection{Data extraction}\label{sec:data-extraction}
+\subsubsection{Data extraction    \label{sec:data-extraction}}
 
 \todo[inline]{Special comments on the use of g3data to extract datapoints from
   PDF literature documents }
@@ -31,7 +33,7 @@ which uses the algorithm PRAXIS~\citep{Brent:1976}.
 \end{figure}
 
 
-\subsection{\textsf{cnstellate} NEURON model}\label{sec:cnstellate-neur-model}
+\subsection{\textsf{cnstellate} NEURON model    \label{sec:cnstellate-neur-model}}
 
 The cochlear nucleus stellate microcircuit software code used in this chapter is
 called \textsf{cnstellate} and is implemented in NEURON, NMODL and C source
@@ -62,24 +64,30 @@ model requires 500~kHz resolution in the stimulus, this is then downsampled to
     \textsf{cnstellate} setup.}]
   load_file("nrngui.hoc") 
 //load_file("par_netpar.hoc") //uncomment for parallel mode 
-//load_file("par_init.hoc") //uncomment for parallel mode
-  load_file("mathslib.hoc") //mathematical procedures from netmod
-  load_file("Params.hoc") //default parameters for cnstellate
-  load_file("Utilities.hoc") //My utility functions
-  load_file("NetworkParameters.hoc")//NetworkParameter class
-  load_file("AuditoryNerve.hoc")//ANChannel and AuditoryNerve classes
+//load_file("par_init.hoc")   //uncomment for parallel mode
+  load_file("mathslib.hoc")   //mathematical procedures from netmod
+  load_file("Params.hoc")     //default parameters for cnstellate
+  load_file("Utilities.hoc")  //My utility functions
+  load_file("NetworkParameters.hoc") //NetworkParameter class
+  load_file("AuditoryNerve.hoc") //ANChannel and AuditoryNerve classes
   load_file("par_CNcell.tem") //CNCell class
-  load_file("CochlearNucleus.hoc")//CochlearNucleus class and set-up
+  load_file("CochlearNucleus.hoc") //CochlearNucleus class and set-up
+
   //Model parameters unique to current simulation
   load_file("parameters_DS_ClickRecovery.hoc")
+
   //Create model 
   create_cells() 
   connect_cells() 
   connect_CNcells()
+
+  //Experiment routines
+  load_file("par_experiment_DS_ClickRecovery.hoc")
+
 \end{lstlisting}
 
 
-\subsubsection{Auditory nerve input}\label{sec:APDX:auditory-nerve-input}
+\subsubsection{Auditory nerve input    \label{sec:APDX:auditory-nerve-input}}
 
 The auditory model implementation in NEURON is a conversion from the MATLAB
 interface to NEURON's NMODL interface. Version 3 of the AN model
@@ -139,7 +147,7 @@ was used to generate the compression data for the rat model.
       generate outer and inner hair cell compression values. When used in the
       \textsf{cnstellate} model in NEURON, the compression values are
       interpolated to frequency positions in the \textsf{cf}
-      vector.}\label{fig:GetAudiogram}
+      vector.    \label{fig:GetAudiogram}}
   \end{center}
 \end{figure}
 
@@ -192,7 +200,7 @@ Table~\ref{tab:f2x} shows the currently accepted parameters for each species.
   \caption[Basilar membrane frequency-distance function parameters]{Frequency to basilar membrane distance function parameters \citep{FitzGeraldBurkittEtAl:2001}. Data obtained from \url{http://earlab.bu.edu} \label{tab:f2x}}
 \end{table}
 
-In the cat, \citet{CarneyYin:1988} fitted the latency vs CF curve from click
+In the cat, \citet{CarneyYin:1988} fitted the latency vs \CF curve from click
 responses in the cat to obtain the equation: \( delay (msec) = A_0 * {\rm exp}(
 -x / A_1 ) * 1e-3 - 1.0/CF \) where $x = \mathsf{cochlea\_f2x(species, cf)}$ is
 thedistance alongthe basilar membrane, $A_0 = 8.13$ (ms), $A_1 = 6.49$
@@ -204,8 +212,8 @@ where $A_0 = 3.0$, $A_1 = 12.5$. In humans, the delay function is: \( delay =
 
 %\smallskip{}
 
-Steps for converting any Carney Auditory Model written in C for MATLAB to a
-NEURON NMODL compatible C file.
+Steps for converting any Carney Auditory Model written in C~for MATLAB~to a
+NEURON~NMODL~compatible C~file.
 \begin{enumerate}
 \item Remove mex headers
 \item remove \textsf{mexfunction}, this is replaced with equivalent NMODL
@@ -231,11 +239,9 @@ NEURON NMODL compatible C file.
   \item M-file \textsf{ffGn} $\Rightarrow$ generate a C function that implements
     a the fast fractional Gaussian noise generator
   \end{itemize}
-
 \end{enumerate}
 
-\subsubsection[CN cells]{Cochlear nucleus cell
-  templates}\label{sec:APDX:Cell_templates}
+\subsubsection[CN cells]{Cochlear nucleus cell templates    \label{sec:APDX:Cell_templates}}
 
 The cochlear nucleus cell models were introduced by \citet{RothmanManis:2003b},
 after exploratory studies on the potassium currents of murine cochlear nucleus
@@ -246,6 +252,11 @@ contains a NEURON segment called soma that contains the active currents,
 synapses receptors and a spike detector. The model can be adjusted to include
 dendrite and axon segments if required. Internal variables and objects can be
 made publicly accessible using
+
+The \sf{rm} module loaded for each \textsf{CNcell} soma section is the condensed
+current modules of sodium (\sf{Na}), high-threshold potassium (\sf{KHT}), leak,
+and the hyperpolarising mixed-cation (\sf{Ih}).  The low-threshold potassium
+current module, is only used by the \DS~cell and inserted seperately.
 
 \begin{lstlisting}[label=lst:CellTemplate,caption=Rothman and Manis cochlear
   nucleus cell template (in CNcell.tem)]
@@ -272,16 +283,16 @@ made publicly accessible using
     soma { 
       insert rm           // Na, KHT, Ih, leak currents 
       eh_rm = -43         //mV, reversal potential for Ih 
-      //insert AMPA Excitatory synapse 
+    //insert AMPA Excitatory synapse 
       AMPA = new ExpSyn(0.5) 
       AMPA.tau = ampa_decay 
       AMPA.e = ampa_erev 
-      //insert Glycinergic inhibitory synapse 
+    //insert Glycinergic inhibitory synapse 
       GlyR = new Exp2Syn(0.5) 
       GlyR.tau2 = gly_decay 
       GlyR.tau1 = gly_rise 
       GlyR.e = gly_erev 
-      // insert GABA-A inhibitory synapse 
+    // insert GABA-A inhibitory synapse 
       GABAA = new Exp2Syn(0.5) 
       GABAA.tau2 = gaba_decay
       GABAA.tau1 = gaba_rise 
@@ -299,7 +310,7 @@ endtemplate CNcell
 
 
 \subsubsection[Golgi model]{Golgi cell model
-  optimisation}\label{sec:APDX:golgi-cell-model}
+  optimisation    \label{sec:APDX:golgi-cell-model}}
 
 Each golgi cell template consists of a spike generator, \emph{s}, and vector
 objects representing the instantaneous rate, the spike times and accumulated
@@ -312,66 +323,92 @@ The rate-based golgi cell model at CF channel \emph{i} is created by :
 \item a selection of ANF input channels centred at \emph{i} with a spread,
   \sLSRGLG;
 \item the instantaneous rate vectors of the LSR ANF's in each channel are
-  weighted (with a gaussian function (mean=\emph{i}, s.d.=$\sqrt{\sLSRGLG}$) and
-  the weighted vectors are averaged; and
+  weighted (with a gaussian function (mean=\emph{i}, standard deviation =
+  $\sqrt{\sLSRGLG}$) and the weighted vectors are averaged; and
 \item the weighted average vector is convolved with an alpha function of time
-  constant 5, to simulate the synaptic and membrane dynamics of golgi cells
+  constant 5 milliseconds, to simulate the synaptic and membrane dynamics of golgi cells
 \end{itemize}
 
 %\smallskip{}
 
- \begin{lstlisting}[label=lstGolgiSyn,caption=Create golgi cell rate vector
-   within Golgi template (in CNcell.tem)]
-   // Default Golgi model parameters weight_sum_LSR = 1 weight_sum_HSR = 0.01
-   golgi_spon = 1 // spikes per second golgi_spatial_filter_variance = 4 //
-   channel golgi_syn_filter_tau = 0.0005 // seconds
-   golgi_syn_filter_scale_factor=1 objref golgi_synfilter
+%  \begin{lstlisting}[label=lstGolgiSyn,caption=Create golgi cell rate vector
+%    within Golgi template (in CNcell.tem)]
+%  // Default Golgi model parameters 
+%   weight_sum_LSR = 1 
+%   weight_sum_HSR = 0.01
+%   golgi_spon = 1 // spikes per second 
+%   golgi_spatial_filter_variance = 4 //
+%   channel golgi_syn_filter_tau = 0.0005 // seconds
+%   golgi_syn_filter_scale_factor = 1 
+% objref golgi_synfilter
 
-   func alpha(){// Alpha function synaptic/membrane filter return
-     $1*sg_tdres*exp(-($1*sg_tdres)/golgi_syn_filter_tau) } proc
-   CreateGolgiSynFilter(){// create alpha function golgi_synfilter = new
-     Vector(sg_rate*10*golgi_syn_filter_tau)
-     golgi_synfilter.indgen().apply("alpha")
-     golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum()) }
-   CreateGolgiSynFilter()
- \end{lstlisting}
+% func alpha(){// Alpha function synaptic/membrane filter 
+%      return  $1*sg_tdres*exp(-($1*sg_tdres)/golgi_syn_filter_tau) 
+% } 
+% proc CreateGolgiSynFilter(){// create alpha function 
+%      golgi_synfilter = new Vector(sg_rate*10*golgi_syn_filter_tau)
+%      golgi_synfilter.indgen().apply("alpha")
+%      golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum()) 
+% }
+%    CreateGolgiSynFilter()
+
+%  \end{lstlisting}
 
 
 
 \begin{lstlisting}[label=lst:GolgiTemplate,caption=Rate-based golgi cell model
   template (in par\_CNcell.tem)]
-  begintemplate Golgicell public s,sout,spikes //internal objects made public
-  public SetRate2,GenSpikes2 //functions made public proc SetRate2() {local
-    i,j,spon_factor ...  // Calculate weight vectors based on this cell's
-    position gaussian_mean = channel gaussian_variance =
-    golgi_spatial_filter_variance_LSR wLSR.apply("gaussian").mul(weight_sum_LSR)
+begintemplate Golgicell 
+public s,sout,spikes //internal objects made public
+public SetRate2,GenSpikes2 //functions made public 
+
+---
+
+proc SetRate2() {local i,j,spon_factor 
+
+// Calculate weight vectors based on this cell's
+    position gaussian_mean = channel 
+    gaussian_variance = golgi_spatial_filter_variance_LSR 
+    wLSR.apply("gaussian").mul(weight_sum_LSR)
     gaussian_variance = golgi_spatial_filter_variance_HSR
     wHSR.apply("gaussian").mul(weight_sum_HSR)
 
-    // Add LSR and HSR vectors to tempsout, check weights for i=0,nchannels-1 {
+    // Add LSR and HSR vectors to tempsout, check weights 
+    for i=0,nchannels-1 {
       if (wLSR.x[i]>0.001)
-      tempsout.add(LSRout[i].c.add(-Lowspont).mul(wLSR.x[i])) if
-      (wHSR.x[i]>0.001) tempsout.add(HSRout[i].c.add(-Highspont).mul(wHSR.x[i]))
-    } // Correct for spontaneous rate tempsout.add(golgi_spon) // Smooth AN
-    input to simulate dendritic filtering
-    convolve(tempsout,golgi_synfilter,sout) // Add conduction delay to rate
-    profile for i = 0,param.delay.x[lsr][glg]*sg_rate/1000 {
-      sout.insrt(0,golgi_spon) sout.remove(sout.size-1) } // Push vector to
-    spike generator object, s s.SetFibreRate(sout,spiketimes,sg_tdres) }
+         tempsout.add(LSRout[i].c.add(-Lowspont).mul(wLSR.x[i])) 
+      if(wHSR.x[i]>0.001) 
+         tempsout.add(HSRout[i].c.add(-Highspont).mul(wHSR.x[i]))
+    } 
+    // Correct for spontaneous rate 
+    tempsout.add(golgi_spon) 
+
+    // Smooth AN input to simulate dendritic filtering
+    convolve(tempsout,golgi_synfilter,sout) 
+
+    // Add conduction delay to rate profile 
+    for i = 0,param.delay.x[lsr][glg]*sg_rate/1000 {
+      sout.insrt(0,golgi_spon) 
+      sout.remove(sout.size-1) 
+    } 
+    // Push vector to spike generator object, s 
+    s.SetFibreRate(sout,spiketimes,sg_tdres) 
+}
+
 ---
-  endtemplate Golgicell
+
+endtemplate Golgicell
 
 \end{lstlisting}
 
 
 
-\subsubsection[D~stellate cell model]{D~stellate cell model
-  optimisation}\label{sec:APDX:d-stellate-cell}
+\subsubsection[D~stellate cell model]{D~stellate cell model optimisation    \label{sec:APDX:d-stellate-cell}}
 
 Example optimisation points used by \textsf{fit\_praxis}
 \begin{figure}[htb]
   \centering
-  \resizebox{0.9\textwidth}{!}{\includegraphics{Praxis_123.eps}\includegraphics{Praxis_456.eps}}
+%  \resizebox{0.9\textwidth}{!}{\includegraphics{Praxis_123.eps}\includegraphics{Praxis_456.eps}}
   \caption{Optimisation progression in normalised space in three of the six
     parameters used in the DS model optimisation.} \label{fig:praxis}
 \end{figure}
@@ -399,8 +436,7 @@ Example optimisation points used by \textsf{fit\_praxis}
 
 % \end{appendix}
 
-\subsubsection[TV cell model]{Tuberculoventral cell model
-  optimisation}\label{sec:APDX:tuberc-cell-model}
+\subsubsection[TV cell model]{Tuberculoventral cell model optimisation    \label{sec:APDX:tuberc-cell-model}}
 
 \begin{verbatim}
     $ ./buildnrn.sh

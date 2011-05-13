@@ -1,8 +1,6 @@
 % \graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
 
-\section[TV Cell Model]{Tuberculoventral cell model: Optimisation to
-  notch-noise response}
-\label{sec:TV-cell-model}
+\section[TV Cell Model]{Tuberculoventral cell model: Optimisation to notch-noise response \label{sec:TV-cell-model}}
 % - A
 % ------------------------------------------------------------------------------
 
@@ -65,7 +63,7 @@ inhibited by sharp spectral peaks close to their
 \end{figure}\yellownote{Figure~\ref{fig:SpirouFig1} needs permission}
 
 
-\subsection{Modeling of Tuberculoventral cells}
+\subsubsection{Modeling of Tuberculoventral cells}
 
 \yellownote{Expand previous studies  of the DCN incl. TV cells}
 
@@ -324,7 +322,7 @@ Complicated issues in \TV~model optimisation:
 Figure~\ref{fig:TV_result_spl} shows the optimisation results for different
 input sound intensities.  The performance improves when reducing the sound level
 of the notch stimulus from 110 down to 50 dB \SPL.
-\begin{figure}[!ht]
+\begin{figure}[htb]
   \centering
   \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_spl.eps}}
   \caption[TV cell model: optimisation results]{Optimisation results for TV
@@ -383,7 +381,7 @@ dB \SPL\@.  \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi,
 
 %\smallskip{}
 
-\begin{figure}[thb]
+\begin{figure}[htb]
   \centering
   % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
   % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result.eps}}
@@ -398,43 +396,43 @@ dB \SPL\@.  \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi,
 
 
 % 50 dB Run
-\begin{table}
+\begin{center}%table}
 %\floatbox{table}[\FBwidth]{%
 \caption{DS cell model optimisation.}\label{tab:DSresults}%
 %}%
 %\begin{subfloatrow}
-    \subfloat[First optimisation run.]{\label{tab:DSresults:one}%
-%  \begin{minipage}{0.48\linewidth}
-    \begin{tabularx}{0.48\textwidth}{|X|c|c|c|}
+%    \subfloat[First optimisation run.]{\label{tab:DSresults:one}%
+\begin{minipage}{0.48\linewidth}
+    \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation Parameters A} \\ \hline 
-                &  Run 1  &  Run 2  & Run 3   \\ \midrule
+                &  Run 1  &  Run 2  & Run 3   \\ \hline
     \nDSTV      &   39    &   49    & 59      \\
 \wDSTV~($\mu$S) & 0.0217  & 0.0217  & 0.0258  \\
     \nLSRTV     &   21    &   21    & 23      \\
     \nHSRTV     &   15    &   15    & 14      \\
 \wLSRTV~($\mu$S)& 0.0069  & 0.0069  & 0.0115  \\
-\wHSRTV~($\mu$S)& 0.0013  & 0.0013  & 0.0013  \\ \midrule 
-     Error      & 1255.34 & 1028.70 & 1082.85 \\ \bottomrule
+\wHSRTV~($\mu$S)& 0.0013  & 0.0013  & 0.0013  \\ \hline 
+     Error      & 1255.34 & 1028.70 & 1082.85 \\ \hline
 \end{tabularx}%
-}\quad
-\subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
-\label{tab:DSresults:two}%
+%}\quad
+% \subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
+%\label{tab:DSresults:two}%
 %  \end{minipage}\hfill
-%  \begin{minipage}{0.48\linewidth}
-    \begin{tabularx}{0.48\textwidth}{|X|c|c|c|}
+  \begin{minipage}{0.48\linewidth}
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation Parameters B} \\ \hline 
-                 & Run 1  & Run 2  & Run 3  \\ \midrule
+                 & Run 1  & Run 2  & Run 3  \\ \hline
 \sDSTV~(channel) &  21.3  & 31.31  & 21.31  \\
 \Eleak~(mV)      & -74.96 & -74.96 & -74.96   \\
 \oDSTV~(channel) & 22.03  & 22.03  & 22.03  \\
      \nDSTV      &   15   &   15   & 15     \\
-\wDSTV~($\mu$S)  & 0.0148 & 0.0148 & 0.0148 \\ \midrule
-  \hline Error   & 599.37 & 539.1  & 586.74 \\ \bottomrule
+\wDSTV~($\mu$S)  & 0.0148 & 0.0148 & 0.0148 \\ \hline
+   Error   & 599.37 & 539.1  & 586.74 \\ \hline
 \end{tabularx}%
-}
+%}
 %\end{subfloatrow} 
-%  \end{minipage}
-\end{table}
+\end{minipage}
+\end{center}%table}
 
 
 The first set of parameters (\nDSTV, \wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV)
@@ -498,7 +496,7 @@ synapses (29 to 1); and the increased need for \DS~cell inhibition with a high
   \end{minipage}
 \end{center}
 
-\begin{figure}[thb]
+\begin{figure}[htb]
   \centering
   % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
   % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result.eps}}
@@ -564,7 +562,7 @@ SPL was setup up in the \AN~model for use by the \CN~stellate model.
 Figure~\ref{fig:TV_SweepUnit70} shows the response of a unit with similar
 \CF~(\TV~unit 70, CF=12.76~kHz) to notch and band-pass noise.
 
-\begin{figure}[h!]
+\begin{figure}[htb]
   \centering
   % \resizebox{\textwidth}{!}{\includegraphics{NoFigure}}
   \resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{TV_Notch/BestSweep.eps}}\\

@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,twoside,openright]{book}
+\documentclass[10pt,a4paper,twoside,openright]{book}
 
 %\documentclass[11pt,a4paper]
 %,twoside
@@ -16,7 +16,7 @@
 % User defined commands
 %\usepackage{pstricks}
 \usepackage{appendix}
-\usepackage[notcite]{showkeys}
+%\usepackage[notcite]{showkeys}
 
 
 %  \marginparwidth=3cm
@@ -36,10 +36,16 @@
 \graphicspath{{./gfx/}{../figures/}}
 \graphicspath{{../figures/}{/media/data/Work/thesis/SimpleResponsesChapter/}{/media/data/Work/thesis/SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/golgi/}{../../cnstellate/}}
 
-%\usepackage[showlabels]{preview}
-%\PreviewEnvironment[{*[][]{}}]{tabularx}
-%\PreviewEnvironment[{*[][]{}}]{figure}
-%\PreviewEnvironment[{*[][]{}}]{array}
+\usepackage[showlabels]{preview}
+%\usepackage[displaymath,textmath,sections,graphics,floats,active]{preview}
+\ifPreview
+  \PreviewEnvironment[{*[][]{}}]{tabularx}
+  \PreviewEnvironment[{*[][]{}}]{figure}
+  \PreviewEnvironment[{*[][]{}}]{array}
+%  \PreviewEnvironment{enumerate}
+  \PreviewEnvironment{verbatim}     
+  \PreviewEnvironment[{*[][]{}}]{lstlisting}
+\fi
 
 \lfoot{\footnotesize\today\ at \thistime}
 
@@ -53,7 +59,7 @@
 % \setsansfont{Charis SIL}
 % \setmonofont[Scale=0.8]{DejaVu Sans Mono}
 
-%\usepackage[showlabels]{preview}
+
 
 
 \begin{document}
@@ -72,8 +78,8 @@
 		}%
 
 \setcounter{chapter}{2}
-\chapter[Simple Responses]{Modelling the Cochlear Nucleus Stellate Network}
-\label{sec:SimpleResponsesChapter}
+\chapter[Simple Responses]{Modelling the Cochlear Nucleus Stellate Network %
+\label{sec:SimpleResponsesChapter}}
 
 \medskip{}
 {\today\ Hg changeset \input{.hg/tags.cache}}
@@ -99,13 +105,14 @@
 \include{TV_NotchTable}
 
 %\section{T~stellate cell section ? } 
-% \include{Tstellate.tex}
+\newpage
+\include{TStellate}
 
 \newpage
 \include{Discussion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\section{Conclusion}
+\section{Conclusion\label{sec:SimpleRespConclusion}}
 
 In this chapter biophysically-realistic model of the T~stellate microcircuit in
 the cochlear nucleus was developed.

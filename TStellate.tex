@@ -1,42 +1,42 @@
 
-\documentclass{article}
-% User defined commands
-\input{../hg/manuscript/user-defined}
+% \documentclass{article}
+% % User defined commands
+% \input{../hg/manuscript/user-defined}
 
-\input{../hg/manuscript/glossary}
-\usepackage[margin=0.2in]{geometry} % get enough space on page
+% \input{../hg/manuscript/glossary}
+% \usepackage[margin=0.2in]{geometry} % get enough space on page
 
-\usepackage{tabularx}  % automatically adjusts column width in tables
-\usepackage{multirow}  % allows entries spanning several rows
-\usepackage{colortbl}  % allows coloring tables
-%\usepackage{natbib}
-%\usepackage[fleqn]{amsmath}   % displayed equations flush left
-%\setlength{\mathindent}{0em}
+% \usepackage{tabularx}  % automatically adjusts column width in tables
+% \usepackage{multirow}  % allows entries spanning several rows
+% \usepackage{colortbl}  % allows coloring tables
+% % \usepackage{natbib}
+% % \usepackage[fleqn]{amsmath}   % displayed equations flush left
+% % \setlength{\mathindent}{0em}
 
-% use Helvetica for text, Pazo math fonts
-\usepackage{mathpazo}
-\usepackage[scaled=.95]{helvet}
-\renewcommand\familydefault{\sfdefault}
+% % use Helvetica for text, Pazo math fonts
+% \usepackage{mathpazo}
+% \usepackage[scaled=.95]{helvet}
+% \renewcommand\familydefault{\sfdefault}
 
-\renewcommand\arraystretch{1.2}  % slightly more space in tables
+% \renewcommand\arraystretch{1.2}  % slightly more space in tables
 
-\pagestyle{empty}  % no header of footer
+% \pagestyle{empty}  % no header of footer
 
 % \hdr{ncols}{label}{title}
-%
+% 
 % Typeset header bar across table with ncols columns
 % with label at left margin and centered title
-%
+% 
 
 
-\graphicspath{{/media/data/Work/cnstellate/Responses2/}}
+% \graphicspath{{/media/data/Work/cnstellate/Responses2/}{/media/data/Work/cnstellate/}}
 
 
-\begin{document}
+%\begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 \section{T~stellate cell units}
 
@@ -50,18 +50,18 @@
 
 
 
-\citep{Oertel:2010}
-- naming: 
-   --multipolar (Nissl staining) and stellate (Golgi impregnation) Osen, Brawer, Lorente
-- axonal projections
-   -- *T*rapezoid and *D*orsal  (Oertel et al 90)
-   -- T stellates project locally in VCN and deep layer of DCN
-- somatic innervation: type 1 (few somatic) type II (many somatic and dendritic) Cant
-- anatomical and physiological: Smith and Rhode
-   -- type 1 -> chopping PSTH
-   -- type 2 -> OnC PSTH
-- Chopper subdivision:
-   -- sustained and transient (no evidence for anatomical differences in T~stellates)
+% \citep{Oertel:2010}
+% - naming: 
+% --multipolar (Nissl staining) and stellate (Golgi impregnation) Osen, Brawer, Lorente
+% - axonal projections
+% -- *T*rapezoid and *D*orsal  (Oertel et al 90)
+% -- T stellates project locally in VCN and deep layer of DCN
+% - somatic innervation: type 1 (few somatic) type II (many somatic and dendritic) Cant
+% - anatomical and physiological: Smith and Rhode
+% -- type 1 -> chopping PSTH
+% -- type 2 -> OnC PSTH
+% - Chopper subdivision:
+% -- sustained and transient (no evidence for anatomical differences in T~stellates)
 
 
 
@@ -73,110 +73,118 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Verification}
-\subsection{Tone Response}
-
 \begin{figure}[htb]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{RateLevel/psthsingle90.0.eps}%
-\includegraphics{RateLevel/TS_ratelevel.eps}}
-\end{figure}
-\begin{figure}[htb]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{RateLevel/response_area.0.eps}%
-\includegraphics{RateLevel/response_area_log2.0.eps}}
-\end{figure}
-\begin{figure}[htb]
-\centering\resizebox{0.95\textwidth}{!}{%
-%\includegraphics{RateLevel/response_area.0.eps}
-\includegraphics{RateLevel/psthall90.0.eps}%
-\includegraphics{RateLevel/psthVlevel.0.eps}}
-\end{figure}
-
-
-\clearpage
-\subsection{Noise Response}
-\begin{figure}[htb]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{NoiseRateLevel/psthsingle120.0.eps}%
-\includegraphics{NoiseRateLevel/TS_ratelevel.eps}}
-\end{figure}
-\begin{figure}[htb]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{NoiseRateLevel/response_area.0.eps}%
-\includegraphics{NoiseRateLevel/response_area_log2.0.eps}}
-\end{figure}
-\begin{figure}[htb]
-\centering\resizebox{0.95\textwidth}{!}{%
-%\includegraphics{RateLevel/response_area.0.eps}
-\includegraphics{NoiseRateLevel/psthall90.0.eps}%
-\includegraphics{NoiseRateLevel/psthVlevel.0.eps}}
+  \centering
+\subfloat[Chopper Sustained]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/CS-01-864-004}}}\quad%
+\subfloat[Chopper Transient 1]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/CT1-01-857-007}}}\\
+\subfloat[Chopper Transient 2]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/CT2-01-305-014}}}\quad%
+\subfloat[Onset Chopper]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/OC-99-812-013}}}
+\caption[Average intracelluar response data in stellate cells.]{Average
+  intracelluar response to CF tone 30dB above depolarisation threshold in
+  stellate
+  cells~\citep[Reproduced~from~][]{PaoliniClareyEtAl:2005}. A. Sustained chopper
+  unit 01-864-004. B. Transient chopper type 1 unit 01-857-007. C. Transient
+  chopper type 2 unit 01-305-014. D. Onset chopper unit
+  99-812-013. Hyperpolarisation after tone indicated by
+  asterix.    \label{fig:PaoliniAIV}}
 \end{figure}
 
 
-\clearpage
-\subsection{Masked Noise and Tone}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.0.eps}\includegraphics{MaskedRateLevel/TS_ratelevel.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{MaskedRateLevel/response_area.0.eps}%
-\includegraphics{MaskedRateLevel/response_area_log2.0.eps}}
-\end{figure}
-
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-%\includegraphics{RateLevel/response_area.0.eps}
-\includegraphics{MaskedRateLevel/psthall90.0.eps}%
-\includegraphics{MaskedRateLevel/psthVlevel.0.eps}}
-\end{figure}
-\clearpage
-\subsection{Masked Response Area}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{MaskedResponseCurve/psthsingle5810.0.eps}%
-\includegraphics{MaskedResponseCurve/TS_masked.eps}}
-\end{figure}
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-\includegraphics{MaskedResponseCurve/response_area.0.eps}%
-\includegraphics{MaskedResponseCurve/response_area_log2log2.0.eps}}
-\end{figure}
-
-\begin{figure}[h!]
-\centering\resizebox{0.95\textwidth}{!}{%
-%\includegraphics{RateLevel/response_area.0.eps}
-\includegraphics{MaskedResponseCurve/psthall5810.0.eps}%
-\includegraphics{MaskedResponseCurve/psthVmod.0.eps}}
-\end{figure}
-\clearpage
 
 
 
 
 
-%\todo{add stuff here}
+
+%       \section{Verification}
+%       \subsection{Tone Response}
+
+%       \begin{figure}[htb]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           \includegraphics{RateLevel/psthsingle90.0.eps}%
+% %          \includegraphics{RateLevel/TS_ratelevel.eps}}
+%       \end{figure}
+%       \begin{figure}[htb]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%  %         \includegraphics{RateLevel/response_area.0.eps}%
+%   %        \includegraphics{RateLevel/response_area_log2.0.eps}}
+%       \end{figure}
+%       \begin{figure}[htb]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           % \includegraphics{RateLevel/response_area.0.eps}
+%           \includegraphics{RateLevel/psthall90.0.eps}%
+%           \includegraphics{RateLevel/psthVlevel.0.eps}}
+%       \end{figure}
+
+
+%       \clearpage
+%       \subsection{Noise Response}
+%       \begin{figure}[htb]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           \includegraphics{NoiseRateLevel/psthsingle120.0.eps}%
+%           \includegraphics{NoiseRateLevel/TS_ratelevel.eps}}
+%       \end{figure}
+%       \begin{figure}[htb]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           \includegraphics{NoiseRateLevel/response_area.0.eps}%
+%           \includegraphics{NoiseRateLevel/response_area_log2.0.eps}}
+%       \end{figure}
+%       \begin{figure}[htb]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           % \includegraphics{RateLevel/response_area.0.eps}
+%           \includegraphics{NoiseRateLevel/psthall90.0.eps}%
+%           \includegraphics{NoiseRateLevel/psthVlevel.0.eps}}
+%       \end{figure}
+
+
+%       \clearpage
+%       \subsection{Masked Noise and Tone}
+%       \begin{figure}[h!]
+%         \centering\resizebox{0.95\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90.0.eps}\includegraphics{MaskedRateLevel/TS_ratelevel.eps}}
+%       \end{figure}
+%       \begin{figure}[h!]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           \includegraphics{MaskedRateLevel/response_area.0.eps}%
+%           \includegraphics{MaskedRateLevel/response_area_log2.0.eps}}
+%       \end{figure}
+
+%       \begin{figure}[h!]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           % \includegraphics{RateLevel/response_area.0.eps}
+%           \includegraphics{MaskedRateLevel/psthall90.0.eps}%
+%           \includegraphics{MaskedRateLevel/psthVlevel.0.eps}}
+%       \end{figure}
+%       \clearpage
+%       \subsection{Masked Response Area}
+%       \begin{figure}[h!]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           \includegraphics{MaskedResponseCurve/psthsingle5810.0.eps}%
+%           \includegraphics{MaskedResponseCurve/TS_masked.eps}}
+%       \end{figure}
+%       \begin{figure}[h!]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           \includegraphics{MaskedResponseCurve/response_area.0.eps}%
+%           \includegraphics{MaskedResponseCurve/response_area_log2log2.0.eps}}
+%       \end{figure}
+
+%       \begin{figure}[h!]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           % \includegraphics{RateLevel/response_area.0.eps}
+%           \includegraphics{MaskedResponseCurve/psthall5810.0.eps}%
+%           \includegraphics{MaskedResponseCurve/psthVmod.0.eps}}
+%       \end{figure}
+%       \clearpage
 
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \bibliographystyle{plainnat}%bmc_article} % Style BST file
- \bibliography{../hg/manuscript/bib/MyBib}
- 
-\end{document}
+
+
+      % \todo{add stuff here}
+
+
+
+      % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+    %   \bibliographystyle{plainnat}%bmc_article} % Style BST file
+    %   \bibliography{../hg/manuscript/bib/MyBib}
+      
+    % \end{document}

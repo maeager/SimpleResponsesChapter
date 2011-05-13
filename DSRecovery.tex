@@ -1,9 +1,9 @@
 
 %\graphicspath{{/media/data/Work/cnstellate/DS_ClickRecovery/}{/media/data/Work/Responses/}{../figures/}{./gfx/}}
-\section[DS Cell Model]{D~Stellate Cell Model: optimisation using click recovery
-  responses}\label{sec:d-stellate-cell-model}
 
-\subsection{Introduction}\label{sec:DS:introduction}
+\section[DS Cell Model]{D~Stellate Cell Model: optimisation using click recovery responses    \label{sec:d-stellate-cell-model}}
+
+\subsection{Introduction    \label{sec:DS:introduction}}
 
 This section shows the GABAergic input and intrinsic cell properties
 influence the behaviour onset chopper (OnC) units.  OnC units in
@@ -12,7 +12,7 @@ of the \VCN, especially stellate and bushy neurons
 \citep{RhodeSmithEtAl:1983}, the ipsilateral \DCN~(type II and type IV
 \EIRA~units) and the contralateral \CN~\citep{NeedhamPaolini:2007}.
 
-\smallskip{}
+% \smallskip{}
 
 % Large multipolar or stellate cells in the \VCN~have been shown to have 3-4
 % long dendrites stretching 200 microns (or one third of the \VCN) and their
@@ -36,7 +36,7 @@ They also send a commissural projection to the contralateral cochlear nucleus
 that mediates fast inhibition between the nuclei \citep{NeedhamPaolini:2003,
   NeedhamPaolini:2006, Oertel:1997}.
 
-\smallskip{}
+% \smallskip{}
 
 Post-onset GABAergic inhibition in \DS~cells is a major influence on the
 \PSTH~of \OnC~neurons \citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency
@@ -46,7 +46,7 @@ type II \ANFs~and low spontaneous rate type I
 type II and \LSR~type I \ANFs~could be involved in gain control through
 GABAergic modulation of activity in the \VCN\@.
 
-\smallskip{}
+% \smallskip{}
 
 % \yellownote{Discuss AM coding by \DS~cells} \GABA~blockers in the \VCN~has the
 % effects of changing the behaviour in the response to AM in the IC
@@ -60,7 +60,7 @@ GABAergic modulation of activity in the \VCN\@.
 % Smith and Rhode, Smith and others looked at OnC response area and two-tone
 
 
-\subsection{Implementation}\label{sec:DS:implementation}
+\subsection{Implementation    \label{sec:DS:implementation}}
  
 
 Key elements in designing D~stellate cell model are shown in the Nordlie
@@ -85,7 +85,7 @@ behaviour in the cell.
 
 %\input{DSRecoveryTable.tex} 
 
-\smallskip{}
+% \smallskip{}
 
 Optimisation parameters for \GLGDS~are optimised based on experimental click
 recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed parameters included
@@ -102,10 +102,10 @@ standard deviations \citep{PaoliniClark:1999}.
 
  \begin{figure}[htb]
    \centering
-   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth}\label{fig:DSClickRecoveryPSTH}
-   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{fig:GClickRecoveryPSTH}
+   \subfig[D~stellate cell]{\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_DSpsth} \label{fig:DSClickRecoveryPSTH}}
+   \subfig[Golgi cell]{\includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Gpsth}\label{fig:GClickRecoveryPSTH}}
    \caption{PSTH response of a D~stellate cell from the click recovery stimulus
-   used in the optimisation.}
+   used in the optimisation.}\label{fig:ClickExamples}
  \end{figure}
 
 
@@ -128,11 +128,11 @@ for the unit.  The unit used in the optimisation has a \CF~of 5.8~kHz
 (equivalent to channel no. 50).
 
 
-\subsection{Results}\label{sec:DS:results}
+\subsection{Results}    \label{sec:DS:results}
 
 
 
-\smallskip{}
+% \smallskip{}
 
 % \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
 % \hdr{2}{D}{Results} \\\hline
@@ -161,7 +161,7 @@ rather than the \HSR~input to \DS~units. While this may not seem ideal for fast
 coincidence detection, the large number of \HSR~synapses makes up for the small
 weight that was obtained in the optimisation.
 
-\begin{figure}[htb!]
+\begin{figure}[htb]
   \centering
   % \resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
   \resizebox{0.8\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{DS_ClickRecovery_result}}
@@ -177,7 +177,7 @@ weight that was obtained in the optimisation.
 
 % \begin{figure}
 %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_OptVars.eps}\\
-% %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Output.eps}\label{Ch3:fig:DSClickRecoveryOutput}
+% %   \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Output.eps    \label{Ch3:fig:DSClickRecoveryOutput}}
 %   \caption{Final Output Data of the D~stellate Click Recovery optimisation }
 % \end{figure}
 % \begin{figure}
@@ -221,7 +221,7 @@ weight that was obtained in the optimisation.
 
 \clearpage
 % \newpage
-\subsection{Verification}\label{sec:DS:verification}
+\subsection{Verification}    \label{sec:DS:verification}
 
 \yellownote{Small presentation of PSTH, RL, NRL, MRC and RA Leave AM responses
   till next chapter}
@@ -303,8 +303,7 @@ weight that was obtained in the optimisation.
 % \clearpage
 
 
-\subsection{(Optional) Effects of $g_{leak}$ and $g_{KLT}$ on DS resting membrane
-  potential}\label{sec:DS:effects-g_leak-g_lkt}
+\subsection{(Optional) Effects of $g_{leak}$ and $g_{KLT}$ on DS resting membrane potential}    \label{sec:DS:effects-g_leak-g_lkt}
 
 \yellownote{This section is optional}
 
@@ -314,13 +313,13 @@ be in the range of 3-5 MOhms \yellownote{citation needed here}. A quick
 observation of the parameter space around the optimisation results for
 $g_{leak}$ and $g_{KLT}$ is shown in Figure~\ref{fig:leakVltk}.
 
-\begin{figure}[h!]
+\begin{figure}[htb]
   \centering 
-\resizebox{\textwidth}{!}{\includegraphics{NoFigure}}
-%\resizebox{\textwidth}{!}{\includegraphics{leakvltk}}
+\resizebox{0.4\textwidth}{!}{\includegraphics{NoFigure}}
+%\resizebox{0.4\textwidth}{!}{\includegraphics{leakvltk}}
 \caption[DS RMP dynamics]{Resting Membrane potential calculated for leak
   conductance and KLT conductance changes around the previously obtained best
-  values for these parameters.}\label{fig:leakVltk}
+  values for these parameters.}    \label{fig:leakVltk}
 \end{figure}
 
 

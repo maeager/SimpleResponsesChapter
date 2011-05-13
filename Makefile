@@ -2800,7 +2800,8 @@ endif
 # Create the glossary file
 %.gls:	%.glo %.tex
 	$(QUIET)$(call echo-build,$<,$@)
-	$(QUIET)$(call run-makeindex,$<,$@,$*.glg) #,-s nomencl.ist)
+	#$(QUIET)$(call run-makeindex,$<,$@,$*.glg) #,-s nomencl.ist)
+	$(QUIET)$(call run-makeglossary,$<,$@,$*.glg) #,-s nomencl.ist)
 
 # Create the glossary and acronym files from makeglossaries
 %.acn:	%.acr %.tex

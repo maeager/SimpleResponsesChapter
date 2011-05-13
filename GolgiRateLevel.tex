@@ -4,9 +4,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section[GLG Cell Model]{Golgi Cell Model: Optimisation using monotonic
-  rate-level responses in marginal shell units}\label{sec:GolgiCellModel}
+  rate-level responses in marginal shell units    \label{sec:GolgiCellModel}}
 
-\subsection{Background}\label{sec:Golgi:background}
+\subsection{Background    \label{sec:Golgi:background}}
 
 The presence of GABAergic inputs to \VCN~and \DCN~neurons has been verified by
 labeled terminals adjacent to the soma and dendrites
@@ -97,12 +97,12 @@ granule cells.
     Fig.~2]{GhoshalKim:1997}. Unit S03-07 (CF 22.7~kHz) at the top
     will be the unit chosen to optimise the Golgi cell model as it is
     monotonic, and has the median maximum rate of all the units
-    shown.}\label{fig:GolgiKimFig2}
+    shown.    \label{fig:GolgiKimFig2}}
 \end{figure}
 \yellownote{Inclusion of Ghoshal figure needs permission, fill in
   caption}
 
-\subsection{Implementation}\label{sec:Golgi:implementation}
+\subsection{Implementation    \label{sec:Golgi:implementation}}
 
 In the creation of the Golgi cell model, we can reduce the explicit
 behaviour of Golgi cells down to three major details:
@@ -217,20 +217,20 @@ Appendix~\ref{sec:ch3:appendix}.
 
 % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
 % \caption{Optimisation Results for Golgi Model using Rate Level data from
-% }\label{Ch3:fig:GolgiFit}
+%     \label{Ch3:fig:GolgiFit}}
 %   \includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
 %   \caption{Optimisation Results for Golgi Model using Rate Level data from
-% }\label{Ch3:fig:GolgiRL}
+%     \label{Ch3:fig:GolgiRL}}
 
 %   \includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
 %   \caption{Optimisation Results for Golgi Model using Rate Level data from
-% }\label{Ch3:fig:GolgiRL}
+%     \label{Ch3:fig:GolgiRL}}
 %   \includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
 %   \caption{Optimisation Results for Golgi Model using Rate Level data from
-% }\label{Ch3:fig:GolgiRL}
+%     \label{Ch3:fig:GolgiRL}}
 
 
-\subsection{Results}\label{sec:Golgi:results}
+\subsection{Results    \label{sec:Golgi:results}}
 
 Figure~\ref{fig:GolgiTestResult} shows the output of the test optimisation
 trials for the Golgi cell model.  The testing trial used only five sound levels
@@ -257,7 +257,7 @@ Golgi cell model.
     optimisation response obtained a minimum error of 11.63 spikes/s (root mean
     squared). A spike response (green circles) was generated from the spiking
     output of the Golgi cell model using the final parameters.
-  }\label{fig:GolgiTestResult}
+      \label{fig:GolgiTestResult}}
 \end{figure}
 
 The final optimisation routine with 22 levels and a Golgi cell model with
@@ -313,51 +313,51 @@ Spontaneous rate in Golgi cell model (spikes per second) &    \Gspon     &     [
     result trials against unit S03-07 (CF 21~kHz) from \citet{GhoshalKim:1996}.
     A more detailed optimisation with 22 levels and included HSR inputs in the
     Golgi cell model generated a closer fit to the Ghoshal and Kim data.  The
-    final root mean squared error was 4.48 spikes/s.  }\label{fig:GolgiResult}
+    final root mean squared error was 4.48 spikes/s.      \label{fig:GolgiResult}}
 \end{figure}
 
 
 
 %   % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
 %   % \caption{Optimisation Results for Golgi Model using Rate Level data from
-%   % }\label{Ch3:fig:GolgiFit}
+%   %     \label{Ch3:fig:GolgiFit}}
 %   %   \includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
 %   %   \caption{Optimisation Results for Golgi Model using Rate Level data from
-%   % }\label{Ch3:fig:GolgiRL}
+%   %     \label{Ch3:fig:GolgiRL}}
 
 %   %   \includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
 %   %   \caption{Optimisation Results for Golgi Model using Rate Level data from
-%   % }\label{Ch3:fig:GolgiRL}
+%   %     \label{Ch3:fig:GolgiRL}}
 %   %   \includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
 %     %   \caption{Optimisation Results for Golgi Model using Rate Level data
-%     %   from }\label{Ch3:fig:GolgiRL}
+%     %   from     \label{Ch3:fig:GolgiRL}}
 %   \begin{figure}[htb]
 %     \centering
 %     \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
 %     \caption{Optimisation Results for Golgi Model using Rate Level data from
-%   }\label{Ch3:fig:GolgiFit}
+%       \label{Ch3:fig:GolgiFit}}
 %   \end{figure}
 %   \begin{figure}[htb]
 %     \centering
 %     \includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
 %     \caption{Optimisation Results for Golgi Model using Rate Level data from
-%   }\label{Ch3:fig:GolgiRL}
+%       \label{Ch3:fig:GolgiRL}}
 %   \end{figure}
 %   \begin{figure}[htb]
 %     \centering
 %     \includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
 %     \caption{Optimisation Results for Golgi Model using Rate Level data from
-%   }\label{Ch3:fig:GolgiRL}
+%       \label{Ch3:fig:GolgiRL}}
 %   \end{figure}
 %   \begin{figure}[htb]
 %     \centering
 %     \includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
 %     \caption{Optimisation Results for Golgi Model using Rate Level data from
-%   }\label{Ch3:fig:GolgiRL}
+%       \label{Ch3:fig:GolgiRL}}
 %   \end{figure}
 
 %   \clearpage \newpage
-%\subsection{Verification of Golgi cell model}\label{sec:Golgi:verif-golgi-cell}
+%\subsection{Verification of Golgi cell model    \label{sec:Golgi:verif-golgi-cell}}
 %   \subsubsection{Tone Responses}
 
 

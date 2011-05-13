@@ -5,14 +5,15 @@
     \caption{Golgi cell model summary (Nordlie format)}
     \label{tab:GolgiCellModelSummary}
 \end{table}
-\noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
+\noindent%
+\begin{tabularx}{\linewidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline 
 %\begin{ntab}{|l|X|}{2}{\ref{tab:GolgiCellModelSummary} A}{Model Summary}\\\hline
  \textbf{Populations}   & \ANF~(\HSR,\LSR) and Golgi cells \\\hline 
    \textbf{Topology}    & Tonotopic - $N_{\text{channel}}=100$ frequency channels (0.2-40 kHz) separated evenly based on even place positions on the basilar membrane \citep{Greenwood:1990}\\\hline
  \textbf{Connectivity}  & Place-based Gaussian spread of connections \\\hline
- \textbf{Neuron model}  & \ANFs: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\
-                        & Golgi: instantaneous-rate Poisson model developed from ANF inputs\\\hline
+ \textbf{Neuron model}  & \ANF model: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\
+                        & Golgi cell model: instantaneous-rate Poisson model developed from ANF inputs\\\hline
 %\textbf{Channel models} & --- \\\hline 
 \textbf{Synapse model}  & Synapto-dendritic smoothing alpha function \\\hline
     \textbf{Input}      & 0-100 dB \SPL~pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range   \\\hline
@@ -25,18 +26,20 @@
 %\end{ntab}
 
 % - B ------------------------------------------------------------------------
-\noindent\begin{tabularx}{\linewidth}{|l|X|X|}\hline %{\linewidth}
+\noindent%
+\begin{tabularx}{\linewidth}{|l|X|X|}\hline %{\linewidth}
 \hdr{3}{B}{Populations}\\\hline
 \textbf{Name} &                             \textbf{Elements}                             & \textbf{Number} \\\hline
      \HSR      &   Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{HSR}} = 0$ \\\hline
      \LSR      &  Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{LSR}}= 0$ \\\hline
-     \GLG      & Instantaneous-rate Poisson neuron & 1 unit CF = 22.7~kHz (channel 76)  \\\hline
+     \GLG      & Instantaneous-rate Poisson neuron & 1 unit \CF=22.7~kHz (channel 76)  \\\hline
 \end{tabularx}
 
 \vspace{1ex}
 
 % - C ------------------------------------------------------------------------------
-\noindent\begin{tabularx}{\linewidth}{|l|l|l|X|}\hline
+\noindent%
+\begin{tabularx}{\linewidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
                  \textbf{Name}                   & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
 \multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       \LSR       &      \GLG      & Gaussian spatial spread, centered at \CF, variance determined by variable \sLSRGLG \\
@@ -45,7 +48,8 @@
 \vspace{1ex}
 
 % - D ------------------------------------------------------------------------------
-\noindent\begin{tabularx}{\linewidth}{|p{0.1\linewidth}|X|}\hline
+\noindent%
+\begin{tabularx}{\linewidth}{|p{0.1\linewidth}|X|}\hline
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
  \textbf{Name} & Golgi cell \\\hline
  \textbf{Type} & Instantaneous-rate Poisson generator with refractory effects, derived from AN model inputs \\\hline
