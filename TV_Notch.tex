@@ -398,7 +398,7 @@ dB \SPL\@.  \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi,
 % 50 dB Run
 \begin{center}%table}
 %\floatbox{table}[\FBwidth]{%
-\caption{DS cell model optimisation.}\label{tab:DSresults}%
+%\caption{DS cell model optimisation.}\label{tab:DSresults}%
 %}%
 %\begin{subfloatrow}
 %    \subfloat[First optimisation run.]{\label{tab:DSresults:one}%
@@ -414,10 +414,11 @@ dB \SPL\@.  \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi,
 \wHSRTV~($\mu$S)& 0.0013  & 0.0013  & 0.0013  \\ \hline 
      Error      & 1255.34 & 1028.70 & 1082.85 \\ \hline
 \end{tabularx}%
+
 %}\quad
 % \subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
 %\label{tab:DSresults:two}%
-%  \end{minipage}\hfill
+  \end{minipage}\hfill
   \begin{minipage}{0.48\linewidth}
 \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation Parameters B} \\ \hline 
@@ -547,7 +548,7 @@ The response of individual type-II units to notch and band-pass sweeps in
 Figure~\ref{fig:TVReissFig9} (reprinted from Figure 9 in
 \citep*{ReissYoung:2005}) was the main target for the optimisation of \TV~cells.
 To replicate the response of a single unit to notch sweeps, notches were
-generated in Octave using Chebychev II filters\footnote{\textsf{cheby2} function
+generated in GNU~Octave using Chebychev II filters\footnote{\textsf{cheby2} function
   in octave-forge signal package.}  with a sampling rate of 100~kHz and an
 optimal filter number.  The half octave sweep was calculated from
 -2~to~2~octaves away from 12.7~kHz at 1/32$^{nd}$ increments with
