@@ -424,11 +424,11 @@ dB \SPL\@.  \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi,
 \hdr{4}{}{Optimisation Parameters B} \\ \hline 
                  & Run 1  & Run 2  & Run 3  \\ \hline
 \sDSTV~(channel) &  21.3  & 31.31  & 21.31  \\
-\Eleak~(mV)      & -74.96 & -74.96 & -74.96   \\
+  \Eleak~(mV)    & -74.96 & -74.96 & -74.96   \\
 \oDSTV~(channel) & 22.03  & 22.03  & 22.03  \\
      \nDSTV      &   15   &   15   & 15     \\
 \wDSTV~($\mu$S)  & 0.0148 & 0.0148 & 0.0148 \\ \hline
-   Error   & 599.37 & 539.1  & 586.74 \\ \hline
+     Error       & 599.37 & 539.1  & 586.74 \\ \hline
 \end{tabularx}%
 %}
 %\end{subfloatrow} 
@@ -488,7 +488,7 @@ synapses (29 to 1); and the increased need for \DS~cell inhibition with a high
 \hdr{4}{}{Optimisation B} \\ \hline 
                  & Run 1  & Run 2  & Run 3  \\ \hline
 \sDSTV~(channel) &   13   &   7    & 17     \\
-\Eleak~(mV)  & -65.89 & -67.22 & -67.22 \\
+  \Eleak~(mV)    & -65.89 & -67.22 & -67.22 \\
 \oDSTV~(channel) &  2.1   &  2.1   & -7.9   \\
      \nDSTV      &   17   &   17   & 16     \\
 \wDSTV ($\mu$S)  & 0.0017 & 0.0017 & 0.0017 \\ 
@@ -529,13 +529,13 @@ table, was derived from Run 1A and Run 1B in the set using 70 dB
                 \textbf{Parameters}                  & \textbf{Name} & \textbf{Range}& \textbf{Best Values} \\\hline
        Number of \DS~synapses onto \TV~cells         &    \nDSTV     &    [0,100]    & 17 \\
    Weight of \DS~synapses onto \TV~cells ($\mu$S)    &    \wDSTV     & [1e-5,0.005]  & 0.0029 \\
-   Number of synapses, \LSR$\rightarrow$\TV~cells     &    \nLSRTV    &    [0,100]    & 29           \\
-   Number of synapses, \HSR$\rightarrow$\TV~cells     &    \nHSRTV    &    [0,100]    & 1          \\
+   Number of synapses, \LSR$\rightarrow$\TV~cells    &    \nLSRTV    &    [0,100]    & 29           \\
+   Number of synapses, \HSR$\rightarrow$\TV~cells    &    \nHSRTV    &    [0,100]    & 1          \\
      Weight of \LSR~syn on \TV~cells   ($\mu$S)      &    \wLSRTV    & [1e-5,0.005]  & 0.00017 \\
      Weight of \HSR~syn on \TV~cells   ($\mu$S)      &    \wHSRTV    & [1e-5,0.005]  & 0.00017 \\
  Spread of \DS~connections onto \TV~cells (channel)  &    \sDSTV     &    [0,100]    & 13         \\
  Offset of \DS~connections onto \TV~cells (channel)  &    \oDSTV     &   [-10,30]    & 2.1        \\
-Reversal potential of leak current in \TV~cells (mV) &   \Eleak   &   [-80,-50]   & -65.89 \\ \hline
+Reversal potential of leak current in \TV~cells (mV) &    \Eleak     &   [-80,-50]   & -65.89 \\ \hline
 \end{tabularx}
 
 \yellownote{Pull everything about the TV cell model together.}

@@ -141,7 +141,7 @@ was used to generate the compression data for the rat model.
 \begin{figure}[htb]
   \begin{center}
     \resizebox{0.8\textwidth}{!}{\includegraphics[keepaspectratio=true]{getaudiogram}}
-    \caption{Getting audiogram compression values for Zilany model in
+    \caption[Zilany auditory model conversion in NEURON]{Getting audiogram compression values for Zilany model in
       NEURON\@. Data file \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}}
       (obtained from [earlab.bu.edu]) is used in \textsf{fitaudiogram.m} to
       generate outer and inner hair cell compression values. When used in the
@@ -159,7 +159,7 @@ was used to generate the compression data for the rat model.
   \begin{center}
     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
     % \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{Audiograms}}
-    \caption{Hearing threshold of the domestic cat by
+    \caption[Hearing threshold of the domestic cat]{Hearing threshold of the domestic cat by
       \citet{HeffnerHeffner:1985} (Data file
       \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}} obtained from
       [earlab.bu.edu])}
@@ -201,14 +201,18 @@ Table~\ref{tab:f2x} shows the currently accepted parameters for each species.
 \end{table}
 
 In the cat, \citet{CarneyYin:1988} fitted the latency vs \CF curve from click
-responses in the cat to obtain the equation: \( delay (msec) = A_0 * {\rm exp}(
--x / A_1 ) * 1e-3 - 1.0/CF \) where $x = \mathsf{cochlea\_f2x(species, cf)}$ is
+responses in the cat to obtain the equation: 
+\begin{equation}
+  \label{eq:delay}
+   delay (msec) = A_0 * {\rm exp}(-x / A_1 ) * 1e-3 - 1.0/CF
+\end{equation}
+\noindent where $x = \mathsf{cochlea\_f2x(species, cf)}$ is
 thedistance alongthe basilar membrane, $A_0 = 8.13$ (ms), $A_1 = 6.49$
 (nm). \citet{HeinzZhangEtAl:2001} then corrected the peak click to match the
 onset delay of ANFs and this has been retained in the model used here
 \citep{ZilanyBruceEtAl:2009}: \(delay = A_0 * {\rm exp}(-x / A_1) * 1e-3 \)
 where $A_0 = 3.0$, $A_1 = 12.5$. In humans, the delay function is: \( delay =
-4.915 + 0.3631 * {\rm exp}(0.11324*x) , 5<x<35 (mm) \).
+4.915 + 0.3631 * {\rm exp}(0.11324*x),\quad  5<x<35 (mm) \).
 
 %\smallskip{}
 
@@ -409,7 +413,7 @@ Example optimisation points used by \textsf{fit\_praxis}
 \begin{figure}[htb]
   \centering
 %  \resizebox{0.9\textwidth}{!}{\includegraphics{Praxis_123.eps}\includegraphics{Praxis_456.eps}}
-  \caption{Optimisation progression in normalised space in three of the six
+  \caption[Parameter searching in PRAXIS]{Optimisation progression in normalised space in three of the six
     parameters used in the DS model optimisation.} \label{fig:praxis}
 \end{figure}
 

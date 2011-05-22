@@ -2210,9 +2210,10 @@ endef
 # $(call run-makeindex,<input>,<output>,<log>,<extra flags>)
 define run-makeglossary
 success=1; \
-if ! $(MAKEGLOSSARY) -q $1 -t $3 -o $2 $4 > /dev/null || $(EGREP) -q '^!!' $3; then \
-	$(call colorize-makeindex-errors,$3); \
-	$(RM) -f '$2'; \
+#if ! $(MAKEGLOSSARY) -t $3 -o $2 $4 -q $1> /dev/null || $(EGREP) -q '^!!' $3; then 
+if ! $(MAKEGLOSSARY) $1> /dev/null || $(EGREP) -q '^!!' $3; then \
+	$(call colorize-makeindex-errors,$1.alg); \
+#$(RM) -f '$2'; 
 	success=0; \
 fi; \
 [ "$$success" = "1" ] && $(sh_true) || $(sh_false);
@@ -2800,13 +2801,13 @@ endif
 # Create the glossary file
 %.gls:	%.glo %.tex
 	$(QUIET)$(call echo-build,$<,$@)
-	#$(QUIET)$(call run-makeindex,$<,$@,$*.glg) #,-s nomencl.ist)
-	$(QUIET)$(call run-makeglossary,$<,$@,$*.glg) #,-s nomencl.ist)
+	$(QUIET)$(call run-makeindex,$<,$@,$*.glg) #,-s nomencl.ist)
+	#$(QUIET)$(call run-makeglossary,$<,$@,$*.glg) #,-s nomencl.ist)
 
 # Create the glossary and acronym files from makeglossaries
 %.acn:	%.acr %.tex
 	$(QUIET)$(call echo-build,$<,$@)
-	$(QUIET)$(call run-makeglossary,$<,$@,$*.alg) #,-s nomencl.ist)
+	$(QUIET)$(call run-makeglossary,$*) #,-s nomencl.ist)
 
 
 # Create the nomenclature file
