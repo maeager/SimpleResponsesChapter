@@ -72,65 +72,85 @@ computational efficiency and ensuring that the model fit within the
 criteria for DS cells. The electrotonic dendrites of \DS~cells mean that
 the filtering in \DS~cells primarily controls the height of excitatory
 {\PSPs} reaching the soma \citep{WhiteYoungEtAl:1994}, hence a single
-compartment with graded weights should suffice. The inhibitory effect of
-Golgi cells onto \DS~units are delayed and occurs through a the slow peak
-of \GABAa~inhibition, so optimisation of number and weight parameters is
-straight forward. \ANF~spread onto \DS~cells is well documented (-2 octaves
-below, 1 octave above), hence a decision made to fix this parameter due to
-large computational task of calculating bandwidth. Initial optimisation
-procedures were not successful at constraining the short delay recovery
-responses (2,3,4 ms), hence the \DS~leak and \KLT~conductance parameters
-were included to allow cell's input resistance behaviour to fit fast acting
-behaviour in the cell.
+compartment with graded weights should suffice. 
 
-%\input{DSRecoveryTable.tex} 
 
-% \smallskip{}
+The synaptic connections onto the
+D~stellate cell model, shown in table~\ref{tab:DScellModelSummary}C, are
+simplfied to afferent ANF inputs and intra-nuclear col-localised GABAergic input
+from Golgi cells. The \ANF~spread onto \DS~cells is well documented
+\citep{PaoliniClark:1999,ArnottWallaceEtAl:2004,PalmerWallaceEtAl:2003,JiangPalmerEtAl:1996,PalmerJiangEtAl:1996},
+hence a decision made to fix this parameter due to the large computational task
+of calculating an optimisation routine for \ANFDS bandwidth.  The spread \ANF~to
+\DS~cells (\sANFDSh,\sANFDSl) is set so that 2 octaves below and 1 octave above
+\CF~are within 2 standard deviations \citep{PaoliniClark:1999}.
 
-Optimisation parameters for \GLGDS~are optimised based on experimental click
-recovery data from \citep{BackoffPalombiEtAl:1997}.  Fixed parameters included
+The physiological effect of GABAergic inputs onto onset choppers is primarily on
+CF \citep{CasparyHaveyEtAl:1979,PalombiCaspary:1992,CasparyBackoffEtAl:1994,CasparyPalombi:1993,CasparyPalombiEtAl:1993},
+but the bandwidth is difficult to ascertain.  The dendrites of D~stellate cells
+cover one third of the nucleus (approximately 3 octaves of tonotopic
+frequencies) and occasionally project into the \GCD
+\citep{ArnottWallaceEtAl:2004}. Golgi cells' axonal collaterals are confined to
+200 microns in the \GCD and ANF tonotopic organisation in the \GCD is less
+defined.  The \GLGDS spread is set to 2 channels with zero offset, which corresponds to a \DS cell selecting from approximately 5 nearest Golgi cells.  
+
+Fixed parameters included 
 the number of Golgi cells to \DS~cells ($\nGLGDS = 25$), the spread of \ANFs~to
 \DS~cells $\ANFDS$, and the extra delay from the auditory nerve.  The first
-spike latency in \DS~cells 2.8 ± 0.09 ms \citep{RhodeSmith:1986}. The addition of
+spike latency in \DS~cells $2.8 \pm 0.09$ msec \citep{RhodeSmith:1986}. The addition of
 0.5 ms to \ANFDS~connections is a combination of conductance and synaptic
 delay. The effect of Golgi cells on \DS~is delayed by the extra 0.7~ms delay
-from \ANF~to Golgi, plus the slow peak of \GABAa inhibition.  The spread \ANF~to
-\DS~cells (\sANFDSh,\sANFDSl) is broad so the
-estimate is set so that 2 octaves below and 1 octave above \CF~are within 2
-standard deviations \citep{PaoliniClark:1999}.
+from \ANF~to Golgi, plus the slow peak of \GABAa~inhibition.
+\yellownote{fix this paragraph}
 
-
- \begin{figure}[htb]
-   \centering
-%   \subfloat[D~stellate cell]{
-\includegraphics[width=0.4\textwidth]{DS_ClickRecovery_DSpsth}% \label{fig:DSClickRecoveryPSTH}
-%}\quad%   \subfloat[Golgi cell]{
-\includegraphics[width=0.4\textwidth]{DS_ClickRecovery_Gpsth}%\label{fig:GClickRecoveryPSTH}%}
-   \caption[PSTH response to click recovery stimulus]{PSTH response of a D~stellate cell from the click recovery stimulus
-   used in the optimisation.}\label{fig:ClickExamples}
- \end{figure}
-
-
-The \DS~cell 
-
-optimisation function, derived from mask and recovery responses to
-clicks by \citet{BackoffPalombiEtAl:1997}, 
-
-
- is the square root of a mean squared error between vectors from the
-experimental and simulated data . 
-
-The vector elements were calculated from the
-number of spikes in a 2 ms window after a click.  
-
-The input stimulus was a series of masker-probe clicks, with intervals of 2, 3,
-4, 8, and 16 ms, separated by 50 ms. The stimulus was repeated 25 times. Each
-response to a click is measured for 2 ms after the minimum first spike latency
-for the unit.  The unit used in the optimisation has a \CF~of 5.8~kHz
-(equivalent to channel no. 50).
-
-
+% \smallskip{}
+%\subsubsection{Optimisation routine}
 \subsection{Results}    \label{sec:DS:results}
+
+Optimisation parameters for \GLGDS~are optimised based on experimental click
+recovery data from \citep{BackoffPalombiEtAl:1997}, as shown in
+Figure~\ref{fig:BackoffPalombi}. The input stimulus presented a series of
+masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms, separated by 50
+ms. Although the experimental stimuli was presented every 250 msec, the
+optimisation stimulus needs to be computationally efficient so the seperation
+was shortened and the sequence reordered to obtain the best click recovery
+response in the \DS and Golgi cells.  The stimulus was repeated 25 times and a
+PSTH was produced from the DS cells' spikes. Spike counts for 2 ms after the
+probe and masker click were selected (accounting for the the minimum first spike
+latency for the unit) to calculate a recovery ratio.  The \DS~cell optimisation
+function calculates the mean squared error between the test model and the
+experimental data recovery ratios to 5 click pairs.
+
+
+The six parameters to be fit by the routine are the weights of \GLG, \HSR, and
+\LSR~synapses on \DS, the \GABAa synapse rise constant, the \GABAa synapse decay
+constant, and the \DS cell maximum leak conductance. Initial optimisation
+procedures were not successful at constraining the short delay recovery
+responses (2,3,4 ms), hence the \DS~cell leak
+%and \KLT~conductance parameters 
+parameter were included in the optimised parameters to allow cell's input
+resistance behaviour to fit fast acting behaviour in the cell.
+
+The unit used in the optimisation has a \CF~of
+5.8~kHz (equivalent to channel no. 50 in the CN network with 100 channels from
+0.2 to 30~kHz).
+
+\begin{figure}[htb]
+  \centering
+%   \subfloat[D~stellate cell]{
+  \includegraphics[width=0.4\textwidth]{DS_ClickRecovery_DSpsth}% \label{fig:DSClickRecoveryPSTH}
+%}\quad%   \subfloat[Golgi cell]{
+  \includegraphics[width=0.4\textwidth]{DS_ClickRecovery_Gpsth}%\label{fig:GClickRecoveryPSTH}%}
+  \caption[PSTH response to click recovery stimulus]{PSTH response of a
+    D~stellate cell from the click recovery stimulus used in the
+    optimisation.  }\label{fig:ClickExamples}
+\end{figure}
+
+
+
+
+
+
 
 
 
