@@ -19,10 +19,11 @@ contentious. Studies show that GABAergic inputs to the \CN~generally arise in
 the peri-olivary regions of the medulla in cats \citep{OstapoffBensonEtAl:1997}
 and birds \citep{LachicaRubsamenEtAl:1995,YangMonsivaisEtAl:1999}. Slice
 preparations of the isolated murine \VCN~show strong and immediate sensitivity
-to bicuculine in \TS~and \DS~cells from a source within the \CN~complex
+to bicuculine in T~and D~stellate cells from a source within the \CN~complex
 \citep{FerragamoGoldingEtAl:1998a}.  The only known source of \GABA~intrinsic to
 the \VCN~are the Golgi cells of the \GCD~overlying the
-\VCN~\citep[Fig.~\ref{fig:CNdiagram}]{Mugnaini:1985,FerragamoGoldingEtAl:1998}. \yellownote{GCD  is also called marginal shell in gerbils.}
+\VCN~\citep[Figure~\ref{fig:CNdiagram},~]{Mugnaini:1985,FerragamoGoldingEtAl:1998}.
+
 
 %\smallskip{}
 
@@ -44,13 +45,13 @@ the \VCN~are the Golgi cells of the \GCD~overlying the
 % %\smallskip{}
 
 % \yellownote{TODO: Expand role of \GABA, or combine with previous para} Role of
-% \GABA in the \VCN
+% \GABA in the \VCN.
 % \begin{itemize}
 % \item Effects of microiontophoretically applied glycine and {GABA} on neuronal
 %   response patterns in the cochlear nuclei \citep{CasparyHaveyEtAl:1979}
 % \end{itemize}
-% \citep{Alibardi:2003a} rat \CN complex -> Golgi-stellate cells (fusiform layer:
-% 2) in \DCN contact granule and unipolar brush cells
+% \citep{Alibardi:2003a} rat \CN~complex -> Golgi-stellate cells (fusiform layer:
+% 2) in \DCN~contact granule and unipolar brush cells
 
 
 Inputs to Golgi cells are more complicated than the inputs to core
@@ -93,14 +94,13 @@ granule cells.
    \centering
   % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}
   \resizebox{0.95\textwidth}{!}{\includegraphics{GhoshalKim}}
-  \caption[Rate level response of marginal shell units]{Rate level response of 6 units \citep[from
-    Fig.~2]{GhoshalKim:1997}. Unit S03-07 (CF 22.7~kHz) at the top
-    will be the unit chosen to optimise the Golgi cell model as it is
-    monotonic, and has the median maximum rate of all the units
-    shown.    \label{fig:GolgiKimFig2}}
+  \caption[Rate level response of marginal shell units]{Rate level response of 6
+    units \citep[Reproduced with permission Fig.~2]{GhoshalKim:1997}. Unit
+    S03-07 (CF 22.7~kHz) at the top will be the unit chosen to optimise the
+    Golgi cell model as it is monotonic, and has the median maximum rate of all
+    the units shown. \label{fig:GolgiKimFig2}}
 \end{figure}
-\yellownote{Inclusion of Ghoshal figure needs permission, fill in
-  caption}
+\yellownote{Inclusion of Ghoshal figure needs permission, fill in caption}
 
 \subsection{Implementation    \label{sec:Golgi:implementation}}
 
@@ -112,8 +112,8 @@ behaviour of Golgi cells down to three major details:
  \item Golgi cells have a low maximum rate and large dynamic range to tone and
    noise increases, given marginal shell extracellular recordings of
    \citet{GhoshalKim:1997} could not come from granule cells, and
- \item The low threshold in Golgi cells, \citet{GhoshalKim:1997}, cannot be due
-   to \LSR~AN fibres. The lack of extensive experimental data regarding type-II
+ \item The low threshold in Golgi cells, \citet{GhoshalKim:1997}, can\-not be due
+   to \LSR~\AN fibres. The lack of extensive experimental data regarding type-II
    \ANF~units, that do project to the \GCD, and granule cell response to
    acoustic input meant that a Poisson rate neural model would be preferred over
    the Hodgkin-Huxley type neural model.  Although \HSR~\ANF~terminals do not
@@ -155,7 +155,7 @@ spread, as explained in the introduction ($\S$~\ref{sec:CN:tonot-conn})
 
 %\smallskip{}
 
- \begin{figure}[h!]
+ \begin{figure}[htb]
   \centering
  % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
 %  \resizebox{0.9\textwidth}{!}{\includegraphics{GolgiDiagram.eps}}\\
@@ -203,16 +203,14 @@ Appendix~\ref{sec:ch3:appendix}.
 
 %\smallskip{}
 
-% Due to its replication of granule cells in the model, weight for \LSR
-% (\wLSRGLG) and \HSR (\wHSRGLG) are determined for all synapses, number \nLSRDS
-% and \nHSRDS, delay \dANFGLG added to smoothing function to ensure conductance
+% Due to its replication of granule cells in the model, weight for \LSR~(\wLSRGLG) and \HSR~(\wHSRGLG) are determined for all synapses, number \nLSRDS~and \nHSRDS, delay \dANFGLG~added to smoothing function to ensure conductance
 % and dendritic filtering are included.
 
 % \subsubsection{Key design factors}
 
 % \yellownote{TODO: expand para, include fig ref} Choosing neural model: \HH-type
-% or Poisson - Problem of monotonic excitation at low levels - Spread of \ANF to
-% \GCD ARE broader than core \VCN - are we spoiling the broth too early?
+% or Poisson - Problem of monotonic excitation at low levels - Spread of \ANF~to
+% \GCD~ARE broader than core \VCN- are we spoiling the broth too early?
 
 
 % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
@@ -280,11 +278,11 @@ input resistance in intracellular recordings of Golgi cells
 
 % \yellownote{The input spread parameter is not well constrained by the
 % optimisation fitness routine with a pure tone input and a single neuron, but
-% the result is satisfactory given the uncertainty in \LSR fibre's axonal
-% organisation in the \GCD. The dendritic widths in Golgi cells are around 100
-% microns and the frequency separation laminae in the \VCN core is approximately
+% the result is satisfactory given the uncertainty in \LSR~fibre's axonal
+% organisation in the \GCD\@. The dendritic widths in Golgi cells are around 100
+% microns and the frequency separation laminae in the \VCN~core is approximately
 % 70 microns, giving an expected result of 1.5 connectivity spread hence the
-% result of 2.48 channels gives added frequency spread from \LSR fibres.}
+% result of 2.48 channels gives added frequency spread from \LSR~fibres.}
 
 %\smallskip{}
 
@@ -294,10 +292,10 @@ input resistance in intracellular recordings of Golgi cells
 \hdr{4}{\ref{tab:GolgiCellModelSummary}E}{Optimisation} \\ \hline 
                   \textbf{Parameters}                    & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
         Spatial spread $\ANFGLG$ (channel unit)          &  $\sANFGLG$   &     [0,10]     & 2.48  \\\hline 
-           Smoothing filter time constant (ms)           &    $\Gtau$    &     [0,20]     & 5.01  \\\hline 
+           Smoothing filter time constant (msec)           &    $\Gtau$    &     [0,20]     & 5.01  \\\hline 
             Weighted sum of \HSR~(unit-less)             &  $\wHSRGLG$   &     [0,5]      & 0.517 \\\hline 
             Weighted sum of \LSR~(unit-less)             &  $\wLSRGLG$   &     [0,5]      & 0.0487\\\hline 
-Spontaneous rate in Golgi cell model (spikes per second) &    \Gspon     &     [0,50]     & 3.73  \\\hline
+Spontaneous rate in Golgi cell model (spikes / sec) &    \Gspon     &     [0,50]     & 3.73  \\\hline
 \end{tabularx}
 }
 

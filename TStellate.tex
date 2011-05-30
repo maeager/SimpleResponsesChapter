@@ -276,30 +276,30 @@ c. VNLL
 \begin{itemize}
 \item The functional consequences of these direct and indirect connections with TS cells with the IC are not well understood
 \end{itemize}
-%\subsection{TS cells in birds}
-\label{sec-1_7}
+% %\subsection{TS cells in birds}
+% \label{sec-1_7}
 
 
-VCN analog is the \emph{nucleus angularis}
-%\subsection{Summary}
-\label{sec-1_8}
+% VCN analog is the \emph{nucleus angularis}
+% %\subsection{Summary}
+% \label{sec-1_8}
 
 
-As a population, T stellate cells encode the spectrum of sounds. They
-receive acoustic input from the auditory nerve fibers. Several
-mechanisms contribute to that transformation: Feed-forward excitation
-through other T stellate cells, co-activation of excitation and
-inhibition, reduction in synaptic depression, and the amplification of
-excitatory synaptic current over time through NMDA receptors. They
-deliver that information to nuclei that make use of spectral
-information.  T stellate cells terminate in the DCN, to olivocochlear
-efferent neurons, to the lateral superior olive, to the contralateral
-inferior colliculus. These targets use spectral information to
-localize sounds, to adjust the sensitivity of the inner ear, and to
-recognise and understand sounds. Birds also process sounds through
-neurons that resemble T stellate cells in their projections and also
-in their cellular properties, attesting to the fundamental importance
-that T stellate-like cells have for hearing in vertebrates.
+% As a population, T stellate cells encode the spectrum of sounds. They
+% receive acoustic input from the auditory nerve fibers. Several
+% mechanisms contribute to that transformation: Feed-forward excitation
+% through other T stellate cells, co-activation of excitation and
+% inhibition, reduction in synaptic depression, and the amplification of
+% excitatory synaptic current over time through NMDA receptors. They
+% deliver that information to nuclei that make use of spectral
+% information.  T stellate cells terminate in the DCN, to olivocochlear
+% efferent neurons, to the lateral superior olive, to the contralateral
+% inferior colliculus. These targets use spectral information to
+% localize sounds, to adjust the sensitivity of the inner ear, and to
+% recognise and understand sounds. Birds also process sounds through
+% neurons that resemble T stellate cells in their projections and also
+% in their cellular properties, attesting to the fundamental importance
+% that T stellate-like cells have for hearing in vertebrates.
 
 
 
@@ -319,13 +319,41 @@ that T stellate-like cells have for hearing in vertebrates.
 
 
 
+The work by Tony Paolini, Janine Clarey, Karina Needham and others at the Royal
+Victorian Eye and Ear Hospital, were pivotal in developing my network model of
+the cochlear nucleus, in particular my interest in chopper units and T~stellate
+cells.  Figure~\ref{fig:PaoliniAIV} shows the intracellular acoustic
+classification of chopper units in the rat into three distict types
+\citep{PaoliniClareyEtAl:2005}: CS chopper sustained, and two transient choppers
+CT1 and CT2.  This work expands on the extracellular classification by
+\citep{BlackburnSachs:1989} into slowly or transiently adapting and sustained
+choppers in cats. The intracellular traces in Figure~\ref{fig:PaoliniAIV} will
+form the basis for the optimisation routine of T~stellate cell model
+
+
+\begin{figure}[htb]
+  \centering
+\subfloat[Chopper Sustained]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/CS-01-864-004}}}\quad%
+\subfloat[Chopper Transient 1]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/CT1-01-857-007}}}\\
+\subfloat[Chopper Transient 2]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/CT2-01-305-014}}}\quad%
+\subfloat[Onset Chopper]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/OC-99-812-013}}}
+\caption[Average intracelluar response data in stellate cells in rats.]{Average
+  intracelluar response to CF tone 30dB above depolarisation threshold in
+  stellate
+  cells~\citep[Reproduced~from~][]{PaoliniClareyEtAl:2005}. A. Sustained chopper
+  unit 01-864-004. B. Transient chopper type 1 unit 01-857-007, CF 8.9kHz. C. Transient
+  chopper type 2 unit 01-305-014. D. Onset chopper unit
+  99-812-013. Hyperpolarisation after tone indicated by
+  asterix.  \label{fig:PaoliniAIV}}
+\end{figure}
+\yellownote{Permission needed for Paolini plots}
 
 
 
 
 \subsection{Implementation}
 
-\yellownote{Para 1: Nordlie table~\ref{tab:TScellModelSummary}A. Using R\&M type 1-t, Other previous models}
+\yellownote{Para 1: Nordlie table~\ref{tab:TSModelSummary}A. Using R\&M type 1-t, Other previous models}
 
 
 \yellownote{Synaptic inputs known and unknown, included and not included in model.  Previous work include and excludes}
@@ -333,17 +361,20 @@ that T stellate-like cells have for hearing in vertebrates.
 
 
 Figure~\ref{fig:TSinputs} shows the expected response of a T~stellate cell to
-individual connections from different cell types.    
-
-   
-    % The membrane parameters for the single compartment T~stellate cell model
-    % above were: diameter =19.5$\mu$m, $\bar{g}_{\rm Na}=0$, $\bar{g}_{\rm
-    % KHT}=0.0189416$ S cm$^{-2}$, $\bar{g}_{\rm leak}=0.000473539$ S cm$^{-2}$,
-    % $\bar{g}_{\rm h}=6.20392e-05$ S cm$^{-2}$, $\bar{g}_{\rm KA}=0.01539$ S
-    % cm$^{-2}$,E$_{\rm rev}=-65$ mV, E$_{\rm Na}=50$ mV, E$_{\rm K}=-70$ mV.
+individual connections from different cell types. The membrane parameters for
+the single compartment T~stellate cell model are default except for sodium
+conductance set to zero. In this example, excitation from the afferent \ANF~inputs (\LSR~Figure~\ref{fig:TSinputs}A and \HSR~Figure~\ref{fig:TSinputs}B)
+show a large depolarisation.  \HSR~inputs show a rapid onset and a slowly
+adapting sustained depolarisation.
 
 
-\begin{figure}[ht!]
+\yellownote{Actual parameters: diameter =19.5$\mu$m, $\bar{g}_{\rm Na}=0$,
+$\bar{g}_{\rm KHT}=0.0189416$ S cm$^{-2}$, $\bar{g}_{\rm leak}=0.000473539$ S
+cm$^{-2}$, $\bar{g}_{\rm h}=6.20392e-05$ S cm$^{-2}$, $\bar{g}_{\rm KA}=0.01539$
+S cm$^{-2}$,E$_{\rm rev}=-65$ mV, E$_{\rm Na}=50$ mV, E$_{\rm K}=-70$ mV.}  
+
+
+\begin{figure}[htb]
   \centering
   \resizebox{0.6\textwidth}{!}{\includegraphics{TStellate/baseline_exc}}
   \resizebox{0.6\textwidth}{!}{\includegraphics{TStellate/baseline_inh}}
@@ -364,24 +395,6 @@ individual connections from different cell types.
 
 
 
-\begin{figure}[htb!]
-  \centering
-\subfloat[Chopper Sustained]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/CS-01-864-004}}}\quad%
-\subfloat[Chopper Transient 1]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/CT1-01-857-007}}}\\
-\subfloat[Chopper Transient 2]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/CT2-01-305-014}}}\quad%
-\subfloat[Onset Chopper]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/OC-99-812-013}}}
-\caption[Average intracelluar response data in stellate cells in rats.]{Average
-  intracelluar response to CF tone 30dB above depolarisation threshold in
-  stellate
-  cells~\citep[Reproduced~from~][]{PaoliniClareyEtAl:2005}. A. Sustained chopper
-  unit 01-864-004. B. Transient chopper type 1 unit 01-857-007, CF 8.9kHz. C. Transient
-  chopper type 2 unit 01-305-014. D. Onset chopper unit
-  99-812-013. Hyperpolarisation after tone indicated by
-  asterix.  \label{fig:PaoliniAIV}}
-\end{figure}
-\yellownote{Permission needed for Paolini plots}
-
-
 
 
 \subsection{Results}
@@ -389,29 +402,58 @@ individual connections from different cell types.
 Choosing optimisation data - average population data or individual exemplar based on Paolini rat data.
 
 
-What is not shown in Figure~\ref{fig:TSinputs} is firstly the non-linear dynamics of the action potential in the neural model; and secondly the hyperpolarisation activation of Ih and I$_{\rm KA}$ currents due to inhibitory input.
+What is not shown in Figure~\ref{fig:TSinputs} is firstly the non-linear
+dynamics of the action potential in the neural model; and secondly the
+hyperpolarisation activation of Ih and I$_{\rm KA}$ currents due to inhibitory
+input.  The second factor is important in enhancing the first spike response
+across the T~stellate cells \citep{PaoliniClareyEtAl:2004}to an oncoming
+stimulus, since the \OnC~units will respond earlier and provide fast inhibition 
 
+%       \begin{figure}[htb]
+%         \centering\resizebox{0.95\textwidth}{!}{%
+%           \includegraphics{RateLevel/psthsingle90.0.eps}%
+% %          \includegraphics{RateLevel/TS_ratelevel.eps}}
+%       \end{figure}
 
+\begin{figure}[htb]
+  \centering
+  \resizebox{0.6\textwidth}{!}{\includegraphics{TStellate_CT1/plot.eps}}
+  \caption[CT1 T~stellate Optimisation results]{CT1 T~stellate Optimisation results}
+  \label{fig:CT1results}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \resizebox{0.6\textwidth}{!}{\includegraphics{TStellate_CT2/plot.eps}}
+  \caption[CT2 T~stellate Optimisation results]{CT2 T~stellate Optimisation results}
+  \label{fig:CT2results}
+\end{figure}
 
 
 
 {% % D~----------------------------------
-\begin{tabularx}{\linewidth}{|X|c|c|c|}
-\hdr{4}{F}{Optimisation} \\ \hline
-       \textbf{Parameters}        & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
+\begin{tabularx}{\linewidth}{|X|c|c|c|c|c|}
+\hdr{6}{F}{Optimisation} \\ \hline
+       \textbf{Parameters}         &    \textbf{Name}     & \textbf{Range} & \multicolumn{3}{|c|}{\textbf{Best Values}} \\
+                                   &                      &                & CS&     CT1     & CT2 \\\hline
 
-Weight of ANF syn on TS  ($\mu$S) &    \wANFTS    &  [1e-5,0.005]  &  \\
-  Number of synapses, LSR to TS   &    \nLSRTV    &     [0,64]     &      \\
-  Number of synapses, HSR to TS   &    \nHSRTV    &     [0,64]     &      \\
-Weight of DS syn on TS  ($\mu$S)  &    \wDSTS     &  [1e-5,0.005]  & \\
-Number of DS syn on TS  ($\mu$S)  &    \nDSTS     &     [0,64]     & \\
-Weight of TV syn on TS  ($\mu$S)  &    \wTVTS     &  [1e-5,0.005]  & \\
-Number of TV syn on TS  ($\mu$S)  &    \nTVTS     &     [0,64]     & \\
-Weight of GLG syn on TS  ($\mu$S) &    \wGLGTS    &  [1e-5,0.005]  & \\
-Number of GLG syn on TS  ($\mu$S) &    \nGLGTS    &     [0,64]     & \\ \hline
-
+Weight of HSR syn on TS  ($\mu$S)  &       \wHSRTS        &  [1e-5,0.03]   &   & 0.000708301 & 0.00168911\\
+Weight of LSR syn on TS  ($\mu$S)  &       \wLSRTS        &  [1e-5,0.03]   &   &  (0.0025)   & 0.00140628\\
+ %  Number of synapses, LSR to TS  &       \nLSRTV        &     [0,64]     &   &             & \\
+ %  Number of synapses, HSR to TS  &       \nHSRTV        &     [0,64]     &   &             & \\
+ Weight of DS syn on TS  ($\mu$S)  &        \wDSTS        &  [1e-5,0.03]   &   &      --      & --\\
+%Number of DS syn on TS  ($\mu$S)  &        \nDSTS        &     [0,64]     &   &             & \\
+ Weight of TV syn on TS  ($\mu$S)  &        \wTVTS        &  [1e-5,0.03]   &   &      --      & --\\
+%Number of TV syn on TS  ($\mu$S)  &        \nTVTS        &     [0,64]     &   &             & \\
+Weight of GLG syn on TS  ($\mu$S)  &       \wGLGTS        &  [1e-5,0.03]   &   &      --      & --\\
+%Number of GLG syn on TS  ($\mu$S) &       \nGLGTS        &     [0,64]     &   &             & \\ \hline
+ \TS~leak conductance (S cm$^{-2}$)  & $\bar{g}_{\rm leak}$ &  [1e-6,0.003]  &   & 0.000860145 & 8.9326e-05\\ 
+ \TS~KHT conductance (S cm$^{-2}$)   & $\bar{g}_{\rm KHT}$  &  [1e-6,0.003]  &   &  (0.0189)   & 0.0226787\\ 
+   \TS~reversal potential (mV)     &    E$_{\rm rev}$     &   [-45,-70]    &   &   -54.26    & -63.502\\ \hline
+                       \multicolumn{3}{|l|}{Error}                         &   &   11.886    & 31.481\\ \hline 
 \end{tabularx}
 }
+
 
 
 

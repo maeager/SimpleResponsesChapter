@@ -6,7 +6,7 @@
 
 \subsection{Background}
 
-\TV~cells are glycinergic, inhibitory cells found in the deep layers of the
+\TV~or vertical cells are glycinergic, inhibitory cells found in the deep layers of the
 \DCN~that send axon collaterals to the \VCN\@. They are characterized as having
 a non-monotonic response to tones with increasing sound level and respond poorly
 to broadband noise
@@ -24,15 +24,15 @@ from \DS~cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
 
 %\smallskip{}
 
-TV or vertical cells receive mono-synaptic excitatory input from auditory nerve
+TV  receive mono-synaptic excitatory input from auditory nerve
 ﬁbers \citep{OertelWu:1989,ZhangOertel:1993b}. Taken together, these two results
 suggest that \LSR~auditory nerve ﬁbers may form the major excitatory input to
-type~II cells. If true, this hypothesis also could explain the ﬁnding that type
+type~II cells. If true, this hypothesis could also explain the ﬁnding that type
 II units have consistently higher thresholds than \DCN~principal cells
 \citep{YoungBrownell:1976} because \LSR~auditory nerve ﬁbers also have elevated
 thresholds relative to the lowest threshold auditory nerve ﬁbers
 \citep{Liberman:1978}. However, patterns of auditory nerve innervation of the
-\DCN~are most consistent with \HSR~ﬁber innervation of vertical cell somata and
+\DCN~are most consistent with \HSR~ﬁber innervation of \TV~cell somata and
 \LSR~ﬁber innervation of dendrites \citep{Liberman:1993}. In that case, the low
 spontaneous rates and high sound thresholds of type II units might be caused by
 a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997}; this is
@@ -43,7 +43,7 @@ injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
 
 Type~II units also supply an inhibitory input to the
 \VCN~\citep{WickesbergOertel:1990}, but the role of type~II terminals in the
-\VCN is less clear. Three different hypotheses have been raised. The ﬁrst is
+\VCN~is less clear. Three different hypotheses have been raised. The ﬁrst is
 that this projection modulates the response thresholds of \VCN~neurons
 \citep{PaoliniClark:1998}.  The role of type~II units in spectral processing is
 that of a narrowband inhibitor. Responses of \DCN~principal cells are strongly
@@ -66,6 +66,7 @@ inhibited by sharp spectral peaks close to their
 \subsubsection{Modeling of Tuberculoventral cells}
 
 \yellownote{Expand previous studies  of the DCN incl. TV cells}
+
 
 \citet{ArleKim:1991a} were the first to show type~II \EIRA~with simple
 McCullock-Pitts point neuron models.
@@ -189,7 +190,7 @@ band (dB per Hz$^2$) and this is processed and scaled at each point in the notch
 sweep.  For a single presentation used in this experiment the sound level plays
 an important part in stimulating the \ANFs~and contributing interneurons.  The
 experimental data shown in Fig.~\ref{fig:TVReissFig9}, show the mean response to
-notch sweeps at 22 db/Hz$^{1/2}$.
+notch sweeps at 22 dB/Hz$^{1/2}$.
 
 %\smallskip{}
 
@@ -228,7 +229,7 @@ method. \yellownote{Population mean rate: Pros: fairly stable for smallish
 
 
 \begin{figure}[htb]
-  \centering \resizebox{0.7\textwidth}{!}{\includegraphics{TV_NotchDataConfig}}
+  \centering \resizebox{0.6\textwidth}{!}{\includegraphics{TV_NotchDataConfig}}
   \caption[TV model optimisation configuration]{Expected mean rate response to
     notch noise in the TV cells is created from 1 octave notch sweeps (top) for
     the falling edge and from half octave notch sweeps (bottom) for the rising
@@ -324,7 +325,7 @@ input sound intensities.  The performance improves when reducing the sound level
 of the notch stimulus from 110 down to 50 dB \SPL.
 \begin{figure}[htb]
   \centering
-  \resizebox{\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_spl.eps}}
+  \resizebox{0.6\textwidth}{!}{\includegraphics{./TV_Notch/TV_Notch_spl.eps}}
   \caption[TV cell model: optimisation results]{Optimisation results for TV
     Notch model with stimulus sound levels at 110, 90, 70 and 50 dB SPL.}
   \label{fig:TV_result_spl}
@@ -460,7 +461,7 @@ scores.
 
 Another optimisation run at 70 dB \SPL~produced a better result for the offset
 parameter and the overall error value of the fitness function.  The offset of
-\DS onto \TV~cells was more desirable at 2.1 channels, equivalent to a mean of
+\DS~onto \TV~cells was more desirable at 2.1 channels, equivalent to a mean of
 0.14 octaves (0.34 octaves at the lowest channel and 0.13 at the highest
 channel); although this was the starting value.  The results in the first set
 (Optimisation A) show the dominance of \LSR~over \HSR~fibres in the number of
@@ -479,7 +480,7 @@ synapses (29 to 1); and the increased need for \DS~cell inhibition with a high
     \nLSRTV      &   29   &   32   & 32     \\
     \nHSRTV      &   1    &   1    & 1      \\
 \wLSRTV~($\mu$S) & 0.0019 & 0.0019 & 0.0019 \\
-\wHSRTV~($\mu$S) & 0.0013 & 0.0013 & 0.0013 \\ 
+\wHSRTV~($\mu$S) & 0.0013 & 0.0013 & 0.0013 \\ \hline
   \hline Error   & 499.20 & 514.86 & 518.54 \\ \hline
 \end{tabularx}
   \end{minipage}\hfill
@@ -491,7 +492,7 @@ synapses (29 to 1); and the increased need for \DS~cell inhibition with a high
   \Eleak~(mV)    & -65.89 & -67.22 & -67.22 \\
 \oDSTV~(channel) &  2.1   &  2.1   & -7.9   \\
      \nDSTV      &   17   &   17   & 16     \\
-\wDSTV ($\mu$S)  & 0.0017 & 0.0017 & 0.0017 \\ 
+\wDSTV ($\mu$S)  & 0.0017 & 0.0017 & 0.0017 \\ \hline
   \hline Error   & 435.47 & 457.63 & 492.55 \\ \hline
 \end{tabularx}
   \end{minipage}
@@ -520,9 +521,6 @@ The eventual result of the \TV~cell optimisation, highlighted in the following
 table, was derived from Run 1A and Run 1B in the set using 70 dB
 \SPL~stimulus. \yellownote{Explain the table below more. }
 
-% D~----------------------------------
-
-%\smallskip{}
 
 \begin{tabularx}{\linewidth}{|X|c|c|c|}
 \hdr{4}{F}{Optimisation} \\ \hline 
@@ -552,7 +550,7 @@ generated in GNU~Octave using Chebychev II filters\footnote{\textsf{cheby2} func
   in octave-forge signal package.}  with a sampling rate of 100~kHz and an
 optimal filter number.  The half octave sweep was calculated from
 -2~to~2~octaves away from 12.7~kHz at 1/32$^{nd}$ increments with
-logarithmically constant notch widths\footnotemark. A 50 ms stimulus at 50 dB
+logarithmically constant notch widths\footnotemark. A 50 msec stimulus at 50 dB
 SPL was setup up in the \AN~model for use by the \CN~stellate model.
 \footnotetext{Logarithmically constant means the notch width is calculated at
   the centre frequency of the notch and not the \CF~of the unit of interest.}
@@ -670,13 +668,7 @@ Figure~\ref{fig:TV_SweepUnit70} shows the response of a unit with similar
 % \clearpage
 
 
-% % - F
-% % -----------------------------------------------------------------------------
 
-% \noindent\begin{tabularx}{0.95\textwidth}{|X|}\hline
-%   \hdr{1}{F}{Measurements}\\\hline
-% %   \\\hline
-% \end{tabularx}
 
 
 

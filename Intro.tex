@@ -26,11 +26,12 @@ Shihab Shamma calls upon the science community, particularly members of its
 physiology and neuroscience subgroups, to investigate the role of populations of
 neurons in to pay attention to the role of populations of neurons in
 neurophysiology. This chapter draws on the wealth of experimental data
-accumulated in auditory neuroscience to create a detailed, \BNN~model of the
+accumulated in auditory neuroscience to create a detailed, \BNN model of the
 cochlear nucleus stellate cell network. The design and methods for the
 construction of the model shall provide insights relevant to other neural
 network models of the brain, especially those that use highly-specific sensory
-pathways.  \yellownote{One more sentence here - expand on idea at the start and
+pathways.  
+\yellownote{One more sentence here - expand on idea at the start and
   link to next para.}
 
 % \smallskip{}
@@ -42,9 +43,9 @@ modelling approaches, especially in the heavily investigated cochlear nucleus in
 birds and mammals. Developments in computational power and enhanced experimental
 techniques in multi-unit recordings are enabling more detailed neural models to
 be developed. Examples of parameter estimation and fitting in neural models are
-also becoming more advanced, for example SSNNS,
-\citep{SichtigSchafferEtAl:2008}, NeuroFitter \citep{VanAchardEtAl:2007} and
-MultiRunFitter (a feature in NEURON).\yellownote{need to explain my intentions}
+also becoming more advanced, for example SSNNS~\citep{SichtigSchafferEtAl:2008}, NeuroFitter \citep{VanAchardEtAl:2007}~and
+MultiRunFitter (a feature in NEURON).
+\yellownote{need to explain my intentions}
 
 \yellownote{See  neural detail in auditory system\citep{LuRubioEtAl:2008}}
 
@@ -54,7 +55,7 @@ MultiRunFitter (a feature in NEURON).\yellownote{need to explain my intentions}
 % simulation vs whole network simulation during optimisation.}
 To develop and optimise detailed neural models and neural network models,
 reproducible research methods are required. In this chapter, a tabular method
-introduced by \citet{NordlieGewaltigEtAl:2009} is used to summarise the neural
+introduced by \citet{NordlieGewaltigEtAl:2009}~is used to summarise the neural
 models used in each optimisation step. The tables consist of A) the model
 summary, B) cell type populations, C) connectivity between two cell types, D)
 neuron and synapse models, and E) optimisation parameters.  This method aims to
@@ -80,45 +81,46 @@ not influence the properties of previously fitted parameters.
 % \smallskip{}
 
 In this chapter, the connections within the stellate network
-(Fig.~\ref{fig:microcircuit}) are developed using a sequential method of
+(Figure~\ref{fig:microcircuit}) are developed using a sequential method of
 optimisation steps.  The parameters of each cell type are determined based on
 experimental data or are optimised based solely on responses to simple stimuli.
-Each cell type is shown with its \EIRA~and \PSTH, although this may
+Each cell type is shown with its \EIRA and \PSTH, although this may
 vary within cell types.
 
 
-\yellownote{what is this sentence doing? explain the figure!}  The stellate
-network model drawn in Fig.~\ref{fig:microcircuit} describes the following cells
+\yellownote{what is the follwoing sentence doing? explain the figure!}  
+
+The stellate
+network model drawn in Figure~\ref{fig:microcircuit} describes the following cells
 and models:
 \begin{enumerate}
 \item The Carney phenomenological auditory model \citet{ZilanyBruceEtAl:2009}:
   This model provides spiking input to cochlear nucleus neurons across
   frequencies and spontaneous rate types of the auditory nerve from an arbitrary
-  input stimulus. The base line in Fig.~\ref{fig:microcircuit} is a
+  input stimulus. The base line in Figure~\ref{fig:microcircuit} is a
   simplification of auditory nerve fibres (ANF) from low best frequency (BF) to
   high BF (left to right). The model reproduces responses for high and low SR
   ANFs at 100 channels across the frequency range 200 Hz to 48 kHz.
 \item The Golgi cell: a {GABA}ergic \VCN~marginal shell unit that is presumed to
-  regulate excitability in the \GCD and core \VCN~units
+  regulate excitability in the \GCD~and core \VCN~units
   \citep{FerragamoGoldingEtAl:1998}. Only one \textit{in vivo} study has
   recorded extracellular data in the marginal shell area of the
   \CN~\citep{GhoshalKim:1997}. The presumed characteristics of Golgi cells are
   taken from that study and are defined by a monotonic response to tones and
-  noise, a type I/III \EIRA, and an unusual or chopper {\PSTH}.
+  noise, a type I\slash III~\EIRA, and an unusual or chopper {\PSTH}.
 \item The D~stellate cell: a glycinergic, large multipolar cell with
-  \OnC~\PSTH~response that acts as a coincidence detector. Its large
-  dendritic area increases its response to noise allowing it to behave as a
-  wide-band inhibitor in the \VCN, \DCN, and contralateral \CN
-  \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
-\item The Tuberculoventral cell: a glycinergic, type II {\EIRA}~unit in the deep
+  \OnC~\PSTH~response that acts as a coincidence detector. Its large dendritic
+  area increases its response to noise allowing it to behave as a wide-band
+  inhibitor in the \VCN, \DCN, and contralateral
+  \CN~\citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
+\item The Tuberculoventral cell: a glycinergic, type II~{\EIRA}~unit in the deep
   layer of the \DCN~\citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed
   echo-suppressor and narrow-band inhibitor, with recurrent connections between
   D~and T~stellate cells in the \VCN~\citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
 \item the T~stellate cell: one of the major output projection cells of the
   cochlear nucleus to the inferior colliculus. This multipolar neuron has been
   shown to have robust spectral representation and enhanced synchronisation to
-  modulation in speech sounds
-  \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
+  modulation in speech sounds~\citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 \end{enumerate}
 
 \begin{figure}[htb]
@@ -131,7 +133,7 @@ and models:
 
 % \smallskip{}
 
-A detailed \BNN model requires a good input model, a good neural model and
+A detailed \BNN~model requires a good input model, a good neural model and
 experimental data with which to fit the parameters.  \yellownote{In this para:
   Connect the introduction section to the Auditory model below. Discuss the use
   of the Carney model in the CN stellate model.}
@@ -146,21 +148,20 @@ Liberman, Greenwood, Patterson, Young, Sachs and others, in acoustic \texttt{in
   vivo} experiments. Models of the auditory system over the last 30 years have
 expanded our understanding of the mechanical processes in the middle ear and
 cochlea, and the specialised synapse between the inner hair cell and the
-auditory nerve \citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
+auditory nerve~\citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
 
 % \smallskip{}
 
 The auditory system is topographically ordered from the basilar membrane to the
-cortex in terms of frequency selectivity, also called tonotopicity
-\citep{YoungOertel:2004}.  The population of auditory nerve fibres (ANFs,
+cortex in terms of frequency selectivity, also called tonotopicity~\citep{YoungOertel:2004}.  The population of auditory nerve fibres (ANFs,
 Fig.~\ref{fig:CNdiagram}), bifurcate after entering the cochlear nucleus to
 innervate the \VCN~and \DCN\@, retaining their tonotopic order
-\citep{Lorente:1981, Liberman:1982, Liberman:1993}. Type 1 ANFs are categorised
-into {\HSR} and {\LSR} fibres \citep{Liberman:1978}, where LSR fibres have a
-higher threshold and wider dynamic range than HSR fibres. They also project to
+\citep{Lorente:1981, Liberman:1982, Liberman:1993}. Type 1 \ANFs are categorised
+into {\HSR}~and {\LSR}~fibres \citep{Liberman:1978}, where \LSR~fibres have a
+higher threshold and wider dynamic range than \HSR~fibres. They also project to
 the \GCD~\citep{RyugoParks:2003, RyugoHaenggeliEtAl:2003} along with the
 smaller, unmyelinated type 2 \ANFs, which suggests they play a different role in
-sound processing to \HSR fibres.
+sound processing to \HSR~fibres.
 
 % \smallskip{}
 
@@ -202,7 +203,7 @@ The auditory nerve inputs to the cochlear nucleus model neurons are provided by
 phenomenological auditory periphery models originating from
 \citet{Carney:1993}. The ARLO model \citep{HeinzZhangEtAl:2001}; the Bruce model
 \citep{BruceSachsEtAl:2003, ZilanyBruce:2006, ZilanyBruce:2007}; and the Zilany
-model \citep{ZilanyBruceEtAl:2009}. The AN model consists of an outer/middle ear
+model \citep{ZilanyBruceEtAl:2009}. The AN model consists of an outer\slash middle ear
 pre-processing filter, a cochlea filterbank, IHC-to-AN synapse model and
 dead-time modified Poisson spike generator, as shown in
 Fig.~\ref{fig:ZilanyBruceFig}. \citep{HeinzZhangEtAl:2001} incorporated cochlea
@@ -305,7 +306,7 @@ using the same Greenwood function as used for the AN filterbank.
     \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
     % \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
     % \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
-    \caption{Diagram    \label{fig:CNdiagram}}
+    \caption{Cochlear nucleus network model diagram \label{fig:CNdiagram}}
   \end{center}
 \end{figure}
 

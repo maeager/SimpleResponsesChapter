@@ -1,24 +1,25 @@
 %\clearpage
-{\small
+{\vspace{2ex}\small
 %\linespread{0.5}
   \begin{table}[htb]
     \caption{Golgi cell model summary (Nordlie format)}
     \label{tab:GolgiCellModelSummary}
 \end{table}
 \noindent%
-\begin{tabularx}{\linewidth}{|l|X|}\hline %
+\begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline 
 %\begin{ntab}{|l|X|}{2}{\ref{tab:GolgiCellModelSummary} A}{Model Summary}\\\hline
  \textbf{Populations}   & \ANF~(\HSR,\LSR) and Golgi cells \\\hline 
    \textbf{Topology}    & Tonotopic - $N_{\text{channel}}=100$ frequency channels (0.2-40 kHz) separated evenly based on even place positions on the basilar membrane \citep{Greenwood:1990}\\\hline
  \textbf{Connectivity}  & Place-based Gaussian spread of connections \\\hline
- \textbf{Neuron model}  & \ANF model: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\
+ \textbf{Neuron model}  & \ANF~model: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\
                         & Golgi cell model: instantaneous-rate Poisson model developed from ANF inputs\\\hline
 %\textbf{Channel models} & --- \\\hline 
 \textbf{Synapse model}  & Synapto-dendritic smoothing alpha function \\\hline
-    \textbf{Input}      & 0-100 dB \SPL~pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range   \\\hline
+    \textbf{Input}      & 0-100 dB \SPL~pure tones (22.7 kHz, 50 msec, 5 msec on\slash off ramp, 20 msec delay), intensity range   \\\hline
  \textbf{Measurements}  & Mean firing rate of Golgi cell instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions).\\\hline
 \end{tabularx}
+
 \yellownote{explain the Measurements part better}
 
 \vspace{1ex}
@@ -26,24 +27,22 @@
 %\end{ntab}
 
 % - B ------------------------------------------------------------------------
-\noindent%
-\begin{tabularx}{\linewidth}{|l|X|X|}\hline %{\linewidth}
-\hdr{3}{B}{Populations}\\\hline
-\textbf{Name} &                             \textbf{Elements}                             & \textbf{Number} \\\hline
-     \HSR      &   Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{HSR}} = 0$ \\\hline
-     \LSR      &  Auditory nerve fibre \citep{ZilanyBruce:2007}                  & $N_{\text{LSR}}= 0$ \\\hline
-     \GLG      & Instantaneous-rate Poisson neuron & 1 unit \CF=22.7~kHz (channel 76)  \\\hline
+\noindent\begin{tabularx}{\textwidth}{|l|X|X|}\hline 
+\hdr{3}{B}{Populations}   \\\hline
+\textbf{Name} &               \textbf{Elements}               & \textbf{Number} \\\hline
+    \HSR      & Auditory nerve fibre \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & N/A \\\hline
+    \LSR      & Auditory nerve fibre \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & N/A \\\hline
+    \GLG      &       Instantaneous-rate Poisson neuron       & 1 unit (CF~22.7~kHz, channel 76)  \\\hline
 \end{tabularx}
-
-\vspace{1ex}
+\vspace{2ex}
 
 % - C ------------------------------------------------------------------------------
 \noindent%
-\begin{tabularx}{\linewidth}{|l|l|l|X|}\hline
-\hdr{4}{C}{Connectivity}\\\hline
-                 \textbf{Name}                   & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\multirow{2}{*}{$\textrm{ANF} \to \textrm{GLG}$} &       \LSR       &      \GLG      & Gaussian spatial spread, centered at \CF, variance determined by variable \sLSRGLG \\
-                                                 &       \HSR       &      \GLG      & Gaussian spatial spread, centered at \CF, variance fixed at $\sHSRGLG=2$ \\\hline
+\begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
+\hdr{4}{C}{Connectivity}    \\\hline
+     \textbf{Name}       & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
+\multirow{2}{*}{\ANFGLG} &      \LSR       &      \GLG       & \multirow{2}{*}{Gaussian spatial spread  centered on CF. HSR variance $\sHSRGLG=2$. LSR variance, \sLSRGLG, optimised.}   \\
+                         &      \HSR       &      \GLG       & \\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -58,12 +57,12 @@
 \rule{1em}{0em}\vspace*{-3.5ex}
     \begin{equation*}
       \begin{array}{r@{\;=\;}ll}
-\mathbf{w}_{L,H} & w_{LSR,HSR \to GLG} \cdot \mathcal{N}(i,\sigma), & \sigma^2 = \sLSRGLG, i=\text{channel position} \\ 
-       \alpha(t) & \left( t \cdot \exp(-t/\Gtau) \right)  & \text{synapto-dendritic filter}\dag \\
-      g(t) & r\left( \mathbf{w}_{L} \bullet \mathbf{L} + \mathbf{w}_{H} \bullet \mathbf{H} \right) & \text{matrix multiplication and addition}\\ %\mathbf{H},\mathbf{L} \to f(\text{channel},t) &\mathbf{w}_{H,L} \to f(\text{channel})\\
-%      r(\mathbf{x}) & \max\{\mathbf{x}(t-\dANFGLG) - x(0) + \Gspon,0\} &  \\
-      G(t) & \alpha(t)\,\ast\,g(t) &\text{convolution of $\alpha(t)$ and $g(t)$}\\%& \text{if } G(t) < 0 &G(t)=0 \\
-   \end{array}
+  \mathbf{w}_{L,H}   &                   w_{LSR,HSR \to GLG} \cdot \mathcal{N}(i,\sigma),                    & \sigma^2 = \sLSRGLG, i=\text{channel position} \\ 
+     \alpha(t)       &                     \left( t \cdot \exp(\frac{-t}{\Gtau}) \right)                     & \text{synapto-dendritic filter}\dag \\
+        g(t)         & r\left( \mathbf{w}_{L} \bullet \mathbf{L} + \mathbf{w}_{H} \bullet \mathbf{H} \right) & \text{matrix multiplication and addition}\\ %\mathbf{H},\mathbf{L} \to f(\text{channel},t) & \mathbf{w}_{H,L} \to f(\text{channel})\\
+%      r(\mathbf{x}) &                   \max\{\mathbf{x}(t-\dANFGLG) - x(0) + \Gspon,0\}                    & \\
+        G(t)         &                                 \alpha(t)\,\ast\,g(t)                                 &                      \text{convolution of $\alpha(t)$ and $g(t)$}\\%                       & \text{if } G(t) < 0 & G(t)=0 \\
+\end{array}
   \end{equation*}
 \vspace*{-2.5ex}\rule{1em}{0em} 
  \\\hline
@@ -74,8 +73,8 @@ $\dag$\footnotesize{Synatic filter is normalised, by setting the area under the 
 
 % - E -----------------------------------------------------------------------------
 % \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
-% \hdr{2}{\ref{tab:GolgiCellModelSummary} E}{Input/Output}\\\hline 
-% \textbf{Input Stimulus} & Rate Level function, 21~kHz tone at SPL -15 to 85 dB (20 ms delay, 2ms cosine squared on/off ramp)\\\hline 
+% \hdr{2}{\ref{tab:GolgiCellModelSummary} E}{Input\slash Output}\\\hline 
+% \textbf{Input Stimulus} & Rate Level function, 21~kHz tone at SPL -15 to 85 dB (20 msec delay, 2ms cosine squared on\slash off ramp)\\\hline 
 %  \textbf{Measurements}  & Mean rate of instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions). \\\hline
 % \end{tabularx}
 % \vspace{1ex}

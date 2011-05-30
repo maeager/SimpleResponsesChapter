@@ -6,7 +6,7 @@
 \subsection{Introduction    \label{sec:DS:introduction}}
 
 This section shows the GABAergic input and intrinsic cell properties
-influence the behaviour onset chopper (OnC) units.  OnC units in
+influence the behaviour of D~stellate cells.  in
 the mammalian \VCN~have a wide ranging influence on the primary cells
 of the \VCN, especially stellate and bushy neurons
 \citep{RhodeSmithEtAl:1983}, the ipsilateral \DCN~(type II and type IV
@@ -41,8 +41,7 @@ that mediates fast inhibition between the nuclei \citep{NeedhamPaolini:2003,
 Post-onset GABAergic inhibition in \DS~cells is a major influence on the
 \PSTH~of \OnC~neurons \citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}. Latency
 of excitation to auditory nerve shocks suggests Golgi cells are activated by
-type II \ANFs~and low spontaneous rate type I
-\ANFs~\citep{BensonBerglundEtAl:1996, FerragamoGoldingEtAl:1998}. Therefore,
+type II \ANFs~and low spontaneous rate type I~\ANFs~\citep{BensonBerglundEtAl:1996, FerragamoGoldingEtAl:1998}. Therefore,
 type II and \LSR~type I \ANFs~could be involved in gain control through
 GABAergic modulation of activity in the \VCN\@.
 
@@ -55,7 +54,7 @@ GABAergic modulation of activity in the \VCN\@.
 % and colleagues worked on the effects of \GABA~in in the \VCN\@.
 
 % Zhang and Winter looked at the response area of \VCN~onset units to determine
-% \GABA~on/off freq.
+% \GABA~{on\slash off} freq.
 
 % Smith and Rhode, Smith and others looked at OnC response area and two-tone
 
@@ -86,20 +85,28 @@ of calculating an optimisation routine for \ANFDS bandwidth.  The spread \ANF~to
 \CF~are within 2 standard deviations \citep{PaoliniClark:1999}.
 
 The physiological effect of GABAergic inputs onto onset choppers is primarily on
-CF \citep{CasparyHaveyEtAl:1979,PalombiCaspary:1992,CasparyBackoffEtAl:1994,CasparyPalombi:1993,CasparyPalombiEtAl:1993},
+CF~\citep{CasparyHaveyEtAl:1979,PalombiCaspary:1992,CasparyBackoffEtAl:1994,CasparyPalombi:1993,CasparyPalombiEtAl:1993},
 but the bandwidth is difficult to ascertain.  The dendrites of D~stellate cells
 cover one third of the nucleus (approximately 3 octaves of tonotopic
-frequencies) and occasionally project into the \GCD
-\citep{ArnottWallaceEtAl:2004}. Golgi cells' axonal collaterals are confined to
-200 microns in the \GCD and ANF tonotopic organisation in the \GCD is less
-defined.  The \GLGDS spread is set to 2 channels with zero offset, which corresponds to a \DS cell selecting from approximately 5 nearest Golgi cells.  
+frequencies) and occasionally project into the
+\GCD~\citep{ArnottWallaceEtAl:2004}. Golgi cells' axonal collaterals are
+confined to 200 microns in the \GCD~and \ANF~tonotopic organisation in the
+\GCD~is less defined.  The \GLGDS~spread is set to 2 channels with zero offset,
+which corresponds to a \DS~cell selecting from approximately 5 nearest Golgi
+cells.
+
+\begin{figure}[htb]
+  \centering
+  \resizebox{0.5\textwidth}{!}{\includegraphics{NoFigure}}
+  \caption{Experimental data showing click recovery in onset choppers}\label{fig:BackoffPalombi}
+\end{figure}
 
 Fixed parameters included 
 the number of Golgi cells to \DS~cells ($\nGLGDS = 25$), the spread of \ANFs~to
 \DS~cells $\ANFDS$, and the extra delay from the auditory nerve.  The first
 spike latency in \DS~cells $2.8 \pm 0.09$ msec \citep{RhodeSmith:1986}. The addition of
-0.5 ms to \ANFDS~connections is a combination of conductance and synaptic
-delay. The effect of Golgi cells on \DS~is delayed by the extra 0.7~ms delay
+0.5~msec to \ANFDS~connections is a combination of conductance and synaptic
+delay. The effect of Golgi cells on \DS~is delayed by the extra 0.7~msec delay
 from \ANF~to Golgi, plus the slow peak of \GABAa~inhibition.
 \yellownote{fix this paragraph}
 
@@ -110,23 +117,22 @@ from \ANF~to Golgi, plus the slow peak of \GABAa~inhibition.
 Optimisation parameters for \GLGDS~are optimised based on experimental click
 recovery data from \citep{BackoffPalombiEtAl:1997}, as shown in
 Figure~\ref{fig:BackoffPalombi}. The input stimulus presented a series of
-masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms, separated by 50
-ms. Although the experimental stimuli was presented every 250 msec, the
+masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 msec, separated by 50 msec. Although the experimental stimuli was presented every 250 msec, the
 optimisation stimulus needs to be computationally efficient so the seperation
 was shortened and the sequence reordered to obtain the best click recovery
-response in the \DS and Golgi cells.  The stimulus was repeated 25 times and a
-PSTH was produced from the DS cells' spikes. Spike counts for 2 ms after the
+response in the \DS~and Golgi cells.  The stimulus was repeated 25 times and a
+PSTH was produced from the DS cells' spikes. Spike counts for 2 msec after the
 probe and masker click were selected (accounting for the the minimum first spike
 latency for the unit) to calculate a recovery ratio.  The \DS~cell optimisation
 function calculates the mean squared error between the test model and the
 experimental data recovery ratios to 5 click pairs.
 
 
-The six parameters to be fit by the routine are the weights of \GLG, \HSR, and
-\LSR~synapses on \DS, the \GABAa synapse rise constant, the \GABAa synapse decay
-constant, and the \DS cell maximum leak conductance. Initial optimisation
+The six parameters to be fit by the routine are the weights of \GLG\@, \HSR\@, and
+\LSR~synapses on \DS\@, the \GABAa synapse rise constant, the \GABAa synapse decay
+constant, and the \DS~cell maximum leak conductance. Initial optimisation
 procedures were not successful at constraining the short delay recovery
-responses (2,3,4 ms), hence the \DS~cell leak
+responses (2,3,4 msec), hence the \DS~cell leak
 %and \KLT~conductance parameters 
 parameter were included in the optimised parameters to allow cell's input
 resistance behaviour to fit fast acting behaviour in the cell.
@@ -173,7 +179,7 @@ The unit used in the optimisation has a \CF~of
    Weight of \LSR~syn on \DS~(nS)     &     \wLSRDS      &   [0.01,50]    & 13.1 \\	    \hline
  \GABAa synapse rise constant  (msec)  &  $\tau_{GABA1}$  &  [0.01,10.0]   & 5.432\\	     \hline
  \GABAa synapse decay constant (msec)  &  $\tau_{GABA2}$  &   [0.1,50.0]   & 0.262\\	    \hline
-DS cell leak conductance (mS/cm$^2$) & $\bar{g}_{leak}$ &  [1e-5,0.05]   & 0.0163 \\ \hline
+DS cell leak conductance (mS cm$^{-2}$) & $\bar{g}_{leak}$ &  [1e-5,0.05]   & 0.0163 \\ \hline
 \end{tabularx}
 \vspace{2ex}
 }
@@ -325,7 +331,7 @@ weight that was obtained in the optimisation.
 % \clearpage
 
 
-\subsection{(Optional) Effects of $g_{leak}$ and $g_{KLT}$ on DS resting membrane potential}    \label{sec:DS:effects-g_leak-g_lkt}
+\subsection{Effects of $g_{leak}$ and $g_{KLT}$ on DS resting membrane potential}\label{sec:DS:effects-g_leak-g_lkt}
 
 \yellownote{This section is optional}
 
