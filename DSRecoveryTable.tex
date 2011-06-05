@@ -24,7 +24,6 @@
 \vspace{2ex}
 
 % - B -----------------------------------------------------------------------------
-
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|X|}\hline %{\textwidth}
 \hdr{3}{B}{Populations}\\\hline
@@ -37,24 +36,18 @@
 \vspace{2ex}
 
 % - C ------------------------------------------------------------------------------
-
 \noindent%
 \begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
         \textbf{Name}          & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-$\textrm{HSR} \to \textrm{DS}$ &       ANF       &   D~Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS\ for all synapses, number \nLSRDS\ and \nHSRDS, delay \dANFDS \\\hline
-$\textrm{LSR} \to \textrm{DS}$ &       ANF       &   D~Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS\ for all synapses, number \nLSRDS\ and \nHSRDS, delay \dANFDS \\\hline
+$\textrm{HSR} \to \textrm{DS}$ &       ANF       &   D~Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS \\\hline
+$\textrm{LSR} \to \textrm{DS}$ &       ANF       &   D~Stellate    & skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh, uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS \\\hline
 
 $\textrm{GLG} \to \textrm{DS}$ &      Golgi      &   D~Stellate    & Gaussian, centered at CF with spread \sGLGDS, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
 \end{tabularx}
-
 \vspace{2ex}
 
-
-
-
 % - D ------------------------------------------------------------------------------
-
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
@@ -62,7 +55,6 @@ $\textrm{GLG} \to \textrm{DS}$ &      Golgi      &   D~Stellate    & Gaussian, c
  \textbf{Type} & Type 1-2 \citep{RothmanManis:2003b}, conductance synapse input \\\hline
  \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
  \end{tabularx}
-
 \vspace{2ex}
 }
 

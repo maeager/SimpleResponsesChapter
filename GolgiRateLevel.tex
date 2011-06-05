@@ -112,15 +112,15 @@ behaviour of Golgi cells down to three major details:
  \item Golgi cells have a low maximum rate and large dynamic range to tone and
    noise increases, given marginal shell extracellular recordings of
    \citet{GhoshalKim:1997} could not come from granule cells, and
- \item The low threshold in Golgi cells, \citet{GhoshalKim:1997}, can\-not be due
-   to \LSR~\AN fibres. The lack of extensive experimental data regarding type-II
-   \ANF~units, that do project to the \GCD, and granule cell response to
-   acoustic input meant that a Poisson rate neural model would be preferred over
-   the Hodgkin-Huxley type neural model.  Although \HSR~\ANF~terminals do not
-   generally project into the \GCD, they are included in this model to provide
-   some low level sound-induced activity.
- \item the minimum \EPSP~to shock of the AN \citep{FerragamoGoldingEtAl:1998}
-   and mean first spike latency to acoustic stimuli \citep{GhoshalKim:1997} are
+ \item The low threshold in Golgi cells, \citet{GhoshalKim:1997}, can\-not be
+   due to \LSR~auditory nerve fibres. The lack of extensive experimental data
+   regarding type-II \ANF~units, that do project to the \GCD, and granule cell
+   response to acoustic input meant that a Poisson rate neural model would be
+   preferred over the Hodgkin-Huxley type neural model.  Although
+   \HSR~\ANF~terminals do not generally project into the \GCD, they are included
+   in this model to provide some low level sound-induced activity.
+ \item the minimum \EPSP~to shock of the AN~\citep{FerragamoGoldingEtAl:1998}
+   and mean first spike latency to acoustic stimuli~\citep{GhoshalKim:1997} are
    significantly different from the core \VCN~units.
 % by $\mu(f=CF)$ and $\sigma$ variables, which control
  \end{enumerate}
@@ -287,15 +287,18 @@ input resistance in intracellular recordings of Golgi cells
 %\smallskip{}
 
 
-{%% Result table
-\noindent\begin{tabularx}{\linewidth}{|X|c|c|c|}\hline %{\textwidth}
-\hdr{4}{\ref{tab:GolgiCellModelSummary}E}{Optimisation} \\ \hline 
-                  \textbf{Parameters}                    & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
-        Spatial spread $\ANFGLG$ (channel unit)          &  $\sANFGLG$   &     [0,10]     & 2.48  \\\hline 
-           Smoothing filter time constant (msec)           &    $\Gtau$    &     [0,20]     & 5.01  \\\hline 
-            Weighted sum of \HSR~(unit-less)             &  $\wHSRGLG$   &     [0,5]      & 0.517 \\\hline 
-            Weighted sum of \LSR~(unit-less)             &  $\wLSRGLG$   &     [0,5]      & 0.0487\\\hline 
-Spontaneous rate in Golgi cell model (spikes / sec) &    \Gspon     &     [0,50]     & 3.73  \\\hline
+Table \ref{tab:GolgiCellModelSummary}E result table.
+
+{\small%% Result table
+\noindent%
+\begin{tabularx}{\linewidth}{|X|c|c|c|}\hline %{\textwidth}
+\hdr{4}{E}{Optimisation} \\ \hline 
+\textbf{Parameters}   & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
+        Spatial spread LSR$\to$GLG (channel unit)          &  $\sANFGLG$   &     [0,10]     & 2.48  \\\hline 
+           Smoothing filter time constant (msec)           &    $\tau_{\rm GLG}$    &     [0,20]     & 5.01  \\\hline 
+            Weighted sum of HSR~(unit-less)             &  $\wHSRGLG$   &     [0,5]      & 0.517 \\\hline 
+            Weighted sum of LSR~(unit-less)             &  $\wLSRGLG$   &     [0,5]      & 0.0487\\\hline 
+Spontaneous rate in Golgi cell model (spikes / sec) &    SR$_{\rm GLG}$     &     [0,50]     & 3.73  \\\hline
 \end{tabularx}
 }
 
