@@ -1,4 +1,4 @@
-
+ 
 % \documentclass{article}
 % % User defined commands
 % \input{../hg/manuscript/user-defined}
@@ -351,6 +351,14 @@ form the basis for the optimisation routine of T~stellate cell model
 \yellownote{Permission needed for Paolini plots}
 
 
+The categorisation via coefficient of variation is shown in
+Figure~\ref{fig:PaoliniCVdata}. Sustained choppes maintain a stable CV below 0.2
+thoughout the entire stimulus. The transient chopper optimisation had two types
+defined by \citep{PaoliniClareyEtAl:2005}.  The first CT type is categorised
+with CV starting below 0.2 then rising, hence the name transient, but stays
+below 0.3.  The second CT type is regular in the first 10 ms period, but rises to 0.3
+or above throughout the stimulus.
+
 \begin{figure}[htb]
   \centering
   \resizebox{0.5\textwidth}{!}{\includegraphics{TStellate/PaoliniCV.eps}}
@@ -446,23 +454,144 @@ stimulus, since the \OnC~units will respond earlier and provide fast inhibition
 % %          \includegraphics{RateLevel/TS_ratelevel.eps}}
 %       \end{figure}
 
+The final error for the optimisation routine was calculated as the square root
+of the mean squared error between the first 4 CV periods and the three voltage
+measures. The measures of membrane voltage were independant of RMP included a)
+the onset ratio ($v_{\rm 5-10}/v_{\rm 20-30}$), b) adaptation of sustained
+depolarisation ($v_{\rm 20-21}/v_{\rm 50-51}$), and c) post-tone
+hyperpolarization ($v_{\rm RMP}/v_{\rm 60-61}$).
 
 
 \subsubsection{Sustained chopper}
 
+Figure~\ref{fig:CSresults} shows the optimsation results for the sustained
+chopper (CS) unit 01-864-004 from \citep{PaoliniClareyEtAl:2005}, with CF
+3.9~kHz. This unit had a depolarisation threshold at 10 dB and a firing rate
+saturation at 75 dB. The stimulus for the optimisation routine was a pure tone
+30~dB above depolarisation threshold at CF (3.9~kHz 40~dB SPL), 5 ms on/off
+cosine squared ramp.  A 20 ms delay was included to allow the model to reach a
+sustained RMP. The CS model unit had CF of 3.872~kHz due to the separation of
+frequency channels in the model.
 
-\subsubsection{Transient Chopper}
+The best parameters found by the optimisation and shown in
+Figure~\ref{fig:CSresults}, were very high excitatory input (\wLSRTS 0.00286796,
+\wHSRTS 0.00201089) and moderate to high inhibition (\wDSTS 0.000291181, \wTVTS
+0.000884174, \wGLGTS 0.000749812).  A low input stimulus level means that the
+majority of synaptic input came from HSR fibres.
+
+There was a slight increase in the leak conductance ($g_{\rm leak}= 6.57345e-4$)
+from the initial value (4.907e-4), causing a decrease in the input resistance to
+120~M$\Omega$ from 163~M$\Omega$. The final error, calculated with more weight
+on the CV variables, was 0.839952.  Post-tone hyperpolarisation (reference
+1.30035, best CS model -0.029843) and the first CV value (ref 0.1543, best CS
+model 0.49706) had the greatest difference. The poor initial CV response is due
+to the irregular first spike.  The large excitatory HSR input causes spikes
+occuring after tone onset, just before the stimulus invoked spike arrival at the
+TS cell 3 ms later, but still included in the CV calculation.
+
+
+\yellownote{Note the CS optimisation had added weight to the CV values in the
+  error calculation.  The PSTH and IV trace do not even show a decent chopping
+  behaviour.}  
+
+\yellownote{The peaks for the IV are 3.66, 6.77, and 10.99
+  ms. The AN model input is affected by the rat audiogram, the low CF and low
+  level.  This shifts the arrival time of spikes to the TS model, and a raw IV
+  comparison would need to be shifted by approx 2 ms.  The onset ratio and the
+  first CV value are effected by this.}
+
+\yellownote{Synaptic weight in the model above 0.002 will initiate a spike at
+  each input spike, similar to the calyx synapse on bushy cells. This means that
+  the TS cell will respond with a primary-like or primary with notch
+  PSTH. Dendritic filtering could improve this but the high synaptic weights do
+  not seem like a realistic physiological option for small bouton endings in the
+  CN.}
+
 \begin{figure}[htb]
   \centering
-  \resizebox{0.6\textwidth}{!}{\includegraphics{TStellate_CT1/plot.eps}}
-  \caption[CT1 T~stellate Optimisation results]{CT1 T~stellate Optimisation results}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{TStellate_CS/multiplotIVCV.eps}}
+  \caption[CS T~stellate Optimisation results]{Optimisation results for the CS
+    type T~stellate cell. The reference data for CS unit 01-864-004 from
+    \citep{PaoliniClareyEtAl:2005}, with CF=3.9~kHz, is shown in blue and the
+    optimised model is shown in black (CF=3.872 kHz). The stimulus (pure tone 3.9~kHz stimulus,
+    40dB SPL, 20 ms delay, 40 ms post-tone, 5 ms on/off ramp) was repeted 50
+    times for this figure but during the optimisation routine the repetition was
+    25. A. PSTH B. Coefficient of variation averaged over 10 ms periods
+    C. Average membrane voltage (note shaded areas indicate areas used in the
+    measures in D) D. Measures of membrane voltage including a) onset ratio
+    ($v_{\rm 5-10}/v_{\rm 20-30}$), b) adaptation of sustained depolarisation
+    ($v_{\rm 20-21} - v_{\rm 50-51}$ mV), and c) post-tone hyperpolarization ($v_{\rm
+      RMP} - v_{\rm 60-61}$ mV).  The final error for the CS unit model was
+    0.839952, with double weighting for CV values. 
+    The RMP for the reference unit and best parameter model was -45.1 and
+    -64.22, respectively.
+}
+  \label{fig:CSresults}
+\end{figure}
+
+\yellownote{The RMP of the experimental data was relatively high, and if this was produced in a model the spontaneous rate would be close to 100 sp/s. The IV measures allow for comparison of the experimental and model data that is independent of the RMP.}
+
+\yellownote{Hand tuning creates many types of CS models, but the best effects
+  are when you smooth out the input with dend filtering.  This can be used in a
+  single compartment using a higher time constant on the synapse or better,
+  using a double-exponential synapse with longer onset and decay time
+  constants. Very high excitatory inputs saturates the cell and it will spike
+  repetedly in a regular fashion but the onset is too precise. See CT2 IV trace
+  for an example of precise onset. I was able to generated a good IV trace when
+  the full trace was the error function at higher SPL and higher CF, but this
+  was unable to generate the same trace for 3.9 KHz at 40 dB or a sustained
+  CV. }
+
+\clearpage
+\subsubsection{Transient Chopper 1}
+
+The CT1 unit chosen for the optimisation was Unit 01-857-007
+\citep{PaoliniClareyEtAl:2005} (CF=8.2~kHz).  The depolarisation threshold for
+this unit was 55~dB, close to the average 47.2~dB for CT1 units. The stimulus
+for the optimisation routine was an 85~dB 8.2 kHz pure tone and the exemplar TS
+cell model had CF 8.267~kHz.
+
+
+The optimisation results of CT1 ares shown in Figure~\ref{fig:CT1results} with a
+final error of 0.839141 without weighting.  Moderate excitatory synaptic weights
+(\wLSRTS 0.000822193, \wHSRTS 0.000620294) is balanced with moderate to low
+glycinergic synaptic input (\wDSTS 0.000148518, \wTVTS 0.000195416). The
+GABAergic input weight was very low (\wGLGTS 1.70742e-05), but the loud input
+stimulus (85 dB) would cause reasonable inhibition to the TS cell throughout the
+stimulus.  The leak conductance had a slight decrease ($g_{\rm leak}$
+0.000409819)
+
+
+
+
+\begin{figure}[htb]
+  \centering
+%  \resizebox{0.95\textwidth}{!}{\includegraphics{TStellate_CT1/optplot.eps}}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{TStellate_CT1/multiplotIVCV}}
+  \caption[CT1 T~stellate Optimisation results]{CT1 T~stellate cell model
+    optimisation results. The RMP for the reference unit and best parameter
+    model was -55.98 and -64.97, respectively. The final error was 0.839141,
+    without weighting. See Figure~\ref{fig:CSresults} for figure configuration.
+    A. PSTH, B. CV, C. Average membrane voltage, and D. Voltage measures.}
   \label{fig:CT1results}
 \end{figure}
 
+\clearpage
+\subsubsection{Transient Chopper 2}
+
+Onset	    0.904952	0.999909
+Adaptation  6.14772	0.990461
+Offset	    3.6371	1.13634 
+
+
 \begin{figure}[htb]
   \centering
-  \resizebox{0.6\textwidth}{!}{\includegraphics{TStellate_CT2/plot.eps}}
-  \caption[CT2 T~stellate Optimisation results]{CT2 T~stellate Optimisation results}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{TStellate_CT2/multiplotIVCV.eps}}
+  \caption[CT2 T~stellate Optimisation results]{CT2 T~stellate Optimisation
+    results.  The RMP for the reference unit and best CT1 model was -60.63 and
+    -64.95, respectively.  See Figure~\ref{fig:CSresults} for figure
+    configuration.  A. PSTH, B. CV, C. Average membrane voltage, and D. Voltage
+    measures.}
   \label{fig:CT2results}
 \end{figure}
 
@@ -477,15 +606,15 @@ Weight of HSR syn on TS  ($\mu$S)  &       \wHSRTS        &  [1e-5,0.03]   &   &
 Weight of LSR syn on TS  ($\mu$S)  &       \wLSRTS        &  [1e-5,0.03]   &   &  (0.0025)   & 0.00140628\\
  %  Number of synapses, LSR to TS  &       \nLSRTV        &     [0,64]     &   &             & \\
  %  Number of synapses, HSR to TS  &       \nHSRTV        &     [0,64]     &   &             & \\
- Weight of DS syn on TS  ($\mu$S)  &        \wDSTS        &  [1e-5,0.03]   &   &      --      & --\\
+ Weight of DS syn on TS  ($\mu$S)  &        \wDSTS        &  [1e-5,0.03]   &   &     --      & --\\
 %Number of DS syn on TS  ($\mu$S)  &        \nDSTS        &     [0,64]     &   &             & \\
- Weight of TV syn on TS  ($\mu$S)  &        \wTVTS        &  [1e-5,0.03]   &   &      --      & --\\
+ Weight of TV syn on TS  ($\mu$S)  &        \wTVTS        &  [1e-5,0.03]   &   &     --      & --\\
 %Number of TV syn on TS  ($\mu$S)  &        \nTVTS        &     [0,64]     &   &             & \\
-Weight of GLG syn on TS  ($\mu$S)  &       \wGLGTS        &  [1e-5,0.03]   &   &      --      & --\\
+Weight of GLG syn on TS  ($\mu$S)  &       \wGLGTS        &  [1e-5,0.03]   &   &     --      & --\\
 %Number of GLG syn on TS  ($\mu$S) &       \nGLGTS        &     [0,64]     &   &             & \\ \hline
- TS~leak conductance (S cm$^{-2}$)  & $\bar{g}_{\rm leak}$ &  [1e-6,0.003]  &   & 0.000860145 & 8.9326e-05\\ 
- TS~KHT conductance (S cm$^{-2}$)   & $\bar{g}_{\rm KHT}$  &  [1e-6,0.003]  &   &  (0.0189)   & 0.0226787\\ 
-  TS~reversal potential (mV)     &    E$_{\rm rev}$     &   [-45,-70]    &   &   -54.26    & -63.502\\ \hline
+TS~leak conductance (S cm$^{-2}$)  & $\bar{g}_{\rm leak}$ &  [1e-6,0.003]  &   & 0.000860145 & 8.9326e-05\\ 
+ TS~KHT conductance (S cm$^{-2}$)  & $\bar{g}_{\rm KHT}$  &  [1e-6,0.003]  &   &  (0.0189)   & 0.0226787\\ 
+    TS~reversal potential (mV)     &    E$_{\rm rev}$     &   [-45,-70]    &   &   -54.26    & -63.502\\ \hline
                        \multicolumn{3}{|l|}{Error}                         &   &   11.886    & 31.481\\ \hline 
 \end{tabularx}
 }

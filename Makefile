@@ -658,6 +658,7 @@ SLEEP		?= sleep
 BIBTEX		?= bibtex
 DVIPS		?= dvips
 LATEX		?= latex
+CHECK		?= lacheck
 PDFLATEX	?= pdflatex
 XELATEX		?= xelatex
 EPSTOPDF	?= epstopdf
@@ -3262,6 +3263,9 @@ clean-all: clean-generated clean-tex clean-graphics clean-deps clean-backups cle
 #
 # HELP TARGETS
 #
+.PHONY: check-syntax
+check-syntax: 
+	$(CHECK) $(default_stems_ss)
 
 .PHONY: help
 help:
