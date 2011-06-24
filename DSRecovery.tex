@@ -118,7 +118,8 @@ from \ANF~to Golgi, plus the slow peak of \GABAa~inhibition.
 Optimisation parameters for \GLGDS~are optimised based on experimental click
 recovery data from \citep{BackoffPalombiEtAl:1997}, as shown in
 Figure~\ref{fig:BackoffPalombi}. The input stimulus presented a series of
-masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 msec, separated by 50 msec. Although the experimental stimuli was presented every 250 msec, the
+masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 msec, separated by 50
+msec. Although the experimental stimuli was presented every 250 msec, the
 optimisation stimulus needs to be computationally efficient so the seperation
 was shortened and the sequence reordered to obtain the best click recovery
 response in the \DS~and Golgi cells.  The stimulus was repeated 25 times and a
@@ -180,7 +181,7 @@ The unit used in the optimisation has a \CF~of
    Weight of \LSR~syn on \DS~(nS)     &     \wLSRDS      &   [0.01,50]    & 13.1 \\	    \hline
  \GABAa synapse rise constant  (msec)  &  $\tau_{GABA1}$  &  [0.01,10.0]   & 5.432\\	     \hline
  \GABAa synapse decay constant (msec)  &  $\tau_{GABA2}$  &   [0.1,50.0]   & 0.262\\	    \hline
-DS cell leak conductance (mS cm$^{-2}$) & $\bar{g}_{leak}$ &  [1e-5,0.05]   & 0.0163 \\ \hline
+DS cell leak conductance (mS cm$^{-2}$) & \gleak &  [1e-5,0.05]   & 0.0163 \\ \hline
 \end{tabularx}
 \vspace{2ex}
 }
@@ -195,10 +196,10 @@ weight that was obtained in the optimisation.
   % \resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
   \resizebox{0.8\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{DS_ClickRecovery_result}}
   \caption[Click recovery optimisation results in DS cell model]{Optimisation
-    results of click recovery behaviour in DS cell model (CF=5.8~kHz). The
+    results of click recovery behaviour in DS cell model (CF 5.8~kHz). The
     optimal response (blue circle) is obtained from Fig.~3 in
     \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of
-    an OnC unit (CF=5.8~kHz).  Best result (green triangles)
+    an OnC unit (CF 5.8~kHz).  Best result (green triangles)
   } \label{fig:DS_ClickRecovery_result}
 \end{figure}
 

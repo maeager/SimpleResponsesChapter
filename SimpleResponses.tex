@@ -4,6 +4,10 @@
 %,twoside
 %,draft
 %{book} % Use the UniMelb Dissertation Template
+
+\usepackage{nag}  % check for complaints for old packages
+
+
 \usepackage{../hg/manuscript/style/uomthesis}
 % User defined commands
 \input{../hg/manuscript/user-defined}
@@ -18,7 +22,7 @@
 \usepackage{appendix}
 %\usepackage[notcite]{showkeys}
 
-\usepackage{nag}  % check for complaints for old packages
+
 
 %  \marginparwidth=3cm
 % \addtolength{\oddsidemargin}{6mm}
@@ -99,19 +103,21 @@
 
 \include{Intro}
 \newpage
-\include{GolgiRateLevel}
 \include{GolgiRateLevelTable}
+\include{GolgiRateLevel}
 \newpage
-\include{DSRecovery}
 \include{DSRecoveryTable}
+\include{DSRecovery}
 \newpage
-\include{TV_Notch}
 \include{TV_NotchTable}
+\include{TV_Notch}
+
 
 %\section{T~stellate cell section ? } 
 \newpage
-\include{TStellate}
 \include{TStellateTable}
+\include{TStellate}
+
 \newpage
 \include{Discussion}
 
