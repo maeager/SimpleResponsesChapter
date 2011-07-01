@@ -122,11 +122,3 @@ set colorbox vertical origin screen 0.9, 0.2, 0 size screen 0.05, 0.6, 0 front b
 set loadpath 
 set fontpath 
 set fit noerrorvariables
-
-set line style 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 ps 1.5 # --beautiful blue line and filled circle
-set line style 2 lc rgb '#dd181f' lt 1 lw 2 pt 5 ps 1.5 # --beautiful red line and square
-set line style 3 lc rgb '#00ad06' lt 1 lw 2 pt 9 ps 1.5 # --green line and triangle
-
-set border linewidth 1.5
-
-# Choose font from Helvetica, Verdana, Arial or sans-serif

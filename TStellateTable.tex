@@ -16,8 +16,8 @@
 
        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
         \textbf{Synapse model}         & AMPA (\textit{ExpSyn}), GABA$_{\rm A}$ (\textit{Exp2Syn}), Glycine (\textit{Exp2Syn}) \\\hline
-            \textbf{Input}             & Pure tones \\\hline
-        \textbf{Measurements}          & Intracellular voltage \\\hline
+            \textbf{Input}             & Pure tones at CF of designated exemplar neuron.\\\hline
+        \textbf{Measurements}          & Intracellular membrane voltage and spikes recorded over 25 repetitions. Membrane voltage clipped at threshold, $\Theta$, then averaged and processed for IV measurements discussed in text.  Spikes are processed for PSTH and CV statistics. \\\hline
 \end{tabularx}
 \vspace{2ex}
 
@@ -28,9 +28,9 @@
      HSR      &    Poisson generator    & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
      LSR      &    Poisson generator    & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
      GLG      &    Poisson generator    & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
-     DS       &   Type I-II R\&M model    & $N_{\text{DS}}= 1$ per freq\. channel \\\hline
-     TV       & Type I-classic R\&M model & $N_{\text{TV}}= 1$ per freq\. channel\\\hline
-     TS       & Type I-transient R\&M model & $N_{\text{TV}}= 1$ per freq\. channel\\\hline
+     DS       &   Type I-II R\&M model    & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
+     TV       & Type I-classic R\&M model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
+     TS       & Type I-transient R\&M model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
 \end{tabularx}
 \vspace{2ex}
 
@@ -38,14 +38,15 @@
 \noindent\begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
 \textbf{Name} & \textbf{Source} & \textbf{Target}  & \textbf{Pattern} \\\hline
-   \ANFDS     &       ANF       &    D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
-   \ANFTV     &       ANF       & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
+%   \ANFDS     &       ANF       &    D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
+%   \ANFTV     &       ANF       & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
    \ANFTS     &       ANF       & T~stellate & Narrowband connection at CF, zero spread \\\hline
-   \GLGDS     &      Golgi      &    D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
-    \DSTV     &   D~Stellate    & Tuberculoventral & Gaussian, centered at CF with spread \sDSTV \\\hline
+%   \GLGDS     &      Golgi      &    D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
+%    \DSTV     &   D~Stellate    & Tuberculoventral & Gaussian, centered at CF with spread \sDSTV \\\hline
  \GLGTS     &      Golgi      &    T~Stellate    & Gaussian, centered at CF with spread \sGLGTS \\\hline
     \DSTS     &   D~Stellate    & T~stellate & Gaussian, centered at CF with spread \sDSTS \\\hline
  \TVTS     &      Tuberculoventral      &    T~Stellate    & Gaussian, centered at CF with spread \sTVTS \\\hline
+\multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model. }
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
 
@@ -87,12 +88,11 @@
 % \\\hline
 % \end{tabularx}
 
-\vspace{2ex}
-
-\noindent
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{E}{Input\slash Ouput}\\\hline
-\textbf{Input Stimulus}  & Pure tone \\\hline
+%\vspace{2ex}
+%\noindent
+%\begin{tabularx}{\textwidth}{|l|X|}\hline %
+%\hdr{2}{E}{Input\slash Ouput}\\\hline
+%\textbf{Input Stimulus}  & Pure tone \\\hline
 %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}
 %\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps}
 %\end{minipage}}\\\hline
@@ -102,9 +102,9 @@
 %\end{minipage}}\\\hline
 %\textbf{Measurements}    & PSTH sampled at each click for 2 msec to measure click recovery\\\hline
 %\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
-\textbf{Measurements}    &  Intracellular voltage is recorded during 25 repetitions. Fitting data was compared against experimental data of a chopper units in the rat cochlear nucleus \citep{PaoliniClareyEtAl:2005}. \\\hline
-\end{tabularx}
-\vspace{2ex}
+%\textbf{Measurements}    &  Intracellular voltage is recorded during 25 repetitions. Fitting data was compared against experimental data of a chopper units in the rat cochlear nucleus \citep{PaoliniClareyEtAl:2005}. \\\hline
+%\end{tabularx}
+%\vspace{2ex}
 
 }
 
