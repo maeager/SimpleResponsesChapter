@@ -1,68 +1,29 @@
 \documentclass[10pt,a4paper,twoside,openright]{book}
 
-%\documentclass[11pt,a4paper]
-%,twoside
-%,draft
-%{book} % Use the UniMelb Dissertation Template
-
-\usepackage{nag}  % check for complaints for old packages
-
-
+\usepackage{nag}  
 \usepackage{../hg/manuscript/style/uomthesis}
-% User defined commands
 \input{../hg/manuscript/user-defined}
 
 \usepackage[acronym]{glossaries}
-\input{../hg/manuscript/misc/glossary} % My glossary of terms
+\input{../hg/manuscript/misc/glossary} 
 \makeglossaries
 
-
-% User defined commands
-%\usepackage{pstricks}
 \usepackage{appendix}
-%\usepackage[notcite]{showkeys}
+\usepackage[notcite]{showkeys}
 
-
-
-%  \marginparwidth=3cm
-% \addtolength{\oddsidemargin}{6mm}
-%  \topmargin=0pt
-%  \headsep=10pt
-%  \voffset=-1.54cm
-%  \hoffset=-1.54cm  %default hoffset is zero plus extra 1inch
-%  \textwidth=16cm
-%  \textheight=26cm
-%  \renewcommand{\baselinestretch}{1.5}
-
-
-%\DeclareGraphicsRule{eps.gz}{eps}{.eps.bb}{zcat #1}
-%\newcommand{\figfont}[1]{\large{\textbf{\textsf{#1}}}}
-%\includeonly{TV_Notch}
 \graphicspath{{./gfx/}{../figures/}{/media/data/Work/thesis/SimpleResponsesChapter/}{/media/data/Work/thesis/SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/}}
 
-\usepackage[showlabels]{preview}
-%\usepackage[showlabels,displaymath,textmath,sections,graphics,floats,active]{preview}
-\ifPreview
-  \PreviewEnvironment[{*[][]{}}]{tabularx}
-  \PreviewEnvironment[{*[][]{}}]{figure}
-  \PreviewEnvironment[{*[][]{}}]{array}
-%  \PreviewEnvironment{enumerate}
-  \PreviewEnvironment{verbatim}     
-  \PreviewEnvironment[{*[][]{}}]{lstlisting}
-\fi
 
+% \usepackage[showlabels,displaymath,textmath,sections,graphics,float]{preview}
+% \ifPreview
+% \PreviewEnvironment[{*[][]{}}]{tabularx}
+% \PreviewEnvironment[{*[][]{}}]{figure}
+% \PreviewEnvironment[{*[][]{}}]{array}
+% \PreviewEnvironment{verbatim}     
+% \PreviewMacro[{*[][]{}}]{\yellownote}
+% \fi 
 
 \lfoot{\footnotesize\today\ at \thistime}
-
-% \usepackage[T1]{fontenc}
-% \usepackage{fontspec}
-% \usepackage{graphicx} 
-% \defaultfontfeatures{Mapping=tex-text}
-% \setromanfont{Gentium}
-% \setromanfont [BoldFont={Gentium Basic Bold},
-%                 ItalicFont={Gentium Basic Italic}]{Gentium Basic}
-% \setsansfont{Charis SIL}
-% \setmonofont[Scale=0.8]{DejaVu Sans Mono}
 
 \pretolerance=150
 \tolerance=100
@@ -71,7 +32,6 @@
 \overfullrule=1mm
 
 \begin{document}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 		% TOC, LOF, LOT
 		{%
@@ -122,7 +82,7 @@
 \include{Discussion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\section{Conclusion\label{sec:SimpleRespConclusion}}
+\section{Conclusion}
 
 In this chapter biophysically-realistic model of the T~stellate microcircuit in
 the cochlear nucleus was developed.

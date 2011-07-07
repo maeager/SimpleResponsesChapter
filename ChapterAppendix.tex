@@ -12,16 +12,16 @@ which uses the algorithm PRAXIS~\citep{Brent:1976}.
 
 \begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run
   fitting procedure.]
-  proc runprax(){ 
+  proc runprax(){
     attr_praxis(0.0001, 0.01, 3)
-    fit_praxis(NPARAMS,"error_fcn",&pvec.x[0]) 
+    fit_praxis(NPARAMS,"error_fcn",&pvec.x[0])
 }
 \end{lstlisting}
 
 
 \subsubsection{Data extraction    \label{sec:data-extraction}}
 
-\todo[inline]{Special comments on the use of g3data to extract datapoints from
+\todo[inline]{Special comments on the use of g3data to extract data points from
   PDF literature documents }
 
 \begin{figure}[htb]
@@ -62,8 +62,8 @@ model requires 500~kHz resolution in the stimulus, this is then downsampled to
 \begin{lstlisting}[label=lst:headerlines,caption={Headerlines in
     \mbox{\textsf{DS\_ClickRecovery\.hoc}} show a typical setup in a
     \textsf{cnstellate} setup.}]
-  load_file("nrngui.hoc") 
-//load_file("par_netpar.hoc") //uncomment for parallel mode 
+  load_file("nrngui.hoc")
+//load_file("par_netpar.hoc") //uncomment for parallel mode
 //load_file("par_init.hoc")   //uncomment for parallel mode
   load_file("mathslib.hoc")   //mathematical procedures from netmod
   load_file("Params.hoc")     //default parameters for cnstellate
@@ -76,9 +76,9 @@ model requires 500~kHz resolution in the stimulus, this is then downsampled to
   //Model parameters unique to current simulation
   load_file("parameters_DS_ClickRecovery.hoc")
 
-  //Create model 
-  create_cells() 
-  connect_cells() 
+  //Create model
+  create_cells()
+  connect_cells()
   connect_CNcells()
 
   //Experiment routines
@@ -174,7 +174,7 @@ delay that is an exponential function of the distance from the stapes. The
 frequency mapping function is defined as:
 \begin{equation}
   \label{eq:BM}
-  f = A\times10^{\left(a * d / L\right)} - K  
+  f = A\times10^{\left(a * d / L\right)} - K
 \end{equation}
 where \emph{d} is distance along the basilar membrane from the stapes.
 
@@ -201,7 +201,7 @@ Table~\ref{tab:f2x} shows the currently accepted parameters for each species.
 \end{table}
 
 In the cat, \citet{CarneyYin:1988} fitted the latency vs \CF~curve from click
-responses in the cat to obtain the equation: 
+responses in the cat to obtain the equation:
 \begin{equation}
   \label{eq:delay}
    delay (msec) = A_0 * {\rm exp}(-x / A_1 ) * 1e-3 - 1.0/CF
@@ -264,49 +264,49 @@ current module, is only used by the \DS~cell and inserted seperately.
 
 \begin{lstlisting}[label=lst:CellTemplate,caption=Rothman and Manis cochlear
   nucleus cell template (in CNcell.tem)]
-  begintemplate CNcell 
-  public soma, dend        //NEURON sections 
-  public AMPA, GlyR, GABAA //synapse objects 
-  public spikes,spiketimes //storage vectors 
-  public connect2target, synlist //synapse connection function and list 
+  begintemplate CNcell
+  public soma, dend        //NEURON sections
+  public AMPA, GlyR, GABAA //synapse objects
+  public spikes,spiketimes //storage vectors
+  public connect2target, synlist //synapse connection function and list
   public cf,model,channel //identifying parameters ...
 
-  proc init(){local model 
+  proc init(){local model
     create soma //primary section
-    synlist = new List() 
-    spiketimes = new Vector() 
+    synlist = new List()
+    spiketimes = new Vector()
     spikes = new Vector()
-    
-    if($1 == 0) set_tstellate() //T~stellate cell 
-    if($1 == 1) set_tuberc()    //Tubervuloventral cell 
-    if($1 == 2) set_dstellate() //D~stellate cell 
-    if($1 == 3) set_golgi() //Golgi cell 
-    cf = $2 
+
+    if($1 == 0) set_tstellate() //T~stellate cell
+    if($1 == 1) set_tuberc()    //Tubervuloventral cell
+    if($1 == 2) set_dstellate() //D~stellate cell
+    if($1 == 3) set_golgi() //Golgi cell
+    cf = $2
     channel=$3
 
-    soma { 
-      insert rm           // Na, KHT, Ih, leak currents 
-      eh_rm = -43         //mV, reversal potential for Ih 
-    //insert AMPA Excitatory synapse 
-      AMPA = new ExpSyn(0.5) 
-      AMPA.tau = ampa_decay 
-      AMPA.e = ampa_erev 
-    //insert Glycinergic inhibitory synapse 
-      GlyR = new Exp2Syn(0.5) 
-      GlyR.tau2 = gly_decay 
-      GlyR.tau1 = gly_rise 
-      GlyR.e = gly_erev 
-    // insert GABA-A inhibitory synapse 
-      GABAA = new Exp2Syn(0.5) 
+    soma {
+      insert rm           // Na, KHT, Ih, leak currents
+      eh_rm = -43         //mV, reversal potential for Ih
+    //insert AMPA Excitatory synapse
+      AMPA = new ExpSyn(0.5)
+      AMPA.tau = ampa_decay
+      AMPA.e = ampa_erev
+    //insert Glycinergic inhibitory synapse
+      GlyR = new Exp2Syn(0.5)
+      GlyR.tau2 = gly_decay
+      GlyR.tau1 = gly_rise
+      GlyR.e = gly_erev
+    // insert GABA-A inhibitory synapse
+      GABAA = new Exp2Syn(0.5)
       GABAA.tau2 = gaba_decay
-      GABAA.tau1 = gaba_rise 
-      GABAA.e = gaba_erev 
-    } 
+      GABAA.tau1 = gaba_rise
+      GABAA.e = gaba_erev
+    }
     // Set reversal potentials
-    ena = 50 // mV 
-    ek = -70 // mV 
+    ena = 50 // mV
+    ek = -70 // mV
  }//init
- 
+
 endtemplate CNcell
 
 \end{lstlisting}
@@ -337,22 +337,22 @@ The rate-based golgi cell model at CF channel \emph{i} is created by :
 
 %  \begin{lstlisting}[label=lstGolgiSyn,caption=Create golgi cell rate vector
 %    within Golgi template (in CNcell.tem)]
-%  // Default Golgi model parameters 
-%   weight_sum_LSR = 1 
+%  // Default Golgi model parameters
+%   weight_sum_LSR = 1
 %   weight_sum_HSR = 0.01
-%   golgi_spon = 1 // spikes per second 
+%   golgi_spon = 1 // spikes per second
 %   golgi_spatial_filter_variance = 4 //
 %   channel golgi_syn_filter_tau = 0.0005 // seconds
-%   golgi_syn_filter_scale_factor = 1 
+%   golgi_syn_filter_scale_factor = 1
 % objref golgi_synfilter
 
-% func alpha(){// Alpha function synaptic/membrane filter 
-%      return  $1*sg_tdres*exp(-($1*sg_tdres)/golgi_syn_filter_tau) 
-% } 
-% proc CreateGolgiSynFilter(){// create alpha function 
+% func alpha(){// Alpha function synaptic/membrane filter
+%      return  $1*sg_tdres*exp(-($1*sg_tdres)/golgi_syn_filter_tau)
+% }
+% proc CreateGolgiSynFilter(){// create alpha function
 %      golgi_synfilter = new Vector(sg_rate*10*golgi_syn_filter_tau)
 %      golgi_synfilter.indgen().apply("alpha")
-%      golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum()) 
+%      golgi_synfilter.mul(golgi_syn_filter_scale_factor/golgi_synfilter.sum())
 % }
 %    CreateGolgiSynFilter()
 
@@ -362,41 +362,41 @@ The rate-based golgi cell model at CF channel \emph{i} is created by :
 
 \begin{lstlisting}[label=lst:GolgiTemplate,caption=Rate-based golgi cell model
   template (in par\_CNcell.tem)]
-begintemplate Golgicell 
+begintemplate Golgicell
 public s,sout,spikes //internal objects made public
-public SetRate2,GenSpikes2 //functions made public 
+public SetRate2,GenSpikes2 //functions made public
 
 ---
 
-proc SetRate2() {local i,j,spon_factor 
+proc SetRate2() {local i,j,spon_factor
 
 // Calculate weight vectors based on this cell's
-    position gaussian_mean = channel 
-    gaussian_variance = golgi_spatial_filter_variance_LSR 
+    position gaussian_mean = channel
+    gaussian_variance = golgi_spatial_filter_variance_LSR
     wLSR.apply("gaussian").mul(weight_sum_LSR)
     gaussian_variance = golgi_spatial_filter_variance_HSR
     wHSR.apply("gaussian").mul(weight_sum_HSR)
 
-    // Add LSR and HSR vectors to tempsout, check weights 
+    // Add LSR and HSR vectors to tempsout, check weights
     for i=0,nchannels-1 {
       if (wLSR.x[i]>0.001)
-         tempsout.add(LSRout[i].c.add(-Lowspont).mul(wLSR.x[i])) 
-      if(wHSR.x[i]>0.001) 
+         tempsout.add(LSRout[i].c.add(-Lowspont).mul(wLSR.x[i]))
+      if(wHSR.x[i]>0.001)
          tempsout.add(HSRout[i].c.add(-Highspont).mul(wHSR.x[i]))
-    } 
-    // Correct for spontaneous rate 
-    tempsout.add(golgi_spon) 
+    }
+    // Correct for spontaneous rate
+    tempsout.add(golgi_spon)
 
     // Smooth AN input to simulate dendritic filtering
-    convolve(tempsout,golgi_synfilter,sout) 
+    convolve(tempsout,golgi_synfilter,sout)
 
-    // Add conduction delay to rate profile 
+    // Add conduction delay to rate profile
     for i = 0,param.delay.x[lsr][glg]*sg_rate/1000 {
-      sout.insrt(0,golgi_spon) 
-      sout.remove(sout.size-1) 
-    } 
-    // Push vector to spike generator object, s 
-    s.SetFibreRate(sout,spiketimes,sg_tdres) 
+      sout.insrt(0,golgi_spon)
+      sout.remove(sout.size-1)
+    }
+    // Push vector to spike generator object, s
+    s.SetFibreRate(sout,spiketimes,sg_tdres)
 }
 
 ---
@@ -448,9 +448,9 @@ Example optimisation points used by \textsf{fit\_praxis}
 \end{verbatim}
 
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
-%%% mode: tex-fold 
+%%% mode: tex-fold
 %%% TeX-master: "SimpleResponses"
 %%% TeX-PDF-mode: nil
-%%% End: 
+%%% End:
