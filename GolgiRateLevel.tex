@@ -179,7 +179,7 @@ The lack of low level response and a higher threshold indicated the need for som
 
 \begin{figure}[htb]
   \centering
-  \resizebox{0.8\textwidth}{!}{\includegraphics{GolgiRateLevel_result2.eps}}\\
+  \resizebox{0.6\textwidth}{!}{\includegraphics{GolgiRateLevel_result2.eps}}\\
   \caption[Initial results of Golgi cell model]{Initial trial results of the Golgi cell model optimisation.
  Responses of the Golgi cell model (blue triangles) compared five five sound level (0,15, 55, 75 and 85 dB SPL) against 5 point in the target response (red squares).
 The eventual best optimisation response obtained a minimum error of 11.63 spikes/s (root mean squared).
@@ -194,27 +194,22 @@ The parameters in Table~\ref{tab:GolgiCellModelSummary}E were within the range o
 \LSR~inputs to the Golgi cell model out-weighted \HSR~inputs by more than a factor of 10.
 The monotonic response of \LSR~fibres at high sound levels were necessary to create the large dynamic range in the Golgi cell model, the \HSR~fibres were just as necessary to provide some low level activity.
 The spontaneous rate parameter matches the base response of unit S03-07 in Figure~\ref{fig:GolgiResult}.
-The smoothing filter time constant of 5 msec is a typical value in membrane time constants for neural models and fits with the input resistance in intracellular recordings of Golgi cells \citep{FerragamoGoldingEtAl:1998}.
+The smoothing filter time constant of 5 ms is a typical value in membrane time constants for neural models and fits with the input resistance in intracellular recordings of Golgi cells \citep{FerragamoGoldingEtAl:1998}.
 
-% \yellownote{The input spread parameter is not well constrained by the
-% optimisation fitness routine with a pure tone input and a single neuron, but
-% the result is satisfactory given the uncertainty in \LSR~fibre's axonal
-% organisation in the \GCD\@. The dendritic widths in Golgi cells are around 100
-% microns and the frequency separation laminae in the \VCN~core is approximately
-% 70 microns, giving an expected result of 1.5 connectivity spread hence the
-% result of 2.48 channels gives added frequency spread from \LSR~fibres.}
+The input spread parameter is not well constrained by the optimisation fitness routine with a pure tone input and a single neuron, but the result is satisfactory given the uncertainty in \LSR~fibre's axonal organisation in the \GCD\@. 
+The dendritic widths in Golgi cells are around 100 microns and the frequency separation laminae in the \VCN~core is approximately 70 microns, giving an expected result of 1.5 connectivity spread hence the result of 2.48 channels gives added frequency spread from \LSR~fibres.
 
 %\smallskip{}
 
 
-Table \ref{tab:GolgiCellModelSummary}E result table.
+Table \ref{tab:GolgiCellModelSummary}E result table.\\
 {\small%% Result table
 \noindent%
 \begin{tabularx}{\textwidth}{|X|c|c|c|}\hline %{\textwidth}
 \hdr{4}{E}{Optimisation} \\ \hline
 \textbf{Parameters}   & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline
         Spatial spread LSR$\to$GLG (channel unit)          & $\sANFGLG$   &     [0,10]     & 2.48  \\\hline
-           Smoothing filter time constant (msec)           & $\tau_{\rm GLG}$    &     [0,20]     & 5.01  \\\hline
+           Smoothing filter time constant (ms)           & $\tau_{\rm GLG}$    &     [0,20]     & 5.01  \\\hline
             Weighted sum of HSR~(unit-less)             &  $\wHSRGLG$ &     [0,5]      & 0.517 \\\hline
             Weighted sum of LSR~(unit-less)             &  $\wLSRGLG$ &     [0,5]      & 0.0487\\\hline
 Spontaneous rate in Golgi cell model (spikes / sec) &    SR$_{\rm GLG}$     &     [0,50]     & 3.73  \\\hline
@@ -224,7 +219,7 @@ Spontaneous rate in Golgi cell model (spikes / sec) &    SR$_{\rm GLG}$     &   
 \begin{figure}[htb]
   \centering
   % \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
-  \resizebox{\textwidth}{!}{\includegraphics{GolgiRateLevel_result.eps}} \\
+  \resizebox{0.6\textwidth}{!}{\includegraphics{GolgiRateLevel_result.eps}} \\
   % \hspace{1cm}\figfont{A}\hfill\\
   %\resizebox{\textwidth}{!}{\includegraphics{GolgiRateLevel_result2.eps}} \\
   % \hspace{1cm}\figfont{B}\hfill \\
@@ -276,7 +271,7 @@ The final root mean squared error was 4.48 spikes/s.
 %   \end{figure}
 
 %   \clearpage \newpage
-%\subsection{Verification of Golgi cell model \label{sec:Golgi:verif-golgi-cell}}
+\subsection{Verification of Golgi cell model \label{sec:Golgi:verif-golgi-cell}}
 %   \subsubsection{Tone Responses}
 
 
@@ -286,16 +281,19 @@ The Golgi cell at the centre of the network (CF=5.8 kHz) was tested and had mono
 
 \begin{figure}[htb]
   \centering
-  \figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill\\
-  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/G_ratelevel.eps}\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
-  \figfont{C}\hfill\\
-  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/response_area.3.eps}}\\
+  \figfont{A}\hfill\figfont{B}\hfill\\
+  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/G_ratelevel_combined.eps}\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
+  \figfont{C}\hfill\figfont{D}\hfill\\
+  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/response_area.3.eps}%
+\includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/G_masked.eps}
+}\\
 % }}
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50.3.eps}}\\
-
- \caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8~kHz).} \label{fig:Golgi_verification}
+\caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8~kHz). A. Rate level responses to tone, noise and tone plus noise. B. PSTH at 90 dB~SPL.  C. Response area equivalent using all GLG units in the network. D. Masked response across the CF of the central unit (15 dB noise).} \label{fig:Golgi_verification}
 \end{figure}
+
+
 
 
 %   \begin{figure}[h]

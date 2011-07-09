@@ -430,7 +430,7 @@ Reversal potential of leak current in \TV~cells (mV) &    \Eleak & [-80,-50]   &
 
 The response of individual type-II units to notch and band-pass sweeps in Figure~\ref{fig:TVReissFig9} (reprinted from Figure 9 in \citep*{ReissYoung:2005}) was the main target for the optimisation of \TV~cells.
 To replicate the response of a single unit to notch sweeps, notches were generated in GNU~Octave using Chebychev II filters\footnote{\textsf{cheby2} function   in octave-forge signal package.}  with a sampling rate of 100~kHz and an optimal filter number.
-The half octave sweep was calculated from -2~to~2~octaves away from 12.7~kHz at 1/32$^{nd}$ increments with logarithmically constant notch widths\footnotemark. A 50 msec stimulus at 50 dB SPL was setup up in the \AN~model for use by the \CN~stellate model.
+The half octave sweep was calculated from -2~to~2~octaves away from 12.7~kHz at 1/32$^{nd}$ increments with logarithmically constant notch widths\footnotemark. A 50 ms stimulus at 50 dB SPL was setup up in the \AN~model for use by the \CN~stellate model.
 \footnotetext{Logarithmically constant means the notch width is calculated at
   the centre frequency of the notch and not the \CF~of the unit of interest.}
 
@@ -449,6 +449,21 @@ Figure~\ref{fig:TV_SweepUnit70} shows the response of a unit with similar \CF~(\
   \caption[Response of optimised TV cell (CF=12.76~kHz) to notch and band   sweeps]{Response of optimised TV cell (CF=12.76~kHz) to notch and band sweeps with stimulus sound level at 50 dB SPL\@.
 Mean rate responses are plotted against the rising edge frequency of the notch and falling edge of the band-pass in octaves relative to 12.7~kHz.
 Middle row is from Figure 9 E and F in Reiss and Young, second bottom row is from Figure 10 A and B. }   \label{fig:TV_SweepUnit70}
+\end{figure}
+
+
+\begin{figure}[htb]
+  \centering
+  \figfont{A}\hfill\figfont{B}\hfill\\
+  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/TV_ratelevel_combined.eps}\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.1.eps}}\\
+  \figfont{C}\hfill\figfont{D}\hfill\\
+  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/response_area.1.eps}%
+\includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked.eps}
+}\\
+% }}
+%\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
+%\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50.3.eps}}\\
+\caption[Optimised TV cell model responses]{Response of optimised TV cell model at the centre of the network (CF=5.8~kHz). A. Rate level responses to tone, noise and tone plus noise. B. PSTH at 90 dB~SPL.  C. Response area equivalent using all TV units in the network. D. Masked response across the CF of the central unit (15 dB noise).} \label{fig:TV_verification}
 \end{figure}
 
 
