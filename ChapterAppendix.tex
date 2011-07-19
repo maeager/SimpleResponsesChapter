@@ -5,6 +5,10 @@
 
 \subsection{General neural modeling tools}
 
+
+
+
+
 \subsubsection{Optimisation}
 
 The optimisation routine used in this chapter was NEURON's \textsf{fit\_praxis},
@@ -24,6 +28,8 @@ which uses the algorithm PRAXIS~\citep{Brent:1976}.
 \todo[inline]{Special comments on the use of g3data to extract data points from
   PDF literature documents }
 
+
+
 \begin{figure}[htb]
   \begin{center}
     \resizebox{5in}{!}{\includegraphics{NoFigure}}
@@ -39,8 +45,13 @@ The cochlear nucleus stellate microcircuit software code used in this chapter is
 called \textsf{cnstellate} and is implemented in NEURON, NMODL and C source
 code. Acknowledgments should be made to M.S.A. Zilany and colleagues for their
 work on the AN model, Dominic Mazzoni for the real-time resample library
-interface, and \citet{MiglioreCanniaEtAl:2006} for the parallel NEURON neural
-network model \textsf{netmod}.
+interface, and \citet{MiglioreCanniaEtAl:2006} for the parallel NEURON network model \textsf{netmod} (SenseLab model ).
+
+\url{52034}{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034}
+\url{2730}{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730}
+\url{51781}{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781}
+
+
 
 From the command line type:
 \begin{verbatim}
@@ -51,13 +62,20 @@ in the \textsf{cnstellate} directory to simulate the optimisation for D~stellate
 click recovery.  The \textsf{buildnrn.sh} command initially calls the standard
 \textsf{nrnivmodl} to convert all *.mod files in the directory to a compiled
 library, that can be imported into NEURON; then appends the libresample
-interface to the compiled library. The first run may take some time if the AN
+interface to the compiled library. 
+
+The first run of a stimulus may take some time if the AN
 responses have not been previously saved, since the Zilany \& Bruce version 3
 model requires 500~kHz resolution in the stimulus, this is then downsampled to
 50~kHz and saved for further use. Version 4 of the AN model
 \citep{ZilanyBruceEtAl:2009} only needs 100~kHz sampling rate for stimulus below
 20~kHz. The directory for the saved AN responses is determined by the variable
 \textsf{ANsoundspath}.
+
+
+\yellownote{RM NMODL files}
+\citep{RothmanManis:2003b} 
+
 
 \begin{lstlisting}[label=lst:headerlines,caption={Headerlines in
     \mbox{\textsf{DS\_ClickRecovery\.hoc}} show a typical setup in a
@@ -174,9 +192,9 @@ delay that is an exponential function of the distance from the stapes. The
 frequency mapping function is defined as:
 \begin{equation}
   \label{eq:BM}
-  f = A\times10^{\left(a * d / L\right)} - K
+  f(x) = A\times10^{\left(a * x / L\right)} - K
 \end{equation}
-where \emph{d} is distance along the basilar membrane from the stapes.
+where \emph{x} is distance along the basilar membrane from the stapes.
 
 %\smallskip{}
 
@@ -204,10 +222,10 @@ In the cat, \citet{CarneyYin:1988} fitted the latency vs \CF~curve from click
 responses in the cat to obtain the equation:
 \begin{equation}
   \label{eq:delay}
-   delay (ms) = A_0 * {\rm exp}(-x / A_1 ) * 1e-3 - 1.0/CF
+   delay (x) = A_0 * {\rm exp}(-x / A_1 ) * 1e-3 - 1.0/CF
 \end{equation}
 \noindent where $x = \mathsf{cochlea\_f2x(species, cf)}$ is
-thedistance alongthe basilar membrane, $A_0 = 8.13$ (ms), $A_1 = 6.49$
+the distance along the basilar membrane, $A_0 = 8.13$ (ms), $A_1 = 6.49$
 (nm). \citet{HeinzZhangEtAl:2001} then corrected the peak click to match the
 onset delay of ANFs and this has been retained in the model used here
 \citep{ZilanyBruceEtAl:2009}: \(delay = A_0 * {\rm exp}(-x / A_1) * 1e-3 \)
@@ -444,7 +462,7 @@ Example optimisation points used by \textsf{fit\_praxis}
 
 \begin{verbatim}
     $ ./buildnrn.sh
-    $ ./i686/special TV_Notch.hoc
+    $ ./i686/special TV_Notch.hoc -
 \end{verbatim}
 
 

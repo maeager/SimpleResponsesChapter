@@ -1,5 +1,4 @@
- % \graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
-
+% \graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
 \section[TV Cell Model]{Tuberculoventral cell model: Optimisation of inhibition asymmetry using notch-noise} \label{sec:TV-cell-model}
 % - A
 % ------------------------------------------------------------------------------
@@ -14,17 +13,17 @@ Evidence in the mouse suggests otherwise since intracellular responses from labe
 
 %\smallskip{}
 
-TV receive mono-synaptic excitatory input from auditory nerve ﬁbers \citep{OertelWu:1989,ZhangOertel:1993b}.
-Taken together, these two results suggest that \LSR~auditory nerve ﬁbers may form the major excitatory input to type~II cells.
-If true, this hypothesis could also explain the ﬁnding that type II units have consistently higher thresholds than \DCN~principal cells \citep{YoungBrownell:1976} because \LSR~auditory nerve ﬁbers also have elevated thresholds relative to the lowest threshold auditory nerve ﬁbers \citep{Liberman:1978}.
-However, patterns of auditory nerve innervation of the \DCN~are most consistent with \HSR~ﬁber innervation of \TV~cell somata and \LSR~ﬁber innervation of dendrites \citep{Liberman:1993}.
+TV receive mono-synaptic excitatory input from auditory nerve fibres \citep{OertelWu:1989,ZhangOertel:1993b}.
+Taken together, these two results suggest that \LSR~auditory nerve fibres may form the major excitatory input to type~II cells.
+If true, this hypothesis could also explain the finding that type~II units have consistently higher thresholds than \DCN~principal cells \citep{YoungBrownell:1976} because \LSR~auditory nerve fibres also have elevated thresholds relative to the lowest threshold auditory nerve fibres \citep{Liberman:1978}.
+However, patterns of auditory nerve innervation of the \DCN~are most consistent with \HSR~fibre innervation of \TV~cell somata and \LSR~fibre innervation of dendrites \citep{Liberman:1993}.
 In that case, the low spontaneous rates and high sound thresholds of type II units might be caused by a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997}; this is consistent with the responses of vertical cells to intracellular current injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
 
 %\smallskip{}
 
 Type~II units also supply an inhibitory input to the \VCN~\citep{WickesbergOertel:1990}, but the role of type~II terminals in the \VCN~is less clear.
 Three different hypotheses have been raised.
-The ﬁrst is that this projection modulates the response thresholds of \VCN~neurons \citep{PaoliniClark:1998}.
+The first is that this projection modulates the response thresholds of \VCN~neurons \citep{PaoliniClark:1998}.
 The role of type~II units in spectral processing is that of a narrowband inhibitor. Responses of \DCN~principal cells are strongly inhibited by this narrowband source.
 As a result, \DCN~principal cells are inhibited by sharp spectral peaks close to their \BF~\citep{SpirouDavisEtAl:1999}.
 
@@ -43,7 +42,7 @@ As a result, \DCN~principal cells are inhibited by sharp spectral peaks close to
 \yellownote{Expand previous studies  of the DCN incl. TV cells}
 
 
-\citet{ArleKim:1991a} were the first to show type~II \EIRA~with simple McCullock-Pitts point neuron models.
+\citet{ArleKim:1991a} were the first to show type~II \EIRA  with simple McCullock-Pitts point neuron models.
 
 
 {\it (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband inhibitory   mechanism to create type II unit responses in a model of the DCN. In that   model, each cell population was described by a mathematical formula for its   steady-state rate-level function. This level of abstraction was used to focus   specifically on the role of network connectivity in determining the   steady-state behavior of DCN units. The level of abstraction employed in our   model allows for examination of temporal response properties including PST   histograms and cross-correlation analysis.}
@@ -140,12 +139,13 @@ The \TV~rate response could therefore just be modeled on the \LSR~response using
 %\smallskip{}
 
 
-\begin{figure}[htb]
-  \centering \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}}
-  % \includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
-  \caption[Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit \citep[,~Fig.~9]{ReissYoung:2005}.}
-  \label{fig:TVReissFig9}
-\end{figure}\yellownote{Permission needed for Reiss and Young figures}
+% \begin{figure}[htb]
+%   \centering \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}}
+%   % \includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
+%   \caption[Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit \citep[,~Fig.~9]{ReissYoung:2005}.}
+%   \label{fig:TVReissFig9}
+% \end{figure}
+\yellownote{Permission needed for Reiss and Young figures}
 
 
 \begin{figure}[htb]
@@ -290,7 +290,7 @@ The performance improves when reducing the sound level of the notch stimulus fro
 \begin{figure}[htb]
   \centering
   % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
-  % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result.eps}}
+  \resizebox{\textwidth}{!}{\includegraphics{TV_Notch/Run2/spl50/TV_Notch_result.eps}}
   \caption[Optimisation results for a refined TV cell model]{Optimisation results for a refined TV cell model with stimulus sound levels at 50 dB SPL\@.
 The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV\@.
 The second group of 3 runs included the parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.} \label{fig:TV_result_Run2_50}
@@ -442,10 +442,9 @@ Figure~\ref{fig:TV_SweepUnit70} shows the response of a unit with similar \CF~(\
 \begin{figure}[htb]
   \centering
   % \resizebox{\textwidth}{!}{\includegraphics{NoFigure}}
-  \resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{TV_Notch/BestSweep.eps}}\\
-  \resizebox{\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig9_E+F.eps}}\\
-  \resizebox{\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig10A+B.eps}}
-  \resizebox{\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{TV_Notch/Best-Offset2/BestSweep.eps}}\\
+  \resizebox{0.8\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{TV_Notch/BestSweep.eps}}\\
+  \resizebox{0.8\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig9_E+F.eps}}\\
+  \resizebox{0.8\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig10A+B.eps}}\\ \resizebox{0.8\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{TV_Notch/Best-Offset2/BestSweep.eps}}\\
   \caption[Response of optimised TV cell (CF=12.76~kHz) to notch and band   sweeps]{Response of optimised TV cell (CF=12.76~kHz) to notch and band sweeps with stimulus sound level at 50 dB SPL\@.
 Mean rate responses are plotted against the rising edge frequency of the notch and falling edge of the band-pass in octaves relative to 12.7~kHz.
 Middle row is from Figure 9 E and F in Reiss and Young, second bottom row is from Figure 10 A and B. }   \label{fig:TV_SweepUnit70}
@@ -453,13 +452,16 @@ Middle row is from Figure 9 E and F in Reiss and Young, second bottom row is fro
 
 
 \begin{figure}[htb]
-  \centering
-  \figfont{A}\hfill\figfont{B}\hfill\\
-  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/TV_ratelevel_combined.eps}\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.1.eps}}\\
-  \figfont{C}\hfill\figfont{D}\hfill\\
-  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/response_area.1.eps}%
-\includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked.eps}
-}\\
+%\centering
+\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill\\
+%\resizebox{0.95\textwidth}{!}{
+\includegraphics[width=0.48\textwidth,keepaspectratio]{ResponsesNoComp/TV_ratelevel_combined.eps}\includegraphics[width=0.48\textwidth,keepaspectratio]{ResponsesNoComp/RateLevel/psthsingle90.1.eps}\\
+%}\\
+\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+%\resizebox{0.95\textwidth}{!}{
+\includegraphics[width=0.48\textwidth,keepaspectratio]{ResponsesNoComp/RateLevel/response_area.1.eps}%
+\includegraphics[width=0.48\textwidth,keepaspectratio]{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked.eps}\\
+%}\\
 % }}
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50.3.eps}}\\

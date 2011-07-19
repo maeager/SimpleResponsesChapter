@@ -8,14 +8,17 @@
 \hdr{2}{A}{Model Summary}\\\hline
          \textbf{Populations}          & Five: HSR \& LSR ANFs, Golgi, DS, and TV cells \\\hline
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
-        \textbf{Connectivity}          & ANF$\to${Golgi,DS,TV}, Golgi$\to$DS, DS$\to$TV  \\\hline
+        \textbf{Connectivity}          & ANF$\to${GLG,DS,TV}, GLG$\to$DS, DS$\to$TV  \\\hline
+         \textbf{Input model}          & ANF~model: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\ \hline
 \multirow{3}{*}{\textbf{Neuron model}} & Golgi: instantaneous-rate Poisson spike trains\\
-                                       & D~stellate: HH-like single-compartment model (Type 1-2 RM model)\\ 
-                                       & Tuberculo-ventral cell:  HH-like single-compartment model (Type-I classic) \\\hline
+                                       & D~stellate: HH-like single-compartment model (Type 1-2 R\&M model)\\ 
+                                       & Tuberculoventral cell:  HH-like single-compartment model (Type-I classic R\&M model) \\\hline
        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
-        \textbf{Synapse model}         & AMPA (\textit{ExpSyn}), GABA$_{\rm A}$ (\textit{Exp2Syn}), Glycine (\textit{Exp2Syn}) \\\hline
-            \textbf{Input}             & Notch-noise (Stop-band filtered white noise) \\\hline
-        \textbf{Measurements}          & First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance \\\hline
+\multirow{2}{*}{\textbf{Synapse model}} & Excitatory: AMPA glutamatergic receptor (single-exponential)\\
+&  Inhibitory: GABA$_{\rm A}$ GABAergic receptor (double-exponential), Glycinergic receptor (double-exponential) \\\hline
+            \textbf{Input}             & Notch-noise stimulus (Stop-band filtered white noise 60 dB SPL, 50 ms, 5ms on\slash off ramp, 20 ms delay)\\\hline
+%\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
+\textbf{Measurements}    &  Spikes of TV units recorded and PSTH genereated. First spike latency, mean rate and variance of TV units calculated. Fitting data was compared against experimental data of a Type-II~\DCN~unit~\citep{ReissYoung:2005}, Fig.~9.
 \end{tabularx}
 \vspace{2ex}
 
@@ -25,7 +28,7 @@
 \hdr{3}{B}{Populations}\\\hline
 \textbf{Name} &    \textbf{Elements}    & \textbf{Size} \\\hline
      HSR      &    Poisson generator    & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
-     LSR      &    Poisson generator    & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
+     LSR      &    Poisson generator    & $N_{\text{LSR}}= 30$  per freq.\ channel \\\hline
      GLG      &    Poisson generator    & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
      DS       &   Type I-II R\&M model    & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
      TV       & Type I-classic R\&M model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
@@ -41,16 +44,17 @@
    ANF$\to$TV     &       ANF       & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
 %   GLG$\to$DS     &      Golgi      &    D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
    DS$\to$TV     &   D~Stellate    & Tuberculoventral & Gaussian, centered at CF with spread \sGLGDS \\\hline
-\multicolumn{4}{|X|}{\ANFGLG, \ANFDS, and \GLGDS from previous CN model. }
+\multicolumn{4}{|X|}{\ANFGLG, \ANFDS, and \GLGDS from previous CN model. }\\\hline
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
 \vspace{2ex}
 
 % - D ------------------------------------------------------------------------------
-\noindent\begin{tabularx}{\textwidth}{|l|X|}\hline
+\noindent
+\begin{tabularx}{\textwidth}{|l|X|}\hline
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
  \textbf{Name} & TV cell model \\\hline
- \textbf{Type} & Type 1-classic \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+ \textbf{Type} & Type 1-classic R\&M model \citep{RothmanManis:2003b}, conductance synapse input \\\hline
  \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
  \end{tabularx}
 \vspace{2ex}
@@ -82,22 +86,22 @@
 % \end{tabularx}
 \vspace{2ex}
 
-\noindent
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{E}{Input\slash Ouput}\\\hline
-\textbf{Input Stimulus}  & Notch-noise (Stop-band filtered white noise)  \\\hline
-%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}
-%\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps}
-%\end{minipage}}\\\hline
-% \textbf{Output} & Output of 100 TV cells, across the network, with 25 repetitions\\\hline
-%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}%
-%\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}
-%\end{minipage}}\\\hline
-%\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
-%\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
-\textbf{Measurements}    &  First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II~\DCN~unit~\citep{ReissYoung:2005}, Fig.~9. \\\hline
-\end{tabularx}
-\vspace{2ex}
+% \noindent
+% \begin{tabularx}{\textwidth}{|l|X|}\hline %
+% \hdr{2}{E}{Input\slash Ouput}\\\hline
+% \textbf{Input Stimulus}  & Notch-noise (Stop-band filtered white noise)  \\\hline
+% %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}
+% %\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps}
+% %\end{minipage}}\\\hline
+% % \textbf{Output} & Output of 100 TV cells, across the network, with 25 repetitions\\\hline
+% %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}%
+% %\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}
+% %\end{minipage}}\\\hline
+% %\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
+% %\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
+% \textbf{Measurements}    &  First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II~\DCN~unit~\citep{ReissYoung:2005}, Fig.~9. \\\hline
+% \end{tabularx}
+% \vspace{2ex}
 
 %  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
 %   \textbf{Function}     & Weighted mean squared error see listing below  \\ \hline

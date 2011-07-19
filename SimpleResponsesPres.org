@@ -8,11 +8,9 @@
 #+TITLE: Constructing realistic microcircuits: the Cochlear Nucleus stellate model
 #+AUTHOR: Michael A. Eager
 #+LaTeX_header:\usepackage{xspace}\input{../manuscript/glossary}
-#    #+  LaTeX_header:\usepackage[origletters,vara,varf,varGamma,varPi]{arev}  
-#+LaTeX_header:\usepackage{arev} %lucidabr}  %{palatino}
-#+   LaTeX_header    :\usepackage{mathpazo} % arevmath} %
+#+LaTeX_header:\usepackage{mathpazo} 
 
-#+BIBLIOGRAPHY: ../manuscript/bib/MyBib plainnat 
+#+BIBLIOGRAPHY: ../hg/manuscript/bib/MyBib plainnat 
 
 * Constructing realistic microcircuits: the Cochlear Nucleus stellate model 
 ** Introduction
@@ -151,19 +149,19 @@ Six pathways leading out of the Coclear Nucleus\\
 
 
 # #+begin_LaTeX
-#    \begin{lstlisting}
-#    objref pvec
-#    pvec = new Vector()    //List of parameters
-#    ...
-#    func err(){ /* cost function */
-#    ...
-#    }
-#    ...
-#    proc runprax(){
-#    attr_praxis(0.0001, 0.001, 3)
-#    fit_praxis(NPARAMS,"err",&pvec.x[0])
-#    }
-#    \end{lstlisting}
+# #    \begin{lstlisting}
+# #    objref pvec
+# #    pvec = new Vector()    //List of parameters
+# #    ...
+# #    func err(){ /* cost function */
+# #    ...
+# #    }
+# #    ...
+# #    proc runprax(){
+# #    attr_praxis(0.0001, 0.001, 3)
+# #    fit_praxis(NPARAMS,"err",&pvec.x[0])
+# #    }
+# #    \end{lstlisting}
 # #+end_LaTeX
 
 * Golgi Cell Model: Fitting simple model to rate level data
@@ -207,13 +205,13 @@ Six pathways leading out of the Coclear Nucleus\\
 #     2. Create Golgi vectors by summating ANF inputs weighted by *w*   
 #     3. Convolve the golgi vector with the alpha synaptic function 
 
-# #+begin_LaTeX
-#      \begin{eqnarray}
-#      w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1] \\
-#      \mathbf{g}_i = \sum^{i} w_L(i)\mathbf{L}_i + w_H(i)\mathbf{H}_i \\
-#      \mathbf{G}_i = \mathbf{g}_i * f_{\alpha} 
-#      \end{eqnarray}
-# #+end_LaTeX
+#+begin_LaTeX
+      \begin{eqnarray}
+      w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1] \\
+      \mathbf{g}_i = \sum^{i} w_L(i)\mathbf{L}_i + w_H(i)\mathbf{H}_i \\
+      \mathbf{G}_i = \mathbf{g}_i * f_{\alpha} 
+      \end{eqnarray}
+#+end_LaTeX
 #    - Create spikes from golgi vectors using Jackson's spike generator 
 
 # ** Golgi Cell Model: Implementation
@@ -431,7 +429,7 @@ Simulation time reduced due to golgi and Poisson models
     Dr. David Grayden, Dr. Hamish Meffin, Prof. Anthony Burkitt
    
   *NEURON*
-    http://www.neuron.yale.edu
+   [[http://www.neuron.yale.edu]]
 
   *Computing Facilities*
     - PC cluster: Dept. Otolaryngolgy
@@ -497,6 +495,6 @@ For technical presentations, motivation is key
 
 #+begin_LaTeX:
 \bibliographystyle{plainnat} 
-\bibliography{../manuscript/bib/MyBib}
+\bibliography{../hg/manuscript/bib/MyBib}
 #+end_LaTeX
 

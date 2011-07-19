@@ -9,19 +9,13 @@
 \makeglossaries
 
 \usepackage{appendix}
-\usepackage[notcite]{showkeys}
-
 \graphicspath{{./gfx/}{../figures/}{/media/data/Work/thesis/SimpleResponsesChapter/}{/media/data/Work/thesis/SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/}}
 
-
-% \usepackage[showlabels,displaymath,textmath,sections,graphics,float]{preview}
-% \ifPreview
-% \PreviewEnvironment[{*[][]{}}]{tabularx}
-% \PreviewEnvironment[{*[][]{}}]{figure}
-% \PreviewEnvironment[{*[][]{}}]{array}
-% \PreviewEnvironment{verbatim}     
-% \PreviewMacro[{*[][]{}}]{\yellownote}
-% \fi 
+\usepackage[displaymath,floats,graphics,textmath,sections,footnotes,showlabels,psfixbb]{preview}
+\ifPreview
+\PreviewEnvironment[{*[][]{}}]{tabularx}
+\PreviewMacro[{*[][]{}}]{\yellownote}
+\fi 
 
 \lfoot{\footnotesize\today\ at \thistime}
 
@@ -30,7 +24,7 @@
 \setlength{\emergencystretch}{3em}
 
 \overfullrule=1mm
-
+% \usepackage[notcite]{showkeys}
 \begin{document}
 
 		% TOC, LOF, LOT

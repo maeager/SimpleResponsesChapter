@@ -45,6 +45,27 @@ Therefore, type II and \LSR~type I \ANFs~could be involved in gain control throu
 \subsection{Implementation}
 
 
+% 2.5. Data analysis 
+% Data were collected as spike times with a resolution of 10
+% μs and analyzed off-line on a micro-VAX 3100 (Digital). Response histograms
+% were plotted and analyzed using a windowing technique in which spike counts
+% were taken over brief time windows of identical duration for the masker and
+% probe components (Fig. 1B). Using the control conditions, counting windows
+% were determined individually for each unit but ranged between 1 and 4 ms based
+% on the control response to the masker alone and the probe alone. To assess
+% response variability over time, repeated unmasked controls for both the masker
+% (masker alone, Ma) and probe (probe alone, Pa) were obtained during the
+% pre-drug, drug, and post-drug recovery conditions. Drug doses were determined
+% empirically as the lowest dose that elicited a reproducible and reversible
+% effect. To allow normalization of the masked probe response obtained in the
+% paired-click paradigm to the unmasked response obtained when the probe was
+% presented alone, identical measurement windows were used in the control and
+% drug conditions for a given unit. The suppression recovery functions for each
+% unit were normalized by taking the ratio Pm/Pa where Pm is the masked probe
+% spike count and Pa is the unmasked response to the probe (Fig. 1C).
+
+
+
 Key elements in designing D~stellate cell model are shown in the Nordlie table~\ref{tab:DScellModelSummary}A.
 A type I-II single compartment neuron by \citet{RothmanManis:2003b} has the characteristics of a onset chopper unit and has previously been used to simulate a \DS~cell model.
 The choice of having a large multipolar neuron without dendrites was based on computational efficiency and ensuring that the model fit within the criteria for DS cells.
@@ -63,13 +84,17 @@ The \GLGDS~spread is set to 2 channels with zero offset, which corresponds to a 
 
 \begin{figure}[htb]
   \centering
-  \resizebox{0.5\textwidth}{!}{\includegraphics{NoFigure}}
+%  \resizebox{0.8\textwidth}{!}{}
+\includegraphics[keepaspectratio,width=0.8\textwidth]{gfx/Backoff+Palombi-Fig3}
   \caption{Experimental data showing click recovery in onset choppers}\label{fig:BackoffPalombi}
 \end{figure}
 
 Fixed parameters included  the number of Golgi cells to \DS~cells ($\nGLGDS = 25$), the spread of \ANFs~to \DS~cells $\ANFDS$, and the extra delay from the auditory nerve.
-The first spike latency in \DS~cells $2.8 \pm 0.09$ ms \citep{RhodeSmith:1986}.
+
+The first spike latency in high \CF \DS~cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate neurons in the VCN \citep{RhodeSmith:1986}.
+
 The addition of 0.5~ms to \ANFDS~connections is a combination of conductance and synaptic delay.
+
 The effect of Golgi cells on \DS~is delayed by the extra 0.7~ms delay from \ANF~to Golgi, plus the slow peak of \GABAa~inhibition.
 \yellownote{fix this paragraph}
 
@@ -92,13 +117,14 @@ Initial optimisation procedures were not successful at constraining the short de
 The unit used in the optimisation has a \CF~of 5.8~kHz (equivalent to channel no. 50 in the CN network with 100 channels from 0.2 to 30~kHz).
 
 \begin{figure}[htb]
-  \centering
-  \resizebox{0.6\textwidth}{!}{\includegraphics{DS_ClickRecovery/ANinput}}
+\centering
+%\resizebox{0.6\textwidth}{!}{}
+\includegraphics[keepaspectratio,width=0.6\textwidth]{DS_ClickRecovery/ANinput}
 %   \subfloat[D~stellate cell]{
 %\includegraphics[width=0.4\textwidth]{DS_ClickRecovery_DSpsth}% \label{fig:DSClickRecoveryPSTH}
 %}\quad%   \subfloat[Golgi cell]{
   %\includegraphics[width=0.4\textwidth]{DS_ClickRecovery_Gpsth}%\label{fig:GClickRecoveryPSTH}%}
-  \caption[Click recovery stimulus]{Click stimulus and PSTH responses of an HSR fibre, a GLG unit, and a D~stellate cell from the click recovery stimulus used in the optimisation. }\label{fig:ClickExamples}
+\caption[Click recovery stimulus]{Click stimulus and PSTH responses of an HSR fibre, a GLG unit, and a DS unit from the click recovery stimulus used in the optimisation. }\label{fig:ClickExamples}
 \end{figure}
 
 
@@ -131,10 +157,12 @@ The optimisation parameters show a clear favouritism toward the \LSR~input rathe
 While this may not seem ideal for fast coincidence detection, the large number of \HSR~synapses makes up for the small weight that was obtained in the optimisation.
 
 \begin{figure}[htb]
-  \centering
-  % \resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
-  \resizebox{0.8\textwidth}{!}{\includegraphics[height=\textwidth,keepaspectratio,angle=-90]{DS_ClickRecovery/DS_ClickRecovery_result}}
-  \caption[Click recovery optimisation results in DS cell model]{Optimisation results of click recovery behaviour in DS cell model (CF 5.8~kHz).
+\centering
+%\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
+%\resizebox{0.8\textwidth}{!}{}
+\includegraphics[height=0.8\textwidth,keepaspectratio,angle=-90]{DS_ClickRecovery/DS_ClickRecovery_result}
+\caption[Click recovery optimisation results in DS cell model]{%
+Optimisation results of click recovery behaviour in DS cell model (CF 5.8~kHz).
 The optimal response (blue circle) is obtained from Fig.~3 in \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of an OnC unit (CF 5.8~kHz).
 Best result (green triangles).   } \label{fig:DS_ClickRecovery_result}
 \end{figure}
@@ -189,17 +217,20 @@ Best result (green triangles).   } \label{fig:DS_ClickRecovery_result}
 % \newpage
 \subsection{Verification}    \label{sec:DS:verification}
 
-\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA Leave AM responses
-  till next chapter}
+\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA. Leave AM responses till next chapter}
 
 \begin{figure}[htb]
-  \centering
-  \figfont{A}\hfill\figfont{B}\hfill\\
-  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/DS_ratelevel_combined.eps}\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.2.eps}}\\
-  \figfont{C}\hfill\figfont{D}\hfill\\
-  \resizebox{0.95\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/response_area.2.eps}%
-\includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked.eps}
-}\\
+%\centering\hspace{0.5cm}
+\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill\\
+%\resizebox{0.95\textwidth}{!}{
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined.eps}%
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle90.2.eps}\\
+%}\\\hspace{0.5cm}
+\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+%  \resizebox{0.95\textwidth}{!}{%
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area.2.eps}%
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked.eps}\\
+%}\\
 % }}
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50.3.eps}}\\
