@@ -5,21 +5,35 @@
 
 \subsection{General neural modeling tools}
 
-
-
-
+This section provides an overview of the pragmatic details of the \textsf{cnstellate} NEURON model used in this chapter.
 
 \subsubsection{Optimisation}
 
 The optimisation routine used in this chapter was NEURON's \textsf{fit\_praxis},
-which uses the algorithm PRAXIS~\citep{Brent:1976}.
+which uses the algorithm PRAXIS~\citep{Brent:1976}. 
 
-\begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run
-  fitting procedure.]
+\begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure.]
+-----parameters_****.hoc--------------
+  NPARAMS=3
+  objref pvec,fvec,pvec_ranges,pvec_name,pvec_factor
+  pvec = new Vector()                // contains the parameters to be fitted
+  pvec_ranges= new Matrix(NPARAMS,2) // (min,max) pairs for each param
+  pvec_name = new List()             // names of parameters in String list
+  pvec_factor = new Vector(NPARAMS,1)// regulates variables so pvec is in same range to aid fit_praxis 
+  //min
+  for i=0,NPARAMS-1 pvec_ranges.x[i][0]= 0.000001
+  //max
+  for i=0,NPARAMS-1 pvec_ranges.x[i][1]= 0.03
+  //Names                                               //Initial values	//Param Factor
+  pvec_name.append(new String("param.w.x[lsr][tv]"))	pvec.append(0.00190)	pvec_factor.append(1)
+  pvec_name.append(new String("param.w.x[hsr][tv]"))	pvec.append(0.00130)	pvec_factor.append(1)
+  pvec_name.append(new String("param.w.x[hsr][ds]"))	pvec.append(0.00170)	pvec_factor.append(1) 
+
+---------------------
   proc runprax(){
     attr_praxis(0.0001, 0.01, 3)
     fit_praxis(NPARAMS,"error_fcn",&pvec.x[0])
-}
+ }
 \end{lstlisting}
 
 
@@ -45,70 +59,68 @@ The cochlear nucleus stellate microcircuit software code used in this chapter is
 called \textsf{cnstellate} and is implemented in NEURON, NMODL and C source
 code. Acknowledgments should be made to M.S.A. Zilany and colleagues for their
 work on the AN model, Dominic Mazzoni for the real-time resample library
-interface, and \citet{MiglioreCanniaEtAl:2006} for the parallel NEURON network model \textsf{netmod} (SenseLab model ).
-
-\url{52034}{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034}
-\url{2730}{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730}
-\url{51781}{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781}
+interface, and \citet{MiglioreCanniaEtAl:2006} for the parallel NEURON network model \textsf{netmod} (see SenseLab models 
+\href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034}{52034}, 
+\href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730}{2730}, 
+\href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781}{51781}).
 
 
 
 From the command line type:
 \begin{verbatim}
-    $ ./buildnrn.sh
-    $ ./i686/special DS_ClickRecovery.hoc
+    $ make gui
+    $ ./gui/special DS_ClickRecovery.hoc -
 \end{verbatim}
 in the \textsf{cnstellate} directory to simulate the optimisation for D~stellate
-click recovery.  The \textsf{buildnrn.sh} command initially calls the standard
+click recovery.  The \textsf{make gui} command calls the standard
 \textsf{nrnivmodl} to convert all *.mod files in the directory to a compiled
-library, that can be imported into NEURON; then appends the libresample
-interface to the compiled library. 
+library, that can be imported into NEURON; then appends the \textit{libresample}
+interface to the locally compiled NEURON executable \textit{special}. 
 
-The first run of a stimulus may take some time if the AN
-responses have not been previously saved, since the Zilany \& Bruce version 3
-model requires 500~kHz resolution in the stimulus, this is then downsampled to
-50~kHz and saved for further use. Version 4 of the AN model
-\citep{ZilanyBruceEtAl:2009} only needs 100~kHz sampling rate for stimulus below
-20~kHz. The directory for the saved AN responses is determined by the variable
-\textsf{ANsoundspath}.
+The first run of a stimulus may take some time if the AN responses have not been previously saved, since the Zilany \& Bruce version 3 model requires 500~kHz resolution in the stimulus, this is then downsampled to a lesser resolution for the spike generator and saved for further use. 
+The resolution spike generator is generally at or above 10~kHz to match the simulations' time step of 0.1 ms.
+Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} only needs 100~kHz sampling rate for stimulus below 20~kHz. 
+%The directory for the saved AN responses is determined by the variable \textsf{ANsoundspath}.
 
 
 \yellownote{RM NMODL files}
 \citep{RothmanManis:2003b} 
 
 
-\begin{lstlisting}[label=lst:headerlines,caption={Headerlines in
-    \mbox{\textsf{DS\_ClickRecovery\.hoc}} show a typical setup in a
-    \textsf{cnstellate} setup.}]
+\begin{lstlisting}[label=lst:headerlines,caption={Headerlines in \mbox{\textsf{DS\_ClickRecovery\.hoc}} show a typical setup in a \textsf{cnstellate} simulation.}]
   load_file("nrngui.hoc")
-//load_file("par_netpar.hoc") //uncomment for parallel mode
-//load_file("par_init.hoc")   //uncomment for parallel mode
-  load_file("mathslib.hoc")   //mathematical procedures from netmod
-  load_file("Params.hoc")     //default parameters for cnstellate
-  load_file("Utilities.hoc")  //My utility functions
+//load_file("par_netpar.hoc")     //uncomment for parallel mode
+//load_file("par_init.hoc")       //uncomment for parallel mode
+  load_file("mathslib.hoc")       //mathematical procedures from netmod
+  load_file("Params.hoc")         //default parameters for cnstellate
+  load_file("Utilities.hoc")      //My utility functions
   load_file("NetworkParameters.hoc") //NetworkParameter class
-  load_file("AuditoryNerve.hoc") //ANChannel and AuditoryNerve classes
-  load_file("par_CNcell.tem") //CNCell class
-  load_file("CochlearNucleus.hoc") //CochlearNucleus class and set-up
+  load_file("AuditoryNerve.hoc")  //ANChannel and AuditoryNerve classes
+  load_file("par_CNcell.tem")     //CNCell and Golgicell class
+  load_file("CochlearNucleus.hoc")//Cells and network defined
 
+  load_file("cngui.hoc")          //Load GUI 
   //Model parameters unique to current simulation
   load_file("parameters_DS_ClickRecovery.hoc")
 
-  //Create model
+  //Create CN model
   create_cells()
   connect_cells()
   connect_CNcells()
 
   //Experiment routines
   load_file("par_experiment_DS_ClickRecovery.hoc")
+...
 
 \end{lstlisting}
 
 
-\subsubsection{Auditory nerve input    \label{sec:APDX:auditory-nerve-input}}
+
+
+\subsubsection{Auditory nerve and input utilities} \label{sec:APDX:auditory-nerve-input}
 
 The auditory model implementation in NEURON is a conversion from the MATLAB
-interface to NEURON's NMODL interface. Version 3 of the AN model
+mex interface to NEURON's NMODL interface. Version 3 of the AN model
 \mbox{\textsf{an\_bruce.mod}}
 
 Support for simulating the rat and human species, as well as the default cat
@@ -124,48 +136,49 @@ audiograms from the appropriate species are mapped using a MATLAB routine
 \mbox{\textsf{fitaudiogram.m}} so that specific parameters can be passed from
 NEURON to the auditory model.  Rat basilar membrane frequency mapping in
 \mbox{\textsf{cochlea\_f2x()}} and \mbox{\textsf{cochlea\_x2f()}} included using
-data obtained from the Boston University Earlab website, \url{earlab.bu.edu}.
+data obtained from the Boston University Earlab website, \url{http://earlab.bu.edu}.
 Compression variables for the IHC and OHC components of the Zilany model are fit
 using audiogram data of a rat.  The audiogram in Fig.~\ref{fig:AudThresholdRat}
 was used to generate the compression data for the rat model.
 
 %\smallskip{}
 
-% Listing~\ref{lst:makeaudiogram}
-% \begin{lstlisting}[label=lst:makeaudiogram,caption=Using
-%   \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for the cat.]
-%   x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0)
-%   [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2)) dlmwrite
-%   ("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g")
-% \end{lstlisting}
+Listing~\ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands in 
+\begin{lstlisting}[label=lst:makeaudiogram,caption=Using \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for the cat.]
+  x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0);
+  [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2));
+  dlmwrite("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g");
+\end{lstlisting}
 
 
 
-% \begin{lstlisting}[label=lst:cataudiogram,caption=Portion of
-%   \mbox{\textsf{cat\_audiogram\.txt}}]
+% \begin{lstlisting}[label=lst:cataudiogram,caption=Portion of  \mbox{\textsf{cat\_audiogram\.txt}}]
 %   ...  125 37 0 0.025 250 22 0 0.3 500 8 0.65 0.7 1000 3 0.9 0.9 2000 1 0.95 1
 %   4000 1 0.95 1 ...
 % \end{lstlisting}
-% \begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get
-%   audiogram data and interpolate to freuencies in \textsf{cf} vector (
-%   \mbox{\textsf{Utilities.hoc}})]
-%   ...  objref audiogram,cohc,cihc proc GetAudiogramData(){ ...
-%   file.ropen(audiogram_file) audiogram.scanf(file,nrows,4) ...  // Interpolate
-%   compression data to cf positions cohc.interpolate(cf, audiogram.getcol(0).c,
-%   audiogram.getcol(2).c) cihc.interpolate(cf, audiogram.getcol(0).c,
-%   audiogram.getcol(3).c) } GetAudiogramData() ...
-% \end{lstlisting}
+ \begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to freuencies in \textsf{cf} vector (\mbox{\textsf{Utilities.hoc}})]
+objref audiogram,cohc,cihc 
+proc GetAudiogramData(){ 
+...
+  file.ropen(audiogram_file) 
+  audiogram.scanf(file,nrows,4) 
+...  
+  // Interpolate audiogram to frequencies in cf vector
+  cohc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(2).c) 
+  cihc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(3).c) 
+} 
+\end{lstlisting}
+
+\includegraphics{gfx/Audiogram_COHC_CIHC_rat}
+\includegraphics{gfx/Audiogram_COHC_CIHC_cat}
 
 \begin{figure}[htb]
   \begin{center}
     \resizebox{0.8\textwidth}{!}{\includegraphics[keepaspectratio=true]{getaudiogram}}
-    \caption[Zilany auditory model conversion in NEURON]{Getting audiogram compression values for Zilany model in
-      NEURON. Data file \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}}
-      (obtained from [earlab.bu.edu]) is used in \textsf{fitaudiogram.m} to
-      generate outer and inner hair cell compression values. When used in the
-      \textsf{cnstellate} model in NEURON, the compression values are
-      interpolated to frequency positions in the \textsf{cf}
-      vector.    \label{fig:GetAudiogram}}
+    \caption[Zilany auditory model conversion in NEURON]{Getting audiogram compression values for Zilany model in NEURON. 
+Data file \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}} (obtained from [earlab.bu.edu]) is used in \textsf{fitaudiogram.m} to generate outer and inner hair cell compression values. 
+When used in the \textsf{cnstellate} model in NEURON, the compression values are interpolated to frequency positions in the \textsf{cf} vector.
+\label{fig:GetAudiogram}}
   \end{center}
 \end{figure}
 
@@ -177,10 +190,8 @@ was used to generate the compression data for the rat model.
   \begin{center}
     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
     % \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{Audiograms}}
-    \caption[Hearing threshold of the domestic cat]{Hearing threshold of the domestic cat by
-      \citet{HeffnerHeffner:1985} (Data file
-      \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}} obtained from
-      [earlab.bu.edu])}
+    \caption[Hearing threshold of the domestic cat]{Hearing threshold of the domestic cat by \citet{HeffnerHeffner:1985} 
+(Data file \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}} obtained from [earlab.bu.edu])}
     \label{fig:AudThresholdRat}
   \end{center}
 \end{figure}
@@ -207,13 +218,13 @@ Table~\ref{tab:f2x} shows the currently accepted parameters for each species.
 \begin{table}[ht]
   \centering
   \begin{tabular}{lccccc}
-    \hline
-    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-    &   A   &   a  &     k     & L \\
-    Human & 165.4 &  2.1 & 1.0(0.88) & 35\\
-    Cat  &  456  &  2.1 &    0.8    & 25 \\
-    Rat  & 7613.3& 0928 &    1.0    & 8.03 \\
-    \hline
+  \hline
+% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      &   A   &  a   &     k     & L \\
+Human & 165.4 & 2.1  & 1.0(0.88) & 35\\
+ Cat  &  456  & 2.1  &    0.8    & 25 \\
+ Rat  & 7613.3& 0928 &    1.0    & 8.03 \\
+  \hline
   \end{tabular}
   \caption[Basilar membrane frequency-distance function parameters]{Frequency to basilar membrane distance function parameters \citep{FitzGeraldBurkittEtAl:2001}. Data obtained from \url{http://earlab.bu.edu} \label{tab:f2x}}
 \end{table}
@@ -280,21 +291,20 @@ current modules of sodium (\sf{Na}), high-threshold potassium (\sf{KHT}), leak,
 and the hyperpolarising mixed-cation (\sf{Ih}).  The low-threshold potassium
 current module, is only used by the \DS~cell and inserted seperately.
 
-\begin{lstlisting}[label=lst:CellTemplate,caption=Rothman and Manis cochlear
-  nucleus cell template (in CNcell.tem)]
+\begin{lstlisting}[label=lst:CellTemplate,caption=Rothman and Manis cochlear nucleus cell template (in CNcell.tem)]
   begintemplate CNcell
   public soma, dend        //NEURON sections
   public AMPA, GlyR, GABAA //synapse objects
   public spikes,spiketimes //storage vectors
   public connect2target, synlist //synapse connection function and list
-  public cf,model,channel //identifying parameters ...
-
+  public cf,model,channel //identifying parameters 
+...
   proc init(){local model
     create soma //primary section
     synlist = new List()
     spiketimes = new Vector()
     spikes = new Vector()
-
+    //Cell type mode 
     if($1 == 0) set_tstellate() //T~stellate cell
     if($1 == 1) set_tuberc()    //Tubervuloventral cell
     if($1 == 2) set_dstellate() //D~stellate cell
@@ -303,29 +313,51 @@ current module, is only used by the \DS~cell and inserted seperately.
     channel=$3
 
     soma {
-      insert rm           // Na, KHT, Ih, leak currents
-      eh_rm = -43         //mV, reversal potential for Ih
-    //insert AMPA Excitatory synapse
+//insert Rothman and Manis default currents (Na, KHT, Ih, and leak)
+      insert rm           
+//insert AMPA Excitatory synapse
       AMPA = new ExpSyn(0.5)
       AMPA.tau = ampa_decay
       AMPA.e = ampa_erev
-    //insert Glycinergic inhibitory synapse
+//insert Glycinergic inhibitory synapse
       GlyR = new Exp2Syn(0.5)
       GlyR.tau2 = gly_decay
       GlyR.tau1 = gly_rise
       GlyR.e = gly_erev
-    // insert GABA-A inhibitory synapse
+//insert GABA-A inhibitory synapse
       GABAA = new Exp2Syn(0.5)
       GABAA.tau2 = gaba_decay
       GABAA.tau1 = gaba_rise
       GABAA.e = gaba_erev
     }
     // Set reversal potentials
+    soma.eleak_rm = Erest          //mV, Leak reversal potential mV
+    soma.eh_rm = -43         //mV, reversal potential for Ih
     ena = 50 // mV
     ek = -70 // mV
  }//init
+...
 
+proc set_tstellate() {
+   model = 0
+   soma {
+     insert ka
+     Ra   = 150            //axial resistance per cm
+     cm   = 0.9            //micro farad per cm^2, membrance capacitance
+     L    = 19.5           //length of cell body
+     diam = L              //diameter of cell body
+     somaarea = PI*(L/1E4)^2   //um to cm2
+	
+//Set maximum conductance for each current	
+	gnabar_rm = nstomho(1000)*qt()
+	gkhtbar_rm = nstomho(80)*qt()
+	gkabar_ka =  nstomho(65)*qt()
+	ghbar_rm = nstomho(0.5)*qt(1)
+	gleak_rm = nstomho(2)*qt()
+   }
+}
 endtemplate CNcell
+
 
 \end{lstlisting}
 
@@ -334,9 +366,10 @@ endtemplate CNcell
 \subsubsection[Golgi model]{Golgi cell model
   optimisation    \label{sec:APDX:golgi-cell-model}}
 
-Each golgi cell template consists of a spike generator, \emph{s}, and vector
-objects representing the instantaneous rate, the spike times and accumulated
-spike times of the golgi cell. Parameters identifying each cell include the
+Each golgi cell template consists of a spike generator, \emph{sg}, a vector
+object representing the instantaneous rate, and a vector object of the current spike times and a list of accumulated spike times in previous repetitions. 
+The spike generator is the same inhomogeneous Poisson point process as used in the ANF spiking models.
+Parameters identifying each cell include the
 \emph{channel} number, CF and bandwidth of ANF input (actually the variance of
 the weight each auditory filter channel contributes to the firing of the cell).
 
@@ -350,6 +383,7 @@ The rate-based golgi cell model at CF channel \emph{i} is created by :
 \item the weighted average vector is convolved with an alpha function of time
   constant 5 milliseconds, to simulate the synaptic and membrane dynamics of golgi cells
 \end{itemize}
+\noindent The table~\ref{tab:GolgiCellModelSummary}C
 
 %\smallskip{}
 
@@ -381,7 +415,7 @@ The rate-based golgi cell model at CF channel \emph{i} is created by :
 \begin{lstlisting}[label=lst:GolgiTemplate,caption=Rate-based golgi cell model
   template (in par\_CNcell.tem)]
 begintemplate Golgicell
-public s,sout,spikes //internal objects made public
+public sg,sout,spikes //internal objects made public
 public SetRate2,GenSpikes2 //functions made public
 
 ---
@@ -413,8 +447,8 @@ proc SetRate2() {local i,j,spon_factor
       sout.insrt(0,golgi_spon)
       sout.remove(sout.size-1)
     }
-    // Push vector to spike generator object, s
-    s.SetFibreRate(sout,spiketimes,sg_tdres)
+    // Push vector to spike generator object, sg
+    sg.SetFibreRate(sout,spiketimes,sg_tdres)
 }
 
 ---
@@ -425,7 +459,7 @@ endtemplate Golgicell
 
 
 
-\subsubsection[D~stellate cell model]{D~stellate cell model optimisation    \label{sec:APDX:d-stellate-cell}}
+\subsubsection[D~stellate cell model]{D~stellate cell model optimisation}    \label{sec:APDX:d-stellate-cell}
 
 Example optimisation points used by \textsf{fit\_praxis}
 \begin{figure}[htb]
@@ -458,11 +492,11 @@ Example optimisation points used by \textsf{fit\_praxis}
 
 % \end{appendix}
 
-\subsubsection[TV cell model]{Tuberculoventral cell model optimisation    \label{sec:APDX:tuberc-cell-model}}
+\subsubsection[TV cell model]{Tuberculoventral cell model optimisation}    \label{sec:APDX:tuberc-cell-model}
 
 \begin{verbatim}
-    $ ./buildnrn.sh
-    $ ./i686/special TV_Notch.hoc -
+    $ make gui
+    $ ./gui/special TV_Notch.hoc -
 \end{verbatim}
 
 
