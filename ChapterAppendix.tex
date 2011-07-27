@@ -156,7 +156,7 @@ Listing~\ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands in
 %   ...  125 37 0 0.025 250 22 0 0.3 500 8 0.65 0.7 1000 3 0.9 0.9 2000 1 0.95 1
 %   4000 1 0.95 1 ...
 % \end{lstlisting}
- \begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to freuencies in \textsf{cf} vector (\mbox{\textsf{Utilities.hoc}})]
+\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to freuencies in \textsf{cf} vector (\mbox{\textsf{Utilities.hoc}})]
 objref audiogram,cohc,cihc 
 proc GetAudiogramData(){ 
 ...
@@ -169,10 +169,8 @@ proc GetAudiogramData(){
 } 
 \end{lstlisting}
 
-\includegraphics{gfx/Audiogram_COHC_CIHC_rat}
-\includegraphics{gfx/Audiogram_COHC_CIHC_cat}
 
-\begin{figure}[htb]
+\begin{figure}[th]
   \begin{center}
     \resizebox{0.8\textwidth}{!}{\includegraphics[keepaspectratio=true]{getaudiogram}}
     \caption[Zilany auditory model conversion in NEURON]{Getting audiogram compression values for Zilany model in NEURON. 
@@ -185,17 +183,6 @@ When used in the \textsf{cnstellate} model in NEURON, the compression values are
 
 
 %\smallskip{}
-
-\begin{figure}[htb]
-  \begin{center}
-    \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-    % \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{Audiograms}}
-    \caption[Hearing threshold of the domestic cat]{Hearing threshold of the domestic cat by \citet{HeffnerHeffner:1985} 
-(Data file \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}} obtained from [earlab.bu.edu])}
-    \label{fig:AudThresholdRat}
-  \end{center}
-\end{figure}
-
 
 The formula for the latency of acoustic stimulation to reach a particular point
 on the basilar membrane comprises a fixed conduction delay plus an additional
@@ -229,13 +216,24 @@ Human & 165.4 & 2.1  & 1.0(0.88) & 35\\
   \caption[Basilar membrane frequency-distance function parameters]{Frequency to basilar membrane distance function parameters \citep{FitzGeraldBurkittEtAl:2001}. Data obtained from \url{http://earlab.bu.edu} \label{tab:f2x}}
 \end{table}
 
+\begin{figure}[htb]
+  \begin{center}
+\resizebox{0.9\textwidth}{!}{\includegraphics{gfx/Audiogram_COHC_CIHC_cat}\includegraphics{gfx/Audiogram_COHC_CIHC_rat}}
+%    \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+    % \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{Audiograms}}
+    \caption[Audiogram and compression in rats and cats]{Hearing threshold audiogram of the domestic cat by \citet{HeffnerHeffner:1985} (A) and the Norwegian rat by \citet{HeffnerHeffner:1985} (B). (Data obtained from \href{earlab.bu.edu}). Compression values for the Zilany AN model for cat (C) and rat (D).}
+    \label{fig:AudThresholdCatRat}
+  \end{center}
+\end{figure}
+
+
 In the cat, \citet{CarneyYin:1988} fitted the latency vs \CF~curve from click
 responses in the cat to obtain the equation:
 \begin{equation}
   \label{eq:delay}
    delay (x) = A_0 * {\rm exp}(-x / A_1 ) * 1e-3 - 1.0/CF
 \end{equation}
-\noindent where $x = \mathsf{cochlea\_f2x(species, cf)}$ is
+\noindent where $x = \mathsf{cochlea\_f2x(species, CF)}$ is
 the distance along the basilar membrane, $A_0 = 8.13$ (ms), $A_1 = 6.49$
 (nm). \citet{HeinzZhangEtAl:2001} then corrected the peak click to match the
 onset delay of ANFs and this has been retained in the model used here

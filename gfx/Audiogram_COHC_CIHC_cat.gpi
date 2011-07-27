@@ -1,0 +1,17 @@
+
+load './gfx/default.gpi'
+set title "" 
+set xlabel "frequency" 
+set ylabel "" 
+set zlabel "" 
+set logscale x 
+unset logscale y 
+unset logscale z 
+set multiplot layout 2,1
+
+plot  '/media/data/Work/cnstellate/cat_audiogram.txt' using 1:2  with linespoints
+
+
+plot  '/media/data/Work/cnstellate/cat_audiogram.txt' using 1:3  with linespoints title "COHC " ,\
+      '/media/data/Work/cnstellate/cat_audiogram.txt' using 1:4  with linespoints title "CIHC "
+
