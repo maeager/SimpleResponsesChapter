@@ -18,8 +18,7 @@ The design and methods for the construction of the model shall provide insights 
 It still remains a laborious task to develop an accurate representation of complex behaviour of real neural networks.
 Pre-eminent computational neuroscientists have noted that ``choices, assumptions, and guesses [are] an integral part of neuronal modeling'' \citep{SegevBurkeEtAl:1998}.
 With the acceleration of computational power and enhanced experimental techniques in multi-unit recordings are enabling more detailed neural models to be developed.
-%There is much to be gained from biophysically-realistic modelling approaches, especially in the heavily investigated cochlear nucleus in birds and mammals.
-Examples of parameter estimation and fitting in neural models are also becoming more advanced, for example SSNNS~\citep{SichtigSchafferEtAl:2008}, NeuroFitter \citep{VanAchardEtAl:2007}~and MultiRunFitter (a feature in NEURON).
+There is much to be gained from biophysically-realistic modelling approaches, especially in the heavily investigated cochlear nucleus of mammals and highly evolved auditory systems of bats and birds.
 
 
 \yellownote{See  neural detail in auditory system\citep{LuRubioEtAl:2008}}
@@ -28,7 +27,9 @@ Examples of parameter estimation and fitting in neural models are also becoming 
 
 % {Discuss use of Poisson models vs HH-like models.  Discuss single cell
 % simulation vs whole network simulation during optimisation.}
-To develop and optimise detailed neural models and neural network models, reproducible research methods are required. In this chapter, a tabular method introduced by \citet{NordlieGewaltigEtAl:2009} is used to summarise the neural models used in each optimisation step.
+To develop and optimise detailed neural models and neural network models, reproducible research methods are required. 
+Examples of parameter estimation and fitting in neural models are also becoming more advanced, for example SSNNS~\citep{SichtigSchafferEtAl:2008}, NeuroFitter \citep{VanAchardEtAl:2007}~and MultiRunFitter (a feature in NEURON).
+In this chapter, a tabular method introduced by \citet{NordlieGewaltigEtAl:2009} is used to summarise the neural models used in each optimisation step.
 The Nordlie tables shown in each optimisation stage consist of A) the model summary, B) cell type populations, C) connectivity between two cell types, D) neuron and synapse models, and E) optimisation parameters.
 This method aims to show a consistent and recognisable format for presenting various neural network models and their constituents.
 \yellownote{this needs more explanation in the methods sections}
@@ -57,18 +58,18 @@ Each cell type is shown with its \EIRA and \PSTH, although this may vary within 
 The stellate network model drawn in Figure~\ref{fig:microcircuit} describes the following cells and models:
 \begin{enumerate}
 \item The Carney phenomenological auditory model \citet{ZilanyBruceEtAl:2009}:
-This model provides spiking input to cochlear nucleus neurons across frequencies and spontaneous rate types of the auditory nerve from an arbitrary  input stimulus.
-The base line in Figure~\ref{fig:microcircuit} is a   simplification of auditory nerve fibres (ANF) from low best frequency (BF) to   high BF (left to right).
-The model reproduces responses for high and low SR ANFs at 100 channels across the frequency range 200 Hz to 48 kHz.
+  This model provides spiking input to cochlear nucleus neurons across frequencies and spontaneous rate types of the auditory nerve from an arbitrary  input stimulus.
+  The base line in Figure~\ref{fig:microcircuit} is a   simplification of auditory nerve fibres (ANF) from low best frequency (BF) to   high BF (left to right).
+  The model reproduces responses for high and low SR ANFs at 100 channels across the frequency range 200 Hz to 48 kHz.
 \item The Golgi cell: a {GABA}ergic \VCN~marginal shell unit that is presumed to regulate excitability in the \GCD~and core \VCN~units \citep{FerragamoGoldingEtAl:1998}.
-Only one \textit{in vivo} study has recorded extracellular data in the marginal shell area of the \CN~\citep{GhoshalKim:1997}.
-The presumed characteristics of Golgi cells are  taken from that study and are defined by a monotonic response to tones and noise, a type I\slash III~\EIRA, and an unusual or chopper {\PSTH}.
+  Only one \textit{in vivo} study has recorded extracellular data in the marginal shell area of the \CN~\citep{GhoshalKim:1997}.
+  The presumed characteristics of Golgi cells are  taken from that study and are defined by a monotonic response to tones and noise, a type I\slash III~\EIRA, and an unusual or chopper {\PSTH}.
 \item The D~stellate cell: a glycinergic, large multipolar cell with \OnC~\PSTH~response that acts as a coincidence detector.
-Its large dendritic area increases its response to noise allowing it to behave as a wide-band inhibitor in the \VCN, \DCN, and contralateral\CN~\citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
+  Its large dendritic area increases its response to noise allowing it to behave as a wide-band inhibitor in the \VCN, \DCN, and contralateral\CN~\citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
 \item The Tuberculoventral cell: a glycinergic, type II~{\EIRA}~unit in the deep layer of the \DCN~\citep{SpirouDavisEtAl:1999}.
-This cell acts as a delayed echo-suppressor and narrow-band inhibitor, with recurrent connections between D~and T~stellate cells in the \VCN~\citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
+  This cell acts as a delayed echo-suppressor and narrow-band inhibitor, with recurrent connections between D~and T~stellate cells in the \VCN~\citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
 \item the T~stellate cell: one of the major output projection cells of the  cochlear nucleus to the inferior colliculus.
-This multipolar neuron has been shown to have robust spectral representation and enhanced synchronisation to modulation in speech sounds~\citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
+  This multipolar neuron has been shown to have robust spectral representation and enhanced synchronisation to modulation in speech sounds~\citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 \end{enumerate}
 
 \begin{figure}[htb]
@@ -94,7 +95,7 @@ Models of the auditory system over the last 30 years have expanded our understan
 % \smallskip{}
 
 The auditory system is topographically ordered from the basilar membrane to the cortex in terms of frequency selectivity, also called tonotopicity~\citep{YoungOertel:2004}.
-The population of auditory nerve fibres (ANFs, Fig.~\ref{fig:Cat_Human_CN}), bifurcate after entering the cochlear nucleus to innervate the \VCN~and \DCN, retaining their tonotopic order \citep{Lorente:1981,Liberman:1982,Liberman:1993}.
+The population of auditory nerve fibres (ANFs, Fig.~\ref{fig:CN_Cat_Human}), bifurcate after entering the cochlear nucleus to innervate the \VCN~and \DCN, retaining their tonotopic order \citep{Lorente:1981,Liberman:1982,Liberman:1993}.
 Type 1 \ANFs are categorised into {\HSR}~and {\LSR}~fibres \citep{Liberman:1978}, where \LSR~fibres have a higher threshold and wider dynamic range than \HSR~fibres.
 They also project to the \GCD~\citep{RyugoParks:2003, RyugoHaenggeliEtAl:2003} along with the smaller, unmyelinated type 2 \ANFs, which suggests they play a different role in sound processing to \HSR~fibres.
 
@@ -127,7 +128,7 @@ sounds and transformations that occur in the central auditory system.
 
 %
 % \smallskip{}
-\subsection{Auditory nerve fibre model \label{sec:CN:resp-audit-models}}
+\subsection{Auditory nerve fibre model   \label{sec:CN:resp-audit-models}}
 
 The auditory nerve inputs to the cochlear nucleus model neurons are provided by phenomenological auditory periphery models originating from \citet{Carney:1993}.
 The ARLO model \citep{HeinzZhangEtAl:2001}; the Bruce model \citep{BruceSachsEtAl:2003, ZilanyBruce:2006, ZilanyBruce:2007}; and the Zilany model \citep{ZilanyBruceEtAl:2009}.
@@ -284,10 +285,10 @@ Boundaries are considered closed bookends, where post-synaptic neurons select on
 
 \section{Simulations}
 
-Optimisation simulations were performed on a single PC 
+Optimisation simulations were performed on a single PC
 
 
-Random number generator 
+Random number generator
 
 
 

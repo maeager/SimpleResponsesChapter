@@ -10,7 +10,7 @@ This section provides an overview of the pragmatic details of the \textsf{cnstel
 \subsubsection{Optimisation}
 
 The optimisation routine used in this chapter was NEURON's \textsf{fit\_praxis},
-which uses the algorithm PRAXIS~\citep{Brent:1976}. 
+which uses the algorithm PRAXIS~\citep{Brent:1976}.
 
 \begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure.]
 -----parameters_****.hoc--------------
@@ -19,7 +19,7 @@ which uses the algorithm PRAXIS~\citep{Brent:1976}.
   pvec = new Vector()                // contains the parameters to be fitted
   pvec_ranges= new Matrix(NPARAMS,2) // (min,max) pairs for each param
   pvec_name = new List()             // names of parameters in String list
-  pvec_factor = new Vector(NPARAMS,1)// regulates variables so pvec is in same range to aid fit_praxis 
+  pvec_factor = new Vector(NPARAMS,1)// regulates variables so pvec is in same range to aid fit_praxis
   //min
   for i=0,NPARAMS-1 pvec_ranges.x[i][0]= 0.000001
   //max
@@ -27,20 +27,19 @@ which uses the algorithm PRAXIS~\citep{Brent:1976}.
   //Names                                               //Initial values	//Param Factor
   pvec_name.append(new String("param.w.x[lsr][tv]"))	pvec.append(0.00190)	pvec_factor.append(1)
   pvec_name.append(new String("param.w.x[hsr][tv]"))	pvec.append(0.00130)	pvec_factor.append(1)
-  pvec_name.append(new String("param.w.x[hsr][ds]"))	pvec.append(0.00170)	pvec_factor.append(1) 
+  pvec_name.append(new String("param.w.x[hsr][ds]"))	pvec.append(0.00170)	pvec_factor.append(1)
 
 ---------------------
   proc runprax(){
     attr_praxis(0.0001, 0.01, 3)
     fit_praxis(NPARAMS,"error_fcn",&pvec.x[0])
- }
+  }
 \end{lstlisting}
 
 
 \subsubsection{Data extraction    \label{sec:data-extraction}}
 
-\todo[inline]{Special comments on the use of g3data to extract data points from
-  PDF literature documents }
+\todo[inline]{Special comments on the use of g3data to extract data points from  PDF literature documents }
 
 
 
@@ -59,9 +58,9 @@ The cochlear nucleus stellate microcircuit software code used in this chapter is
 called \textsf{cnstellate} and is implemented in NEURON, NMODL and C source
 code. Acknowledgments should be made to M.S.A. Zilany and colleagues for their
 work on the AN model, Dominic Mazzoni for the real-time resample library
-interface, and \citet{MiglioreCanniaEtAl:2006} for the parallel NEURON network model \textsf{netmod} (see SenseLab models 
-\href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034}{52034}, 
-\href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730}{2730}, 
+interface, and \citet{MiglioreCanniaEtAl:2006} for the parallel NEURON network model \textsf{netmod} (see SenseLab models
+\href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034}{52034},
+\href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730}{2730},
 \href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781}{51781}).
 
 
@@ -75,16 +74,16 @@ in the \textsf{cnstellate} directory to simulate the optimisation for D~stellate
 click recovery.  The \textsf{make gui} command calls the standard
 \textsf{nrnivmodl} to convert all *.mod files in the directory to a compiled
 library, that can be imported into NEURON; then appends the \textit{libresample}
-interface to the locally compiled NEURON executable \textit{special}. 
+interface to the locally compiled NEURON executable \textit{special}.
 
-The first run of a stimulus may take some time if the AN responses have not been previously saved, since the Zilany \& Bruce version 3 model requires 500~kHz resolution in the stimulus, this is then downsampled to a lesser resolution for the spike generator and saved for further use. 
+The first run of a stimulus may take some time if the AN responses have not been previously saved, since the Zilany \& Bruce version 3 model requires 500~kHz resolution in the stimulus, this is then downsampled to a lesser resolution for the spike generator and saved for further use.
 The resolution spike generator is generally at or above 10~kHz to match the simulations' time step of 0.1 ms.
-Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} only needs 100~kHz sampling rate for stimulus below 20~kHz. 
+Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} only needs 100~kHz sampling rate for stimulus below 20~kHz.
 %The directory for the saved AN responses is determined by the variable \textsf{ANsoundspath}.
 
 
 \yellownote{RM NMODL files}
-\citep{RothmanManis:2003b} 
+\citep{RothmanManis:2003b}
 
 
 \begin{lstlisting}[label=lst:headerlines,caption={Headerlines in \mbox{\textsf{DS\_ClickRecovery\.hoc}} show a typical setup in a \textsf{cnstellate} simulation.}]
@@ -99,7 +98,7 @@ Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} only needs 100~kHz sampli
   load_file("par_CNcell.tem")     //CNCell and Golgicell class
   load_file("CochlearNucleus.hoc")//Cells and network defined
 
-  load_file("cngui.hoc")          //Load GUI 
+  load_file("cngui.hoc")          //Load GUI
   //Model parameters unique to current simulation
   load_file("parameters_DS_ClickRecovery.hoc")
 
@@ -119,31 +118,18 @@ Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} only needs 100~kHz sampli
 
 \subsubsection{Auditory nerve and input utilities} \label{sec:APDX:auditory-nerve-input}
 
-The auditory model implementation in NEURON is a conversion from the MATLAB
-mex interface to NEURON's NMODL interface. Version 3 of the AN model
-\mbox{\textsf{an\_bruce.mod}}
+The auditory model implementation in NEURON is a conversion from the MATLAB mex interface to NEURON's NMODL interface. Version 3 of the AN model \mbox{\textsf{an\_bruce.mod}}
 
-Support for simulating the rat and human species, as well as the default cat
-species, are included in the NMODL files \mbox{\textsf{an\_bruce.mod}} and
-\mbox{\textsf{an\_zilany\_v4.mod}}.  Accommodation of different species is
-implemented within the procedures (\mbox{\textsf{cochlea\_x2f()}},
-(\mbox{\textsf{cochlea\_f2x()}}), (\mbox{\textsf{delay\_species()}}). occurs at
-the position on the basilar membrane to characteristic frequency mapping
-function (\mbox{\textsf{cochlea\_x2f()}}), the reciprocal frequency to position
-function (\mbox{\textsf{cochlea\_f2x()}}), and the delay function
-(\mbox{\textsf{delay\_species()}}).  Figure~\ref{fig:GetAudiogram} shows how
-audiograms from the appropriate species are mapped using a MATLAB routine
-\mbox{\textsf{fitaudiogram.m}} so that specific parameters can be passed from
-NEURON to the auditory model.  Rat basilar membrane frequency mapping in
-\mbox{\textsf{cochlea\_f2x()}} and \mbox{\textsf{cochlea\_x2f()}} included using
-data obtained from the Boston University Earlab website, \url{http://earlab.bu.edu}.
-Compression variables for the IHC and OHC components of the Zilany model are fit
-using audiogram data of a rat.  The audiogram in Fig.~\ref{fig:AudThresholdRat}
-was used to generate the compression data for the rat model.
+Support for simulating the rat and human species, as well as the default cat species, are included in the NMODL files \mbox{\textsf{an\_bruce.mod}} and \mbox{\textsf{an\_zilany\_v4.mod}}.
+Accommodation of different species is implemented within the procedures \mbox{\textsf{cochlea\_x2f()}}, \mbox{\textsf{cochlea\_f2x()}}, \mbox{\textsf{delay\_species()}} occurs at the position on the basilar membrane to characteristic frequency mapping function (\mbox{\textsf{cochlea\_x2f()}}), the reciprocal frequency to position function (\mbox{\textsf{cochlea\_f2x()}}), and the delay function (\mbox{\textsf{delay\_species()}}).
+Figure~\ref{fig:GetAudiogram} shows how audiograms from the appropriate species are mapped using a MATLAB routine \mbox{\textsf{fitaudiogram.m}} so that specific parameters can be passed from NEURON to the auditory model.
+Rat basilar membrane frequency mapping in \mbox{\textsf{cochlea\_f2x()}} and \mbox{\textsf{cochlea\_x2f()}} included using data obtained from the Boston University Earlab website, \url{http://earlab.bu.edu}.
+Compression variables for the IHC and OHC components of the Zilany model are fit using audiogram data of a rat.
+The audiogram in Fig.~\ref{fig:AudThresholdCatRat} was used to generate the compression data for the rat model.
 
 %\smallskip{}
 
-Listing~\ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands in 
+Listing~\ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands in
 \begin{lstlisting}[label=lst:makeaudiogram,caption=Using \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for the cat.]
   x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0);
   [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2));
@@ -157,24 +143,25 @@ Listing~\ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands in
 %   4000 1 0.95 1 ...
 % \end{lstlisting}
 \begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to freuencies in \textsf{cf} vector (\mbox{\textsf{Utilities.hoc}})]
-objref audiogram,cohc,cihc 
-proc GetAudiogramData(){ 
+objref audiogram,cohc,cihc
+proc GetAudiogramData(){
 ...
-  file.ropen(audiogram_file) 
-  audiogram.scanf(file,nrows,4) 
-...  
+  file.ropen(audiogram_file)
+  audiogram.scanf(file,nrows,4)
+...
   // Interpolate audiogram to frequencies in cf vector
-  cohc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(2).c) 
-  cihc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(3).c) 
-} 
+  cohc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(2).c)
+  cihc.interpolate(cf, audiogram.getcol(0).c, audiogram.getcol(3).c)
+}
 \end{lstlisting}
 
 
 \begin{figure}[th]
   \begin{center}
     \resizebox{0.8\textwidth}{!}{\includegraphics[keepaspectratio=true]{getaudiogram}}
-    \caption[Zilany auditory model conversion in NEURON]{Getting audiogram compression values for Zilany model in NEURON. 
-Data file \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}} (obtained from [earlab.bu.edu]) is used in \textsf{fitaudiogram.m} to generate outer and inner hair cell compression values. 
+    \caption[Zilany auditory model conversion in NEURON]%
+{Getting audiogram compression values for Zilany model in NEURON.
+Data file \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}} (obtained from [earlab.bu.edu]) is used in \textsf{fitaudiogram.m} to generate outer and inner hair cell compression values.
 When used in the \textsf{cnstellate} model in NEURON, the compression values are interpolated to frequency positions in the \textsf{cf} vector.
 \label{fig:GetAudiogram}}
   \end{center}
@@ -184,22 +171,18 @@ When used in the \textsf{cnstellate} model in NEURON, the compression values are
 
 %\smallskip{}
 
-The formula for the latency of acoustic stimulation to reach a particular point
-on the basilar membrane comprises a fixed conduction delay plus an additional
-delay that is an exponential function of the distance from the stapes. The
-frequency mapping function is defined as:
+The formula for the latency of acoustic stimulation to reach a particular point on the basilar membrane comprises a fixed conduction delay plus an additional delay that is an exponential function of the distance from the stapes.
+The frequency mapping function is defined as:
 \begin{equation}
   \label{eq:BM}
   f(x) = A\times10^{\left(a * x / L\right)} - K
 \end{equation}
-where \emph{x} is distance along the basilar membrane from the stapes.
+\noindent where \emph{x} is distance along the basilar membrane from the stapes.
 
 %\smallskip{}
 
-This equation is suitable since it uses the mapping function
-\mbox{\textsf{cochlea\_x2f()}} and its inverse, \mbox{\textsf{cochlea\_f2x()}},
-which is different for cat, rat and humans.  The data listed in
-Table~\ref{tab:f2x} shows the currently accepted parameters for each species.
+This equation is suitable since it uses the mapping function \mbox{\textsf{cochlea\_x2f()}} and its inverse, \mbox{\textsf{cochlea\_f2x()}}, which is different for cat, rat and humans.
+The data listed in Table~\ref{tab:f2x} shows the currently accepted parameters for each species.
 
 
 \begin{table}[ht]
@@ -221,73 +204,52 @@ Human & 165.4 & 2.1  & 1.0(0.88) & 35\\
 \resizebox{0.9\textwidth}{!}{\includegraphics{gfx/Audiogram_COHC_CIHC_cat}\includegraphics{gfx/Audiogram_COHC_CIHC_rat}}
 %    \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
     % \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{Audiograms}}
-    \caption[Audiogram and compression in rats and cats]{Hearing threshold audiogram of the domestic cat by \citet{HeffnerHeffner:1985} (A) and the Norwegian rat by \citet{HeffnerHeffner:1985} (B). (Data obtained from \href{earlab.bu.edu}). Compression values for the Zilany AN model for cat (C) and rat (D).}
-    \label{fig:AudThresholdCatRat}
+    \caption[Audiogram and compression in rats and cats]%
+{Hearing threshold audiogram of the domestic cat by \citet{HeffnerHeffner:1985} (A) and the Norwegian rat by \citet{HeffnerHeffner:1985} (B).
+(Data obtained from \href{earlab.bu.edu}).
+Compression values for the Zilany AN model for cat (C) and rat (D).
+\label{fig:AudThresholdCatRat}}
   \end{center}
 \end{figure}
 
 
-In the cat, \citet{CarneyYin:1988} fitted the latency vs \CF~curve from click
-responses in the cat to obtain the equation:
+In the cat, \citet{CarneyYin:1988} fitted the latency vs \CF~curve from click responses in the cat to obtain the equation:
 \begin{equation}
   \label{eq:delay}
    delay (x) = A_0 * {\rm exp}(-x / A_1 ) * 1e-3 - 1.0/CF
 \end{equation}
-\noindent where $x = \mathsf{cochlea\_f2x(species, CF)}$ is
-the distance along the basilar membrane, $A_0 = 8.13$ (ms), $A_1 = 6.49$
-(nm). \citet{HeinzZhangEtAl:2001} then corrected the peak click to match the
-onset delay of ANFs and this has been retained in the model used here
-\citep{ZilanyBruceEtAl:2009}: \(delay = A_0 * {\rm exp}(-x / A_1) * 1e-3 \)
-where $A_0 = 3.0$, $A_1 = 12.5$. In humans, the delay function is: \( delay =
-4.915 + 0.3631 * {\rm exp}(0.11324*x),\quad  5<x<35 (mm) \).
+\noindent where $x = \mathsf{cochlea\_f2x(species, CF)}$ is the distance along the basilar membrane, $A_0 = 8.13$ ms, $A_1 = 6.49$ nm.
+\citet{HeinzZhangEtAl:2001} then corrected the peak click to match the onset delay of ANFs and this has been retained in the model used here \citep{ZilanyBruceEtAl:2009}: \(delay = A_0 * {\rm exp}(-x / A_1) * 1e-3 \) where $A_0 = 3.0$, $A_1 = 12.5$. In humans, the delay function is: \( delay = 4.915 + 0.3631 * {\rm exp}(0.11324*x),\quad  5<x<35 (mm) \).
 
 %\smallskip{}
 
-Steps for converting any Carney Auditory Model written in C~for MATLAB~to a
-NEURON~NMODL~compatible C~file.
+Steps for converting any Carney Auditory Model written in C~for MATLAB~to a NEURON~NMODL~compatible C~file.
 \begin{enumerate}
 \item Remove mex headers
-\item remove \textsf{mexfunction}, this is replaced with equivalent NMODL
-  function that retrieves variables and returns the equivalent vectors
-\item Find and replace all vector or memory allocation routines with functions
-  in scopmath.h
+\item remove \textsf{mexfunction}, this is replaced with equivalent NMODL function that retrieves variables and returns the equivalent vectors
+\item Find and replace all vector or memory allocation routines with functions in scopmath.h
   \begin{itemize}
   \item \textsf{mxCalloc}$\Rightarrow$\textsf{makevector}
   \item \textsf{mxFree} $\Rightarrow$ \textsf{freevector}
   \end{itemize}
-\item Replace random generator functions \textsf{drand48()} to
-  \mbox{\textsf{scop\_random()}} and let random seed be set in NEURON or replace
-  \textsf{srand(seed)} with \mbox{\textsf{set\_seed(seed)}}.
-\item Calls to MATLAB functions within a mex file The most recent model within
-  the mex file.  This was converted to a simple double array of random values
-  with the \mbox{\textsf{normrand(0,1)}} function in \mbox{\textsf{scoplib.h}}.
+\item Replace random generator functions \textsf{drand48()} to \mbox{\textsf{scop\_random()}} and let random seed be set in NEURON or replace \textsf{srand(seed)} with \mbox{\textsf{set\_seed(seed)}}.
+\item Calls to MATLAB functions within a mex file The most recent model within the mex file.  This was converted to a simple double array of random values with the \mbox{\textsf{normrand(0,1)}} function in \mbox{\textsf{scoplib.h}}.
   \begin{itemize}
-  \item builtin \textsf{randn} $\Rightarrow$ generate an array gaussian random
-    numbers with scoplib's \mbox{\textsf{normrand(0,1)}} function
-  \item builtin \textsf{resample} $\Rightarrow$ implementation of a reliable
-    resampling function in C, using a real-time resample library (libresample
-    [reference needed]).
-  \item M-file \textsf{ffGn} $\Rightarrow$ generate a C function that implements
-    a the fast fractional Gaussian noise generator
+  \item builtin \textsf{randn} $\Rightarrow$ generate an array gaussian random numbers with scoplib's \mbox{\textsf{normrand(0,1)}} function
+  \item builtin \textsf{resample} $\Rightarrow$ implementation of a reliable resampling function in C, using a real-time resample library (libresample [reference needed]).
+  \item M-file \textsf{ffGn} $\Rightarrow$ generate a C function that implements a the fast fractional Gaussian noise generator
   \end{itemize}
 \end{enumerate}
 
 \subsubsection[CN cells]{Cochlear nucleus cell templates    \label{sec:APDX:Cell_templates}}
 
-The cochlear nucleus cell models were introduced by \citet{RothmanManis:2003b},
-after exploratory studies on the potassium currents of murine cochlear nucleus
-neurons \citep{RothmanManis:2003,RothmanManis:2003a}.
-Listing~\ref{lst:CellTemplate} shows the basic cell template for the
-single compartment neural models in the CN stellate microcircuit.  Each neuron
-contains a NEURON segment called soma that contains the active currents,
-synapses receptors and a spike detector. The model can be adjusted to include
-dendrite and axon segments if required. Internal variables and objects can be
-made publicly accessible using
+The cochlear nucleus cell models were introduced by \citet{RothmanManis:2003b}, after exploratory studies on the potassium currents of murine cochlear nucleus neurons \citep{RothmanManis:2003,RothmanManis:2003a}.
+Listing~\ref{lst:CellTemplate} shows the basic cell template for the single compartment neural models in the CN stellate microcircuit.
+Each neuron contains a NEURON segment called soma that contains the active currents, synapses receptors and a spike detector. The model can be adjusted to include dendrite and axon segments if required.
+Internal variables and objects can be made publicly accessible using
 
-The \sf{rm} module loaded for each \textsf{CNcell} soma section is the condensed
-current modules of sodium (\sf{Na}), high-threshold potassium (\sf{KHT}), leak,
-and the hyperpolarising mixed-cation (\sf{Ih}).  The low-threshold potassium
-current module, is only used by the \DS~cell and inserted seperately.
+The \sf{rm} module loaded for each \textsf{CNcell} soma section is the condensed current modules of sodium (\sf{Na}), high-threshold potassium (\sf{KHT}), leak, and the hyperpolarising mixed-cation (\sf{Ih}).
+The low-threshold potassium current module (KLT), is only used by the \DS~cell and inserted seperately.
 
 \begin{lstlisting}[label=lst:CellTemplate,caption=Rothman and Manis cochlear nucleus cell template (in CNcell.tem)]
   begintemplate CNcell
@@ -295,14 +257,14 @@ current module, is only used by the \DS~cell and inserted seperately.
   public AMPA, GlyR, GABAA //synapse objects
   public spikes,spiketimes //storage vectors
   public connect2target, synlist //synapse connection function and list
-  public cf,model,channel //identifying parameters 
+  public cf,model,channel //identifying parameters
 ...
   proc init(){local model
     create soma //primary section
     synlist = new List()
     spiketimes = new Vector()
     spikes = new Vector()
-    //Cell type mode 
+    //Cell type mode
     if($1 == 0) set_tstellate() //T~stellate cell
     if($1 == 1) set_tuberc()    //Tubervuloventral cell
     if($1 == 2) set_dstellate() //D~stellate cell
@@ -312,7 +274,7 @@ current module, is only used by the \DS~cell and inserted seperately.
 
     soma {
 //insert Rothman and Manis default currents (Na, KHT, Ih, and leak)
-      insert rm           
+      insert rm
 //insert AMPA Excitatory synapse
       AMPA = new ExpSyn(0.5)
       AMPA.tau = ampa_decay
@@ -345,8 +307,8 @@ proc set_tstellate() {
      L    = 19.5           //length of cell body
      diam = L              //diameter of cell body
      somaarea = PI*(L/1E4)^2   //um to cm2
-	
-//Set maximum conductance for each current	
+
+//Set maximum conductance for each current
 	gnabar_rm = nstomho(1000)*qt()
 	gkhtbar_rm = nstomho(80)*qt()
 	gkabar_ka =  nstomho(65)*qt()
@@ -364,22 +326,15 @@ endtemplate CNcell
 \subsubsection[Golgi model]{Golgi cell model
   optimisation    \label{sec:APDX:golgi-cell-model}}
 
-Each golgi cell template consists of a spike generator, \emph{sg}, a vector
-object representing the instantaneous rate, and a vector object of the current spike times and a list of accumulated spike times in previous repetitions. 
+Each golgi cell template consists of a spike generator, \emph{sg}, a vector object representing the instantaneous rate, and a vector object of the current spike times and a list of accumulated spike times in previous repetitions.
 The spike generator is the same inhomogeneous Poisson point process as used in the ANF spiking models.
-Parameters identifying each cell include the
-\emph{channel} number, CF and bandwidth of ANF input (actually the variance of
-the weight each auditory filter channel contributes to the firing of the cell).
+Parameters identifying each cell include the \emph{channel} number, CF and bandwidth of ANF input (actually the variance of the weight each auditory filter channel contributes to the firing of the cell).
 
-The rate-based golgi cell model at CF channel \emph{i} is created by :
+The rate-based golgi cell model at CF channel \emph{i} is created by:
 \begin{itemize}
-\item a selection of ANF input channels centred at \emph{i} with a spread,
-  \sLSRGLG;
-\item the instantaneous rate vectors of the LSR ANF's in each channel are
-  weighted (with a gaussian function (mean=\emph{i}, standard deviation =
-  $\sqrt{\sLSRGLG}$) and the weighted vectors are averaged; and
-\item the weighted average vector is convolved with an alpha function of time
-  constant 5 milliseconds, to simulate the synaptic and membrane dynamics of golgi cells
+\item a selection of ANF input channels centred at \emph{i} with variance $\sLSRGLG/2$;
+\item the instantaneous rate vectors of the LSR ANF's in each channel are weighted (with a gaussian function (mean=\emph{i}, standard deviation = $\sqrt{\sLSRGLG/2}$) and the weighted vectors are averaged; and
+\item the weighted average vector is convolved with an alpha function of time constant 5 milliseconds, to simulate the synaptic and membrane dynamics of golgi cells
 \end{itemize}
 \noindent The table~\ref{tab:GolgiCellModelSummary}C
 
@@ -417,9 +372,7 @@ public sg,sout,spikes //internal objects made public
 public SetRate2,GenSpikes2 //functions made public
 
 ---
-
 proc SetRate2() {local i,j,spon_factor
-
 // Calculate weight vectors based on this cell's
     position gaussian_mean = channel
     gaussian_variance = golgi_spatial_filter_variance_LSR
@@ -448,9 +401,7 @@ proc SetRate2() {local i,j,spon_factor
     // Push vector to spike generator object, sg
     sg.SetFibreRate(sout,spiketimes,sg_tdres)
 }
-
 ---
-
 endtemplate Golgicell
 
 \end{lstlisting}

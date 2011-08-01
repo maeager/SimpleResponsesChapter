@@ -8,7 +8,7 @@
 \TV~or vertical cells are glycinergic, inhibitory cells found in the deep layers of the \DCN~that send axon collaterals to the \VCN\@.
 They are characterized as having a non-monotonic response to tones with increasing sound level and respond poorly to broadband noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}, as shown in Fig.~\ref{fig:SpirouFig1}.
 Anterograde labeling in the \DCN~suggests \TV~cells project tonotopically to the \VCN~not just on-CF, but also to the low and high frequency side bands \citep{MunirathinamOstapoffEtAl:2004,OstapoffMorestEtAl:1999}.
-Ultra-structural labeling of synapses in the rat \DCN~suggest \TV~cells are inhibited by glycinergic \DS~cells and from sources in the \DCN~but excitatory inputs were not found from \TS~cells in the rat \citep{Rubio:2005}.
+Ultra-structural labeling of synapses in the rat \DCN~suggest \TV~cells are inhibited by glycinergic \DS~cells and from sources in the \DCN~but excitatory inputs were not found      from \TS~cells in the rat \citep{Rubio:2005}.
 Evidence in the mouse suggests otherwise since intracellular responses from labeled \TV~cells in the mouse show clear excitatory input from \TS~cells and diffuse inhibitory input from \DS~cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
 
 %\smallskip{}
@@ -156,8 +156,6 @@ The \TV~rate response could therefore just be modeled on the \LSR~response using
 % \input{TV_NotchTable.tex}
 
 
-
-
 \subsection{Optimisation Results}
 
 % \begin{figure}[tbh]
@@ -168,7 +166,6 @@ The \TV~rate response could therefore just be modeled on the \LSR~response using
 % % \includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_10_0.5.eps}\includegraphics[keepaspectratio=true,width=0.45\textwidth]{CN_rateplace_12.5_0.5.eps}
 % %   \small{Freq.\ Channel}
 % % }
-
 %   \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
 %   \caption{AN (top) and CN rate-place profiles from the CN stellate model in
 %   response to half and 1 octave notch noise inputs. }
@@ -283,6 +280,7 @@ The performance improves when reducing the sound level of the notch stimulus fro
 To encompass the use of changing the number and spread of synaptic connections a new error function was created to delete all synapses then reconnect the network with the new parameters.
 Figure~\ref{fig:TV_result_Run2_50} shows the optimisation results for different input sound intensities.
 The performance improves when reducing the sound level of the notch stimulus from 110 down to 50 dB \SPL\@.
+
 \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi, DS, basic TV }
 
 %\smallskip{}
@@ -308,18 +306,17 @@ The second group of 3 runs included the parameters \sDSTV, reversal potential of
 %\begin{subfloatrow}
 %    \subfloat[First optimisation run.]{\label{tab:DSresults:one}%
 \begin{minipage}{0.48\linewidth}
-    \begin{tabularx}{\textwidth}{|X|c|c|c|}
+\begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation Parameters A} \\ \hline
-    &  Run 1  &  Run 2  & Run 3   \\ \hline
-    \nDSTV  &   39    &   49    & 59  \\
+                &  Run 1  &  Run 2  & Run 3   \\ \hline
+    \nDSTV      &   39    &   49    & 59  \\
 \wDSTV~($\mu$S) & 0.0217  & 0.0217  & 0.0258  \\
-    \nLSRTV &   21    &   21    & 23  \\
-    \nHSRTV &   15    &   15    & 14  \\
+    \nLSRTV     &   21    &   21    & 23  \\
+    \nHSRTV     &   15    &   15    & 14  \\
 \wLSRTV~($\mu$S)& 0.0069  & 0.0069  & 0.0115  \\
 \wHSRTV~($\mu$S)& 0.0013  & 0.0013  & 0.0013  \\ \hline
- Error  & 1255.34 & 1028.70 & 1082.85 \\ \hline
+     Error      & 1255.34 & 1028.70 & 1082.85 \\ \hline
 \end{tabularx}%
-
 %}\quad
 % \subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
 %\label{tab:DSresults:two}%
@@ -327,13 +324,13 @@ The second group of 3 runs included the parameters \sDSTV, reversal potential of
   \begin{minipage}{0.48\linewidth}
 \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation Parameters B} \\ \hline
-     & Run 1  & Run 2  & Run 3  \\ \hline
+                 & Run 1  & Run 2  & Run 3  \\ \hline
 \sDSTV~(channel) &  21.3  & 31.31  & 21.31  \\
   \Eleak~(mV)    & -74.96 & -74.96 & -74.96   \\
 \oDSTV~(channel) & 22.03  & 22.03  & 22.03  \\
- \nDSTV  &   15   &   15   & 15 \\
+     \nDSTV      &   15   &   15   & 15 \\
 \wDSTV~($\mu$S)  & 0.0148 & 0.0148 & 0.0148 \\ \hline
- Error   & 599.37 & 539.1  & 586.74 \\ \hline
+     Error       & 599.37 & 539.1  & 586.74 \\ \hline
 \end{tabularx}%
 %}
 %\end{subfloatrow}
@@ -366,11 +363,11 @@ The results in the first set (Optimisation A) show the dominance of \LSR~over \H
   \begin{minipage}[h]{0.48\linewidth}
     \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation A} \\ \hline
-     & Run 1  & Run 2  & Run 3  \\ \hline
- \nDSTV  &   43   &   23   & 32 \\
+                 & Run 1  & Run 2  & Run 3  \\ \hline
+     \nDSTV      &   43   &   23   & 32 \\
 \wDSTV~($\mu$S)  & 0.0017 & 0.0017 & 0.0067 \\
-    \nLSRTV  &   29   &   32   & 32 \\
-    \nHSRTV  &   1    &   1    & 1  \\
+    \nLSRTV      &   29   &   32   & 32 \\
+    \nHSRTV      &   1    &   1    & 1  \\
 \wLSRTV~($\mu$S) & 0.0019 & 0.0019 & 0.0019 \\
 \wHSRTV~($\mu$S) & 0.0013 & 0.0013 & 0.0013 \\ \hline
   \hline Error   & 499.20 & 514.86 & 518.54 \\ \hline
@@ -379,21 +376,23 @@ The results in the first set (Optimisation A) show the dominance of \LSR~over \H
   \begin{minipage}[h]{0.48\linewidth}
     \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation B} \\ \hline
-     & Run 1  & Run 2  & Run 3  \\ \hline
+                 & Run 1  & Run 2  & Run 3  \\ \hline
 \sDSTV~(channel) &   13   &   7    & 17 \\
   \Eleak~(mV)    & -65.89 & -67.22 & -67.22 \\
 \oDSTV~(channel) &  2.1   &  2.1   & -7.9   \\
- \nDSTV  &   17   &   17   & 16 \\
+     \nDSTV      &   17   &   17   & 16 \\
 \wDSTV ($\mu$S)  & 0.0017 & 0.0017 & 0.0017 \\ \hline
   \hline Error   & 435.47 & 457.63 & 492.55 \\ \hline
 \end{tabularx}
   \end{minipage}
 \end{center}
 }
+
+
 \begin{figure}[htb]
   \centering
-  % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
-  % \resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result.eps}}
+%  \resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result.eps}}
+%  \resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result.eps}}
   \caption[Multiple results for a refined TV cell model with stimulus sound   levels at 70 dB SPL]{Optimisation results for a refined TV Notch model with stimulus sound levels at 70 dB SPL\@.
 The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV\@. The second group of 3 runs included the parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}   \label{fig:TV_result_Run2_70}
 \end{figure}
@@ -410,16 +409,16 @@ The eventual result of the \TV~cell optimisation, highlighted in the following t
 \noindent%
 \begin{tabularx}{\linewidth}{|X|c|c|c|}
 \hdr{4}{F}{Optimisation} \\ \hline
-    \textbf{Parameters}      & \textbf{Name} & \textbf{Range}& \textbf{Best Values} \\\hline
-   Number of \DS~synapses onto \TV~cells     &    \nDSTV &    [0,100] & 17 \\
-   Weight of \DS~synapses onto \TV~cells ($\mu$S)    &    \wDSTV & [1e-5,0.005]  & 0.0029 \\
-   Number of synapses, \LSR$\rightarrow$\TV~cells    &    \nLSRTV    & [0,100]    & 29   \\
-   Number of synapses, \HSR$\rightarrow$\TV~cells    &    \nHSRTV    & [0,100]    & 1  \\
- Weight of \LSR~syn on \TV~cells   ($\mu$S)  &    \wLSRTV    & [1e-5,0.005]  & 0.00017 \\
- Weight of \HSR~syn on \TV~cells   ($\mu$S)  &    \wHSRTV    & [1e-5,0.005]  & 0.00017 \\
- Spread of \DS~connections onto \TV~cells (channel)  &    \sDSTV & [0,100]    & 13     \\
- Offset of \DS~connections onto \TV~cells (channel)  &    \oDSTV & [-10,30]    & 2.1    \\
-Reversal potential of leak current in \TV~cells (mV) &    \Eleak & [-80,-50]   & -65.89 \\ \hline
+                \textbf{Parameters}                  & \textbf{Name} & \textbf{Range}& \textbf{Best Values} \\\hline
+       Number of \DS~synapses onto \TV~cells         &    \nDSTV     &    [0,100]    & 17 \\
+   Weight of \DS~synapses onto \TV~cells ($\mu$S)    &    \wDSTV     & [1e-5,0.005]  & 0.0029 \\
+   Number of synapses, \LSR$\rightarrow$\TV~cells    &    \nLSRTV    &    [0,100]    & 29   \\
+   Number of synapses, \HSR$\rightarrow$\TV~cells    &    \nHSRTV    &    [0,100]    & 1  \\
+     Weight of \LSR~syn on \TV~cells   ($\mu$S)      &    \wLSRTV    & [1e-5,0.005]  & 0.00017 \\
+     Weight of \HSR~syn on \TV~cells   ($\mu$S)      &    \wHSRTV    & [1e-5,0.005]  & 0.00017 \\
+ Spread of \DS~connections onto \TV~cells (channel)  &    \sDSTV     &    [0,100]    & 13     \\
+ Offset of \DS~connections onto \TV~cells (channel)  &    \oDSTV     &   [-10,30]    & 2.1    \\
+Reversal potential of leak current in \TV~cells (mV) &    \Eleak     &   [-80,-50]   & -65.89 \\ \hline
 \end{tabularx}
 }
 \yellownote{Pull everything about the TV cell model together.}

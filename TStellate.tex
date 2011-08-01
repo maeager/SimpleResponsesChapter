@@ -43,8 +43,6 @@ The second CT type is regular in the first 10 ms period, but rises to 0.3 or abo
 \subsection{Implementation}
 
 \yellownote{Para 1: Nordlie table~\ref{tab:TSModelSummary}A. Using R\&M  type 1-t, Other previous models}
-
-
 \yellownote{Synaptic inputs known and unknown, included and not included in model.  Previous work include and excludes}
 
 Figure~\ref{fig:TSinputs} shows the expected response of a T~stellate cell to individual connections from different cell types.
@@ -53,7 +51,7 @@ In this example, excitation from the afferent \ANF~inputs (\LSR~Figure~\ref{fig:
 \HSR~inputs show a rapid onset and a slowly adapting sustained depolarisation.
 
 
-\yellownote{Actual parameters: diameter =19.5$\mu$m, $\overline{g}_{\rm Na}=0$, $\overline{g}_{\rm KHT}=0.0189416$ S cm$^{-2}$, $\overline{g}_{\rm leak}=0.000473539$ S cm$^{-2}$, $\overline{g}_{\rm h}=$6.20392e-05 S cm$^{-2}$, $\overline{g}_{\rm KA}=0.01539$ S cm$^{-2}$,E$_{\rm rev}=-65$ mV, E$_{\rm Na}=50$ mV, E$_{\rm K}=-70$ mV.}
+\yellownote{Actual parameters: diameter =19.5$\mu$m, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S cm$^{-2}$, $\gKA=0.01539$ S cm$^{-2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
 
 
 \begin{figure}[htb]
@@ -67,8 +65,8 @@ Single stimulus responses are shown as a thin line and average response over 25 
 A. 30 LSR ANF synapses.
 B. 20 HSR ANF synapses.
 C. 20 D stellate cell glycinergic synapses.
-D. 15 Golgi cell GABA$_{\rm A}$ synapses.
-All weights were set to $0.0005\,\mu{\rm S}$ and the sodium conductance set to zero.
+D. 15 Golgi cell \GABAa synapses.
+All weights were set to $0.0005\,\mu{\rm S}$ and the sodium conductance (\gNa)set to zero.
 The parameters for synapse's were: excitatory (tau = 0.36 ms), glycinergic (tau1=0.4 and tau2=2.5 ms), and GABAergic (tau1=0.26 and tau2=5.43 ms).\label{fig:TSinputs}}
 \end{figure}
 
@@ -221,22 +219,22 @@ A. PSTH, B. CV, C. Average membrane voltage, and D. Voltage measures.}
 \noindent
 \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|}
 \hdr{6}{F}{Optimisation} \\ \hline
-   \textbf{Parameters}         &       \textbf{Name}       & \textbf{Range} & \multicolumn{3}{|c|}{\textbf{Best Values}}\\
-                                   &                           &                & CS&     CT1     & CT2 \\\hline
-Weight of HSR syn on TS  ($\mu$S)  &          \wHSRTS          &  [1e-5,0.03]   &   & 0.000708301 & 0.00168911\\
-Weight of LSR syn on TS  ($\mu$S)  &          \wLSRTS          &  [1e-5,0.03]   &   &  (0.0025)   & 0.00140628\\
- %  Number of synapses, LSR to TS  &          \nLSRTV          &     [0,64]     &   &             & \\
- %  Number of synapses, HSR to TS  &          \nHSRTV          &     [0,64]     &   &             & \\
- Weight of DS syn on TS  ($\mu$S)  &          \wDSTS           &  [1e-5,0.03]   &   &     --      & --\\
-%Number of DS syn on TS  ($\mu$S)  &          \nDSTS           &     [0,64]     &   &             & \\
- Weight of TV syn on TS  ($\mu$S)  &          \wTVTS           &  [1e-5,0.03]   &   &     --      & --\\
-%Number of TV syn on TS  ($\mu$S)  &          \nTVTS           &     [0,64]     &   &             & \\
-Weight of GLG syn on TS  ($\mu$S)  &          \wGLGTS          &  [1e-5,0.03]   &   &     --      & --\\
-%Number of GLG syn on TS  ($\mu$S) &          \nGLGTS          &     [0,64]     &   &             & \\ \hline
-TS~leak conductance (S cm$^{-2}$)  & $\overline{g}_{\rm leak}$ &  [1e-6,0.003]  &   & 0.000860145 & 8.9326e-05\\
- TS~KHT conductance (S cm$^{-2}$)  & $\overline{g}_{\rm KHT}$  &  [1e-6,0.003]  &   &  (0.0189)   & 0.0226787\\
-    TS~reversal potential (mV)     &       E$_{\rm rev}$       &   [-45,-70]    &   &   -54.26    & -63.502\\ \hline
-                          \multicolumn{3}{|l|}{Error}                           &   &   11.886    & 31.481\\ \hline
+         \textbf{Parameters}           & \textbf{Name} & \textbf{Range} & \multicolumn{3}{|c|}{\textbf{Best Values}}\\
+                                       &               &                & CS&     CT1     & CT2 \\\hline
+  Weight of HSR syn on TS  ($\mu$S)    &    \wHSRTS    &  [1e-5,0.03]   &   & 0.000708301 & 0.00168911\\
+  Weight of LSR syn on TS  ($\mu$S)    &    \wLSRTS    &  [1e-5,0.03]   &   &  (0.0025)   & 0.00140628\\
+   %  Number of synapses, LSR to TS    &    \nLSRTV    &     [0,64]     &   &             & \\
+   %  Number of synapses, HSR to TS    &    \nHSRTV    &     [0,64]     &   &             & \\
+   Weight of DS syn on TS  ($\mu$S)    &    \wDSTS     &  [1e-5,0.03]   &   &     --      & --\\
+  %Number of DS syn on TS  ($\mu$S)    &    \nDSTS     &     [0,64]     &   &             & \\
+   Weight of TV syn on TS  ($\mu$S)    &    \wTVTS     &  [1e-5,0.03]   &   &     --      & --\\
+  %Number of TV syn on TS  ($\mu$S)    &    \nTVTS     &     [0,64]     &   &             & \\
+  Weight of GLG syn on TS  ($\mu$S)    &    \wGLGTS    &  [1e-5,0.03]   &   &     --      & --\\
+  %Number of GLG syn on TS  ($\mu$S)   &    \nGLGTS    &     [0,64]     &   &             & \\ \hline
+TS max. leak conductance (S cm$^{-2}$) &    \gleak     &  [1e-6,0.003]  &   & 0.000860145 & 8.9326e-05\\
+TS max. KHT conductance (S cm$^{-2}$)  &     \gKHT     &  [1e-6,0.003]  &   &  (0.0189)   & 0.0226787\\
+      TS reversal potential (mV)       &    \Eleak     &   [-45,-70]    &   &   -54.26    & -63.502\\ \hline
+                      \multicolumn{3}{|l|}{Error}                       &   &   11.886    & 31.481\\ \hline
 \end{tabularx}
 }
 

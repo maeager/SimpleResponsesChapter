@@ -63,7 +63,7 @@ The contribution of a delayed, negative feedback onto \VCN~units is analogous to
 
 %\smallskip{}
 
- \begin{figure}[htp!]
+\begin{figure}[htp!]
    \centering
   % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}
   \resizebox{0.95\textwidth}{!}{\includegraphics{GhoshalKim}}
@@ -77,11 +77,11 @@ Unit S03-07 (CF 22.7~kHz) at the top will be the unit chosen to optimise the Gol
 In the creation of the Golgi cell model, we can reduce the explicit behaviour of Golgi cells down to three major details:
  \begin{enumerate}
  \item Golgi cells are classic repetitively-firing neurons due to their    type-I~current clamp response \citep{FerragamoGoldingEtAl:1998},
- \item Golgi cells have a low maximum rate and large dynamic range to tone and    noise increases, given marginal shell extracellular recordings of    \citet{GhoshalKim:1997} could not come from granule cells, and
- \item The low threshold in Golgi cells, \citet{GhoshalKim:1997}, can\-not be    due to \LSR~auditory nerve fibres.
-The lack of extensive experimental data    regarding type-II \ANF~units, that do project to the \GCD, and granule cell    response to acoustic input meant that a Poisson rate neural model would be preferred over the Hodgkin-Huxley type neural model.
- Although    \HSR~\ANF~terminals do not generally project into the \GCD, they are included    in this model to provide some low level sound-induced activity.
- \item the minimum \EPSP~to shock of the AN~\citep{FerragamoGoldingEtAl:1998}    and mean first spike latency to acoustic stimuli~\citep{GhoshalKim:1997} are    significantly different from the core \VCN~units.
+ \item Golgi cells have a low maximum rate and large dynamic range to tone and noise increases, given marginal shell extracellular recordings of \citet{GhoshalKim:1997} could not come from granule cells, and
+ \item The low threshold in Golgi cells, \citet{GhoshalKim:1997}, can\-not be due to \LSR~auditory nerve fibres.
+The lack of extensive experimental data regarding type-II \ANF~units, that do project to the \GCD, and granule cell response to acoustic input meant that a Poisson rate neural model would be preferred over the Hodgkin-Huxley type neural model.
+Although \HSR~\ANF~terminals do not generally project into the \GCD, they are included in this model to provide some low level sound-induced activity.
+ \item the minimum \EPSP~to shock of the AN~\citep{FerragamoGoldingEtAl:1998} and mean first spike latency to acoustic stimuli~\citep{GhoshalKim:1997} are significantly different from the core \VCN~units.
 % by $\mu(f=CF)$ and $\sigma$ variables, which control
  \end{enumerate}
 
@@ -105,7 +105,7 @@ The population of \ANFs~in Table~\ref{tab:GolgiCellModelSummary}B are zero becau
 
 %\smallskip{}
 
- \begin{figure}[htb]
+\begin{figure}[htb]
   \centering
  % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
 %  \resizebox{0.9\textwidth}{!}{\includegraphics{GolgiDiagram.eps}}\\
@@ -114,7 +114,7 @@ The population of \ANFs~in Table~\ref{tab:GolgiCellModelSummary}B are zero becau
 The Gaussian spread of connections is independent for HSR and LSR auditory filters, with the mean equal to CF channel of unit.
 The final stage sets the spontaneous rate by addition at t=0, changes any negative values to zero, and includes an additional delay of 2.5~ms, which is 0.7~ms greater than the core VCN units as shown by \citet{GhoshalKim:1997}.}
 % across frequency channels is Gaussian, and $\mathbf{w}$ is
-%    the weighted sum of HSR and LSR instantaneous-rate vectors,
+% the weighted sum of HSR and LSR instantaneous-rate vectors,
 % $\alpha$ is the synaptic and dendritic smoothing function.
   \label{fig:GolgiDiagram}
  \end{figure}
@@ -123,10 +123,10 @@ The final stage sets the spontaneous rate by addition at t=0, changes any negati
 
 The weight vectors, $\mathbf{w}_{HSR}$ and $\mathbf{w}_{LSR}$, span the network's channels with size $N_{\rm channel}$, with a normal curve centred on the position in the channel and variance \sANFGLG\@.
 Instantaneous-rate profiles of the \AN~have size $N_{\rm channel}$ and length determined by the stimulus ($N_{\rm stim}=$stimulus duration / sampling rate).
- The intermediate step in the Golgi cell model, $r(\cdot)$, corrects the output rate for the desired spontaneous activity, \Gspon, and performs rectification on the signal to avoid negative rate values.
- The final step involves convolution with the alpha function, $\alpha(t)$, as the synapto-dendritic filtering mechanism in the Golgi cell.
+The intermediate step in the Golgi cell model, $r(\cdot)$, corrects the output rate for the desired spontaneous activity, \Gspon, and performs rectification on the signal to avoid negative rate values.
+The final step involves convolution with the alpha function, $\alpha(t)$, as the synapto-dendritic filtering mechanism in the Golgi cell.
 The alpha filter length was 10 times the time constant, \Gtau, and its area under the function was normalised to 1.
- A more detailed explanation of the NEURON implementation of the Golgi cell model is in the section Appendix~\ref{sec:ch3:appendix}.
+A more detailed explanation of the NEURON implementation of the Golgi cell model is in the section Appendix~\ref{sec:ch3:appendix}.
 
 %\smallskip{}
 
@@ -154,22 +154,22 @@ The alpha filter length was 10 times the time constant, \Gtau, and its area unde
 % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
 % \caption{Optimisation Results for Golgi Model using Rate Level data from
 % \label{Ch3:fig:GolgiFit}}
-%   \includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
-%   \caption{Optimisation Results for Golgi Model using Rate Level data from
+%\includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
+%\caption{Optimisation Results for Golgi Model using Rate Level data from
 % \label{Ch3:fig:GolgiRL}}
 
-%   \includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
-%   \caption{Optimisation Results for Golgi Model using Rate Level data from
+%\includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
+%\caption{Optimisation Results for Golgi Model using Rate Level data from
 % \label{Ch3:fig:GolgiRL}}
-%   \includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
-%   \caption{Optimisation Results for Golgi Model using Rate Level data from
+%\includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
+%\caption{Optimisation Results for Golgi Model using Rate Level data from
 % \label{Ch3:fig:GolgiRL}}
 
 
 \subsection{Results}
 
 Figure~\ref{fig:GolgiTestResult} shows the output of the test optimisation trials for the Golgi cell model.
- The testing trial used only five sound levels (0, 15, 55, 75 and 85 dB \SPL) and detected the mean rate from the instantaneous profile in its fitting routine.
+The testing trial used only five sound levels (0, 15, 55, 75 and 85 dB \SPL) and detected the mean rate from the instantaneous profile in its fitting routine.
 The best response obtained a minimum root mean squared error of 11.63 spikes/sec against the five points in the target experimental data of unit S03-07 (CF=21~kHz) from \citep{GhoshalKim:1996}.
 A rate-level curve (green circles, Figure~\ref{fig:GolgiTestResult}) was generated from the spiking output only to show a big discrepancy in the spike-based rate-level and the monotonic rate based rate-level.
 The lack of low level response and a higher threshold indicated the need for some \HSR~input into the Golgi cell model.
@@ -179,7 +179,7 @@ The lack of low level response and a higher threshold indicated the need for som
 
 \begin{figure}[htb]
   \centering
-  \resizebox{0.6\textwidth}{!}{\includegraphics{GolgiRateLevel_result2.eps}}\\
+  \resizebox{0.6\textwidth}{!}{\includegraphics{gfx/GolgiRateLevel_result2.eps}}\\
   \caption[Initial results of Golgi cell model]{Initial trial results of the Golgi cell model optimisation.
  Responses of the Golgi cell model (blue triangles) compared five five sound level (0,15, 55, 75 and 85 dB SPL) against 5 point in the target response (red squares).
 The eventual best optimisation response obtained a minimum error of 11.63 spikes/s (root mean squared).
@@ -219,7 +219,7 @@ Spontaneous rate in Golgi cell model (spikes / sec) &    SR$_{\rm GLG}$     &   
 \begin{figure}[htb]
   \centering
   % \resizebox{3.5in}{!}{\includegraphics{NoFigure}} \\
-  \resizebox{0.6\textwidth}{!}{\includegraphics{GolgiRateLevel_result.eps}} \\
+%  \resizebox{0.6\textwidth}{!}{\includegraphics{GolgiRateLevel_result.eps}} \\
   % \hspace{1cm}\figfont{A}\hfill\\
   %\resizebox{\textwidth}{!}{\includegraphics{GolgiRateLevel_result2.eps}} \\
   % \hspace{1cm}\figfont{B}\hfill \\

@@ -10,12 +10,11 @@
          \textbf{Populations}          & Six: HSR \& LSR ANFs, Golgi, DS, TV and TS cells \\\hline
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
         \textbf{Connectivity}          & ANF$\to${Golgi,DS,TV,TS}, Golgi$\to$DS,TS, DS$\to$TV,TS, and TV$\to$TS  \\\hline
-\textbf{Input model} & ANF~model: phenomenological instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\
+         \textbf{Input model}          & ANF~model: instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\\hline
 \multirow{4}{*}{\textbf{Neuron model}} & Golgi: instantaneous-rate Poisson model\\
                                        & D~stellate: HH-like single-compartment type 1-2 R\&M model\\ 
                                        & Tuberculo-ventral cell:  HH-like single-compartment type 1-c R\&M model \\
                                        & T~stellate: HH-like single-compartment type 1-t R\&M model\\ \hline
-
        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
         \textbf{Synapse model}         & AMPA (\textit{ExpSyn}), GABA$_{\rm A}$ (\textit{Exp2Syn}), Glycine (\textit{Exp2Syn}) \\\hline
             \textbf{Input}             & Pure tones at CF of designated exemplar neuron.\\\hline
@@ -27,12 +26,12 @@
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|X|}\hline
 \hdr{3}{B}{Populations}\\\hline
-\textbf{Name} &    \textbf{Elements}    & \textbf{Size} \\\hline
-     HSR      &    Poisson generator    & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
-     LSR      &    Poisson generator    & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
-     GLG      &    Poisson generator    & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
-     DS       &   Type I-II R\&M model    & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
-     TV       & Type I-classic R\&M model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
+\textbf{Name} &      \textbf{Elements}      & \textbf{Size} \\\hline
+     HSR      &      Poisson generator      & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
+     LSR      &      Poisson generator      & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
+     GLG      &      Poisson generator      & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
+     DS       &    Type I-II R\&M model     & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
+     TV       &  Type I-classic R\&M model  & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
      TS       & Type I-transient R\&M model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
 \end{tabularx}
 \vspace{2ex}
@@ -41,15 +40,15 @@
 \noindent%
 \begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
-\textbf{Name} & \textbf{Source} & \textbf{Target}  & \textbf{Pattern} \\\hline
-%   \ANFDS     &       ANF       &    D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
-%   \ANFTV     &       ANF       & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
-   \ANFTS     &       ANF       & T~stellate & Narrowband connection at CF, zero spread \\\hline
-%   \GLGDS     &      Golgi      &    D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
-%    \DSTV     &   D~Stellate    & Tuberculoventral & Gaussian, centered at CF with spread \sDSTV \\\hline
- \GLGTS     &      Golgi      &    T~Stellate    & Gaussian, centered at CF with spread \sGLGTS \\\hline
-    \DSTS     &   D~Stellate    & T~stellate & Gaussian, centered at CF with spread \sDSTS \\\hline
- \TVTS     &      Tuberculoventral      &    T~Stellate    & Gaussian, centered at CF with spread \sTVTS \\\hline
+\textbf{Name} & \textbf{Source}  & \textbf{Target}  & \textbf{Pattern} \\\hline
+ %   \ANFDS   &       ANF        &    D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
+ %   \ANFTV   &       ANF        & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
+   \ANFTS     &       ANF        &    T~stellate    & Narrowband connection at CF, zero spread \\\hline
+ %   \GLGDS   &      Golgi       &    D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
+ %    \DSTV   &    D~Stellate    & Tuberculoventral & Gaussian, centered at CF with spread \sDSTV \\\hline
+   \GLGTS     &      Golgi       &    T~Stellate    & Gaussian, centered at CF with spread \sGLGTS \\\hline
+    \DSTS     &    D~Stellate    &    T~stellate    & Gaussian, centered at CF with spread \sDSTS \\\hline
+    \TVTS     & Tuberculoventral &    T~Stellate    & Gaussian, centered at CF with spread \sTVTS \\\hline
 \multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model. }\\\hline
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
