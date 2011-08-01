@@ -12,16 +12,16 @@
 #      faq, bugs, etc:	 type "help seeking-assistance"
 #      immediate help:   type "help"
 #      plot window:      hit 'h'
- set terminal postscript eps enhanced defaultplex \
-    leveldefault color  \
-    solid dashlength 1.0 linewidth 2.0 butt noclip \
-    palfuncparam 2000,0.003 \
-    "Helvetica" 18 
+#set terminal postscript eps enhanced defaultplex \
+#    leveldefault color  \
+#    solid dashlength 1.0 linewidth 2.0 butt noclip \
+#    palfuncparam 2000,0.003 \
+#    "Helvetica" 18 
 ## FONTSIZE=18
 # set term postscript enhanced mono solid "Helvetica" 18
 # set xlabel font "Helvetica,22"
 # set ylabel font "Helvetica,22"
- set output "GolgiRateLevel_result.eps"
+# set output "GolgiRateLevel_result.eps"
 # set size 0.48,0.2
 unset key
 set border 3 linewidth 1.5
@@ -54,3 +54,4 @@ set style line 3 lt 1 lw 3 pt 5 lc rgb '#dd181f' ps 1.5
 plot "./gfx/golgi/GolgiRateLevel_Opt.dat" using 1:2 title "Target Response" with lp ls 2, \
      "./gfx/golgi/GolgiRateLevel_Opt.dat" using 1:3 title "Fitted Response" with lp ls 3
      
+!fixbb gfx/GolgiRateLevel_result.eps

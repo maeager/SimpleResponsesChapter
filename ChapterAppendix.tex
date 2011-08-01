@@ -142,7 +142,7 @@ Listing~\ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands in
 %   ...  125 37 0 0.025 250 22 0 0.3 500 8 0.65 0.7 1000 3 0.9 0.9 2000 1 0.95 1
 %   4000 1 0.95 1 ...
 % \end{lstlisting}
-\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to freuencies in \textsf{cf} vector (\mbox{\textsf{Utilities.hoc}})]
+\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to frequencies in \textsf{cf} vector (\mbox{\textsf{Utilities.hoc}})]
 objref audiogram,cohc,cihc
 proc GetAudiogramData(){
 ...
@@ -233,7 +233,7 @@ Steps for converting any Carney Auditory Model written in C~for MATLAB~to a NEUR
   \item \textsf{mxFree} $\Rightarrow$ \textsf{freevector}
   \end{itemize}
 \item Replace random generator functions \textsf{drand48()} to \mbox{\textsf{scop\_random()}} and let random seed be set in NEURON or replace \textsf{srand(seed)} with \mbox{\textsf{set\_seed(seed)}}.
-\item Calls to MATLAB functions within a mex file The most recent model within the mex file.  This was converted to a simple double array of random values with the \mbox{\textsf{normrand(0,1)}} function in \mbox{\textsf{scoplib.h}}.
+\item Calls to MATLAB functions within a mex file The most recent model within the mex file.  This was converted to a simple double array of random values with the \protect{\mbox{\textsf{normrand(0,1)}}} function in \mbox{\textsf{scoplib.h}}.
   \begin{itemize}
   \item builtin \textsf{randn} $\Rightarrow$ generate an array gaussian random numbers with scoplib's \mbox{\textsf{normrand(0,1)}} function
   \item builtin \textsf{resample} $\Rightarrow$ implementation of a reliable resampling function in C, using a real-time resample library (libresample [reference needed]).

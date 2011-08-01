@@ -34,6 +34,7 @@
 %\usepackage{chancery}
 %\usepackage{palatino}
 \usepackage{mathpazo}
+%\usepackage[scaled=0.85]{beramono}
 
 
 %%
@@ -156,6 +157,12 @@
 	}
 }
 
+% ********************************************************************
+% figures are placed only within section they were declared in
+% provides command \FloatBarrier
+% ********************************************************************
+\usepackage[section,below]{placeins}
+
 
 %%
 %% Custom commands
@@ -186,6 +193,7 @@
 	{
 		% Title page has no headings
 		\thispagestyle{empty}
+                \pdfbookmark[1]{\@title}{titlepage}
 		% Call this page 1
 		\setcounter{page}{1}
 		% Use single spacing
@@ -259,6 +267,7 @@
 	\cleardoublepage
 	% Just the page number...
 	\thispagestyle{plain}
+        %\pdfbookmark[2]{Dedication}{Dedication}
 	\null\vfil
 	\begin{center}
 		\large\itshape
@@ -274,6 +283,7 @@
 %%
 
 \newenvironment{abstract}{%
+  %\pdfbookmark[2]{Abstract}{Abstract}
 	\chapter*{Abstract}
 }{%
 	\vfill\null
@@ -285,6 +295,7 @@
 %%
 
 \newenvironment{preface}{%
+ % \pdfbookmark[2]{Preface}{Preface}
 	\chapter*{Preface}
 }{%
 	\vfill\null
@@ -296,6 +307,7 @@
 %%
 
 \newenvironment{publications}{%
+%  \pdfbookmark[2]{Publications}{Publications}
 	\chapter*{Publications}
 }{%
 	\vfill\null
@@ -310,6 +322,7 @@
 %%
 
 \newenvironment{acknowledgements}{%
+%  \pdfbookmark[2]{Acknowledgements}{Acknowledgements}
 	\chapter*{Acknowledgements}
 }{%
 	\vfill\null
@@ -323,6 +336,7 @@
 %%
 
 \newcommand{\makedeclaration}{%
+ % \pdfbookmark[2]{Declaration}{Declaration}
 	\chapter*{Declaration}
 	
 	This is to certify that
@@ -521,4 +535,32 @@
 }
 
 
+%%
+%% Drafting Stuff
+%%
 
+% \DeclareOption{draft}{\newcommand\@ptsize{0}}
+% \DeclareOption{twoside}{\@twosidetrue  \@mparswitchtrue}
+
+ \RequirePackage{scrtime} % time access
+ % \RequirePackage{ifthen}
+ % \newboolean{drafting}
+ % \setboolean{drafting}{false}
+ % \DeclareOption{draft}{\setboolean{drafting}{true}\setlength\overfullrule{5pt}}
+ \newcommand{\finalVersionString}{}
+ % \ifthenelse{\boolean{drafting}}{%
+ %     \RequirePackage[draft]{prelim2e}
+ %         \renewcommand{\PrelimWords}{\relax}
+ %         \renewcommand{\PrelimText}{\footnotesize[\,\today\ at \thistime\, Hg Changeset \input{.hg/tags.cache}]}
+ % }{
+\renewcommand{\finalVersionString}{\emph{Final Version} as of \today\ at \thistime.}
+ % }
+
+
+\DeclareRobustCommand{\sidebox}[1]{\marginpar{%
+    \slshape\footnotesize%\small%
+    %\ifodd\thepage\raggedright\else\raggedleft\fi%
+    \parindent=0pt\lineskip=0pt\lineskiplimit=0pt%\baselineskip=10pt
+    \tolerance=2000\hyphenpenalty=300\exhyphenpenalty=300%
+    \doublehyphendemerits=100000\finalhyphendemerits=\doublehyphendemerits%
+    \raggedright\hspace{0pt}#1}}

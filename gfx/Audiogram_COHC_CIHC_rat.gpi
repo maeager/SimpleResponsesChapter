@@ -16,3 +16,4 @@ plot  '/media/data/Work/cnstellate/rat_bruce_audiogram.dat' using 1:2  with line
 plot  '/media/data/Work/cnstellate/rat_bruce_audiogram.dat' using 1:3  with linespoints title "COHC " ,\
       '' using 1:4  with linespoints title "CIHC "
 
+!fixbb gfx/Audiogram_COHC_CIHC_rat.eps
