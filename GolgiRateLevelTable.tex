@@ -34,9 +34,11 @@
 \noindent
 \begin{tabularx}{\textwidth}{|l|l|l|X|}\hline%
 \hdr{4}{C}{Connectivity}    \\\hline
-     \textbf{Name}       & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\multirow{2}{*}{ANF$\to$GLG} &      LSR       &      GLG       & Gaussian spatial spread centered on CF. Fixed variance $\sHSRGLG=2$. \\
-                         &      HSR       &      GLG       & Gaussian spatial spread centered on CF. LSR variance, \sLSRGLG, to be optimised.\\\hline
+       \textbf{Name}         & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
+\multirow{2}{*}{\ANFGLG} &       HSR       &       GLG       & 
+Gaussian spatial convergence, centered on CF, spread $\sigma^2 = \sHSRGLG=2$, weight \wHSRGLG, delay \dANFGLG \\
+                             &       LSR       &       GLG       & 
+Gaussian spatial convergent spread, centered on CF, spread $\sigma^2 = \sLSRGLG$ to be optimised, weight \wLSRGLG, delay \dANFGLG\\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -69,12 +71,14 @@ $\dag$\footnotesize{Synaptic filter is normalised, by setting the
 }
 
 % - E -----------------------------------------------------------------------------
-% \noindent\begin{tabularx}{\linewidth}{|l|X|}\hline %
-% \hdr{2}{\ref{tab:GolgiCellModelSummary} E}{Input\slash Output}\\\hline 
-% \textbf{Input Stimulus} & Rate Level function, 21~kHz tone at SPL -15 to 85 dB (20 ms delay, 2ms cosine squared on\slash off ramp)\\\hline 
-%  \textbf{Measurements}  & Mean rate of instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions). \\\hline
-% \end{tabularx}
-% \vspace{1ex}
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|}\hline %
+\hdr{2}{\ref{tab:GolgiCellModelSummary} E}{Input\slash Output}\\\hline 
+\textbf{Input Stimulus} & Rate Level function, 21~kHz tone at SPL -15 to 85 dB (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
+\textbf{Input} & Stimulus induced Poisson spike trains from \HSR and \LSR \ANFs\\\hline
+\textbf{Measurements}  & Mean rate of instantaneous rate profile or spikes sampled from Poisson spike-generator (25 repetitions). \\\hline
+\end{tabularx}
+\vspace{1ex}
 
 
 % \begin{ntab}{4}{|X|c|c|c|}{E}{Optimisation NTAB}

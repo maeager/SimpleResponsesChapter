@@ -30,11 +30,13 @@ As a result, \DCN~principal cells are inhibited by sharp spectral peaks close to
 %\smallskip{}
 
 \begin{figure}[htb]
-  \centering
-  % \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
-  \includegraphics[keepaspectratio,width=0.8\textwidth]{Spirou-Fig1-type2}
-  \caption[Experimental data of a single Type-II~DCN~unit]{Experimental data of a single Type-II~DCN~unit \citep[Fig.~1]{SpirouDavisEtAl:1999}.}   \label{fig:SpirouFig1}
-\end{figure}\yellownote{Figure~\ref{fig:SpirouFig1} needs permission}
+\centering
+% \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
+\includegraphics[keepaspectratio,width=0.8\textwidth]{Spirou-Fig1-type2}
+\caption[Experimental data of a single Type-II~DCN~unit]{Experimental data of a single Type-II~DCN~unit \citep[Fig.~1]{SpirouDavisEtAl:1999}.
+\yellownote{Figure~\ref{fig:SpirouFig1} needs permission}}
+\label{fig:SpirouFig1}
+\end{figure}
 
 
 \subsubsection{Modeling of Tuberculoventral cells}
@@ -134,16 +136,20 @@ The big issue with the optimisation of population mean rate responses is that th
 The \HSR~rate response is generally flat at medium to high sound intensities.
 \DS~cell response has a regular onset spike but has a low rate throughout the stimulus, which detracts from the purpose of using a whole network to optimise parameters for synaptic inputs regarding \TV~cells.
 The \TV~rate response could therefore just be modeled on the \LSR~response using a simple gradient-decent method.
+
 \yellownote{Population mean rate: Pros: fairly stable for smallish repetitions, Cons: removes timing}
 
 %\smallskip{}
 
- \begin{figure}[htb]
-   \centering \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}} \includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
-   \caption[Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit \citep[,~Fig.~9]{ReissYoung:2005}.}
-   \label{fig:TVReissFig9}
- \end{figure}
-\yellownote{Permission needed for Reiss and Young figures}
+\begin{figure}[htb]
+\centering 
+\resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{NoFigure}}
+%\includegraphics[keepaspectratio,width=0.8\textwidth]{./gfx/TV_Reiss}
+\caption[Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit \citep[,~Fig.~9]{ReissYoung:2005}.
+\yellownote{Permission needed for Reiss and Young figures}}
+\label{fig:TVReissFig9}
+\end{figure}
+
 
 
 \begin{figure}[htb]
@@ -425,7 +431,7 @@ Reversal potential of leak current in \TV~cells (mV) &    \Eleak     &   [-80,-5
 \subsection{Verification}
 
 
-The response of individual type-II units to notch and band-pass sweeps in Figure~\ref{fig:TVReissFig9} (reprinted from Figure 9 in \citep*{ReissYoung:2005}) was the main target for the optimisation of \TV~cells.
+The response of individual type II units to notch and band-pass sweeps in Figure~\ref{fig:TVReissFig9} (reprinted from Figure 9 in \citep*{ReissYoung:2005}) was the main target for the optimisation of \TV~cells.
 To replicate the response of a single unit to notch sweeps, notches were generated in GNU~Octave using Chebychev II filters\footnote{\textsf{cheby2} function   in octave-forge signal package.}  with a sampling rate of 100~kHz and an optimal filter number.
 The half octave sweep was calculated from -2~to~2~octaves away from 12.7~kHz at 1/32$^{nd}$ increments with logarithmically constant notch widths\footnotemark. A 50 ms stimulus at 50 dB SPL was setup up in the \AN~model for use by the \CN~stellate model.
 \footnotetext{Logarithmically constant means the notch width is calculated at
