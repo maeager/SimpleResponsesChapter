@@ -89,14 +89,12 @@ The \GLGDS~spread is set to 2 channels with zero offset, which corresponds to a 
 \label{fig:BackoffPalombi}}
 \end{figure}
 
-Fixed parameters included  the number of Golgi cells to \DS~cells ($\nGLGDS = 25$), the spread of \ANFs~to \DS~cells $\ANFDS$, and the extra delay from the auditory nerve.
-
+\DS input parameters that were preemptively fixed included: the number of \GLG to \DS synapses ($\nGLGDS = 25$), the spread of \ANFs~to \DS~cells (\sANFDSh and \sANFDSl), and the conduction delay from the auditory nerve (\dANFDS). 
 The first spike latency in high \CF \DS~cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate neurons in the VCN \citep{RhodeSmith:1986}.
-
 The addition of 0.5~ms to \ANFDS~connections is a combination of conductance and synaptic delay.
 
-The effect of Golgi cells on \DS~is delayed by the extra 0.7~ms delay from \ANF~to Golgi, plus the slow peak of \GABAa~inhibition.
-\yellownote{fix this paragraph}
+%%The effect of Golgi cells on \DS~is delayed by the extra 0.7~ms delay from \ANF~to Golgi, plus the slow peak of \GABAa~inhibition.
+%\yellownote{fix this paragraph}
 
 
 % \smallskip{}
@@ -218,14 +216,24 @@ Best result (green triangles).   } \label{fig:DS_ClickRecovery_result}
 % \newpage
 \subsection{Verification}    \label{sec:DS:verification}
 
-\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA. Leave AM responses till next chapter}
+%\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA. Leave AM responses till next chapter}
+
+The optimised parameters for inputs to the D~stellate cell model were applied to \DS units across the whole network using tones, noise and tones plus noise stimuli. 
+The \DS model outputs' behaviour is shown in Figure~\ref{fig:DS_verification}, similar to the Golgi cell model Figure~\ref{fig:Golgi_verification}. 
+Figure~\ref{fig:DS_verification}A and B show the response of the central \DS model (CF=5.8 kHz). The onset PSTH 
+%monotonic responses to tones and noise similar to other Ghoshal and Kim units (Figure~\ref{fig:GolgiKimFig2}).  
+Figure~\ref{fig:DS_verification}C shows the wide response of all \DS units in the network to a 5.8~kHz tone for increasing sound level. 
+Adding masking noise increases the width of the activity across the CF of the central unit (Figure~\ref{fig:DS_verification}D) highlighting the broad inputs of \ANFs onto \DS units.
+ %\smallskip{}
+
 
 \begin{figure}[htb]
 %\centering\hspace{0.5cm}
 \figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill\\
 %\resizebox{0.95\textwidth}{!}{
 \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined.eps}%
-\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle90.2.eps}\\
+%\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle90.2.eps}\\
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/psthsingle120.2.eps}\\ 
 %}\\\hspace{0.5cm}
 \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
 %  \resizebox{0.95\textwidth}{!}{%
@@ -237,9 +245,10 @@ Best result (green triangles).   } \label{fig:DS_ClickRecovery_result}
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50.3.eps}}\\
 \caption[Optimised DS cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8~kHz). 
 A. Rate level responses to tone, noise and tone plus noise. 
-B. PSTH at 90 dB~SPL.  
+B. PSTH at 120 dB~SPL to noise.  
 C. Response area equivalent using all DS units in the network. 
-D. Masked response across the CF of the central unit (15 dB noise).} \label{fig:DS_verification}
+D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF.} 
+\label{fig:DS_verification}
 \end{figure}
 
 

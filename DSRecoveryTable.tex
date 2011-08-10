@@ -1,8 +1,8 @@
 {\small%\linespread{0.5}
-  \begin{table}[ht]
+\begin{table}[ht]
     \caption{D~stellate cell  model summary}
     \label{tab:DScellModelSummary}
-  \end{table}
+\end{table}
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline
@@ -23,7 +23,7 @@
 %   after the minimum first spike latency for the unit.  The unit used
 %   in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
 \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 
 % - B -----------------------------------------------------------------------------
 \noindent%
@@ -35,7 +35,7 @@
      GLG      & Instantaneous-rate Poisson neuron        & $N_{\text{GLG}} = 1\times{}N_\mathsf{channel}$ \\\hline
      DS       & Type I-II \citeauthor{RothmanManis:2003b} model & 1 unit at channel 50, $CF = 5.6$ kHz \\\hline
 \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 
 % - C ------------------------------------------------------------------------------
 \noindent%
@@ -49,7 +49,7 @@ Skewed Gaussian convergence, centered on CF, spread below CF $\sigma^2 = \sANFDS
 Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGDS$, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
 \multicolumn{4}{|X|}{\ANFGLG from previous section, \GLG optimisation.}\\\hline
 \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 
 % - D ------------------------------------------------------------------------------
 \noindent%
@@ -57,12 +57,12 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGDS$, uniform weigh
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
  \textbf{Name} & DS cell model \\\hline
  \textbf{Type} & Type I-II \citep{RothmanManis:2003b}, conductance synapse input \\\hline
-\textbf{Subthreshold dynamics} & \INa, \IKLT, \IKHT, \Ih, \Ileak \\\hline
+\textbf{Subthreshold dynamics} & Na, KLT, KHT, Ih, and leak currents \\\hline
  \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
  \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 
-\noindent
+\noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{E}{Input\slash Ouput}\\\hline
 \textbf{Input Stimulus}  & Notch-noise (Stop-band filtered white noise)  \\\hline
@@ -78,7 +78,7 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGDS$, uniform weigh
 % %\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
 %\textbf{Measurements}    &  First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II~\DCN~unit~\citep{ReissYoung:2005}, Fig.~9. \\\hline
 \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 
 }
 

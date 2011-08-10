@@ -206,7 +206,7 @@ Six pathways leading out of the Coclear Nucleus\\
 #     3. Convolve the golgi vector with the alpha synaptic function 
 
 #+begin_LaTeX
-      \begin{eqnarray}
+\begin{eqnarray}
       w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1] \\
       \mathbf{g}_i = \sum^{i} w_L(i)\mathbf{L}_i + w_H(i)\mathbf{H}_i \\
       \mathbf{G}_i = \mathbf{g}_i * f_{\alpha} 

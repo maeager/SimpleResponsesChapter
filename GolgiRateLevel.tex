@@ -56,10 +56,9 @@ Extracellular recordings from labelled Golgi cells is not available in the liter
 Any extracellular spikes recorded in the \GCD~are most likely from Golgi cells since granule cell somata are less than $10 \mu{m}$ and their narrow axons are unlikely to elicit electrical activity in the electrodes.
 The majority of recorded units showed a monotonic increase in firing rate with increasing sound intensity \citep[Figure~\ref{fig:GolgiKimFig2}][]{GhoshalKim:1997}.
 
-\yellownote{The general assumption of the functional role of Golgi cells is to regulate granule cells but they may also provide automatic gain control to the principal VCN~units}
 
 Their monotonic responses to tones and noise over a wide dynamic range provides regulation of activity in granule cells.
-The contribution of a delayed, negative feedback onto \VCN~units is analogous to automatic gain control provides strong evidence for regulation of activity in granule cells.
+The contribution of a delayed, negative feedback onto \VCN~units is analogous to automatic gain control provides strong evidence for regulation of activity in granule cells. The general assumption of the functional role of Golgi cells is to regulate granule cells but they may also provide automatic gain control to the principal VCN~units, primarily D and T stellate cells \citep{FerragamoGoldingEtAl:1998a}.
 
 %\smallskip{}
 
@@ -191,7 +190,7 @@ The final optimisation routine with 22 levels and a Golgi cell model with \HSR~a
 Figure~\ref{fig:GolgiResult} shows the rate-level output of the best model response and its best combination of parameters are shown in Table~\ref{tab:GolgiCellModelSummary}E.
 The root mean squared error of the best response was 4.48~spikes per second.
 
-The parameters in Table~\ref{tab:GolgiCellModelSummary}E were within the range of expected values.
+The parameters in Table~\ref{tab:GolgiCellResults} were within the range of expected values.
 \LSR~inputs to the Golgi cell model out-weighted \HSR~inputs by more than a factor of 10.
 The monotonic response of \LSR~fibres at high sound levels were necessary to create the large dynamic range in the Golgi cell model, the \HSR~fibres were just as necessary to provide some low level activity.
 The spontaneous rate parameter matches the base response of unit S03-07 in Figure~\ref{fig:GolgiResult}.
@@ -206,8 +205,10 @@ The dendritic widths in Golgi cells are around 100 microns and the frequency sep
 Table~\ref{tab:GolgiCellModelSummary}E result table.\\
 {\small%% Result table
 \noindent%
+\begin{table}[htb]
+  \centering
 \begin{tabularx}{\textwidth}{|X|c|c|c|}\hline %{\textwidth}
-\hdr{4}{E}{Optimisation} \\ \hline
+\hdr{4}{}{GLG model parameters} \\ \hline
                 \textbf{Parameters}                 & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline
      Spatial spread LSR$\to$GLG (channel unit)      &  $\sANFGLG$   &     [0,10]     & 2.48  \\\hline
         Smoothing filter time constant (ms)         &    $\Gtau$    &     [0,20]     & 5.01  \\\hline
@@ -215,6 +216,9 @@ Table~\ref{tab:GolgiCellModelSummary}E result table.\\
           Weighted sum of LSR~(unit-less)           &  $\wLSRGLG$   &     [0,5]      & 0.0487\\\hline
 Spontaneous rate in Golgi cell model (spikes / sec) &   $\Gspon$    &     [0,50]     & 3.73  \\\hline
 \end{tabularx}
+  \caption{Golgi cell model optimisation parameters}
+  \label{tab:GolgiCellResults}
+\end{table}
 }
 
 \begin{figure}[htb]
@@ -276,7 +280,7 @@ The final root mean squared error was 4.48 spikes/s.
 
 
 After settling with the above optimised parameters, the Golgi cell model was run with typical inputs to determine it's behaviour outside of the optimisation routine.
-The Golgi cell at the centre of the network (CF=5.8 kHz) was tested and had monotonic responses to tones and noise similar to another Ghoshal and Kim unit Figure~\ref{fig:Golgi_verification}C shows the response of every Golgi cell model in the network to a 5.8~kHz tone, increased from 0 to 90 dB~{SPL}.
+The Golgi cell model was tested across the entire network using tones, noise and tones plus noise stimuli. Figure~\ref{fig:Golgi_verification}A, B and D show the response of a Golgi cell model at the centre of the network (CF=5.8 kHz) and had monotonic responses to tones and noise similar to other Ghoshal and Kim units (Figure~\ref{fig:GolgiKimFig2}).  Figure~\ref{fig:Golgi_verification}C shows the response of all \GLG units in the network to a 5.8~kHz tone, increased from 0 to 90 dB~{SPL}.
  %\smallskip{}
 
 \begin{figure}[htb]
@@ -298,7 +302,7 @@ The Golgi cell at the centre of the network (CF=5.8 kHz) was tested and had mono
 A. Rate level responses to tone, noise and tone plus noise. 
 B. PSTH at 90 dB~SPL.  
 C. Response area equivalent using all GLG units in the network. 
-D. Masked response across the CF of the central unit (15 dB noise).} \label{fig:Golgi_verification}
+D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF.} \label{fig:Golgi_verification}
 \end{figure}
 
 

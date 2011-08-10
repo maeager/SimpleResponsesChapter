@@ -5,11 +5,17 @@
 
 \subsection{Background}
  
-The work by Tony Paolini, Janine Clarey, Karina Needham and others at the Royal Victorian Eye and Ear Hospital were pivotal in collecting the T stellate cell experimental data used in this section.
-Accurate modelling of the cochlear nucleus, in particular chopper units and T~stellate cells.\yellownote{What? fix this}
-Figure~\ref{fig:PaoliniAIV} shows the intracellular acoustic classification of chopper units in the rat into three distinct types \citep{PaoliniClareyEtAl:2005}: CS chopper sustained, and two transient choppers CT1 and CT2.
+Accurate modelling of the cochlear nucleus, in particular chopper units and T~stellate cells.
+\yellownote{Expand background}
+
 This work expands on the extracellular classification by \citep{BlackburnSachs:1989} into slowly or transiently adapting and sustained choppers in cats.
-The intracellular traces in Figure~\ref{fig:PaoliniAIV} will form the basis for the optimisation routine of T~stellate cell model along with the CV statistics of each chopper type.
+
+
+Figure~\ref{fig:PaoliniAIV} shows the intracellular acoustic classification of chopper units in the rat into three distinct types \citep{PaoliniClareyEtAl:2005}: CS chopper sustained, and two transient choppers, CT1 and CT2.
+
+The work by Tony Paolini, Janine Clarey, Karina Needham and others at the Royal Victorian Eye and Ear Hospital were pivotal in collecting the T stellate cell experimental data used in this section.
+
+The intracellular traces in Figure~\ref{fig:PaoliniAIV} will form the basis for the optimisation routine of T~stellate cell model along with the CV statistics of each chopper type.  
 
 \begin{figure}[htb]
 \centering%
@@ -220,28 +226,29 @@ A. PSTH, B. CV, C. Average membrane voltage, and D. Voltage measures.}
 \noindent
 \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|}
 \hdr{6}{F}{Optimisation} \\ \hline
-         \textbf{Parameters}           & \textbf{Name} & \textbf{Range} & \multicolumn{3}{|c|}{\textbf{Best Values}}\\
-                                       &               &                & CS&     CT1     & CT2 \\\hline
-  Weight of HSR syn on TS  ($\mu$S)    &    \wHSRTS    &  [1e-5,0.03]   &   & 0.000708301 & 0.00168911\\
-  Weight of LSR syn on TS  ($\mu$S)    &    \wLSRTS    &  [1e-5,0.03]   &   &  (0.0025)   & 0.00140628\\
-   %  Number of synapses, LSR to TS    &    \nLSRTV    &     [0,64]     &   &             & \\
-   %  Number of synapses, HSR to TS    &    \nHSRTV    &     [0,64]     &   &             & \\
-   Weight of DS syn on TS  ($\mu$S)    &    \wDSTS     &  [1e-5,0.03]   &   &     --      & --\\
-  %Number of DS syn on TS  ($\mu$S)    &    \nDSTS     &     [0,64]     &   &             & \\
-   Weight of TV syn on TS  ($\mu$S)    &    \wTVTS     &  [1e-5,0.03]   &   &     --      & --\\
-  %Number of TV syn on TS  ($\mu$S)    &    \nTVTS     &     [0,64]     &   &             & \\
-  Weight of GLG syn on TS  ($\mu$S)    &    \wGLGTS    &  [1e-5,0.03]   &   &     --      & --\\
-  %Number of GLG syn on TS  ($\mu$S)   &    \nGLGTS    &     [0,64]     &   &             & \\ \hline
-TS max. leak conductance (S cm$^{-2}$) &    \gleak     &  [1e-6,0.003]  &   & 0.000860145 & 8.9326e-05\\
-TS max. KHT conductance (S cm$^{-2}$)  &     \gKHT     &  [1e-6,0.003]  &   &  (0.0189)   & 0.0226787\\
-      TS reversal potential (mV)       &    \Eleak     &   [-45,-70]    &   &   -54.26    & -63.502\\ \hline
-                      \multicolumn{3}{|l|}{Error}                       &   &   11.886    & 31.481\\ \hline
+          \textbf{Parameters}           & \textbf{Label} & \textbf{Range} & \multicolumn{3}{|c|}{\textbf{Best Values}}\\
+                                        &                &                &      CS     &     CT1     & CT2 \\\hline
+   Weight of HSR syn on TS  ($\mu$S)    &    \wHSRTS     &  [1e-5,0.03]   & 0.00201089  & 0.000817015 & 0.00248999 \\
+   Weight of LSR syn on TS  ($\mu$S)    &    \wLSRTS     &  [1e-5,0.03]   & 0.00286796  & 0.000774459 & 0.00203762\\ 
+   %  Number of synapses, LSR to TS     &    \nLSRTV     &     [0,64]     &             &             & \\                       
+   %  Number of synapses, HSR to TS     &    \nHSRTV     &     [0,64]     &             &             & \\
+   Weight of DS syn on TS  ($\mu$S)     &     \wDSTS     &  [1e-5,0.03]   & 0.000291181 & 6.38011e-05 & 0.00113529\\
+   %Number of DS syn on TS  ($\mu$S)    &     \nDSTS     &     [0,64]     &             &             & \\
+   Weight of TV syn on TS  ($\mu$S)     &     \wTVTS     &  [1e-5,0.03]   & 0.000884174 & 6.46063e-05 & 0.000866815\\
+   %Number of TV syn on TS  ($\mu$S)    &     \nTVTS     &     [0,64]     &             &             & \\
+   Weight of GLG syn on TS  ($\mu$S)    &    \wGLGTS     &  [1e-5,0.03]   & 0.000749812 & 9.3936e-05  & 5e-05\\
+  %Number of GLG syn on TS  ($\mu$S)    &    \nGLGTS     &     [0,64]     &             &             & \\ \hline
+TS max. leak conductance (mS cm$^{-2}$) &     \gleak     &    [1e-3,3]    &  0.657345   &  0.494097   & 0.72474\\
+ TS max. KHT conductance (S cm$^{-2}$)  &     \gKHT      &  [1e-6,0.003]	 &  0.0189416  &  0.018941   & 0.022858\\
+   %      TS reversal potential (mV)    &     \Eleak     &   [-45,-70]    &             &   -54.26    & -63.502\\ \hline
+                       \multicolumn{3}{|l|}{Error}                        &    6.496    &    5.928    & 5.569\\ \hline
 \end{tabularx}
-}\yellownote{Grab most recent data for the table}
-
+}
+%\yellownote{Grab most recent data for the table}
 
 \subsection{Verification}
 
+\yellownote{Explain the figure \ref{fig:TS_verification}}
 
 \begin{figure}[htb]
 \centering
@@ -253,7 +260,10 @@ TS max. KHT conductance (S cm$^{-2}$)  &     \gKHT     &  [1e-6,0.003]  &   &  (
 \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/TS_masked.eps}\\
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50.3.eps}}\\
-\caption[Optimised TS cell model responses]{Response of optimised TS cell model at the centre of the network (CF=5.8~kHz). A. Rate level responses to tone, noise and tone plus noise. B. PSTH at 90 dB~SPL.  C. Response area equivalent using all TS units in the network. D. Masked response across the CF of the central unit (15 dB noise).} \label{fig:TS_verification}
+\caption[Optimised TS cell model responses]{Response of optimised TS cell model at the centre of the network (CF=5.8~kHz). A. Rate level responses to tone, noise and tone plus noise. 
+B. PSTH at 90 dB~SPL.  
+C. Response area equivalent using all TS units in the network. 
+D. Masked response across the CF of the central unit (15 dB masking noise).} \label{fig:TS_verification}
 \end{figure}
 
 

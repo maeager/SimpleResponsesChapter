@@ -1,6 +1,6 @@
-{\vspace{2ex}
+{%\vspace{2ex}
 \small\linespread{0.5}
-  \begin{table}[htb]
+\begin{table}[htb]
     \caption{T~stellate cell model summary}
     \label{tab:TSModelSummary}
   \end{table}
@@ -20,7 +20,7 @@
             \textbf{Input}             & Pure tones at CF of designated exemplar neuron.\\\hline
         \textbf{Measurements}          & Intracellular membrane voltage and spikes recorded over 25 repetitions. Membrane voltage clipped at threshold, $\Theta$, then averaged and processed for IV measurements discussed in text.  Spikes are processed for PSTH and CV statistics. \\\hline
 \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 
 % - B -----------------------------------------------------------------------------
 \noindent%
@@ -34,29 +34,29 @@
      TV       &  Type I-classic R\&M model  & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
      TS       & Type I-transient R\&M model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
 \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 
 % - C ------------------------------------------------------------------------------
 \noindent%
 \begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
-\textbf{Name} & \textbf{Source}  & \textbf{Target}  & \textbf{Pattern} \\\hline
- %   \ANFDS   &       ANF        &    D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
- %   \ANFTV   &       ANF        & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
-   \ANFTS     &       ANF        &    TS    & 
+\textbf{Name} & \textbf{Source} & \textbf{Target}  & \textbf{Pattern} \\\hline
+ %   \ANFDS   &       ANF       &    D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
+ %   \ANFTV   &       ANF       & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
+   \ANFTS     &       ANF       &        TS        & 
 Narrowband connection at CF, zero spread, weight \wLSRTS and \wHSRTS, number \nLSRTS and \nHSRTS, delay \dANFTS \\\hline
- %   \GLGDS   &      Golgi       &    D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
- %    \DSTV   &    D~Stellate    & Tuberculoventral & Gaussian, centered at CF with spread \sDSTV \\\hline
-   \GLGTS     &      GLG       &    TS    & 
+ %   \GLGDS   &      Golgi      &    D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
+ %    \DSTV   &   D~Stellate    & Tuberculoventral & Gaussian, centered at CF with spread \sDSTV \\\hline
+   \GLGTS     &       GLG       &        TS        & 
 Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGTS$, weight \wGLGTS, number \nGLGTS, delay $\dGLGTS=0.5$ ms \\\hline
-    \DSTS     &    DS    &    TS    & 
+    \DSTS     &       DS        &        TS        & 
 Gaussian convergence, centered on CF, spread $\sigma^2 = \sDSTS$, weight \wDSTS, number \nDSTS, delay $\dDSTS=0.5$ ms \\\hline
-    \TVTS     & TV &    TS    & 
+    \TVTS     &       TV        &        TS        & 
 Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, number \nTVTS, delay $\dTVTS=0.5$ ms \\\hline
 \multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model. }\\\hline
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
-\vspace{2ex}
+\vspace{1ex}
 
 % - D ------------------------------------------------------------------------------
 
@@ -65,9 +65,10 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
  \textbf{Name} & DS, TV and TS cell models \\\hline
  \textbf{Type} & R\&M \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+\textbf{Subthreshold dynamics} & Na, KA, KHT, Ih, and leak currents \\\hline
  \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
  \end{tabularx}
-\vspace{2ex}
+\vspace{1ex}
 % \noindent\begin{tabularx}{\textwidth}{|p{0.150.95\textwidth}|X|}\hline
 % \hdr{2}{D}{Neuron and Synapse Model}\\\hline
 % \textbf{Name} &  \\\hline
@@ -96,11 +97,10 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
 % \end{tabularx}
 
 %\vspace{2ex}
-%\noindent
-%\begin{tabularx}{\textwidth}{|l|X|}\hline %
-%\hdr{2}{E}{Input\slash Ouput}\\\hline
-%\textbf{Input Stimulus}  & Pure tone \\\hline
-\textbf{Input Stimulus} & Pure tone  CS (3.9~kHz 40 dB SPL) CT1 (8.2 kHz, 85 dB SPL) CT2 (12.4~kHz 35 dB SPL). All stimuli had 50 ms duration, 2 ms cosine squared on\slash off ramp, and  20 ms delay.\\\hline 
+\noindent
+\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\hdr{2}{E}{Input\slash Ouput}\\\hline
+\textbf{Input Stimulus} & Pure tone stimuli with 50 ms duration, 2 ms cosine squared on\slash off ramp, and 20 ms delay. Optimisation of each chopper unit used the CF and 30 dB re threshold sound level of the exemplar unit: CS (3.9~kHz 40 dB SPL), CT1 (8.2 kHz, 85 dB SPL), CT2 (12.4~kHz 35 dB SPL). \\\hline 
 \textbf{Input} & Stimulus induced Poisson spike trains from \GLG units, \HSR and \LSR \ANFs, and natural synaptic input from \DS and \TV units\\\hline
 %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}
 %\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps}
@@ -112,9 +112,8 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
 %\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
 %\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
 \textbf{Measurements}    &  Intracellular voltage was recorded and special measures were calculated.  Spikes recorded and co-efficient of variation statistic was calculated in 10 ms windows.\\\hline
-%\end{tabularx}
-%\vspace{2ex}
-
+\end{tabularx}
+\vspace{1ex}
 }
 
 %  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline

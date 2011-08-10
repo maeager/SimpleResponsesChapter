@@ -2738,7 +2738,8 @@ endif
 	$(MV) $*.auxtarget.cookie $*.auxtarget.make; \
 	if [ x"$$run" = x"1" ]; then \
 		$(call remove-files,$@.1st.make); \
-		for i in 2 3 4 5; do \
+#		for i in 2 3 4 5; do \
+		for i in 2 3; do \
 			$(if $(findstring 3.79,$(MAKE_VERSION)),\
 				$(call echo-build,$*.tex,$@,$(RESTARTS)-$$$$i),\
 				$(call echo-build,$*.tex,$@,$(RESTARTS)-$$i)\

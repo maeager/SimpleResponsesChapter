@@ -240,6 +240,23 @@ Steps for converting any Carney Auditory Model written in C~for MATLAB~to a NEUR
   \end{itemize}
 \end{enumerate}
 
+
+\subsection[Spiking model]{ANF spiking model}
+
+The spike generator used in the CN stellate model was created by B. Scott Jackson (bsj22@cornell.edu). 
+The code is available from the Carney Lab web site \href{http://www.urmc.rochester.edu/smd/Nanat/faculty-research/lab-pages/LaurelCarney/auditory-models.cfm}.
+
+The double exponentials for the refractory recovery, specific to ANFs, were:
+\begin{eqnarray}
+y_0(t) = c_0*exp(-t/s_0) \\
+y_1(t) = c_1*exp(-t/s_1) \\
+\end{eqnarray}
+where $t$ is the time relative to the last spike,  $c_0 = 0.5$,   $c_1 = 0.5$, $s_0 = 0.001$ ms, and  $s_1 = 0.0125$ ms.  The absolute dead time was 0.00075 seconds.
+
+
+
+
+
 \subsubsection[CN cells]{Cochlear nucleus cell templates    \label{sec:APDX:Cell_templates}}
 
 The cochlear nucleus cell models were introduced by \citet{RothmanManis:2003b}, after exploratory studies on the potassium currents of murine cochlear nucleus neurons \citep{RothmanManis:2003,RothmanManis:2003a}.
