@@ -37,13 +37,14 @@ This method aims to show a consistent and recognisable format for presenting var
 % \smallskip{}
 
 The standard methods for optimisation can be simply described with the following
-steps:\begin{itemize}
+steps: \begin{enumerate}
 \item specify function or model we want to optimise
 \item specify criterion we want to satisfy
 \item specify the parameters that will be adjusted,
   and any constraints on those parameters and finally
 \item perform the optimization.
-\end{itemize}
+  \end{enumerate}
+
 In attempting to create a realistic microcircuit the parameter optimisation routine, these steps need to be reiterated in sequential stages.
 The parameters chosen in the sequential optimisation stages should be chosen so that they do not influence the properties of previously fitted parameters.
 
@@ -52,16 +53,15 @@ The parameters chosen in the sequential optimisation stages should be chosen so 
 In this chapter, the connections within the mammalian cochlear nucleus stellate network (Figure~\ref{fig:microcircuit}) are developed using a sequential method of optimisation steps.
 The parameters of each cell type are determined based on experimental data or are optimised based solely on responses to simple stimuli.
 
-Each cell type is shown with its \EIRA and \PSTH, although this may vary within cell types.
 
+Each cell type is shown with its \EIRA and \PSTH, although this may vary within cell types.
 \yellownote{Explain the figure more thoroughly}
 
 The stellate network model drawn in Figure~\ref{fig:microcircuit} describes the following cells and models:
 \begin{enumerate}
-\item The Carney phenomenological auditory model \citet{ZilanyBruceEtAl:2009}:
-  This model provides spiking input to cochlear nucleus neurons across frequencies and spontaneous rate types of the auditory nerve from an arbitrary  input stimulus.
-  The base line in Figure~\ref{fig:microcircuit} is a   simplification of auditory nerve fibres (ANF) from low best frequency (BF) to   high BF (left to right).
-  The model reproduces responses for high and low SR ANFs at 100 channels across the frequency range 200 Hz to 48 kHz.
+\item The auditory model: The Carney phenomenological auditory model \citep{ZilanyBruceEtAl:2009} provides spiking input to cochlear nucleus neurons across frequencies and spontaneous rate types of the auditory nerve  from an arbitrary input stimulus.  
+  The base line in   Figure~\ref{fig:microcircuit} is a simplification of auditory nerve fibres   (ANF) from low best frequency (BF) to high BF (left to right).  
+  The model  reproduces responses for high and low SR ANFs at 100 channels across the  frequency range 200 Hz to 48 kHz.
 \item The Golgi cell: a {GABA}ergic \VCN~marginal shell unit that is presumed to regulate excitability in the \GCD~and core \VCN~units \citep{FerragamoGoldingEtAl:1998}.
   Only one \textit{in vivo} study has recorded extracellular data in the marginal shell area of the \CN~\citep{GhoshalKim:1997}.
   The presumed characteristics of Golgi cells are  taken from that study and are defined by a monotonic response to tones and noise, a type I\slash III~\EIRA, and an unusual or chopper {\PSTH}.
@@ -69,7 +69,7 @@ The stellate network model drawn in Figure~\ref{fig:microcircuit} describes the 
   Its large dendritic area increases its response to noise allowing it to behave as a wide-band inhibitor in the \VCN, \DCN, and contralateral\CN~\citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
 \item The Tuberculoventral cell: a glycinergic, type II~{\EIRA}~unit in the deep layer of the \DCN~\citep{SpirouDavisEtAl:1999}.
   This cell acts as a delayed echo-suppressor and narrow-band inhibitor, with recurrent connections between D~and T~stellate cells in the \VCN~\citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
-\item the T~stellate cell: one of the major output projection cells of the  cochlear nucleus to the inferior colliculus.
+\item The T~stellate cell: one of the major output projection cells of the  cochlear nucleus to the inferior colliculus.
   This multipolar neuron has been shown to have robust spectral representation and enhanced synchronisation to modulation in speech sounds~\citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 \end{enumerate}
 
@@ -96,7 +96,7 @@ Models of the auditory system over the last 30 years have expanded our understan
 % \smallskip{}
 
 The auditory system is topographically ordered from the basilar membrane to the cortex in terms of frequency selectivity, also called tonotopicity~\citep{YoungOertel:2004}.
-The population of auditory nerve fibres (ANFs, Fig.~\ref{fig:CN_Cat_Human}), bifurcate after entering the cochlear nucleus to innervate the \VCN~and \DCN, retaining their tonotopic order \citep{Lorente:1981,Liberman:1982,Liberman:1993}.
+The population of auditory nerve fibres (ANFs, Fig.~\ref{fig:CN_Cat_Human}) bifurcate after entering the cochlear nucleus to innervate the \VCN~and \DCN, retaining their tonotopic order \citep{Lorente:1981,Liberman:1982,Liberman:1993}.
 Type 1 \ANFs are categorised into {\HSR}~and {\LSR}~fibres \citep{Liberman:1978}, where \LSR~fibres have a higher threshold and wider dynamic range than \HSR~fibres.
 They also project to the \GCD~\citep{RyugoParks:2003, RyugoHaenggeliEtAl:2003} along with the smaller, unmyelinated type 2 \ANFs, which suggests they play a different role in sound processing to \HSR~fibres.
 
@@ -106,7 +106,7 @@ They also project to the \GCD~\citep{RyugoParks:2003, RyugoHaenggeliEtAl:2003} a
   \begin{center}
     \resizebox{2.25in}{!}{\includegraphics[width=2.25in,keepaspectratio]{Cat_Human_CN}}
     \caption[Tonotopic innervation by ANFs in the CN of man and cat.]{Cochlear nucleus innervation by ANFs follows the same tonotopic organisation in man and cat
-\citep[!find out which publication printed this!]{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}.}
+\citep{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}. (Image reprinted from \citep{})}
     \label{fig:CN_Cat_Human}
   \end{center}
 \end{figure}
@@ -120,16 +120,14 @@ They also project to the \GCD~\citep{RyugoParks:2003, RyugoHaenggeliEtAl:2003} a
 %
 % \smallskip{}
 
-In examining the properties of a detailed neural model of the cochlear nucleus,
-a realistic and phenomenologically sound auditory model is needed to represent
-sounds and transformations that occur in the central auditory system.
+In examining the properties of a detailed neural model of the cochlear nucleus, a realistic and phenomenologically sound auditory model is needed to represent sounds and transformations that occur in the central auditory system.
 
 %
 % \smallskip{}
 \subsection{Auditory nerve fibre model   \label{sec:CN:resp-audit-models}}
 
-The auditory nerve inputs to the cochlear nucleus model neurons are provided by phenomenological auditory periphery models originating from \citet{Carney:1993}.
-The ARLO model \citep{HeinzZhangEtAl:2001}; the Bruce model \citep{BruceSachsEtAl:2003, ZilanyBruce:2006, ZilanyBruce:2007}; and the Zilany model \citep{ZilanyBruceEtAl:2009}.
+The auditory nerve inputs to the cochlear nucleus model neurons are provided by phenomenological auditory periphery models originating from \citet{Carney:1993},
+the ARLO model \citep{HeinzZhangEtAl:2001}, the Bruce model \citep{BruceSachsEtAl:2003, ZilanyBruce:2006, ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009}.
 The AN model consists of an outer\slash middle ear pre-processing filter, a cochlea filterbank, IHC-to-AN synapse model and dead-time modified Poisson spike generator, as shown in Fig.~\ref{fig:ZilanyBruceFig}.
 \citet{HeinzZhangEtAl:2001} incorporated cochlea filters based on the critical bandwidths obtained from psychophysical experiments in humans.
 The ARLO model of the cat auditory periphery, with non-linear compression and two-tone suppression, is used in this study except in the vowel simulation where the human auditory periphery model is used.
@@ -214,12 +212,12 @@ D-stellate cells contain low-threshold potassium current channels, which is stro
 
 \subsection{Synapse Models}
 
-\yellownote{TODO.  Methods section?}
+\yellownote{TODO. THis is inlcuded in the GA chapter, but it should go in the  Methods chapter}
 
 \subsection{Topological definitions and limitations    \label{sec:CN:tonot-conn}}
 
 Tonotopic connectivity in the stellate cochlear nucleus model is defined by the regular organisation of afferent ANFs into distinct iso-frequency channels.
-The channels are separated using even spatial distance (based on the basilar membrane and auditory nerve separation) with centre frequency calculated by the Greenwood function for the cat \citep[see~\ref{tab:ModelSummary},]{Greenwood:1990}.
+The channels are separated using even spatial distance (based on the basilar membrane and auditory nerve separation) with centre frequency calculated by the Greenwood function for the cat \citep[see~\ref{tab:ModelSummary},][]{Greenwood:1990}.
 The HSR terminals of individual fibres generally cover 70 $\mu$m and LSR fibres 100 $\mu$m in mice \citep{OertelWuEtAl:1988,OertelWu:1989}.
 
 %\yellownote{and the dendrites of finely-tuned neurons (bush and T stellate cells) generally}
@@ -236,8 +234,7 @@ The \CF of the CN channels are separated using the same Greenwood function as us
 % %\resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
 % \resizebox{0.85\textwidth}{!}{\includegraphics[keepaspectratio=true]{CNConn}}
 %     % \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
-%     \caption{Cochlear nucleus network model diagram \label{fig:CNdiagram}}
-%   \end{center}
+%     \caption{Cochlear nucleus network model diagram \label{fig:CNdiagram%   \end{center}
 % \end{figure}
 
 
@@ -247,7 +244,7 @@ The \CF of the CN channels are separated using the same Greenwood function as us
     % \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
     \resizebox{\textwidth}{!}{\includegraphics[keepaspectratio=true]{gfx/CNConn}}
     % \resizebox{0.8\textwidth}{!}{\input{./gfx/CNConn.tex}}
-    \caption{Gaussian connection between cell types in cochlear nucleus.}
+    \caption{Gaussian connection between cell types in cochlear nucleus stellate network.}
     \label{fig:CNconn}
   \end{center}
 \end{figure}
