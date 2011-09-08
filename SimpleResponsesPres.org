@@ -39,7 +39,6 @@ Six pathways leading out of the Coclear Nucleus\\
 # #+ATTR_LaTeX: width=\columnwidth
 #    [[./gfx/CNnetwork.jpg]]
  
-
 #+begin_LaTeX 
 \makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{gfx/CNnetwork.jpg}}
 #+end_LaTeX

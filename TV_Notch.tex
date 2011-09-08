@@ -1,5 +1,54 @@
+\section[]{Tuberculoventral Cell Model: Fitting Tone and Noise Rate Level Curves}
+
+\subsection{Background}
+
+They are characterized as having a non-monotonic response to tones with increasing sound level and respond poorly to broadband noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}, as shown in Fig.~\ref{fig:SpirouFig1}.
+
+\begin{figure}[htb]
+\centering
+% \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
+\includegraphics[keepaspectratio,width=0.8\textwidth]{Spirou-Fig1-type2}
+\caption[Experimental data of a single Type-II~DCN~unit]{Experimental data of a single Type-II~DCN~unit \citep[Fig.~1]{SpirouDavisEtAl:1999}.
+\yellownote{Figure~\ref{fig:SpirouFig1} needs permission}}
+\label{fig:SpirouFig1}
+\end{figure}
+
+
+\subsection{Implementation}
+
+\begin{figure}[htb]
+\centering
+% \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
+\includegraphics[keepaspectratio,width=0.8\textwidth]{TV_RateLevel/TV_RateLevel_Fig8.eps}
+\caption[Experimental data of a single Type-II~DCN~unit]{Experimental data of a single Type-II~DCN~unit \citep[Fig.~1]{SpirouDavisEtAl:1999}.}
+\label{fig:SpirouFig1}
+\end{figure}
+
+
+
+\subsection{Optimisation Results}
+
+Figure~\ref{fig:TV_RL_result}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[keepaspectratio,width=0.8\textwidth]{TV_RateLevel/TV_RateLevel_result}
+\caption[]{Optimisation results for the TV model responses to tone and noise.}\label{fig:TV_RL_result}
+\end{figure}
+
+
+
+\subsection{Verification of RL and NRL over whole network}
+
+
+
+
+
+
+
+
 % \graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
-\section[TV Cell Model]{Tuberculoventral cell model: Optimisation of inhibition asymmetry using notch-noise} \label{sec:TV-cell-model}
+\section[TV Cell Model]{Tuberculoventral Cell Model: Optimisation of Asymmetric Inhibition using Notch-Noise} \label{sec:TV-cell-model}
 % - A
 % ------------------------------------------------------------------------------
 
@@ -34,21 +83,13 @@ As a result, \DCN~principal cells are inhibited by sharp spectral peaks close to
 
 %\smallskip{}
 
-\begin{figure}[htb]
-\centering
-% \resizebox{5in}{!}{\includegraphics[angle=-90]{NoFigure}}
-\includegraphics[keepaspectratio,width=0.8\textwidth]{Spirou-Fig1-type2}
-\caption[Experimental data of a single Type-II~DCN~unit]{Experimental data of a single Type-II~DCN~unit \citep[Fig.~1]{SpirouDavisEtAl:1999}.
-\yellownote{Figure~\ref{fig:SpirouFig1} needs permission}}
-\label{fig:SpirouFig1}
-\end{figure}
 
 
 \subsubsection{Modeling of Tuberculoventral cells}
 
 \yellownote{Expand previous studies  of the DCN incl. TV cells}
 \citet{ArleKim:1991a} were the first to show type~II \EIRA  with simple McCullock-Pitts point neuron models.
-{\it (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband inhibitory   mechanism to create type II unit responses in a model of the DCN. In that   model, each cell population was described by a mathematical formula for its   steady-state rate-level function. This level of abstraction was used to focus   specifically on the role of network connectivity in determining the   steady-state behavior of DCN units. The level of abstraction employed in our   model allows for examination of temporal response properties including PST   histograms and cross-correlation analysis.}
+\textit{(From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband inhibitory   mechanism to create type II unit responses in a model of the DCN. In that   model, each cell population was described by a mathematical formula for its   steady-state rate-level function. This level of abstraction was used to focus   specifically on the role of network connectivity in determining the   steady-state behavior of DCN units. The level of abstraction employed in our   model allows for examination of temporal response properties including PST   histograms and cross-correlation analysis.}
 \citep{DunnVetterEtAl:1996} performed some modelling.
 
 
@@ -124,7 +165,7 @@ Figure~\ref{fig:TVNotchDiagram} shows the combination of the type DCN II unit no
 
 Higher thresholds in type~II \DCN~units \citep{SpirouDavisEtAl:1999} and the presence of multiple inhibitory synapses \citep{Alibardi:2006} suggest \TV~cells either receive a strong inhibitory influence or they have a lower \RMP~due to a lower leak current reversal potential. A reduced resting membrane potential may increase the threshold for excitatory inputs to generate action potentials.
 
-% \yellownote{I allowed HSR2TV weight value go negative to give a constant  inhibitory input. Then on 2 other runs I shifted the reversal potential of the leak current to -70 and -75.}
+% \yellownote{I allowed HSR2TV weight value go negative to give a constant  inhibitory input. Then on 2 other runs I shifted the reversal potential of the leak current to $-70$ and $-75$.}
 
 %\smallskip{}
 
@@ -172,7 +213,7 @@ The \TV~rate response could therefore just be modeled on the \LSR~response using
 %   \label{fig:TVResults}
 % \end{figure}
 
-% First Error of 0.0167 (MSE Normalised rate between 4.57-18.68 kHz channels),
+% First Error of 0.0167 (MSE Normalised rate between 4.57--18.68 kHz channels),
 % was run in Dec 2009. \yellownote{More work is being done now on a more recent
 % result}
 
@@ -210,7 +251,7 @@ Complicated issues in \TV~model optimisation:
 \item Experimental data: sound level dependant on \BF~and notch position, this means that the relative spectrum level may be variable along the network
 \end{itemize}
 
-% By setting the reversal potential of \TV~cells to -75~mV, the optimisation
+% By setting the reversal potential of \TV~cells to $-75$~mV, the optimisation
 % produced the following results in Figure~\ref{fig:TV_resultErev75}. In this
 % figure, the \TV~rate-place profile gains no benefit from the reduced reversal
 % potential.  Some contributing factors that may explain the poor optimisation
@@ -342,7 +383,7 @@ The second group of 3 runs included the parameters \sDSTV, reversal potential of
 The first set of parameters (\nDSTV, \wDSTV, \nLSRTV, \nHSRTV, \wLSRTV, \wHSRTV) were run three times to strengthen the validity of the optimisation results.
 The obvious outcome from this sets results are the dominance of \LSR~fibre excitatory inputs over \HSR~fibres; and the large counter-balance of \DS~cell inhibition on \TV~cells.
 The second set of parameters (\sDSTV, \Eleak \oDSTV, \nDSTV, \wDSTV) were run for an additional three runs to stabilise the \DSTV~parameters.
-\nDSTV~and \wDSTV~were included in both sets and showed a large decrease due to the effect of the \TV~cell's leak reversal potential \Eleak scaling down to -75 mV\@.
+\nDSTV~and \wDSTV~were included in both sets and showed a large decrease due to the effect of the \TV~cell's leak reversal potential \Eleak scaling down to $-75$~mV\@.
 
 %\smallskip{}
 
@@ -453,7 +494,7 @@ Middle row is from Figure 9 E and F in Reiss and Young, second bottom row is fro
 
 The optimised parameters for inputs to the Tuberculoventral cell model were applied to all \TV units across the whole network using tones, noise and tones plus noise stimuli. 
 The \TV model outputs' behaviour is shown in Figure~\ref{fig:TV_verification}, similar to the Golgi cell model Figure~\ref{fig:Golgi_verification}. 
-Figure~\ref{fig:TV_verification}A and B show the response of the central \TV model (CF=5.8 kHz). The PSTH in Figure~~\ref{fig:TV_verification}B is a wide chopper, generated from regular firing type I-c neural model and the strong onset inhibition from DS cells.
+Figure~\ref{fig:TV_verification}A and B show the response of the central \TV model (CF=5.8 kHz). The PSTH in Figure~\ref{fig:TV_verification}B is a wide chopper, generated from regular firing type I-c neural model and the strong onset inhibition from DS cells.
 %monotonic responses to tones and noise similar to other Ghoshal and Kim units (Figure~\ref{fig:GolgiKimFig2}).  
 Figure~\ref{fig:DS_verification}C shows the wide response of all \TV units in the network to a 5.8~kHz tone for increasing sound level. 
 The masked response curves (Figure~\ref{fig:DS_verification}D) show the wide-band inhibition particularly for tones above CF. 
