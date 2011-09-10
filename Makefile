@@ -24,6 +24,7 @@
 #    consider it impossible to ``link'' to this makefile in any way covered by
 #    the GPL.
 #
+#
 # TO OBTAIN INSTRUCTIONS FOR USING THIS FILE, RUN:
 #    make help
 #
@@ -60,6 +61,7 @@ onlysources.tex	?= SimpleResponses.tex #AuditoryModel.tex AM_Responses.tex Simpl
 #onlysources.tex.pl	?=
 #onlysources.tex.py	?=
 #onlysources.rst	?=
+#onlysources.mp		?=
 #onlysources.fig	?=
 #onlysources.gpi	?= 
 #onlysources.m		?=
@@ -75,6 +77,7 @@ includes.tex		?=  bu.tex template.tex _region_.tex GolgiPSTricks.tex
 #includes.tex.pl	?=
 #includes.tex.py	?=
 #includes.rst		?=
+#includes.mp		?=
 #includes.fig		?=
 #includes.gpi		?= gfx/default.gpi
 #includes.m		?=
@@ -2532,7 +2535,7 @@ $(if $(gpi_sed),\
 	fnames=$1.temp.make;,\
 ) \
 success=1; \
-if ! (cd $(shell dirname $1); $(GNUPLOT) $$fnames ) 2> $1.log; then \
+if ! ( echo $(shell dirname $1); cd $(shell dirname $1); $(GNUPLOT) $$fnames ) 2> $1.log; then \
 	$(call colorize-gnuplot-errors,$1.log); \
 	success=0; \
 else \
