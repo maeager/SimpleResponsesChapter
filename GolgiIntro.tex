@@ -1,0 +1,177 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\graphicspath{{../figures/}{./gfx/}{/media/data/Work/cnstellate/golgi/}{../../cnstellate/}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section[GLG Cell Model]{Golgi Cell Model: Optimisation using monotonic rate-level responses in marginal shell units \label{sec:GolgiCellModel}}
+
+\subsection{Background}
+
+The presence of GABAergic inputs to \VCN~and \DCN~neurons has been verified by labeled terminals adjacent to the soma and dendrites \citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003} and release from inhibition in their response areas with ionotopopheretic application of the \GABAa~antagonist, bicuculine \citep{EvansZhao:1998,CasparyBackoffEtAl:1994,BackoffShadduckEtAl:1999,FerragamoGoldingEtAl:1998a}.
+The source of GABAergic inputs to cells in the mammalian \CN~is somewhat contentious.
+Studies show that GABAergic inputs to the \CN~generally arise in the peri-olivary regions of the medulla in cats \citep{OstapoffBensonEtAl:1997} and birds \citep{LachicaRubsamenEtAl:1995,YangMonsivaisEtAl:1999}.
+Slice preparations of the isolated murine \VCN~show strong and immediate sensitivity to bicuculine in T~and D~stellate cells from a source within the \CN~complex \citep{FerragamoGoldingEtAl:1998a}.
+The only known source of \GABA~intrinsic to the \VCN~are the Golgi cells of the \GCD~overlying the \VCN~\citep{Mugnaini:1985,FerragamoGoldingEtAl:1998}.
+
+
+%\smallskip{}
+
+% \yellownote{TODO: Clean up paragraph} Other studies in the rat cochlear
+% nucleus relating to the Golgi cell or \GABA:
+% \begin{itemize}
+% \item \citep{MugnainiOsenEtAl:1980} Fine structure of granule cells and
+%   related inter-neurons (termed {Golgi} cells) in the cochlear nuclear complex
+%   of cat, rat and mouse
+% \item \GABAa expression in the rat brainstem \citep{CamposCaboEtAl:2001}
+% \item \citep{Alibardi:2003a} Ultrastructural distribution of glycinergic and
+%   {{GABAergic}} neurons and axon terminals in the rat dorsal cochlear nucleus,
+%   with emphasis on granule cell areas
+% \item \citep{AwatramaniTurecekEtAl:2005} Staggered {Development} of
+%   {GABAergic} and {Glycinergic} {Transmission} in the {MNTB}
+% \end{itemize}
+
+% %\smallskip{}
+
+% \yellownote{TODO: Expand role of \GABA, or combine with previous para} Role of
+% \GABA in the \VCN.
+% \begin{itemize}
+% \item Effects of microiontophoretically applied glycine and {GABA} on neuronal
+%   response patterns in the cochlear nuclei \citep{CasparyHaveyEtAl:1979}
+% \end{itemize}
+% \citep{Alibardi:2003a} rat \CN~complex -> Golgi-stellate cells (fusiform layer:
+% 2) in \DCN~contact granule and unipolar brush cells
+
+
+Inputs to Golgi cells are more complicated than the inputs to core \VCN~neurons.
+Golgi cells are sparse in the \GCD, surrounded by the many, smaller excitatory granule cells, that form small en-passant endings.
+Type II \ANFs~create diffuse glutamatergic release sites in the \GCD~\citep{HurdHutsonEtAl:1999,BensonBrown:2004} that may stimulate NMDA glutamate receptors in Golgi cells~\citep{FerragamoGoldingEtAl:1998a}.
+
+%\smallskip{}
+
+The physiological response of Golgi cells has not been extensively studied.
+Intracellular recordings of Golgi cells in one study by \citet{FerragamoGoldingEtAl:1998} have shown a classic type I current response.
+This suggests Golgi cells are simple integrators.
+Their response to auditory nerve shocks were delayed by approximately 0.7~ms relative to the core \VCN~units \citep{FerragamoGoldingEtAl:1998}.
+Extracellular recordings from labelled Golgi cells is not available in the literature; however, the \GCD~(or marginal shell of the \VCN~in cats) has been studied by one group \citet{GhoshalKim:1997} without direct labelling of recorded units.
+Any extracellular spikes recorded in the \GCD~are most likely from Golgi cells since granule cell somata are less than $10 \mu{m}$ and their narrow axons are unlikely to elicit electrical activity in the electrodes.
+The majority of recorded units showed a monotonic increase in firing rate with increasing sound intensity \citep[Figure~\ref{fig:GolgiKimFig2}][]{GhoshalKim:1997}.
+
+
+Their monotonic responses to tones and noise over a wide dynamic range provides regulation of activity in granule cells.
+The contribution of a delayed, negative feedback onto \VCN~units is analogous to automatic gain control provides strong evidence for regulation of activity in granule cells. The general assumption of the functional role of Golgi cells is to regulate granule cells but they may also provide automatic gain control to the principal VCN~units, primarily D and T stellate cells \citep{FerragamoGoldingEtAl:1998a}.
+
+%\smallskip{}
+
+\begin{figure}[htp!]
+   \centering
+  % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{GhoshalKim}}
+  \caption[Rate level response of marginal shell units]{Rate level response of 6 units \citep[Reproduced with permission Fig.~2]{GhoshalKim:1997}.
+Unit S03-07 (CF 22.7~kHz) at the top will be the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. \yellownote{Inclusion of Ghoshal figure needs permission, fill in caption}
+\label{fig:GolgiKimFig2}}
+\end{figure}
+
+
+\subsection{Implementation}
+
+In the creation of the Golgi cell model, we can reduce the explicit behaviour of Golgi cells down to three major details:
+ \begin{enumerate}
+ \item Golgi cells are classic repetitively-firing neurons due to their type I~current clamp response \citep{FerragamoGoldingEtAl:1998},
+ \item Golgi cells have a low maximum rate and large dynamic range to tone and noise increases, given marginal shell extracellular recordings of \citet{GhoshalKim:1997} could not come from granule cells, and
+ \item The low threshold in Golgi cells, \citet{GhoshalKim:1997}, can\-not be due to \LSR~auditory nerve fibres.
+The lack of extensive experimental data regarding type II \ANF~units, that do project to the \GCD, and granule cell response to acoustic input meant that a Poisson rate neural model would be preferred over the Hodgkin-Huxley type neural model.
+Although \HSR~\ANF~terminals do not generally project into the \GCD, they are included in this model to provide some low level sound-induced activity.
+ \item the minimum \EPSP~to shock of the AN~\citep{FerragamoGoldingEtAl:1998} and mean first spike latency to acoustic stimuli~\citep{GhoshalKim:1997} are significantly different from the core \VCN~units.
+% by $\mu(f=CF)$ and $\sigma$ variables, which control
+ \end{enumerate}
+
+%\smallskip{}
+
+
+The Golgi cell model is implemented as an instantaneous-rate Poisson rate model, shown in Table~\ref{tab:GolgiCellModelSummary}D and in Figure~\ref{fig:GolgiDiagram}.
+The primary inputs are from the auditory model's instantaneous rate outputs with connections across frequency channels.
+\HSR~and \LSR~\ANF~inputs to Golgi cells were determined the Gaussian distribution in units of channel separation in the network.
+The weighted sum of \HSR~and \LSR~instantaneous-rate vectors are smoothed out by an alpha function mimicking a synaptic and dendritic smoothing filter.
+
+%\smallskip{}
+
+Table~\ref{tab:GolgiCellModelSummary}A shows the model summary for optimising the Golgi cell model.
+As explained in the introduction, the Nordlie tables are used to communicate detailed neural models and networks for further replication by the computational neuroscience community.
+The topology of the ventral cochlear nucleus follows the same tonotopic organisation of the auditory nerve, with 100 evenly spaced frequency channels.
+The population of \ANFs~in Table~\ref{tab:GolgiCellModelSummary}B are zero because there is no need for spiking \ANF~neurons, only the instantaneous profiles of each frequency channel is used in the Golgi model.
+ The connectivity between \ANFs~and Golgi cells (Table~\ref{tab:GolgiCellModelSummary}C) is a simple place-based Gaussian spread, as explained in the introduction ($\S$~\ref{sec:CN:tonot-conn})
+
+% \input{GolgiRateLevelTable.tex}
+
+%\smallskip{}
+
+\begin{figure}[htb]
+  \centering
+% \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
+% \resizebox{0.9\textwidth}{!}{\includegraphics{GolgiDiagram.eps}}\\
+\resizebox{0.9\textwidth}{!}{\input{/media/data/Work/thesis/SimpleResponsesChapter/gfx/GolgiDiagram.tex}}\\
+  \caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile was generated using a weighted sum ANF profiles and a alpha function smoothing filter to mimic dendritic and synaptic filtering.
+The Gaussian spread of connections is independent for HSR and LSR auditory filters, with the mean equal to CF channel of unit.
+The final stage sets the spontaneous rate by addition at t=0, changes any negative values to zero, and includes an additional delay of 2.5~ms, which is 0.7~ms greater than the core VCN units as shown by \citet{GhoshalKim:1997}.}
+% across frequency channels is Gaussian, and $\mathbf{w}$ is
+% the weighted sum of HSR and LSR instantaneous-rate vectors,
+% $\alpha$ is the synaptic and dendritic smoothing function.
+  \label{fig:GolgiDiagram}
+ \end{figure}
+
+%\smallskip{}
+
+The weight vectors, $\mathbf{w}_{HSR}$ and $\mathbf{w}_{LSR}$, span the network's channels with size $N_{\rm channel}$, with a normal curve centred on the position in the channel and variance \sANFGLG\@.
+Instantaneous-rate profiles of the \AN~have size $N_{\rm channel}$ and length determined by the stimulus ($N_{\rm stim}=$stimulus duration / sampling rate).
+The intermediate step in the Golgi cell model, $r(\cdot)$, corrects the output rate for the desired spontaneous activity, \Gspon, and performs rectification on the signal to avoid negative rate values.
+The final step involves convolution with the alpha function, $\alpha(t)$, as the synapto-dendritic filtering mechanism in the Golgi cell.
+The alpha filter length was 10 times the time constant, \Gtau, and its area under the function was normalised to 1.
+A more detailed explanation of the NEURON implementation of the Golgi cell model is in the section Appendix~\ref{sec:ch3:appendix}.
+
+%\smallskip{}
+
+% Eq.~\ref{eq:alpha_Golgi},
+
+% In Chapter~\ref{sec:GAChapter}, the Golgi cell model was implemented as a
+% single-compartment conductance neuron. Due to the unavailability of sufficient
+% data regarding \emph{in vivo} Golgi cell responses, the decision was made to
+% simulate the Golgi cell model as a Poisson neuron.  The instantaneous-rate
+% profile of Golgi cells use inputs from the auditory model's instantaneous rate
+% outputs, and a number of steps were taken to investigate the Golgi cell model.
+
+%\smallskip{}
+
+% Due to its replication of granule cells in the model, weight for \LSR~(\wLSRGLG) and \HSR~(\wHSRGLG) are determined for all synapses, number \nLSRDS~and \nHSRDS, delay \dANFGLG~added to smoothing function to ensure conductance
+% and dendritic filtering are included.
+
+% \subsubsection{Key design factors}
+
+% \yellownote{TODO: expand para, include fig ref} Choosing neural model: \HH-type
+% or Poisson - Problem of monotonic excitation at low levels - Spread of \ANF~to
+% \GCD~ARE broader than core \VCN- are we spoiling the broth too early?
+
+
+% \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
+% \caption{Optimisation Results for Golgi Model using Rate Level data from
+% \label{Ch3:fig:GolgiFit}}
+%\includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
+%\caption{Optimisation Results for Golgi Model using Rate Level data from
+% \label{Ch3:fig:GolgiRL}}
+
+%\includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
+%\caption{Optimisation Results for Golgi Model using Rate Level data from
+% \label{Ch3:fig:GolgiRL}}
+%\includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
+%\caption{Optimisation Results for Golgi Model using Rate Level data from
+% \label{Ch3:fig:GolgiRL}}
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: tex-fold
+%%% mode: visual-line
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: nil
+%%% End:
