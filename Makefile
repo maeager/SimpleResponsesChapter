@@ -2527,7 +2527,7 @@ endef
 #
 define convert-gpi
 $(ECHO) 'set terminal $(call gpi-terminal,$1,$2,$3)' > $1head.make; \
-$(ECHO) 'set output "$(shell basename $2)"' >> $1head.make; \
+$(ECHO) 'set output "$2"' >> $1head.make; \
 $(if $(gpi_global),$(CAT) $(gpi_global) >> $1head.make;,) \
 fnames='$1head.make $1';\
 $(if $(gpi_sed),\
@@ -2535,7 +2535,7 @@ $(if $(gpi_sed),\
 	fnames=$1.temp.make;,\
 ) \
 success=1; \
-if ! ( echo $(shell dirname $1); cd $(shell dirname $1); $(GNUPLOT) $$fnames ) 2> $1.log; then \
+if ! $(GNUPLOT) $$fnames 2>$1.log; then \
 	$(call colorize-gnuplot-errors,$1.log); \
 	success=0; \
 else \

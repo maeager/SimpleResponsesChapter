@@ -1,6 +1,6 @@
 
 
-
+%===================================
 \subsection{Optimisation Results}
 
 \yellownote{Choosing optimisation data - average population data or individual exemplar based on Paolini rat data.}
@@ -18,7 +18,7 @@ The second factor is important in enhancing the first spike response across the 
 The final error for the optimisation routine was calculated as the square root of the mean squared error between the first 4 CV periods and the three voltage measures.
 The measures of membrane voltage were independent of \RMP included a) the onset ratio ($v_{\rm 5-10}/v_{\rm 20-30}$), b) adaptation of sustained depolarisation ($v_{\rm 20-21} - v_{\rm 50-51}$), and c) post-tone hyperpolarisation ($v_{\rm RMP} - v_{\rm 60-61}$).
 
-
+%===================================
 \subsubsection{Sustained Chopper}
 
 Figure~\ref{fig:CSresults} shows the optimisation results for the sustained chopper (CS) unit 01-864-004 from \citep{PaoliniClareyEtAl:2005}, with CF 3.9~kHz.
@@ -58,6 +58,8 @@ The RMP, calculated from -10 to 0 ms, for the reference unit and best parameter 
 
 \yellownote{Hand tuning creates many types of CS models, but the best effects are when you smooth out the input with dendritic filtering.  This can be used in a   single compartment using a higher time constant on the synapse or better, using a double-exponential synapse with longer onset and decay time   constants. Very high excitatory inputs saturates the cell and it will spike   repeatedly in a regular fashion but the onset is too precise. See CT2 IV trace   for an example of precise onset. I was able to generated a good IV trace when   the full trace was the error function at higher SPL and higher CF, but this   was unable to generate the same trace for 3.9 KHz at 40 dB or a sustained CV. }
 
+
+%===================================
 \clearpage
 \subsubsection{Transient Chopper 1}
 
@@ -86,6 +88,8 @@ A. PSTH, B. CV, C. Average membrane voltage, and D. Voltage measures.}
   \label{fig:CT1results}
 \end{figure}
 
+
+%===================================
 \clearpage
 \subsubsection{Transient Chopper 2}
 
@@ -147,6 +151,8 @@ TS max.\ leak conductance (mS cm$^{-2}$) &     \gleak     &    [1e-3,3]    &  0.
 \end{tabularx}
 }%\yellownote{Grab most recent data for the table}
 
+
+%===================================
 \subsection{Verification Results for TS Cell Models}
 
 \yellownote{Explain the figure~\ref{fig:TS_verification}}

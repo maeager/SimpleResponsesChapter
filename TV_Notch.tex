@@ -1,6 +1,6 @@
 
 
-
+%===================================
 % \graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_Notch/}{/media/data/Work/Responses/}{/media/data/Work/thesis/ans2010/gfx/}}
 \section[TV to DS Asymmetry]{DS to TV Asymmetry: Notch Noise Optimisation of DS connectivity on TV cells} \label{sec:TV-cell-model}
 % - A
@@ -9,14 +9,16 @@
 \subsection{Background}
 
 
-
+%===================================
 \subsection{Implementation}
+
+Table~\ref{tab:TVNotchModelSummary} 
 
 The experimental data by \citet{ReissYoung:2005} was recorded from adult cats, with the notch noise produced in the frequency domain (accounting for calibration of the ear canal speaker spectrum) and sampled with fixed random phases in the time domain.
 The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated with logarithmically constant notch widths and notch center frequencies ranging from 1 octave below to 1 octave above \BF~in $1/50$ octave steps.
 The notch noise presented in this optimisation routine was generated in Octave using frozen Gaussian noise (100kHz sampling rate) and a Chebyshev type II band reject filter.
 The sound level in the \citet{ReissYoung:2005} data further complicates the situation.
-The power spectrum is maintained at a constant level per frequency band (dB per Hz$^2$) and this is processed and scaled at each point in the notch sweep.
+The power spectrum is maintained at a constant level per frequency band (dB per Hz$^{1/2}$) and this is processed and scaled at each point in the notch sweep.
 For a single presentation used in this experiment the sound level plays an important part in stimulating the \ANFs~and contributing interneurons.
 The experimental data shown in Fig.~\ref{fig:TVReissFig9}, show the mean response to notch sweeps at 22 dB/Hz$^{1/2}$.
 

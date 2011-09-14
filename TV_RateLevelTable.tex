@@ -1,7 +1,7 @@
-{\small\linespread{0.5}
+{\small%\linespread{0.5}
 \begin{table}[htb]
     \caption{Tuberculoventral cell model summary}
-    \label{tab:TVcellModelSummary}
+    \label{tab:TVModelSummary}
 \end{table}
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
@@ -12,7 +12,7 @@
          \textbf{Input model}          & ANF~model: instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\ \hline
 \multirow{3}{*}{\textbf{Neuron model}} & GLG: instantaneous-rate Poisson spike trains\\
                                        & DS: HH-like single-compartment model (Type I-II R\&M model)\\ 
-                                       & TV:  HH-like single-compartment model (Type I-classic R\&M model) \\\hline
+                                       & TV:  HH-like single-compartment model (Type I R\&M model) \\\hline
        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
 \multirow{2}{*}{\textbf{Synapse model}} & Excitatory: AMPA glutamatergic receptor (single-exponential)\\
 &  Inhibitory: GABA$_{\rm A}$ GABAergic receptor (double-exponential), Glycinergic receptor (double-exponential) \\\hline
@@ -46,7 +46,7 @@ Narrowband connection on CF, zero spread, weight \wLSRTV and \wHSRTV, number \nL
 %   GLG$\to$DS &      Golgi      &   D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
     \DSTV      &       DS        &       TV        & 
 Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, weight \wGLGDS, number \nGLGDS, delay $\dGLGDS=0.5$ ms \\\hline
-\multicolumn{4}{|>{\centering}X|}{\ANFGLG, \ANFDS, and \GLGDS from previous section, \DS optimisation. }\\\hline
+\multicolumn{4}{|>{\raggedleft}X|}{\ANFGLG, \ANFDS, and \GLGDS from previous sections. }\\\hline
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
 \vspace{1ex}
@@ -101,7 +101,7 @@ Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, wei
 % %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth} \includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}\end{minipage}}\\\hline
 %\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
 % %\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
-    &  PSTH of TV units calculated for mean firing rate at different sound levels for tones and BBN stimuli. Fitting data was compared against experimental data of a type II \DCN unit \citep[Fig.~8]{SpirouDavisEtAl:1999} (See Figure~\ref{fig:SpirouFig8}). \\\hline
+    &  PSTH of TV units calculated for mean firing rate at different sound levels for tones and BBN stimuli. Fitting data was compared against experimental data of a type II \DCN unit (\citep*[See Fig.~\ref{fig:SpirouFig8} a reproduction of Fig.~8B in]{SpirouDavisEtAl:1999}). \\\hline 
 \end{tabularx}
 \vspace{1ex}
 

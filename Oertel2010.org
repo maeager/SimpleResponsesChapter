@@ -85,9 +85,7 @@
      - no LKT in TS,  LKT makes bushy and optopus insensitive to steady currents \citep{OertelFujino:2001,McGinleyOertel:2006}
      - Ih higher in TS & activated more at lower potentials than in bushy and octopus, so that it is less active at rest
      - high resistance \rightarrow greater voltage changes in small modulating current \rightarrow Ih can be modulated by G-protein coupled receptors, hence making TS more excitable when Ih activated \citep{RodriguesOertel:2006}
-
-
-   1. Driving inputs
+*** Driving inputs
 Proximal dendrites and at the soma:
      - ANF provide glutamatergic excitation for T stellates  \citep{Cant:1981,FerragamoGoldingEtAl:1998a,Alibardi:1998a}
         - only 5 or 6 in mice \citep{FerragamoGoldingEtAl:1998a,CaoOertel:2010}
@@ -95,7 +93,7 @@ Proximal dendrites and at the soma:
      - Glycine from DS cells \citep{FerragamoGoldingEtAl:1998a}
      - Glycine from TV cells \citep{WickesbergOertel:1990,ZhangOertel:1993b}
 
-  2. Neuromodulatory 
+*** Neuromodulatory 
      No signs of PSP or PSCs hence distal or G-protein coupled, effects on time-course minimal
      
 a. Golgi cells (GABA)
