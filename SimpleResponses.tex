@@ -1,32 +1,24 @@
 \documentclass[10pt,a4paper,twoside,openright]{book}
-
 \usepackage{nag}  
 \usepackage{style/uomthesis}
 \input{user-defined}
-
 \usepackage[acronym]{glossaries}
 \input{./misc/glossary} 
 \makeglossaries
-
 \usepackage{appendix}
 \graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_RateLevel/}}
-
 \usepackage[displaymath,floats,graphics,textmath,sections,footnotes,showlabels,psfixbb]{preview}
 \ifPreview
 \PreviewEnvironment[{*[][]{}}]{tabularx}
 \PreviewMacro[{*[][]{}}]{\yellownote}
 \fi 
-
 \lfoot{\footnotesize\today\ at \thistime}
-
 \pretolerance=150
 \tolerance=100
 \setlength{\emergencystretch}{3em}
-
 \overfullrule=1mm
 % \usepackage[notcite]{showkeys}
 \begin{document}
-
 		% TOC, LOF, LOT
 		{%
 			\singlespacing%
@@ -34,11 +26,10 @@
 			\listoffigures%
 			% Do not include a list of tables if you have less
 			% than 10 tables, as per SGS suggestion.
-			\listoftables
-                        \printglossaries
+			\listoftables%
+                        \printglossaries%
 		   \clearpage%
 		}%
-
 \setcounter{chapter}{2}
 \chapter[Simple Responses]{Modelling the Cochlear Nucleus Stellate Network \label{sec:SimpleResponsesChapter}}
 
@@ -81,16 +72,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Conclusion}
 
-In this chapter biophysically-realistic model of the T~stellate microcircuit in
-the cochlear nucleus was developed.
+\yellownote{This section needs more work}
+In this chapter biophysically-realistic model of the T~stellate microcircuit in the cochlear nucleus was developed.
 
 %\smallskip{}
 
-The methods used in this section are a practical and realistic means for
-constructing microcircuits with sensory or feature-based topography.  The
-tabular format for neural network modeling as suggested by
-\citet{NordlieGewaltigEtAl:2009} was followed so that other researchers may
-easily reproduce this work.
+The methods used in this section are a practical and realistic means for constructing microcircuits with sensory or feature-based topography.  
+The tabular format for neural network modeling as suggested by \citet{NordlieGewaltigEtAl:2009} was followed so that other researchers can easily reproduce this work.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -105,8 +93,6 @@ easily reproduce this work.
 
 \newpage
 \listoftodos
-
-
 \end{document}
 
 %%% Local Variables:

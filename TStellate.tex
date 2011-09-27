@@ -22,9 +22,9 @@ The measures of membrane voltage were independent of \RMP included a) the onset 
 \subsubsection{Sustained Chopper}
 
 Figure~\ref{fig:CSresults} shows the optimisation results for the sustained chopper (CS) unit 01-864-004 from \citep{PaoliniClareyEtAl:2005}, with CF 3.9~kHz.
-This unit had a depolarisation threshold at 10 dB and a firing rate saturation at 75 dB SPL.
+This unit had a depolarisation threshold at 10 dB and a firing rate saturation at 75 dB SPL\.
 The stimulus for the optimisation routine was a pure tone 30~dB above depolarisation threshold at CF (3.9~kHz 40~dB SPL), 5 ms on/off cosine squared ramp.
-A 20 ms delay was included to allow the model to reach a sustained \RMP. The CS model unit had CF of 3.872~kHz due to the separation of frequency channels in the model.
+A 20 ms delay was included to allow the model to reach a sustained \RMP\. The CS model unit had CF of 3.872~kHz due to the separation of frequency channels in the model.
 The best parameters found by the optimisation and shown in Figure~\ref{fig:CSresults}, were very high excitatory input (\wLSRTS 0.00286796, \wHSRTS 0.00201089) and moderate to high inhibition (\wDSTS 0.000291181, \wTVTS 0.000884174, \wGLGTS 0.000749812).
 A low input stimulus level means that the majority of synaptic input came from \HSR fibres.
 There was a slight increase in the leak conductance (\gleak=6.57345e-4 Scm$^-2$ ) from the initial value (4.907e-4), causing a decrease in the input resistance to 120~M$\Omega$ from 163~M$\Omega$.
@@ -37,7 +37,7 @@ The large excitatory \HSR input causes spikes occurring after tone onset, just b
 \yellownote{Note the CS optimisation had added weight to the CV values in the error calculation.  The PSTH and IV trace do not even show a decent chopping behaviour.}
 \yellownote{The peaks for the IV are 3.66, 6.77, and 10.99
   ms. The AN model input is affected by the rat audiogram, the low CF and low level.  This shifts the arrival time of spikes to the TS model, and a raw IV comparison would need to be shifted by approx 2 ms.  The onset ratio and the first CV value are effected by this.}
-\yellownote{Synaptic weight in the model above 0.002 will initiate a spike at each input spike, similar to the calyx synapse on bushy cells. This means that the TS cell will respond with a primary-like or primary with notch   PSTH. Dendritic filtering could improve this but the high synaptic weights do   not seem like a realistic physiological option for small bouton endings in the CN.}
+\yellownote{Synaptic weight in the model above 0.002 will initiate a spike at each input spike, similar to the calyx synapse on bushy cells. This means that the TS cell will respond with a primary-like or primary with notch   PSTH\. Dendritic filtering could improve this but the high synaptic weights do   not seem like a realistic physiological option for small bouton endings in the CN.}
 
 \begin{figure}[htb]
 \centering%
@@ -95,7 +95,7 @@ A. PSTH, B. CV, C. Average membrane voltage, and D. Voltage measures.}
 
 The second transiently adapting chopper unit's difference to CT1 is reflected in its average membrane potential and CV.
 CT2 has a higher reduction in onset depolarization (90.2\%) compared to CT1, and post-tone inhibition is greater (8.82 mV).
-The exemplar CT2 unit (01-305-014, CF 12.4~kHz \citep*{PaoliniClareyEtAl:2005}), has a low depolarising threshold (5 dB) so the stimulus is set to 35 dB SPL. The model TS unit  had a CF of 12.427 kHz.
+The exemplar CT2 unit (01-305-014, CF 12.4~kHz \citep*{PaoliniClareyEtAl:2005}), has a low depolarising threshold (5 dB) so the stimulus is set to 35 dB SPL\. The model TS unit  had a CF of 12.427 kHz.
 
 %    chopper transient type 2
 %    // unit 01-305-014 \citep{PaoliniClareyEtAl:2005}
@@ -168,7 +168,7 @@ TS max.\ leak conductance (mS cm$^{-2}$) &     \gleak     &    [1e-3,3]    &  0.
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90.3.eps}}\\
 %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50.3.eps}}\\
 \caption[Optimised TS cell model responses]{Response of optimised TS cell model at the centre of the network (CF=5.8~kHz). A. Rate level responses to tone, noise and tone plus noise. 
-B. PSTH at 90 dB~SPL.  
+B. PSTH at 90 dB~SPL\.  
 C. Response area equivalent using all TS units in the network. 
 D. Masked response across the CF of the central unit (15 dB masking noise).} \label{fig:TS_verification}
 \end{figure}

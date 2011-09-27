@@ -12,7 +12,6 @@ Studies show that GABAergic inputs to the \CN~generally arise in the peri-olivar
 Slice preparations of the isolated murine \VCN~show strong and immediate sensitivity to bicuculine in T~and D~stellate cells from a source within the \CN~complex \citep{FerragamoGoldingEtAl:1998a}.
 The only known source of \GABA~intrinsic to the \VCN~are the Golgi cells of the \GCD~overlying the \VCN~\citep{Mugnaini:1985,FerragamoGoldingEtAl:1998}.
 
-
 %\smallskip{}
 
 % \yellownote{TODO: Clean up paragraph} Other studies in the rat cochlear
@@ -39,7 +38,6 @@ The only known source of \GABA~intrinsic to the \VCN~are the Golgi cells of the 
 % \end{itemize}
 % \citep{Alibardi:2003a} rat \CN~complex -> Golgi-stellate cells (fusiform layer:
 % 2) in \DCN~contact granule and unipolar brush cells
-
 
 Inputs to Golgi cells are more complicated than the inputs to core \VCN~neurons.
 Golgi cells are sparse in the \GCD, surrounded by the many, smaller excitatory granule cells, that form small en-passant endings.
@@ -98,18 +96,16 @@ Table~\ref{tab:GolgiCellModelSummary}A shows the model summary for optimising th
 As explained in the introduction, the Nordlie tables are used to communicate detailed neural models and networks for further replication by the computational neuroscience community.
 The topology of the ventral cochlear nucleus follows the same tonotopic organisation of the auditory nerve, with 100 evenly spaced frequency channels.
 The population of \ANFs~in Table~\ref{tab:GolgiCellModelSummary}B are zero because there is no need for spiking \ANF~neurons, only the instantaneous profiles of each frequency channel is used in the Golgi model.
- The connectivity between \ANFs~and Golgi cells (Table~\ref{tab:GolgiCellModelSummary}C) is a simple place-based Gaussian spread, as explained in the introduction ($\S$~\ref{sec:CN:tonot-conn})
+The connectivity between \ANFs~and Golgi cells (Table~\ref{tab:GolgiCellModelSummary}C) is a simple place-based Gaussian spread, as explained in the introduction ($\S$~\ref{sec:CN:tonot-conn})
 
 % \input{GolgiRateLevelTable.tex}
-
 %\smallskip{}
-
 \begin{figure}[htb]
-  \centering
+  \centering%
 % \resizebox{3.5in}{!}{\includegraphics{NoFigure}}\\
 % \resizebox{0.9\textwidth}{!}{\includegraphics{GolgiDiagram.eps}}\\
 \resizebox{0.9\textwidth}{!}{\input{/media/data/Work/thesis/SimpleResponsesChapter/gfx/GolgiDiagram.tex}}\\
-  \caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile was generated using a weighted sum ANF profiles and a alpha function smoothing filter to mimic dendritic and synaptic filtering.
+\caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile was generated using a weighted sum ANF profiles and a alpha function smoothing filter to mimic dendritic and synaptic filtering.
 The Gaussian spread of connections is independent for HSR and LSR auditory filters, with the mean equal to CF channel of unit.
 The final stage sets the spontaneous rate by addition at t=0, changes any negative values to zero, and includes an additional delay of 2.5~ms, which is 0.7~ms greater than the core VCN units as shown by \citet{GhoshalKim:1997}.}
 % across frequency channels is Gaussian, and $\mathbf{w}$ is
@@ -117,7 +113,6 @@ The final stage sets the spontaneous rate by addition at t=0, changes any negati
 % $\alpha$ is the synaptic and dendritic smoothing function.
   \label{fig:GolgiDiagram}
  \end{figure}
-
 %\smallskip{}
 
 The weight vectors, $\mathbf{w}_{HSR}$ and $\mathbf{w}_{LSR}$, span the network's channels with size $N_{\rm channel}$, with a normal curve centred on the position in the channel and variance \sANFGLG\@.
@@ -128,9 +123,7 @@ The alpha filter length was 10 times the time constant, \Gtau, and its area unde
 A more detailed explanation of the NEURON implementation of the Golgi cell model is in the section Appendix~\ref{sec:ch3:appendix}.
 
 %\smallskip{}
-
 % Eq.~\ref{eq:alpha_Golgi},
-
 % In Chapter~\ref{sec:GAChapter}, the Golgi cell model was implemented as a
 % single-compartment conductance neuron. Due to the unavailability of sufficient
 % data regarding \emph{in vivo} Golgi cell responses, the decision was made to
@@ -139,34 +132,25 @@ A more detailed explanation of the NEURON implementation of the Golgi cell model
 % outputs, and a number of steps were taken to investigate the Golgi cell model.
 
 %\smallskip{}
-
 % Due to its replication of granule cells in the model, weight for \LSR~(\wLSRGLG) and \HSR~(\wHSRGLG) are determined for all synapses, number \nLSRDS~and \nHSRDS, delay \dANFGLG~added to smoothing function to ensure conductance
 % and dendritic filtering are included.
 
 % \subsubsection{Key design factors}
-
 % \yellownote{TODO: expand para, include fig ref} Choosing neural model: \HH-type
 % or Poisson - Problem of monotonic excitation at low levels - Spread of \ANF~to
 % \GCD~ARE broader than core \VCN- are we spoiling the broth too early?
-
-
 % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
 % \caption{Optimisation Results for Golgi Model using Rate Level data from
 % \label{Ch3:fig:GolgiFit}}
 %\includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
 %\caption{Optimisation Results for Golgi Model using Rate Level data from
 % \label{Ch3:fig:GolgiRL}}
-
 %\includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
 %\caption{Optimisation Results for Golgi Model using Rate Level data from
 % \label{Ch3:fig:GolgiRL}}
 %\includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
 %\caption{Optimisation Results for Golgi Model using Rate Level data from
 % \label{Ch3:fig:GolgiRL}}
-
-
-
-
 
 %%% Local Variables:
 %%% mode: latex
