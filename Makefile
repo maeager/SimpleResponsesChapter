@@ -30,7 +30,7 @@
 #
 fileinfo	:= LaTeX Makefile
 author		:= Chris Monson
-version		:= 2.2.1-alpha7
+version		:= 2.2.1-alpha8
 #
 .DEFAULT_GOAL	:= all
 # Note that the user-global version is imported *after* the source directory,
@@ -117,6 +117,10 @@ neverclean		?= *.pdf
 #
 #
 # CHANGES:
+# Andrew McNabb (2011-09-30):
+# * Bumped version to 2.2.1-alpha8
+# * Issue 141: No font embedding for gnuplot when not doing pdf
+# * Syntax error fixed for gpi handling code
 # Chris Monson (2011-09-06):
 # * Issue 140: clean mlt*, mlf*, and mtc* files
 # * Issue 136: initial support for metapost files
@@ -808,7 +812,7 @@ ECHO		:= $(if $(FIXED_ECHO),$(FIXED_ECHO),$(ECHO))
 
 define determine-gnuplot-output-extension
 $(if $(shell $(WHICH) $(GNUPLOT) 2>/dev/null),
-     $(if $(findstring unknown or ambiguous, $(shell $(GNUPLOT) -e "set terminal pdf" 2>&1)),
+     $(if $(findstring unknown or ambiguous, $(shell $(GNUPLOT) -e "set terminal pdfcairo" 2>&1)),
 	  eps, pdf),
      none)
 endef
@@ -2538,7 +2542,7 @@ success=1; \
 if ! $(GNUPLOT) $$fnames 2>$1.log; then \
 	$(call colorize-gnuplot-errors,$1.log); \
 	success=0; \
-else \
+elif [ x"$(suffix $2)" = x".pdf" ]; then \
 	if ! $(call gpi-embed-pdf-fonts,$2,$2.embed.tmp.make); then \
 		success = 0; \
 	else \
