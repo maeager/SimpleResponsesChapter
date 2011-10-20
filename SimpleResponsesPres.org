@@ -5,7 +5,8 @@
 #+MACRO: BEAMERCOLORTHEME lily
 #+MACRO: BEAMERSUBJECT cochlear nucleus, neural modelling, simple optimisation
 #+MACRO: BEAMERINSTITUTE The University of Melbourne, Department of Otolaryngology, and the Bionic Ear Institute
-#+TITLE: Constructing realistic microcircuits: the Cochlear Nucleus stellate model
+#+TITLE: Amplitude Modulation in the Stellate Microcircuit of the Cochlear Nucleus
+Constructing realistic microcircuits: the Cochlear Nucleus stellate model
 #+AUTHOR: Michael A. Eager
 #+LaTeX_header:\usepackage{xspace}\input{../manuscript/glossary}
 #+LaTeX_header:\usepackage{mathpazo} 
@@ -128,7 +129,7 @@ Six pathways leading out of the Coclear Nucleus\\
 
 
 
-** Basics of Optimisation
+** Basics o f Optimisation
    
    1) Define model
    2) Vector of Parameters

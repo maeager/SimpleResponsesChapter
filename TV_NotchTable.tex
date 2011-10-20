@@ -11,8 +11,8 @@
         \textbf{Connectivity}          & ANF$\to${GLG,DS,TV}, GLG$\to$DS, DS$\to$TV  \\\hline
          \textbf{Input model}          & ANF~model: instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\ \hline
 \multirow{3}{*}{\textbf{Neuron model}} & GLG: instantaneous-rate Poisson spike trains\\
-                                       & DS: HH-like single-compartment model (Type I-II R\&M model)\\ 
-                                       & TV:  HH-like single-compartment model (Type I-classic R\&M model) \\\hline
+                                       & DS: HH-like single-compartment model (Type I-II \RM model)\\ 
+                                       & TV:  HH-like single-compartment model (Type I-classic \RM model) \\\hline
        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
 \multirow{2}{*}{\textbf{Synapse model}} & Excitatory: AMPA glutamatergic receptor (single-exponential)\\
 &  Inhibitory: GABA$_{\rm A}$ GABAergic receptor (double-exponential), Glycinergic receptor (double-exponential) \\\hline
@@ -30,8 +30,8 @@
      HSR      &    Poisson generator    & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
      LSR      &    Poisson generator    & $N_{\text{LSR}}= 30$  per freq.\ channel \\\hline
      GLG      &    Poisson generator    & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
-     DS       &   Type I-II R\&M model    & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
-     TV       & Type I-classic R\&M model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
+     DS       &   Type I-II \RM model    & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
+     TV       & Type I-classic \RM model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -56,7 +56,7 @@ Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, wei
 \begin{tabularx}{\textwidth}{|l|X|}\hline
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
         \textbf{Name}          & TV cell model \\\hline
-        \textbf{Type}          & Type I-classic R\&M model \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+        \textbf{Type}          & Type I-classic \RM model \citep{RothmanManis:2003b}, conductance synapse input \\\hline
 \textbf{Subthreshold dynamics} & Na, KHT, Ih, and leak currents \\\hline
        \textbf{Spiking}        & Emit spike when $v(t) \geq \theta$  \\\hline
 \end{tabularx}

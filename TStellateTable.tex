@@ -7,16 +7,16 @@
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline
-         \textbf{Populations}          & Six: HSR \& LSR ANFs, Golgi, DS, TV and TS cells \\\hline
+         \textbf{Populations}          & Six: \HSR \& \LSR ANFs, \GLG, \DS, \TV and \TS cells \\\hline
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
-        \textbf{Connectivity}          & ANF$\to${Golgi,DS,TV,TS}, Golgi$\to$DS,TS, DS$\to$TV,TS, and TV$\to$TS  \\\hline
+        \textbf{Connectivity}          & \ANF$\to$\{\GLG,\DS,\TV,\TS\}, Golgi$\to$\{\DS,\TS\}, \DS$\to$\{\TV,\TS\}, and \TVTS  \\\hline
          \textbf{Input model}          & ANF~model: instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\\hline
 \multirow{4}{*}{\textbf{Neuron model}} & Golgi: instantaneous-rate Poisson model\\
-                                       & D~stellate cell: HH-like single-compartment type I-II R\&M model\\ 
-                                       & Tuberculo-ventral cell:  HH-like single-compartment type I-c R\&M model \\
-                                       & T~stellate cell: HH-like single-compartment type I-t R\&M model\\ \hline
-       \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
-        \textbf{Synapse model}         & AMPA (\textit{ExpSyn}), GABA$_{\rm A}$ (\textit{Exp2Syn}), Glycine (\textit{Exp2Syn}) \\\hline
+                                       & D~stellate cell: HH-like single-compartment type I-II \RM model\\ 
+                                       & Tuberculo-ventral cell:  HH-like single-compartment type I-c \RM model \\
+                                       & T~stellate cell: HH-like single-compartment type I-t \RM model\\ \hline
+       \textbf{Channel models}         & \INa, \Ileak, \IKHT, IKLT, \IKA, and \Ih \citep{RothmanManis:2003b}\\\hline
+        \textbf{Synapse model}         & AMPA (\textit{ExpSyn}), \GABAa (\textit{Exp2Syn}), Glycine (\textit{Exp2Syn}) \\\hline
             \textbf{Input}             & Pure tones at CF of designated exemplar neuron.\\\hline
         \textbf{Measurements}          & Intracellular membrane voltage and spikes recorded over 25 repetitions. Membrane voltage clipped at threshold, $\Theta$, then averaged and processed for IV measurements discussed in text.  Spikes are processed for PSTH and CV statistics. \\\hline
 \end{tabularx}
@@ -30,9 +30,9 @@
      HSR      &      Poisson generator      & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
      LSR      &      Poisson generator      & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
      GLG      &      Poisson generator      & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
-     DS       &    Type I-II R\&M model     & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
-     TV       &  Type I-classic R\&M model  & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
-     TS       & Type I-transient R\&M model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
+     DS       &    Type I-II \RM model     & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
+     TV       &  Type I-classic \RM model  & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
+     TS       & Type I-transient \RM model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -64,8 +64,8 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
 \begin{tabularx}{\textwidth}{|l|X|}\hline
 \hdr{2}{D}{Neuron and Synapse Model}\\\hline
  \textbf{Name} & DS, TV and TS cell models \\\hline
- \textbf{Type} & R\&M \citep{RothmanManis:2003b}, conductance synapse input \\\hline
-\textbf{Subthreshold dynamics} & Na, KA, KHT, Ih, and leak currents \\\hline
+ \textbf{Type} & \RM \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+\textbf{Subthreshold dynamics} & \INa, \IKA, \IKHT, \Ih, and \Ileak currents \\\hline
  \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
  \end{tabularx}
 \vspace{1ex}
