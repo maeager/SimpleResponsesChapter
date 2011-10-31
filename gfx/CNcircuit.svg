@@ -15,8 +15,8 @@
    stroke-miterlimit="10"
    style="font-family: 'Times New Roman'; font-weight:normal"
    id="svg2"
-   inkscape:version="0.47 r22583"
-   sodipodi:docname="CNcircuit.eps">
+   inkscape:version="0.48.1 r9760"
+   sodipodi:docname="CNcircuit.svg">
   <metadata
      id="metadata200">
     <rdf:RDF>
@@ -25,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -38,14 +38,14 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1440"
-     inkscape:window-height="875"
+     inkscape:window-width="1024"
+     inkscape:window-height="575"
      id="namedview198"
      showgrid="false"
-     inkscape:zoom="2.5410113"
-     inkscape:cx="219.36747"
-     inkscape:cy="176.04537"
-     inkscape:window-x="0"
+     inkscape:zoom="0.99456788"
+     inkscape:cx="229.70861"
+     inkscape:cy="146.21548"
+     inkscape:window-x="-2"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
@@ -268,7 +268,8 @@
      stroke-width="0.30"
      fill="none"
      d="M 104.56,-63.58 C 102.68,-66.77 100.10,-69.50 97.01,-71.55 C 92.74,-74.37 87.71,-75.79 82.60,-75.61"
-     id="path38" />
+     id="path38"
+     style="stroke-width:0.8644467;stroke-miterlimit:10;stroke-dasharray:none" />
   <circle
      cx="84.00"
      cy="-75.55"
@@ -282,7 +283,8 @@
      stroke-width="0.30"
      fill="none"
      d="M 57.84,-62.60 C 60.53,-64.83 65.08,-69.87 67.77,-72.11"
-     id="path42" />
+     id="path42"
+     style="stroke-width:0.8644467;stroke-miterlimit:10;stroke-dasharray:none" />
   <circle
      cx="66.75"
      cy="-71.15"
@@ -292,25 +294,28 @@
      fill="black"
      id="circle44" />
   <path
-     stroke="black"
-     stroke-width="0.30"
-     fill="none"
-     d="M 62.04,-58.26 C 68.79,-60.53 75.78,-61.98 82.88,-62.60 C 88.93,-63.12 95.03,-63.03 101.06,-62.32"
-     id="path46" />
+     d="m 62.020957,-57.112069 c 6.118448,-2.288506 12.45444,-3.750327 18.89014,-4.375382 5.483942,-0.524239 11.013205,-0.433505 16.479018,0.282283"
+     id="path46"
+     style="fill:none;stroke:#000000;stroke-width:0.82636142;stroke-miterlimit:10;stroke-dasharray:none"
+     inkscape:connector-curvature="0" />
   <circle
-     cx="99.67"
-     cy="-62.45"
-     r="1.40"
-     stroke="black"
-     stroke-width="0.30"
-     fill="black"
-     id="circle48" />
+     cx="99.669998"
+     cy="-62.450001"
+     r="1.4"
+     id="circle48"
+     sodipodi:cx="99.669998"
+     sodipodi:cy="-62.450001"
+     sodipodi:rx="1.4"
+     sodipodi:ry="1.4"
+     transform="translate(-0.85129106,1.9863457)"
+     style="fill:#000000;stroke:#000000;stroke-width:0.30000001" />
   <path
      stroke="black"
      stroke-width="0.30"
      fill="none"
      d="M 45.11,-42.59 C 41.52,-48.04 40.50,-54.79 42.31,-61.06 C 45.42,-71.78 55.67,-78.81 66.79,-77.84"
-     id="path50" />
+     id="path50"
+     style="stroke-width:0.8644467;stroke-miterlimit:10;stroke-dasharray:none" />
   <polygon
      stroke="black"
      stroke-width="0.30"
@@ -318,11 +323,10 @@
      points="66.87,-79.24 65.47,-79.32 65.32,-76.52 66.72,-76.45 66.87,-79.24"
      id="polygon52" />
   <path
-     stroke="black"
-     stroke-width="0.30"
-     fill="none"
-     d="M 43.01,-46.93 C 41.93,-48.93 42.09,-51.38 43.43,-53.22 C 44.16,-54.22 45.19,-54.96 46.37,-55.32"
-     id="path54" />
+     d="m 43.01,-46.503545 c -1.08,-2.101658 -0.92,-4.676189 0.42,-6.609714 0.73,-1.050829 1.76,-1.828443 2.94,-2.206741"
+     id="path54"
+     style="fill:none;stroke:#000000;stroke-width:0.6257686;stroke-miterlimit:10;stroke-dasharray:none"
+     inkscape:connector-curvature="0" />
   <polygon
      stroke="black"
      stroke-width="0.30"
@@ -334,7 +338,8 @@
      stroke-width="0.30"
      fill="none"
      d="M 59.80,-20.35 C 61.12,-23.47 63.61,-27.06 63.96,-30.43 C 64.52,-35.90 64.35,-38.19 62.32,-43.29"
-     id="path58" />
+     id="path58"
+     style="stroke-width:0.89266892;stroke-miterlimit:10;stroke-dasharray:none" />
   <text
      x="72.93"
      y="-15.88"
@@ -349,24 +354,26 @@
   <path
      d="m 63.169073,-20.390927 c -1.592596,-2.297443 -3.314822,-4.48049 -5.185196,-6.539609 -1.898152,-2.087717 -4.925936,-4.880874 -7.083348,-6.692136"
      id="path62"
-     style="fill:none;stroke:#000000;stroke-width:0.28185365" />
+     style="fill:none;stroke:#000000;stroke-width:0.89436225;stroke-miterlimit:10;stroke-dasharray:none" />
   <polygon
-     points="49.45,-33.75 52.04,-32.47 50.36,-34.82 49.45,-33.75 "
+     points="52.04,-32.47 50.36,-34.82 49.45,-33.75 49.45,-33.75 "
      id="polygon64"
-     style="fill:none;stroke:#000000;stroke-width:0.30000222;stroke-linecap:butt;stroke-miterlimit:10;stroke-dasharray:none"
-     transform="translate(-1.1288889,-1.1288889)" />
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.30000221999999999;stroke-linecap:butt;stroke-miterlimit:10;stroke-dasharray:none;fill-opacity:1"
+     transform="matrix(1.7876087,0,0,1.7472949,-39.961039,25.00702)" />
   <path
      stroke="black"
      stroke-width="0.30"
      fill="none"
      d="M 86.66,-20.40 C 79.55,-23.57 72.26,-26.33 64.83,-28.65 C 60.86,-29.90 56.43,-31.21 52.38,-32.21"
-     id="path66" />
+     id="path66"
+     style="stroke-width:0.89266892;stroke-miterlimit:10;stroke-dasharray:none" />
   <path
      stroke="black"
      stroke-width="0.30"
      fill="white"
      d="M 94.63,-20.40 C 88.74,-22.77 81.54,-27.92 76.45,-31.26 C 68.57,-36.44 63.68,-40.07 58.96,-48.24"
-     id="path68" />
+     id="path68"
+     style="stroke-width:0.8644467;stroke-miterlimit:10;stroke-dasharray:none" />
   <polygon
      points="60.11,-49.04 57.81,-47.44 57.81,-47.44 62.15,-43.64 "
      id="polygon70"
@@ -808,7 +815,8 @@
      stroke-width="0.30"
      fill="white"
      d="M 75.05,-20.07 C 76.46,-28.26 76.49,-35.45 76.58,-43.43 C 76.67,-51.96 76.34,-59.42 75.19,-68.05"
-     id="path194" />
+     id="path194"
+     style="stroke-width:0.8644467;stroke-miterlimit:10;stroke-dasharray:none" />
   <polygon
      stroke="black"
      stroke-width="0.30"
@@ -816,16 +824,117 @@
      points="73.79,-67.90 75.80,-62.48 76.58,-68.20 73.79,-67.90"
      id="polygon196" />
   <path
-     stroke="black"
-     stroke-width="0.30"
-     fill="white"
-     d="m 76.34,-34.07 c -0.28,-2.77 6.618535,-11.294268 8.126401,-12.918934 1.21293,-1.740796 6.743997,-6.538661 9.855589,-8.549728"
+     d="m 98.340044,-47.93257 c 0.343552,0.93431 -8.120928,3.809511 -9.971076,4.357505 -1.488262,0.587163 -8.274866,2.205464 -12.092782,2.883788"
      id="path22"
-     sodipodi:nodetypes="ccc" />
+     sodipodi:nodetypes="ccc"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.55611628;stroke-miterlimit:10;stroke-dasharray:none"
+     inkscape:connector-curvature="0" />
   <polygon
-     stroke="black"
-     stroke-width="0.30"
-     fill="white"
-     points="98.76,-59.04 94.20,-55.50 99.89,-56.48 98.76,-59.04"
-     id="polygon24" />
+     points="94.2,-55.5 99.89,-56.48 98.76,-59.04 98.76,-59.04 "
+     id="polygon24"
+     transform="translate(3.1214004,8.2291465)"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0.30000001" />
+  <polyline
+     points="91.74,-91.51 91.74,-77.48"
+     id="polyline156-0"
+     transform="translate(-11.465138,75.271108)"
+     style="font-weight:normal;fill:none;stroke:#000000;stroke-width:0.30000001;font-family:Times New Roman" />
+  <polygon
+     points="91.74,-91.51 91.04,-90.11 92.44,-90.11 91.74,-91.51 "
+     id="polygon158-4"
+     transform="translate(-11.465138,75.271108)"
+     style="font-weight:normal;fill:#000000;stroke:#000000;stroke-width:0.30000001;font-family:Times New Roman" />
+  <polyline
+     points="106.00,-77.71 91.77,-77.71"
+     id="polyline160-8"
+     transform="translate(-11.465138,75.271108)"
+     style="font-weight:normal;fill:none;stroke:#000000;stroke-width:0.30000001;font-family:Times New Roman" />
+  <polygon
+     points="106,-77.71 104.6,-78.41 104.61,-77.01 106,-77.71 "
+     id="polygon162-7"
+     transform="translate(-11.465138,75.271108)"
+     style="font-weight:normal;fill:#000000;stroke:#000000;stroke-width:0.30000001;font-family:Times New Roman" />
+  <path
+     inkscape:connector-curvature="0"
+     d="m 82.24483,-14.018899 c 1.3,2.54 2.19,2.82 3.60001,4.0500013 0.36,0.31 1.25,6.3899986 1.6,5.6099996 0.61999,-1.42 0.92999,-7.9900009 1.03999,-10.1000009"
+     id="path164-1"
+     style="font-weight:normal;fill:none;stroke:#000000;stroke-width:0.30000001;font-family:Times New Roman" />
+  <polyline
+     points="101.85,-80.08 110.87,-80.08"
+     id="polyline166-7"
+     transform="matrix(1.388342,0,0,1.3121319,-44.772378,102.23904)"
+     style="font-weight:normal;fill:none;stroke:#000000;stroke-width:0.15000001;font-family:Times New Roman" />
+  <path
+     inkscape:connector-curvature="0"
+     d="m 97.756876,-2.957612 a 18.497606,6.0940901 0 0 0 1.446969,0 L 98.53902,-9.0517026 97.756876,-2.957612 z"
+     id="path174-2"
+     style="font-weight:normal;fill:#000000;stroke:#000000;stroke-width:0.33669937;font-family:Times New Roman" />
+  <polygon
+     points="104.56,-81.33 105.07,-82.29 105.86,-82.08 108.04,-82.12 109.13,-82 109.59,-80.2 104.56,-80.2 "
+     id="polygon180-0"
+     transform="matrix(1.8090971,0,0,1.5052935,-90.940833,117.67269)"
+     style="font-weight:normal;fill:#000000;stroke:#000000;stroke-width:0.30000001;font-family:Times New Roman" />
+  <rect
+     style="font-weight:normal;font-family:Times New Roman"
+     id="rect3816-1-5"
+     width="9.9960203"
+     height="1.2217358"
+     x="96.913742"
+     y="-1.7813996"
+     rx="0.29936859"
+     ry="0.24935445" />
+  <text
+     x="100.00235"
+     y="-85.147392"
+     font-size="3.00"
+     xml:space="preserve"
+     id="text116-0"
+     style="font-size:3px;font-weight:normal;text-anchor:start;fill:#000000;font-family:'Comic Sans MS, sans-serif'"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+       id="tspan3032-4">L</tspan></text>
+  <text
+     x="100.56292"
+     y="-38.339176"
+     font-size="3.00"
+     xml:space="preserve"
+     id="text116-8"
+     style="font-size:3px;font-weight:normal;text-anchor:start;fill:#000000;font-family:'Comic Sans MS, sans-serif'"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+       id="tspan3032-8">L</tspan></text>
+  <text
+     x="76.878525"
+     y="-12.552618"
+     font-size="3.00"
+     xml:space="preserve"
+     id="text116-89"
+     style="font-size:3px;font-weight:normal;text-anchor:start;fill:#000000;font-family:'Comic Sans MS, sans-serif'"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+       id="tspan3032-7">L</tspan></text>
+  <text
+     x="114.91058"
+     y="-23.827343"
+     font-size="3.00"
+     xml:space="preserve"
+     id="text118-7"
+     style="font-size:3px;font-weight:normal;text-anchor:start;fill:#000000;font-family:'Comic Sans MS, sans-serif'"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+       id="tspan3030-6">F</tspan></text>
+  <text
+     x="90.730904"
+     y="0.64962178"
+     font-size="3.00"
+     xml:space="preserve"
+     id="text118-4"
+     style="font-size:3px;font-weight:normal;text-anchor:start;fill:#000000;font-family:'Comic Sans MS, sans-serif'"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+       id="tspan3030-3">F</tspan></text>
+  <text
+     x="114.11781"
+     y="-70.799332"
+     font-size="3.00"
+     xml:space="preserve"
+     id="text118-0"
+     style="font-size:3px;font-weight:normal;text-anchor:start;fill:#000000;font-family:'Comic Sans MS, sans-serif'"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial"
+       id="tspan3030-30">F</tspan></text>
 </svg>
