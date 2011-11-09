@@ -4,7 +4,7 @@
 #+AUTHOR: Michael Eager
 #+BIBLIOGRAPHY: ../hg/manuscript/bib/MyBib plainnat 
 
-* \citet*{OertelWrightEtAl:2010} The multiple functions of T stellate/multipolar/chopper cells in the ventral cochlear nucleus
+* \citet*{OertelWrightEtAl:2011} The multiple functions of T stellate/multipolar/chopper cells in the ventral cochlear nucleus
 
 ** Definitions/ naming conventions: 
    - histology staining  
@@ -112,7 +112,7 @@ d. NE and 5HT
   - Raphe nuclei (5HT)
   - Locus coeruleus Peribrachial cells (NE)
   - both terminate in PVCN \citep{KlepperHerbert:1991,Thompson:2003,ThompsonLauder:2005,Thompson:2003a,ThompsonWiechmann:2002,BehrensSchofieldEtAl:2002,ThompsonThompson:2001,ThompsonThompson:2001a,ThompsonMooreEtAl:1995,ThompsonThompsonEtAl:1994}
-  - both increase firing in T stellates \citep{OertelWrightEtAl:2010} in presence of glut and gly blockers -> hence act on post synapse (TS cells)
+  - both increase firing in T stellates \citep{OertelWrightEtAl:2011} in presence of glut and gly blockers -> hence act on post synapse (TS cells)
   - both G-protein coupled, both act on either pre or post synaptic cells
   - NE affects probabilty of release at calyx of Held 
   - NE increases firing rate of choppers \citep{KosslVater:1989,Ebert:1996}
