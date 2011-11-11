@@ -82,7 +82,7 @@ reproducible research methods are required.  Examples of parameter estimation
 and fitting in neural models are also becoming more advanced, for example
 SSNNS\space \citep{SichtigSchafferEtAl:2008}, NeuroFitter
 \citep{VanAchardEtAl:2007}\space and MultiRunFitter (a feature in NEURON).  In
-this chapter, a tabular method introduced by \citet{NordlieGewaltigEtAl:2009} is
+this chapter, a table method introduced by \citet{NordlieGewaltigEtAl:2009} is
 used to summarise the neural models used in each optimisation step.  The Nordlie
 tables shown in each optimisation stage consist of A) the model summary, B) cell
 type populations, C) connectivity between two cell types, D) neuron and synapse
@@ -239,10 +239,10 @@ the vowel simulation where the human auditory periphery model is used.
   an original implementation of the rat model.  The default species is the cat
   and will be used in the data presented in this chapter.}
 
-#+CAPTION: [Auditory periphery model]{Auditory periphery model with dual power-law synapse \citep[originally printed in ][]{ZilanyBruceEtAl:2009}. \yellownote{if this figure is used it needs permission by the original authors}}
-#+ATTR_LaTeX: width=0.6\textwidth
+#+ATTR_LaTeX:  width=0.8\textwidth 
+#+CAPTION:     [Auditory periphery model]{Auditory periphery model with a middle ear filter, a gamma-chirp filter bank, a cochlea-feedback filter pathway, and a dual power-law synapse. Figure reprinted from \citealt{ZilanyBruceEtAl:2009}.}
 #+LABEL: fig:ZilanyBruceFig
-  [[file:./gfx/ZilanyCarney-JASA-2009-Fig2.png]]
+  [[file:./gfx/ZilanyCarney-JASA-2009-Fig2.pdf]]
 
 \yellownote{Explain Figure \ref{fig:Compression}}
 
@@ -295,7 +295,6 @@ Single-compartment Hodgkin-Huxley-like neural models were used for the neural
 models.  The current models in each of the cell types of the cochlear nucleus
 stellate network were originally presented by \citet{RothmanManis:2003b}.
 
-
 Type I-c classic regular firing type contains a voltage-activated sodium, high
 threshold potassium, and hyperpolarisation mixed-cation, and leak current
 channels.  This neural model an integrator and is strongly influenced by the \Ih
@@ -338,10 +337,6 @@ the same Greenwood function as used for the filterbank of AN frequency channels.
 
 Extrinsic parameters that control the connectivity between two cell-type groups
 can be defined by:
-  - $d_{\textrm{{Pre}}\to\textrm{{Post}}}\xspace$ is the temporal delay between
-     a pre-cells' AP trigger and the onset of the post-synaptic current.  This
-     delay incorporates the axonal conduction delay and diffusion time across
-     the synaptic cleft.
   - $w_{\textrm{{Pre}}\to\textrm{{Post}}}\xspace$ is the synaptic weight of the
     post-synaptic current influx caused by the pre-cells' neurotransmitter
     activating the receptor channels of the post-synaptic cell.  This value is
@@ -362,6 +357,10 @@ can be defined by:
     offset variable adjusts the centre point of the probability distribution,
     $\mathcal{N}(i + o, \sqrt{s})$, away from the post-synaptic cell's position
     $i$.
+  - $d_{\textrm{{Pre}}\to\textrm{{Post}}}\xspace$ is the temporal delay between
+     a pre-cells' AP trigger and the onset of the post-synaptic current.  This
+     delay incorporates the axonal conduction delay and diffusion time across
+     the synaptic cleft.
 
 # \yellownote{New limitations of place-based connectivity}
 
@@ -473,7 +472,7 @@ VCN\space units, primarily D and T stellate cells
 \citep{FerragamoGoldingEtAl:1998a}.
 
 
-#+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep[Reproduced with permission Fig.~2]{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7~kHz) at the top will be the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. \yellownote{Inclusion of Ghoshal figure needs permission, fill in caption}}
+#+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7~kHz) at the top will be the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
 #+LABEL:      fig:GolgiKimFig2
   [[file:../figures/GhoshalKim96_Fig2.png]]
 
@@ -643,11 +642,11 @@ Table\space \ref{tab:GolgiCellModelSummary}E result table.
 \begin{tabularx}{\textwidth}{|X|c|c|c|}\hline
 \hdr{4}{}{GLG model parameters} \\ \hline
                 \textbf{Parameters}                 & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline
-     Spatial spread \LSRGLG (channel unit)      &  \sANFGLG   &     [0,10]     & 2.48  \\\hline
-        Smoothing filter time constant (ms)         &    \Gtau    &     [0,20]     & 5.01  \\\hline
-          Weighted sum of HSR\space (unit-less)           &  \wHSRGLG   &     [0,5]      & 0.517 \\\hline
-          Weighted sum of LSR\space (unit-less)           &  \wLSRGLG   &     [0,5]      & 0.0487\\\hline
-Spontaneous rate in Golgi cell model (spikes / sec) &   \Gspon    &     [0,50]     & 3.73  \\\hline
+       Spatial spread \LSRGLG (channel unit)        &   \sANFGLG    &     [0,10]     & 2.48  \\\hline
+        Smoothing filter time constant (ms)         &     \Gtau     &     [0,20]     & 5.01  \\\hline
+       Weighted sum of HSR\space (unit-less)        &   \wHSRGLG    &     [0,5]      & 0.517 \\\hline
+       Weighted sum of LSR\space (unit-less)        &   \wLSRGLG    &     [0,5]      & 0.0487\\\hline
+Spontaneous rate in Golgi cell model (spikes / sec) &    \Gspon     &     [0,50]     & 3.73  \\\hline
 \end{tabularx}
   \caption{Golgi cell model optimisation parameters}
   \label{tab:GolgiCellResults}
@@ -655,7 +654,7 @@ Spontaneous rate in Golgi cell model (spikes / sec) &   \Gspon    &     [0,50]  
 }
 #+end_latex
 
-#+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21\space kHz) from  \citet{GhoshalKim:1996}. A more detailed optimisation with 22 levels and included HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data.The final root mean squared error was 4.48 spikes/s.}
+#+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21~kHz) from  \citet{GhoshalKim:1996}. A more detailed optimisation with 22 levels and included HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data.The final root mean squared error was 4.48 spikes/s.}
 #+LABEL: fig:GolgiResult
   [[file../../cnstellate/golgi/GolgiRateLevel_result.pdf]]
 
@@ -921,13 +920,13 @@ to channel no. 50 in the CN network with 100 channels from 0.2 to 30\space kHz).
 \noindent
 \begin{tabularx}{\textwidth}{|X|c|c|c|}\hline %{\textwidth}
 \hdr{4}{E}{Optimisation} \\ \hline
-        \textbf{Parameters}          &   \textbf{Name}  & \textbf{Range} & \textbf{Best Values} \\\hline
-      Weight of \GLG\space on \DS\space (nS)       &     \wGLGDS      & [0.01,50] & 0.532 \\	\hline
-    Weight of \HSR\space syn on \DS\space (nS)     &     \wHSRDS      & [0.01,50] & 0.16 \\ \hline
-   Weight of \LSR\space syn on \DS\space (nS)     &     \wLSRDS      &   [0.01,50] & 13.1 \\	    \hline
- \GABAa synapse fast decay constant  (ms)  &  $\tau_{GABA-1}$  & [0.01,10.0] & 5.432\\	     \hline
- \GABAa synapse slow decay constant (ms)  &  $\tau_{GABA-2}$  & [0.1,50.0] & 0.262\\	    \hline
-DS cell leak conductance (mS cm$^{-2}$) & \gleak &  [1e-5,0.05]   & 0.0163 \\ \hline
+           \textbf{Parameters}             &    \textbf{Name}    & \textbf{Range} & \textbf{Best Values} \\\hline
+  Weight of \GLG\space on \DS\space (nS)   &       \wGLGDS       &   [0.01,50]    & 0.532        \\	\hline
+Weight of \HSR\space syn on \DS\space (nS) &       \wHSRDS       &   [0.01,50]    & 0.16         \\ \hline
+Weight of \LSR\space syn on \DS\space (nS) &       \wLSRDS       &   [0.01,50]    & 13.1         \\ \hline
+ \GABAa synapse fast decay constant  (ms)  & $\tau_{\rm GABA-1}$ &  [0.01,10.0]   & 5.432        \\ \hline
+ \GABAa synapse slow decay constant (ms)   & $\tau_{\rm GABA-2}$ &   [0.1,50.0]   & 0.262        \\ \hline
+ DS cell leak conductance (mS cm$^{-2}$)   &       \gleak        &  [1e-5,0.05]   & 0.0163       \\ \hline
 \end{tabularx}
 \vspace{2ex}
 }
@@ -939,7 +938,7 @@ ideal for fast coincidence detection, the large number of \HSR\space synapses
 makes up for the small weight that was obtained in the optimisation.
 
 
-#+CAPTION: [Click recovery optimisation results in DS cell model]{Optimisation results of click recovery behaviour in DS cell model (CF 5.8\space kHz). The optimal response (blue circle) is obtained from Fig.\space 3 in \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of an OnC unit (CF 5.8\space kHz). Best result (green triangles).}
+#+CAPTION: [Click recovery optimisation results in DS cell model]{Optimisation results of click recovery behaviour in DS cell model (CF 5.8\space kHz). The optimal response (blue circle) is obtained from Fig.\space 3 in \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of an OnC unit (CF 5.8~kHz). Best result (green triangles).}
 #+LABEL: fig:DS_ClickRecovery_result
   [[file:../../cnstellate/DS_ClickRecovery/DS_ClickRecovery_result.pdf]]
 
@@ -1055,7 +1054,7 @@ increasing sound level and respond poorly to broadband noise
 \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}, as shown in
 Fig.\space \ref{fig:SpirouFig8}.
 
-#+CAPTION: [Experimental data of a single Type-II\space DCN\space unit]{Experimental data of a single Type-II\space DCN\space unit \citep[Fig.~1]{SpirouDavisEtAl:1999}. \yellownote{Figure\space \ref{fig:SpirouFig1} needs permission}}
+#+CAPTION: [Experimental data of a single Type-II\space DCN\space unit]{Experimental data of a single Type-II\space DCN\space unit \citep[Fig.~1]{SpirouDavisEtAl:1999}. \yellownote{Figure \ref{fig:SpirouFig1} needs permission}}
 #+LABEL:  fig:SpirouFig1
 [[file:./gfx/Spirou-Fig1-type2.png]]
 
@@ -1184,7 +1183,7 @@ the principal cells of the \DCN\space including type II units.
 
 \yellownote{Give details about the TV model implementation}
 
-#+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II\ DCN\ unit \citep[Fig.~8]{SpirouDavisEtAl:1999}.}
+#+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II\ DCN\ unit \citep[Data reproduced from Fig.~8]{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
   [[file:../../cnstellate/TV_RateLevel/TV_RateLevel_Fig8.pdf]]
 
@@ -1209,10 +1208,10 @@ model.
 \begin{tabularx}{\textwidth}{|X|c|}
 \hdr{2}{}{TV Model Parameters } \\ \hline
                 & \\ \hline
-\wLSRTV\space ($\mu$S)& 0.0021707   \\
-\wHSRTV\space ($\mu$S)& 0.0006168   \\
-\wDSTV\space ($\mu$S) & 0.0018      \\ \hline
- Error (sp/s)   & 219.10798 \\ \hline
+\wLSRTV~(nS)& 2.1707   \\
+\wHSRTV~(nS)& 0.6168   \\
+\wDSTV~(nS) & 1.8      \\ \hline
+ Error (spikes/s)   & 219.10798 \\ \hline
 \end{tabularx}%
   \end{minipage}\hfill
 \end{center}
@@ -1301,9 +1300,9 @@ response using a simple gradient-decent method.
 #  [[file:./gfx/TV_Reiss]]
 
 
-#+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures from Fig.\space 9 \citep*{ReissYoung:2005})}
+#+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures from  \citealt[Fig.~9]{ReissYoung:2005})}
 #+LABEL: fig:TVNotchDiagram
-  [[file:TV_NotchDataConfig]]
+  [[file:./gfx/TV_NotchDataConfig]]
 
 
 ** Optimisation Results
@@ -1379,15 +1378,15 @@ sound level of the notch stimulus from 110 down to 50 dB \SPL.
 
 #+CAPTION: [TV cell model: optimisation results]{Optimisation results for TV Notch model with stimulus sound levels at 110, 90, 70 and 50 dB SPL.}
 #+LABEL: fig:TV_result_spl
-  [[file:./TV_Notch/TV_Notch_spl]]
+  [[file:../../cnstellate/TV_Notch/TV_Notch_spl.pdf]]
 
 
 # % D\space ----------------------------------
 # \begin{tabularx}{\linewidth}{|X|c|c|c|}
 #   \hdr{4}{F}{Optimisation} \\ \hline \textbf{Parameters} & \textbf{Name} &
 #   \textbf{Range} & \textbf{Best Values} \\\hline
-#   Weight of \DS\space syn on \TV\space  ($\mu$S)         &    \wDSTV     & [1e-5,0.005]  & 0.0029 \\
-#   Weight of \ANF\space syn on \TV\space  ($\mu$S)         &    \wANFTV    & [1e-5,0.005]  & 0.00017 \\
+#   Weight of \DS\space syn on \TV\space  (nS)         &    \wDSTV     & [1e-2,5]  & 2.9 \\
+#   Weight of \ANF\space syn on \TV\space  (nS)         &    \wANFTV    & [1e-2,5]  & 0.17 \\
 #   Number of synapses, \LSR\space to \TV\space           &    \nLSRTV    & [0,64]     & 8           \\
 #   Number of synapses, \HSR\space to \TV\space           &    \nHSRTV    & [0,64]     & 14          \\
 #   Spread of \DS\space connections onto \TV\space (channel units) &    \sDSTV &     [0,10]     & 2.1     \\
@@ -1434,7 +1433,7 @@ dB \SPL\@.
 
 #+CAPTION: [Optimisation results for a refined TV cell model]{Optimisation  results for a refined TV cell model with stimulus sound levels at 50 dB  SPL\@. The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV,  \nHSRTV, \wLSRTV, \wHSRTV\@.  The second group of 3 runs included the  parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
 #+LABEL: fig:TV_result_Run2_50
- [[file:TV_Notch/Run2/spl50/TV_Notch_result]]
+ [[file:../../cnstellate/TV_Notch/Run2/spl50/TV_Notch_result.pdf]]
 
 
 # 50 dB Run
@@ -1450,14 +1449,14 @@ dB \SPL\@.
 \begin{minipage}{0.48\linewidth}
 \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation Parameters A} \\ \hline
-                &  Run 1  &  Run 2  & Run 3   \\ \hline
-    \nDSTV      &   39    &   49    & 59  \\
-\wDSTV\space ($\mu$S) & 0.0217  & 0.0217  & 0.0258  \\
-    \nLSRTV     &   21    &   21    & 23  \\
-    \nHSRTV     &   15    &   15    & 14  \\
-\wLSRTV\space ($\mu$S)& 0.0069  & 0.0069  & 0.0115  \\
-\wHSRTV\space ($\mu$S)& 0.0013  & 0.0013  & 0.0013  \\ \hline
-     Error      & 1255.34 & 1028.70 & 1082.85 \\ \hline
+                  &  Run 1  &  Run 2  & Run 3   \\ \hline
+     \nDSTV       &   39    &   49    & 59  \\
+\wDSTV~(nS) &  21.7   &  21.7   & 25.8  \\
+     \nLSRTV      &   21    &   21    & 23  \\
+     \nHSRTV      &   15    &   15    & 14  \\
+\wLSRTV~(nS)&   6.9   &   6.9   & 11.5  \\
+\wHSRTV~(nS)&   1.3   &   1.3   & 1.3  \\ \hline
+      Error       & 1255.34 & 1028.70 & 1082.85 \\ \hline
 \end{tabularx}%
 %}\quad
 %\subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
@@ -1466,13 +1465,13 @@ dB \SPL\@.
   \begin{minipage}{0.48\linewidth}
 \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation Parameters B} \\ \hline
-                 & Run 1  & Run 2  & Run 3  \\ \hline
-\sDSTV\space (channel) &  21.3  & 31.31  & 21.31  \\
-  \Eleak\space (mV)    & -74.96 & -74.96 & -74.96   \\
-\oDSTV\space (channel) & 22.03  & 22.03  & 22.03  \\
-     \nDSTV      &   15   &   15   & 15 \\
-\wDSTV\space ($\mu$S)  & 0.0148 & 0.0148 & 0.0148 \\ \hline
-     Error       & 599.37 & 539.1  & 586.74 \\ \hline
+                       & Run 1  & Run 2  & Run 3  \\ \hline
+\sDSTV~(channel) &  21.3  & 31.31  & 21.31  \\
+  \Eleak~(mV)    & -74.96 & -74.96 & -74.96   \\
+\oDSTV~(channel) & 22.03  & 22.03  & 22.03  \\
+        \nDSTV         &   15   &   15   & 15 \\
+\wDSTV~(nS)  & 14.8 & 14.8 & 14.8 \\ \hline
+        Error          & 599.37 & 539.1  & 586.74 \\ \hline
 \end{tabularx}%
 %}
 %\end{subfloatrow}
@@ -1520,11 +1519,11 @@ high \nDSTV.
 \hdr{4}{}{Optimisation A} \\ \hline
                  & Run 1  & Run 2  & Run 3  \\ \hline
      \nDSTV      &   43   &   23   & 32 \\
-\wDSTV\space ($\mu$S)  & 0.0017 & 0.0017 & 0.0067 \\
+\wDSTV~(nS)  & 1.7 & 1.7 & 6.7 \\
     \nLSRTV      &   29   &   32   & 32 \\
     \nHSRTV      &   1    &   1    & 1  \\
-\wLSRTV\space ($\mu$S) & 0.0019 & 0.0019 & 0.0019 \\
-\wHSRTV\space ($\mu$S) & 0.0013 & 0.0013 & 0.0013 \\ \hline
+\wLSRTV~(nS) & 1.9 & 1.9 & 1.9 \\
+\wHSRTV~(nS) & 1.3 & 1.3 & 1.3 \\ \hline
   \hline Error   & 499.20 & 514.86 & 518.54 \\ \hline
 \end{tabularx}
   \end{minipage}\hfill
@@ -1532,11 +1531,11 @@ high \nDSTV.
     \begin{tabularx}{\textwidth}{|X|c|c|c|}
 \hdr{4}{}{Optimisation B} \\ \hline
                  & Run 1  & Run 2  & Run 3  \\ \hline
-\sDSTV\space (channel) &   13   &   7    & 17 \\
-  \Eleak\space (mV)    & -65.89 & -67.22 & -67.22 \\
-\oDSTV\space (channel) &  2.1   &  2.1   & -7.9   \\
+\sDSTV~(channel) &   13   &   7    & 17 \\
+  \Eleak~(mV)    & -65.89 & -67.22 & -67.22 \\
+\oDSTV~(channel) &  2.1   &  2.1   & -7.9   \\
      \nDSTV      &   17   &   17   & 16 \\
-\wDSTV ($\mu$S)  & 0.0017 & 0.0017 & 0.0017 \\ \hline
+\wDSTV~(nS)  & 1.7 & 1.7 & 1.7 \\ \hline
   \hline Error   & 435.47 & 457.63 & 492.55 \\ \hline
 \end{tabularx}
   \end{minipage}
@@ -1571,16 +1570,16 @@ following table, was derived from Run 1A and Run 1B in the set using 70 dB
 \noindent%
 \begin{tabularx}{\linewidth}{|X|c|c|c|}
 \hdr{4}{F}{Optimisation} \\ \hline
-                \textbf{Parameters}                  & \textbf{Name} & \textbf{Range}& \textbf{Best Values} \\\hline
-       Number of \DS\space synapses onto \TV\space cells         &    \nDSTV     &    [0,100]    & 17 \\
-   Weight of \DS\space synapses onto \TV\space cells ($\mu$S)    &    \wDSTV     & [1e-5,0.005]  & 0.0029 \\
-   Number of synapses, \LSR$\rightarrow$\TV\space cells    &    \nLSRTV    &    [0,100]    & 29   \\
-   Number of synapses, \HSR$\rightarrow$\TV\space cells    &    \nHSRTV    &    [0,100]    & 1  \\
-     Weight of \LSR\space syn on \TV\space cells   ($\mu$S)      &    \wLSRTV    & [1e-5,0.005]  & 0.00017 \\
-     Weight of \HSR\space syn on \TV\space cells   ($\mu$S)      &    \wHSRTV    & [1e-5,0.005]  & 0.00017 \\
- Spread of \DS\space connections onto \TV\space cells (channel)  &    \sDSTV     &    [0,100]    & 13     \\
- Offset of \DS\space connections onto \TV\space cells (channel)  &    \oDSTV     &   [-10,30]    & 2.1    \\
-Reversal potential of leak current in \TV\space cells (mV) &    \Eleak     &   [-80,-50]   & -65.89 \\ \hline
+                     \textbf{Parameters}                       & \textbf{Name} & \textbf{Range}& \textbf{Best Values} \\\hline
+      Number of \DS\space synapses onto \TV\space cells        &    \nDSTV     &    [0,100]    & 17 \\
+  Weight of \DS\space synapses onto \TV\space cells~(nS)   &    \wDSTV     & [0.01,5]  & 2.9 \\
+     Number of synapses, \LSR synapses onto \TV~cells      &    \nLSRTV    &    [0,100]    & 29   \\
+     Number of synapses, \HSR synapses onto \TV~cells      &    \nHSRTV    &    [0,100]    & 1  \\
+      Weight of \LSR\space syn on \TV\space cells~(nS)       &    \wLSRTV    &   [1e-2,5]    & 0.17 \\
+      Weight of \HSR\space syn on \TV\space cells~(nS)       &    \wHSRTV    &   [1e-2,5]    & 0.17 \\
+Spread of \DS\space connections onto \TV\space cells~(channel) &    \sDSTV     &    [0,100]    & 13     \\
+Offset of \DS\space connections onto \TV\space cells~(channel) &    \oDSTV     &   [-10,30]    & 2.1    \\
+  Reversal potential of leak current in \TV\space cells (mV)   &    \Eleak     &   [-80,-50]   & -65.89 \\ \hline
 \end{tabularx}
 }
 \yellownote{Pull everything about the TV cell model together.}
@@ -1593,7 +1592,8 @@ Figure\space \ref{fig:TVReissFig9} (reprinted from Figure 9 in
 \citep*{ReissYoung:2005}) was the main target for the optimisation of \TV\space
 cells.  To replicate the response of a single unit to notch sweeps, notches were
 generated in GNU\space Octave using Chebychev II
-filters\footnote{\textsf{cheby2} function in octave-forge signal package.}  with
+filters 
+#+latex:\footnote{\textsf{cheby2} function in octave-forge signal package.}  with
 a sampling rate of 100\space kHz and an optimal filter number.  The half octave
 sweep was calculated from -2\space to\space 2\space octaves away from 12.7\space
 kHz at 1/32$^{nd}$ increments with logarithmically constant notch
@@ -1747,7 +1747,7 @@ to 0.3 or above throughout the stimulus.
 
 #+CAPTION: [Regularity in chopper units]{Regularity in chopper units \citep[Data reproduced from Fig.~2,][]{PaoliniClareyEtAl:2005}}
 #+LABEL: fig:PaoliniCVdata
-  [[file:TStellate/PaoliniCV]]
+  [[file:../../cnstellate/TStellate/PaoliniCV.png]]
 
   #+LaTeX: \include{TStellateTable}
 
@@ -1990,27 +1990,26 @@ A. PSTH, B. CV, C. Average membrane voltage, and D. Voltage measures.}
 \noindent
 \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|}
 \hdr{6}{F}{Optimisation} \\ \hline
-          \textbf{Parameters}           & \textbf{Label} & \textbf{Range} & \multicolumn{3}{|c|}{\textbf{Best Values}}\\
-                                        &                &                &      ChS     &     ChT1     & ChT2 \\\hline
-   Weight of HSR syn on TS  ($\mu$S)    &    \wHSRTS     &  [1e-5,0.03]   & 0.00201089  & 0.000817015 & 0.00248999 \\
-   Weight of LSR syn on TS  ($\mu$S)    &    \wLSRTS     &  [1e-5,0.03]   & 0.00286796  & 0.000774459 & 0.00203762\\
-   %  Number of synapses, LSR to TS     &    \nLSRTV     &     [0,64]     &             &             & \\
-   %  Number of synapses, HSR to TS     &    \nHSRTV     &     [0,64]     &             &             & \\
-   Weight of DS syn on TS  ($\mu$S)     &     \wDSTS     &  [1e-5,0.03]   & 0.000291181 & 6.38011e-05 & 0.00113529\\
-   %Number of DS syn on TS  ($\mu$S)    &     \nDSTS     &     [0,64]     &             &             & \\
-   Weight of TV syn on TS  ($\mu$S)     &     \wTVTS     &  [1e-5,0.03]   & 0.000884174 & 6.46063e-05 & 0.000866815\\
-   %Number of TV syn on TS  ($\mu$S)    &     \nTVTS     &     [0,64]     &             &             & \\
-   Weight of GLG syn on TS  ($\mu$S)    &    \wGLGTS     &  [1e-5,0.03]   & 0.000749812 & 9.3936e-05  & 5e-05\\
-  %Number of GLG syn on TS  ($\mu$S)    &    \nGLGTS     &     [0,64]     &             &             & \\ \hline
-TS max.\ leak conductance (mS cm$^{-2}$) &     \gleak     &    [1e-3,3]    &  0.657345   &  0.494097   & 0.72474\\
- TS max. KHT conductance (S cm$^{-2}$)  &     \gKHT      &  [1e-6,0.003]	 &  0.0189416  &  0.018941   & 0.022858\\
-   %      TS reversal potential (mV)    &     \Eleak     &   [$-45$,$-70$]    &             &   -54.26    & -63.502\\ \hline
-                       \multicolumn{3}{|l|}{Error}                        &    6.496    &    5.928    & 5.569\\ \hline
+          \textbf{Parameters}            & \textbf{Label} & \textbf{Range} & \multicolumn{3}{|c|}{\textbf{Best Values}}\\
+                                         &                &                &    ChS    &   ChT1    & ChT2 \\\hline
+     Weight of HSR syn on TS  (nS)       &    \wHSRTS     &   [0.01,30]    &  2.01089  & 0.817015  & 2.48999 \\
+     Weight of LSR syn on TS  (nS)       &    \wLSRTS     &   [0.01,30]    &  2.86796  & 0.774459  & 2.03762\\
+    %  Number of synapses, LSR to TS     &    \nLSRTV     &     [0,64]     &           &           & \\
+    %  Number of synapses, HSR to TS     &    \nHSRTV     &     [0,64]     &           &           & \\
+      Weight of DS syn on TS  (nS)       &     \wDSTS     &   [0.01,30]    & 0.291181  & 0.0638011 & 1.13529\\
+        %Number of DS syn on TS          &     \nDSTS     &     [0,64]     &           &           & \\
+      Weight of TV syn on TS  (nS)       &     \wTVTS     &   [0.01,30]    & 0.884174  & 0.0646063 & 0.866815\\
+        %Number of TV syn on TS          &     \nTVTS     &     [0,64]     &           &           & \\
+     Weight of GLG syn on TS  (nS)       &    \wGLGTS     &   [0.01,30]    & 0.749812  & 0.093936  & 0.05\\
+        %Number of GLG syn on TS         &    \nGLGTS     &     [0,64]     &           &           & \\ \hline
+TS max.\ leak conductance (mS cm$^{-2}$) &     \gleak     &    [1e-3,3]    & 0.657345  & 0.494097  & 0.72474\\
+ TS max. KHT conductance (S cm$^{-2}$)   &     \gKHT      & [1e-6,0.003]	  & 0.0189416 & 0.018941  & 0.022858\\
+   %      TS reversal potential (mV)     &     \Eleak     & [$-45$,$-70$]  &           &  -54.26   & -63.502\\ \hline
+                       \multicolumn{3}{|l|}{Error}                         &   6.496   &   5.928   & 5.569\\ \hline
 \end{tabularx}
 }
 \yellownote{Grab most recent data for the table}
 #+end_latex
-
 
 
 ** Verification Results for TS Cell Models
