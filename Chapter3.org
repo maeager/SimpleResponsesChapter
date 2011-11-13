@@ -195,9 +195,12 @@ into \HSR\space and \LSR\space fibres \citep{Liberman:1978}, where
 unmyelinated type 2 \ANFs, which suggests they play a different role in sound
 processing to \HSR\space fibres.
 
-#+CAPTION:  [Tonotopic ANF innervation in the CN of man and cat]{Cochlear nucleus innervation by ANFs follows the same tonotopic organisation in man and cat \citep{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}. Image reprinted from \citep{} \yellownote{Get reference}}
-#+ATTR_LaTeX: width=0.6\textwidth
-#+LABEL:      fig:CN_Cat_Human
+#+CAPTION: [Tonotopic ANF innervation in the CN of man and cat]{Cochlear nucleus
+#innervation by ANFs follows the same tonotopic organisation in man and cat
+#\citep{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}. Image reprinted from
+#\citep{} \yellownote{Get reference}} 
+#+ATTR_LaTeX: width=0.6\textwidth 
+#+LABEL: fig:CN_Cat_Human
   [[file:./gfx/Cat_Human_CN.jpg]]
 
 \yellownote{Auditory model and history should be in the METHODS section.}
@@ -289,6 +292,7 @@ but can be saved and loaded from file.
 
 * Cochlear Nucleus Stellate microcircuit
 
+
 ** CN neural models
 
 Single-compartment Hodgkin-Huxley-like neural models were used for the neural
@@ -313,6 +317,7 @@ cells, to enhance response to coincident inputs.
 ** Synapse Models
 
 \yellownote{TODO. THis is inlcuded in the GA chapter, but it should go in the  Methods chapter}
+
 
 ** Topological definitions and limitations
 
@@ -398,6 +403,7 @@ therefore, in the middle sections.
 
 # GLG Cell Model 
 
+
 ** Background
 
 The presence of GABAergic inputs to \VCN\space and \DCN\space neurons has been
@@ -477,6 +483,7 @@ VCN\space units, primarily D and T stellate cells
   [[file:../figures/GhoshalKim96_Fig2.png]]
 
 #+LaTeX:\include{GolgiRateLevelTable}
+
 
 ** Implementation
 
@@ -602,7 +609,7 @@ input into the Golgi cell model.
 #+ATTR_LaTeX: width=0.6\textwidth
 #+CAPTION: [Initial results of Golgi cell model]{Initial trial results of the  Golgi cell model optimisation.  Responses of the Golgi cell model (blue  triangles) compared five five sound level (0,15, 55, 75 and 85 dB SPL) against  5 point in the target response (red squares).  The eventual best optimisation  response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  Golgi cell model using the final parameters.}
 #+LABEL: fig:GolgiTestResult
-  [[file:../../cnstellate/golgi/GolgiRateLevel_result2.pdf]]
+  [[file:./gfx/GolgiRateLevel_result2.pdf]]
 
 The final optimisation routine with 22 levels and a Golgi cell model with
 \HSR\space and \LSR\space \ANF\space inputs was used to generate a closer fit to
@@ -656,7 +663,7 @@ Spontaneous rate in Golgi cell model (spikes / sec) &    \Gspon     &     [0,50]
 
 #+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21~kHz) from  \citet{GhoshalKim:1996}. A more detailed optimisation with 22 levels and included HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data.The final root mean squared error was 4.48 spikes/s.}
 #+LABEL: fig:GolgiResult
-  [[file../../cnstellate/golgi/GolgiRateLevel_result.pdf]]
+  [[file:./gfx/GolgiRateLevel_result.pdf]]
 
 
 #   % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
@@ -699,6 +706,7 @@ Spontaneous rate in Golgi cell model (spikes / sec) &    \Gspon     &     [0,50]
 
 #   \clearpage \newpage
 
+
 ** Verification Results of Golgi Cell Model
 
 After settling with the above optimised parameters, the Golgi cell model was run
@@ -735,9 +743,10 @@ D. Masked noise-tone response of the central unit to 15 dB masking noise and fre
 \end{figure}
 
 
-*  D\space Stellate Cell Model: Optimisation Using Click Recovery Responses
+* D\space Stellate Cell Model: Optimisation Using Click Recovery Responses
 
 # DS Cell Model
+
 
 ** Introduction
 
@@ -794,6 +803,7 @@ coding effects of GABA in the Chinchilla
 # Smith and Rhode, Smith and others looked at OnC response area and two-tone
 
 #+LaTeX:\include{DSRecoveryTable}
+
 
 ** Implementation
 
@@ -866,6 +876,7 @@ connections is a combination of conductance and synaptic delay.
 
 # %The effect of Golgi cells on \DS\space is delayed by the extra 0.7\space ms delay from \ANF\space to Golgi, plus the slow peak of \GABAa\space inhibition.
 # \yellownote{fix this paragraph}
+
 
 ** Optimisation Results
 
@@ -1047,16 +1058,17 @@ D. Masked noise-tone response of the central unit to 15 dB masking noise and fre
 
 * Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Curves
 
+
 ** Background
 
 \TV cells are characterized as having a non-monotonic response to tones with
 increasing sound level and respond poorly to broadband noise
 \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}, as shown in
-Fig.\space \ref{fig:SpirouFig8}.
+Figure\space \ref{fig:SpirouFig8}.
 
-#+CAPTION: [Experimental data of a single Type-II\space DCN\space unit]{Experimental data of a single Type-II\space DCN\space unit \citep[Fig.~1]{SpirouDavisEtAl:1999}. \yellownote{Figure \ref{fig:SpirouFig1} needs permission}}
+#+CAPTION: [Experimental data of a single Type-II DCN unit]{Experimental data of a single Type-II DCN unit \citep[Fig.~1]{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig1
-[[file:./gfx/Spirou-Fig1-type2.png]]
+    [[file:./gfx/Spirou-Fig1-type2.png]]
 
 \TV\space or vertical cells are glycinergic, inhibitory cells found in the deep
 layers of the \DCN\space that send axon collaterals to the \VCN\@.  They are
@@ -1111,6 +1123,7 @@ processing is that of a narrowband inhibitor. Responses of \DCN\space principal
 cells are strongly inhibited by this narrowband source.  As a result, \DCN\space
 principal cells are inhibited by sharp spectral peaks close to their \BF\space
 \citep{SpirouDavisEtAl:1999}.
+
 
 ** Modeling of Tuberculoventral cells
 
@@ -1179,6 +1192,7 @@ the principal cells of the \DCN\space including type II units.
 
 #+LaTeX:\include{TV_RateLevelTable}
 
+
 ** Implementation
 
 \yellownote{Give details about the TV model implementation}
@@ -1186,6 +1200,7 @@ the principal cells of the \DCN\space including type II units.
 #+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II\ DCN\ unit \citep[Data reproduced from Fig.~8]{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
   [[file:../../cnstellate/TV_RateLevel/TV_RateLevel_Fig8.pdf]]
+
 
 ** Optimisation Results
 
@@ -1218,6 +1233,7 @@ model.
 }
 #+end_latex
 
+
 ** Verification of RL and NRL over whole network
 
 \yellownote{more work to be done here}
@@ -1233,6 +1249,7 @@ The increase in rate of TV cells in regions below the frequency of the notch is
 the main argument for the assertion of offset in DS to TV cell connections.
 
 #+LaTeX: \include{TV_NotchTable}
+
 
 ** Implementation
 
@@ -1295,12 +1312,12 @@ response using a simple gradient-decent method.
 
 
 
-# #+CAPTION: [Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit \citep[see Fig.~9][]{ReissYoung:2005}. \yellownote{Permission needed for Reiss and Young figures}}
-# #+LABEL: fig:TVReissFig9
+# +CAPTION: [Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from Fig.~9 \citet{ReissYoung:2005}.}
+# +LABEL: fig:TVReissFig9
 #  [[file:./gfx/TV_Reiss]]
 
 
-#+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures from  \citealt[Fig.~9]{ReissYoung:2005})}
+#+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures from Fig.~9 \citealt{ReissYoung:2005})}
 #+LABEL: fig:TVNotchDiagram
   [[file:./gfx/TV_NotchDataConfig]]
 
@@ -1585,6 +1602,7 @@ Offset of \DS\space connections onto \TV\space cells~(channel) &    \oDSTV     &
 \yellownote{Pull everything about the TV cell model together.}
 #+end_latex
 
+
 ** Verification Results for DS to TV connectivity
 
 The response of individual type II units to notch and band-pass sweeps in
@@ -1681,7 +1699,8 @@ D. Masked response across the CF of the central unit (30 dB noise).} \label{fig:
 
 
 
-*  T\space Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones
+* T\space Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones
+
 
 ** Background
 
@@ -1751,6 +1770,7 @@ to 0.3 or above throughout the stimulus.
 
   #+LaTeX: \include{TStellateTable}
 
+
 ** Implementation
 
 \yellownote{Para 1: Nordlie table\space \ref{tab:TSModelSummary}A. Using RM  type I-t, Other previous models}
@@ -1805,6 +1825,7 @@ The parameters for synapse's were: excitatory (tau = 0.36 ms), glycinergic (tau1
 \caption[]{Jitter of AN input T\space stellate Optimisation results}\label{fig:CSjitter}
 \end{figure}
 
+
 ** Optimisation Results
 
 \yellownote{Choosing optimisation data - average population data or individual
@@ -1838,15 +1859,15 @@ hyperpolarisation ($v_{\rm RMP} - v_{\rm 60-61}$).
 Figure\space \ref{fig:CSresults} shows the optimisation results for the
 \ChS unit 01-864-004 from \citep{PaoliniClareyEtAl:2005}, with
 \CF 3.9\space kHz.  This unit had a depolarisation threshold at 10 dB and a
-firing rate saturation at 75 dB \SPL\@.  The stimulus for the optimisation
+firing rate saturation at 75 dB \SPL.  The stimulus for the optimisation
 routine was a pure tone 30\space dB above depolarisation threshold at \CF
 (3.9\space kHz 40\space dB \SPL), 5 ms on\slash off cosine squared ramp.  A 20 ms delay
 was included to allow the model to reach a sustained \RMP\@. The ChS model unit
 had CF of 3.872\space kHz due to the separation of frequency channels in the
 model.  The best parameters found by the optimisation and shown in Figure\space
-\ref{fig:CSresults}, were very high excitatory input (\wLSRTS 0.00286796,
-\wHSRTS 0.00201089) and moderate to high inhibition (\wDSTS 0.000291181, \wTVTS
-0.000884174, \wGLGTS 0.000749812).  A low input stimulus level means that the
+\ref{fig:CSresults}, were very high excitatory input (\wLSRTS = 2.86796 nS,
+\wHSRTS = 2.01089 nS) and moderate to high inhibition (\wDSTS 0.291181 nS, \wTVTS
+0.884174 nS, \wGLGTS 0.749812 nS).  A low input stimulus level means that the
 majority of synaptic input came from \HSR fibres.  There was a slight increase
 in the leak conductance ($\gleak=6.57345e-4 \textrm{Scm}^-2$ ) from the initial value
 (4.907e-4), causing a decrease in the input resistance to 120\space M$\Omega$
@@ -2002,7 +2023,7 @@ A. PSTH, B. CV, C. Average membrane voltage, and D. Voltage measures.}
         %Number of TV syn on TS          &     \nTVTS     &     [0,64]     &           &           & \\
      Weight of GLG syn on TS  (nS)       &    \wGLGTS     &   [0.01,30]    & 0.749812  & 0.093936  & 0.05\\
         %Number of GLG syn on TS         &    \nGLGTS     &     [0,64]     &           &           & \\ \hline
-TS max.\ leak conductance (mS cm$^{-2}$) &     \gleak     &    [1e-3,3]    & 0.657345  & 0.494097  & 0.72474\\
+TS max. leak conductance (mS cm$^{-2}$) &     \gleak     &    [1e-3,3]    & 0.657345  & 0.494097  & 0.72474\\
  TS max. KHT conductance (S cm$^{-2}$)   &     \gKHT      & [1e-6,0.003]	  & 0.0189416 & 0.018941  & 0.022858\\
    %      TS reversal potential (mV)     &     \Eleak     & [$-45$,$-70$]  &           &  -54.26   & -63.502\\ \hline
                        \multicolumn{3}{|l|}{Error}                         &   6.496   &   5.928   & 5.569\\ \hline
@@ -2061,6 +2082,7 @@ synchronisation to significant periodic frequencies
 
 ** Verification of CN cell models
 
+
 *** Golgi cell model
 
 \yellownote{Discuss the Golgi cell optimisation.  Is the filter-based approach
@@ -2068,6 +2090,7 @@ synchronisation to significant periodic frequencies
   Golgi cell model optimised in section\space \ref{sec:GolgiCellModel}
   reproduces the experimental data of a single unit in the marginal shell of the
   VCN \citep{GhoshalKim:1997}.}
+
 
 *** D\space stellate cell model
 
@@ -2077,6 +2100,7 @@ the spread of ANF inputs to DS cells optimised based on your methods?
 How does the optimisation routine replicate DS responses to other
 stimuli, when there are already plenty?}
 
+
 *** Tuberculoventral cell model
 
 \yellownote{Discuss the TV cell optimisation. Is the goal of replicating wide-band
@@ -2084,11 +2108,13 @@ inhibition offset necessary, or is rate ratio between TS/DS/TV the
 most important?  Mammalian studies show that the TV cells receive
 input from TS cells, but not in rats}
 
+
 ** Limitations of the CN stellate microcircuit model
 
 \yellownote{AM coding in model is not verified by \citet{ZilanyBruce:2006} model,
 and it was superseded by the addition of a power-law functions in the
 synapse \citep{ZilanyBruceEtAl:2009}}
+
 
 ** Implications of sequential microcircuit optimisation
 
@@ -2103,7 +2129,7 @@ assumption of 1\% vesicle release in cortical buttons.) }
 
 
 
-* TODO Conclusion
+* Conclusion
 
 
 # Example conclusion
@@ -2146,10 +2172,12 @@ easily reproduce this work.
 
 * Appendix
 
+
 ** General neural modeling tools
 
 This section provides an overview of the pragmatic details of the
 \textsf{cnstellate} NEURON model used in this chapter.
+
 
 *** Optimisation
 
@@ -2181,6 +2209,7 @@ PRAXIS\space \citep{Brent:1976}.
   }
 \end{lstlisting}
 
+
 *** Data extraction
 
 \yellownote{Special comments on the use of g3data to extract data points from  PDF literature documents }
@@ -2194,6 +2223,7 @@ PRAXIS\space \citep{Brent:1976}.
     \label{fig:Extractdata}
   \end{center}
 \end{figure}
+
 
 ** \textsf{cnstellate} NEURON model
 
@@ -2409,43 +2439,34 @@ as:
 \noindent where /x/ is distance along the basilar membrane from
 the stapes.
 
-
-
 This equation is suitable since it uses the mapping function \cochleaxf and its
 inverse, \cochleafx, which is different for cat, rat and humans.  The data
 listed in Table\space \ref{tab:f2x} shows the currently accepted parameters for
 each species.
 
 
-\begin{table}[ht]
-  \centering
-  \begin{tabular}{lccccc}
-  \hline
-% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-      &   A  &  a   &     k     & L \\
-Human & 165.4 & 2.1  & 1.0(0.88) & 35\\
- Cat  &  456  & 2.1  &    0.8    & 25 \\
- Rat  & 7613.3& 0928 &    1.0    & 8.03 \\
-  \hline
-  \end{tabular}
-  \caption[Basilar membrane frequency-distance function parameters]%
-  {Frequency to basilar membrane distance function parameters \citep{FitzGeraldBurkittEtAl:2001}. Data obtained from \url{http://earlab.bu.edu} \label{tab:f2x}}
-\end{table}
+# after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+#+caption: [Basilar membrane frequency-distance function parameters]{Frequency to basilar membrane distance function parameters \citep{FitzGeraldBurkittEtAl:2001}. Data obtained from \url{http://earlab.bu.edu}.
+#+label: tab:f2x
+|       |      A |    a |         k |    L |
+| Human |  165.4 |  2.1 | 1.0(0.88) |   35 |
+| Cat   |    456 |  2.1 |       0.8 |   25 |
+| Rat   | 7613.3 | 0928 |       1.0 | 8.03 |
 
 
 In the cat, \citet{CarneyYin:1988} fitted the latency vs \CF\space curve
 from click responses in the cat to obtain the equation:
 \begin{equation}
   \label{eq:delay}
-   delay(x) = A_0 * {\rm exp}(-x / A_1 ) * 1e-3 - 1.0/CF
+   delay(x) = A_0 \times {\exp}(-x / A_1 ) \times 10^{-3} - 1.0/CF
 \end{equation}
 \noindent where $A_0 = 8.13$ ms, $A_1 = 6.49$ nm, and /x/ =
 \cochleafx(CF) is the distance along the basilar membrane dependent on the
 species.  \citet{HeinzZhangEtAl:2001} then corrected the peak click to match the
 onset delay of ANFs and this has been retained in the model used here
-\citep{ZilanyBruceEtAl:2009}: \(delay(x) = A_0 * {\rm exp}(-x / A_1) * 1e-3 \)
+\citep{ZilanyBruceEtAl:2009}: \(delay(x) = A_0 \times {\exp}(-x / A_1) \times 10^{-3} \)
 where $A_0 = 3.0$, $A_1 = 12.5$. In humans, the delay function is: \( delay =
-4.915 + 0.3631 * \exp(0.11324*x),\quad 5<x<35 \quad (\mathrm{mm}) \).
+4.915 + 0.3631 \times \exp(0.11324\timesx),\quad 5<x<35 \quad (\mathrm{mm}) \).
 
 
 Steps for converting any Carney Auditory Model written in C\space for
@@ -2473,12 +2494,12 @@ MATLAB\space to a NEURON\space NMODL\space compatible C\space file.
     - M-file \textsf{ffGn} $\Rightarrow$ generate a C function that implements a
        the fast fractional Gaussian noise generator
 
+
 ** ANF Spiking model
 
 The spike generator used in the CN stellate model was created by
-B. Scott Jackson (bsj22@cornell.edu).  The code is available from the
-Carney Lab web site
-\href{http://www.urmc.rochester.edu/smd/Nanat/faculty-research/lab-pages/LaurelCarney/auditory-models.cfm}.
+B. Scott Jackson \citep{JacksonCarney:2005}.  The code is available from the
+[[http://www.urmc.rochester.edu/smd/Nanat/faculty-research/lab-pages/LaurelCarney/auditory-models.cfm][Carney Lab web site]].
 
 The double exponentials for the refractory recovery, specific to ANFs,
 were:
@@ -2510,7 +2531,7 @@ The \textsf{rm} module loaded for each \textsf{CNcell} soma section is the
 condensed current modules of sodium (\INa), high-threshold potassium (\IKHT),
 leak (\Ileak), and the hyperpolarising mixed-cation (\Ih).  The low-threshold
 potassium current module (\IKLT), is only used by the \DS\space cell and
-inserted seperately.
+inserted separately.
 
 \begin{lstlisting}[label=lst:CellTemplate,caption=Rothman and Manis cochlear nucleus cell template (in CNcell.tem)]
   begintemplate CNcell
@@ -2580,6 +2601,7 @@ proc set_tstellate() {
 endtemplate CNcell
 
 \end{lstlisting}
+
 
 *** Golgi cell model optimisation
 
@@ -2671,6 +2693,7 @@ endtemplate Golgicell
 
 \end{lstlisting}
 
+
 *** D\space stellate cell model
 
 # {D\space stellate cell model optimisation}
@@ -2702,6 +2725,7 @@ Example optimisation points used by \textsf{fit\_praxis}
 #   DSvec.sum(1420,1440) / maxrate ) errorvec.plot(g return
 #   errorvec.meansqerr(targetclick) }
 # \end{lstlisting}
+
 
 *** TV cell model: Tuberculoventral cell model optimisation
 
