@@ -1,14 +1,14 @@
 % Graphic for TeX using PGF
 % Title: /media/data/Work/thesis/SimpleResponsesChapter/gfx/GolgiDiagram.dia
 % Creator: Dia v0.97.1
-% CreationDate: Fri Nov 11 11:20:06 2011
+% CreationDate: Wed Nov 23 10:01:36 2011
 % For: eagerm
 % \usepackage{tikz}
 % The following commands are not supported in PSTricks at present
 % We define them conditionally, so when they are implemented,
 % this pgf file will use them.
 \ifx\du\undefined
-  \newlength{\du}
+  \newlength{\du} 
 \fi
 \setlength{\du}{15\unitlength}
 \begin{tikzpicture}
@@ -100,7 +100,7 @@
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node at (38.022650\du,14.276700\du){(\ensuremath{\backslash}Gtau)};
+\node at (38.022650\du,14.276700\du){(\ensuremath{\Gtau})};
 \pgfsetlinewidth{0.100000\du}
 \pgfsetdash{}{0pt}
 \pgfsetdash{}{0pt}
@@ -173,11 +173,11 @@
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node at (28.793750\du,14.216000\du){(\ensuremath{\backslash}dANFGLG,};
+\node at (28.793750\du,14.216000\du){(\ensuremath{\dANFGLG},};
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node at (28.793750\du,15.016000\du){\ensuremath{\backslash}Gspon)};
+\node at (28.793750\du,15.016000\du){\ensuremath{\Gspon})};
 \pgfsetlinewidth{0.100000\du}
 \pgfsetdash{}{0pt}
 \pgfsetdash{}{0pt}
@@ -410,7 +410,7 @@
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
 \draw (11.156543\du,17.790000\du)--(15.724558\du,17.790000\du)--(15.033015\du,19.690000\du)--(10.465000\du,19.690000\du)--cycle;
-% setfont left to latex
+% setfont left to latex 
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
 \node at (13.094779\du,18.935000\du){HSR};
@@ -431,11 +431,11 @@
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node[anchor=west] at (32.550000\du,11.900000\du){\$g\_i(t)\$};
+\node[anchor=west] at (32.550000\du,11.900000\du){$g_i(t)$};
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node[anchor=west] at (19.495000\du,7.890000\du){\$\ensuremath{\backslash}mathbf\{H\}\$};
+\node[anchor=west] at (19.495000\du,7.890000\du){\ensuremath{\mathbf{H}}};
 \definecolor{dialinecolor}{rgb}{1.000000, 1.000000, 1.000000}
 \pgfsetfillcolor{dialinecolor}
 \pgfpathellipse{\pgfpoint{23.323364\du}{8.546682\du}}{\pgfpoint{1.178364\du}{0\du}}{\pgfpoint{0\du}{1.051682\du}}
@@ -511,19 +511,19 @@
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node at (26.289736\du,5.390000\du){(\ensuremath{\backslash}wHSRGLG, position i, \ensuremath{\backslash}sHSRGLG)};
+\node at (26.289736\du,5.390000\du){\wHSRGLG,  N(\ensuremath{\mu = i},\,\ensuremath{\sigma=\sqrt{\sHSRGLG}})};
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node[anchor=west] at (19.795000\du,18.190000\du){\$\ensuremath{\backslash}mathbf\{L\}\$};
+\node[anchor=west] at (19.495000\du,17.90000\du){\ensuremath{\mathbf{L}}};
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node[anchor=west] at (20.250000\du,15.350000\du){\$\ensuremath{\backslash}mathbf\{w\} \ensuremath{\backslash}dot \ensuremath{\backslash}mathbf\{L\}\$};
+\node[anchor=west] at (21.2450000\du,15.050000\du){\ensuremath{\mathbf{w}\,\cdot\,\mathbf{L}}};
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node[anchor=west] at (20.445000\du,10.640000\du){\$\ensuremath{\backslash}mathbf\{w\} \ensuremath{\backslash}dot \ensuremath{\backslash}mathbf\{H\}\$};
+\node[anchor=west] at (21.245000\du,10.640000\du){\ensuremath{\mathbf{w}\,\cdot\,\mathbf{H}}}; 
 \pgfsetlinewidth{0.100000\du}
 \pgfsetdash{}{0pt}
 \pgfsetdash{}{0pt}
@@ -554,9 +554,12 @@
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node at (25.849836\du,20.998600\du){(\ensuremath{\backslash}wLSRGLG, position i, \ensuremath{\backslash}sLSRGLG)};
+\node at (25.849836\du,20.998600\du){\ensuremath{\wLSRGLG},\, N(\ensuremath{\mu = i},\,\ensuremath{\sigma=\sqrt{\sLSRGLG}})};
 % setfont left to latex
 \definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
 \pgfsetstrokecolor{dialinecolor}
-\node[anchor=west] at (41.495000\du,11.915000\du){\$G\_i(t)\$};
+\node[anchor=west] at (41.495000\du,11.915000\du){$G_i(t)$};
+% setfont left to latex
+\definecolor{dialinecolor}{rgb}{0.000000, 0.000000, 0.000000}
+\pgfsetstrokecolor{dialinecolor}
 \end{tikzpicture}

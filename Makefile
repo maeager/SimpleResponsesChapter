@@ -117,6 +117,8 @@ neverclean		?= *.pdf
 #
 #
 # CHANGES:
+# Chris Monson (2011-11-10):
+# * Issue 144: Help patch from girard.nicolas applied
 # Andrew McNabb (2011-09-30):
 # * Bumped version to 2.2.1-alpha8
 # * Issue 141: No font embedding for gnuplot when not doing pdf
@@ -3649,7 +3651,7 @@ define help_text
 #             ./generating_script.weird_lang > $$@
 #
 #          In this file, you have access to all of the variables that the
-#          makefile creates, like $(onlysources.tex).  While accessing those can
+#          makefile creates, like $$(onlysources.tex).  While accessing those can
 #          be somewhat brittle (they are implementation details and may change),
 #          it is a great way to test your ideas when submitting feature requests.
 #
