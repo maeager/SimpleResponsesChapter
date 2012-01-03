@@ -8,7 +8,7 @@
 
 #+LATEX_HEADER:\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
-#+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
+#+LATEX_HEADER:\lfoot{\footnotesize \today\ at \thistime}
 #+LATEX_ HEADER:\pretolerance=150
 #+LATEX_ HEADER:\tolerance=100
 #+LATEX_ HEADER:\setlength{\emergencystretch}{3em}
@@ -700,7 +700,7 @@ in Table\space \ref{tab:GolgiCellModelSummary}B are zero because there is no
 need for spiking \ANF\space neurons, only the instantaneous profiles of each
 frequency channel is used in the Golgi model.  The connectivity between
 \ANFs\space and Golgi cells (Table\space \ref{tab:GolgiCellModelSummary}C) is a
-simple place-based Gaussian spread, as explained in the introduction (in section [[*Connectivity%20and%20Topology][Connectivty and Topology]])
+simple place-based Gaussian spread, as explained in the introduction (in section [[*Connectivity%20and%20Topology][Connectivity and Topology]])
 
 \begin{figure}[htb]
  \resizebox{0.9\textwidth}{!}{input{./gfx/GolgiDiagram.tex}}
@@ -1990,6 +1990,30 @@ The parameters for synapse's were: excitatory (tau = 0.36 ms), glycinergic (tau1
   %   GABAergic (tau1=0.26 and tau2=5.43 ms).\label{fig:TSExcinputs}}
 \caption[]{Jitter of AN input T\space stellate Optimisation results}\label{fig:CSjitter}
 \end{figure}
+
+*** Fitness function
+
+The optimisation fitness function, $F$, of the T stellate cell model calculated the mean squared error between a combination of the intracellular and spikes statistics
+against the experimental data by \citet{PaoliniClareyEtAl:2005}.
+
+Coefficient of variation of the inter-spike intervals was calculated over 10 ms
+windows.  Spike trains without the first three regular spikes were ignored. .
+The
+\begin{equation} F =
+\sqrt{MSE\left(\textrm{CV}_{0--10}+\textrm{CV}_{10--20}+\textrm{CV}_{20--30}+\textrm{CV}_{30--40} +
+\textrm{IV}_\textrm{Onset Ratio} + \textrm{IV}_\textrm{Adaptation} +
+\textrm{IV}_\textrm{Offset} \right)} + \textrm{SR Penalty} + \textrm{CV Penalty}
+\end{equation}
+
+The intracellular voltage statistics included the onset ratio, adaptation shift
+and offset shift.  
+
+\begin{eqnarray}
+\textrm{Onset Ratio} &= \bar{v}\left|_{t=0}^{t=5} / \bar{v}|_{t=20}^{t=25}
+\textrm{Adaptation} &= \bar{v}|_{t=20}^{t=21} - \bar{v}|_{t=50}^{t=51}
+ \textrm{Offset} &= \bar{v}|_{t=-10}^{t=0} - \bar{v}|_{t=60}^{t=61}
+\end{eqarray}
+
 
 
 ** Optimisation Results
