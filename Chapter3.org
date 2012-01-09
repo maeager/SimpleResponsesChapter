@@ -25,7 +25,7 @@
 
 
 
-* Prelude 							   :noexport:
+* Prelude                                                          :noexport:
 
 #+begin_src emacs-lisp
 ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "pdflatex -interaction nonstopmode %f"  "pdflatex -interaction nonstopmode %f" ))
@@ -1939,6 +1939,45 @@ to 0.3 or above throughout the stimulus.
 
 ** Implementation
 
+*** Intrinsic properties
+
+TS
+262.3{$\pm$}62 (rat [\citenum{DoucetRyugoEtAl:1999}])
+249{$\pm$}95  (rat [\citenum{DoucetRyugo:1997}])
+266{$\pm$}156 (rat [\citenum{DoucetRyugo:2006}])
+648 (cat [\citenum{SmithRhode:1989}])
+366{$\pm$}100  (cat [\citenum{ReddCahillEtAl:2002}])
+200 (CS), 240 (CT) (guinea pig [\citenum{PalmerWallaceEtAl:2003}])
+192{$\pm$}47 (high CF), 253{$\pm$}63 (low CF) (chinchilla [\citenum{JosephsonMorest:1998}])
+
+16--20\um  (rat [\citenum{DoucetRyugo:1997,DoucetRyugoEtAl:1999,DoucetRyugo:2006}])
+14.5{$\pm$}2.0 (high CF)  17.6{$\pm$}2.7 (low CF) (chinchilla [\citenum{JosephsonMorest:1998}])
+
+2-3 main dend, total dend length $\sim$2000\um (guinea pig [\citenum{PalmerWallaceEtAl:2003}])
+75-100\um and 150-300\um parallel,3--4 primary dendrites (cat [\citenum{SmithRhode:1989}])
+200 \um parallel, 2--5 \um in diam  (chinchilla [\citenum{JosephsonMorest:1998}])
+axon width 0.5--1.1 \um [\citenum{OertelWuEtAl:1990}]
+hillock initial segment averaged 2.5{$\pm$}0.96 \um,
+proximal diam and up to 13 \um long, distal initial segment 0.7{$\pm$}0.2 \um,
+myelination began about 20 \um from the soma (chinchilla [\citenum{JosephsonMorest:1998}])
+
+ - Effective somatic membrane time constant $6.5 \pm 5.7$ msec
+   \citep{ManisMarx:1991} type I $9.1 \pm 4.5$ \citep{ManisMarx:1991} 6.2 to
+   18.0 msec \citep{FengKuwadaEtAl:1994} $6.9\pm 3$ msec, 10--90\% rise time was
+   $1.05\pm 0.4$ msec \citep{IsaacsonWalmsley:1995}
+ - Linear I-V \citep{ManisMarx:1991}
+ - cross sectional area of somata $447 \pm 265$ Mohm
+ - isolated guinea pig stellate cell type 1 current clamp \citep{ManisMarx:1991}
+   membrane resistance 44 to 151 M\Omega (mean $89.4 \pm 24.4$) mouse slice prep
+   \citep{FerragamoGoldingEtAl:1998a}
+ - stellate $231 \pm 113\,\mathrm{M}\Omega$, $14.9 \pm 9$ pF primary membrane
+   capacitance, room temp rat \citep{IsaacsonWalmsley:1995} dog
+   \citep{BalBaydasEtAl:2009} $176 \pm 35.9$ Mohm membrane time constant $8.8
+   \pm 1.4$ (n=21)
+
+*** Synaptic properties
+
+
 \yellownote{Para 1: Nordlie table\space \ref{tab:TSModelSummary}A. Using RM  type I-t, Other previous models}
 \yellownote{Synaptic inputs known and unknown, included and not included in model.  Previous work include and excludes}
 
@@ -1950,8 +1989,6 @@ example, excitation from the afferent \ANF\space inputs (\LSR\space Figure\space
 \ref{fig:TSinputs}A and \HSR\space Figure\space \ref{fig:TSinputs}B) show a
 large depolarisation.  \HSR\space inputs show a rapid onset and a slowly
 adapting sustained depolarisation.
-
-
 
 #+latex: \yellownote{Actual parameters: diameter =19.5$\mu$m, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S cm$^{-2}$, $\gKA=0.01539$ S cm$^{-2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
 
@@ -2006,7 +2043,7 @@ The
 \end{equation}
 
 The intracellular voltage statistics included the onset ratio, adaptation shift
-and offset shift.  
+and offset shift.
 
 \begin{eqnarray}
 \textrm{Onset Ratio} &= \bar{v}\left|_{t=0}^{t=5} / \bar{v}|_{t=20}^{t=25}
@@ -2214,7 +2251,7 @@ A. PSTH, B. CV, C. Average membrane voltage, and D. Voltage measures.}
      Weight of GLG syn on TS  (nS)       &    \wGLGTS     &   [0.01,30]    & 0.749812  & 0.093936  & 0.05\\
         %Number of GLG syn on TS         &    \nGLGTS     &     [0,64]     &           &           & \\ \hline
 TS max. leak conductance (mS cm$^{-2}$) &     \gleak     &    [1e-3,3]    & 0.657345  & 0.494097  & 0.72474\\
- TS max. KHT conductance (S cm$^{-2}$)   &     \gKHT      & [1e-6,0.003]	  & 0.0189416 & 0.018941  & 0.022858\\
+ TS max. KHT conductance (S cm$^{-2}$)   &     \gKHT      & [1e-6,0.003]          & 0.0189416 & 0.018941  & 0.022858\\
    %      TS reversal potential (mV)     &     \Eleak     & [$-45$,$-70$]  &           &  -54.26   & -63.502\\ \hline
                        \multicolumn{3}{|l|}{Error}                         &   6.496   &   5.928   & 5.569\\ \hline
 \end{tabularx}
@@ -2786,11 +2823,11 @@ proc set_tstellate() {
      somaarea = PI*(L/1E4)^2   //um to cm2
 
 //Set maximum conductance for each current
-	gnabar_rm = nstomho(1000)*qt()
-	gkhtbar_rm = nstomho(80)*qt()
-	gkabar_ka =  nstomho(65)*qt()
-	ghbar_rm = nstomho(0.5)*qt(1)
-	gleak_rm = nstomho(2)*qt()
+        gnabar_rm = nstomho(1000)*qt()
+        gkhtbar_rm = nstomho(80)*qt()
+        gkabar_ka =  nstomho(65)*qt()
+        ghbar_rm = nstomho(0.5)*qt(1)
+        gleak_rm = nstomho(2)*qt()
    }
 }
 endtemplate CNcell
