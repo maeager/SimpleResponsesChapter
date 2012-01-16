@@ -37,7 +37,7 @@
 \usepackage{amssymb}
 \usepackage[fleqn]{amsmath}   % displayed equations flush left
 %\setlength{\mathindent}{0em}
-\usepackage{amsthm}
+%\usepackage{amsthm}
 \usepackage[mathscr]{eucal}
 
 \newcommand{\vect}[1]{\mathbf{#1}}
@@ -248,8 +248,11 @@
 % lineskip=-5pt  %
 % }
 
+\ifx\setcitestyle\undefined
 \usepackage[sort,round,authoryear]{natbib}
 \setcitestyle{aysep={}} % J Neurophys formatting
+\fi
+
 \usepackage{xspace}
 \usepackage{rotating}
 \usepackage{tikz}
