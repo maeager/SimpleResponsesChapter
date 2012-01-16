@@ -656,10 +656,7 @@ VCN\space units, primarily D and T stellate cells
 #+LABEL:      fig:GolgiKimFig2
   [[file:../figures/GhoshalKim96_Fig2]].eps
 
-
-
 #+LaTeX:\include{GolgiRateLevelTable}
-
 
 In the creation of the Golgi cell model, we can reduce the explicit behaviour of
 Golgi cells down to four major details:
@@ -1939,7 +1936,8 @@ to 0.3 or above throughout the stimulus.
 
 ** Implementation
 
-*** Intrinsic properties
+*** Cell-based properties of T stellate cells
+
 
 TS
 262.3{$\pm$}62 (rat [\citenum{DoucetRyugoEtAl:1999}])
@@ -1953,6 +1951,7 @@ TS
 16--20\um  (rat [\citenum{DoucetRyugo:1997,DoucetRyugoEtAl:1999,DoucetRyugo:2006}])
 14.5{$\pm$}2.0 (high CF)  17.6{$\pm$}2.7 (low CF) (chinchilla [\citenum{JosephsonMorest:1998}])
 
+Three to four primary dendrites eminate from the cell body
 2-3 main dend, total dend length $\sim$2000\um (guinea pig [\citenum{PalmerWallaceEtAl:2003}])
 75-100\um and 150-300\um parallel,3--4 primary dendrites (cat [\citenum{SmithRhode:1989}])
 200 \um parallel, 2--5 \um in diam  (chinchilla [\citenum{JosephsonMorest:1998}])
