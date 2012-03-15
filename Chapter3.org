@@ -64,13 +64,13 @@
 
 * Introduction
 
-     #+BEGIN_QUOTE
+#+BEGIN_QUOTE
   ``To understand brain function, the focus of [our] investigations must expand
   from detailed responses and structure of single cells to include unit
   responses to the activity of other cells, and how these responses are
   distributed over a population of similar cells as wells as across populations
   of different cells.''  - \textit{\citet[p.]{Shamma:1998}}
-     #+END_QUOTE
+#+END_QUOTE
 \yellownote{Get page number of this quote}
 
 Shihab Shamma calls upon the science community, particularly members of its
@@ -173,7 +173,7 @@ following cells and models:
 
 #+CAPTION:  [Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (see text for details).}
 #+LABEL: fig:microcircuit
-  [[file:gfx/CNcircuit-detailed.eps]]
+[[file:./gfx/CNcircuit-detailed.eps]]
 
 Optimisation of a detailed \BNN model requires a realistic input model
 with which to mimick the behaviour experimentally observed in live neural
@@ -2010,8 +2010,9 @@ The parameters for synapse's were: excitatory (tau = 0.36 ms), glycinergic (tau1
 
 *** Fitness function
 
-The optimisation fitness function, $F$, of the T stellate cell model calculated the mean squared error between a combination of the intracellular and spikes statistics
-against the experimental data by \citet{PaoliniClareyEtAl:2005}.
+The optimisation fitness function, $F$, of the T stellate cell model calculated
+the mean squared error between a combination of the intracellular and spikes
+statistics against the experimental data by \citet{PaoliniClareyEtAl:2005}.
 
 Coefficient of variation of the inter-spike intervals was calculated over 10 ms
 windows.  Spike trains without the first three regular spikes were ignored.
@@ -2019,9 +2020,12 @@ windows.  Spike trains without the first three regular spikes were ignored.
 \yellownote{FIX this section}
 
 #+BEGIN_LaTeX
-\begin{equation} 
-F = \sqrt{MSE\left(\textrm{CV}_{0--10}+\textrm{CV}_{10--20}+\textrm{CV}_{20--30}+\textrm{CV}_{30--40} + \textrm{IV}_\textrm{Onset Ratio} + \textrm{IV}_\textrm{Adaptation} + \textrm{IV}_\textrm{Offset} \right)} + \textrm{SR Penalty} + \textrm{CV Penalty}
-\end{equation}
+  \begin{equation} 
+  F =
+  \sqrt{MSE\left(\textrm{CV}_{0--10}+\textrm{CV}_{10--20}+\textrm{CV}_{20--30}+\textrm{CV}_{30--40} +
+  \textrm{IV}_\textrm{Onset Ratio} + \textrm{IV}_\textrm{Adaptation} +
+  \textrm{IV}_\textrm{Offset} \right)} + \textrm{SR Penalty} + \textrm{CV Penalty}
+  \end{equation}
 #+END_LaTeX
 
 
@@ -2029,12 +2033,11 @@ The intracellular voltage statistics included the onset ratio, adaptation shift
 and offset shift.
 
 #+BEGIN_LaTeX
-\begin{eqnarray}
- \textrm{Onset Ratio} &= \bar{v}|_{t=0}^{t=5}\quad/\quad \bar{v}|_{t=20}^{t=25} \\
- \textrm{Adaptation} &= \bar{v}|_{t=20}^{t=21}\quad - \quad\bar{v}|_{t=50}^{t=51} \\
- \textrm{Offset} &= \bar{v}|_{t=-10}^{t=0}\quad - \quad\bar{v}|_{t=60}^{t=61} 
-\end{eqnarray}
-
+  \begin{eqnarray}
+\label{eq:IVstats-Onset} \textrm{Onset Ratio} &= \bar{\mathbf{v}}|_{t=0}^{t=5}\quad/\quad \bar{\mathbf{v}}|_{t=20}^{t=25} \\
+\label{eq:IVstats-Adap} \textrm{Adaptation} &= \bar{\mathbf{v}}|_{t=20}^{t=21}\quad - \quad\bar{\mathbf{v}}|_{t=50}^{t=51} \\
+\label{eq:IVstats-Offset} \textrm{Offset} &= \bar{\mathbf{v}}|_{t=-10}^{t=0}\quad - \quad\bar{\mathbf{v}}|_{t=60}^{t=61} 
+  \end{eqnarray}
 #+END_LaTeX
 
 
@@ -2062,9 +2065,9 @@ since the \OnC units will respond earlier and provide fast inhibition.
 The final error for the optimisation routine was calculated as the square root
 of the mean squared error between the first 4 CV periods and the three voltage
 measures.  The measures of membrane voltage were independent of \RMP included a)
-the onset ratio ($v_{\rm 5-10}/v_{\rm 20-30}$), b) adaptation of sustained
-depolarisation ($v_{\rm 20-21} - v_{\rm 50-51}$), and c) post-tone
-hyperpolarisation ($v_{\rm RMP} - v_{\rm 60-61}$).
+the onset ratio (Eq. \ref{eq:IVstats-Onset}), b) adaptation of sustained
+depolarisation (Eq. \ref{eq:IVstats-Adap}), and c) post-tone
+hyperpolarisation (Eq. \ref{eq:IVstats-Offset}).
 
 
 *** Sustained Chopper
