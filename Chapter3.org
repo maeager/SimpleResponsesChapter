@@ -19,7 +19,7 @@
 #+BIBLIOGRAPHY: MyBib alphanat
 # unsrtnat
 
-#+TEXT:\singlespacing{\tableofcontents\printglossaries}
+# + TEXT:\singlespacing{\tableofcontents\printglossaries}
 #+TEXT:\setcounter{chapter}{2}
 #+TEXT:\chapter[Simple Responses]{The Cochlear Nucleus Stellate Network Model: Parameter fitting of synaptic variables using simple acoustic responses \label{sec:SimpleResponsesChapter}}
 #+TEXT:\centerline{\today\quad Draft Version:  \input{.hg/tags.cache}}
@@ -57,6 +57,8 @@
      ("\\subsection{%s}" . "\n\\subsection{%s}")
      ("\\subsubsection{%s}" . "\n\\subsubsection{%s}")
      ("\\paragraph{%s}" . "\n\\paragraph{%s}")))
+ (setq org-export-latex-title-command "{\n\\singlespacing\n\\tableofcontents\n}\n")
+
 #+end_src
 
 
@@ -1759,8 +1761,7 @@ Figure \ref{fig:TVReissFig9} (reprinted from Figure 9 in
 \citep*{ReissYoung:2005}) was the main target for the optimisation of \TV
 cells.  To replicate the response of a single unit to notch sweeps, notches were
 generated in [[latex:progname][GNU Octave]] using Chebychev II
-filters
-#+latex:\footnote{\textsf{cheby2} function in octave-forge signal package.}  with
+filters [fn:1]  with
 a sampling rate of 100 kHz and an optimal filter number.  The half octave
 sweep was calculated from -2 to 2 octaves away from 12.7
 kHz at 1/32$^{nd}$ increments with logarithmically constant notch
@@ -2020,12 +2021,12 @@ windows.  Spike trains without the first three regular spikes were ignored.
 \yellownote{FIX this section}
 
 #+BEGIN_LaTeX
-  \begin{equation} 
+  \begin{multiline} 
   F =
   \sqrt{MSE\left(\textrm{CV}_{0--10}+\textrm{CV}_{10--20}+\textrm{CV}_{20--30}+\textrm{CV}_{30--40} +
   \textrm{IV}_\textrm{Onset Ratio} + \textrm{IV}_\textrm{Adaptation} +
   \textrm{IV}_\textrm{Offset} \right)} + \textrm{SR Penalty} + \textrm{CV Penalty}
-  \end{equation}
+  \end{multiline}
 #+END_LaTeX
 
 
@@ -2391,14 +2392,14 @@ easily reproduce this work.
 ** General neural modeling tools
 
 This section provides an overview of the pragmatic details of the
-\textsf{cnstellate} NEURON model used in this chapter.
+[[latex:progname][cnstellate]] NEURON model used in this chapter.
 
 
 *** Optimisation
 
 \yellownote{Expand on praxis method, it's specific attributes, use of pvec for
 setting the parameters and the fitting procedure.}  The optimisation routine
-used in this chapter was NEURON's \textsf{fit\_praxis}, which uses the algorithm
+used in this chapter was NEURON's [[latex:progname][fit\_praxis]], which uses the algorithm
 PRAXIS \citep{Brent:1976}.
 
 \begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure.]
@@ -2441,14 +2442,14 @@ PRAXIS \citep{Brent:1976}.
 \end{figure}
 
 
-** \textsf{cnstellate} NEURON model
+** [[latex:progname][cnstellate]] NEURON model
 
 The cochlear nucleus stellate microcircuit software code used in this chapter is
 called [[latex:progname][cnstellate]] and is implemented in [[latex:progname][NEURON]], [[latex:progname][NMODL]] and [[latex:progname][C]] source
 code.  Acknowledgments should be made to M.S.A. Zilany, Laurel Carney, Ian Bruce and colleagues for their
 work on the AN model; Dominic Mazzoni for the real-time resample library
 interface; and \citet{MiglioreCanniaEtAl:2006} for the parallel NEURON network
-model \textsf{netmod} (see SenseLab models
+model [[latex:progname][netmod]] (see SenseLab models
 \href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034}{52034},
 \href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730}{2730},
 \href{http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781}{51781}).
@@ -2473,13 +2474,13 @@ is generally at or above 10 kHz to match the simulations' time step of 0.1 ms.
 Version 4 of the AN model \citep{ZilanyBruceEtAl:2009} only needs 200 kHz
 sampling rate for stimulus above 20 kHz, otherwise use 100 kHz.
 
-# The directory for the saved AN responses is determined by the variable \textsf{ANsoundspath}.
+# The directory for the saved AN responses is determined by the variable [[latex:progname][ANsoundspath]].
 
 
 \yellownote{Discuss Listing headerlines}
 Listing \ref{lst:headerlines}
 
-\begin{lstlisting}[label=lst:headerlines,caption={Headerlines in \mbox{\textsf{TStellate\.hoc}} show a typical setup in a \textsf{cnstellate} simulation or optimisation file.}]
+\begin{lstlisting}[label=lst:headerlines,caption={Headerlines in \mbox{[[latex:progname][TStellate\.hoc]]} show a typical setup in a [[latex:progname][cnstellate]] simulation or optimisation file.}]
 load_file("nrngui.hoc")
 //load_file("par_netpar.hoc")     //uncomment for parallel mode
 //load_file("par_init.hoc")       //uncomment for parallel mode
@@ -2517,17 +2518,17 @@ load_file("par_experiment_TStellate.hoc")
 
 The auditory model implementation in [[latex:progname][NEURON]] is a conversion from the [[latex:progname][MATLAB]] mex
 interface to [[latex:progname][NEURON]]'s NMODL interface. Version 3 of the AN model
-\mbox{\textsf{an\_bruce.mod}}.
+\mbox{[[latex:progname][an\_bruce.mod]]}.
 
 Support for simulating the rat and human species, as well as the default cat
-species, are included in the NMODL files \mbox{\textsf{an\_bruce.mod}} and
-\mbox{\textsf{an\_zilany\_v4.mod}}.  Accommodation of different species is
+species, are included in the NMODL files \mbox{[[latex:progname][an\_bruce.mod]]} and
+\mbox{[[latex:progname][an\_zilany\_v4.mod]]}.  Accommodation of different species is
 implemented within the procedures \cochleaxf, \cochleafx, \delayspecies occurs
 at the position on the basilar membrane to characteristic frequency mapping
 function (\cochleaxf), the reciprocal frequency to position function
 (\cochleafx), and the delay function (\delayspecies).  Figure
 \ref{fig:GetAudiogram} shows how audiograms from the appropriate species are
-mapped using a MATLAB routine \mbox{\textsf{fitaudiogram.m}} so that specific
+mapped using a MATLAB routine \mbox{[[latex:progname][fitaudiogram.m]]} so that specific
 parameters can be passed from NEURON to the auditory model.  Rat basilar
 membrane frequency mapping in \cochleafx and \cochleaxf included using data
 obtained from the Boston University [[http://earlab.bu.edu][Earlab website]].
@@ -2542,7 +2543,7 @@ get the correct Zilany model compression values, given the acoustic thresholds
 of an animal.
 
 #+BEGIN_LaTeX
-\begin{lstlisting}[label=lst:makeaudiogram,caption=Using \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for the cat.]
+\begin{lstlisting}[label=lst:makeaudiogram,caption=Using \mbox{[[latex:progname][fitaudiogram.m]]} to create COHC and CIHC vectors for the cat.]
   x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0);
   [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2));
   dlmwrite("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g");
@@ -2550,7 +2551,7 @@ of an animal.
 #+END_LaTeX
 
 
-# \begin{lstlisting}[label=lst:cataudiogram,caption=Portion of  \mbox{\textsf{cat\_audiogram\.txt}}]
+# \begin{lstlisting}[label=lst:cataudiogram,caption=Portion of  \mbox{[[latex:progname][cat\_audiogram\.txt]]}]
 #   ...  125 37 0 0.025 250 22 0 0.3 500 8 0.65 0.7 1000 3 0.9 0.9 2000 1 0.95 1
 #   4000 1 0.95 1 ...
 # \end{lstlisting}
@@ -2593,7 +2594,7 @@ Listing \ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands in
 #   ...  125 37 0 0.025 250 22 0 0.3 500 8 0.65 0.7 1000 3 0.9 0.9 2000 1 0.95 1
 #   4000 1 0.95 1 ...
 # \end{lstlisting}
-\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to frequencies in \textsf{cf} vector (\mbox{\textsf{Utilities.hoc}})]
+\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to frequencies in [[latex:progname][cf]] vector (\mbox{[[latex:progname][Utilities.hoc]]})]
 objref audiogram,cohc,cihc
 proc GetAudiogramData(){
 ...
@@ -2606,7 +2607,7 @@ proc GetAudiogramData(){
 }
 \end{lstlisting}
 
-A procedure in \mbox{\textsf{Utilities.hoc}} called
+A procedure in \mbox{[[latex:progname][Utilities.hoc]]} called
 #+latex:\mbox{\textsf{GetAudiogram()}} is used
 to get the MATLAB/Octave audiogram data and then interpolate the data
 to centre frequencies in network's frequency channels.
@@ -2664,8 +2665,8 @@ each species.
 # after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
 #+caption: [Basilar membrane frequency-distance function parameters]{Frequency to basilar membrane distance function parameters. Data obtained from \url{http://earlab.bu.edu}.}
 #+label: tab:f2x
-|          |      A |    a |         k |    L |
-|----------+--------+------+-----------+------|
+|         |      A |    a |         k |    L |
+|---------+--------+------+-----------+------|
 | Human ^1 |  165.4 |  2.1 | 1.0(0.88) |   35 |
 | Cat   ^2 |    456 |  2.1 |       0.8 |   25 |
 | Rat   ^3 | 7613.3 | 0928 |       1.0 | 8.03 |
@@ -2684,8 +2685,10 @@ from click responses in the cat to obtain the equation:
 \end{equation}
 \noindent where $A_0 = 8.13$ ms, $A_1 = 6.49$ nm, and /x/ is the
 distance along the basilar membrane dependent on the species. In humans, the
-delay function is: \( d(x) = 4.915 + 0.3631 \times \exp(0.11324 \times x),\quad
-5\, <\, x\, <\, 35 \quad (\mathrm{mm}) \).
+delay function is: 
+\begin{equation}  \label{eq:delayhumans}
+ d(x) = 4.915 + 0.3631 \times \exp(0.11324 \times x),\quad 5\, <\, x\, <\, 35 \quad (\mathrm{mm})
+\end{equation}
 \citet{HeinzZhangEtAl:2001} then corrected the peak click to match the onset
 delay of ANFs, where $A_0 = 3.0$, $A_1 = 12.5$ and this has been retained in the model used here
 \citep{ZilanyBruceEtAl:2009}.
@@ -2697,25 +2700,25 @@ Steps for converting any Carney Auditory Model written in C for
 MATLAB to a NEURON NMODL compatible C file.
 
   1. Remove mex headers
-  2. Remove \textsf{mexfunction}, this is replaced with equivalent NMODL
+  2. Remove [[latex:progname][mexfunction]], this is replaced with equivalent NMODL
      function that retrieves variables and returns the equivalent vectors
   3. Find and replace all vector or memory allocation routines with functions in
      scopmath.h
-    - \textsf{mxCalloc} $\Rightarrow$ \textsf{makevector}
-    - \textsf{mxFree} $\Rightarrow$ \textsf{freevector}
-  4. Replace random generator functions \textsf{drand48()} to
-     \mbox{\textsf{scop\_random()}} and let random seed be set in NEURON or
-     replace \textsf{srand(seed)} with \mbox{\textsf{set\_seed(seed)}}.
+    - [[latex:progname][mxCalloc]] $\Rightarrow$ [[latex:progname][makevector]]
+    - [[latex:progname][mxFree]] $\Rightarrow$ [[latex:progname][freevector]]
+  4. Replace random generator functions [[latex:progname][drand48()]] to
+     \mbox{[[latex:progname][scop\_random()]]} and let random seed be set in NEURON or
+     replace [[latex:progname][srand(seed)]] with \mbox{[[latex:progname][set\_seed(seed)]]}.
   5. Calls to MATLAB functions within a mex file The most recent model within
      the mex file.  This was converted to a simple double array of random values
-     with the \protect{\mbox{\textsf{normrand(0,1)}}} function in
-     \mbox{\textsf{scoplib.h}}.
-    - builtin \textsf{randn} $\Rightarrow$ generate an array gaussian random
-       numbers with scoplib's \mbox{\textsf{normrand(0,1)}} function
-    - builtin \textsf{resample} $\Rightarrow$ implementation of a reliable
+     with the \protect{\mbox{[[latex:progname][normrand(0,1)]]}} function in
+     \mbox{[[latex:progname][scoplib.h]]}.
+    - builtin [[latex:progname][randn]] $\Rightarrow$ generate an array gaussian random
+       numbers with scoplib's \mbox{[[latex:progname][normrand(0,1)]]} function
+    - builtin [[latex:progname][resample]] $\Rightarrow$ implementation of a reliable
        resampling function in C, using a real-time resample library (libresample
        [reference needed]).
-    - M-file \textsf{ffGn} $\Rightarrow$ generate a C function that implements a
+    - M-file [[latex:progname][ffGn]] $\Rightarrow$ generate a C function that implements a
        the fast fractional Gaussian noise generator
 
 
@@ -2751,7 +2754,7 @@ spike detector. The model can be adjusted to include dendrite and axon segments
 if required.  Internal variables and objects can be made publicly accessible
 using
 
-The \textsf{rm} module loaded for each \textsf{CNcell} soma section is the
+The [[latex:progname][rm]] module loaded for each [[latex:progname][CNcell]] soma section is the
 condensed current modules of sodium (\INa), high-threshold potassium (\IKHT),
 leak (\Ileak), and the hyperpolarising mixed-cation (\Ih).  The low-threshold
 potassium current module (\IKLT), is only used by the \DS cell and
@@ -2923,7 +2926,8 @@ endtemplate Golgicell
 
 # {D stellate cell model optimisation}
 
-Example optimisation points used by \textsf{fit\_praxis}
+Example optimisation points used by [[latex:progname][fit\_praxis]]
+
 
 \begin{figure}[htb]
   \centering
@@ -2933,29 +2937,48 @@ Example optimisation points used by \textsf{fit\_praxis}
 \end{figure}
 
 
+# #+BEGIN_LaTeX
+#    \begin{lstlisting}
+#      func fun() {local f 
+#   //Modify Variables 
+#   param.w.x[glg][ds] = $2
+#      param.w.x[hsr][ds] = $3 
+#      param.w.x[lsr][ds] = $3 
+#   //Modify the network
+#      {create_cells() connect_cells(fileroot) SetRates()} 
+#   // Simulate the network for N repetitions 
+#      for j=0, reps-1 { 
+#        print j 
+#        GenSpikes() 
+#        run()
+#        DSvec.append(dstellate[50][0].spiketimes) 
+#   //print startsw()-x, "secs" 
+#       }
+  
+#   //Analyse the output
+#      DSvec = DSvec.histogram(0,tstop,0.1)
+#      objref errorvec 
+#      errorvec = new Vector() 
+#   //Find the mean number of spikes in the first click 
+#      maxrate = (DSvec.sum(240,260) + DSvec.sum(740,760) +   DSvec.sum(1340,1360))/3 
+#   //Calc ratio of number of spikes in second click   relative to mean first click 
+#      errorvec.append( DSvec.sum(260,280) / maxrate )
+#      errorvec.append( DSvec.sum(780,800) / maxrate ) 
+#      errorvec.append(DSvec.sum(1420,1440) / maxrate ) 
+  
+    
+#   //Return the normalised fitness function error score
+#      return  errorvec.meansqerr(targetclick) 
+#   }
+#   \end{lstlisting}
+# #+END_LaTeX
 
-# \begin{lstlisting}
-#   func fun() {local f //Modify Variables param.w.x[glg][ds] = $2
-#   param.w.x[hsr][ds] = $3 param.w.x[lsr][ds] = $3 //Modify the network
-#   {create_cells() connect_cells(fileroot) SetRates()} // Simulate the network
-#   for N reps for j=0, reps-1{ print j GenSpikes() run()
-#   DSvec.append(dstellate[50][0].spiketimes) //print startsw()-x, "secs" }
-#   DSvec = DSvec.histogram(0,tstop,0.1)
-%
-#   objref errorvec errorvec = new Vector() //Find the mean number of spikes in
-#   the first click maxrate = (DSvec.sum(240,260) + DSvec.sum(740,760)+
-#   DSvec.sum(1340,1360))/3 //Calc ratio of number of spikes in second click
-#   relative to mean first click errorvec.append( DSvec.sum(260,280) / maxrate )
-#   errorvec.append( DSvec.sum(780,800) / maxrate ) errorvec.append(
-#   DSvec.sum(1420,1440) / maxrate ) errorvec.plot(g return
-#   errorvec.meansqerr(targetclick) }
-# \end{lstlisting}
 
 
 *** TV cell model: Tuberculoventral cell model optimisation
 
 The \TV cell model optimisation was generated using the hoc file
-\textsf{TV\_Notch.hoc} and was simulated with the commands:
+[[latex:progname][TV\_Notch.hoc]] and was simulated with the commands:
 
 :    $ make gui
 :    $ ./gui/special TV_Notch.hoc -
@@ -2964,8 +2987,14 @@ The \TV cell model optimisation was generated using the hoc file
 
 #  #+BEGIN_LaTeX:
 \newpage
+\singlespacing
 \listoftodos
-
+\printglossaries
 \bibliographystyle{plainnat}
 \bibliography{MyBib}
 #  #+END_LaTeX
+
+* Footnotes
+
+[fn:1] The [[latex:progname][cheby2]] function is in the octave-forge signal package.
+
