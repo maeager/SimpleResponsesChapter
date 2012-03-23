@@ -287,7 +287,6 @@
 \usepackage[australian]{babel}
 
 \usepackage{booktabs,ltxtable}
-\newcommand{\figfont}[1]{\large{\textbf{\textsf{#1}}}}
 \usepackage{doipubmed}
 
 % For subfigures
@@ -299,3 +298,9 @@
 %\usepackage{fr-subfig}
 %\floatsetup{style=Plaintop}
 %\usepackage{subfigure}
+
+\usepackage{escape}
+
+\newcommand{\code}[1]{\mbox{\normalfont\texttt{#1}}}
+\newcommand{\progname}[1]{\mbox{\normalfont\textsf{#1}}}
+\newcommand{\figfont}[1]{\large{\textbf{\textsf{#1}}}}
