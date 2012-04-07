@@ -9,20 +9,14 @@
 #+LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
 #+LATEX_HEADER:\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
-#+LATEX_HEADER:\lfoot{\footnotesize \today\ at \thistime}
-#+LATEX_ HEADER:\pretolerance=150
-#+LATEX_ HEADER:\tolerance=100
-#+LATEX_ HEADER:\setlength{\emergencystretch}{3em}
-#+LATEX_ HEADER:\overfullrule=1mm
-#+LATEX_ HEADER:\newcommand{\textpm}{\ensuremath{\pm}}
+#+LATEX _ HEADER:\newcommand{\textpm}{\ensuremath{\pm}}
 
 #+BIBLIOGRAPHY: MyBib alphanat
 # unsrtnat
 
-# + TEXT:\singlespacing{\tableofcontents\printglossaries}
 #+TEXT:\setcounter{chapter}{2}
-#+TEXT:\chapter[Simple Responses]{The Cochlear Nucleus Stellate Network Model: Parameter fitting of synaptic variables using simple acoustic responses \label{sec:SimpleResponsesChapter}}
-#+TEXT:\footnote{\today\quad Draft Version: \input{.hg/cache/tags}}
+#+TEXT:\chapter[Simple Responses]{The Cochlear Nucleus Stellate Network Model: Parameter fitting of synaptic variables using simple acoustic responses}
+# + TEXT:\footnote{\today\quad Draft Version: \input{./.hg/cache/tags}}
 
 
 
@@ -35,8 +29,8 @@
 ;; (setq org-latex-to-pdf-process '("xelatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "xelatex -interaction nonstopmode %f"  "xelatex -interaction nonstopmode %f" ))
  (setq org-export-latex-title-command "")
  (setq org-entities-user '(("space" "\\ " nil " " " " " " " ")))
-(add-to-list 'org-export-latex-classes  '("UoM-draft-org-article"
-"\\documentclass[10pt,a4paper,twoside,openright]{book}
+ (add-to-list 'org-export-latex-classes  '("UoM-draft-org-article"
+  "\\documentclass[10pt,a4paper,twoside,openright]{book}
 \\usepackage{style/uomthesis}
 \\input{user-defined}
 \\usepackage[nonumberlist,acronym]{glossaries}
@@ -48,7 +42,7 @@
 \\setlength{\\emergencystretch}{3em}
 \\overfullrule=1mm
 % \\usepackage[notcite]{showkeys}
-\\lfoot{\\footnotesize\\today\\ at \\thistime}
+\\lfoot{\\footnotesize\\today\\ at \\thistime Hg:129}
 \\usepackage{rotating,calc}
 \\usepackage{booktabs,ltxtable,lscape}
       [NO-DEFAULT-PACKAGES]
@@ -58,7 +52,6 @@
      ("\\subsubsection{%s}" . "\n\\subsubsection{%s}")
      ("\\paragraph{%s}" . "\n\\paragraph{%s}")))
  (setq org-export-latex-title-command "{\n\\singlespacing\n\\tableofcontents\n}\n")
-
 #+end_src
 
 #+RESULTS:
@@ -172,7 +165,7 @@ following cells and models:
 
 #+CAPTION:  [Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (see text for details).}
 #+LABEL: fig:microcircuit
-[[file:./gfx/CNcircuit-detailed.eps]]
+[[file:./gfx/CNcircuit-detailed.pdf]]
 
 Optimisation of a detailed \BNN model requires a realistic input model
 with which to mimick the behaviour experimentally observed in live neural
@@ -214,7 +207,7 @@ wider dynamic range than \HSR fibres.  They also project to the \GCD
 #+CAPTION: [Tonotopic ANF innervation in the CN of man and cat]{Cochlear nucleus innervation by ANFs follows the same tonotopic organisation in man and cat \citep{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}. Image reprinted from \citep{} \yellownote{Get reference}}
 #+ATTR_LaTeX: width=0.6\textwidth
 #+LABEL: fig:CN_Cat_Human
-[[file:gfx/Cat_Human_CN.eps]]
+[[file:gfx/Cat_Human_CN.pdf]]
 
 \yellownote{Auditory model and history should be in the METHODS section.}
 
@@ -239,7 +232,8 @@ shown in Figure \ref{fig:ZilanyBruceFig}.  \citet{HeinzZhangEtAl:2001} incorpora
 cochlea filters based on the critical bandwidths obtained from psychophysical experiments
 in humans.  The ARLO model of the cat auditory periphery, with non-linear compression and
 two-tone suppression, is used in this study except in the vowel simulation where the human
-auditory periphery model is used.  \yellownote{TODO: AN model paragraph has been changed -
+auditory periphery model is used.  
+\yellownote{TODO: AN model paragraph has been changed -
 fix any comment related to new Zilany}
 
 # The \citet{ZilanyBruce:2007} model improves the previous AN model by an
@@ -256,7 +250,7 @@ fix any comment related to new Zilany}
 #+ATTR_LaTeX:  width=0.8\textwidth
 #+CAPTION:     [Auditory periphery model]{Auditory periphery model with a middle ear filter, a gamma-chirp filter bank, a cochlea-feedback filter pathway, and a dual power-law synapse. Figure reprinted from \citealt{ZilanyBruceEtAl:2009}.}
 #+LABEL: fig:ZilanyBruceFig
-[[file:gfx/ZilanyCarney-JASA-2009-Fig2.eps]]
+[[file:gfx/ZilanyCarney-JASA-2009-Fig2.pdf]]
 
 \yellownote{Explain Figure \ref{fig:Compression}}
 
@@ -317,7 +311,7 @@ model an integrator and is strongly influenced by the \Ih current, which is acti
 rest.  Type I-t transient regular firing type is similar to the Type 1 classic but with
 A-type potassium current channels.  A-type potassium channels are unique to the cochlear
 nucleus, particularly to T stellate cells \citep{RothmanManis:2003,RothmanManis:2003a}.
-D-stellate cells contain low-threshold potassium current channels, which is strongest in
+\DS cells contain low-threshold potassium current channels, which is strongest in
 bushy cells, to enhance response to coincident inputs.
 
 
@@ -348,7 +342,7 @@ the same Greenwood function as used for the filterbank of AN frequency channels.
 #+CAPTION:  Gaussian connection between cell types in cochlear nucleus stellate network.
 #+ATTR_LaTeX: width=0.8\textwidth
 #+LABEL:    fig:CNconn
-[[file:gfx/CNConn.eps]]
+[[file:gfx/CNConn.pdf]]
 
 Extrinsic parameters that control the connectivity between two cell-type groups
 can be defined by:
@@ -632,7 +626,7 @@ principal VCN units, primarily D and T stellate cells \citep{FerragamoGoldingEtA
 
 #+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top will be the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
 #+LABEL:      fig:GolgiKimFig2
-[[file:~/Work/thesis/figures/GhoshalKim96_Fig2.eps]]
+[[file:~/Work/thesis/figures/GhoshalKim96_Fig2.pdf]]
 
 #+LaTeX:\include{GolgiRateLevelTable}
 
@@ -757,7 +751,7 @@ into the Golgi cell model.
 #+ATTR_LaTeX: width=0.6\textwidth
 #+CAPTION: [Initial results of Golgi cell model]{Initial trial results of the  Golgi cell model optimisation.  Responses of the Golgi cell model (blue  triangles) compared five five sound level (0,15, 55, 75 and 85 dB SPL) against  5 point in the target response (red squares).  The eventual best optimisation  response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  Golgi cell model using the final parameters.}
 #+LABEL: fig:GolgiTestResult
-  [[file:gfx/GolgiRateLevel_result2.eps]]
+  [[file:gfx/GolgiRateLevel_result2.pdf]]
 
 The final optimisation routine with 22 levels and a Golgi cell model with \HSR and \LSR
 \ANF inputs was used to generate a closer fit to the \citeauthor{GhoshalKim:1996} data.
@@ -809,7 +803,7 @@ Table \ref{tab:GolgiCellModelSummary}E result table.
 
 #+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996}. A more detailed optimisation with 22 levels and included HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data.The final root mean squared error was 4.48 spikes/s.}
 #+LABEL: fig:GolgiResult
-  [[file:./gfx/GolgiRateLevel_result.eps]]
+  [[file:./gfx/GolgiRateLevel_result.pdf]]
 
 
 #   % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
@@ -998,7 +992,7 @@ defined.  The \GLGDS spread is set to 2 channels with zero offset, which corresp
 
 #+CAPTION: Experimental data showing click recovery in onset choppers.  Figure reproduced from \citet{BackoffPalombiEtAl:1997}.
 #+LABEL: fig:BackoffPalombi
-[[file:./gfx/Backoff+Palombi-Fig3.eps]]
+[[file:./gfx/Backoff+Palombi-Fig3.pdf]]
 
 \DS input parameters that were preemptively fixed included: the number of \GLG to \DS
 synapses ($\nGLGDS = 25$), the spread of \ANFs to \DS cells (\sANFDSh and \sANFDSl), and
@@ -1086,7 +1080,7 @@ optimisation.
 
 #+CAPTION: [Click recovery optimisation results in DS cell model]{Optimisation results of click recovery behaviour in DS cell model (CF 5.8 kHz). The optimal response (blue circle) is obtained from Fig. 3 in \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of an OnC unit (CF 5.8 kHz). Best result (green triangles).}
 #+LABEL: fig:DS_ClickRecovery_result
-  [[file:DS_ClickRecovery/DS_ClickRecovery_result.eps]]
+  [[file:DS_ClickRecovery/DS_ClickRecovery_result.pdf]]
 
 # \begin{figure}
 # \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_OptVars}\\
@@ -1197,7 +1191,7 @@ sound level and respond poorly to broadband noise
 
 #+CAPTION: [Experimental data of a single Type-II DCN unit]{Experimental data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig1
-[[file:./gfx/Spirou-Fig1-type2.eps]]
+[[file:./gfx/Spirou-Fig1-type2.pdf]]
 
 \TV or vertical cells are glycinergic, inhibitory cells found in the deep layers of the
 \DCN that send axon collaterals to the \VCN.  They are characterized as having a
@@ -1308,7 +1302,7 @@ the \DCN showed that wide-band inhibition was necessary for the principal cells 
 
 #+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
-[[file:~/Work/cnstellate/TV_RateLevel/TV_RateLevel_Fig8.eps]]
+[[file:~/Work/cnstellate/TV_RateLevel/TV_RateLevel_Fig8.pdf]]
 
 
 ** Optimisation Results
@@ -1320,7 +1314,7 @@ model.
 
 #+CAPTION:  Optimisation results for the TV model responses to tone and noise.
 #+LABEL: fig:TV_RL_result
-  [[file:TV_RateLevel/TV_RateLevel_result.eps]]
+  [[file:TV_RateLevel/TV_RateLevel_result.pdf]]
 
 
 
@@ -1421,7 +1415,7 @@ gradient-decent method.
 
 #+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures reproduced from figure 9 \citealt{ReissYoung:2005})}
 #+LABEL: fig:TVNotchDiagram
-[[file:gfx/TV_NotchDataConfig.eps]]
+[[file:gfx/TV_NotchDataConfig.pdf]]
 
 
 ** Optimisation Results
@@ -1497,7 +1491,7 @@ from 110 down to 50 dB \SPL.
 
 #+CAPTION: [TV cell model: optimisation results]{Optimisation results for TV Notch model with stimulus sound levels at 110, 90, 70 and 50 dB SPL.}
 #+LABEL: fig:TV_result_spl
-[[file:TV_Notch/TV_Notch_spl.eps]]
+[[file:TV_Notch/TV_Notch_spl.pdf]]
 
 
 # % D ----------------------------------
@@ -1551,7 +1545,7 @@ notch stimulus from 110 down to 50 dB \SPL.
 
 #+CAPTION: [Optimisation results for a refined TV cell model]{Optimisation  results for a refined TV cell model with stimulus sound levels at 50 dB \SPL\@. The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV,  \nHSRTV, \wLSRTV, \wHSRTV\@.  The second group of 3 runs included the  parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
 #+LABEL: fig:TV_result_Run2_50
- [[file:TV_Notch/Run2/spl50/TV_Notch_result.eps]]
+ [[file:TV_Notch/Run2/spl50/TV_Notch_result.pdf]]
 
 
 # 50 dB Run
@@ -1676,8 +1670,8 @@ to 1); and the increased need for \DS cell inhibition with a high \nDSTV.
 what I wanted. The 22 dB SPL in Reiss fit the TV rate-level response around mid way}
 
 The eventual result of the \TV cell optimisation, highlighted in the following table, was
-derived from Run 1A and Run 1B in the set using 70 dB \SPL stimulus.  \yellownote{Explain
-the table below more. }
+derived from Run 1A and Run 1B in the set using 70 dB \SPL stimulus.  
+\yellownote{Explain the table below more. }
 
 #+BEGIN_LaTeX
   {\small%
@@ -1826,21 +1820,21 @@ The intracellular traces in Figure \ref{fig:PaoliniAIV} along with the CV statis
 Figure \ref{fig:PaoliniCVdata} will form the basis for the optimisation routine of the T
 stellate cell model of each chopper type.
 
-\begin{figure}[htb]
-\centering%
-\subfloat[Chopper Sustained]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CS-01-864-004}}\hfill%\quad%
-\subfloat[Chopper Transient 1]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT1-01-857-007}}\hfill%\\
-\subfloat[Chopper Transient 2]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT2-01-305-014}}%\quad%
-%\subfloat[Onset Chopper]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/OC-99-812-013}}}
-
-\caption[Average intracellular response data in stellate cells in rats.]{Average intracellular response to CF tone 30dB above depolarisation threshold in stellate  cells \citep[Reproduced from Fig.~2, ][]{PaoliniClareyEtAl:2005}.
-A. Sustained chopper unit 01-864-004, CF 3.8 kHz,
-B. Transient chopper type 1 unit 01-857-007, CF 8.9 kHz.
-C. Transient chopper type 2 unit 01-305-014 CF 12.3 kHz.
-%D. Onset chopper unit  99-812-013.
-Hyper polarisation after tone indicated by asterisk.  \label{fig:PaoliniAIV}}
-\end{figure}
-
+#+BEGIN_LaTeX
+  \begin{figure}[htb]
+    \centering%
+    \subfloat[Chopper Sustained]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CS-01-864-004}}\hfill%\quad%
+    \subfloat[Chopper Transient 1]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT1-01-857-007}}\hfill%\\
+    \subfloat[Chopper Transient 2]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT2-01-305-014}}%\quad%
+    % \subfloat[Onset Chopper]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/OC-99-812-013}}}
+    \caption[Average intracellular response data in stellate cells in rats.]{Average intracellular response to CF tone 30dB above depolarisation threshold in stellate  cells \citep[Reproduced from Fig.~2, ][]{PaoliniClareyEtAl:2005}.
+      A. Sustained chopper unit 01-864-004, CF 3.8 kHz,
+      B. Transient chopper type 1 unit 01-857-007, CF 8.9 kHz.
+      C. Transient chopper type 2 unit 01-305-014 CF 12.3 kHz.
+      % D. Onset chopper unit  99-812-013.
+      Hyper polarisation after tone indicated by asterisk.} \label{fig:PaoliniAIV}
+  \end{figure}
+#+END_LaTeX
 
 
 The categorisation via coefficient of variation is shown in Figure
@@ -1853,10 +1847,9 @@ regular in the first 10 ms period, but rises to 0.3 or above throughout the stim
 
 #+CAPTION: [Regularity in chopper units]{Regularity in chopper units. Data reproduced from figure 2 in \citet{PaoliniClareyEtAl:2005}.}
 #+LABEL: fig:PaoliniCVdata
-[[file:~/Work/cnstellate/TStellate/PaoliniCV.eps]]
+[[file:./gfx/PaoliniCV.pdf]]
 
 #+LaTeX: \include{TStellateTable}
-
 
 ** Implementation
 
@@ -1900,14 +1893,14 @@ regular in the first 10 ms period, but rises to 0.3 or above throughout the stim
 *** Synaptic properties
 
 
-\yellownote{Para 1: Nordlie table \ref{tab:TSModelSummary}A. Using RM  type I-t, Other previous models}
+# \yellownote{Para 1: Nordlie table \ref{tab:TSModelSummary}A. Using RM  type I-t, Other previous models}
+
 \yellownote{Synaptic inputs known and unknown, included and not included in model.  Previous work include and excludes}
 
 Figure \ref{fig:TSinputs} shows the expected response of a T stellate cell to individual
 connections from different cells in the CN stellate network.  The membrane parameters for
 the single compartment T stellate cell model are default except for sodium conductance set
-to zero.  In this example, excitation from the afferent \ANF inputs (\LSR Figure
-\ref{fig:TSinputs}A and \HSR Figure \ref{fig:TSinputs}B) show a large depolarisation.
+to zero.  In this example, excitation from the afferent \ANF inputs (\LSR Figure \ref{fig:TSinputs}A and \HSR Figure \ref{fig:TSinputs}B) show a large depolarisation.
 \HSR inputs show a rapid onset and a slowly adapting sustained depolarisation.
 
 #+BEGIN_LaTeX
@@ -2032,16 +2025,14 @@ causes spikes occurring after tone onset, just before the stimulus invoked spike
 at the \TS cell 3 ms later, but still included in the \CV calculation.
 
 
-\yellownote{Note the ChS optimisation had added weight to the CV values in the error
-calculation.  The PSTH and IV trace do not even show a decent chopping behaviour.}
-\yellownote{The peaks for the IV are 3.66, 6.77, and 10.99 ms. The AN model input is
-affected by the rat audiogram, the low CF and low level.  This shifts the arrival time of
-spikes to the \TS model, and a raw IV comparison would need to be shifted by approx 2 ms.
-The onset ratio and the first CV value are effected by this.}  \yellownote{Synaptic weight
-in the model above 0.002 will initiate a spike at each input spike, similar to the calyx
-synapse on bushy cells. This means that the \TS cell will respond with a primary-like or
-primary with notch PSTH. Dendritic filtering could improve this but the high synaptic
-weights do not seem like a realistic physiological option for small bouton endings in the
+\yellownote{Note the ChS optimisation had added weight to the CV values in the error calculation.  The PSTH and IV trace do not even show a decent chopping behaviour.}
+\yellownote{The peaks for the IV are 3.66, 6.77, and 10.99 ms. The AN model input is affected by the rat audiogram, the low CF and low level.  This shifts the arrival time of spikes to the TS model, and a raw IV comparison would need to be shifted by approx 2 ms. The onset ratio and the first CV value are effected by this.}  
+
+\yellownote{Synaptic weight in the model above 0.002 will initiate a spike at
+each input spike, similar to the calyx synapse on bushy cells. This means that
+the TS cell will respond with a primary-like or primary with notch
+PSTH. Dendritic filtering could improve this but the high synaptic weights do
+not seem like a realistic physiological option for small bouton endings in the
 CN.}
 
 #+BEGIN_LaTeX
@@ -2333,7 +2324,7 @@ parameters and the fitting procedure.}  The optimisation routine used in this ch
 NEURON's [[latex:progname][fit\_praxis]], which uses the algorithm PRAXIS \citep{Brent:1976}.
 
 
-\begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure in \mbox{\textsf{parameters\_\<name\>.hoc}}.]
+\begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure in \mbox{\textsf{parameters\_name.hoc}}.]
 -------------------
   NPARAMS=3
   objref pvec,fvec,pvec_ranges,pvec_name,pvec_factor
@@ -2410,7 +2401,7 @@ otherwise use 100 kHz.
 \yellownote{Discuss Listing headerlines}
 Listing \ref{lst:headerlines}
 
-\begin{lstlisting}[label=lst:headerlines,caption={Headerlines in \mbox{[[latex:progname][TStellate\.hoc]]} show a typical setup in a [[latex:progname][cnstellate]] simulation or optimisation file.}]
+\begin{lstlisting}[label=lst:headerlines,caption={Headerlines in [[latex:progname][TStellate\.hoc]] show a typical setup in a [[latex:progname][cnstellate]] simulation or optimisation file.}]
 load_file("nrngui.hoc")
 //load_file("par_netpar.hoc")     //uncomment for parallel mode
 //load_file("par_init.hoc")       //uncomment for parallel mode
@@ -2447,16 +2438,16 @@ load_file("par_experiment_TStellate.hoc")
 *** Auditory nerve and input utilities
 
 The auditory model implementation in [[latex:progname][NEURON]] is a conversion from the [[latex:progname][MATLAB]] mex interface
-to [[latex:progname][NEURON]]'s NMODL interface. Version 3 of the AN model \mbox{[[latex:progname][an\_bruce.mod]]}.
+to [[latex:progname][NEURON]]'s NMODL interface. Version 3 of the AN model [[latex:progname][an_bruce.mod]].
 
 Support for simulating the rat and human species, as well as the default cat species, are
-included in the NMODL files \mbox{[[latex:progname][an\_bruce.mod]]} and \mbox{[[latex:progname][an\_zilany\_v4.mod]]}.
+included in the NMODL files [[latex:progname][an_bruce.mod]] and [[latex:progname][an_zilany_v4.mod]].
 Accommodation of different species is implemented within the procedures \cochleaxf,
 \cochleafx, \delayspecies occurs at the position on the basilar membrane to characteristic
 frequency mapping function (\cochleaxf), the reciprocal frequency to position function
 (\cochleafx), and the delay function (\delayspecies).  Figure \ref{fig:GetAudiogram} shows
 how audiograms from the appropriate species are mapped using a MATLAB routine
-\mbox{[[latex:progname][fitaudiogram.m]]} so that specific parameters can be passed from NEURON to the
+[[latex:progname][fitaudiogram.m]] so that specific parameters can be passed from NEURON to the
 auditory model.  Rat basilar membrane frequency mapping in \cochleafx and \cochleaxf
 included using data obtained from the Boston University [[http://earlab.bu.edu][Earlab
 website]].  Compression variables for the IHC and OHC components of the Zilany model are
@@ -2465,12 +2456,12 @@ was used to generate the compression data for the rat model.
 
 
 
-Listing \ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands to
-get the correct Zilany model compression values, given the acoustic thresholds
-of an animal.
+Listing \ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands to get the
+correct Zilany model compression values, given the acoustic thresholds of an
+animal.
 
 #+BEGIN_LaTeX
-\begin{lstlisting}[label=lst:makeaudiogram,caption=Using \mbox{[[latex:progname][fitaudiogram.m]]} to create COHC and CIHC vectors for the cat.]
+\begin{lstlisting}[label=lst:makeaudiogram,caption=Using \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for the cat.]
   x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0);
   [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2));
   dlmwrite("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g");
@@ -2521,7 +2512,7 @@ Listing \ref{lst:makeaudiogram} shows the MATLAB/GNU Octave commands in
 #   ...  125 37 0 0.025 250 22 0 0.3 500 8 0.65 0.7 1000 3 0.9 0.9 2000 1 0.95 1
 #   4000 1 0.95 1 ...
 # \end{lstlisting}
-\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to frequencies in [[latex:progname][cf]] vector (\mbox{[[latex:progname][Utilities.hoc]]})]
+\begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to frequencies in [[latex:progname][cf]] vector ([[latex:progname][Utilities.hoc]])]
 objref audiogram,cohc,cihc
 proc GetAudiogramData(){
 ...
@@ -2534,8 +2525,7 @@ proc GetAudiogramData(){
 }
 \end{lstlisting}
 
-A procedure in \mbox{[[latex:progname][Utilities.hoc]]} called
-#+latex:\mbox{\textsf{GetAudiogram()}} is used
+A procedure in [[latex:progname][Utilities.hoc]] called [[latex:progname][GetAudiogram()]] is used
 to get the MATLAB/Octave audiogram data and then interpolate the data
 to centre frequencies in network's frequency channels.
 
@@ -2628,14 +2618,14 @@ MATLAB to a NEURON NMODL compatible C file.
     - [[latex:progname][mxCalloc]] $\Rightarrow$ [[latex:progname][makevector]]
     - [[latex:progname][mxFree]] $\Rightarrow$ [[latex:progname][freevector]]
   4. Replace random generator functions [[latex:progname][drand48()]] to
-     \mbox{[[latex:progname][scop\_random()]]} and let random seed be set in NEURON or
-     replace [[latex:progname][srand(seed)]] with \mbox{[[latex:progname][set\_seed(seed)]]}.
+     [[latex:progname][scop\_random()]] and let random seed be set in NEURON or
+     replace [[latex:progname][srand(seed)]] with [[latex:progname][set\_seed(seed)]].
   5. Calls to MATLAB functions within a mex file The most recent model within
      the mex file.  This was converted to a simple double array of random values
-     with the \protect{\mbox{[[latex:progname][normrand(0,1)]]}} function in
-     \mbox{[[latex:progname][scoplib.h]]}.
+     with the [[latex:progname][normrand(0,1)]] function in
+     [[latex:progname][scoplib.h]].
     - builtin [[latex:progname][randn]] $\Rightarrow$ generate an array gaussian random
-       numbers with scoplib's \mbox{[[latex:progname][normrand(0,1)]]} function
+       numbers with scoplib's [[latex:progname][normrand(0,1)]] function
     - builtin [[latex:progname][resample]] $\Rightarrow$ implementation of a reliable
        resampling function in C, using a real-time resample library (libresample
        [reference needed]).
