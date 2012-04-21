@@ -1,4 +1,4 @@
-#+TITLE: Simple Responses
+#+TITLE: Chapter 3
 #+DATE:
 #+AUTHOR: Michael A Eager
 #+OPTIONS: toc:nil H:5
@@ -22,8 +22,8 @@
 
 #+begin_src emacs-lisp
 ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "pdflatex -interaction nonstopmode %f"  "pdflatex -interaction nonstopmode %f" ))
- (setq org-latex-to-pdf-process '("lapdf Chapter3"))
-;;(setq org-latex-to-pdf-process '("make BUILD_STRATEGY=latex Chapter3.pdf"))
+;; (setq org-latex-to-pdf-process '("lapdf Chapter3"))
+(setq org-latex-to-pdf-process '("make -d BUILD_STRATEGY=pdflatex Chapter3.pdf"))
 ;; (setq org-latex-to-pdf-process '("xelatex -interaction nonstopmode %f" "makeglossaries %b" "bibtex %b"  "xelatex -interaction nonstopmode %f"  "xelatex -interaction nonstopmode %f" ))
  (setq org-export-latex-title-command "")
  (setq org-entities-user '(("space" "\\ " nil " " " " " " " ")))
@@ -94,7 +94,7 @@ To develop and optimise detailed neural models and neural network models, reprod
 research methods are required.  Examples of parameter estimation and fitting in neural
 models are also becoming more advanced, for example [[latex:progname][SSNS]]
 \citep{SichtigSchafferEtAl:2008}, [[latex:progname][NeuroFitter]] \citep{VanAchardEtAl:2007} and
-[[latex:programe][MultiRunFitter]] (a feature in NEURON).  In this chapter, a table method introduced by
+[[latex:progname][MultiRunFitter]] (a feature in NEURON).  In this chapter, a table method introduced by
 \citet{NordlieGewaltigEtAl:2009} is used to summarise the neural models used in each
 optimisation step.  The Nordlie tables shown in each optimisation stage consist of A) the
 model summary, B) cell type populations, C) connectivity between two cell types, D) neuron
@@ -633,7 +633,8 @@ the introduction (in section [[*Connectivity%20and%20Topology][Connectivity and
 Topology]])
 
 #+BEGIN_LaTeX
-\begin{figure}[htb] \resizebox{0.9\textwidth}{!}{input{./gfx/GolgiDiagram.tex}}
+\begin{figure}[htb] 
+\resizebox{0.9\textwidth}{!}{\input{./gfx/GolgiDiagram.tex}}
  \caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile was generated
  using a weighted sum ANF profiles and a alpha function smoothing filter to mimic
  dendritic and synaptic filtering. The Gaussian spread of connections is independent for
@@ -2202,7 +2203,6 @@ NEURON's [[latex:progname][fit\_praxis]], which uses the algorithm PRAXIS \citep
   \end{center}
 \end{figure}
 
-
 ** [[latex:progname][cnstellate]] NEURON model
 
 The cochlear nucleus stellate microcircuit software code used in this chapter is called
@@ -2710,6 +2710,7 @@ simulated with the commands:
 \printglossaries
 \bibliographystyle{plainnat}
 \bibliography{MyBib}
+
 
 * Footnotes
 
