@@ -44,7 +44,7 @@ version		:= 2.2.1-alpha8
 -include $(HOME)/.latex-makefile/Variables.ini
 #
 # This can be pdflatex or latex - you can change this by adding the following line to your Makefile.ini:
-BUILD_STRATEGY := latex
+#BUILD_STRATEGY := latex
 #BUILD_STRATEGY		?= pdflatex
 # This can be used to pass extra options to latex.
 LATEX_OPTS		?=
