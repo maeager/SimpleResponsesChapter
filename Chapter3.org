@@ -15,7 +15,7 @@
 
 \setcounter{chapter}{2} 
 \chapter[Simple Responses]{The Cochlear Nucleus Stellate Network Model: Parameter fitting of synaptic variables using simple acoustic responses} 
-\footnote{\today\quad Draft Version: \input{./.hg/cache/tags}}
+\footnotesize{\today\quad Draft Version: \input{./.hg/cache/tags}}
 
 
 * Prelude                                                          :noexport:
@@ -292,6 +292,7 @@ Zilany}
   \includegraphics{RatAudiogram} %  \resizebox{0.8\textwidth}{!}{\includegraphics[keepaspectratio=true]{RatAudiogram}}
   \caption{Compression in the Bruce and Zilany AN model for cat (A) and rat (B).}
   \label{fig:Compression}
+\end{figure}
 #+END_LaTeX
 
 ** Spiking in Poisson Neural Models
@@ -1474,7 +1475,7 @@ repetitions, Cons: removes timing}
 
 #+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures reproduced from figure 9 \citealt{ReissYoung:2005})}
 #+LABEL: fig:TVNotchDiagram
-[[gfx/TV_NotchDataConfig.pdf]]
+[[file:./gfx/TV_NotchDataConfig.pdf]]
 
 ** TODO Optimisation Results
 
@@ -1549,7 +1550,7 @@ reducing the sound level of the notch stimulus from 110 down to 50 dB
 
 #+CAPTION: [TV cell model: optimisation results]{Optimisation results for TV Notch model with stimulus sound levels at 110, 90, 70 and 50 dB SPL.}
 #+LABEL: fig:TV_result_spl
-[[TV_Notch/TV_Notch_spl.pdf]]
+[[file:../../cnstellate/TV_Notch/TV_Notch_spl.pdf]]
 
 # % D ----------------------------------
 # \begin{tabularx}{\linewidth}{|X|c|c|c|}
@@ -1602,46 +1603,48 @@ DS, basic TV }
 
 #+CAPTION: [Optimisation results for a refined TV cell model]{Optimisation  results for a refined TV cell model with stimulus sound levels at 50 dB \SPL\@. The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV,  \nHSRTV, \wLSRTV, \wHSRTV\@.  The second group of 3 runs included the  parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
 #+LABEL: fig:TV_result_Run2_50
- [[TV_Notch/Run2/spl50/TV_Notch_result.pdf]]
+ file:../../cnstellate/[[TV_Notch/Run2/spl50/TV_Notch_result.pdf]]
 
 # 50 dB Run
 #+BEGIN_LaTeX
   {\small%
-  \noindent%
-  %\floatbox{table}[\FBwidth]{%
-  %\caption{DS cell model optimisation.}\label{tab:DSresults}%
-  %}%
-  %\begin{subfloatrow}
-  %\subfloat[First optimisation run.]{\label{tab:DSresults:one}%
-  \begin{minipage}{0.48\linewidth}
-  \hdr{4}{}{Optimisation Parameters A} \\ \hline
-                   &  Run 1  &  Run 2  & Run 3   \\ \hline
-       \nDSTV      &   39    &   49    & 59  \\
-  \wDSTV \quad(nS) &  21.7   &  21.7   & 25.8  \\
-      \nLSRTV      &   21    &   21    & 23  \\
-      \nHSRTV      &   15    &   15    & 14  \\
-  \wLSRTV \quad(nS)&   6.9   &   6.9   & 11.5  \\
-  \wHSRTV \quad(nS)&   1.3   &   1.3   & 1.3  \\ \hline
-       Error       & 1255.34 & 1028.70 & 1082.85 \\ \hline
-  %}\quad
-  %\subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
-  %\label{tab:DSresults:two}%
-    \end{minipage}\hfill
+    \noindent%
+  \begin{center}
+    %\floatbox{table}[\FBwidth]{%
+    %\caption{DS cell model optimisation.}\label{tab:DSresults}%
+    %}%
+    %\begin{subfloatrow}
+    %\subfloat[First optimisation run.]{\label{tab:DSresults:one}%
     \begin{minipage}{0.48\linewidth}
-  \begin{tabularx}{\textwidth}{|X|c|c|c|}
-  \hdr{4}{}{Optimisation Parameters B} \\ \hline
-                   & Run 1  & Run 2  & Run 3  \\ \hline
-  \sDSTV~(channel) &  21.3  & 31.31  & 21.31  \\
-    \Eleak~(mV)    & -74.96 & -74.96 & -74.96   \\
-  \oDSTV~(channel) & 22.03  & 22.03  & 22.03  \\
-       \nDSTV      &   15   &   15   & 15 \\
-    \wDSTV~(nS)    &  14.8  &  14.8  & 14.8 \\ \hline
-       Error       & 599.37 & 539.1  & 586.74 \\ \hline
-  \end{tabularx}%
-  %}
-  %\end{subfloatrow}
-  \end{minipage}
-  \end{center}%table}
+    \hdr{4}{}{Optimisation Parameters A} \\ \hline
+                     &  Run 1  &  Run 2  & Run 3   \\ \hline
+         \nDSTV      &   39    &   49    & 59  \\
+    \wDSTV \quad(nS) &  21.7   &  21.7   & 25.8  \\
+        \nLSRTV      &   21    &   21    & 23  \\
+        \nHSRTV      &   15    &   15    & 14  \\
+    \wLSRTV \quad(nS)&   6.9   &   6.9   & 11.5  \\
+    \wHSRTV \quad(nS)&   1.3   &   1.3   & 1.3  \\ \hline
+         Error       & 1255.34 & 1028.70 & 1082.85 \\ \hline
+    %}\quad
+    %\subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
+    %\label{tab:DSresults:two}%
+      \end{minipage}\hfill
+      \begin{minipage}{0.48\linewidth}
+    \begin{tabularx}{\textwidth}{|X|c|c|c|}
+    \hdr{4}{}{Optimisation Parameters B} \\ \hline
+                     & Run 1  & Run 2  & Run 3  \\ \hline
+    \sDSTV~(channel) &  21.3  & 31.31  & 21.31  \\
+      \Eleak~(mV)    & -74.96 & -74.96 & -74.96   \\
+    \oDSTV~(channel) & 22.03  & 22.03  & 22.03  \\
+         \nDSTV      &   15   &   15   & 15 \\
+      \wDSTV~(nS)    &  14.8  &  14.8  & 14.8 \\ \hline
+         Error       & 599.37 & 539.1  & 586.74 \\ \hline
+    \end{tabularx}%
+    %}
+    %\end{subfloatrow}
+    \end{minipage}
+    \end{center}%table}
+  }
 #+END_LaTeX
 
 The first set of parameters (\nDSTV, \wDSTV, \nLSRTV, \nHSRTV,
@@ -2095,6 +2098,7 @@ mV, respectively.  The final error was 0.839141, without weighting.  See Figure
 \ref{fig:CSresults} for figure configuration.  A. PSTH, B. CV, C. Average membrane
 voltage, and D. Voltage measures.}
   \label{fig:CT1results}
+\end{figure}
 #+END_LaTeX
 
 *** Transient Chopper 2
@@ -2693,11 +2697,10 @@ to get the correct Zilany model compression values, given the acoustic
 thresholds of an animal.
 
 #+BEGIN_LaTeX
-\begin{lstlisting}[label=lst:makeaudiogram,caption=Using
-  \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for
-  the cat.]  x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0);
-  [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2));
-  dlmwrite("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g");
+\begin{lstlisting}[label=lst:makeaudiogram,caption=Using  \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for  the cat.]  
+x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0);
+[Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2));
+dlmwrite("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g");
 \end{lstlisting}
 #+END_LaTeX
 
@@ -2707,8 +2710,6 @@ thresholds of an animal.
 #   4000 1 0.95 1 ...
 # \end{lstlisting}
 #+BEGIN_LaTeX
-\begin{lstlisting}[label=lst:makeaudiogram,caption=Using \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for the cat.]
-  x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0);
 \begin{lstlisting}[label=lst:getaudiogramdata,caption= Procedure to get audiogram data and interpolate to frequencies in \textsf{cf} vector (\mbox{\textsf{Utilities.hoc}})]
 objref audiogram,cohc,cihc
 proc GetAudiogramData(){
@@ -2766,6 +2767,7 @@ network's frequency channels.
 #+BEGIN_LaTeX
   \begin{figure}[th]
     \centering
+    \resizebox{0.8\textwidth}{!}{\includegraphics[keepaspectratio=true]{getaudiogram}}
     \caption[Zilany auditory model conversion in NEURON]%
     {Getting audiogram compression values for Zilany model in
       NEURON\@.  Data file
@@ -2779,7 +2781,8 @@ network's frequency channels.
   \end{figure}
   \begin{figure}[htb]
     \centering
-      \includegraphics{gfx/Audiogram_COHC_CIHC_rat}}
+    \resizebox{0.9\textwidth}{!}{\includegraphics{gfx/Audiogram_COHC_CIHC_cat}%
+    \includegraphics{gfx/Audiogram_COHC_CIHC_rat}}
     % \resizebox{0.5\textwidth}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
     % \resizebox{0.6\textwidth}{!}{\includegraphics[keepaspectratio=true]{audiograms}}
     \caption[Audiogram and compression in rats and cats]%
