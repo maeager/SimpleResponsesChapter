@@ -15,38 +15,46 @@
 
 \setcounter{chapter}{2} 
 \chapter[Simple Responses]{The Cochlear Nucleus Stellate Network Model: Parameter fitting of synaptic variables using simple acoustic responses} 
-\footnotesize{\today\quad Draft Version: \input{./.hg/cache/tags}}
+\small{\\ Draft Version: \input{./.hg/cache/tags}}
 
 
 * Prelude                                                          :noexport:
 
 #+begin_src emacs-lisp
-;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode
-;; %f" "makeglossaries %b" "bibtex %b" "pdflatex -interaction
-;; nonstopmode %f" "pdflatex -interaction nonstopmode %f" )) (setq
-;; org-latex-to-pdf-process '("lapdf Chapter3")) (setq
-;; org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
-;; "makeglossaries %b" "make BUILD_STRATEGY=pdflatex Chapter3.pdf"))
-;; (setq org-latex-to-pdf-process '("xelatex -interaction nonstopmode
-;; %f" "makeglossaries %b" "bibtex %b" "xelatex -interaction
-;; nonstopmode %f" "xelatex -interaction nonstopmode %f" )) (setq
-;; org-export-latex-title-command "") (setq org-entities-user
-;; '(("space" "\\ " nil " " " " " " " "))) (add-to-list
-;; 'org-export-latex-classes '("UoM-draft-org-article"
-;; "\\documentclass[10pt,a4paper,twoside,openright]{book}
-;; \\usepackage{style/uomthesis} \\input{user-defined}
-;; \\usepackage[nonumberlist,acronym]{glossaries}
-;; \\input{../hg/manuscript/misc/glossary} \\makeglossaries
-;; \\graphicspath{{./gfx/}} \\pretolerance=150 \\tolerance=100
-;; \\setlength{\\emergencystretch}{3em} \\overfullrule=1mm %
-;; \\usepackage[notcite]{showkeys} \\lfoot{\\footnotesize\\today\\ at
-;; \\thistime Hg:129} \\usepackage{rotating,calc}
-;; \\usepackage{booktabs,ltxtable,lscape} [NO-DEFAULT-PACKAGES]
-;; [NO-PACKAGES]" ("\\section{%s}" . "\n\\section{%s}")
-;; ("\\subsection{%s}" . "\n\\subsection{%s}") ("\\subsubsection{%s}"
-;; . "\n\\subsubsection{%s}") ("\\paragraph{%s}"
-;; . "\n\\paragraph{%s}"))) (setq org-export-latex-title-command
-;; "{\n\\singlespacing\n\\tableofcontents\n}\n")
+  ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
+  ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
+  ;;                                  "pdflatex -interaction nonstopmode %f" )) 
+  ;; (setq org-latex-to-pdf-process '("lapdf Chapter3")) 
+  (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
+                                   "makeglossaries %b" 
+                                   "make BUILD_STRATEGY=pdflatex Chapter3.pdf"))
+  (setq org-export-latex-title-command "") 
+  (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
+  (add-to-list 'org-export-latex-classes '("UoM-draft-org-article"
+  "% -*- mode: latex; TeX-master: \"Chapter3\"; TeX-PDF-mode: t -*-
+  \\documentclass[10pt,a4paper,twoside,openright]{book}
+  \\usepackage{style/uomthesis} 
+  \\input{user-defined}
+  \\usepackage[nonumberlist,acronym]{glossaries}
+  \\input{../hg/manuscript/misc/glossary} 
+  \\makeglossaries
+  \\graphicspath{{./gfx/}} 
+  \\pretolerance=150 \\tolerance=100
+  \\setlength{\\emergencystretch}{3em} 
+  \\overfullrule=1mm %
+  \\usepackage[notcite]{showkeys} 
+  \\lfoot{\\footnotesize\\today\\ at \\thistime} 
+  \\usepackage{rotating,calc}
+  \\usepackage{booktabs,ltxtable,lscape} 
+  [NO-DEFAULT-PACKAGES]
+  [NO-PACKAGES]" 
+  ("\\section{%s}" . "\n\\section{%s}")
+  ("\\subsection{%s}" . "\n\\subsection{%s}") 
+  ("\\subsubsection{%s}" . "\n\\subsubsection{%s}") 
+  ("\\paragraph{%s}" . "\n\\paragraph{%s}"))) 
+  (setq org-export-latex-title-command
+        "{\n\\singlespacing\n\\tableofcontents\n}\n")
+  
 #+end_src
 
 #+RESULTS:
@@ -354,13 +362,17 @@ cells, to enhance response to coincident inputs.
 in the Methods chapter}
 
 ** Connectivity and Topology
+   :PROPERTIES:
+   :CUSTOM_ID: ConnectivityandTopology
+   :END:
+
 
 Tonotopic connectivity in the stellate cochlear nucleus model is
 defined by the regular organisation of afferent ANFs into distinct
 iso-frequency channels.  The channels are separated using even spatial
 distance (based on the basilar membrane and auditory nerve separation)
 with centre frequency calculated by the Greenwood function for the cat
-\citep[see Table \ref{tab:ModelSummary},][]{Greenwood:1990}.  The HSR
+\citep[see~Table~\ref{tab:ModelSummary},][]{Greenwood:1990}.  The HSR
 terminals of individual fibres generally cover 70 \um and LSR fibres
 100 \um in mice \citep{OertelWuEtAl:1988,OertelWu:1989}.
 
@@ -625,7 +637,7 @@ known source of \GABA intrinsic to the \VCN are the Golgi cells of the
 # \end{itemize}
 #
 # \yellownote{TODO: Expand role of \GABA, or combine with previous para} Role of
-# \GABA in the \VCN\@.
+# \GABA in the \VCN.
 # \begin{itemize}
 # \item Effects of microiontophoretically applied glycine and {GABA} on neuronal
 #   response patterns in the cochlear nuclei \citep{CasparyHaveyEtAl:1979}
@@ -715,7 +727,7 @@ spiking \ANF neurons, only the instantaneous profiles of each
 frequency channel is used in the Golgi model.  The connectivity
 between \ANFs and Golgi cells (Table \ref{tab:GolgiCellModelSummary}C)
 is a simple place-based Gaussian spread, as explained in the
-introduction (in section
+introduction (in section \ref{ConnectivityandTopology}
 [[*Connectivity%20and%20Topology][Connectivity and Topology]] )
 
 #+BEGIN_LaTeX
@@ -831,7 +843,7 @@ with the input resistance in intracellular recordings of Golgi cells
 The input spread parameter is not well constrained by the optimisation
 fitness routine with a pure tone input and a single neuron, but the
 result is satisfactory given the uncertainty in \LSR fibre's axonal
-organisation in the \GCD\@.  The dendritic widths in Golgi cells are
+organisation in the \GCD.  The dendritic widths in Golgi cells are
 around 100 microns and the frequency separation laminae in the \VCN
 core is approximately 70 \um, giving an expected result of 1.5
 connectivity spread hence the result of 2.48 channels gives added
@@ -843,7 +855,8 @@ frequency spread from \LSR fibres.
 #+BEGIN_LaTeX
 {\small \noindent% 
   \begin{table}[htb]
-  \centering \begin{tabularx}{\textwidth}{|X|c|c|c|}\hline
+  \centering 
+\begin{tabularx}{\textwidth}{|X|c|c|c|}\hline
   \hdr{4}{}{GLG model parameters} \\ \hline 
                   \textbf{Parameters}                 & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline
          Spatial spread \LSRGLG (channel unit)        &   \sANFGLG    &     [0,10]     & 2.48\\\hline 
@@ -1475,7 +1488,7 @@ repetitions, Cons: removes timing}
 
 #+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures reproduced from figure 9 \citealt{ReissYoung:2005})}
 #+LABEL: fig:TVNotchDiagram
-[[file:./gfx/TV_NotchDataConfig.pdf]]
+[[./gfx/TV_NotchDataConfig.pdf]]
 
 ** TODO Optimisation Results
 
@@ -1550,7 +1563,7 @@ reducing the sound level of the notch stimulus from 110 down to 50 dB
 
 #+CAPTION: [TV cell model: optimisation results]{Optimisation results for TV Notch model with stimulus sound levels at 110, 90, 70 and 50 dB SPL.}
 #+LABEL: fig:TV_result_spl
-[[file:../../cnstellate/TV_Notch/TV_Notch_spl.pdf]]
+[[../../cnstellate/TV_Notch/TV_Notch_spl.pdf]]
 
 # % D ----------------------------------
 # \begin{tabularx}{\linewidth}{|X|c|c|c|}
@@ -1592,58 +1605,59 @@ reducing the sound level of the notch stimulus from 110 down to 50 dB
 
 To encompass the use of changing the number and spread of synaptic
 connections a new error function was created to delete all synapses
-then reconnect the network with the new parameters.  Figure
-\ref{fig:TV_result_Run2_50} shows the optimisation results for
+then reconnect the network with the new parameters.  Figure \ref{fig:TV_result_Run2_50} shows the optimisation results for
 different input sound intensities.  The performance improves when
 reducing the sound level of the notch stimulus from 110 down to 50 dB
 \SPL.
-
+ 
 \yellownote{TODO: show a simple rate-level plot of HSR, LSR , Golgi,
 DS, basic TV }
 
-#+CAPTION: [Optimisation results for a refined TV cell model]{Optimisation  results for a refined TV cell model with stimulus sound levels at 50 dB \SPL\@. The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV,  \nHSRTV, \wLSRTV, \wHSRTV\@.  The second group of 3 runs included the  parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
+#+CAPTION: [Optimisation results for a refined TV cell model]{Optimisation  results for a refined TV cell model with stimulus sound levels at 50 dB \SPL. The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV,  \nHSRTV, \wLSRTV, \wHSRTV\@.  The second group of 3 runs included the  parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
 #+LABEL: fig:TV_result_Run2_50
- file:../../cnstellate/[[TV_Notch/Run2/spl50/TV_Notch_result.pdf]]
+ [[../../cnstellate/TV_Notch/Run2/spl50/TV_Notch_result.pdf]]
 
 # 50 dB Run
 #+BEGIN_LaTeX
   {\small%
     \noindent%
-  \begin{center}
-    %\floatbox{table}[\FBwidth]{%
-    %\caption{DS cell model optimisation.}\label{tab:DSresults}%
-    %}%
-    %\begin{subfloatrow}
-    %\subfloat[First optimisation run.]{\label{tab:DSresults:one}%
+  \begin{center}%table}
+  %\floatbox{table}[\FBwidth]{%
+  %\caption{DS cell model optimisation.}\label{tab:DSresults}%
+  %}%
+  %\begin{subfloatrow}
+  %\subfloat[First optimisation run.]{\label{tab:DSresults:one}%
+  \begin{minipage}{0.48\linewidth}
+  \begin{tabularx}{\textwidth}{|X|c|c|c|}
+  \hdr{4}{}{Optimisation Parameters A} \\ \hline
+                   &  Run 1  &  Run 2  & Run 3   \\ \hline
+       \nDSTV      &   39    &   49    & 59  \\
+  \wDSTV \quad(nS) &  21.7   &  21.7   & 25.8  \\
+      \nLSRTV      &   21    &   21    & 23  \\
+      \nHSRTV      &   15    &   15    & 14  \\
+  \wLSRTV \quad(nS)&   6.9   &   6.9   & 11.5  \\
+  \wHSRTV \quad(nS)&   1.3   &   1.3   & 1.3  \\ \hline
+       Error       & 1255.34 & 1028.70 & 1082.85 \\ \hline
+  \end{tabularx}%
+  %}\quad
+  %\subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
+  %\label{tab:DSresults:two}%
+    \end{minipage}\hfill
     \begin{minipage}{0.48\linewidth}
-    \hdr{4}{}{Optimisation Parameters A} \\ \hline
-                     &  Run 1  &  Run 2  & Run 3   \\ \hline
-         \nDSTV      &   39    &   49    & 59  \\
-    \wDSTV \quad(nS) &  21.7   &  21.7   & 25.8  \\
-        \nLSRTV      &   21    &   21    & 23  \\
-        \nHSRTV      &   15    &   15    & 14  \\
-    \wLSRTV \quad(nS)&   6.9   &   6.9   & 11.5  \\
-    \wHSRTV \quad(nS)&   1.3   &   1.3   & 1.3  \\ \hline
-         Error       & 1255.34 & 1028.70 & 1082.85 \\ \hline
-    %}\quad
-    %\subfloat[Second optimisation run.]{%[Second Table of Results. However, this one has a very long caption that causes problems with alignment.]
-    %\label{tab:DSresults:two}%
-      \end{minipage}\hfill
-      \begin{minipage}{0.48\linewidth}
-    \begin{tabularx}{\textwidth}{|X|c|c|c|}
-    \hdr{4}{}{Optimisation Parameters B} \\ \hline
-                     & Run 1  & Run 2  & Run 3  \\ \hline
-    \sDSTV~(channel) &  21.3  & 31.31  & 21.31  \\
-      \Eleak~(mV)    & -74.96 & -74.96 & -74.96   \\
-    \oDSTV~(channel) & 22.03  & 22.03  & 22.03  \\
-         \nDSTV      &   15   &   15   & 15 \\
-      \wDSTV~(nS)    &  14.8  &  14.8  & 14.8 \\ \hline
-         Error       & 599.37 & 539.1  & 586.74 \\ \hline
-    \end{tabularx}%
-    %}
-    %\end{subfloatrow}
-    \end{minipage}
-    \end{center}%table}
+  \begin{tabularx}{\textwidth}{|X|c|c|c|}
+  \hdr{4}{}{Optimisation Parameters B} \\ \hline
+                   & Run 1  & Run 2  & Run 3  \\ \hline
+  \sDSTV~(channel) &  21.3  & 31.31  & 21.31  \\
+    \Eleak~(mV)    & -74.96 & -74.96 & -74.96   \\
+  \oDSTV~(channel) & 22.03  & 22.03  & 22.03  \\
+       \nDSTV      &   15   &   15   & 15 \\
+    \wDSTV~(nS)    &  14.8  &  14.8  & 14.8 \\ \hline
+       Error       & 599.37 & 539.1  & 586.74 \\ \hline
+  \end{tabularx}%
+  %}
+  %\end{subfloatrow}
+  \end{minipage}
+  \end{center}%table}
   }
 #+END_LaTeX
 
@@ -1678,32 +1692,36 @@ cell inhibition with a high \nDSTV.
 
 # 70 dB Run
 #+BEGIN_LaTeX
-  {\small\noindent
-  \begin{center} \begin{minipage}[h]{0.48\linewidth} \begin{tabularx}{\textwidth}{|X|c|c|c|}
-  \hdr{4}{}{Optimisation A} \\ \hline  
-               & Run 1  & Run 2  & Run 3          \\ \hline 
-     \nDSTV    &   43   &   23   & 32  \\ 
-  \wDSTV~(nS)  &  1.7   &  1.7   & 6.7 \\ 
-    \nLSRTV    &   29   &   32   & 32  \\ 
-    \nHSRTV    &   1    &   1    & 1   \\
-  \wLSRTV~(nS) &  1.9   &  1.9   & 1.9 \\ 
-  \wHSRTV~(nS) &  1.3   &  1.3   & 1.3 \\ \hline \hline
-     Error     & 499.20 & 514.86 & 518.54 \\ \hline
-  \end{tabularx} 
-  \end{minipage}\hfill 
-  \begin{minipage}[h]{0.48\linewidth} 
-  \begin{tabularx}{\textwidth}{|X|c|c|c|}
-  \hdr{4}{}{Optimisation B} \\ \hline 
-                   & Run 1  & Run 2  & Run 3  \\ \hline 
-  \sDSTV~(channel) &   13   &   7    & 17 \\ 
-    \Eleak~(mV)    & -65.89 & -67.22 & -67.22 \\ 
-  \oDSTV~(channel) &  2.1   &  2.1   & -7.9 \\ 
-       \nDSTV      &   17   &   17   & 16 \\ 
-    \wDSTV~(nS)    &  1.7   &  1.7   & 1.7 \\ \hline \hline 
-       Error       & 435.47 & 457.63 & 492.55 \\ \hline
-  \end{tabularx} \end{minipage}
-  \end{center} }
-  
+
+{\small\noindent
+\begin{center}
+  \begin{minipage}[h]{0.48\linewidth}
+    \begin{tabularx}{\textwidth}{|X|c|c|c|}
+\hdr{4}{}{Optimisation A} \\ \hline
+                 & Run 1  & Run 2  & Run 3  \\ \hline
+     \nDSTV      &   43   &   23   & 32 \\
+\wDSTV~(nS)  & 1.7 & 1.7 & 6.7 \\
+    \nLSRTV      &   29   &   32   & 32 \\
+    \nHSRTV      &   1    &   1    & 1  \\
+\wLSRTV~(nS) & 1.9 & 1.9 & 1.9 \\
+\wHSRTV~(nS) & 1.3 & 1.3 & 1.3 \\ \hline
+  \hline Error   & 499.20 & 514.86 & 518.54 \\ \hline
+\end{tabularx}
+  \end{minipage}\hfill
+  \begin{minipage}[h]{0.48\linewidth}
+    \begin{tabularx}{\textwidth}{|X|c|c|c|}
+\hdr{4}{}{Optimisation B} \\ \hline
+                 & Run 1  & Run 2  & Run 3  \\ \hline
+\sDSTV~(channel) &   13   &   7    & 17 \\
+  \Eleak~(mV)    & -65.89 & -67.22 & -67.22 \\
+\oDSTV~(channel) &  2.1   &  2.1   & -7.9   \\
+     \nDSTV      &   17   &   17   & 16 \\
+\wDSTV~(nS)  & 1.7 & 1.7 & 1.7 \\ \hline
+  \hline Error   & 435.47 & 457.63 & 492.55 \\ \hline
+\end{tabularx}
+  \end{minipage}
+\end{center}
+}  
   \begin{figure}[htb] \centering
       %\resizebox{\textwidth}{!}{\includegraphics{Run2/spl70/TV_Notch_result}}
       %\resizebox{\textwidth}{!}{\includegraphics{Run2/spl50/TV_Notch_result}}
@@ -1991,7 +2009,7 @@ depolarisation threshold at 10 dB and a firing rate saturation at 75
 dB \SPL.  The stimulus for the optimisation routine was a pure tone 30
 dB above depolarisation threshold at \CF (3.9 kHz 40 dB \SPL), 5 ms
 on\slash off cosine squared ramp.  A 20 ms delay was included to allow
-the model to reach a sustained \RMP\@. The ChS model unit had CF of
+the model to reach a sustained \RMP. The ChS model unit had CF of
 3.872 kHz due to the separation of frequency channels in the model.
 The best parameters found by the optimisation and shown in Figure
 \ref{fig:CSresults}, were very high excitatory input (\wLSRTS =
@@ -1999,7 +2017,7 @@ The best parameters found by the optimisation and shown in Figure
 (\wDSTS 0.291181 nS, \wTVTS 0.884174 nS, \wGLGTS 0.749812 nS).  A low
 input stimulus level means that the majority of synaptic input came
 from \HSR fibres.  There was a slight increase in the leak conductance
-($\gleak=6.57345e-4 \textrm{Scm}^-2$ ) from the initial value
+($\gleak=6.57345e-4 \textrm{S/cm}^2$ ) from the initial value
 (4.907e-4), causing a decrease in the input resistance to 120
 M$\Omega$ from 163 M$\Omega$.  The final error, calculated with more
 weight on the CV variables, was 0.839952.  Post-tone hyperpolarisation
@@ -3124,10 +3142,20 @@ connectivity of TV cells (section [[*Asymmetry of Wide-band Inhibition
 to Tuberculoventral Cells: Optimisation Using Notch Noise Responses in
 TV Cells]])
 
-\newpage \singlespacing \listoftodos \printglossaries
-\bibliographystyle{plainnat} \bibliography{MyBib}
+\newpage \singlespacing 
+\bibliographystyle{plainnat} 
+\bibliography{MyBib}
+\printglossaries\listoftodos 
 
-
+#+BEGIN_LaTeX
+%%% Local Variables:
+%%% mode: latex
+%%% mode: tex-fold
+%%% mode: visual-line
+%%% TeX-master: "Chapter3"
+%%% TeX-PDF-mode: t
+%%% End:
+#+END_LaTeX
  
 
 * Figures 							   :noexport:
@@ -3147,12 +3175,4 @@ inkscape --without-gui --export-pdf='./gfx/CNcircuit-detailed.pdf'
 make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
 #+END_SRC
 
-* Footnotes
-
-[fn:1] The [[latex:progname][cheby2]] function is in the octave-forge
-signal package.
-
-[fn:2] Logarithmically constant means the notch width is calculated at
-the centre frequency of the notch and not the \CF of the unit of
-interest.
 
