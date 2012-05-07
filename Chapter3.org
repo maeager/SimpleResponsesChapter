@@ -773,8 +773,8 @@ with the alpha function, $\alpha(t)$, as the synapto-dendritic
 filtering mechanism in the Golgi cell.  The alpha filter length was 10
 times the time constant, \Gtau, and its area under the function was
 normalised to 1.  A more detailed explanation of the NEURON
-implementation of the Golgi cell model is in the section
-[[*Appendix][Appendix]].
+implementation of the Golgi cell model is in the Section
+[[*Ch3:Appendix]].
 
 # Eq. \ref{eq:alpha_Golgi},
 # In Chapter \ref{sec:GAChapter}, the Golgi cell model was implemented as a
@@ -1802,18 +1802,17 @@ units and T stellate cells.
 
 \yellownote{Expand background}
 
-A considerable amount of literature has been published on the T
-stellate cells of the ventral cochlear nucleus.  The first
-extracellular physiology studies classified supposed \TS cells into
-regular-firing choppers \citep{Bourk:1976,Pfeiffer:1966}.  With
-further developments in analysis and classification techniques, \TS
-cells were segregated into slowly or transiently adapting and
-sustained chopper sub-types
+A considerable amount of literature has been published on the T stellate
+cells of the ventral cochlear nucleus.  The first extracellular
+physiology studies classified supposed \TS cells into regular-firing
+choppers \citep{Bourk:1976,Pfeiffer:1966}.  With further developments in
+analysis and classification techniques, \TS cells were segregated into
+slowly or transiently adapting and sustained chopper sub-types
 \citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.  In cats,
 \citet{SmithRhode:1989} was the first to do simultaneous labelling of
-\TS cells and confirmed the physiological response of type I
-multipolar neurons into choppers.  This simultaneous classification
-and labelling was followed by others in gerbils
+\TS cells and confirmed the physiological response of type I multipolar
+neurons into choppers.  This simultaneous classification and labelling
+was followed by others in gerbils
 \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}, guinea pigs
 \citep{PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004}, and rats
 \citep{PaoliniClarkEtAl:1997,PaoliniClark:1999,PaoliniClareyEtAl:2004}. In
@@ -1825,20 +1824,21 @@ Averaging intracellular responses to acoustic input to determine
 stochastic excitatory\slash inhibitory inputs was first used in the
 chopper units of gerbils
 \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}.
-\citet{PaoliniClareyEtAl:2005} used similar averaging of \TS and DS
-cell intracellular responses in rats as the basis for a thorough
-statistical analysis to separate chopper units into three distinct
-subtypes.  Figure \ref{fig:PaoliniAIV} shows the intracellular
-acoustic classification of chopper units in the rat into three
-distinct types \citep{PaoliniClareyEtAl:2005}: ChS chopper sustained,
-and two transient choppers, ChT1 and ChT2.  The intracellular traces
-in Figure \ref{fig:PaoliniAIV} along with the CV statistics Figure
-\ref{fig:PaoliniCVdata} will form the basis for the optimisation
-routine of the \TS cell model of each chopper type.
+\citet{PaoliniClareyEtAl:2005} used similar averaging of \TS and DS cell
+intracellular responses in rats as the basis for a thorough statistical
+analysis to separate chopper units into three distinct subtypes.  Figure
+\ref{fig:PaoliniAIV} shows the intracellular acoustic classification of
+chopper units in the rat into three distinct types
+\citep{PaoliniClareyEtAl:2005}: ChS chopper sustained, and two transient
+choppers, ChT1 and ChT2.  The intracellular traces in Figure
+\ref{fig:PaoliniAIV} along with the CV statistics Figure
+\ref{fig:PaoliniCVdata} will form the basis for the optimisation routine
+of the \TS cell model of each chopper type.
 
-# \yellownote{The work by Tony Paolini, Janine Clarey, Karina Needham and others at the
-# Royal Victorian Eye and Ear Hospital were pivotal in collecting the T stellate cell
-# experimental data used in this section.}
+# \yellownote{The work by Tony Paolini, Janine Clarey, Karina Needham
+# and others at the Royal Victorian Eye and Ear Hospital were pivotal in
+# collecting the T stellate cell experimental data used in this
+# section.}
 
 
 #+BEGIN_LaTeX
@@ -1859,13 +1859,13 @@ routine of the \TS cell model of each chopper type.
 #+END_LaTeX
 
 The categorisation via coefficient of variation is shown in Figure
-\ref{fig:PaoliniCVdata}.  Sustained choppers maintain a stable CV
-below 0.2 throughout the entire stimulus. The transient chopper
-optimisation had two types defined by \citep{PaoliniClareyEtAl:2005}.
-The first CT type is categorised with CV starting below 0.2 then
-rising, hence the name transient, but stays below 0.3.  The second CT
-type is regular in the first 10 ms period, but rises to 0.3 or above
-throughout the stimulus.
+\ref{fig:PaoliniCVdata}.  Sustained choppers maintain a stable CV below
+0.2 throughout the entire stimulus. The transient chopper optimisation
+had two types defined by \citep{PaoliniClareyEtAl:2005}.  The first CT
+type is categorised with CV starting below 0.2 then rising, hence the
+name transient, but stays below 0.3.  The second CT type is regular in
+the first 10 ms period, but rises to 0.3 or above throughout the
+stimulus.
 
 #+CAPTION: [Regularity in chopper units]{Regularity in chopper units. Data reproduced from figure 2 in \citet{PaoliniClareyEtAl:2005}.}
 #+LABEL: fig:PaoliniCVdata
@@ -2577,8 +2577,23 @@ format for neural network modeling as suggested by
 researchers can easily reproduce this work.
 
 
-* Appendix
 
+
+
+
+
+
+
+
+
+
+
+
+
+* Appendix A
+  :PROPERTIES:
+  :LABEL:    Ch3:Appendix
+  :END:
 ** General neural modeling tools
 
 This section provides an overview of the pragmatic details of the
