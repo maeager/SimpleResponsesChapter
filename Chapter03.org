@@ -21,46 +21,46 @@
 * Prelude                                                          :noexport:
 
 #+begin_src emacs-lisp
-(setq TeX-master t)
-  ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
-  ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
-  ;;                                  "pdflatex -interaction nonstopmode %f" )) 
-  ;; (setq org-latex-to-pdf-process '("lapdf Chapter3")) 
-  (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
-                                   "makeglossaries %b" 
-                                   "make BUILD_STRATEGY=pdflatex Chapter3.pdf"))
-  (setq org-export-latex-title-command "") 
-  (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
-  (add-to-list 'org-export-latex-classes '("UoM-draft-org-article"
-  "\% -*- \
-mode: latex; mode: visual-line; TeX-master: \"Chapter3.tex\"; TeX-PDF-mode: t \
--*-
-\\documentclass[10pt,a4paper,twoside,openright]{book}
-  \\usepackage{style/uomthesis} 
-  \\input{user-defined}
-  \\usepackage[nonumberlist,acronym]{glossaries}
-  \\input{../hg/manuscript/misc/glossary} 
-  \\makeglossaries
-  \\graphicspath{{./gfx/}} 
-  \\pretolerance=150 \\tolerance=100
-  \\setlength{\\emergencystretch}{3em} 
-  \\overfullrule=1mm 
-%  \\usepackage[notcite]{showkeys} 
-  \\lfoot{\\footnotesize\\today\\ at \\thistime} 
-  \\usepackage{rotating,calc}
-  \\usepackage{booktabs,ltxtable,lscape} 
-  [NO-DEFAULT-PACKAGES]
-  [NO-PACKAGES]" 
-  ("\\section{%s}" . "\n\\section{%s}")
-  ("\\subsection{%s}" . "\n\\subsection{%s}") 
-  ("\\subsubsection{%s}" . "\n\\subsubsection{%s}") 
-  ("\\paragraph{%s}" . "\n\\paragraph{%s}"))) 
-  (setq org-export-latex-title-command
-        "{\n\\singlespacing\n\\tableofcontents\n}\n") 
-;;v46i03
-;;(setq org-export-latex-verbatim-wrap
-;;      '("\\begin{Code}\n" . "\\end{Code}\n"))
-
+   (setq TeX-master t)
+     ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
+     ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
+     ;;                                  "pdflatex -interaction nonstopmode %f" )) 
+     ;; (setq org-latex-to-pdf-process '("lapdf Chapter3")) 
+     (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
+                                      "makeglossaries %b" 
+                                      "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
+     (setq org-export-latex-title-command "") 
+     (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
+     (add-to-list 'org-export-latex-classes 
+                  '("UoM-draft-org-article"
+                    "\% -*- mode: latex; mode: \
+  visual-line; TeX-master: t; TeX-PDF-mode: t -*-
+   \\documentclass[10pt,a4paper,twoside,openright]{book}
+     \\usepackage{style/uomthesis} 
+     \\input{user-defined}
+     \\usepackage[nonumberlist,acronym]{glossaries}
+     \\input{../hg/manuscript/misc/glossary} 
+     \\makeglossaries
+     \\graphicspath{{./gfx/}} 
+     \\pretolerance=150 \\tolerance=100
+     \\setlength{\\emergencystretch}{3em} 
+     \\overfullrule=1mm 
+   %  \\usepackage[notcite]{showkeys} 
+     \\lfoot{\\footnotesize\\today\\ at \\thistime} 
+     \\usepackage{rotating,calc}
+     \\usepackage{booktabs,ltxtable,lscape} 
+     [NO-DEFAULT-PACKAGES]
+     [NO-PACKAGES]" 
+     ("\\section{%s}" . "\n\\section{%s}")
+     ("\\subsection{%s}" . "\n\\subsection{%s}") 
+     ("\\subsubsection{%s}" . "\n\\subsubsection{%s}") 
+     ("\\paragraph{%s}" . "\n\\paragraph{%s}"))) 
+     (setq org-export-latex-title-command
+           "{\n\\singlespacing\n\\tableofcontents\n}\n") 
+   ;;v46i03
+   ;;(setq org-export-latex-verbatim-wrap
+   ;;      '("\\begin{Code}\n" . "\\end{Code}\n"))
+   
 #+end_src
 
 #+RESULTS:
@@ -69,7 +69,7 @@ mode: latex; mode: visual-line; TeX-master: \"Chapter3.tex\"; TeX-PDF-mode: t \
 : \tableofcontents
 : }
 
-* TODO Introduction
+* Introduction
 
 #+BEGIN_QUOTE
   ``To understand brain function, the focus of [our] investigations
@@ -2091,7 +2091,7 @@ option for small bouton endings in the CN.}
       CV values.  The RMP, calculated from -10 to 0 ms, for the reference unit and
       best parameter model was -45.1 and -64.22, respectively.}
     \label{fig:CSresults}
-  \end{figure}
+  \end{figure} \clearpage
 #+END_LaTeX
 
 
@@ -2177,9 +2177,9 @@ resting membrane potential for the exemplar and model ChT2 unit was
 respectively.
 
 #+BEGIN_LaTeX
+\clearpage
 \begin{figure}[htb]
- \centering
-%\resizebox{0.95\textwidth}{!}{}
+ \centering %\resizebox{0.95\textwidth}{!}{}
 \includegraphics{/media/data/Work/cnstellate/TStellate_CT2/multiplotIVCV}
 % \resizebox{0.95\textwidth}{!}{\includegraphics{TStellate_CT2/multiplotIVCV3}}
   \caption[ChT2 T stellate Optimisation results]{ChT2 T stellate Optimisation results.
@@ -2189,6 +2189,7 @@ A. PSTH, B. CV,
 C. Average membrane voltage, and D. Voltage measures.}
  \label{fig:CT2results} 
 \end{figure}
+
 {\small%
 \noindent
 \begin{tabularx}{\linewidth}{|X|c|c|c|c|c|}
@@ -2590,10 +2591,11 @@ researchers can easily reproduce this work.
 
 
 
-* Appendix A
+* Chapter 3 Appendix
   :PROPERTIES:
   :LABEL:    Ch3:Appendix
   :END:
+
 ** General neural modeling tools
 
 This section provides an overview of the pragmatic details of the
@@ -3256,8 +3258,52 @@ discharge rates.
 
 The procedures for modulation transfer functions and f_0 responses are
 also found in =ResponsesRoutines.hoc= and are used in Chapter
-[[file:../VowelProcessingChapter/Chapter04.org:*title]]. 
+[[file:../VowelProcessingChapter/Chapter04.org:*chapter]]. 
  
+\newpage
+
+* Chapter 3 Source Code
+
+# ** Base files for \textsf{cnstellate}
+
+# \begin{lstlisting}[label=lbl:Params,caption=\textsf{Params.hoc}] 
+# #+include: ../../cnstellate/Params.hoc 
+# \end{lstlisting}\clearpage
+# \begin{lstlisting}[label=lbl:Utilities,caption=\textsf{Utilities.hoc}]
+# #+include: ../../cnstellate/Utilities.hoc 
+# \end{lstlisting}\clearpage
+# \begin{lstlisting}[label=lbl:NetworkParameters,caption=\textsf{NetworkParameters.hoc}] 
+# #+include: ../../cnstellate/NetworkParameters.hoc 
+# \end{lstlisting}\clearpage
+# \begin{lstlisting}[label=lbl:AuditoryNerve,caption=\textsf{AuditoryNerve.hoc}] 
+# #+include: ../../cnstellate/AuditoryNerve.hoc 
+# \end{lstlisting}\clearpage
+# \begin{lstlisting}[label=lbl:CNcell,caption=\textsf{par\_CNcell.tem}] 
+# #+include: ../../cnstellate/par_CNcell.tem 
+# \end{lstlisting}\clearpage
+
+# \begin{lstlisting}[label=lbl:CochlearNucleus,caption=\textsf{CochlearNucleus.hoc}] 
+# #+include: ../../cnstellate/CochlearNucleus.hoc 
+# \end{lstlisting}\clearpage
+#  \begin{lstlisting}[label=lbl:calcisilag,caption=\textsf{calcisilag.hoc}] 
+# #+include: ../../cnstellate/calcisilag.hoc 
+# \end{lstlisting}
+
+# \clearpage
+# ** Optimisation experiment files
+
+# \begin{lstlisting}[label=lbl:TStellateExp,caption=\textsf{par_\experiment\_TStellate.hoc}. ] 
+# #+include: ../../cnstellate/par_experiment_TStellate.hoc
+# \end{lstlisting}\clearpage
+
+# \begin{lstlisting}[label=lbl:TStellate,caption= Main body of \textsf{TStellate.hoc} used to optimise network parameters contacting TS cells. ] 
+# #+include: ../../cnstellate/TStellate.hoc :lines "3-32"
+# #+include: ../../cnstellate/TStellate.hoc :lines "65-193"
+# \end{lstlisting}
+
+
+
+
 
 
 \newpage \singlespacing 
@@ -3269,7 +3315,7 @@ also found in =ResponsesRoutines.hoc= and are used in Chapter
 
 * Figures 							   :noexport:
 
-**  fig:microcircuit
+** fig:microcircuit
 
 # #+BEGIN_SRC sh
 # inkscape --without-gui --export-pdf='./gfx/CNcircuit-detailed.pdf'

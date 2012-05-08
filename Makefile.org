@@ -1,4 +1,4 @@
-# -*- makefile-mode -*-
+# -*- mode: makefile -*-
 CC=gcc
 EMACS=emacs
 MASTER = Chapter3
