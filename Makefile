@@ -2502,14 +2502,15 @@ endef
 # Get the font entry given the output file (type) and the font size.  For PDF
 # it uses fsize or font, for eps it just uses the bare number.
 gpi-font-entry = $(if $(filter %.pdf,$1),$(subst FONTSIZE,$2,$(GPI_FSIZE_SYNTAX)),$2)
+gpi-fontname = Helvetica
 
 # $(call gpi-terminal,<gpi file><output file>,[gray])
 #
 # Get the terminal settings for a given gpi and its intended output file
 define gpi-terminal
-$(if $(filter %.pdf,$2),pdf enhanced,postscript enhanced eps) \
-$(call gpi-font-entry,$2,$(call gpi-fontsize,$1,$2)) \
-$(call gpi-monochrome,$1,$3)
+$(if $(filter %.pdf,$2),pdfcairo enhanced,postscript enhanced eps) \
+$(call gpi-monochrome,$1,$3) solid \
+font "$(call gpi-fontname),$(call gpi-font-entry,$2,$(call gpi-fontsize,$1,$2))" 
 endef
 
 # $(call gpi-embed-pdf-fonts,<input file>,<output file>)
@@ -2551,8 +2552,7 @@ elif [ x"$(suffix $2)" = x".pdf" ]; then \
 		$(call move-if-exists,$2.embed.tmp.make,$2); \
 	fi; \
 fi; \
-$(if $(gpi_sed),$(call remove-temporary-files,$1.temp.make);,) \
-$(call remove-temporary-files,$1head.make); \
+$(if $(gpi_sed),$(call remove-temporary-files,$1.temp.make);,) \  #$(call remove-temporary-files,$1head.make); 
 [ "$$success" = "1" ] && $(sh_true) || $(sh_false);
 endef
 
@@ -3147,15 +3147,16 @@ $(gray_eps_file):
 	$(QUIET)$(call create-gray-eps-file,$@)
 
 ifeq "$(strip $(BUILD_STRATEGY))" "pdflatex"
-%.pdf: %.eps $(if $(GRAY),$(gray_eps_file))
-	$(QUIET)$(call echo-graphic,$^,$@)
-	$(QUIET)$(call convert-eps-to-pdf,$<,$@,$(GRAY))
 
 ifeq "$(strip $(GPI_OUTPUT_EXTENSION))" "pdf"
 %.pdf:	%.gpi %.gpi.d $(gpi_sed) $(gpi_global)
 	$(QUIET)$(call echo-graphic,$^,$@)
 	$(QUIET)$(call convert-gpi,$<,$@,$(GRAY))
 endif
+
+%.pdf: %.eps $(if $(GRAY),$(gray_eps_file))
+	$(QUIET)$(call echo-graphic,$^,$@)
+	$(QUIET)$(call convert-eps-to-pdf,$<,$@,$(GRAY))
 
 %.pdf:	%.fig
 	$(QUIET)$(call echo-graphic,$^,$@)
