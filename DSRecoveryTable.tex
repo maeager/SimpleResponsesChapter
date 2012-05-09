@@ -1,0 +1,89 @@
+{\small%\linespread{0.5}
+\begin{table}[ht]
+    \caption{D~stellate cell  model summary}
+    \label{tab:DScellModelSummary}
+\end{table}
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\hdr{2}{A}{Model Summary}\\\hline
+         \textbf{Populations}           & ANF (HSR,LSR), Golgi, and  D~stellate cells\\\hline
+           \textbf{Topology}            & Tonotopic, auditory system of the rat  \\\hline
+         \textbf{Connectivity}          & Gaussian spread dependent on morphology and afferent connections  \\\hline
+         \textbf{Input model}           & ANF~model: instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\\hline
+\multirow{2}{*}{\textbf{Neuron model}}  & Golgi cell: instantaneous-rate Poisson model \\
+                                        & D~stellate cell: Type I-II \RM single compartment neuron\\ \hline
+        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
+\multirow{2}{*}{\textbf{Synapse model}} & Excitatory: AMPA glutamatergic receptor (single-exponential)\\
+                                        & Inhibitory: GABA$_{\rm A}$ GABAergic receptor (double-exponential), Glycinergic receptor (double-exponential) \\\hline
+       % \textbf{Synapse model}         & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
+        \textbf{Input Stimulus}         & Mask/Recovery click trains with delay 2, 3, 4 and 8 ms, separated by 50 ms\\\hline
+         \textbf{Measurements}          & PSTH sampled at each recovery click for 2 ms to measure click recovery\\\hline
+% PSTHs were generated from 25
+%   stimulus repetitions. Each response to a click is measured for 2 ms
+%   after the minimum first spike latency for the unit.  The unit used
+%   in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
+\end{tabularx}
+\vspace{1ex}
+
+% - B -----------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|X|}\hline %{\textwidth}
+\hdr{3}{B}{Populations}\\\hline
+\textbf{Name} &               \textbf{Elements}                & \textbf{Number} \\\hline
+     HSR      & Auditory nerve fibre \citep{ZilanyBruce:2007}  & $N_{\text{HSR}} = 50\times{}N_\mathsf{channel}$ \\\hline
+     LSR      & Auditory nerve fibre \citep{ZilanyBruce:2007}  & $N_{\text{LSR}} = 20\times{}N_\mathsf{channel}$ \\\hline
+     GLG      & Instantaneous-rate Poisson neuron        & $N_{\text{GLG}} = 1\times{}N_\mathsf{channel}$ \\\hline
+     DS       & Type I-II \citeauthor{RothmanManis:2003b} model & 1 unit at channel 50, $CF = 5.6$ kHz \\\hline
+\end{tabularx}
+\vspace{1ex}
+
+% - C ------------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
+\hdr{4}{C}{Connectivity}\\\hline
+     \textbf{Name}      & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
+\multirow{2}{*}{\ANFDS} &      \HSR       &       \DS       & 
+Skewed Gaussian convergence, centered on CF, spread below CF $\sigma^2 = \sANFDSl$, spread above CF $\sigma^2 = \sANFDSh$, weight \wHSRDS, number \nHSRDS, delay \dANFDS \\\cline{2-4}
+                        &      \LSR       &       \DS       & as above, weight \wLSRDS, number \nLSRDS\\\hline
+       $\GLGDS$         &       GLG       &       DS        & 
+Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGDS$, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
+\multicolumn{4}{|X|}{\ANFGLG from previous section, \GLG optimisation.}\\\hline
+\end{tabularx}
+\vspace{1ex}
+
+% - D ------------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}\hline
+\hdr{2}{D}{Neuron and Synapse Model}\\\hline
+ \textbf{Name} & DS cell model \\\hline
+ \textbf{Type} & Type I-II \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+\textbf{Subthreshold dynamics} & Na, KLT, KHT, Ih, and leak currents \\\hline
+ \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
+ \end{tabularx}
+\vspace{1ex}
+
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\hdr{2}{E}{Input\slash Ouput}\\\hline
+\textbf{Input Stimulus}  & Notch-noise (Stop-band filtered white noise)  \\\hline
+%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}
+% %\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps}
+% %\end{minipage}}\\\hline
+\textbf{Input} & Stimulus induced Poisson spike trains from \GLG units, \HSR and \LSR \ANFs\\\hline
+\textbf{Measurements} & spiking output of all 100 TV units across the network, with 25 repetitions\\\hline
+% %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}%
+% %\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}
+% %\end{minipage}}\\\hline
+%\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
+% %\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
+%\textbf{Measurements}    &  First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II~\DCN~unit~\citep{ReissYoung:2005}, Fig.~9. \\\hline
+\end{tabularx}
+\vspace{1ex}
+
+}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: nil
+%%% End: 
