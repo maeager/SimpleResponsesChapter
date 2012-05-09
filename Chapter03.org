@@ -69,7 +69,7 @@ mode: latex; mode: visual-line; TeX-master: \"Chapter3.tex\"; TeX-PDF-mode: t \
 : \tableofcontents
 : }
 
-* TODO Introduction
+* Introduction
 
 #+BEGIN_QUOTE
   ``To understand brain function, the focus of [our] investigations
@@ -1842,20 +1842,20 @@ of the \TS cell model of each chopper type.
 
 
 #+BEGIN_LaTeX
-  \begin{figure}[htb]
-    \centering%
-    \subfloat[Chopper Sustained]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CS-01-864-004}}\hfill%\quad%
-    \subfloat[Chopper Transient 1]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT1-01-857-007}}\hfill%\\
-    \subfloat[Chopper Transient 2]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT2-01-305-014}}%\quad%
-    % \subfloat[Onset Chopper]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/OC-99-812-013}}}
-    \caption[Average intracellular response data in stellate cells in rats.]{Average intracellular response to CF tone 30dB above depolarisation threshold in stellate  cells \citep[Reproduced from Fig.~2, ][]{PaoliniClareyEtAl:2005}.
-      A. Sustained chopper unit 01-864-004, CF 3.8 kHz,
-      B. Transient chopper type 1 unit 01-857-007, CF 8.9 kHz.
-      C. Transient chopper type 2 unit 01-305-014 CF 12.3 kHz.
-      % D. Onset chopper unit  99-812-013.
-      Hyper polarisation after tone indicated by asterisk.} \label{fig:PaoliniAIV}
-    \label{fig:PaoliniAIV} 
-  \end{figure}
+    \begin{figure}[htb]
+      \centering%
+      \subfloat[Chopper Sustained]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CS-01-864-004}}\hfill%\quad%
+      \subfloat[Chopper Transient 1]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT1-01-857-007}}\hfill%\\
+      \subfloat[Chopper Transient 2]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT2-01-305-014}}%\quad%
+      % \subfloat[Onset Chopper]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/OC-99-812-013}}}
+  \caption[Average intracellular response data in stellate cells in rats.]{Average intracellular response to CF tone 30dB above depolarisation threshold in stellate  cells \citep[Reproduced from Fig.~2, ][]{PaoliniClareyEtAl:2005}.
+    A. Sustained chopper unit 01-864-004, CF 3.8 kHz,
+    B. Transient chopper type 1 unit 01-857-007, CF 8.9 kHz.
+    C. Transient chopper type 2 unit 01-305-014 CF 12.3 kHz.
+  % D. Onset chopper unit  99-812-013.
+    Hyper polarisation after tone indicated by asterisk.} \label{fig:PaoliniAIV}
+      \label{fig:PaoliniAIV} 
+    \end{figure}
 #+END_LaTeX
 
 The categorisation via coefficient of variation is shown in Figure
@@ -2526,12 +2526,11 @@ the CN stellate microcircuit.
 ** Limitations of the CN stellate microcircuit model
 
 
-
 \yellownote{AM coding in model is not verified by
 \citet{ZilanyBruce:2006} model, and it was superseded by the addition
 of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
-Dendritic filtering in each of the cells
+Dendritic filtering in each of the cells was not included
 
 ** Implications of sequential microcircuit optimisation
 
@@ -3204,7 +3203,6 @@ ms delay) and scaled to the correct sound level.
  file.ropen(wavdatafile)
 \end{lstlisting}
 #+END_LaTeX
-
 
 
 *** TS cell subtype optimisation procedure
