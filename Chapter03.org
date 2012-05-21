@@ -18,7 +18,7 @@
 \small{Draft Version: \input{./.hg/cache/tags}}
 
 
-* Prelude                                                          :noexport:
+* Prelude 							   :noexport:
 
 #+begin_src emacs-lisp
    (setq TeX-master t)
@@ -63,13 +63,6 @@
    
 #+end_src
 
-#+RESULTS:
-: {
-: \singlespacing
-: \tableofcontents
-: }
-
-
 * Introduction  
 
 #+BEGIN_QUOTE
@@ -95,7 +88,7 @@ brain, especially those that use highly-specific sensory pathways.
 It still remains a laborious task to develop an accurate representation
 of complex behaviour of real neural networks.  Pre-eminent computational
 neuroscientists have noted that "choices, assumptions, and guesses" are
-an integral part of neuronal modeling \citep{SegevBurkeEtAl:1998}.  With
+an integral part of neuronal modelling \citep{SegevBurkeEtAl:1998}.  With
 the acceleration of computational power and enhanced experimental
 techniques in multi-unit recordings are enabling more detailed neural
 models to be developed.  There is much to be gained from
@@ -212,37 +205,6 @@ of the cell-types using experimental data.
   using whole network in TV and TS optimisation. }
 
 
-* TODO Auditory System 
-
-Advanced auditory fidelity and localisation is an exceptional feature of
-hearing perception in animals.  This speciality works to a high degree
-despite the input at the round window of the cochlea being one
-dimensional and very noisy.  Modelling in the auditory periphery has
-benefited extensively from the work of Liberman, Greenwood, Patterson,
-Young, Sachs and others, in acoustic /in vivo/ experiments.  Models of
-the auditory system over the last 30 years have expanded our
-understanding of the mechanical processes in the middle ear and cochlea,
-and the specialised synapse between the inner hair cell and the auditory
-nerve \citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
-
-The auditory system is topographically ordered from the basilar membrane
-to the cortex in terms of frequency selectivity, also called
-tonotopicity \citep{YoungOertel:2004}.  The population of auditory nerve
-fibres (ANFs, Figure \ref{fig:CNCatHuman}) bifurcate after entering the
-cochlear nucleus to innervate the \VCN and \DCN, retaining their
-tonotopic order \citep{Lorente:1981,Liberman:1982,Liberman:1993}.  Type
-1 \ANFs are categorised into \HSR and \LSR fibres \citep{Liberman:1978},
-where \LSR fibres have a higher threshold and wider dynamic range than
-\HSR fibres.  They also project to the \GCD
-\citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the smaller,
-unmyelinated type 2 \ANFs, which suggests they play a different role in
-sound processing to \HSR fibres.
-
-#+ATTR_LaTeX: width=0.6\textwidth
-#+CAPTION: [Tonotopic ANF innervation in the CN of man and cat]{Cochlear nucleus innervation by ANFs follows the same tonotopic organisation in man and cat \citep{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}. Image reprinted from \citep{} \yellownote{Get reference}}
-#+LABEL: fig:CNCatHuman
-[[./gfx/Cat_Human_CN.jpg]]
-
 # \yellownote{Auditory model and history should be in the METHODS section.}
 
 # A paragraph on the history of AN modelling \citep{LeakeSnyderEtAl:1993,
@@ -254,7 +216,8 @@ nucleus, a realistic and phenomenologically sound auditory model is
 needed to represent sounds and transformations that occur in the
 central auditory system.
 
-**  Auditory nerve fibre model 
+
+** Auditory nerve fibre model 
 \yellownote{This may need to go in Methods chapter}
 
 The auditory nerve inputs to the cochlear nucleus model neurons are
@@ -270,7 +233,9 @@ cochlea filters based on the critical bandwidths obtained from
 psychophysical experiments in humans.  The ARLO model of the cat
 auditory periphery, with non-linear compression and two-tone
 suppression, is used in this study except in the vowel simulation
-where the human auditory periphery model is used.  \yellownote{TODO:
+where the human auditory periphery model is used.  
+
+\yellownote{TODO:
 AN model paragraph has been changed - fix any comment related to new
 Zilany}
 
@@ -341,9 +306,13 @@ stimulus, but can be saved and loaded from file.
 # \end{figure}
 
 
-* Cochlear Nucleus Stellate Microcircuit 
+* Methods
 
-** CN neural models
+This section describes the methods used within this chapter. Chapter \label{sec:Ch2:Methods} describes the common methods in more detail.
+
+# Cochlear Nucleus Stellate Microcircuit 
+
+** Neural Models
 
 Single-compartment Hodgkin-Huxley-like neural models were used for the
 neural models.  The current models in each of the cell types of the
@@ -364,25 +333,26 @@ cells, to enhance response to coincident inputs.
 \yellownote{Discuss RM model (put in Methods Chapter).  Perhaps expand
   more on the role of the currents on each neuron in the CN model.}
 
-** TODO Synapse Models
+** Synapse Models
  
 \yellownote{TODO. This is inlcuded in the GA chapter, but it should go
 in the Methods chapter}
+
 
 ** Connectivity and Topology
    :PROPERTIES:
    :CUSTOM_ID: ConnectivityandTopology
    :END:
 
-
 Tonotopic connectivity in the stellate cochlear nucleus model is
 defined by the regular organisation of afferent ANFs into distinct
 iso-frequency channels.  The channels are separated using even spatial
 distance (based on the basilar membrane and auditory nerve separation)
 with centre frequency calculated by the Greenwood function for the cat
-\citep[see~Chapter~\ref{chp:Methods},][]{Greenwood:1990}.  The HSR
+\citep[see~Chapter~\ref{sec:Methods},][]{Greenwood:1990}.  The HSR
 terminals of individual fibres generally cover 70 \um and LSR fibres
-100 \um in mice \citep{OertelWuEtAl:1988,OertelWu:1989}. \yellownote{put greenwood function in Methods}
+100 \um in mice \citep{OertelWuEtAl:1988,OertelWu:1989}. 
+\yellownote{put greenwood function in Methods}
 
 Figure \ref{fig:CNconn} shows the method for Gaussian spread of
 connections between cell types in the \CN.  The \CF of the CN channels
@@ -394,68 +364,19 @@ filterbank of AN frequency channels.
 #+LABEL:    fig:CNconn
 [[./gfx/CNConn.pdf]]
 
-Extrinsic parameters that control the connectivity between two
-cell-type groups can be defined by: 
-- $\mathbf{w}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the synaptic weight
-     of the post-synaptic current influx caused by the pre-cells'
-     neurotransmitter activating the receptor channels of the
-     post-synaptic cell.  This value is the same for all synapses in
-     this connection type.
-- $\mathbf{n}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the number of
-     presynaptic cell type synapses onto individual cells in the
-     post-synaptic cell type.
-- $\mathbf{s}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the spatial or
-     feature specific spread of connections from presynaptic cells
-     onto post-synaptic cells.  The spread is the variance of a
-     Gaussian probability distribution, $\mathcal{N}(i,\sqrt{s})$,
-     representing the probability of the post-synaptic cell in
-     position /i/ receiving input from a post-synaptic cell in the
-     network's discrete slices; in this case frequency channels.  The
-     spread variable is uniform across the stellate CN network.  A
-     spread of 0 means all connections come from the same frequency
-     channel, assuming no offset.
-- $\mathbf{o}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the offset in
-     distribution of connections between presynaptic cell types and
-     post-synaptic cell.  The offset variable adjusts the centre point
-     of the probability distribution, $\mathcal{N}(i + o, \sqrt{s})$,
-     away from the post-synaptic cell's position $i$.
-- $\mathbf{d}_{\textrm{{Pre}}\to\textrm{{Post}}}$ :: is the temporal delay
-     between a pre-cells' AP trigger and the onset of the
-     post-synaptic current.  This delay incorporates the axonal
-     conduction delay and diffusion time across the synaptic cleft.
 
-# New limitations of place-based connectivity
-
-The creation of neural microcircuits based on ``place'' is easily
-amenable to different sensory neural network models; however there are
-problems and unique features that may be necessary to ensure realistic
-representation of the system.  The unique unit of the network is the
-place-channel or feature-channel of the microcircuit.  In this model
-it is the iso-frequency-channel that receives afferent input from the
-narrowest receptive field possible in the auditory nerve model.
-
-Connection variables between cell-types are generally uniform across
-the network but may be adjusted to suit the model.  Model parameters
-may be different between species or within species, therefore, without
-adequate information regarding exact neuron to neuron connection
-reasonable assumptions are made based on the average population data.
-Issues arise at the ends of large-scale topographic BNNs with
-overlapping place\slash channel connections.  Boundaries are
-considered closed bookends, where post-synaptic neurons select only
-from those with its connection range.  The best modelling behaviour
-would arise, therefore, in the middle sections.
 
 # * Simulations
 # Optimisation simulations were designed to be performed on
 # either a single PC or a parallel architecture system.
 # The random number generator used was the internal RNG of NEURON, MCellRand4
-# The simulation for each optimisation routine the integration timestep was 0.1 ms    parameters
+# The simulation for each optimisation routine the integration timestep was either 0.05 or 0.1 ms.    parameters
 
 \yellownote{A generic section called 'Simulations' was proposed to go
   here.  This would state the integration timestep, the system used,
   the RNG used etc.  This could perhaps go in the Methods chapter}
 
-** TODO Optimisation 
+** Optimisation 
 ** Verification of Cell-type Responses to Simple Tones and Noise
 
 Verification of the optimisation processes requires running a suite of
@@ -471,7 +392,6 @@ The stimuli presented to the stellate microcircuit included:
 3. Masked rate-level response with pure tones varied in level from 0
    to 100 dB SPL and simultaneous withe noise at 50 dB SPL.
   
-
 
 * Golgi Cell Model: Monotonic Rate Level Responses in Marginal Shell Units 
     :PROPERTIES:
@@ -938,7 +858,6 @@ frequency spread from \LSR fibres.
 #   \end{figure}
 #   \clearpage \newpage
 
-
 ** Verification Results of Golgi Cell Model
 
 After setting the optimised parameters in Table
@@ -976,7 +895,6 @@ increased from 0 to 90 dB \SPL.
    D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF.} \label{fig:GolgiVerification}
   \end{figure}
 #+END_LaTeX
-
 
 * D Stellate Cell Model: Optimisation Using Click Recovery Responses 
 
@@ -1033,7 +951,6 @@ commissural projection to the contralateral cochlear nucleus that
 mediates fast inhibition between the nuclei
 \citep{NeedhamPaolini:2003,NeedhamPaolini:2006,Oertel:1997}.
 
-
 *** Acoustic Properties of D Stellate Cells
 
 Intracellular responses to sounds indicate that the bandwidth of
@@ -1061,7 +978,6 @@ Chinchilla
 # Zhang and Winter looked at the response area of \VCN onset units to
 # determine \GABA {on\slash off} freq.  Smith and Rhode, Smith and
 # others looked at OnC response area and two-tone
-
 
 ** INPROGRESS Implementation
 
@@ -1277,7 +1193,6 @@ up for the small weight that was obtained in the optimisation.
 #   \end{center}
 # \end{figure}
 
-
 ** Verification Results of the DS Cell Model
 
 # \yellownote{Small presentation of PSTH, RL, NRL, MRC and RA. Leave AM responses till next chapter}
@@ -1328,7 +1243,6 @@ width of the activity across the CF of the central unit (Figure
 # \caption[DS RMP dynamics]{Resting Membrane potential calculated for  leak conductance and KLT conductance changes around the previously obtained best values for these parameters.}    \label{fig:leakVltk}
 # \end{figure}
 
-
 * Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses 
 
 
@@ -1340,7 +1254,6 @@ as shown in Figure \ref{fig:SpirouFig1}.
 #+CAPTION: [Experimental data of a single Type-II DCN unit]{Experimental data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig1
 [[./gfx/Spirou-Fig1-type2.pdf]]
-
 
 ** INPROGRESS Background
 
@@ -1401,7 +1314,6 @@ cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
 # \TV cells receive mono-synaptic excitatory input from auditory nerve fibres
 # \citep{OertelWu:1989,ZhangOertel:1993b}.
 
-
 *** Acoustic Response of Tuberculoventral cells
 
 \TV cells have low spontaneous rates and variable \PSTHs (pause-build,
@@ -1449,7 +1361,7 @@ principal cells are strongly inhibited by this narrowband source.  As a
 result, \DCN principal cells are inhibited by sharp spectral peaks close
 to their \BF \citep{SpirouDavisEtAl:1999}.
 
-** TODO Modeling of Tuberculoventral cells
+** TODO Modelling of Tuberculoventral cells
 
 - Expand previous studies of the DCN incl. TV cells
 - \citet{ArleKim:1991a} were the first to show type II \EIRA with
@@ -1465,7 +1377,7 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
   and cross-correlation analysis.
 - \citep{DunnVetterEtAl:1996} performed some modelling.
 
-Modeling of Type II units in the \DCN has been thoroughly categorised by
+Modelling of Type II units in the \DCN has been thoroughly categorised by
 Davis and colleagues
 \citep{YoungDavis:2002,HancockDavisEtAl:2001,DavisYoung:2000,SpirouDavisEtAl:1999,HancockDavisEtAl:1997,DavisVoigt:1996,DavisVoigt:1994,DavisVoigt:1991}.
 Low spontaneous rate is created in a neural model by either increasing
@@ -1547,7 +1459,6 @@ TV cell model.
   \end{minipage}\hfill 
   \end{center} }
 #+END_LaTeX
-
 
 
 
@@ -1953,12 +1864,10 @@ band-pass noise.
 #   \label{fig:TVSweepUnit}
 # \end{figure}
 
-
 * TODO T Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones 
 
 Accurate modelling of the cochlear nucleus, in particular chopper
 units and T stellate cells.
-
 
 ** TODO Background
 
@@ -2370,7 +2279,6 @@ respectively.
 #+END_LaTeX
 
 
-
 ** TODO Verification of the TS Cell Models
 
 \yellownote{Explain the figure \ref{fig:TSverification}}
@@ -2400,7 +2308,6 @@ respectively.
 # Go on Paolini's proposal
 
 # *** Effect of TV: comb filter and echo suppression}
-
 
 
 * TODO Discussion 
@@ -2461,7 +2368,6 @@ the CN stellate microcircuit.
 
 
 
-
 ** Limitations of the CN stellate microcircuit model
 
 
@@ -2479,7 +2385,6 @@ connection) not included.}
 
 \yellownote{Probability of AP-to-synaptic release ratio not included
 (Liley assumption of 1\% vesicle release in cortical buttons.) }
-
 
 * Conclusion 
 
@@ -2510,7 +2415,7 @@ microcircuit.  The methods used in this section are a practical and
 realistic means for constructing microcircuits with sensory or
 feature-based topography; but requires extensive experimental evidence
 about the behaviour of each interneuron in the network.  The tabular
-format for neural network modeling as suggested by
+format for neural network modelling as suggested by
 \citet{NordlieGewaltigEtAl:2009} was followed so that other researchers
 can easily reproduce this work.
 
@@ -2534,7 +2439,6 @@ can easily reproduce this work.
 \bibliographystyle{plainnat} 
 \bibliography{MyBib}
 \printglossaries\listoftodos 
-
 
 
 * Figures 							   :noexport:
