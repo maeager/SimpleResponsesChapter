@@ -10,7 +10,7 @@
 #+LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
 #+LATEX_HEADER:\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
-#+LATEX _ HEADER:\newcommand{\textpm}{\ensuremath{\pm}}
+# + LATEX _ HEADER:\newcommand{\textpm}{\ensuremath{\pm}}
 #+BIBLIOGRAPHY: MyBib alphanat
 
 \setcounter{chapter}{2} 
@@ -19,16 +19,16 @@
 
 
 * Prelude 							   :noexport:
-
+  
 #+begin_src emacs-lisp
    (setq TeX-master t)
      ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
      ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
      ;;                                  "pdflatex -interaction nonstopmode %f" )) 
-     ;; (setq org-latex-to-pdf-process '("lapdf Chapter3")) 
-     (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
-                                      "makeglossaries %b" 
-                                      "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
+      (setq org-latex-to-pdf-process '("pdfquick Chapter3")) 
+     ;;(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
+     ;;                                 "makeglossaries %b" 
+     ;;                                 "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
      (setq org-export-latex-title-command "") 
      (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
      (add-to-list 'org-export-latex-classes 
@@ -41,14 +41,11 @@
      \\usepackage[nonumberlist,acronym]{glossaries}
      \\input{../hg/manuscript/misc/glossary} 
      \\makeglossaries
-     \\graphicspath{{./gfx/}} 
      \\pretolerance=150 \\tolerance=100
      \\setlength{\\emergencystretch}{3em} 
      \\overfullrule=1mm 
    %  \\usepackage[notcite]{showkeys} 
      \\lfoot{\\footnotesize\\today\\ at \\thistime} 
-     \\usepackage{rotating,calc}
-     \\usepackage{booktabs,ltxtable,lscape} 
      [NO-DEFAULT-PACKAGES]
      [NO-PACKAGES]" 
      ("\\newpage\n\\section{%s}" . "\\newpage\n\\section{%s}")
@@ -62,6 +59,12 @@
    ;;      '("\\begin{Code}\n" . "\\end{Code}\n"))
    
 #+end_src
+
+#+RESULTS:
+: {
+: \singlespacing
+: \tableofcontents
+: }
 
 * Introduction  
 
@@ -217,7 +220,14 @@ needed to represent sounds and transformations that occur in the
 central auditory system.
 
 
-** Auditory nerve fibre model 
+* Methods
+
+This section describes the some of the general methods used within this chapter. Chapter \label{sec:Ch2:Methods} describes the common methods in more detail.
+Org-mode link [[file:../MethodsChapter/Chapter02.org::* Methods]]
+# Cochlear Nucleus Stellate Microcircuit 
+
+
+** Auditory Nerve Fibre Model 
 \yellownote{This may need to go in Methods chapter}
 
 The auditory nerve inputs to the cochlear nucleus model neurons are
@@ -305,13 +315,6 @@ stimulus, but can be saved and loaded from file.
 #   \end{center}
 # \end{figure}
 
-
-* Methods
-
-This section describes the methods used within this chapter. Chapter \label{sec:Ch2:Methods} describes the common methods in more detail.
-
-# Cochlear Nucleus Stellate Microcircuit 
-
 ** Neural Models
 
 Single-compartment Hodgkin-Huxley-like neural models were used for the
@@ -333,15 +336,9 @@ cells, to enhance response to coincident inputs.
 \yellownote{Discuss RM model (put in Methods Chapter).  Perhaps expand
   more on the role of the currents on each neuron in the CN model.}
 
-** Synapse Models
- 
-\yellownote{TODO. This is inlcuded in the GA chapter, but it should go
-in the Methods chapter}
-
-
-** Connectivity and Topology
+** Connectivity and Network Parameters
    :PROPERTIES:
-   :CUSTOM_ID: ConnectivityandTopology
+   :LABEL: sec:Ch3:ConnectivityNetworkParameters
    :END:
 
 Tonotopic connectivity in the stellate cochlear nucleus model is
@@ -376,8 +373,50 @@ filterbank of AN frequency channels.
   here.  This would state the integration timestep, the system used,
   the RNG used etc.  This could perhaps go in the Methods chapter}
 
+** Synapse Models
+ 
+\yellownote{TODO. This is inlcuded in the GA chapter, but it should go
+in the Methods chapter}
+
+
+** Synaptic Delays
+
+Mean first spike latency to short \CF tones and click stimuli were used
+to set delay times between \ANFs and \CN cells
+\citep{EagerGraydenEtAl:2006}.  The delay was defined using the first
+spike latency of high frequency units as the sum of the \ANFs' first
+spike latency, \ANF conduction delay, and the synaptic transmission
+delay.  The first spike latency measured in high \CF units in the ARLO
+\AN model \citep{HeinzZhangEtAl:2001} for \HSR fibers was 1.5 ms.  The
+additional delay from the \ANF to each cell type was calculated to be
+\TS 1.6ms \citep{RhodeSmith:1986}, \DS 1.2 ms
+\citep{RhodeOertelEtAl:1983}, \TV 2.0 ms \citep{SpirouDavisEtAl:1999},
+and Golgi 2.3 ms \citep{FerragamoGoldingEtAl:1998a} to ensure the first
+spike latency matched the experimental data.
+
+#  \begin{figure}[tbh]
+#    \begin{center}
+#  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+#  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{ClickDelay}}
+#      \caption{Response of AN and CN cells to click stimuli. }
+#      \label{fig:ClickDelayAN}
+#    \end{center}
+#  \end{figure}
+
+
 ** Optimisation 
-** Verification of Cell-type Responses to Simple Tones and Noise
+
+\yellownote{ TODO  }
+
+The optimisation routine
+used in this chapter was NEURON's [[latex:progname][fit\_praxis]] function,  which uses the algorithm PRAXIS
+\citep{Brent:1976}. The praxis returns the minimum of the function,
+\texfsf{fun}, of n variables using the principal axis method without the use of
+\textsf{fun}'s gradient.
+
+
+
+** Verification of Cell Model Responses to Simple Tones and Noise
 
 Verification of the optimisation processes requires running a suite of
 tests across the whole network.  This section aims to show the
@@ -653,13 +692,17 @@ behaviour of Golgi cells down to four major details:
 
 The Golgi cell model is implemented as an instantaneous-rate Poisson
 rate model, shown in Table \ref{tab:GolgiCellModelSummary}D and in
-Figure \ref{fig:GolgiDiagram}.  The primary inputs are from the
-auditory model's instantaneous rate outputs with connections across
-frequency channels.  \HSR and \LSR \ANF inputs to Golgi cells were
-determined the Gaussian distribution in units of channel separation in
-the network.  The weighted sum of \HSR and \LSR instantaneous-rate
-vectors are smoothed out by an alpha function mimicking a synaptic and
-dendritic smoothing filter.
+Figure \ref{fig:GolgiDiagram}.  The primary inputs are from the auditory
+model's instantaneous rate outputs with connections across frequency
+channels.  \HSR and \LSR \ANF inputs to Golgi cells were determined the
+Gaussian distribution in units of channel separation in the network.
+The weighted sum of \HSR and \LSR instantaneous-rate vectors are
+smoothed out by an alpha function mimicking a synaptic and dendritic
+smoothing filter.  The synaptic and dendritic filter kernel, $\alpha(t)$ is
+normalised by setting the area under the function to one. For a large
+enough filter length, the alpha function integral ($\int \alpha(t) dt =
+(-\Gtau^2 - t \cdot \Gtau)\cdot \exp(-\frac{t}{\Gtau})$) approximately equals
+$\Gtau^2$. In this case $10 \times \Gtau$ is used for the filter length.
 
 Table \ref{tab:GolgiCellModelSummary}A shows the model summary for
 optimising the Golgi cell model.  As explained in the introduction,
@@ -672,9 +715,9 @@ spaced frequency channels.  The population of \ANFs in Table
 spiking \ANF neurons, only the instantaneous profiles of each
 frequency channel is used in the Golgi model.  The connectivity
 between \ANFs and Golgi cells (Table \ref{tab:GolgiCellModelSummary}C)
-is a simple place-based Gaussian spread, as explained in the
-introduction (in section \ref{ConnectivityandTopology}
-[[*Connectivity%20and%20Topology][Connectivity and Topology]] )
+is a simple place-based Gaussian spread, as explained in the Methods Chapter
+ (Section \ref{sec:Ch2:ConnectivityandTopology}
+[[*Connectivity%20and%20Topology][Connectivity and Topology in Neural Microcircuits]]).
 
 #+BEGIN_LaTeX
   \begin{figure}[htb]
@@ -709,8 +752,7 @@ with the alpha function, $\alpha(t)$, as the synapto-dendritic
 filtering mechanism in the Golgi cell.  The alpha filter length was 10
 times the time constant, \Gtau, and its area under the function was
 normalised to 1.  A more detailed explanation of the NEURON
-implementation of the Golgi cell model is in the Section
-[[file:Chapter03Appendix::#Ch3:Appendix]].
+implementation of the Golgi cell model is in the Appendix \label{sec:Ch3:Appendix}.
 
 # Eq. \ref{eq:alpha_Golgi},
 # In Chapter \ref{sec:GAChapter}, the Golgi cell model was implemented as a
@@ -750,7 +792,7 @@ only five sound levels (0, 15, 55, 75 and 85 dB \SPL) and detected the
 mean rate from the instantaneous profile in its fitting routine.  The
 best response obtained a minimum root mean squared error of 11.63
 spikes/sec against the five points in the target experimental data of
-unit S03-07 (CF=21 kHz) from \citep{GhoshalKim:1996}.  A rate-level
+unit S03-07 (CF=21 kHz) from \citet{GhoshalKim:1996}.  A rate-level
 curve (green circles, Figure \ref{fig:GolgiTestResult}) was generated
 from the spiking output only to show a big discrepancy in the
 spike-based rate-level and the monotonic rate based rate-level.  The
@@ -1002,6 +1044,9 @@ Chinchilla
 # where Pm is the masked probe spike count and Pa is the unmasked
 # response to the probe (Fig. 1C).
 
+
+In order to specify how ANF and GABA-ergic inputs regulate the click recovery response
+in DS cells, a parameter optimisation routine was performed.  
 The \DS neural model was implemented with a single-compartment, type
 I-II Rothman and Manis model \citep{RothmanManis:2003b}. The type I-II
 Rothman and Manis is unique to \DS cells due to the small presence of
@@ -1026,9 +1071,17 @@ graded weights should suffice.
 
 #+LaTeX:\include{DSRecoveryTable}
 
+\DS input parameters that were preemptively fixed included the number of \GLG to
+\DS synapses ($\nGLGDS = 25$), the spread of \ANFs to \DS cells
+(\sANFDSh and \sANFDSl), and the conduction delay from the auditory
+nerve (\dANFDS).  The first spike latency in high \CF \DS cells ($2.8 \pm 0.09$ ms) is
+precise and faster than other stellate neurons in the VCN
+\citep{RhodeSmith:1986}.  The addition of 0.5 ms to \ANF to \DS input
+connections is a combination of conductance and synaptic delay.  
+
 The synaptic connections onto the D stellate cell model, shown in Table
 \ref{tab:DScellModelSummary}C, are simplified to afferent ANF inputs and
-intra-nuclear col-localised GABAergic input from Golgi cells.  The \ANF
+intra-nuclear co-localised GABAergic input from Golgi cells.  The \ANF
 spread onto \DS cells is well documented
 \citep{PaoliniClark:1999,ArnottWallaceEtAl:2004,PalmerWallaceEtAl:2003,JiangPalmerEtAl:1996,PalmerJiangEtAl:1996}.
 The dendrites of \DS cells cover one third of the nucleus
@@ -1059,15 +1112,18 @@ nearest Golgi cells.
 #+LABEL: fig:BackoffPalombi
 [[./gfx/Backoff+Palombi-Fig3.pdf]]
 
-In order to specify how Golgi cells regulate the click recovery response
-in DS cells, a parameter optimisation routine was performed.  \DS input
-parameters that were preemptively fixed included the number of \GLG to
-\DS synapses ($\nGLGDS = 25$), the spread of \ANFs to \DS cells
-(\sANFDSh and \sANFDSl), and the conduction delay from the auditory
-nerve (\dANFDS).  The first spike latency in high \CF \DS cells ($2.8 \pm
-0.09$ ms) is precise and faster than other stellate neurons in the VCN
-\citep{RhodeSmith:1986}.  The addition of 0.5 ms to \ANF to \DS input
-connections is a combination of conductance and synaptic delay.
+The \DS model was tested with six pairs of mask/recovery click pairs,
+with intervals 2, 3, 4, 8, and 16 ms (as per the intervals used by
+\citep{BackoffPalombiEtAl:1997} and the responses in shown in Figure
+\ref{fig:BackoffPalombi}.  PSTHs of the spiking output of \DS units were
+generated from 25 stimulus repetitions. Each response to a click is
+measured for a period of 2 ms.  The sample period was delayed by 4 ms,
+an estimate of the auditory delay and minimum first spike latency for
+the DS unit.  The unit used in the optimisation has a CF = 5.8 kHz
+(channel no. 50).   Spontaneous activity  in idle periods were used for additional weighted penalties 
+measures of spontaneous activity and restrict over excitation by ANFs.
+
+
 
 # %The effect of Golgi cells on \DS is delayed by the extra 0.7 ms delay from \ANF to Golgi, plus the slow peak of \GABAa inhibition.
 # \yellownote{fix this paragraph}
@@ -1097,7 +1153,6 @@ constraining the short delay recovery responses (2,3,4 ms), hence the
 \DS cell's \Ileak and \IKLT conductance parameters were included in the
 optimised parameters to allow cell's input resistance behaviour to fit
 fast acting behaviour in the cell.
-
 The unit used in the optimisation has a \CF of 5.8 kHz (equivalent to
 channel no. 50 in the CN network with 100 channels from 0.2 to 30
 kHz).
@@ -1429,7 +1484,7 @@ for the principal cells of the \DCN including type II units.
 
 \yellownote{Give details about the TV model implementation}
 
-#+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from figure 8 in \citet{SpirouDavisEtAl:1999}.}
+#+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
 [[TV_RateLevel/TV_RateLevel_Fig8.pdf]]
 
@@ -1460,6 +1515,28 @@ TV cell model.
   \end{center} }
 #+END_LaTeX
 
+
+#+BEGIN_LaTeX
+  {\small
+  \noindent\begin{center}%table} 
+  \begin{minipage}{0.48\linewidth} 
+  \begin{tabularx}{\textwidth}{|X|c|}
+  \hdr{2}{}{TV Model Parameters } \\ \hline 
+  %                 & \\ \hline
+    \wLSRTV (nS)   & 4.765  \\ 
+    \wHSRTV (nS)   & 0.983 \\ 
+    \wDSTV (nS)    & 1.152 \\ 
+\nDSTV & 29.4917 \\
+\TV \Erev & -68.25 \\\hline
+RL Error (spikes/s) & 36.7552 \\
+RL without inhibition Error	 (spikes/s) & 11.3262 \\
+NRL Error (spikes/s) & 13.8671 \\
+NRL without inhibition Error (spikes/s) & 67.4216 \\
+Final error (spikes/s) & 129.37 \\ \hline 
+  \end{tabularx}% 
+  \end{minipage}\hfill 
+  \end{center} }
+#+END_LaTeX
 
 
 * D Stellate to Tuberculoventral Cell Connection: Optimisation of Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses 
@@ -1613,7 +1690,7 @@ reducing the sound level of the notch stimulus from 110 down to 50 dB
 
 #+CAPTION: [TV cell model: optimisation results]{Optimisation results for TV Notch model with stimulus sound levels at 110, 90, 70 and 50 dB SPL.}
 #+LABEL: fig:TVresultspl
-[[../../cnstellate/TV_Notch/TV_Notch_spl.pdf]]
+[[TV_Notch/TV_Notch_spl.pdf]]
 
 # % D ----------------------------------
 # \begin{tabularx}{\linewidth}{|X|c|c|c|}
@@ -1665,7 +1742,7 @@ DS, basic TV }
 
 #+CAPTION: [Optimisation results for a refined TV cell model]{Optimisation  results for a refined TV cell model with stimulus sound levels at 50 dB \SPL. The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV,  \nHSRTV, \wLSRTV, \wHSRTV\@.  The second group of 3 runs included the  parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
 #+LABEL: fig:TVresultRun250
- [[../../cnstellate/TV_Notch/Run2/spl50/TV_Notch_result.pdf]]
+ [[TV_Notch/Run2/spl50/TV_Notch_result.pdf]]
 
 # 50 dB Run
 #+BEGIN_LaTeX
@@ -2386,6 +2463,7 @@ connection) not included.}
 \yellownote{Probability of AP-to-synaptic release ratio not included
 (Liley assumption of 1\% vesicle release in cortical buttons.) }
 
+
 * Conclusion 
 
 [[*Optimisation%20Results][Optimisation Results]]
@@ -2435,11 +2513,10 @@ can easily reproduce this work.
 
 
 ## BIBLIOGRAPHY
-\newpage \singlespacing 
-\bibliographystyle{plainnat} 
+\newpage\singlespacing\bibliographystyle{plainnat} 
 \bibliography{MyBib}
-\printglossaries\listoftodos 
-
+\newpage\listoftodos 
+## BIBLIOGRAPHY
 
 * Figures 							   :noexport:
 
