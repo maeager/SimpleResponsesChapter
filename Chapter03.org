@@ -14,7 +14,7 @@
 #+BIBLIOGRAPHY: MyBib alphanat
 
 \setcounter{chapter}{2} 
-\chapter[Simple Responses]{The Cochlear Nucleus Stellate Network Model: Parameter fitting of synaptic variables using simple acoustic responses} 
+\chapter[CN Stellate Microcircuit Model]{Optimisation of the Cochlear Nucleus Stellate Network Model: Parameter fitting of synaptic variables using simple acoustic responses}\label{sec:Chapter3} 
 \small{Draft Version: \input{./.hg/cache/tags}}
 
 
@@ -223,9 +223,8 @@ central auditory system.
 * Methods
 
 This section describes the some of the general methods used within this chapter. Chapter \label{sec:Ch2:Methods} describes the common methods in more detail.
-Org-mode link [[file:../MethodsChapter/Chapter02.org::* Methods]]
+# Org-mode link [[file:../MethodsChapter/Chapter02.org::* Methods]]
 # Cochlear Nucleus Stellate Microcircuit 
-
 
 ** Auditory Nerve Fibre Model 
 \yellownote{This may need to go in Methods chapter}
@@ -378,7 +377,6 @@ filterbank of AN frequency channels.
 \yellownote{TODO. This is inlcuded in the GA chapter, but it should go
 in the Methods chapter}
 
-
 ** Synaptic Delays
 
 Mean first spike latency to short \CF tones and click stimuli were used
@@ -403,6 +401,13 @@ spike latency matched the experimental data.
 #    \end{center}
 #  \end{figure}
 
+** Simulation and Parallel Capabilities
+
+The time step of the numerical integration performed in each of the simulations in the chapter was 0.05 ms.
+the parallel capabilities is based on the NEURON
+network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006}
+ (see SenseLab's ModelDB models
+[[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]]).
 
 ** Optimisation 
 
@@ -944,12 +949,13 @@ increased from 0 to 90 dB \SPL.
 
 ** TODO Introduction
 
-\glsreset{DS} This section shows the GABAergic input and intrinsic
-cell properties that influence the behaviour of \DS cells.  In the
-mammalian \CN, \DS cells have a wide ranging influence on almost all
+\glsreset{DS} 
+
+
+In the mammalian \CN, \DS cells have a wide ranging influence on almost all
 primary cells of the \CN.  Glycinergic terminals of the \DS cell
 contact \TS and bushy neurons in the \VCN \citep{RhodeSmithEtAl:1983},
-and fusiform and tuberculoventral cells in the the ipsilateral \DCN
+and fusiform and \TV neurons in the ipsilateral \DCN
 (type II and type IV \EIRA units). Some \DS cells exit the \CN,
 forming the commissural connection with the contralateral \CN
 \citep{NeedhamPaolini:2007}.  In vitro studies have shown that \DS
@@ -964,6 +970,9 @@ projections that entered the GCD, as shown in Figure
 #+CAPTION: (Left) TS cells that were retrogradely labeled from injections in the DCN lie in the narrow frequency band corresponding to presumed frequency band of the injection site in the DCN. Labeled DS cells were spread over the nucleus. (Right) All DS cells, labeled by \citet{DoucetRyugo:1997}, had dendritic processes extending into the granule cell domain. Large multipolar VCN neurons, DS cells, are known to have dendritic projections into the GCD, the location of GABAergic Golgi cells.   Images reproduced from figure 3C in \citet{DoucetRyugo:1997}.
 #+LABEL: fig:DSinGCD
 [[../figures/DoucetRyugo1997_C_DSinGCD.png]]
+
+This section aims to set network parameters and intrinsic
+cell properties that influence the behaviour of \DS cells.  
 
 
 # Large multipolar or stellate cells in the \VCN have been shown to have 3--4
@@ -1540,7 +1549,9 @@ Final error (spikes/s) & 129.37 \\ \hline
 
 
 * D Stellate to Tuberculoventral Cell Connection: Optimisation of Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses 
-
+  :PROPERTIES:
+  :LABEL: sec:Ch3:DSTV
+  :END:
 ** TODO Background
 
 The increase in rate of TV cells in regions below the frequency of the
