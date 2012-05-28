@@ -6,31 +6,46 @@
 #+TODO: REFTEX
 
 #+LANGUAGE: en_GB
-#+LATEX_HEADER:\graphicspath{{./}{./gfx/}{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
+#+LATEX_HEADER:\graphicspath{{./}{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
-#+LATEX_HEADER:\usepackage{transparent}
+
 
 #+BIBLIOGRAPHY: MyBib alphanat
 #+LaTeX_CLASS: UoM-draft-org-article
 
-## SOLO
+## NOINCLUDE
 {\singlespacing\tableofcontents\printglossaries}
-## SOLO
+## NOINCLUDE
+
 %\setcounter{chapter}{7}
-\chapter{}
-
-
-* Chapter 3 Appendix
-  :PROPERTIES:
-  :LABEL:    sec:Ch3:Appendix
-  :END:
+\chapter{ Chapter 3 Appendix }
+  \label{sec:Ch3:Appendix}
   
 This section provides an overview of the pragmatic details of the
 [[latex:progname][cnstellate]] NEURON model used in Chapter 3.
 
+* General Neural Modelling Tools
 
-**  [[latex:progname][NEURON]] Cochlear Nucleus Stellate Microcircuit Model
+
+*** Data extraction
+    :PROPERTIES:
+    :LABEL: sec:Apx:G3data
+    :END:
+
+
+\yellownote{Special comments on the use of g3data to extract data
+points from literature documents }
+
+#+ATTR_LATEX: width=0.95\textwidth
+#+LABEL: fig:Extractdata
+#+Caption: Extracting experimental data from Figure 10 in \citet{ReissYoung:2005} using \textsf{g3data}.
+  [[file:gfx/Screenshot_Reiss_Fig10_g3data.png]]
+
+
+
+
+* [[latex:progname][NEURON]] Cochlear Nucleus Stellate Microcircuit Model
 
 The cochlear nucleus stellate microcircuit software code used in this
 chapter is called [[latex:progname][cnstellate]] and is implemented in
@@ -105,7 +120,8 @@ CF units above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.
 #+END_LaTeX
 
 
-*** Auditory nerve and input utilities
+
+** Auditory Model and Input Utilities
 
 The auditory model implementation in [[latex:progname][NEURON]] is a conversion from the
 [[latex:progname][MATLAB]] mex interface to [[latex:progname][NEURON]]'s NMODL interface.  Support for
@@ -212,8 +228,8 @@ frequencies in network's frequency channels.
   \end{figure}
   \begin{figure}[htb]
     \centering
-    \resizebox{0.9\textwidth}{!}{\includegraphics{gfx/Audiogram_COHC_CIHC_cat}%
-    \includegraphics{gfx/Audiogram_COHC_CIHC_rat}}
+    \resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Audiogram_COHC_CIHC_cat}%
+    \includegraphics{../SimpleResponsesChapter/gfx/Audiogram_COHC_CIHC_rat}}
     % \resizebox{0.5\textwidth}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
     % \resizebox{0.6\textwidth}{!}{\includegraphics[keepaspectratio=true]{audiograms}}
     \caption[Audiogram and compression in rats and cats]%
@@ -256,13 +272,12 @@ real-time resample library (libresample [reference needed]).
 function that implements a the fast fractional Gaussian noise
 generator
 
-** ANF Model
+** Spiking ANF Model 
 
 The ANF model in created in a NEURON template called =AuditoryNerve=, decalared
 in =AuditoryNerve.hoc=.  All fibres are created in the =LSR= and =HSR= matrix
 objects, with rows indicating the frequency channels and columns representing a
 fixed number of independent fibres with the frequency channel.  
-
 
 The spike generator used in the CN stellate model was created by B. Scott
 Jackson \citep{JacksonCarney:2005} and updated in the Zilany AN model
@@ -294,7 +309,6 @@ A single spike train for the fibre using the original method using the
 developed in =AuditoryNerve.hoc= to generate lists of spike trains for each
 repetition before simulation.
   
-
 
 
 
@@ -391,6 +405,46 @@ inserted separately.
   endtemplate CNcell
   \end{lstlisting}
 #+END_LaTeX
+
+* Optimisation Procedures
+    :PROPERTIES:
+    :LABEL: sec:Apx:Praxis
+    :END:
+
+\yellownote{Expand on praxis method, it's specific attributes, use of pvec for
+setting the parameters and the fitting procedure.}  
+
+The optimisation routine
+used in this chapter was NEURON's [[latex:progname][fit\_praxis]], which uses the algorithm PRAXIS
+\citep{Brent:1976}. The praxis returns the minimum of the function,
+\textsf{fun}, of n variables using the principal axis method without the use of
+\textsf{fun}'s gradient.
+
+#+BEGIN_LaTeX
+  \begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure in \mbox{\textsf{parameters\_TVNotch.hoc}}.]
+  -------------------
+    NPARAMS=3
+    objref pvec,fvec,pvec_ranges,pvec_name,pvec_factor
+    pvec = new Vector()                // Vector contains the parameters to be fitted
+    pvec_ranges= new Matrix(NPARAMS,2)    // (min,max) pairs for each param
+    pvec_name = new List()               // names of parameters in String list
+    pvec_factor = new Vector(NPARAMS,1)   // regulates variables so pvec is in same range to aid fit_praxis
+    //min
+    for i=0,NPARAMS-1 pvec_ranges.x[i][0]= 0.000001
+    //max
+    for i=0,NPARAMS-1 pvec_ranges.x[i][1]= 0.03
+    //Names                                               //Initial values        //Param Factor
+    pvec_name.append(new String("param.w.x[lsr][tv]"))    pvec.append(0.00190)    pvec_factor.append(1)
+    pvec_name.append(new String("param.w.x[hsr][tv]"))    pvec.append(0.00130)    pvec_factor.append(1)
+    pvec_name.append(new String("param.w.x[hsr][ds]"))    pvec.append(0.00170)    pvec_factor.append(1)
+  ---------------------
+    proc runprax(){
+      attr_praxis(0.0001, 0.01, 3)
+      fit_praxis(NPARAMS,"error_fcn",&pvec.x[0])
+    }
+  \end{lstlisting}
+#+END_LaTeX
+
 
 *** Golgi cell model optimisation procedure
 
@@ -491,7 +545,7 @@ Example optimisation points used by [[latex:progname][fit\_praxis]] are shown in
 #+BEGIN_LaTeX
   \begin{figure}[htb] 
   \centering
-  \resizebox{0.9\textwidth}{!}{\includegraphics{Praxis_123}\includegraphics{Praxis_456}}
+  \resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Praxis_123}\includegraphics{../SimpleResponsesChapter/gfx/Praxis_456}}
   \caption[Parameter searching in PRAXIS]{Optimisation progression in normalised
     parameter space in three of the six parameters used in the DS model
     optimisation.} \label{fig:praxis}
@@ -577,8 +631,6 @@ ms delay) and scaled to the correct sound level.
   \end{lstlisting}
 #+END_LaTeX
 
-
-
 *** TS cell subtype optimisation procedure
 
 The \TS cell subtypes were all called within =TStellate.hoc=.
@@ -592,7 +644,8 @@ The =IVMeasures()= procedure tries to replicate the similar measures
 (resting membrane potential, onset ratio, adaptation ratio, and offset
 hyperpolarisation) by \citet{PaoliniClareyEtAl:2005}.
 
-** Response to tones and noise procedures
+
+* Response to tones and noise procedures
 
 =Responses.hoc= is used to generate the many different responses from
 the optimised, with many of the procedures contained in
@@ -632,85 +685,35 @@ also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:Chapter4}
  
 
 
-** General neural modelling tools
-
-*** Optimisation
-    :PROPERTIES:
-    :LABEL: sec:Apx:Praxis
-    :END:
-
-\yellownote{Expand on praxis method, it's specific attributes, use of pvec for
-setting the parameters and the fitting procedure.}  
-
-The optimisation routine
-used in this chapter was NEURON's [[latex:progname][fit\_praxis]], which uses the algorithm PRAXIS
-\citep{Brent:1976}. The praxis returns the minimum of the function,
-\texfsf{fun}, of n variables using the principal axis method without the use of
-\textsf{fun}'s gradient.
-
-#+BEGIN_LaTeX
-  \begin{lstlisting}[label=lbl:runprax,caption=Set optimisation attributes and run fitting procedure in \mbox{\textsf{parameters\_TVNotch.hoc}}.]
-  -------------------
-    NPARAMS=3
-    objref pvec,fvec,pvec_ranges,pvec_name,pvec_factor
-    pvec = new Vector()                // Vector contains the parameters to be fitted
-    pvec_ranges= new Matrix(NPARAMS,2)    // (min,max) pairs for each param
-    pvec_name = new List()               // names of parameters in String list
-    pvec_factor = new Vector(NPARAMS,1)   // regulates variables so pvec is in same range to aid fit_praxis
-    //min
-    for i=0,NPARAMS-1 pvec_ranges.x[i][0]= 0.000001
-    //max
-    for i=0,NPARAMS-1 pvec_ranges.x[i][1]= 0.03
-    //Names                                               //Initial values        //Param Factor
-    pvec_name.append(new String("param.w.x[lsr][tv]"))    pvec.append(0.00190)    pvec_factor.append(1)
-    pvec_name.append(new String("param.w.x[hsr][tv]"))    pvec.append(0.00130)    pvec_factor.append(1)
-    pvec_name.append(new String("param.w.x[hsr][ds]"))    pvec.append(0.00170)    pvec_factor.append(1)
-  ---------------------
-    proc runprax(){
-      attr_praxis(0.0001, 0.01, 3)
-      fit_praxis(NPARAMS,"error_fcn",&pvec.x[0])
-    }
-  \end{lstlisting}
-#+END_LaTeX
-
-
-*** Data extraction
-    :PROPERTIES:
-    :LABEL: sec:Apx:G3data
-    :END:
-
-
-\yellownote{Special comments on the use of g3data to extract data
-points from literature documents }
-
-#+label: fig:Extractdata
-#+Caption: Extracting experimental data from Figure 10 in \citet{ReissYoung:2005} using \textsf{g3data}.
-[[./gfx/Screenshot_Reiss_Fig10_g3data.png]]
-
-
 * Chapter 3 Source Code 					   :noexport:
 
 ** Base files for \textsf{cnstellate}
 
 \begin{lstlisting}[label=lbl:Params,caption=\textsf{Params.hoc}] 
 #+include: ../../cnstellate/Params.hoc 
-\end{lstlisting}\clearpage
+\end{lstlisting} 
+\clearpage
 \begin{lstlisting}[label=lbl:Utilities,caption=\textsf{Utilities.hoc}]
 #+include: ../../cnstellate/Utilities.hoc 
-\end{lstlisting}\clearpage
+\end{lstlisting}
+\clearpage
 \begin{lstlisting}[label=lbl:NetworkParameters,caption=\textsf{NetworkParameters.hoc}] 
 #+include: ../../cnstellate/NetworkParameters.hoc 
-\end{lstlisting}\clearpage
+\end{lstlisting}
+\clearpage
 \begin{lstlisting}[label=lbl:AuditoryNerve,caption=\textsf{AuditoryNerve.hoc}] 
 #+include: ../../cnstellate/AuditoryNerve.hoc 
-\end{lstlisting}\clearpage
+\end{lstlisting}
+\clearpage
 \begin{lstlisting}[label=lbl:CNcell,caption=\textsf{par\_CNcell.tem}] 
 #+include: ../../cnstellate/par_CNcell.tem 
-\end{lstlisting}\clearpage
+\end{lstlisting}
+\clearpage
 
 \begin{lstlisting}[label=lbl:CochlearNucleus,caption=\textsf{CochlearNucleus.hoc}] 
 #+include: ../../cnstellate/CochlearNucleus.hoc 
-\end{lstlisting}\clearpage
+\end{lstlisting}
+\clearpage
  \begin{lstlisting}[label=lbl:calcisilag,caption=\textsf{calcisilag.hoc}] 
 #+include: ../../cnstellate/calcisilag.hoc 
 \end{lstlisting}

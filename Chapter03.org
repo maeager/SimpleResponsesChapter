@@ -8,15 +8,13 @@
 
 #+LaTeX_CLASS: UoM-draft-org-article
 #+LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
-#+LATEX_HEADER:\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
+#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 # + LATEX _ HEADER:\newcommand{\textpm}{\ensuremath{\pm}}
 #+BIBLIOGRAPHY: MyBib alphanat
 
 \setcounter{chapter}{2} 
-\chapter[CN Stellate Microcircuit Model]{Optimisation of the Cochlear Nucleus Stellate Network Model: Parameter fitting of synaptic variables using simple acoustic responses}\label{sec:Chapter3} 
-\small{Draft Version: \input{./.hg/cache/tags}}
-
+\chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential parameter fitting of synaptic variables using simple acoustic responses}\label{sec:Chapter3} 
 
 * Prelude 							   :noexport:
   
@@ -191,7 +189,7 @@ describes the following cells and models:
 
 #+CAPTION: [Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (see text for details).}
 #+LABEL: fig:microcircuit
-[[./gfx/CNcircuit-detailed.pdf]]
+[[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
 
 
 Optimisation of a detailed \BNN model requires a realistic input model
@@ -264,7 +262,7 @@ Zilany}
 #+ATTR_LaTeX:  width=0.8\textwidth
 #+CAPTION:     [Auditory periphery model]{Auditory periphery model with a middle ear filter, a gamma-chirp filter bank, a cochlea-feedback filter pathway, and a dual power-law synapse. Figure reprinted from \citealt{ZilanyBruceEtAl:2009}.}
 #+LABEL: fig:ZilanyBruceFig
-[[./gfx/ZilanyCarney-JASA-2009-Fig2.pdf]]
+[[../SimpleResponsesChapter/gfx/ZilanyCarney-JASA-2009-Fig2.pdf]]
 
 #+BEGIN_LaTeX
   \begin{figure}[htb]
@@ -358,7 +356,7 @@ filterbank of AN frequency channels.
 #+ATTR_LaTeX: width=0.8\textwidth
 #+CAPTION:  Gaussian connection between cell types in cochlear nucleus stellate network.
 #+LABEL:    fig:CNconn
-[[./gfx/CNConn.pdf]]
+[[../SimpleResponsesChapter/gfx/CNConn.pdf]]
 
 
 
@@ -413,11 +411,11 @@ network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006}
 
 \yellownote{ TODO  }
 
-The optimisation routine
-used in this chapter was NEURON's [[latex:progname][fit\_praxis]] function,  which uses the algorithm PRAXIS
-\citep{Brent:1976}. The praxis returns the minimum of the function,
-\texfsf{fun}, of n variables using the principal axis method without the use of
-\textsf{fun}'s gradient.
+The optimisation routine used in this chapter was NEURON's [[latex:progname][fit\_praxis]]
+function, which uses the principle axis algorithm 
+\citep[PRAXIS,~][]{Brent:1976}. The praxis returns the minimum of the error function,
+=fun=, of n variables using the principal axis method without the
+use of =fun='s gradient.
 
 
 
@@ -672,7 +670,7 @@ cells \citep{FerragamoGoldingEtAl:1998a}.
 #+LABEL:      fig:GolgiKimFig2
 [[../figures/GhoshalKim96_Fig2.pdf]]
 
-#+LaTeX:\include{GolgiRateLevelTable}
+#+LaTeX:\input{../SimpleResponsesChapter/GolgiRateLevelTable}
 
 In the creation of the Golgi cell model, we can reduce the explicit
 behaviour of Golgi cells down to four major details:
@@ -726,7 +724,7 @@ is a simple place-based Gaussian spread, as explained in the Methods Chapter
 
 #+BEGIN_LaTeX
   \begin{figure}[htb]
-   \resizebox{0.9\textwidth}{!}{\input{./gfx/GolgiDiagram.tex}}
+   \resizebox{0.9\textwidth}{!}{\input{../SimpleResponsesChapter/gfx/GolgiDiagram.tex}}
    \caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile
      was generated using a weighted sum ANF profiles and a alpha function
      smoothing filter to mimic dendritic and synaptic filtering. The
@@ -807,7 +805,7 @@ for some \HSR input into the Golgi cell model.
 #+ATTR_LaTeX: width=0.8\textwidth
 #+CAPTION: [Initial results of Golgi cell model]{Initial trial results of the  Golgi cell model optimisation.  Responses of the Golgi cell model (blue  triangles) compared five five sound level (0,15, 55, 75 and 85 dB SPL) against  5 point in the target response (red squares).  The eventual best optimisation  response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  Golgi cell model using the final parameters.}
 #+LABEL: fig:GolgiTestResult
-[[./gfx/GolgiRateLevel_result2.pdf]]
+[[../SimpleResponsesChapter/gfx/GolgiRateLevel_result2.pdf]]
 
 The final optimisation routine with 22 levels and a Golgi cell model
 with \HSR and \LSR \ANF inputs was used to generate a closer fit to
@@ -820,7 +818,7 @@ best response was 4.48 spikes per second.
 #+ATTR_LaTeX: width=0.8\textwidth
 #+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996}. A more detailed optimisation with 22 levels and included HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data.The final root mean squared error was 4.48 spikes/s.}
 #+LABEL: fig:GolgiResult
-[[./gfx/GolgiRateLevel_result.pdf]]
+[[../SimpleResponsesChapter/gfx/GolgiRateLevel_result.pdf]]
 
 The parameters in Table \ref{tab:GolgiCellResults} were within the
 range of expected values.  \LSR inputs to the Golgi cell model
@@ -1078,7 +1076,7 @@ cells primarily controls the height of excitatory \PSPs reaching the
 soma \citep{WhiteYoungEtAl:1994}; hence, a single compartment with
 graded weights should suffice.
 
-#+LaTeX:\include{DSRecoveryTable}
+#+LaTeX:\input{../SimpleResponsesChapter/DSRecoveryTable}
 
 \DS input parameters that were preemptively fixed included the number of \GLG to
 \DS synapses ($\nGLGDS = 25$), the spread of \ANFs to \DS cells
@@ -1119,7 +1117,7 @@ nearest Golgi cells.
 
 #+CAPTION: [Experimental data showing click recovery in onset choppers.]  {Experimental data showing click recovery in onset choppers. Figure shows mask/recovery response ratio using 1 ms window during GABA blocker (BMI) experiments (reproduced from \citet{BackoffPalombiEtAl:1997})}. 
 #+LABEL: fig:BackoffPalombi
-[[./gfx/Backoff+Palombi-Fig3.pdf]]
+[[../SimpleResponsesChapter/gfx/Backoff+Palombi-Fig3.pdf]]
 
 The \DS model was tested with six pairs of mask/recovery click pairs,
 with intervals 2, 3, 4, 8, and 16 ms (as per the intervals used by
@@ -1317,7 +1315,7 @@ as shown in Figure \ref{fig:SpirouFig1}.
 
 #+CAPTION: [Experimental data of a single Type-II DCN unit]{Experimental data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig1
-[[./gfx/Spirou-Fig1-type2.pdf]]
+[[../SimpleResponsesChapter/gfx/Spirou-Fig1-type2.pdf]]
 
 ** INPROGRESS Background
 
@@ -1485,7 +1483,7 @@ for the principal cells of the \DCN including type II units.
 # \item Solution: Parallelism model
 # \end{itemize}
 
-#+LaTeX:\include{TV_RateLevelTable}
+#+LaTeX:\input{../SimpleResponsesChapter/TV_RateLevelTable}
 
 ** TODO Implementation
 
@@ -1558,7 +1556,7 @@ The increase in rate of TV cells in regions below the frequency of the
 notch is the main argument for the assertion of offset in DS to TV
 cell connections.\yellownote{MTD think about combining this section with TV model optimisation}
 
-#+LaTeX: \include{TV_NotchTable}
+#+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
 
 ** INPROGRESS Implementation
 
@@ -1623,11 +1621,11 @@ repetitions, Cons: removes timing}
 
 #+CAPTION: [Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from figure 9 \citet{ReissYoung:2005}.}
 #+LABEL: fig:TVReissFig9
-[[./gfx/TV_Reiss.pdf]]
+[[../SimpleResponsesChapter/gfx/TV_Reiss.pdf]]
 
 #+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures reproduced from \citealt{ReissYoung:2005}, Fig. 9)}
 #+LABEL: fig:TVNotchDiagram
-[[./gfx/TV_NotchDataConfig.pdf]]
+[[../SimpleResponsesChapter/gfx/TV_NotchDataConfig.pdf]]
 
 ** TODO Optimisation Results
 
@@ -1701,7 +1699,7 @@ reducing the sound level of the notch stimulus from 110 down to 50 dB
 
 #+CAPTION: [TV cell model: optimisation results]{Optimisation results for TV Notch model with stimulus sound levels at 110, 90, 70 and 50 dB SPL.}
 #+LABEL: fig:TVresultspl
-[[TV_Notch/TV_Notch_spl.pdf]]
+[[../../cnstellate/TV_Notch/TV_Notch_spl.pdf]]
 
 # % D ----------------------------------
 # \begin{tabularx}{\linewidth}{|X|c|c|c|}
@@ -2028,9 +2026,9 @@ stimulus.
 
 #+CAPTION: [Regularity in chopper units]{Regularity in chopper units. Data reproduced from figure 2 in \citet{PaoliniClareyEtAl:2005}.}
 #+LABEL: fig:PaoliniCVdata
-[[./gfx/PaoliniCV.pdf]]
+[[../SimpleResponsesChapter/gfx/PaoliniCV.pdf]]
 
-#+LaTeX: \include{TStellateTable}
+#+LaTeX: \input{../SimpleResponsesChapter/TStellateTable}
 
 ** Implementation
 
@@ -2510,19 +2508,6 @@ can easily reproduce this work.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## BIBLIOGRAPHY
 \newpage\singlespacing\bibliographystyle{plainnat} 
 \bibliography{MyBib}
@@ -2534,8 +2519,8 @@ can easily reproduce this work.
 ** fig:microcircuit
 
 # #+BEGIN_SRC sh
-# inkscape --without-gui --export-pdf='./gfx/CNcircuit-detailed.pdf'
-# --export-latex './gfx/CNcircuit-detailed.svg'
+# inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'
+# --export-latex '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg'
 # #+END_SRC
 
 
