@@ -18,9 +18,8 @@
 {\singlespacing\tableofcontents\printglossaries}
 ## NOINCLUDE
 
-%\setcounter{chapter}{7}
-\chapter{ Chapter 3 Appendix }
-  \label{sec:Ch3:Appendix}
+#\setcounter{chapter}{7}
+\chapter{ Chapter 3 Appendix } \label{sec:Ch3:Appendix}
   
 This section provides an overview of the pragmatic details of the
 [[latex:progname][cnstellate]] NEURON model used in Chapter 3.
@@ -44,7 +43,6 @@ points from literature documents }
 
 
 
-
 * [[latex:progname][NEURON]] Cochlear Nucleus Stellate Microcircuit Model
 
 The cochlear nucleus stellate microcircuit software code used in this
@@ -57,7 +55,7 @@ M.S.A. Zilany, Laurel Carney, Ian Bruce and colleagues for their work
 on the AN model.
 Jason Rothman and Paul Manis for their investigation of membrane currents in \CN neurons.
 
-#Dominic Mazzoni for the real-time resample library interface 
+
 
 The organisation of the NEURON model and its the parallel capabilities is based on the NEURON
 network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006}
@@ -123,24 +121,22 @@ CF units above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.
 
 ** Auditory Model and Input Utilities
 
-The auditory model implementation in [[latex:progname][NEURON]] is a conversion from the
-[[latex:progname][MATLAB]] mex interface to [[latex:progname][NEURON]]'s NMODL interface.  Support for
-simulating the rat and human species, as well as the default cat
-species, are included in the NMODL files [[latex:progname][an_bruce.mod]] and
-[[latex:progname][an_zilany_v4.mod]].  Accommodation of different species is implemented
-within the procedures \cochleaxf, \cochleafx, \delayspecies occurs at
-the position on the basilar membrane to characteristic frequency mapping
+The auditory model implementation in [[latex:progname][NEURON]] is a conversion from the [[latex:progname][MATLAB]] mex
+interface to [[latex:progname][NEURON]]'s [[latex:progname][NMODL]] interface.  Support for simulating the rat and human
+species, as well as the default cat species, are included in the [[latex:progname][NMODL]] files
+[[latex:progname][an_bruce.mod]] and [[latex:progname][an_zilany_v4.mod]].  Accommodation of different species is
+implemented within the procedures \cochleaxf, \cochleafx, \delayspecies occurs
+at the position on the basilar membrane to characteristic frequency mapping
 function (\cochleaxf), the reciprocal frequency to position function
 (\cochleafx), and the delay function (\delayspecies).  Figure
-\ref{fig:GetAudiogram} shows how audiograms from the appropriate species
-are mapped using a MATLAB routine [[latex:progname][fitaudiogram.m]] so that specific
-parameters can be passed from NEURON to the auditory model.  Rat basilar
-membrane frequency mapping in \cochleafx and \cochleaxf included using
-data obtained from the Boston University [[http://earlab.bu.edu][Earlab website]].  Compression
-variables for the IHC and OHC components of the Zilany model are fit
-using audiogram data of a rat.  The audiogram in Figure
-\ref{fig:AudThresholdCatRat} was used to generate the compression data
-for the rat model.
+\ref{fig:GetAudiogram} shows how audiograms from the appropriate species are
+mapped using a [[latex:progname][MATLAB]] routine [[latex:progname][fitaudiogram.m]] so that specific parameters can be
+passed from [[latex:progname][NEURON]] to the auditory model.  Rat basilar membrane frequency
+mapping in \cochleafx and \cochleaxf included using data obtained from the
+Boston University [[http://earlab.bu.edu][Earlab website]].  Compression variables for the IHC and OHC
+components of the Zilany model are fit using audiogram data of a rat.  The
+audiogram in Figure \ref{fig:AudThresholdCatRat} was used to generate the
+compression data for the rat model.
 
 Listing \ref{lst:makeaudiogram} shows the [[latex:progname][MATLAB/GNU Octave]] commands
 to get the correct Zilany model compression values, given the acoustic
@@ -208,7 +204,8 @@ frequencies.
 # \end{lstlisting}
 
 A procedure in [[latex:progname][Utilities.hoc]] called [[latex:progname][GetAudiogram()]] is used to get the
-MATLAB/Octave audiogram data and then interpolate the data to centre
+
+[[latex:progname][MATLAB/GNU Octave]] audiogram data and then interpolate the data to centre
 frequencies in network's frequency channels.
 
 #+BEGIN_LaTeX
@@ -218,7 +215,7 @@ frequencies in network's frequency channels.
     \caption[Zilany auditory model conversion in NEURON]%
     {Getting audiogram compression values for Zilany model in
       NEURON\@.  Data file
-      \mbox{\textsf{``heffner\_1985a\_felis\_p347\_3.txt''}} (obtained
+      \mbox{\textsf{heffner\_1985a\_felis\_p347\_3.txt}} (obtained
       from [earlab.bu.edu]) is used in \textsf{fitaudiogram.m} to
       generate outer and inner hair cell compression values.  When
       used in the \textsf{cnstellate} model in NEURON, the compression
@@ -226,6 +223,9 @@ frequencies in network's frequency channels.
       \textsf{cf} vector.}
     \label{fig:GetAudiogram}
   \end{figure}
+#+END_LaTeX
+
+#+BEGIN_LaTeX
   \begin{figure}[htb]
     \centering
     \resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Audiogram_COHC_CIHC_cat}%
@@ -242,53 +242,52 @@ frequencies in network's frequency channels.
   \end{figure}
 #+END_LaTeX
 
-
+\citep{ilanyCarney:2009,ZilanyCarney:2010}[fn:: http://www.urmc.rochester.edu/labs/Carney-Lab/publications/res/ZilanyCarney-JASAcode-2009.zip]
 Steps for converting any Carney Auditory Model written in C for MATLAB
 to a NEURON NMODL compatible C file.
 
   1. Remove mex headers
-  2. Remove [[latex:progname][mexfunction]], this is replaced with
-equivalent NMODL function that retrieves variables and returns the
-equivalent vectors
-  3. Find and replace all vector or memory allocation routines with
-functions in scopmath.h
-    - [[latex:progname][mxCalloc]] $\Rightarrow$      [[latex:progname][makevector]]
+  2. Remove [[latex:progname][mexfunction]], this is replaced with equivalent NMODL function that
+     retrieves variables and returns the equivalent vectors
+  3. Find and replace all vector or memory allocation routines with functions in
+     scopmath.h
+    - [[latex:progname][mxCalloc]] $\Rightarrow$     [[latex:progname][makevector]]
     - [[latex:progname][mxFree]] $\Rightarrow$      [[latex:progname][freevector]]
-  4. Replace random generator functions [[latex:progname][drand48()]]
-to [[latex:progname][scop\_random()]] and let random seed be set in
-NEURON or replace [[latex:progname][srand(seed)]] with
-[[latex:progname][set\_seed(seed)]].
-  5. Calls to MATLAB functions within a mex file The most recent model
-within the mex file.  This was converted to a simple double array of
-random values with the [[latex:progname][normrand(0,1)]] function in
-[[latex:progname][scoplib.h]].
-    - builtin [[latex:progname][randn]] $\Rightarrow$ generate an
-array gaussian random numbers with scoplib's
-[[latex:progname][normrand(0,1)]] function
-    - builtin [[latex:progname][resample]] $\Rightarrow$
-implementation of a reliable resampling function in C, using a
-real-time resample library (libresample [reference needed]).
-    - M-file [[latex:progname][ffGn]] $\Rightarrow$ generate a C
-function that implements a the fast fractional Gaussian noise
-generator
+  4. Replace random generator functions [[latex:progname][drand48()]] to [[latex:progname][scop\_random()]] and let
+     random seed be set in NEURON or replace [[latex:progname][srand(seed)]] with [[latex:progname][set\_seed(seed)]].
+  5. Calls to MATLAB functions within a mex file converted to C functions from
+     NEURONs internal =scopmath= library. The most recent model within the mex
+     file.  This was converted to a simple double array of random values with
+     the [[latex:progname][normrand(0,1)]] function in [[latex:progname][scoplib.h]].
+    - builtin [[latex:progname][randn]] $\Rightarrow$ generate an array gaussian random numbers with
+      scoplib's [[latex:progname][normrand(0,1)]] function
+    - builtin [[latex:progname][resample]] $\Rightarrow$ implementation of a reliable resampling
+      function in C, using a real-time resample library (libresample [reference
+      needed]).
+    - M-file [[latex:progname][ffGn]] $\Rightarrow$ generate a C function that implements a the fast
+      fractional Gaussian noise generator. The real-time resample library,
+      =libresample=, .
 
 ** Spiking ANF Model 
 
-The ANF model in created in a NEURON template called =AuditoryNerve=, decalared
+The ANF model in created in a NEURON template called =AuditoryNerve=, declared
 in =AuditoryNerve.hoc=.  All fibres are created in the =LSR= and =HSR= matrix
 objects, with rows indicating the frequency channels and columns representing a
-fixed number of independent fibres with the frequency channel.  
+fixed number of independent fibres with the frequency channel.
 
-The spike generator used in the CN stellate model was created by B. Scott
+The spike generator used in the CN stellate model was designed by B. Scott
 Jackson \citep{JacksonCarney:2005} and updated in the Zilany AN model
 \citep{ZilanyBruceEtAl:2009}.  [fn:: The code is available from the [[http://www.urmc.rochester.edu/smd/Nanat/faculty-research/lab-pages/LaurelCarney/auditory-models.cfm][Carney Lab
-web site]].]  An \ANF unit is created with a point process object called
-=SGC_fast=, named after the spiral ganglion cell, and declared in the [[latex:progname][NMODL]] file
-=SGCfast.mod=.
+web site]]:
+http://www.urmc.rochester.edu/labs/Carney-Lab/publications/res/JacksonCarney-JAROcode-2005.zip
+.]  An \ANF unit is created with a point process object called =SGC_fast=, named
+after the spiral ganglion cell, and declared in the [[latex:progname][NMODL]] file =SGCfast.mod=.
+
 # The method to initialise the =SCG_fast= requires a location variable between
 # zero and one representing where to place the point process on the currently
 # accessed section.  
-For example, in =CochlearNucleus.hoc= \HSR fibres in one frequency channel are created by calling:
+For example, in =CochlearNucleus.hoc= \HSR fibres in one frequency channel are
+created by calling:
 :   for j_cell = 0, HSRsperchannel-1 {
 :      an.HSR[i_chan][j_cell] = new SGC_fast(0.5)
 :   }
@@ -302,16 +301,12 @@ resampled temporal resolution in the =SetRates()= method:
 :      HSR[i_chan][j].SetFibreRate(HSRout[i_chan],HSRspiketimes[i][j],sg_tdres)
 :   }
 
-A single spike train for the fibre using the original method using the
-=SGfast(1)= method on the =SGC_fast= object.  The updated method presented in
+Generating a single spike train for the fibre is done by calling =SGfast(1)= on
+the =SGC_fast= object.  The updated method presented in
 \citet{ZilanyBruceEtAl:2009} is called using =HSR[i][j].SGfast2(1)= in the
 =GenSpikes= method in =CochlearNucleus.hoc=.  More efficient methods have been
 developed in =AuditoryNerve.hoc= to generate lists of spike trains for each
 repetition before simulation.
-  
-
-
-
 
 
 ** Cochlear Nucleus Cell Templates
@@ -327,8 +322,8 @@ neural models were defined in the basic cell template =CNcell=, declared
 in =CNcell.tem=.  =CNcell= creates the single compartment 
 (NEURON segment =soma=) containing the active currents, synapses receptors and a
 spike detector. The =CNcell= model can be adjusted to include dendrite and axon
-segments if required.  Internal variables and objects can be made
-publicly accessible using
+segments if required.  
+# Internal variables and objects can be made publicly accessible using
 
 The [[latex:progname][rm_vect]] module loaded for each [[latex:progname][CNcell]] soma section is the condensed
 current modules of sodium (\INa), high-threshold potassium (\IKHT), leak
@@ -533,11 +528,11 @@ dynamics of golgi cells
 
 # {D stellate cell model optimisation}
 
-The \TV cell model optimisation was generated using the hoc file
-[[latex:progname][TV\_RateLevel.hoc]] and was simulated with the
+The \DS cell model optimisation was generated using the hoc file
+[[latex:progname][DSRecovery.hoc]] and was simulated with the
 commands:
 :    $ make gui
-:    $ ./gui/special TV_RateLevel.hoc -
+:    $ ./gui/special DSRecovery.hoc -
 
 
 Example optimisation points used by [[latex:progname][fit\_praxis]] are shown in Figure \ref{fig:praxis}.
@@ -545,7 +540,8 @@ Example optimisation points used by [[latex:progname][fit\_praxis]] are shown in
 #+BEGIN_LaTeX
   \begin{figure}[htb] 
   \centering
-  \resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Praxis_123}\includegraphics{../SimpleResponsesChapter/gfx/Praxis_456}}
+  \resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Praxis_123}%
+  \includegraphics{../SimpleResponsesChapter/gfx/Praxis_456}}
   \caption[Parameter searching in PRAXIS]{Optimisation progression in normalised
     parameter space in three of the six parameters used in the DS model
     optimisation.} \label{fig:praxis}
@@ -586,7 +582,7 @@ Example optimisation points used by [[latex:progname][fit\_praxis]] are shown in
 #   \end{lstlisting}
 # #+END_LaTeX
 
-*** TV cell model optimisation procedure
+*** TV cell model optimisation procedures
 
 The \TV cell model optimisation was generated using the hoc file
 [[latex:progname][TV\_RateLevel.hoc]] and was simulated with the
@@ -644,7 +640,6 @@ The =IVMeasures()= procedure tries to replicate the similar measures
 (resting membrane potential, onset ratio, adaptation ratio, and offset
 hyperpolarisation) by \citet{PaoliniClareyEtAl:2005}.
 
-
 * Response to tones and noise procedures
 
 =Responses.hoc= is used to generate the many different responses from
@@ -683,6 +678,7 @@ The procedures for modulation transfer functions and f_0 responses are
 also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:Chapter4}
 [[file:../VowelProcessingChapter/Chapter04.org:*chapter]]. 
  
+
 
 
 * Chapter 3 Source Code 					   :noexport:

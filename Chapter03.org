@@ -117,13 +117,6 @@ neural network models and their constituents.
 
 # \yellownote{this needs more explanation in the methods sections}
 
-The standard methods for optimisation can be simply described with the
-following steps:
- 1. specify the function or model we want to optimise,
- 2. specify the criteria we want to satisfy,
- 3. specify the parameters that will be adjusted, and any constraints
-on those parameters, and finally
- 4. perform the optimization.
 
 In attempting to create a realistic microcircuit the parameter
 optimisation routine, these steps need to be reiterated in sequential
@@ -142,6 +135,23 @@ to short tone bursts
 the \EIRA to tones across the frequency spectrum \citep{Evans:1992},
 although this may vary within cell types.  \yellownote{Explain the
 figure more thoroughly}
+
+The process methods for optimisation were described in Chapter
+\ref{sec:Chapter2} Section \ref{sec:Ch2:Optimisation}, [[*Optimisation Techniques][Optimisation
+Techniques]]. These include specifying the model to be optimised,
+specifying the criteria, specifying the parameters and constraints of
+the model, and implementing the optimisation.
+
+The network model to be optimised in each section are presented in the
+Background.  Criteria to be satisfied are presented in Implementation
+sections by specifying the experimental data set, the stimulus and the
+recorded output analysis required.  Parameters and constraints of the
+model are also presented in the Implementation section and the
+accompanying Nordlie table.  Optimisation results are presented in the
+Results section of each step.
+
+
+** CN Stellate Microcircuit 
 
 The stellate network model drawn in Figure \ref{fig:microcircuit}
 describes the following cells and models:
@@ -190,7 +200,6 @@ describes the following cells and models:
 #+CAPTION: [Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (see text for details).}
 #+LABEL: fig:microcircuit
 [[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
-
 
 Optimisation of a detailed \BNN model requires a realistic input model
 with which to mimick the behaviour experimentally observed in live
@@ -377,27 +386,60 @@ in the Methods chapter}
 
 ** Synaptic Delays
 
-Mean first spike latency to short \CF tones and click stimuli were used
-to set delay times between \ANFs and \CN cells
-\citep{EagerGraydenEtAl:2006}.  The delay was defined using the first
-spike latency of high frequency units as the sum of the \ANFs' first
-spike latency, \ANF conduction delay, and the synaptic transmission
-delay.  The first spike latency measured in high \CF units in the ARLO
-\AN model \citep{HeinzZhangEtAl:2001} for \HSR fibers was 1.5 ms.  The
-additional delay from the \ANF to each cell type was calculated to be
-\TS 1.6ms \citep{RhodeSmith:1986}, \DS 1.2 ms
-\citep{RhodeOertelEtAl:1983}, \TV 2.0 ms \citep{SpirouDavisEtAl:1999},
-and Golgi 2.3 ms \citep{FerragamoGoldingEtAl:1998a} to ensure the first
-spike latency matched the experimental data.
+The effective delay of the AN model does not take into account the
+conduction and synaptic transmission delay to reach post-synaptic
+neurons in the CN. This requires an additional delay component in each
+of the synaptic connections in the CN stellate microcircuit.  Mean first
+spike latency to short \CF tones and click stimuli were used to set
+delay times between \ANFs and \CN cells
+\citep{RhodeSmith:1986,RhodeOertelEtAl:1983,SpirouDavisEtAl:1999,FerragamoGoldingEtAl:1998a}.
+The additional delay was defined using the first spike latency of high
+frequency units as the sum of the \ANFs' first spike latency, \ANF
+conduction delay, and the synaptic transmission delay.  The first spike
+latency measured in high \CF units in the ARLO \AN model
+\citep{HeinzZhangEtAl:2001} for \HSR fibers was 1.5 ms.
 
-#  \begin{figure}[tbh]
-#    \begin{center}
-#  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-#  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{ClickDelay}}
-#      \caption{Response of AN and CN cells to click stimuli. }
-#      \label{fig:ClickDelayAN}
-#    \end{center}
-#  \end{figure}
+Table \ref{tab:Meth:AddDelay} shows the additional delay component for each cell type
+calculated from population statistics to ensure the first spike latency
+in the models matched the experimental data.  The models were designated
+from the basic \citet{RothamanManis:2003b} neural models.  The relative
+difference between \DS cell model's mean FSL and the other Type I cell
+types can be attributed to the additional \IKLT channels in the Type
+I-II Rothman and Manis neural model.  \IKLT is active at \RMP and
+decreases the overall input resistance and membrane time constant,
+reducing the time to fire an \AP.  \TS cells are designated with the
+Type I-t Rothman and Manis model, which contains an additional \IKA
+channel current over the Type I-c model, but were not significantly
+different from the classic Type I models in \TV and \GLG cell models.
+
+#+BEGIN_LaTeX
+  \begin{figure}[tbh]
+    \begin{center}
+      \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{ClickDelay}}
+      \caption{Response of AN and CN cells to click stimuli. }
+      \label{fig:ClickDelayAN}
+    \end{center}
+  \end{figure}
+#+END_LaTeX
+
+
+#+BEGIN_LaTeX
+      \begin{table}[tp]
+        \centering
+        \caption{Additional delay component of ANF to Cell-types}\label{tab:Meth:AddDelay}
+        \begin{tabularx}{0.8\linewidth}{lcccc}\toprule
+                        & \HSR \ANF &            \TS             &            \DS             &            \TV             & \GLG \\ %\hline
+     R\&M Cell type     &           &          Type I-t          &         Type I-II          &          Type I-c          & Type I-c\\
+  Experimental Mean FSL &     -     & 3.6$\, ^{\footnotesize 1}$ & 2.8 $\,^{\footnotesize 2}$ & 4.0 $\,^{\footnotesize 3}$ & 4.3 $\,^{\footnotesize 4}$\\ 
+     Model Mean FSL     &    1.5    &            2.0             &            1.6             &            2.0             & 2.0\\ 
+  Additional delay, ms  &     -     &            1.6             &            1.2             &            2.0             & 2.3\\ 
+  \bottomrule
+  \end{tabularx}
+  {\captionsize ^1  \citet{RhodeSmith:1986}, ^2 \citet{RhodeOertelEtAl:1983}, ^3 \citet{SpirouDavisEtAl:1999}, and ^4 \citet{FerragamoGoldingEtAl:1998a}}
+      \end{table}
+#+END_LaTeX
+
 
 ** Simulation and Parallel Capabilities
 
@@ -941,14 +983,12 @@ increased from 0 to 90 dB \SPL.
   \end{figure}
 #+END_LaTeX
 
+
 * D Stellate Cell Model: Optimisation Using Click Recovery Responses 
 
-# DS Cell Model
-
-** TODO Introduction
+** Background
 
 \glsreset{DS} 
-
 
 In the mammalian \CN, \DS cells have a wide ranging influence on almost all
 primary cells of the \CN.  Glycinergic terminals of the \DS cell
@@ -1135,7 +1175,7 @@ measures of spontaneous activity and restrict over excitation by ANFs.
 # %The effect of Golgi cells on \DS is delayed by the extra 0.7 ms delay from \ANF to Golgi, plus the slow peak of \GABAa inhibition.
 # \yellownote{fix this paragraph}
 
-** INPROGRESS Optimisation Results
+** INPROGRESS Results
 
 Optimisation parameters for \GLGDS are optimised based on experimental
 click recovery data from \citet{BackoffPalombiEtAl:1997}, as shown in
@@ -1255,7 +1295,7 @@ up for the small weight that was obtained in the optimisation.
 #   \end{center}
 # \end{figure}
 
-** Verification Results of the DS Cell Model
+** Verification of the DS Cell Model
 
 # \yellownote{Small presentation of PSTH, RL, NRL, MRC and RA. Leave AM responses till next chapter}
 
@@ -1305,8 +1345,8 @@ width of the activity across the CF of the central unit (Figure
 # \caption[DS RMP dynamics]{Resting Membrane potential calculated for  leak conductance and KLT conductance changes around the previously obtained best values for these parameters.}    \label{fig:leakVltk}
 # \end{figure}
 
-* Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses 
 
+* Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses 
 
 \TV cells are characterized as having a non-monotonic response to
 tones with increasing sound level and respond poorly to broadband
@@ -1423,7 +1463,7 @@ principal cells are strongly inhibited by this narrowband source.  As a
 result, \DCN principal cells are inhibited by sharp spectral peaks close
 to their \BF \citep{SpirouDavisEtAl:1999}.
 
-** TODO Modelling of Tuberculoventral cells
+*** TODO Modelling of Tuberculoventral cells
 
 - Expand previous studies of the DCN incl. TV cells
 - \citet{ArleKim:1991a} were the first to show type II \EIRA with
@@ -1495,7 +1535,7 @@ for the principal cells of the \DCN including type II units.
 #+LABEL: fig:SpirouFig8
 [[TV_RateLevel/TV_RateLevel_Fig8.pdf]]
 
-** TODO Optimisation Results
+** TODO Results
 
 Figure \ref{fig:TVRLresult} shows the output behaviour of the five
 different neurons in the optimisation of the input parameters of the
@@ -1627,7 +1667,7 @@ repetitions, Cons: removes timing}
 #+LABEL: fig:TVNotchDiagram
 [[../SimpleResponsesChapter/gfx/TV_NotchDataConfig.pdf]]
 
-** TODO Optimisation Results
+** TODO Results
 
 # \begin{figure}[tbh]
 #   \centering
@@ -1949,6 +1989,7 @@ band-pass noise.
 #   relative to 12.7 kHz.}
 #   \label{fig:TVSweepUnit}
 # \end{figure}
+
 
 * TODO T Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones 
 
@@ -2364,7 +2405,6 @@ respectively.
   \yellownote{Grab most recent data for the table}
 #+END_LaTeX
 
-
 ** TODO Verification of the TS Cell Models
 
 \yellownote{Explain the figure \ref{fig:TSverification}}
@@ -2508,11 +2548,11 @@ can easily reproduce this work.
 
 
 
-## BIBLIOGRAPHY
-\newpage\singlespacing\bibliographystyle{plainnat} 
-\bibliography{MyBib}
-\newpage\listoftodos 
-## BIBLIOGRAPHY
+#+BEGIN_LaTeX
+  \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../hg/manuscript/bib/MyBib}\newpage \listoftodos}{}
+#+END_LaTeX
+
+
 
 * Figures 							   :noexport:
 
