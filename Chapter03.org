@@ -372,17 +372,16 @@ filterbank of AN frequency channels.
 # * Simulations
 # Optimisation simulations were designed to be performed on
 # either a single PC or a parallel architecture system.
-# The random number generator used was the internal RNG of NEURON, MCellRand4
+# 
 # The simulation for each optimisation routine the integration timestep was either 0.05 or 0.1 ms.    parameters
 
-\yellownote{A generic section called 'Simulations' was proposed to go
-  here.  This would state the integration timestep, the system used,
-  the RNG used etc.  This could perhaps go in the Methods chapter}
+#\yellownote{A generic section called 'Simulations' was proposed to go
+#  here.  This would state the integration timestep, the system used,
+#  the RNG used etc.  This could perhaps go in the Methods chapter}
 
 ** Synapse Models
- 
-\yellownote{TODO. This is inlcuded in the GA chapter, but it should go
-in the Methods chapter}
+
+The synaptic models for AMPA, GlyR and \GABAa were described in Section \ref{sec:Ch2:Synapse}.
 
 ** Synaptic Delays
 
@@ -399,23 +398,24 @@ conduction delay, and the synaptic transmission delay.  The first spike
 latency measured in high \CF units in the ARLO \AN model
 \citep{HeinzZhangEtAl:2001} for \HSR fibers was 1.5 ms.
 
-Table \ref{tab:Meth:AddDelay} shows the additional delay component for each cell type
-calculated from population statistics to ensure the first spike latency
-in the models matched the experimental data.  The models were designated
-from the basic \citet{RothamanManis:2003b} neural models.  The relative
-difference between \DS cell model's mean FSL and the other Type I cell
-types can be attributed to the additional \IKLT channels in the Type
-I-II Rothman and Manis neural model.  \IKLT is active at \RMP and
-decreases the overall input resistance and membrane time constant,
-reducing the time to fire an \AP.  \TS cells are designated with the
-Type I-t Rothman and Manis model, which contains an additional \IKA
-channel current over the Type I-c model, but were not significantly
-different from the classic Type I models in \TV and \GLG cell models.
+Table \ref{tab:Meth:AddDelay} shows the additional delay component for
+each cell type calculated from population statistics to ensure the first
+spike latency in the models matched the experimental data.  The models
+were designated from the basic \citet{RothamanManis:2003b} neural
+models.  The relative difference between \DS cell model's mean FSL and
+the other Type I cell types can be attributed to the additional \IKLT
+channels in the Type I-II Rothman and Manis neural model.  \IKLT is
+active at \RMP and decreases the overall input resistance and membrane
+time constant, reducing the time to fire an \AP.  \TS cells are
+designated with the Type I-t Rothman and Manis model, which contains an
+additional \IKA channel current over the Type I-c model, but were not
+significantly different from the classic Type I models in \TV and \GLG
+cell models.
 
 #+BEGIN_LaTeX
   \begin{figure}[tbh]
     \begin{center}
-      \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
   %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{ClickDelay}}
       \caption{Response of AN and CN cells to click stimuli. }
       \label{fig:ClickDelayAN}
@@ -427,16 +427,16 @@ different from the classic Type I models in \TV and \GLG cell models.
 #+BEGIN_LaTeX
       \begin{table}[tp]
         \centering
-        \caption{Additional delay component of ANF to Cell-types}\label{tab:Meth:AddDelay}
-        \begin{tabularx}{0.8\linewidth}{lcccc}\toprule
-                        & \HSR \ANF &            \TS             &            \DS             &            \TV             & \GLG \\ %\hline
-     R\&M Cell type     &           &          Type I-t          &         Type I-II          &          Type I-c          & Type I-c\\
+        \caption{Additional delay component of ANF to CN cell-types}\label{tab:Meth:AddDelay}
+        \begin{tabularx}{0.8\linewidth}{lXXXXX}\toprule
+                        & \HSR \ANF &            \TS             &            \DS             &            \TV             & \GLG \\ \midrule
+     R\&M Cell type     &           &          Type I-t          &         Type I-II          &          Type I-c          & Type I-c\\ 
   Experimental Mean FSL &     -     & 3.6$\, ^{\footnotesize 1}$ & 2.8 $\,^{\footnotesize 2}$ & 4.0 $\,^{\footnotesize 3}$ & 4.3 $\,^{\footnotesize 4}$\\ 
      Model Mean FSL     &    1.5    &            2.0             &            1.6             &            2.0             & 2.0\\ 
   Additional delay, ms  &     -     &            1.6             &            1.2             &            2.0             & 2.3\\ 
   \bottomrule
   \end{tabularx}
-  {\captionsize ^1  \citet{RhodeSmith:1986}, ^2 \citet{RhodeOertelEtAl:1983}, ^3 \citet{SpirouDavisEtAl:1999}, and ^4 \citet{FerragamoGoldingEtAl:1998a}}
+  {\captionsize $^1$  \citet{RhodeSmith:1986}, $^2$ \citet{RhodeOertelEtAl:1983}, $^3$ \citet{SpirouDavisEtAl:1999}, and $^4$ \citet{FerragamoGoldingEtAl:1998a}}
       \end{table}
 #+END_LaTeX
 
@@ -458,7 +458,6 @@ function, which uses the principle axis algorithm
 \citep[PRAXIS,~][]{Brent:1976}. The praxis returns the minimum of the error function,
 =fun=, of n variables using the principal axis method without the
 use of =fun='s gradient.
-
 
 
 ** Verification of Cell Model Responses to Simple Tones and Noise
