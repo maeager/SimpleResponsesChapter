@@ -229,7 +229,7 @@ central auditory system.
 
 * Methods
 
-This section describes the some of the general methods used within this chapter. Chapter \label{sec:Ch2:Methods} describes the common methods in more detail.
+This section describes the some of the general methods used within this chapter. Chapter \ref{sec:Ch2:Methods} describes the common methods in more detail.
 # Org-mode link [[file:../MethodsChapter/Chapter02.org::* Methods]]
 # Cochlear Nucleus Stellate Microcircuit 
 
