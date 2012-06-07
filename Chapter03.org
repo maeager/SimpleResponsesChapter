@@ -10,7 +10,7 @@
 #+LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
 #+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
-# + LATEX _ HEADER:\newcommand{\textpm}{\ensuremath{\pm}}
+#+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+BIBLIOGRAPHY: MyBib alphanat
 
 \setcounter{chapter}{2} 
@@ -229,7 +229,9 @@ central auditory system.
 
 * Methods
 
-This section describes the some of the general methods used within this chapter. Chapter \ref{sec:Ch2:Methods} describes the common methods in more detail.
+This section describes the some of the general methods used within this
+chapter. Chapter \ref{sec:MethodsChapter} describes the common methods
+in more detail.
 # Org-mode link [[file:../MethodsChapter/Chapter02.org::* Methods]]
 # Cochlear Nucleus Stellate Microcircuit 
 
@@ -237,19 +239,19 @@ This section describes the some of the general methods used within this chapter.
 \yellownote{This may need to go in Methods chapter}
 
 The auditory nerve inputs to the cochlear nucleus model neurons are
-provided by phenomenological auditory periphery models originating
-from \citet{Carney:1993}, the ARLO model \citep{HeinzZhangEtAl:2001},
-the Bruce model \citep{BruceSachsEtAl:2003, ZilanyBruce:2006,
+provided by phenomenological auditory periphery models originating from
+\citet{Carney:1993}, the ARLO model \citep{HeinzZhangEtAl:2001}, the
+Bruce model \citep{BruceSachsEtAl:2003, ZilanyBruce:2006,
 ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009}.
-The auditory model consists of an outer\slash middle ear
-pre-processing filter, a cochlea filterbank, IHC-to-AN synapse model
-and dead-time modified Poisson spike generator, as shown in Figure
+The auditory model consists of an outer\slash middle ear pre-processing
+filter, a cochlea filterbank, IHC-to-AN synapse model and dead-time
+modified Poisson spike generator, as shown in Figure
 \ref{fig:ZilanyBruceFig}.  \citet{HeinzZhangEtAl:2001} incorporated
 cochlea filters based on the critical bandwidths obtained from
 psychophysical experiments in humans.  The ARLO model of the cat
 auditory periphery, with non-linear compression and two-tone
-suppression, is used in this study except in the vowel simulation
-where the human auditory periphery model is used.  
+suppression, is used in this study except in the vowel simulation where
+the human auditory periphery model is used.
 
 \yellownote{TODO:
 AN model paragraph has been changed - fix any comment related to new
@@ -2577,6 +2579,3 @@ can easily reproduce this work.
 ### mode: visual-line
 ### fill-column: 72
 ### End:
-
-
-
