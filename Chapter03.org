@@ -7,7 +7,7 @@
 #+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n)
 
 #+LaTeX_CLASS: UoM-draft-org-article
-#+LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
+#+LaTeX_CLASS_OPTIONS: [draft,a4paper,10pt,twopage,openright]
 #+LATEX_HEADER:\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX _ HEADER:\newcommand{\textpm}{\ensuremath{\pm}}
@@ -51,7 +51,7 @@
      \\usepackage{booktabs,ltxtable,lscape} 
      [NO-DEFAULT-PACKAGES]
      [NO-PACKAGES]" 
-     ("\\section{%s}" . "\n\\section{%s}")
+     ("\\newpage\\section{%s}" . "\\newpage\n\\section{%s}")
      ("\\subsection{%s}" . "\n\\subsection{%s}") 
      ("\\subsubsection{%s}" . "\n\\subsubsection{%s}") 
      ("\\paragraph{%s}" . "\n\\paragraph{%s}"))) 
@@ -201,11 +201,11 @@ describes the following cells and models:
 
 
 Optimisation of a detailed \BNN model requires a realistic input model
-with which to mimick the behaviour experimentally observed in live
-neural networks. The input to the CN stellate model, the auditory
-nerve fibres, is discussed in the next section. To further fit the
-parameters of the CN model, a simplistic and sequential method is
-applied to each of the cell-types using experimental data.
+with which to mimick the behaviour experimentally observed in
+animals. The input to the CN stellate model, auditory nerve fibres,
+is discussed in the next section. To further fit the parameters of the
+CN model, a simplistic and sequential method is applied to each of the
+cell-types using experimental data.
 
 \yellownote{This para is about pushing the reader towards the
   following sections.  I'm not sure about the assertion of
@@ -214,33 +214,35 @@ applied to each of the cell-types using experimental data.
   CN. Discuss reason for using whole network in TV and TS
   optimisation. }
 
-* TODO Auditory System
+* Auditory System
 
-Advanced auditory fidelity and localisation is an exceptional feature
-of hearing perception in animals.  This speciality works to a high
-degree despite the input at the round window of the cochlea being one
-dimensional and very noisy.  Modelling in the auditory periphery has
-benefited extensively from the work of Liberman, Greenwood, Patterson,
-Young, Sachs and others, in acoustic /in vivo/ experiments.  Models of
-the auditory system over the last 30 years have expanded our
-understanding of the mechanical processes in the middle ear and
-cochlea, and the specialised synapse between the inner hair cell and
-the auditory nerve
+Advanced auditory fidelity and localisation is an exceptional feature of
+hearing perception in animals.  This speciality works to a high degree
+despite the input at the round window of the cochlea being one
+dimensional leading to a bottle-neck of information at the \AN.
+\yellownote{Comment on divergence of information pathways in the CN}
+
+
+Modelling in the auditory periphery has benefited extensively from the
+work of Liberman, Greenwood, Patterson, Young, Sachs and others, in
+acoustic /in vivo/ experiments.  Models of the auditory system over the
+last 30 years have expanded our understanding of the mechanical
+processes in the middle ear and cochlea, and the specialised synapse
+between the inner hair cell and the type I \ANFs
 \citep{DavisVoigt:1991,Carney:1993,MeddisHewittEtAl:1990}.
 
-The auditory system is topographically ordered from the basilar
-membrane to the cortex in terms of frequency selectivity, also called
-tonotopicity \citep{YoungOertel:2004}.  The population of auditory
-nerve fibres (ANFs, Figure \ref{fig:CNCatHuman}) bifurcate after
-entering the cochlear nucleus to innervate the \VCN and \DCN,
-retaining their tonotopic order
+The auditory system is topographically ordered from the basilar membrane
+to the cortex in terms of frequency selectivity, also called
+tono-topicity \citep{YoungOertel:2004}.  The population of \ANFs (Figure
+\ref{fig:CNCatHuman}) bifurcate after entering the cochlear nucleus to
+innervate the \VCN and \DCN, retaining their tonotopic order
 \citep{Lorente:1981,Liberman:1982,Liberman:1993}.  Type 1 \ANFs are
-categorised into \HSR and \LSR fibres \citep{Liberman:1978}, where
-\LSR fibres have a higher threshold and wider dynamic range than \HSR
-fibres.  They also project to the \GCD
-\citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the
-smaller, unmyelinated type 2 \ANFs, which suggests they play a
-different role in sound processing to \HSR fibres.
+categorised into \HSR and \LSR fibres \citep{Liberman:1978}, where \LSR
+fibres have a higher threshold and wider dynamic range than \HSR fibres.
+They also project to the \GCD
+\citep{RyugoParks:2003,RyugoHaenggeliEtAl:2003} along with the smaller,
+unmyelinated type 2 \ANFs, which suggests they play a different role in
+sound processing to \HSR fibres.
 
 #+ATTR_LaTeX: width=0.6\textwidth
 #+CAPTION: [Tonotopic ANF innervation in the CN of man and cat]{Cochlear nucleus innervation by ANFs follows the same tonotopic organisation in man and cat \citep{RyugoParks:2003,Ryugo:1992,Spoendlin:1973}. Image reprinted from \citep{} \yellownote{Get reference}}
@@ -926,7 +928,7 @@ frequency spread from \LSR fibres.
 
 # DS Cell Model
 
-** TODO Introduction
+** INPROGRESS Introduction
 
 \glsreset{DS} This section shows the GABAergic input and intrinsic
 cell properties that influence the behaviour of \DS cells.  In the
@@ -936,7 +938,7 @@ contact \TS and bushy neurons in the \VCN \citep{RhodeSmithEtAl:1983},
 and fusiform and tuberculoventral cells in the the ipsilateral \DCN
 (type II and type IV \EIRA units). Some \DS cells exit the \CN,
 forming the commissural connection with the contralateral \CN
-\citep{NeedhamPaolini:2007}.  In vitro studies have shown that \DS
+\citep{NeedhamPaolini:2007}.  /In vitro/ studies have shown that \DS
 cells are strongly regulated by the neurotransmitter GABA
 \citep{FerragamoGoldingEtAl:1998a}.  Golgi cells are the only
 GABAergic neuron in the VCN, but their axonal plexus does not extend
@@ -978,7 +980,7 @@ mediates fast inhibition between the nuclei
 \citep{NeedhamPaolini:2003,NeedhamPaolini:2006,Oertel:1997}.
 
 
-*** Acoustic Properties of D Stellate Cells
+*** INPROGRESS Acoustic Properties of D Stellate Cells
 
 Intracellular responses to sounds indicate that the bandwidth of
 inputs to \DS neurons is typically two octaves below \CF and one
@@ -1007,7 +1009,7 @@ Chinchilla
 # others looked at OnC response area and two-tone
 
 
-** INPROGRESS Implementation
+**  Implementation
 
 # 2.5. Data analysis Data were collected as spike times with a
 # resolution of 10 μs and analyzed off-line on a micro-VAX 3100
@@ -1218,7 +1220,7 @@ optimisation.
 # \end{figure}
 
 
-* Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses
+* INPROGRESS Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses
 
 
 \TV cells are characterized as having a non-monotonic response to
