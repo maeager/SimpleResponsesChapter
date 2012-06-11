@@ -997,7 +997,7 @@ contact \TS and bushy neurons in the \VCN \citep{RhodeSmithEtAl:1983},
 and fusiform and \TV neurons in the ipsilateral \DCN
 (type II and type IV \EIRA units). Some \DS cells exit the \CN,
 forming the commissural connection with the contralateral \CN
-\citep{NeedhamPaolini:2007}.  In vitro studies have shown that \DS
+\citep{NeedhamPaolini:2007}.  /In vitro/ studies have shown that \DS
 cells are strongly regulated by the neurotransmitter GABA
 \citep{FerragamoGoldingEtAl:1998a}.  Golgi cells are the only
 GABAergic neuron in the VCN, but their axonal plexus does not extend
@@ -1147,14 +1147,14 @@ cells is zero.
 The physiological effect of GABAergic inputs onto onset choppers is
 primarily on \CF
 \citep{CasparyHaveyEtAl:1979,PalombiCaspary:1992,CasparyBackoffEtAl:1994,CasparyPalombi:1993,CasparyPalombiEtAl:1993},
-but the bandwidth is difficult to ascertain.  Widely spread dendrites of
-\DS cells occasionally project into the \GCD
-\citep{ArnottWallaceEtAl:2004,FerragamoGoldingEtAl:1998a}. \yellownote{fix
-this} Golgi cells' axonal collaterals are confined to 200 microns in the
-\GCD and \ANF tonotopic organisation in the \GCD is less defined.  The
-spread of \GLG cells onto \DS cells is set to 2 channels with zero
-offset, which corresponds to a \DS cell selecting from approximately 5
-nearest Golgi cells.
+but the bandwidth is difficult to ascertain.  The dendrites of D
+stellate cells cover one third of the nucleus (approximately 3 octaves
+of tonotopic frequencies) and occasionally project into the \GCD
+\citep{ArnottWallaceEtAl:2004}.  Golgi cells' axonal collaterals are
+confined to 200 microns in the \GCD and \ANF tonotopic organisation in
+the \GCD is less defined.  The \GLGDS spread is set to 2 channels with
+zero offset, which corresponds to a \DS cell selecting from
+approximately 5 nearest Golgi cells.
 
 #+CAPTION: [Experimental data showing click recovery in onset choppers.]  {Experimental data showing click recovery in onset choppers. Figure shows mask/recovery response ratio using 1 ms window during GABA blocker (BMI) experiments (reproduced from \citet{BackoffPalombiEtAl:1997})}. 
 #+LABEL: fig:BackoffPalombi
@@ -1172,6 +1172,15 @@ the DS unit.  The unit used in the optimisation has a CF = 5.8 kHz
 measures of spontaneous activity and restrict over excitation by ANFs.
 
 
+In order to specify how Golgi cells regulate the click recovery
+response in DS cells, a parameter optimisation routine was performed.
+\DS input parameters that were preemptively fixed included: the number
+of \GLG to \DS synapses ($\nGLGDS = 25$), the spread of \ANFs to \DS
+cells (\sANFDSh and \sANFDSl), and the conduction delay from the
+auditory nerve (\dANFDS).  The first spike latency in high \CF \DS
+cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate
+neurons in the VCN \citep{RhodeSmith:1986}.  The addition of 0.5 ms to
+\ANFDS connections is a combination of conductance and synaptic delay.
 
 # %The effect of Golgi cells on \DS is delayed by the extra 0.7 ms delay from \ANF to Golgi, plus the slow peak of \GABAa inhibition.
 # \yellownote{fix this paragraph}
@@ -2503,7 +2512,7 @@ the CN stellate microcircuit.
 \citet{ZilanyBruce:2006} model, and it was superseded by the addition
 of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
-Dendritic filtering in each of the cells
+Dendritic filtering in each of the cells was not included
 
 ** Implications of sequential microcircuit optimisation
 
