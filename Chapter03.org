@@ -31,8 +31,7 @@
      (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
      (add-to-list 'org-export-latex-classes 
                   '("UoM-draft-org-article"
-                    "\% -*- mode: latex; mode: \
-  visual-line; TeX-master: t; TeX-PDF-mode: t -*-
+ "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
    \\documentclass[10pt,a4paper,twoside,openright]{book}
      \\usepackage{style/uomthesis} 
      \\input{user-defined}
