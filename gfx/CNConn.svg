@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="44cm"
-   height="24cm"
-   viewBox="-61 27 862 466"
+   width="1592.0513"
+   height="951.8175"
+   viewBox="-61 27 880.2435 521.57838"
    id="svg3547"
    version="1.1"
-   inkscape:version="0.48.1 r9760"
-   sodipodi:docname="CNConn.png">
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="CNConn.pdf">
   <metadata
      id="metadata4069">
     <rdf:RDF>
@@ -27,7 +27,36 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs4067" />
+     id="defs4067">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path4259"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         id="path4256"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -37,1130 +66,24 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1024"
-     inkscape:window-height="547"
+     inkscape:window-width="1440"
+     inkscape:window-height="850"
      id="namedview4065"
      showgrid="false"
-     inkscape:zoom="0.77140743"
-     inkscape:cx="702.77817"
-     inkscape:cy="269.63702"
+     inkscape:zoom="0.56405217"
+     inkscape:cx="794.25277"
+     inkscape:cy="475.90876"
      inkscape:window-x="0"
-     inkscape:window-y="26"
+     inkscape:window-y="25"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg3547" />
-  <g
-     id="g3549">
-    <rect
-       style="fill: #ffffff"
-       x="60"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3551" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="60"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3553" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="80"
-       y="83.9"
-       id="text3555">
-      <tspan
-         x="80"
-         y="83.9"
-         id="tspan3557" />
-    </text>
-  </g>
-  <g
-     id="g3559">
-    <rect
-       style="fill: #ffffff"
-       x="100"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3561" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="100"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3563" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="120"
-       y="83.9"
-       id="text3565">
-      <tspan
-         x="120"
-         y="83.9"
-         id="tspan3567" />
-    </text>
-  </g>
-  <g
-     id="g3569">
-    <rect
-       style="fill: #ffffff"
-       x="140"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3571" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="140"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3573" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="160"
-       y="83.9"
-       id="text3575">
-      <tspan
-         x="160"
-         y="83.9"
-         id="tspan3577" />
-    </text>
-  </g>
-  <g
-     id="g3579">
-    <rect
-       style="fill: #ffffff"
-       x="180"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3581" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="180"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3583" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="200"
-       y="83.9"
-       id="text3585">
-      <tspan
-         x="200"
-         y="83.9"
-         id="tspan3587" />
-    </text>
-  </g>
-  <g
-     id="g3589">
-    <rect
-       style="fill: #ffffff"
-       x="220"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3591" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="220"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3593" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="240"
-       y="83.9"
-       id="text3595">
-      <tspan
-         x="240"
-         y="83.9"
-         id="tspan3597" />
-    </text>
-  </g>
-  <g
-     id="g3599">
-    <rect
-       style="fill: #ffffff"
-       x="260"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3601" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="260"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3603" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="280"
-       y="83.9"
-       id="text3605">
-      <tspan
-         x="280"
-         y="83.9"
-         id="tspan3607" />
-    </text>
-  </g>
-  <g
-     id="g3609">
-    <rect
-       style="fill: #ffffff"
-       x="300"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3611" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="300"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3613" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="320"
-       y="83.9"
-       id="text3615">
-      <tspan
-         x="320"
-         y="83.9"
-         id="tspan3617" />
-    </text>
-  </g>
-  <g
-     id="g3619">
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="340"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3621" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="360"
-       y="83.9"
-       id="text3623">
-      <tspan
-         x="360"
-         y="83.9"
-         id="tspan3625" />
-    </text>
-  </g>
-  <g
-     id="g3627">
-    <rect
-       style="fill: #ffffff"
-       x="380"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3629" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="380"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3631" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="400"
-       y="83.9"
-       id="text3633">
-      <tspan
-         x="400"
-         y="83.9"
-         id="tspan3635" />
-    </text>
-  </g>
-  <g
-     id="g3637">
-    <rect
-       style="fill: #ffffff"
-       x="420"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3639" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="420"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3641" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="440"
-       y="83.9"
-       id="text3643">
-      <tspan
-         x="440"
-         y="83.9"
-         id="tspan3645" />
-    </text>
-  </g>
-  <g
-     id="g3647">
-    <rect
-       style="fill: #ffffff"
-       x="460"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3649" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="460"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3651" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="480"
-       y="83.9"
-       id="text3653">
-      <tspan
-         x="480"
-         y="83.9"
-         id="tspan3655" />
-    </text>
-  </g>
-  <g
-     id="g3657">
-    <rect
-       style="fill: #ffffff"
-       x="500"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3659" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="500"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3661" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="520"
-       y="83.9"
-       id="text3663">
-      <tspan
-         x="520"
-         y="83.9"
-         id="tspan3665" />
-    </text>
-  </g>
-  <g
-     id="g3667">
-    <rect
-       style="fill: #ffffff"
-       x="540"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3669" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="540"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3671" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="560"
-       y="83.9"
-       id="text3673">
-      <tspan
-         x="560"
-         y="83.9"
-         id="tspan3675" />
-    </text>
-  </g>
-  <g
-     id="g3677">
-    <rect
-       style="fill: #ffffff"
-       x="580"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3679" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="580"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3681" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="600"
-       y="83.9"
-       id="text3683">
-      <tspan
-         x="600"
-         y="83.9"
-         id="tspan3685" />
-    </text>
-  </g>
-  <g
-     id="g3687">
-    <rect
-       style="fill: #ffffff"
-       x="620"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3689" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="620"
-       y="60"
-       width="40"
-       height="40"
-       id="rect3691" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="640"
-       y="83.9"
-       id="text3693">
-      <tspan
-         x="640"
-         y="83.9"
-         id="tspan3695" />
-    </text>
-  </g>
-  <line
-     style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-     x1="680"
-     y1="80"
-     x2="800"
-     y2="80"
-     id="line3697" />
-  <line
-     style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-     x1="-60"
-     y1="80"
-     x2="40"
-     y2="80"
-     id="line3699" />
-  <g
-     id="g3701">
-    <rect
-       style="fill: #ffffff"
-       x="60"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3703" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="60"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3705" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="80"
-       y="263.9"
-       id="text3707">
-      <tspan
-         x="80"
-         y="263.9"
-         id="tspan3709" />
-    </text>
-  </g>
-  <g
-     id="g3711">
-    <rect
-       style="fill: #ffffff"
-       x="100"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3713" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="100"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3715" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="120"
-       y="263.9"
-       id="text3717">
-      <tspan
-         x="120"
-         y="263.9"
-         id="tspan3719" />
-    </text>
-  </g>
-  <g
-     id="g3721">
-    <rect
-       style="fill: #ffffff"
-       x="140"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3723" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="140"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3725" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="160"
-       y="263.9"
-       id="text3727">
-      <tspan
-         x="160"
-         y="263.9"
-         id="tspan3729" />
-    </text>
-  </g>
-  <g
-     id="g3731">
-    <rect
-       style="fill: #ffffff"
-       x="180"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3733" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="180"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3735" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="200"
-       y="263.9"
-       id="text3737">
-      <tspan
-         x="200"
-         y="263.9"
-         id="tspan3739" />
-    </text>
-  </g>
-  <g
-     id="g3741">
-    <rect
-       style="fill: #ffffff"
-       x="220"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3743" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="220"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3745" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="240"
-       y="263.9"
-       id="text3747">
-      <tspan
-         x="240"
-         y="263.9"
-         id="tspan3749" />
-    </text>
-  </g>
-  <g
-     id="g3751">
-    <rect
-       style="fill: #ffffff"
-       x="260"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3753" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="260"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3755" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="280"
-       y="263.9"
-       id="text3757">
-      <tspan
-         x="280"
-         y="263.9"
-         id="tspan3759" />
-    </text>
-  </g>
-  <g
-     id="g3761">
-    <rect
-       style="fill: #ffffff"
-       x="300"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3763" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="300"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3765" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="320"
-       y="263.9"
-       id="text3767">
-      <tspan
-         x="320"
-         y="263.9"
-         id="tspan3769" />
-    </text>
-  </g>
-  <g
-     id="g3771">
-    <rect
-       style="fill: #ffffff"
-       x="340"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3773" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="340"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3775" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="360"
-       y="263.9"
-       id="text3777">
-      <tspan
-         x="360"
-         y="263.9"
-         id="tspan3779" />
-    </text>
-  </g>
-  <g
-     id="g3781">
-    <rect
-       style="fill: #ffffff"
-       x="380"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3783" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="380"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3785" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="400"
-       y="263.9"
-       id="text3787">
-      <tspan
-         x="400"
-         y="263.9"
-         id="tspan3789" />
-    </text>
-  </g>
-  <g
-     id="g3791">
-    <rect
-       style="fill: #ffffff"
-       x="420"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3793" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="420"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3795" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="440"
-       y="263.9"
-       id="text3797">
-      <tspan
-         x="440"
-         y="263.9"
-         id="tspan3799" />
-    </text>
-  </g>
-  <g
-     id="g3801">
-    <rect
-       style="fill: #ffffff"
-       x="460"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3803" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="460"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3805" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="480"
-       y="263.9"
-       id="text3807">
-      <tspan
-         x="480"
-         y="263.9"
-         id="tspan3809" />
-    </text>
-  </g>
-  <g
-     id="g3811">
-    <rect
-       style="fill: #ffffff"
-       x="500"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3813" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="500"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3815" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="520"
-       y="263.9"
-       id="text3817">
-      <tspan
-         x="520"
-         y="263.9"
-         id="tspan3819" />
-    </text>
-  </g>
-  <g
-     id="g3821">
-    <rect
-       style="fill: #ffffff"
-       x="540"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3823" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="540"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3825" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="560"
-       y="263.9"
-       id="text3827">
-      <tspan
-         x="560"
-         y="263.9"
-         id="tspan3829" />
-    </text>
-  </g>
-  <g
-     id="g3831">
-    <rect
-       style="fill: #ffffff"
-       x="580"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3833" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="580"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3835" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="600"
-       y="263.9"
-       id="text3837">
-      <tspan
-         x="600"
-         y="263.9"
-         id="tspan3839" />
-    </text>
-  </g>
-  <g
-     id="g3841">
-    <rect
-       style="fill: #ffffff"
-       x="620"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3843" />
-    <rect
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       x="620"
-       y="240"
-       width="40"
-       height="40"
-       id="rect3845" />
-    <text
-       style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-       x="640"
-       y="263.9"
-       id="text3847">
-      <tspan
-         x="640"
-         y="263.9"
-         id="tspan3849" />
-    </text>
-  </g>
-  <line
-     style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-     x1="680"
-     y1="260"
-     x2="800"
-     y2="260"
-     id="line3851" />
-  <line
-     style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-     x1="-60"
-     y1="260"
-     x2="40"
-     y2="260"
-     id="line3853" />
-  <g
-     id="g3855">
-    <line
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-       x1="360"
-       y1="100"
-       x2="200"
-       y2="240"
-       id="line3857" />
-    <path
-       style="fill: #000000"
-       d="M 360 100 C 361.646,101.881 361.411,105.409 359.53,107.055 C 357.648,108.702 354.12,108.466 352.474,106.585 C 350.828,104.704 351.063,101.176 352.945,99.5296 C 354.826,97.8834 358.354,98.1186 360,100z"
-       id="path3859" />
-    <path
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       d="M 360 100 C 361.646,101.881 361.411,105.409 359.53,107.055 C 357.648,108.702 354.12,108.466 352.474,106.585 C 350.828,104.704 351.063,101.176 352.945,99.5296 C 354.826,97.8834 358.354,98.1186 360,100"
-       id="path3861" />
-  </g>
-  <g
-     id="g3863">
-    <line
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-       x1="360"
-       y1="100"
-       x2="240"
-       y2="240"
-       id="line3865" />
-    <path
-       style="fill: #000000"
-       d="M 360 100 C 361.898,101.627 362.169,105.152 360.542,107.05 C 358.915,108.948 355.39,109.22 353.492,107.593 C 351.594,105.966 351.323,102.44 352.95,100.542 C 354.577,98.6442 358.102,98.373 360,100z"
-       id="path3867" />
-    <path
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       d="M 360 100 C 361.898,101.627 362.169,105.152 360.542,107.05 C 358.915,108.948 355.39,109.22 353.492,107.593 C 351.594,105.966 351.323,102.44 352.95,100.542 C 354.577,98.6442 358.102,98.373 360,100"
-       id="path3869" />
-  </g>
-  <g
-     id="g3871">
-    <line
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-       x1="360"
-       y1="100"
-       x2="280"
-       y2="240"
-       id="line3873" />
-    <path
-       style="fill: #000000"
-       d="M 360 100 C 362.171,101.24 363.101,104.651 361.861,106.822 C 360.62,108.993 357.209,109.923 355.039,108.682 C 352.868,107.442 351.938,104.031 353.178,101.861 C 354.418,99.6899 357.829,98.7597 360,100z"
-       id="path3875" />
-    <path
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       d="M 360 100 C 362.171,101.24 363.101,104.651 361.861,106.822 C 360.62,108.993 357.209,109.923 355.039,108.682 C 352.868,107.442 351.938,104.031 353.178,101.861 C 354.418,99.6899 357.829,98.7597 360,100"
-       id="path3877" />
-  </g>
-  <g
-     id="g3879">
-    <line
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-       x1="360"
-       y1="100"
-       x2="320"
-       y2="240"
-       id="line3881" />
-    <path
-       style="fill: #000000"
-       d="M 360 100 C 362.404,100.687 364.121,103.777 363.434,106.181 C 362.747,108.585 359.657,110.302 357.253,109.615 C 354.849,108.928 353.132,105.838 353.819,103.434 C 354.506,101.03 357.596,99.3132 360,100z"
-       id="path3883" />
-    <path
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       d="M 360 100 C 362.404,100.687 364.121,103.777 363.434,106.181 C 362.747,108.585 359.657,110.302 357.253,109.615 C 354.849,108.928 353.132,105.838 353.819,103.434 C 354.506,101.03 357.596,99.3132 360,100"
-       id="path3885" />
-  </g>
-  <g
-     id="g3887">
-    <line
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-       x1="360"
-       y1="100"
-       x2="360"
-       y2="240"
-       id="line3889" />
-    <path
-       style="fill: #000000"
-       d="M 360 100 C 362.5,100 365,102.5 365,105 C 365,107.5 362.5,110 360,110 C 357.5,110 355,107.5 355,105 C 355,102.5 357.5,100 360,100z"
-       id="path3891" />
-    <path
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       d="M 360 100 C 362.5,100 365,102.5 365,105 C 365,107.5 362.5,110 360,110 C 357.5,110 355,107.5 355,105 C 355,102.5 357.5,100 360,100"
-       id="path3893" />
-  </g>
-  <g
-     id="g3895">
-    <line
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-       x1="360"
-       y1="100"
-       x2="400"
-       y2="240"
-       id="line3897" />
-    <path
-       style="fill: #000000"
-       d="M 360 100 C 362.404,99.3132 365.494,101.03 366.181,103.434 C 366.868,105.838 365.151,108.928 362.747,109.615 C 360.343,110.302 357.253,108.585 356.566,106.181 C 355.879,103.777 357.596,100.687 360,100z"
-       id="path3899" />
-    <path
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       d="M 360 100 C 362.404,99.3132 365.494,101.03 366.181,103.434 C 366.868,105.838 365.151,108.928 362.747,109.615 C 360.343,110.302 357.253,108.585 356.566,106.181 C 355.879,103.777 357.596,100.687 360,100"
-       id="path3901" />
-  </g>
-  <g
-     id="g3903">
-    <line
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-       x1="360"
-       y1="100"
-       x2="440"
-       y2="240"
-       id="line3905" />
-    <path
-       style="fill: #000000"
-       d="M 360 100 C 362.171,98.7597 365.582,99.6899 366.822,101.861 C 368.062,104.031 367.132,107.442 364.961,108.682 C 362.791,109.923 359.38,108.993 358.139,106.822 C 356.899,104.651 357.829,101.24 360,100z"
-       id="path3907" />
-    <path
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       d="M 360 100 C 362.171,98.7597 365.582,99.6899 366.822,101.861 C 368.062,104.031 367.132,107.442 364.961,108.682 C 362.791,109.923 359.38,108.993 358.139,106.822 C 356.899,104.651 357.829,101.24 360,100"
-       id="path3909" />
-  </g>
-  <g
-     id="g3911">
-    <line
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-       x1="360"
-       y1="100"
-       x2="480"
-       y2="240"
-       id="line3913" />
-    <path
-       style="fill: #000000"
-       d="M 360 100 C 361.898,98.373 365.423,98.6442 367.05,100.542 C 368.677,102.44 368.406,105.966 366.508,107.593 C 364.61,109.22 361.085,108.948 359.458,107.05 C 357.831,105.152 358.102,101.627 360,100z"
-       id="path3915" />
-    <path
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       d="M 360 100 C 361.898,98.373 365.423,98.6442 367.05,100.542 C 368.677,102.44 368.406,105.966 366.508,107.593 C 364.61,109.22 361.085,108.948 359.458,107.05 C 357.831,105.152 358.102,101.627 360,100"
-       id="path3917" />
-  </g>
-  <g
-     id="g3919">
-    <line
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
-       x1="360"
-       y1="100"
-       x2="520"
-       y2="240"
-       id="line3921" />
-    <path
-       style="fill: #000000"
-       d="M 360 100 C 361.646,98.1186 365.174,97.8834 367.055,99.5296 C 368.937,101.176 369.172,104.704 367.526,106.585 C 365.88,108.466 362.352,108.702 360.47,107.055 C 358.589,105.409 358.354,101.881 360,100z"
-       id="path3923" />
-    <path
-       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
-       d="M 360 100 C 361.646,98.1186 365.174,97.8834 367.055,99.5296 C 368.937,101.176 369.172,104.704 367.526,106.585 C 365.88,108.466 362.352,108.702 360.47,107.055 C 358.589,105.409 358.354,101.881 360,100"
-       id="path3925" />
-  </g>
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.38615298"
-     d="m 62.150222,382.27483 c 212.479998,0 179.999998,-48.03551 299.999998,-48.03551 120,0 87.52,48.03551 300,48.03551"
-     id="path3927"
-     inkscape:connector-curvature="0" />
-  <g
-     id="g3929"
-     transform="matrix(1,0,0,-0.47388083,2.1502216,524.43906)">
-    <rect
-       style="fill:#ffffff"
-       x="180"
-       y="300"
-       width="40"
-       height="19.5"
-       id="rect3931" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:2"
-       x="180"
-       y="300"
-       width="40"
-       height="19.5"
-       id="rect3933" />
-    <text
-       style="font-size:5.97181988px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
-       x="200"
-       y="311.56799"
-       id="text3935">
-      <tspan
-         x="200"
-         y="311.56799"
-         id="tspan3937" />
-    </text>
-  </g>
-  <g
-     id="g3939"
-     transform="matrix(1,0,0,-0.47388083,2.1502216,524.43906)">
-    <rect
-       style="fill:#ffffff"
-       x="220"
-       y="300"
-       width="40"
-       height="38"
-       id="rect3941" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:2"
-       x="220"
-       y="300"
-       width="40"
-       height="38"
-       id="rect3943" />
-    <text
-       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
-       x="240"
-       y="322.89999"
-       id="text3945">
-      <tspan
-         x="240"
-         y="322.89999"
-         id="tspan3947" />
-    </text>
-  </g>
-  <g
-     id="g3949"
-     transform="matrix(1,0,0,-0.47388083,2.1502216,524.43906)">
-    <rect
-       style="fill:#ffffff"
-       x="260"
-       y="300"
-       width="40"
-       height="60"
-       id="rect3951" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:2"
-       x="260"
-       y="300"
-       width="40"
-       height="60"
-       id="rect3953" />
-    <text
-       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
-       x="280"
-       y="333.89999"
-       id="text3955">
-      <tspan
-         x="280"
-         y="333.89999"
-         id="tspan3957" />
-    </text>
-  </g>
-  <g
-     id="g3959"
-     transform="matrix(1,0,0,-0.51642935,2.1502216,537.20362)">
-    <rect
-       style="fill:#ffffff"
-       x="300"
-       y="300"
-       width="40"
-       height="80"
-       id="rect3961" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:2"
-       x="300"
-       y="300"
-       width="40"
-       height="80"
-       id="rect3963" />
-    <text
-       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
-       x="320"
-       y="343.89999"
-       id="text3965">
-      <tspan
-         x="320"
-         y="343.89999"
-         id="tspan3967" />
-    </text>
-  </g>
+     inkscape:current-layer="svg3547"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <g
      id="g3969"
-     transform="matrix(1,0,0,-0.40965215,2.1502216,505.17047)">
+     transform="matrix(1,0,0,-0.43323433,17.076386,633.37684)">
     <rect
        style="fill:#ffffff"
        x="340"
@@ -1187,8 +110,1211 @@
     </text>
   </g>
   <g
+     id="g3939-8"
+     transform="matrix(1,0,0,-0.34653848,137.25037,607.6469)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-7" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-7" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-0">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-3" />
+    </text>
+  </g>
+  <g
+     id="g3939-18"
+     transform="matrix(1,0,0,-0.34653848,137.25037,594.3773)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-45" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-22" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-6">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-8" />
+    </text>
+  </g>
+  <g
+     id="g3939-33"
+     transform="matrix(1,0,0,-0.34653848,137.25037,581.1077)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-6" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-1" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-5">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-9" />
+    </text>
+  </g>
+  <line
+     style="fill:none;stroke:#000000;stroke-width:1.91671669;stroke-miterlimit:4;stroke-dasharray:1.9167167, 1.9167167;stroke-dashoffset:0;marker-start:none"
+     x1="378.18216"
+     y1="503.88058"
+     x2="378.18216"
+     y2="110.85052"
+     id="line4031" />
+  <g
+     id="g3549"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="60"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3551" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="60"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3553" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="80"
+       y="83.900002"
+       id="text3555">
+      <tspan
+         x="80"
+         y="83.900002"
+         id="tspan3557" />
+    </text>
+  </g>
+  <g
+     id="g3559"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="100"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3561" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="100"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3563" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="120"
+       y="83.900002"
+       id="text3565">
+      <tspan
+         x="120"
+         y="83.900002"
+         id="tspan3567" />
+    </text>
+  </g>
+  <g
+     id="g3569"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="140"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3571" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="140"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3573" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="160"
+       y="83.900002"
+       id="text3575">
+      <tspan
+         x="160"
+         y="83.900002"
+         id="tspan3577" />
+    </text>
+  </g>
+  <g
+     id="g3579"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="180"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3581" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="180"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3583" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="200"
+       y="83.900002"
+       id="text3585">
+      <tspan
+         x="200"
+         y="83.900002"
+         id="tspan3587" />
+    </text>
+  </g>
+  <g
+     id="g3589"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3591" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3593" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="83.900002"
+       id="text3595">
+      <tspan
+         x="240"
+         y="83.900002"
+         id="tspan3597" />
+    </text>
+  </g>
+  <g
+     id="g3599"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="260"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3601" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="260"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3603" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="280"
+       y="83.900002"
+       id="text3605">
+      <tspan
+         x="280"
+         y="83.900002"
+         id="tspan3607" />
+    </text>
+  </g>
+  <g
+     id="g3609"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="300"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3611" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="300"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3613" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="320"
+       y="83.900002"
+       id="text3615">
+      <tspan
+         x="320"
+         y="83.900002"
+         id="tspan3617" />
+    </text>
+  </g>
+  <g
+     id="g3619"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="340"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3621" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="360"
+       y="83.900002"
+       id="text3623">
+      <tspan
+         x="360"
+         y="83.900002"
+         id="tspan3625" />
+    </text>
+  </g>
+  <g
+     id="g3627"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="380"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3629" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="380"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3631" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="400"
+       y="83.900002"
+       id="text3633">
+      <tspan
+         x="400"
+         y="83.900002"
+         id="tspan3635" />
+    </text>
+  </g>
+  <g
+     id="g3637"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="420"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3639" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="420"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3641" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="440"
+       y="83.900002"
+       id="text3643">
+      <tspan
+         x="440"
+         y="83.900002"
+         id="tspan3645" />
+    </text>
+  </g>
+  <g
+     id="g3647"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="460"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3649" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="460"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3651" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="480"
+       y="83.900002"
+       id="text3653">
+      <tspan
+         x="480"
+         y="83.900002"
+         id="tspan3655" />
+    </text>
+  </g>
+  <g
+     id="g3657"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="500"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3659" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="500"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3661" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="520"
+       y="83.900002"
+       id="text3663">
+      <tspan
+         x="520"
+         y="83.900002"
+         id="tspan3665" />
+    </text>
+  </g>
+  <g
+     id="g3667"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="540"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3669" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="540"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3671" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="560"
+       y="83.900002"
+       id="text3673">
+      <tspan
+         x="560"
+         y="83.900002"
+         id="tspan3675" />
+    </text>
+  </g>
+  <g
+     id="g3677"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="580"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3679" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="580"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3681" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="600"
+       y="83.900002"
+       id="text3683">
+      <tspan
+         x="600"
+         y="83.900002"
+         id="tspan3685" />
+    </text>
+  </g>
+  <g
+     id="g3687"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="620"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3689" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="620"
+       y="60"
+       width="40"
+       height="40"
+       id="rect3691" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="640"
+       y="83.900002"
+       id="text3693">
+      <tspan
+         x="640"
+         y="83.900002"
+         id="tspan3695" />
+    </text>
+  </g>
+  <line
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+     x1="698.24353"
+     y1="167.95772"
+     x2="818.24353"
+     y2="167.95772"
+     id="line3697" />
+  <line
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+     x1="-41.756443"
+     y1="167.95772"
+     x2="58.243557"
+     y2="167.95772"
+     id="line3699" />
+  <g
+     id="g3701"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="60"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3703" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="60"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3705" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="80"
+       y="263.89999"
+       id="text3707">
+      <tspan
+         x="80"
+         y="263.89999"
+         id="tspan3709" />
+    </text>
+  </g>
+  <g
+     id="g3711"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="100"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3713" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="100"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3715" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="120"
+       y="263.89999"
+       id="text3717">
+      <tspan
+         x="120"
+         y="263.89999"
+         id="tspan3719" />
+    </text>
+  </g>
+  <g
+     id="g3721"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="140"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3723" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="140"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3725" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="160"
+       y="263.89999"
+       id="text3727">
+      <tspan
+         x="160"
+         y="263.89999"
+         id="tspan3729" />
+    </text>
+  </g>
+  <g
+     id="g3731"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="180"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3733" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="180"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3735" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="200"
+       y="263.89999"
+       id="text3737">
+      <tspan
+         x="200"
+         y="263.89999"
+         id="tspan3739" />
+    </text>
+  </g>
+  <g
+     id="g3741"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3743" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3745" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="263.89999"
+       id="text3747">
+      <tspan
+         x="240"
+         y="263.89999"
+         id="tspan3749" />
+    </text>
+  </g>
+  <g
+     id="g3751"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="260"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3753" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="260"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3755" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="280"
+       y="263.89999"
+       id="text3757">
+      <tspan
+         x="280"
+         y="263.89999"
+         id="tspan3759" />
+    </text>
+  </g>
+  <g
+     id="g3761"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="300"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3763" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="300"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3765" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="320"
+       y="263.89999"
+       id="text3767">
+      <tspan
+         x="320"
+         y="263.89999"
+         id="tspan3769" />
+    </text>
+  </g>
+  <g
+     id="g3771"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="340"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3773" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="340"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3775" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="360"
+       y="263.89999"
+       id="text3777">
+      <tspan
+         x="360"
+         y="263.89999"
+         id="tspan3779" />
+    </text>
+  </g>
+  <g
+     id="g3781"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="380"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3783" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="380"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3785" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="400"
+       y="263.89999"
+       id="text3787">
+      <tspan
+         x="400"
+         y="263.89999"
+         id="tspan3789" />
+    </text>
+  </g>
+  <g
+     id="g3791"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="420"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3793" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="420"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3795" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="440"
+       y="263.89999"
+       id="text3797">
+      <tspan
+         x="440"
+         y="263.89999"
+         id="tspan3799" />
+    </text>
+  </g>
+  <g
+     id="g3801"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="460"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3803" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="460"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3805" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="480"
+       y="263.89999"
+       id="text3807">
+      <tspan
+         x="480"
+         y="263.89999"
+         id="tspan3809" />
+    </text>
+  </g>
+  <g
+     id="g3811"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="500"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3813" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="500"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3815" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="520"
+       y="263.89999"
+       id="text3817">
+      <tspan
+         x="520"
+         y="263.89999"
+         id="tspan3819" />
+    </text>
+  </g>
+  <g
+     id="g3821"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="540"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3823" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="540"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3825" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="560"
+       y="263.89999"
+       id="text3827">
+      <tspan
+         x="560"
+         y="263.89999"
+         id="tspan3829" />
+    </text>
+  </g>
+  <g
+     id="g3831"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="580"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3833" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="580"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3835" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="600"
+       y="263.89999"
+       id="text3837">
+      <tspan
+         x="600"
+         y="263.89999"
+         id="tspan3839" />
+    </text>
+  </g>
+  <g
+     id="g3841"
+     transform="translate(18.243559,87.957724)">
+    <rect
+       style="fill:#ffffff"
+       x="620"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3843" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="620"
+       y="240"
+       width="40"
+       height="40"
+       id="rect3845" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="640"
+       y="263.89999"
+       id="text3847">
+      <tspan
+         x="640"
+         y="263.89999"
+         id="tspan3849" />
+    </text>
+  </g>
+  <line
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+     x1="698.24353"
+     y1="347.95773"
+     x2="818.24353"
+     y2="347.95773"
+     id="line3851" />
+  <line
+     style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+     x1="-41.756443"
+     y1="347.95773"
+     x2="58.243557"
+     y2="347.95773"
+     id="line3853" />
+  <g
+     id="g3855"
+     transform="matrix(0.96470298,0,0,1.0900549,31.025884,79.182587)">
+    <line
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+       x1="360"
+       y1="100"
+       x2="200"
+       y2="240"
+       id="line3857" />
+    <path
+       style="fill:#000000"
+       d="m 360,100 c 1.646,1.881 1.411,5.409 -0.47,7.055 -1.882,1.647 -5.41,1.411 -7.056,-0.47 -1.646,-1.881 -1.411,-5.409 0.471,-7.0554 1.881,-1.6462 5.409,-1.411 7.055,0.4704 z"
+       id="path3859"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2"
+       d="m 360,100 c 1.646,1.881 1.411,5.409 -0.47,7.055 -1.882,1.647 -5.41,1.411 -7.056,-0.47 -1.646,-1.881 -1.411,-5.409 0.471,-7.0554 1.881,-1.6462 5.409,-1.411 7.055,0.4704"
+       id="path3861"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="g3863"
+     transform="matrix(1.0252428,0,0,1.1070095,9.0889353,77.477014)">
+    <line
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+       x1="360"
+       y1="100"
+       x2="240"
+       y2="240"
+       id="line3865" />
+    <path
+       style="fill:#000000"
+       d="m 360,100 c 1.898,1.627 2.169,5.152 0.542,7.05 -1.627,1.898 -5.152,2.17 -7.05,0.543 -1.898,-1.627 -2.169,-5.153 -0.542,-7.051 1.627,-1.8978 5.152,-2.169 7.05,-0.542 z"
+       id="path3867"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2"
+       d="m 360,100 c 1.898,1.627 2.169,5.152 0.542,7.05 -1.627,1.898 -5.152,2.17 -7.05,0.543 -1.898,-1.627 -2.169,-5.153 -0.542,-7.051 1.627,-1.8978 5.152,-2.169 7.05,-0.542"
+       id="path3869"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="g3871"
+     transform="matrix(0.94905676,0,0,1.1125337,36.757166,76.876752)">
+    <line
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+       x1="360"
+       y1="100"
+       x2="280"
+       y2="240"
+       id="line3873" />
+    <path
+       style="fill:#000000"
+       d="m 360,100 c 2.171,1.24 3.101,4.651 1.861,6.822 -1.241,2.171 -4.652,3.101 -6.822,1.86 -2.171,-1.24 -3.101,-4.651 -1.861,-6.821 1.24,-2.1711 4.651,-3.1013 6.822,-1.861 z"
+       id="path3875"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2"
+       d="m 360,100 c 2.171,1.24 3.101,4.651 1.861,6.822 -1.241,2.171 -4.652,3.101 -6.822,1.86 -2.171,-1.24 -3.101,-4.651 -1.861,-6.821 1.24,-2.1711 4.651,-3.1013 6.822,-1.861"
+       id="path3877"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="g3879"
+     transform="matrix(1.0208392,0,0,1.2239606,10.64729,65.816921)">
+    <line
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+       x1="360"
+       y1="100"
+       x2="320"
+       y2="240"
+       id="line3881" />
+    <path
+       style="fill:#000000"
+       d="m 360,100 c 2.404,0.687 4.121,3.777 3.434,6.181 -0.687,2.404 -3.777,4.121 -6.181,3.434 -2.404,-0.687 -4.121,-3.777 -3.434,-6.181 0.687,-2.404 3.777,-4.1208 6.181,-3.434 z"
+       id="path3883"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2"
+       d="m 360,100 c 2.404,0.687 4.121,3.777 3.434,6.181 -0.687,2.404 -3.777,4.121 -6.181,3.434 -2.404,-0.687 -4.121,-3.777 -3.434,-6.181 0.687,-2.404 3.777,-4.1208 6.181,-3.434"
+       id="path3885"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="g3887"
+     transform="matrix(1,0,0,1.159606,18.243559,71.997123)">
+    <line
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+       x1="360"
+       y1="100"
+       x2="360"
+       y2="240"
+       id="line3889" />
+    <path
+       style="fill:#000000"
+       d="m 360,100 c 2.5,0 5,2.5 5,5 0,2.5 -2.5,5 -5,5 -2.5,0 -5,-2.5 -5,-5 0,-2.5 2.5,-5 5,-5 z"
+       id="path3891"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2"
+       d="m 360,100 c 2.5,0 5,2.5 5,5 0,2.5 -2.5,5 -5,5 -2.5,0 -5,-2.5 -5,-5 0,-2.5 2.5,-5 5,-5"
+       id="path3893"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="g3895"
+     transform="matrix(1.0839265,0,0,1.1852274,-11.584584,69.646856)">
+    <line
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+       x1="360"
+       y1="100"
+       x2="400"
+       y2="240"
+       id="line3897" />
+    <path
+       style="fill:#000000"
+       d="m 360,100 c 2.404,-0.6868 5.494,1.03 6.181,3.434 0.687,2.404 -1.03,5.494 -3.434,6.181 -2.404,0.687 -5.494,-1.03 -6.181,-3.434 -0.687,-2.404 1.03,-5.494 3.434,-6.181 z"
+       id="path3899"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2"
+       d="m 360,100 c 2.404,-0.6868 5.494,1.03 6.181,3.434 0.687,2.404 -1.03,5.494 -3.434,6.181 -2.404,0.687 -5.494,-1.03 -6.181,-3.434 -0.687,-2.404 1.03,-5.494 3.434,-6.181"
+       id="path3901"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="g3903"
+     transform="matrix(0.94331987,0,0,1.0822565,38.45374,79.85886)">
+    <line
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+       x1="360"
+       y1="100"
+       x2="440"
+       y2="240"
+       id="line3905" />
+    <path
+       style="fill:#000000"
+       d="m 360,100 c 2.171,-1.2403 5.582,-0.3101 6.822,1.861 1.24,2.17 0.31,5.581 -1.861,6.821 -2.17,1.241 -5.581,0.311 -6.822,-1.86 -1.24,-2.171 -0.31,-5.582 1.861,-6.822 z"
+       id="path3907"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2"
+       d="m 360,100 c 2.171,-1.2403 5.582,-0.3101 6.822,1.861 1.24,2.17 0.31,5.581 -1.861,6.821 -2.17,1.241 -5.581,0.311 -6.822,-1.86 -1.24,-2.171 -0.31,-5.582 1.861,-6.822"
+       id="path3909"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="g3911"
+     transform="matrix(1.0272043,0,0,1.1154266,8.5226756,76.652146)">
+    <line
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+       x1="360"
+       y1="100"
+       x2="480"
+       y2="240"
+       id="line3913" />
+    <path
+       style="fill:#000000"
+       d="m 360,100 c 1.898,-1.627 5.423,-1.3558 7.05,0.542 1.627,1.898 1.356,5.424 -0.542,7.051 -1.898,1.627 -5.423,1.355 -7.05,-0.543 -1.627,-1.898 -1.356,-5.423 0.542,-7.05 z"
+       id="path3915"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2"
+       d="m 360,100 c 1.898,-1.627 5.423,-1.3558 7.05,0.542 1.627,1.898 1.356,5.424 -0.542,7.051 -1.898,1.627 -5.423,1.355 -7.05,-0.543 -1.627,-1.898 -1.356,-5.423 0.542,-7.05"
+       id="path3917"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="g3919"
+     transform="matrix(0.98830492,0,0,1.0883606,22.429433,79.347694)">
+    <line
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-dasharray:20"
+       x1="360"
+       y1="100"
+       x2="520"
+       y2="240"
+       id="line3921" />
+    <path
+       style="fill:#000000"
+       d="m 360,100 c 1.646,-1.8814 5.174,-2.1166 7.055,-0.4704 1.882,1.6464 2.117,5.1744 0.471,7.0554 -1.646,1.881 -5.174,2.117 -7.056,0.47 -1.881,-1.646 -2.116,-5.174 -0.47,-7.055 z"
+       id="path3923"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:2"
+       d="m 360,100 c 1.646,-1.8814 5.174,-2.1166 7.055,-0.4704 1.882,1.6464 2.117,5.1744 0.471,7.0554 -1.646,1.881 -5.174,2.117 -7.056,0.47 -1.881,-1.646 -2.116,-5.174 -0.47,-7.055"
+       id="path3925"
+       inkscape:connector-curvature="0" />
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1.31569302;stroke-miterlimit:4;stroke-dasharray:5.26277242, 5.26277242;stroke-dashoffset:0"
+     d="m 109.44279,503.40655 c 190.98717,1.47322 162.23036,-45.91947 266.75567,-47.36182 107.55879,-1.4842 78.38159,48.82022 268.67549,48.32173"
+     id="path3927"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="csc" />
+  <g
+     id="g3939"
+     transform="matrix(1,0,0,-0.34653848,18.182184,607.36808)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947" />
+    </text>
+  </g>
+  <g
+     id="g3959"
+     transform="matrix(1,0,0,-0.49000338,17.076386,650.40755)">
+    <rect
+       style="fill:#ffffff"
+       x="300"
+       y="300"
+       width="40"
+       height="80"
+       id="rect3961" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="300"
+       y="300"
+       width="40"
+       height="80"
+       id="rect3963" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="320"
+       y="343.89999"
+       id="text3965">
+      <tspan
+         x="320"
+         y="343.89999"
+         id="tspan3967" />
+    </text>
+  </g>
+  <g
      id="g3979"
-     transform="matrix(1,0,0,-0.52706647,2.1502216,540.39476)">
+     transform="matrix(1,0,0,-0.49179276,17.076386,650.94437)">
     <rect
        style="fill:#ffffff"
        x="380"
@@ -1216,7 +1342,7 @@
   </g>
   <g
      id="g3989"
-     transform="matrix(1,0,0,-0.47388083,2.1502216,524.43906)">
+     transform="matrix(1,0,0,-0.43887138,17.076386,635.06795)">
     <rect
        style="fill:#ffffff"
        x="420"
@@ -1244,7 +1370,7 @@
   </g>
   <g
      id="g3999"
-     transform="matrix(1,0,0,-0.47388083,2.1502216,524.43906)">
+     transform="matrix(1,0,0,-0.32856175,17.076386,601.97505)">
     <rect
        style="fill:#ffffff"
        x="460"
@@ -1270,184 +1396,694 @@
          id="tspan4007" />
     </text>
   </g>
-  <g
-     id="g4009"
-     transform="matrix(1,0,0,-0.47388083,2.1502216,524.43906)">
-    <rect
-       style="fill:#ffffff"
-       x="500"
-       y="300"
-       width="40"
-       height="20"
-       id="rect4011" />
-    <rect
-       style="fill:none;stroke:#000000;stroke-width:2"
-       x="500"
-       y="300"
-       width="40"
-       height="20"
-       id="rect4013" />
-    <text
-       style="font-size:6.08471012px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
-       x="520"
-       y="311.84698"
-       id="text4015">
-      <tspan
-         x="520"
-         y="311.84698"
-         id="tspan4017" />
-    </text>
-  </g>
   <text
-     style="fill: #000000;text-anchor:start;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-     x="340"
-     y="20"
+     style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
+     x="358.24356"
+     y="107.95773"
      id="text4019">
     <tspan
-       x="340"
-       y="20"
+       x="358.24356"
+       y="107.95773"
        id="tspan4021" />
   </text>
   <text
      style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
-     x="262.99432"
-     y="409.74179"
+     x="281.23788"
+     y="550.77814"
      id="text4027">
     <tspan
-       x="262.99432"
-       y="409.74179"
-       id="tspan4029">Mean = channel position + optional offset</tspan>
-  </text>
-  <line
-     style="fill:none;stroke:#000000;stroke-width:1.4299531;stroke-dasharray:2.85990645"
-     x1="362.15021"
-     y1="382.74872"
-     x2="362.15021"
-     y2="300.95804"
-     id="line4031" />
-  <text
-     style="fill: #000000;text-anchor:start;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal"
-     x="60"
-     y="40"
-     id="text4033">
-    <tspan
-       x="60"
-       y="40"
-       id="tspan4035"
-       style="font-size:16.58696908px">Post Synaptic Cell Group</tspan>
+       x="281.23788"
+       y="550.77814"
+       id="tspan4029"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">Connection distribution mean</tspan>
   </text>
   <text
      style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
-     x="16.873898"
-     y="220"
+     x="281.23788"
+     y="550.77814"
+     id="text3439">
+    <tspan
+       x="281.23788"
+       y="550.77814"
+       id="tspan3441" />
+  </text>
+  <text
+     style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
+     x="40.64645"
+     y="133.48671"
+     id="text4033">
+    <tspan
+       x="40.64645"
+       y="133.48671"
+       id="tspan4035"
+       style="font-size:16.58696938px">Post Synaptic Cell Group</tspan>
+  </text>
+  <text
+     style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
+     x="35.117455"
+     y="307.95773"
      id="text4037">
     <tspan
-       x="16.873898"
-       y="220"
+       x="35.117455"
+       y="307.95773"
        id="tspan4039"
        style="font-size:16.58696938px">Pre Synaptic Cell Group</tspan>
   </text>
-  <g
-     id="g4041"
-     transform="matrix(0.78702035,0,0,-0.47388083,79.298906,524.43906)">
-    <line
-       style="fill:none;stroke:#000000;stroke-width:2"
-       x1="364.47"
-       y1="440.147"
-       x2="416.53"
-       y2="441.853"
-       id="line4043" />
-    <polyline
-       style="fill:none;stroke:#000000;stroke-width:2"
-       points="372.393,435.404 362.235,440.073 372.066,445.398 "
-       id="polyline4045" />
-    <polyline
-       style="fill:none;stroke:#000000;stroke-width:2"
-       points="408.607,446.596 418.765,441.927 408.934,436.602 "
-       id="polyline4047" />
-  </g>
-  <line
-     style="fill:none;stroke:#000000;stroke-width:1.37678003;stroke-dasharray:2.7535601"
-     x1="411.68237"
-     y1="323.74463"
-     x2="411.68237"
-     y2="304.78937"
-     id="line4049" />
   <text
      style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
-     x="456.48505"
-     y="311.43738"
+     x="472.517"
+     y="435.88666"
      id="text4051">
     <tspan
-       x="456.48505"
-       y="311.43738"
-       id="tspan4053">Standard deviation</tspan>
-    <tspan
-       x="456.48505"
-       y="327.43738"
-       id="tspan4055">of connection</tspan>
+       x="472.517"
+       y="435.88666"
+       id="tspan4053"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">Spread of connection distribution</tspan>
   </text>
   <text
      style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
-     x="72.184586"
-     y="314.05988"
+     x="87.110756"
+     y="455.09622"
      id="text4057">
     <tspan
-       x="72.184586"
-       y="314.05988"
-       id="tspan4059">Number of Connections</tspan>
-    <tspan
-       x="72.184586"
-       y="330.05988"
-       id="tspan4061">from Pre-synaptic cell group to</tspan>
-    <tspan
-       x="72.184586"
-       y="346.05988"
-       id="tspan4063">Post-synaptic cell</tspan>
+       x="87.110756"
+       y="455.09622"
+       id="tspan4059"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">Total number of connections</tspan>
   </text>
   <path
      style="fill:none;stroke:#000000;stroke-width:0.56087828px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 57.978926,306.58814 0,75.97048"
+     d="m 76.222485,427.21172 0,75.97048"
      id="path4094"
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;stroke:#000000;stroke-width:0.55289894px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 49.151282,306.8109 7.884145,0 0.71674,0"
+     d="m 67.62559,432.36582 7.884145,0 0.71674,0"
      id="path4096"
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;stroke:#000000;stroke-width:0.55289894px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 49.154773,382.25394 7.884146,0 0.71674,0"
+     d="m 67.625589,503.38566 7.884146,0 0.71674,0"
      id="path4096-4"
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;stroke:#000000;stroke-width:0.55289894px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 49.154772,325.89669 7.884146,0 0.71674,0"
+     d="m 67.625589,450.12078 7.884146,0 0.71674,0"
      id="path4096-5"
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;stroke:#000000;stroke-width:0.55289894px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 49.251162,346.59675 7.884146,0 0.71674,0"
+     d="m 67.625589,467.87575 7.884146,0 0.71674,0"
      id="path4096-9"
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;stroke:#000000;stroke-width:0.55289894px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="m 49.145772,365.11311 7.884146,0 0.71674,0"
+     d="m 67.625589,485.6307 7.884146,0 0.71674,0"
      id="path4096-46"
      inkscape:connector-curvature="0" />
   <text
      xml:space="preserve"
      style="font-size:22.11595917px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-     x="-44.061329"
-     y="125.04784"
+     x="29.472124"
+     y="43.818592"
      id="text3245"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
-       x="-44.061329"
-       y="125.04784"
+       x="29.472124"
+       y="43.818592"
        id="tspan3249">Frequency Channels</tspan><tspan
        sodipodi:role="line"
-       x="-44.061329"
-       y="152.69278"
+       x="29.472124"
+       y="71.463539"
        id="tspan3253">(Low CF to High CF)</tspan></text>
+  <line
+     style="fill:none;stroke:#000000;stroke-width:1.37678003;stroke-dasharray:2.75356011"
+     x1="474.68753"
+     y1="416.2081"
+     x2="474.68753"
+     y2="397.25284"
+     id="line4049-9" />
+  <line
+     style="fill:none;stroke:#000000;stroke-width:1.37678003;stroke-dasharray:2.75356011"
+     x1="287.33328"
+     y1="417.35455"
+     x2="287.33328"
+     y2="398.39929"
+     id="line4049-9-3" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.04999995;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,106.32559,231.12901)" />
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="513.88135"
+     y="411.19431"
+     id="text3300"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3302"
+       x="513.88135"
+       y="411.19431"
+       style="font-size:22.11595917px;font-weight:bold;-inkscape-font-specification:Sans Bold">s</tspan></text>
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.07200003;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296-2"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,-54.787588,410.96951)" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.07200003;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296-28"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,-14.97886,410.96951)" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.07200003;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296-2-5"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,27.124705,411.74763)" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.07200003;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296-28-9"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,66.933435,411.74763)" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.07200003;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296-2-0"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,105.63636,411.74763)" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.07200003;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296-28-0"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,145.44514,411.74763)" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.07200003;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296-2-1"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,185.25394,411.74763)" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.07200003;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296-28-2"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,225.06274,411.74763)" />
+  <path
+     sodipodi:type="arc"
+     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.07200003;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+     id="path3296-28-5"
+     sodipodi:cx="491.95792"
+     sodipodi:cy="-112.78087"
+     sodipodi:rx="17.500479"
+     sodipodi:ry="16.852314"
+     d="m 509.4584,-112.78087 a 17.500479,16.852314 0 1 1 -35.00096,0 17.500479,16.852314 0 1 1 35.00096,0 z"
+     transform="matrix(0.55289897,0,0,0.55289897,264.87154,411.74763)" />
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="113.99789"
+     y="435.66119"
+     id="text3300-9"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3302-5"
+       x="113.99789"
+       y="435.66119"
+       style="font-size:22.11595917px;font-weight:bold;-inkscape-font-specification:Sans Bold">n </tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="592.99237"
+     y="544.34467"
+     id="text3408"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3410"
+       x="592.99237"
+       y="544.34467" /></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="361.48523"
+     y="529.45734"
+     id="text3433"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3435"
+       x="361.48523"
+       y="529.45734"
+       style="font-size:15.48117161px">μ = i + <tspan
+   style="font-size:22.11595917px;font-weight:bold;-inkscape-font-specification:Sans Bold"
+   id="tspan3437">o</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="282.64377"
+     y="565.13013"
+     id="text3259"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3261"
+       x="282.64377"
+       y="565.13013"
+       style="font-size:13.26957512px" /></text>
+  <text
+     style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
+     x="480.33307"
+     y="451.25504"
+     id="text4057-8">
+    <tspan
+       x="480.33307"
+       y="451.25504"
+       id="tspan4059-5" />
+  </text>
+  <text
+     style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
+     x="496.02777"
+     y="466.24875"
+     id="text4057-8-8">
+    <tspan
+       x="496.02777"
+       y="466.24875"
+       id="tspan4059-5-8" />
+  </text>
+  <g
+     id="g3939-6"
+     transform="matrix(1,0,0,-0.34653848,57.632877,607.6469)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-9" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-8" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-9">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-4" />
+    </text>
+  </g>
+  <g
+     id="g3939-2"
+     transform="matrix(1,0,0,-0.34653848,97.441605,607.6469)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-5" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-80" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-1">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-1" />
+    </text>
+  </g>
+  <g
+     id="g3939-3"
+     transform="matrix(1,0,0,-0.34653848,177.05917,607.6469)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-4" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-6" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-94">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-0" />
+    </text>
+  </g>
+  <g
+     id="g3939-60"
+     transform="matrix(1,0,0,-0.34653848,216.86797,607.6469)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-94" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-66" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-3">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-6" />
+    </text>
+  </g>
+  <g
+     id="g3939-4"
+     transform="matrix(1,0,0,-0.34653848,57.632877,594.3773)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-1" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-62" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-32">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-68" />
+    </text>
+  </g>
+  <g
+     id="g3939-1"
+     transform="matrix(1,0,0,-0.34653848,97.441605,594.3773)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-8" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-2" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-4">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-69" />
+    </text>
+  </g>
+  <g
+     id="g3939-22"
+     transform="matrix(1,0,0,-0.34653848,177.05917,594.3773)">
+    <rect
+       style="fill:#ffffff"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3941-11" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2"
+       x="220"
+       y="300"
+       width="40"
+       height="38"
+       id="rect3943-77" />
+    <text
+       style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;font-family:sanserif"
+       x="240"
+       y="322.89999"
+       id="text3945-7">
+      <tspan
+         x="240"
+         y="322.89999"
+         id="tspan3947-2" />
+    </text>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.9952181;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Lstart);marker-end:url(#Arrow1Lend)"
+     d="M 292.67813,406.56611 C 468.9963,405.13262 468.9963,405.13262 468.9963,405.13262"
+     id="path5064"
+     inkscape:connector-curvature="0" />
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="504.60867"
+     y="231.02988"
+     id="text5434"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5436"
+       x="504.60867"
+       y="231.02988"
+       style="font-size:22.11595917px;font-weight:bold;-inkscape-font-specification:Sans Bold">w</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="468.43253"
+     y="253.48418"
+     id="text5438"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5440"
+       x="468.43253"
+       y="253.48418"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">Synaptic weight </tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.67840701;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="M -13.046998,49.835894 C 825.05085,51.851306 805.85263,50.891395 805.85263,50.891395"
+     id="path5467"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 379.03116,51.102695 0,22.412318"
+     id="path4094-7"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 419.2377,51.077958 0,22.412291"
+     id="path4094-7-7"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 459.0465,51.077958 0,22.412291"
+     id="path4094-7-8"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 495.84649,51.069436 0,22.412316"
+     id="path4094-7-4"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 536.05303,51.044699 0,22.41229"
+     id="path4094-7-7-7"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 575.86183,51.044699 0,22.41229"
+     id="path4094-7-8-5"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 615.67063,51.044699 0,22.41229"
+     id="path4094-7-7-8"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 655.47943,51.044699 0,22.41229"
+     id="path4094-7-8-2"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 258.96852,50.585193 0,22.412317"
+     id="path4094-7-1"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 299.17506,50.560456 0,22.412291"
+     id="path4094-7-7-2"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 338.98386,50.560456 0,22.412291"
+     id="path4094-7-8-3"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m -12.556951,51.010486 0,22.412317"
+     id="path4094-7-1-7"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.69167662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="m 804.66292,51.839242 0,22.412289"
+     id="path4094-7-8-2-8"
+     inkscape:connector-curvature="0" />
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="762.1958"
+     y="97.304695"
+     id="text5438-0"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5440-1"
+       x="762.1958"
+       y="97.304695"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">40 kHz </tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="349.285"
+     y="98.948296"
+     id="text5438-0-0"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5440-1-7"
+       x="349.285"
+       y="98.948296"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">5.83 kHz </tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="-61.869305"
+     y="98.41346"
+     id="text5438-0-0-5"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5440-1-7-7"
+       x="-61.869305"
+       y="98.41346"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">CF = 200 Hz </tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="776.33514"
+     y="38.469864"
+     id="text5438-0-1"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5440-1-0"
+       x="776.33514"
+       y="38.469864"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">100</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="368.60751"
+     y="36.228344"
+     id="text5438-0-1-5"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5440-1-0-5"
+       x="368.60751"
+       y="36.228344"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">50</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="-45.275272"
+     y="37.334141"
+     id="text5438-0-1-5-2"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan5440-1-0-5-8"
+       x="-45.275272"
+       y="37.334141"
+       style="font-size:15.48117161px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Serif;-inkscape-font-specification:Serif">i = 0</tspan></text>
+  <line
+     style="fill:none;stroke:#000000;stroke-width:1.3916467;stroke-miterlimit:4;stroke-dasharray:1.3916467,11.13317357;stroke-dashoffset:0"
+     x1="670.72375"
+     y1="64.936272"
+     x2="790.72375"
+     y2="64.936272"
+     id="line3697-5" />
 </svg>
