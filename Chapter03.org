@@ -1595,6 +1595,67 @@ Final error (spikes/s) & 129.37 \\ \hline
 #+END_LaTeX
 
 
+
+** Verification of the TV cell model: Rate-Level response to tones and noise
+
+\yellownote{more work to be done here. Possibly need calculations on
+Q10 values of TV units. Calculation of threshold to tone and noise. }
+
+The Tuberculoventral cell model's optimised parameters were applied to all \TV units across the whole network and tested using tones, noise and tones plus noise stimuli.
+Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model's.  
+# Adding masking noise increases the width of the activity across the
+# CF of the central unit (Figure \ref{fig:DSverification}D)
+# highlighting the broad inputs of \ANFs onto \DS units.
+
+
+#+BEGIN_LaTeX
+    \begin{figure}[htb]
+      \centering%\hspace{0.5cm}
+      {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+      % \resizebox{0.95\textwidth}{!}{
+       \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle50-1}\\
+  %    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/psthsingle90-1}\\
+      % }\\\hspace{0.5cm}
+      \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+      % \resizebox{0.95\textwidth}{!}{%
+      \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
+      \caption[Optimised TV cell model responses]{Response of optimised TV cell models at the centre of the network (CF=5.8 kHz).
+        A. Rate level responses to tone, noise and tone plus noise.
+        B. PSTH at 90 dB SPL to noise.
+        C. Response area equivalent using all DS units in the network.
+        D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF\@.}
+      \label{fig:TVverification}
+    \end{figure}
+#+END_LaTeX
+
+The optimised parameters for inputs to the Tuberculoventral cell model
+were applied to all \TV units across the whole network using tones,
+noise and tones plus noise stimuli.  
+Unlike the Golgi cell model, the rate-level
+response of TV cells is non-linear and the noise rate-level is mostly
+inhibited (Figure \ref{fig:TVverification}A).  The PSTH response of
+the central TV unit (CF=5.8 kHz) at 90 dB SPL, is a simple chopping
+response, typical of the type-Ic neural model
+\citep{RothmanManis:2003b}.  
+# The \TV model outputs' behaviour
+# is shown in Figure \ref{fig:TVverification}, similar to the Golgi cell
+# model Figure \ref{fig:Golgiverification}.  
+Figure \ref{fig:TVverification}A and B show the response of the central
+\TV model (CF=5.8 kHz). The PSTH in Figure \ref{fig:TVverification}B is
+a wide chopper, generated from regular firing type I-c neural model and
+the strong onset inhibition from DS cells.  Figure
+\ref{fig:TVverification}C shows the wide response of all \TV units in
+the network to a 5.8 kHz tone with increasing sound level.  The masked
+response curves (Figure \ref{fig:DSverification}D) show the wide-band
+inhibition particularly for tones above \CF. The responses of all \TV
+units to pure tones replicates the single channel excitatory inputs from
+\ANFs and wide-band inhibition from \DS units (Figure
+\ref{fig:TVverification}C and D).
+
+
+
+
+
 * D Stellate to Tuberculoventral Cell Connection: Optimisation of Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses 
   :PROPERTIES:
   :LABEL: sec:Ch3:DSTV
