@@ -1,7 +1,7 @@
 #+TITLE: Chapter 3
 #+DATE:
 #+AUTHOR: Michael A Eager
-#+OPTIONS: toc:nil H:5
+#+OPTIONS:  H:5   <:t >:t tasks:nil
 #+STARTUP: oddeven
 #+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
 #+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n)
@@ -13,55 +13,9 @@
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+BIBLIOGRAPHY: MyBib alphanat
 
+
 \setcounter{chapter}{2} 
-\chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential parameter fitting of synaptic variables using simple acoustic responses}\label{sec:Chapter3} 
-
-* Prelude 							   :noexport:
-  
-#+begin_src emacs-lisp
-   (setq TeX-master t)
-     ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
-     ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
-     ;;                                  "pdflatex -interaction nonstopmode %f" )) 
-      (setq org-latex-to-pdf-process '("pdfquick Chapter3")) 
-     ;;(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
-     ;;                                 "makeglossaries %b" 
-     ;;                                 "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
-     (setq org-export-latex-title-command "") 
-     (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
-     (add-to-list 'org-export-latex-classes 
-                  '("UoM-draft-org-article"
- "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
-   \\documentclass[10pt,a4paper,twoside,openright]{book}
-     \\usepackage{style/uomthesis} 
-     \\input{user-defined}
-     \\usepackage[nonumberlist,acronym]{glossaries}
-     \\input{../hg/manuscript/misc/glossary} 
-     \\makeglossaries
-     \\pretolerance=150 \\tolerance=100
-     \\setlength{\\emergencystretch}{3em} 
-     \\overfullrule=1mm 
-   %  \\usepackage[notcite]{showkeys} 
-     \\lfoot{\\footnotesize\\today\\ at \\thistime} 
-     [NO-DEFAULT-PACKAGES]
-     [NO-PACKAGES]" 
-     ("\\newpage\n\\section{%s}" . "\\newpage\n\\section{%s}")
-     ("\\subsection{%s}"         . "\n\\subsection{%s}") 
-     ("\\subsubsection{%s}"      . "\n\\subsubsection{%s}") 
-     ("\\paragraph{%s}"          . "\n\\paragraph{%s}"))) 
-     (setq org-export-latex-title-command
-           "{\n\\singlespacing\n\\tableofcontents\n}\n") 
-   ;;v46i03
-   ;;(setq org-export-latex-verbatim-wrap
-   ;;      '("\\begin{Code}\n" . "\\end{Code}\n"))
-   
-#+end_src
-
-#+RESULTS:
-: {
-: \singlespacing
-: \tableofcontents
-: }
+#+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential parameter fitting of synaptic variables using simple acoustic responses}\label{sec:Chapter3} 
 
 * Introduction  
 
@@ -122,7 +76,6 @@ optimisation routine, these steps need to be reiterated in sequential
 stages.  The parameters chosen in the sequential optimisation stages
 should be chosen so that they do not influence the properties of
 previously fitted parameters.
-
 In this chapter, the connections within the mammalian cochlear nucleus
 stellate network (Figure \ref{fig:microcircuit}) are developed using a
 sequential method of optimisation steps.  The parameters of each cell
@@ -140,9 +93,8 @@ The process methods for optimisation were described in Chapter
 Techniques]]. These include specifying the model to be optimised,
 specifying the criteria, specifying the parameters and constraints of
 the model, and implementing the optimisation.
-
-The network model to be optimised in each section are presented in the
-Background.  Criteria to be satisfied are presented in Implementation
+The restricted network models to be optimised in each section are presented in their
+Background sub-section.   Criteria to be satisfied are presented in Implementation
 sections by specifying the experimental data set, the stimulus and the
 recorded output analysis required.  Parameters and constraints of the
 model are also presented in the Implementation section and the
@@ -206,7 +158,6 @@ neural networks. The input to the CN stellate model, the auditory nerve
 fibres, is discussed in the next section. To further fit the parameters
 of the CN model, a simplistic and sequential method is applied to each
 of the cell-types using experimental data.
-
 \yellownote{This para is about pushing the reader towards the following
   sections.  I'm not sure about the assertion of 'well-tested': too
   narrative, less science-y.  Needs to expand on reasons for wanting to
@@ -240,8 +191,7 @@ in more detail.
 The auditory nerve inputs to the cochlear nucleus model neurons are
 provided by phenomenological auditory periphery models originating from
 \citet{Carney:1993}, the ARLO model \citep{HeinzZhangEtAl:2001}, the
-Bruce model \citep{BruceSachsEtAl:2003, ZilanyBruce:2006,
-ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009}.
+Bruce model \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009}.
 The auditory model consists of an outer\slash middle ear pre-processing
 filter, a cochlea filterbank, IHC-to-AN synapse model and dead-time
 modified Poisson spike generator, as shown in Figure
@@ -382,9 +332,14 @@ filterbank of AN frequency channels.
 
 ** Synapse Models
 
-The synaptic models for AMPA, GlyR and \GABAa were described in Section \ref{sec:Ch2:Synapse}.
+\glsunset{AMPA}\glsunset{GlyR}
+
+The synaptic models for \AMPA, \GlyR and \GABAa receptors were described in Chapter \ref{sec:Chapter2} Section \ref{sec:Ch2:Synapse}.
 
 ** Synaptic Delays
+   :PROPERTIES:
+   :LABEL: sec:Ch3:Delays
+   :END:
 
 The effective delay of the AN model does not take into account the
 conduction and synaptic transmission delay to reach post-synaptic
@@ -477,6 +432,7 @@ The stimuli presented to the stellate microcircuit included:
    to 100 dB SPL and simultaneous withe noise at 50 dB SPL.
   
 
+\newpage
 * Golgi Cell Model: Monotonic Rate Level Responses in Marginal Shell Units 
     :PROPERTIES:
     :CUSTOM_ID: GolgiOpt
@@ -984,6 +940,7 @@ increased from 0 to 90 dB \SPL.
 #+END_LaTeX
 
 
+\newpage
 * D Stellate Cell Model: Optimisation Using Click Recovery Responses 
 
 ** Background
@@ -1355,16 +1312,11 @@ width of the activity across the CF of the central unit (Figure
 # \end{figure}
 
 
+\newpage
 * Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses 
-
-\TV cells are characterized as having a non-monotonic response to
-tones with increasing sound level and respond poorly to broadband
-noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005},
-as shown in Figure \ref{fig:SpirouFig1}.
-
-#+CAPTION: [Experimental data of a single Type-II DCN unit]{Experimental data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
-#+LABEL:  fig:SpirouFig1
-[[../SimpleResponsesChapter/gfx/Spirou-Fig1-type2.pdf]]
+  :PROPERTIES:
+  :LABEL: sec:Ch3:TVModel
+  :END:
 
 ** INPROGRESS Background
 
@@ -1427,40 +1379,49 @@ cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
 
 *** Acoustic Response of Tuberculoventral cells
 
+\TV cells are characterized as having a non-monotonic response to
+tones with increasing sound level and respond poorly to broadband
+noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005},
+as shown in Figure \ref{fig:SpirouFig1}.
 \TV cells have low spontaneous rates and variable \PSTHs (pause-build,
 unusual chopper, or onset with sustained activity) have been recorded
 \citep{ShofnerYoung:1985,SpirouDavisEtAl:1999}. They have little or no
 response to wide band noise and firing rates to \CF tones that are
 non-monotonic functions of intensity.
 
+#+CAPTION: [Experimental data of a single Type-II DCN unit]{Experimental data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
+#+LABEL:  fig:SpirouFig1
+[[../SimpleResponsesChapter/gfx/Spirou-Fig1-type2.pdf]]
+
+
 # Responses of tuberculoventral neurons to sound
 Recordings \textit{in vivo} indicate that tuberculoventral cells
 probably have type II characteristics and respond with “chopper”
-temporal response patterns \citep{ZhangOertel:1993b}. Units with type
-II responses are sharply tuned, they have thresholds - 10 dB higher
-than other units with which they are intermingled, and they do not
-respond to broad-band noise
+temporal response patterns \citep{ZhangOertel:1993b}. Units with type II
+responses are sharply tuned, they have thresholds - 10 dB higher than
+other units with which they are intermingled, and they do not respond to
+broad-band noise
 \citep{SpirouDavisEtAl:1999,YoungBrownell:1976,Young:1980,SachsYoung:1980,YoungVoigt:1982,ShofnerYoung:1985,VoigtYoung:1990,YoungSpirouEtAl:1992,Rhode:1999}. Young
-and his colleagues have shown that most neurons in the deep DCN
-respond to sound with either of two major types of response maps, type
-II or type IV
+and his colleagues have shown that most neurons in the deep DCN respond
+to sound with either of two major types of response maps, type II or
+type IV
 \citep{EvansNelson:1973,ShofnerYoung:1985,VoigtYoung:1980,VoigtYoung:1990,Young:1980,YoungBrownell:1976}.
 
-Taken together with EM studies, the results suggest that auditory nerve
-fibres (predominantly \LSR fibres) form the major excitatory input to
-type II DCN units along with other excitation from TS cells.  If true,
-this hypothesis could also explain the finding that type II DCN units
-have consistently higher thresholds than \DCN principal cells
-\citep{YoungBrownell:1976} because \LSR auditory nerve fibres auditory
-nerve fibres \citep{Liberman:1978}.  However, patterns of also have
-elevated thresholds relative to the lowest threshold auditory nerve
-innervation of the \DCN are most consistent with \HSR fibre innervation
-of \TV cell somata and \LSR fibre innervation of dendrites
-\citep{Liberman:1993}.  In that case, the low spontaneous rates and high
-sound thresholds of type II DCN units might be caused by a high
-intrinsic electrical threshold \citep{HancockDavisEtAl:1997}; this is
-consistent with the responses of vertical cells to intracellular current
-injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
+Taken together with histological studies, the results suggest that
+auditory nerve fibres (predominantly \LSR fibres) form the major
+excitatory input to type II DCN units along with other excitation from
+TS cells.  If true, this hypothesis could also explain the finding that
+type II DCN units have consistently higher thresholds than \DCN
+principal cells \citep{YoungBrownell:1976} because \LSR auditory nerve
+fibres auditory nerve fibres \citep{Liberman:1978}.  However, patterns
+of also have elevated thresholds relative to the lowest threshold
+auditory nerve innervation of the \DCN are most consistent with \HSR
+fibre innervation of \TV cell somata and \LSR fibre innervation of
+dendrites \citep{Liberman:1993}.  In that case, the low spontaneous
+rates and high sound thresholds of type II DCN units might be caused by
+a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997};
+this is consistent with the responses of vertical cells to intracellular
+current injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
 
 Type II units also supply an inhibitory input to the \VCN
 \citep{WickesbergOertel:1990}, but the role of type II terminals in the
@@ -1542,7 +1503,7 @@ for the principal cells of the \DCN including type II units.
 
 #+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
-[[TV_RateLevel/TV_RateLevel_Fig8.pdf]]
+[[../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_Fig8.pdf]]
 
 ** TODO Results
 
@@ -1552,7 +1513,7 @@ TV cell model.
 
 #+CAPTION:  Optimisation results for the TV model responses to tone and noise.
 #+LABEL: fig:TVRLresult
-[[TV_RateLevel/TV_RateLevel_result.pdf]]
+[[../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_result.pdf]]
 
 #  50 dB Run
 #+BEGIN_LaTeX
@@ -1573,36 +1534,36 @@ TV cell model.
 
 
 #+BEGIN_LaTeX
-  {\small
-  \noindent\begin{center}%table} 
-  \begin{minipage}{0.48\linewidth} 
-  \begin{tabularx}{\textwidth}{|X|c|}
+    {\small
+    \noindent\begin{center}%table} 
+    \begin{minipage}{0.48\linewidth} 
+    \begin{tabularx}{\textwidth}{|X|c|}
   \hdr{2}{}{TV Model Parameters } \\ \hline 
-  %                 & \\ \hline
-    \wLSRTV (nS)   & 4.765  \\ 
-    \wHSRTV (nS)   & 0.983 \\ 
-    \wDSTV (nS)    & 1.152 \\ 
-\nDSTV & 29.4917 \\
-\TV \Erev & -68.25 \\\hline
-RL Error (spikes/s) & 36.7552 \\
-RL without inhibition Error	 (spikes/s) & 11.3262 \\
-NRL Error (spikes/s) & 13.8671 \\
-NRL without inhibition Error (spikes/s) & 67.4216 \\
-Final error (spikes/s) & 129.37 \\ \hline 
+                       %                      & \\ \hline
+                 \wLSRTV (nS)                 & 4.765  \\ 
+                 \wHSRTV (nS)                 & 0.983 \\ 
+                  \wDSTV (nS)                 & 1.152 \\ 
+                    \nDSTV                    & 29.4917 \\
+                   \TV \Erev                  & -68.25 \\\hline
+              RL Error (spikes/s)             & 36.7552 \\
+  RL without inhibition Error      (spikes/s) & 11.3262 \\
+             NRL Error (spikes/s)             & 13.8671 \\
+    NRL without inhibition Error (spikes/s)   & 67.4216 \\
+            Final error (spikes/s)            & 129.37 \\ \hline 
   \end{tabularx}% 
-  \end{minipage}\hfill 
-  \end{center} }
+    \end{minipage}\hfill 
+    \end{center} }
 #+END_LaTeX
 
 
 
-** Verification of the TV cell model: Rate-Level response to tones and noise
+** TODO Verification of the TV cell model: Rate-Level response to tones and noise
 
 \yellownote{more work to be done here. Possibly need calculations on
 Q10 values of TV units. Calculation of threshold to tone and noise. }
 
 The Tuberculoventral cell model's optimised parameters were applied to all \TV units across the whole network and tested using tones, noise and tones plus noise stimuli.
-Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model's.  
+Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model.  
 # Adding masking noise increases the width of the activity across the
 # CF of the central unit (Figure \ref{fig:DSverification}D)
 # highlighting the broad inputs of \ANFs onto \DS units.
@@ -1623,20 +1584,29 @@ Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell mo
         A. Rate level responses to tone, noise and tone plus noise.
         B. PSTH at 90 dB SPL to noise.
         C. Response area equivalent using all DS units in the network.
-        D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF\@.}
+        D. Masked noise-tone response of the central unit to 15 dB masking noise and frequenciResponsesNoComp/NoiseRateLevel/psthsingle90-1es one octave above and below its CF\@.}
       \label{fig:TVverification}
     \end{figure}
 #+END_LaTeX
 
-The optimised parameters for inputs to the Tuberculoventral cell model
-were applied to all \TV units across the whole network using tones,
-noise and tones plus noise stimuli.  
-Unlike the Golgi cell model, the rate-level
-response of TV cells is non-linear and the noise rate-level is mostly
-inhibited (Figure \ref{fig:TVverification}A).  The PSTH response of
-the central TV unit (CF=5.8 kHz) at 90 dB SPL, is a simple chopping
-response, typical of the type-Ic neural model
-\citep{RothmanManis:2003b}.  
+The optimised parameters for inputs to the Tuberculoventral cell model were
+applied to all \TV units across the whole network using tones, noise and
+tones plus noise stimuli.  Unlike the Golgi cell model, the rate-level
+response of TV cells is non-linear and the noise rate-level(Figure
+\ref{fig:TVverification}A)(Figure \ref{fig:TVverification}A) is mostly
+inhibited (Figure \ref{fig:TVverification}A), typical of the type II
+\EIRA units in the deep layer of the \DCN
+\citep{SpirouDavisEtAl:1999,Rhode:1999}.  The PSTH response of the
+central \TV unit (CF=5.8 kHz) at 90 dB SPL, is a simple chopping
+response, characteristic of the type-Ic neural model(Figure
+\ref{fig:TVverification}A) \citep{RothmanManis:2003b}. The minimum first
+spikes occur at 4.3 ms after the stimulus onset (similar to the
+un-optimised \TV model's mean \FSL in Section \ref{sec:Ch3:Delays}). Due
+to the strong \DS inhibition, the peak \FSL of the optimised \TV cell
+model is delayed to 6.5 ms for a 50 dB SPL tone (Figure
+\ref{fig:TVverification}A). In response to loud noise, the onset spike
+and the chopping behaviour is suppressed (Figure
+\ref{fig:TVverification}B).
 # The \TV model outputs' behaviour
 # is shown in Figure \ref{fig:TVverification}, similar to the Golgi cell
 # model Figure \ref{fig:Golgiverification}.  
@@ -1654,7 +1624,7 @@ units to pure tones replicates the single channel excitatory inputs from
 
 
 
-
+\newpage
 
 * D Stellate to Tuberculoventral Cell Connection: Optimisation of Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses 
   :PROPERTIES:
@@ -1668,31 +1638,18 @@ cell connections.\yellownote{MTD think about combining this section with TV mode
 
 #+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
 
-** INPROGRESS Implementation
+#+CAPTION: [Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from figure 9 \citet{ReissYoung:2005}.}
+#+LABEL: fig:TVReissFig9
+[[../SimpleResponsesChapter/gfx/TV_Reiss.pdf]]
 
-Table \ref{tab:TVNotchModelSummary} shows the implementation parameters for the optimisation of \DS cell connections to \TV cells.
 
-The experimental data by \citet{ReissYoung:2005} was recorded from adult
-cats, with the notch noise produced in the frequency domain (accounting
-for calibration of the ear canal speaker spectrum) and sampled with
-fixed random phases in the time domain.  The notch sweep sets used by
-\citeauthor{ReissYoung:2005} were generated with logarithmically
-constant notch widths and notch center frequencies ranging from 1 octave
-below to 1 octave above \BF in $1/50$ octave steps.  The notch noise
-presented in this optimisation routine was generated in
-[[latex:progname][MATLAB/GNU Octave]] using frozen Gaussian noise
-(100kHz sampling rate) and a Chebyshev type II band reject filter[fn::
-The \textsf{[[latex:progname][cheby2}]] function is in the octave-forge signal package and
-MATLAB's Signal Processing Toolbox.].  The sound level in the
-\citet{ReissYoung:2005} data further complicates the situation.  The
-power spectrum is maintained at a constant level per frequency band (dB
-per Hz$^{1/2}$) and this is processed and scaled at each point in the notch
-sweep.  For a single presentation used in this experiment the sound
-level plays an important part in stimulating the \ANFs and contributing
-interneurons.  The experimental data shown in Figure
-\ref{fig:TVReissFig9}, show the mean response to notch sweeps at 22
-dB/Hz$^{1/2}$.
+** Implementation
 
+Table \ref{tab:TVNotchModelSummary} shows the implementation parameters
+for the optimisation of \DS cell connections to \TV cells.  
+# The experimental data used in the fitness function, from
+# \citet{ReissYoung:2005} recorded from individual \TV neurons, is
+# adapted for a range of \TV cell models using a single notch stimulus.
 The experimental data, shown in Figure \ref{fig:TVReissFig9}, is the
 average responses of type II \DCN units to notch sweeps.  The
 optimisation routine would be prohibitive if it was a notch sweep
@@ -1705,6 +1662,29 @@ unit with \CF of 5kHz will see a falling edge of a 1 octave notch,
 whereas a unit with \CF of 10kHz, will see a rising edge of a half
 octave notch.  Figure \ref{fig:TVNotchDiagram} shows the combination of
 the type \DCN II unit notch data for 1 octave.
+
+#+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures reproduced from \citealt{ReissYoung:2005}, Fig. 9)}
+#+LABEL: fig:TVNotchDiagram
+[[../SimpleResponsesChapter/gfx/TV_NotchDataConfig.pdf]]
+
+
+The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated with
+logarithmically constant notch widths and notch center frequencies
+ranging from 1 octave below to 1 octave above \BF in $1/50$ octave
+steps.  The single notch noise stimulus presented in this optimisation
+routine was generated in [[latex:progname][MATLAB/GNU Octave]] using frozen Gaussian noise
+(100kHz sampling rate) and a Chebyshev type II band reject filter[fn::
+The \textsf{[[latex:progname][cheby2}]] function is in the octave-forge signal package and
+MATLAB's Signal Processing Toolbox.].  The sound level in the
+\citet{ReissYoung:2005} data further complicates the situation.  The
+power spectrum is maintained at a constant level per frequency band (dB
+per Hz$^{1/2}$) and this is processed and scaled at each point in the notch
+sweep.  For a single presentation used in this experiment the sound
+level plays an important part in stimulating the \ANFs and contributing
+interneurons. From the previous optimisation (Section \ref{sec:Ch3:TVModel} [[*Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses]]), 
+the preliminary response to noise in \TV cell models was linear between 40 to 80 dB SPL. 
+
+
 
 Higher thresholds in type II \DCN units \citep{SpirouDavisEtAl:1999} and
 the presence of multiple inhibitory synapses \citep{Alibardi:2006}
@@ -1729,13 +1709,6 @@ cells.  The \TV rate response could therefore just be modeled on the
 \yellownote{Population mean rate: Pros: fairly stable for smallish
 repetitions, Cons: removes timing}
 
-#+CAPTION: [Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from figure 9 \citet{ReissYoung:2005}.}
-#+LABEL: fig:TVReissFig9
-[[../SimpleResponsesChapter/gfx/TV_Reiss.pdf]]
-
-#+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures reproduced from \citealt{ReissYoung:2005}, Fig. 9)}
-#+LABEL: fig:TVNotchDiagram
-[[../SimpleResponsesChapter/gfx/TV_NotchDataConfig.pdf]]
 
 ** TODO Results
 
@@ -2061,6 +2034,7 @@ band-pass noise.
 # \end{figure}
 
 
+\newpage
 * TODO T Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones 
 
 Accurate modelling of the cochlear nucleus, in particular chopper
@@ -2506,6 +2480,7 @@ respectively.
 # *** Effect of TV: comb filter and echo suppression}
 
 
+
 * TODO Discussion 
 
 \yellownote{Discuss the relevance of creating the CN stellate model,
@@ -2648,3 +2623,52 @@ can easily reproduce this work.
 ### mode: visual-line
 ### fill-column: 72
 ### End:
+
+
+* Prelude 							   :noexport:
+  
+#+begin_src emacs-lisp
+   (setq TeX-master t)
+     ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
+     ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
+     ;;                                  "pdflatex -interaction nonstopmode %f" )) 
+      (setq org-latex-to-pdf-process '("pdfquick Chapter3")) 
+     ;;(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
+     ;;                                 "makeglossaries %b" 
+     ;;                                 "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
+     (setq org-export-latex-title-command "") 
+     (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
+     (add-to-list 'org-export-latex-classes 
+                  '("UoM-draft-org-article"
+ "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
+   \\documentclass[10pt,a4paper,twoside,openright]{book}
+     \\usepackage{style/uomthesis} 
+     \\input{user-defined}
+     \\usepackage[nonumberlist,acronym]{glossaries}
+     \\input{../hg/manuscript/misc/glossary} 
+     \\makeglossaries
+     \\pretolerance=150 \\tolerance=100
+     \\setlength{\\emergencystretch}{3em} 
+     \\overfullrule=1mm 
+   %  \\usepackage[notcite]{showkeys} 
+     \\lfoot{\\footnotesize\\today\\ at \\thistime} 
+     [NO-DEFAULT-PACKAGES]
+     [NO-PACKAGES]" 
+     ("\\newpage\n\\section{%s}" . "\\newpage\n\\section{%s}")
+     ("\\subsection{%s}"         . "\n\\subsection{%s}") 
+     ("\\subsubsection{%s}"      . "\n\\subsubsection{%s}") 
+     ("\\paragraph{%s}"          . "\n\\paragraph{%s}"))) 
+     (setq org-export-latex-title-command
+           "{\n\\singlespacing\n\\tableofcontents\n}\n") 
+   ;;v46i03
+   ;;(setq org-export-latex-verbatim-wrap
+   ;;      '("\\begin{Code}\n" . "\\end{Code}\n"))
+   
+#+end_src
+
+#+RESULTS:
+: {
+: \singlespacing
+: \tableofcontents
+: }
+
