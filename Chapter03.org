@@ -17,6 +17,56 @@
 \setcounter{chapter}{2} 
 #+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential parameter fitting of synaptic variables using simple acoustic responses}\label{sec:Chapter3} 
 
+
+* Prelude 							   :noexport:
+  
+#+begin_src emacs-lisp
+   (setq TeX-master t)
+     ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
+     ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
+     ;;                                  "pdflatex -interaction nonstopmode %f" )) 
+      (setq org-latex-to-pdf-process '("pdfquick Chapter3")) 
+     ;;(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
+     ;;                                 "makeglossaries %b" 
+     ;;                                 "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
+     (setq org-export-latex-title-command "") 
+     (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
+     (add-to-list 'org-export-latex-classes 
+                  '("UoM-draft-org-article"
+ "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
+   \\documentclass[10pt,a4paper,twoside,openright]{book}
+     \\usepackage{style/uomthesis} 
+     \\input{user-defined}
+     \\usepackage[nonumberlist,acronym]{glossaries}
+     \\input{../hg/manuscript/misc/glossary} 
+     \\makeglossaries
+     \\pretolerance=150 \\tolerance=100
+     \\setlength{\\emergencystretch}{3em} 
+     \\overfullrule=1mm 
+   %  \\usepackage[notcite]{showkeys} 
+     \\lfoot{\\footnotesize\\today\\ at \\thistime} 
+     [NO-DEFAULT-PACKAGES]
+     [NO-PACKAGES]" 
+     ("\\newpage\n\\section{%s}" . "\\newpage\n\\section{%s}")
+     ("\\subsection{%s}"         . "\n\\subsection{%s}") 
+     ("\\subsubsection{%s}"      . "\n\\subsubsection{%s}") 
+     ("\\paragraph{%s}"          . "\n\\paragraph{%s}"))) 
+     (setq org-export-latex-title-command
+           "{\n\\singlespacing\n\\tableofcontents\n}\n") 
+   ;;v46i03
+   ;;(setq org-export-latex-verbatim-wrap
+   ;;      '("\\begin{Code}\n" . "\\end{Code}\n"))
+   
+#+end_src
+
+#+RESULTS:
+: {
+: \singlespacing
+: \tableofcontents
+: }
+
+
+
 * Introduction  
 
 #+BEGIN_QUOTE
@@ -433,6 +483,24 @@ The stimuli presented to the stellate microcircuit included:
   
 
 \newpage
+* Figures 							   :noexport:
+
+** fig:microcircuit
+
+# #+BEGIN_SRC sh
+# inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'
+# --export-latex '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg'
+# #+END_SRC
+
+
+** fig:Compression
+
+
+# # + NAME: audiograms
+# #+BEGIN_SRC sh
+# make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
+# #+END_SRC
+
 * Golgi Cell Model: Monotonic Rate Level Responses in Marginal Shell Units 
     :PROPERTIES:
     :CUSTOM_ID: GolgiOpt
@@ -2599,23 +2667,6 @@ can easily reproduce this work.
 
 
 
-* Figures 							   :noexport:
-
-** fig:microcircuit
-
-# #+BEGIN_SRC sh
-# inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'
-# --export-latex '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg'
-# #+END_SRC
-
-
-** fig:Compression
-
-
-# # + NAME: audiograms
-# #+BEGIN_SRC sh
-# make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
-# #+END_SRC
 
 
 ### Local Variables:
@@ -2623,52 +2674,4 @@ can easily reproduce this work.
 ### mode: visual-line
 ### fill-column: 72
 ### End:
-
-
-* Prelude 							   :noexport:
-  
-#+begin_src emacs-lisp
-   (setq TeX-master t)
-     ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
-     ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
-     ;;                                  "pdflatex -interaction nonstopmode %f" )) 
-      (setq org-latex-to-pdf-process '("pdfquick Chapter3")) 
-     ;;(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
-     ;;                                 "makeglossaries %b" 
-     ;;                                 "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
-     (setq org-export-latex-title-command "") 
-     (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
-     (add-to-list 'org-export-latex-classes 
-                  '("UoM-draft-org-article"
- "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
-   \\documentclass[10pt,a4paper,twoside,openright]{book}
-     \\usepackage{style/uomthesis} 
-     \\input{user-defined}
-     \\usepackage[nonumberlist,acronym]{glossaries}
-     \\input{../hg/manuscript/misc/glossary} 
-     \\makeglossaries
-     \\pretolerance=150 \\tolerance=100
-     \\setlength{\\emergencystretch}{3em} 
-     \\overfullrule=1mm 
-   %  \\usepackage[notcite]{showkeys} 
-     \\lfoot{\\footnotesize\\today\\ at \\thistime} 
-     [NO-DEFAULT-PACKAGES]
-     [NO-PACKAGES]" 
-     ("\\newpage\n\\section{%s}" . "\\newpage\n\\section{%s}")
-     ("\\subsection{%s}"         . "\n\\subsection{%s}") 
-     ("\\subsubsection{%s}"      . "\n\\subsubsection{%s}") 
-     ("\\paragraph{%s}"          . "\n\\paragraph{%s}"))) 
-     (setq org-export-latex-title-command
-           "{\n\\singlespacing\n\\tableofcontents\n}\n") 
-   ;;v46i03
-   ;;(setq org-export-latex-verbatim-wrap
-   ;;      '("\\begin{Code}\n" . "\\end{Code}\n"))
-   
-#+end_src
-
-#+RESULTS:
-: {
-: \singlespacing
-: \tableofcontents
-: }
 
