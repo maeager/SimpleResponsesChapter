@@ -99,19 +99,16 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
 %\vspace{2ex}
 \noindent
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{E}{Input\slash Ouput}\\\hline
+\hdr{2}{E}{Optimisation}\\\hline
 \textbf{Input Stimulus} & Pure tone stimuli with 50 ms duration, 2 ms cosine squared on\slash off ramp, and 20 ms delay. Optimisation of each chopper unit used the CF and 30 dB re threshold sound level of the exemplar unit: CS (3.9~kHz 40 dB SPL), CT1 (8.2 kHz, 85 dB SPL), CT2 (12.4~kHz 35 dB SPL). \\\hline 
-\textbf{Input} & Stimulus induced Poisson spike trains from \GLG units, \HSR and \LSR \ANFs, and natural synaptic input from \DS and \TV units\\\hline
-%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}
-%\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps}
-%\end{minipage}}\\\hline
-% \textbf{Output} & Output of 100 TV cells, across the network, with 25 repetitions\\\hline
-%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth}%
-%\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}
-%\end{minipage}}\\\hline
-%\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
-%\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
-\textbf{Measurements}    &  Intracellular voltage was recorded and special measures were calculated.  Spikes recorded and co-efficient of variation statistic was calculated in 10 ms windows.\\\hline
+     \textbf{Parameters}      & 
+      \wHSRTS, \nHSRTS,    
+      \wLSRTS, \nLSRTS,   
+      \wDSTS,  \nDSTS,   
+      \wTVTS,  \nTVTS, 
+  \wGLGTS, \nGLGTS 
+      \TS \gleak, \TS \gh    \\\hline
+\textbf{Fitness Function}    &  Intracellular voltage was recorded and special measures were calculated (see text).  Spikes were recorded and co-efficient of variation statistic was calculated in 10 ms windows from 2.5 ms after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
 \end{tabularx}
 \vspace{1ex}
 }
