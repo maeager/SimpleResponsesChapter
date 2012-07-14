@@ -1,10 +1,12 @@
 #+TITLE: Chapter 3
 #+DATE:
 #+AUTHOR: Michael A Eager
-#+OPTIONS:  H:5   <:t >:t tasks:nil
+#+OPTIONS: toc:nil author:nil H:5  <:t >:t tasks:nil
 #+STARTUP: oddeven
 #+SEQ_TODO:   TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
 #+TAGS:       Write(w) Update(u) Fix(f) Check(c) noexport(n)
+#+TODO: REFTEX
+#+LANGUAGE: en_GB-ise-wo_accents
 
 #+LaTeX_CLASS: UoM-draft-org-article
 #+LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
