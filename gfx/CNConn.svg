@@ -13,7 +13,7 @@
    id="svg3547"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="CNConn.svg"
+   sodipodi:docname="CNConn.pdf"
    inkscape:export-filename="/media/data/Work/thesis/SimpleResponsesChapter/gfx/CNConn.png"
    inkscape:export-xdpi="600"
    inkscape:export-ydpi="600">
@@ -25,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -74,7 +74,7 @@
      id="namedview4065"
      showgrid="false"
      inkscape:zoom="0.6356579"
-     inkscape:cx="796.02566"
+     inkscape:cx="475.24622"
      inkscape:cy="493.96895"
      inkscape:window-x="0"
      inkscape:window-y="25"
@@ -1431,26 +1431,33 @@
        id="tspan3441" />
   </text>
   <text
-     style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
-     x="40.64645"
+     style="font-size:16.58696938px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Sans;-inkscape-font-specification:Sans"
+     x="26.27108"
      y="133.40804"
-     id="text4033">
+     id="text4033"
+     sodipodi:linespacing="125%">
     <tspan
-       x="40.64645"
+       x="26.27108"
        y="133.40804"
        id="tspan4035"
-       style="font-size:16.58696938px">Post Synaptic Cell Group</tspan>
+       style="font-size:16.58696938px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans">Post Synaptic Cell Group, <tspan
+   style="font-size:16.58696938px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans Bold"
+   id="tspan3372">Y</tspan>
+</tspan>
   </text>
   <text
      style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
-     x="35.117455"
+     x="19.636276"
      y="307.87906"
      id="text4037">
     <tspan
-       x="35.117455"
+       x="19.636276"
        y="307.87906"
        id="tspan4039"
-       style="font-size:16.58696938px">Pre Synaptic Cell Group</tspan>
+       style="font-size:16.58696938px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Sans;-inkscape-font-specification:Sans">Pre Synaptic Cell Group, <tspan
+   style="font-weight:bold;-inkscape-font-specification:Sans Bold"
+   id="tspan3370">X</tspan>
+</tspan>
   </text>
   <text
      style="font-size:12.80000019px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;font-family:sanserif"
@@ -1895,10 +1902,12 @@
      id="text5434"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
-       id="tspan5436"
+       id="tspan3374"
+       style="font-size:17.69276619px"
        x="504.60867"
-       y="230.9512"
-       style="font-size:22.11595917px;font-weight:bold;-inkscape-font-specification:Sans Bold">w</tspan></text>
+       y="230.9512"><tspan
+         style="font-size:17.69276619px;baseline-shift:sub"
+         id="tspan3376">X→Y</tspan></tspan></text>
   <text
      xml:space="preserve"
      style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -2156,4 +2165,70 @@
          id="tspan3947-4" />
     </text>
   </g>
+  <text
+     xml:space="preserve"
+     style="font-size:64.99999947%;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;baseline-shift:sub"
+     x="67.646446"
+     y="701.62036"
+     id="text3350"
+     sodipodi:linespacing="125%"
+     transform="matrix(0.55289897,0,0,0.55289897,-61,24.570923)"><tspan
+       sodipodi:role="line"
+       id="tspan3352"
+       x="67.646446"
+       y="701.62036">X </tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="485.49185"
+     y="226.3797"
+     id="text3300-6"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3302-8"
+       x="485.49185"
+       y="226.3797"
+       style="font-size:22.11595917px;font-weight:bold;-inkscape-font-specification:Sans Bold">w</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="526.96307"
+     y="416.2764"
+     id="text5434-3"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3374-4"
+       style="font-size:17.69276619px"
+       x="526.96307"
+       y="416.2764"><tspan
+         style="font-size:17.69276619px;baseline-shift:sub"
+         id="tspan3376-0">X→Y</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="129.46179"
+     y="438.25754"
+     id="text5434-0"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3374-3"
+       style="font-size:17.69276619px"
+       x="129.46179"
+       y="438.25754"><tspan
+         style="font-size:17.69276619px;baseline-shift:sub"
+         id="tspan3376-1">X→Y</tspan></tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:8.84638309px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="436.5033"
+     y="531.96057"
+     id="text5434-8"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3374-8"
+       style="font-size:17.69276619px"
+       x="436.5033"
+       y="531.96057"><tspan
+         style="font-size:17.69276619px;baseline-shift:sub"
+         id="tspan3376-12">X→Y</tspan></tspan></text>
 </svg>
