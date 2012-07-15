@@ -1388,7 +1388,7 @@ width of the activity across the CF of the central unit (Figure
   :LABEL: sec:Ch3:TVModel
   :END:
 
-** INPROGRESS Background
+** Background
 
 # Alibardi:2003 In layer 3 of the DCN, glycinergic vertical neurons are present,
 # and they have specific nuclear and synaptic characteristics that distinguish
@@ -1420,12 +1420,10 @@ width of the activity across the CF of the central unit (Figure
 # cells in the mouse show clear excitatory input from TS cells and diffuse
 # inhibitory input from DS cells \citep{ZhangOertel:1993b}.
 
-\TV or vertical cells are glycinergic, inhibitory cells found in the
+\TV cells are glycinergic, inhibitory cells found in the
 deep layers of the \DCN that send axon collaterals to the \VCN.  They
-are characterized as having a non-monotonic response to tones with
-increasing sound level and respond poorly to broadband noise
-\citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}, as shown
-in Figure \ref{fig:SpirouFig1}.  Anterograde labeling in the \DCN
+are characterized as having unique cell bodies and synaptic characteristics that distinguish them from other cells in the deep layer, Giant cells and Golgi-stellate cells \citep{SaintBensonEtAl:1991,WickesbergOertel:1993,Alibardi:2000b,Alibardi:1999}.
+  Anterograde labeling in the \DCN
 suggests \TV cells project tonotopically to the \VCN not just on-CF, but
 also to the low and high frequency side bands
 \citep{MunirathinamOstapoffEtAl:2004,OstapoffMorestEtAl:1999}.  With
@@ -1436,28 +1434,44 @@ apposed to only two types in cats
 as \TS and \DS cells, with the third in rats identified as small
 adendritic neurons.
 
-Ultra-structural labeling of synapses in the rat \DCN suggest \TV cells
-are inhibited by glycinergic \DS cells and from sources in the \DCN but
-excitatory inputs were not found from \TS cells in the rat
-\citep{Rubio:2005}.  Evidence in the mouse suggests otherwise since
-intracellular responses from labeled \TV cells in the mouse show clear
-excitatory input from \TS cells and diffuse inhibitory input from \DS
-cells \citep{ZhangOertel:1993b,WickesbergOertel:1993}.
-
-# \TV cells receive mono-synaptic excitatory input from auditory nerve fibres
-# \citep{OertelWu:1989,ZhangOertel:1993b}.
+\TV cells receive weak mono-synaptic excitatory input, mainly on their
+dendrites, from auditory nerve fibres
+\citep{OertelWu:1989,ZhangOertel:1993b}.  Ultra-structural labeling of
+synapses in the rat \DCN suggest \TV cells are inhibited by glycinergic
+\DS cells and from sources in the \DCN \citep{Rubio:2005}.
+Intracellular responses from labeled \TV cells in the mouse show clear
+diffuse inhibitory input from \DS cells
+\citep{ZhangOertel:1993b,WickesbergOertel:1993}.  Evidence in the mouse
+suggests \TV cells also receive excitation from \TS cells
+\citep{WickesbergOertel:1993}, however \citet{Rubio:2005} found
+absolutely no \TS terminals on rat \TV cells.
+  
 
 *** Acoustic Response of Tuberculoventral cells
 
-\TV cells are characterized as having a non-monotonic response to
-tones with increasing sound level and respond poorly to broadband
-noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005},
-as shown in Figure \ref{fig:SpirouFig1}.
-\TV cells have low spontaneous rates and variable \PSTHs (pause-build,
-unusual chopper, or onset with sustained activity) have been recorded
-\citep{ShofnerYoung:1985,SpirouDavisEtAl:1999}. They have little or no
-response to wide band noise and firing rates to \CF tones that are
-non-monotonic functions of intensity.
+The complex physiological characteristics of \DCN neurons are
+categorised into \EIRA groups
+\citep{EvansNelson:1973,YoungBrownell:1976}.  \TV cells have a
+non-monotonic response to tones with increasing sound level and respond
+poorly to broadband noise, categorised as a Type-II \EIRA unit
+\citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}.  Units
+with type II responses are sharply tuned, have thresholds 10 dB higher
+than other units with which they are intermingled, and they do not
+respond to broad-band noise
+\citep{SpirouDavisEtAl:1999,YoungBrownell:1976,Young:1980,SachsYoung:1980,YoungVoigt:1982,ShofnerYoung:1985,VoigtYoung:1990,YoungSpirouEtAl:1992,Rhode:1999}.
+Figure \ref{fig:SpirouFig1} shows the recording of a single \TV cell,
+with narrow tuning and weak response to noise
+\citep{SpirouDavisEtAl:1999}.
+#\TV cells are characterized as having a non-monotonic response to
+#tones with increasing sound level and respond poorly to broadband
+#noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005},
+#as shown in Figure \ref{fig:SpirouFig1}.
+# Young and his colleagues have shown that most neurons in the deep DCN
+# respond to sound with either of two major types of response maps, type
+# II or type IV
+# \citep{EvansNelson:1973,ShofnerYoung:1985,VoigtYoung:1980,VoigtYoung:1990,Young:1980,YoungBrownell:1976}.
+
+
 
 #+CAPTION: [Experimental data of a single Type-II DCN unit]{Experimental data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig1
@@ -1465,18 +1479,19 @@ non-monotonic functions of intensity.
 
 
 # Responses of tuberculoventral neurons to sound
-Recordings \textit{in vivo} indicate that tuberculoventral cells
-probably have type II characteristics and respond with “chopper”
-temporal response patterns \citep{ZhangOertel:1993b}. Units with type II
-responses are sharply tuned, they have thresholds - 10 dB higher than
-other units with which they are intermingled, and they do not respond to
-broad-band noise
-\citep{SpirouDavisEtAl:1999,YoungBrownell:1976,Young:1980,SachsYoung:1980,YoungVoigt:1982,ShofnerYoung:1985,VoigtYoung:1990,YoungSpirouEtAl:1992,Rhode:1999}. Young
-and his colleagues have shown that most neurons in the deep DCN respond
-to sound with either of two major types of response maps, type II or
-type IV
-\citep{EvansNelson:1973,ShofnerYoung:1985,VoigtYoung:1980,VoigtYoung:1990,Young:1980,YoungBrownell:1976}.
+Recorded \PSTHs of \TV cells /in vivo/ are variable (pause-build,
+unusual chopper, or onset with sustained activity) 
+\citep{ShofnerYoung:1985,SpirouDavisEtAl:1999}. 
 
+Recordings /in vitro/ show that tuberculoventral cells respond with
+ regular "chopper"-like behaviour to voltage-clamped current inputs
+ \citep{ZhangOertel:1993b}.  The strong input from \DS cells across
+ frequencies contribute to little or no response to wide band noise and
+ firing rates to \CF tones that are non-monotonic functions of
+ intensity.
+
+
+## -- Are these mine?  --
 Taken together with histological studies, the results suggest that
 auditory nerve fibres (predominantly \LSR fibres) form the major
 excitatory input to type II DCN units along with other excitation from
@@ -1503,7 +1518,7 @@ principal cells are strongly inhibited by this narrowband source.  As a
 result, \DCN principal cells are inhibited by sharp spectral peaks close
 to their \BF \citep{SpirouDavisEtAl:1999}.
 
-*** TODO Modelling of Tuberculoventral cells
+*** Modelling of Tuberculoventral cells
 
 - Expand previous studies of the DCN incl. TV cells
 - \citet{ArleKim:1991a} were the first to show type II \EIRA with
@@ -1519,7 +1534,7 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
   and cross-correlation analysis.
 - \citep{DunnVetterEtAl:1996} performed some modelling.
 
-Modelling of Type II units in the \DCN has been thoroughly categorised by
+Modelling of Type II units in the \DCN has been thoroughly investigated by
 Davis and colleagues
 \citep{YoungDavis:2002,HancockDavisEtAl:2001,DavisYoung:2000,SpirouDavisEtAl:1999,HancockDavisEtAl:1997,DavisVoigt:1996,DavisVoigt:1994,DavisVoigt:1991}.
 Low spontaneous rate is created in a neural model by either increasing
@@ -1533,7 +1548,7 @@ fibres over \HSR fibres to synapse with \TV cells.  Whether \LSR fibres
 preference the deep layers of the \CN are yet to be confirmed
 \citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
 
-- \citep{Rhode:1999} Vertical cells in gerbils (mainly type III)
+# - \citep{Rhode:1999} Vertical cells in gerbils (mainly type III)
 
 The intrinsic mechanism is more favourable in Type II units, provided
 there is sufficient inhibition and excitation
@@ -1568,7 +1583,6 @@ for the principal cells of the \DCN including type II units.
 ** TODO Implementation
 
 \citet{ReissYoung:2005} performed their experiments on adult cats.
-
 \yellownote{Give details about the TV model implementation}
 
 #+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
@@ -1624,7 +1638,6 @@ TV cell model.
     \end{minipage}\hfill 
     \end{center} }
 #+END_LaTeX
-
 
 
 ** TODO Verification of the TV cell model: Rate-Level response to tones and noise
@@ -1696,6 +1709,7 @@ units to pure tones replicates the single channel excitatory inputs from
 
 \newpage
 
+
 * D Stellate to Tuberculoventral Cell Connection: Optimisation of Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses 
   :PROPERTIES:
   :LABEL: sec:Ch3:DSTV
@@ -1712,7 +1726,6 @@ cell connections.\yellownote{MTD think about combining this section with TV mode
 #+LABEL: fig:TVReissFig9
 [[../SimpleResponsesChapter/gfx/TV_Reiss.pdf]]
 
-
 ** Implementation
 
 Table \ref{tab:TVNotchModelSummary} shows the implementation parameters
@@ -1721,29 +1734,30 @@ for the optimisation of \DS cell connections to \TV cells.
 # \citet{ReissYoung:2005} recorded from individual \TV neurons, is
 # adapted for a range of \TV cell models using a single notch stimulus.
 The experimental data, shown in Figure \ref{fig:TVReissFig9}, is the
-average responses of type II \DCN units to notch sweeps.  The
-optimisation routine would be prohibitive if it was a notch sweep
-simulated on a single neuron; therefore, this optimisation uses a single
-notch presentation across an entire network of TV cells.  Accordingly,
-the fitness function must take into account the relative position of
-cells in the network when comparing the experimental data.  For example,
-when presented with a notch noise filtered between 5kHz and 10kHz, a
-unit with \CF of 5kHz will see a falling edge of a 1 octave notch,
-whereas a unit with \CF of 10kHz, will see a rising edge of a half
-octave notch.  Figure \ref{fig:TVNotchDiagram} shows the combination of
-the type \DCN II unit notch data for 1 octave.
+average responses of type II \DCN units to notch sweeps
+\cite{ReissYoung:2005}.  The optimisation routine would be prohibitive
+if it was a notch sweep simulated on a single neuron; therefore, this
+optimisation uses a single notch presentation across an entire network
+of TV cells.  Accordingly, the fitness function must take into account
+the relative position of cells in the network when comparing the
+experimental data.  For example, when presented with a notch noise
+filtered between 5 kHz and 10 kHz, a unit with \CF of 5 kHz will see a
+falling edge of a 1 octave notch, whereas a unit with \CF of 10 kHz, will
+see a rising edge of a half octave notch.  Figure
+\ref{fig:TVNotchDiagram} shows the combination of the type \DCN II unit
+notch data for 1 octave.
 
 #+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures reproduced from \citealt{ReissYoung:2005}, Fig. 9)}
 #+LABEL: fig:TVNotchDiagram
 [[../SimpleResponsesChapter/gfx/TV_NotchDataConfig.pdf]]
 
 
-The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated with
-logarithmically constant notch widths and notch center frequencies
+The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated
+with logarithmically constant notch widths and notch center frequencies
 ranging from 1 octave below to 1 octave above \BF in $1/50$ octave
 steps.  The single notch noise stimulus presented in this optimisation
 routine was generated in [[latex:progname][MATLAB/GNU Octave]] using frozen Gaussian noise
-(100kHz sampling rate) and a Chebyshev type II band reject filter[fn::
+(100 kHz sampling rate) and a Chebyshev type II band reject filter[fn::
 The \textsf{[[latex:progname][cheby2}]] function is in the octave-forge signal package and
 MATLAB's Signal Processing Toolbox.].  The sound level in the
 \citet{ReissYoung:2005} data further complicates the situation.  The
@@ -1751,9 +1765,10 @@ power spectrum is maintained at a constant level per frequency band (dB
 per Hz$^{1/2}$) and this is processed and scaled at each point in the notch
 sweep.  For a single presentation used in this experiment the sound
 level plays an important part in stimulating the \ANFs and contributing
-interneurons. From the previous optimisation (Section \ref{sec:Ch3:TVModel} [[*Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses]]), 
-the preliminary response to noise in \TV cell models was linear between 40 to 80 dB SPL. 
-
+interneurons. From the previous optimisation (Section
+\ref{sec:Ch3:TVModel} [[*Tuberculoventral Cell Model: Optimisation Using
+Tone and Noise Rate Level Responses]]), the preliminary response to noise
+in \TV cell models was linear between 40 to 80 dB SPL.
 
 
 Higher thresholds in type II \DCN units \citep{SpirouDavisEtAl:1999} and
@@ -1767,18 +1782,17 @@ excitatory inputs to generate action potentials.
 # inhibitory input. Then on 2 other runs I shifted the reversal potential of the
 # leak current to $-70$ and $-75$.}
 
-The big issue with the optimisation of population mean rate responses is
-that the model could be over simplified and remove timing information.
-The \HSR rate response is generally flat at medium to high sound
-intensities.  \DS cell response has a regular onset spike but has a low
-rate throughout the stimulus, which detracts from the purpose of using a
-whole network to optimise parameters for synaptic inputs regarding \TV
-cells.  The \TV rate response could therefore just be modeled on the
-\LSR response using a simple gradient-decent method.
+The big issue with the optimisation of mean rate responses in neural
+population is that the model could be over simplified and remove timing
+information.  The \HSR rate response is generally flat at medium to high
+sound intensities.  \DS cell response has a regular onset spike but has
+a low rate throughout the stimulus, which detracts from the purpose of
+using a whole network to optimise parameters for synaptic inputs
+regarding \TV cells.  The \TV rate response could therefore just be
+modeled on the \LSR response using a simple gradient-decent method.
 
 \yellownote{Population mean rate: Pros: fairly stable for smallish
 repetitions, Cons: removes timing}
-
 
 ** TODO Results
 
@@ -2105,6 +2119,7 @@ band-pass noise.
 
 
 \newpage
+
 * TODO T Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones 
 
 Accurate modelling of the cochlear nucleus, in particular chopper
@@ -2536,7 +2551,7 @@ respectively.
   %\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50-3}}\\
   \caption[Optimised TS cell model responses]{Response of optimised TS cell model
     at the centre of the network (CF=5.8 kHz). A. Rate level responses to tone,
-    noise and tone plus noise.  B. PSTH at 90 dB SPL\.  C. Response area
+    noise and tone plus noise.  B. PSTH at 90 dB SPL\@.  C. Response area
     equivalent using all TS units in the network.  D. Masked response across the
     CF of the central unit (15 dB masking noise).} 
   \label{fig:TSverification}
@@ -2548,7 +2563,6 @@ respectively.
 # Go on Paolini's proposal
 
 # *** Effect of TV: comb filter and echo suppression}
-
 
 
 * TODO Discussion 
@@ -2635,15 +2649,15 @@ connection) not included.}
 # Example conclusion The purpose for performing the experiments herein
 # was to gain insights into the functional relevance of the type II
 # neurons by analyzing their endogenous firing features. The observed
-# elec- trophysiological diversity between the two classes of primary
-# au- ditory neurons argues for different roles for the type I and II
+# electrophysiological diversity between the two classes of primary
+# auditory neurons argues for different roles for the type I and II
 # neurons. In contrast to the type I spiral ganglion neurons, the type
 # II neurons show markedly distinct kinetics and receive a classically
 # convergent innervation pattern that is also present in other sensory
 # systems. Like the rod neural circuitry in the retina, the type II
-# spiral ganglion neurons appear to be designed to inte- grate input
+# spiral ganglion neurons appear to be designed to integrate input
 # from the many receptors that they innervate. This would have very
-# little impact, however, on signal detection with- out the process of
+# little impact, however, on signal detection without the process of
 # temporal summation. The slow kinetics of the type II spiral ganglion
 # neurons, along with their ability to respond at relatively
 # hyperpolarized voltage levels, are features consistent with mechanisms
@@ -2664,7 +2678,7 @@ can easily reproduce this work.
 
 
 #+BEGIN_LaTeX
-  \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../hg/manuscript/bib/MyBib}\newpage \listoftodos}{}
+  \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../MyBib}\newpage \listoftodos}{}
 #+END_LaTeX
 
 
