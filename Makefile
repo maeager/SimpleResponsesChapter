@@ -2542,7 +2542,8 @@ gpi-fontname = Helvetica
 define gpi-terminal
 $(if $(filter %.pdf,$2),pdfcairo enhanced,postscript enhanced eps) \
 $(call gpi-monochrome,$1,$3) solid font "$(call gpi-fontname), \
-$(call gpi-font-entry,$2,$(call gpi-fontsize,$1,$2))" 
+$(if $(filter %.pdf,$2),$(call gpi-fontsize,$1,$2), \
+$(call gpi-font-entry,$2,$(call gpi-fontsize,$1,$2)))" 
 endef
 
 # $(call gpi-embed-pdf-fonts,<input file>,<output file>)
