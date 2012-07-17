@@ -409,7 +409,7 @@ latency measured in high \CF units in the ARLO \AN model
 Table \ref{tab:Meth:AddDelay} shows the additional delay component for
 each cell type calculated from population statistics to ensure the first
 spike latency in the models matched the experimental data.  The models
-were designated from the basic \citet{RothamanManis:2003b} neural
+were designated from the basic \citet{RothmanManis:2003b} neural
 models.  The relative difference between \DS cell model's mean FSL and
 the other Type I cell types can be attributed to the additional \IKLT
 channels in the Type I-II Rothman and Manis neural model.  \IKLT is
@@ -1011,6 +1011,7 @@ increased from 0 to 90 dB \SPL.
 
 
 \newpage
+
 * D Stellate Cell Model: Optimisation Using Click Recovery Responses 
 
 ** Background
@@ -1383,6 +1384,8 @@ width of the activity across the CF of the central unit (Figure
 
 
 \newpage
+
+
 * Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses 
   :PROPERTIES:
   :LABEL: sec:Ch3:TVModel
@@ -1446,12 +1449,12 @@ suggests \TV cells also receive excitation from \TS cells
 \citep{WickesbergOertel:1993}, however \citet{Rubio:2005} found
 absolutely no \TS terminals on rat \TV cells.
   
-
 *** Acoustic Response of Tuberculoventral cells
 
 The complex physiological characteristics of \DCN neurons are
 categorised into \EIRA groups
-\citep{EvansNelson:1973,YoungBrownell:1976}.  \TV cells have a
+\citep{EvansNelson:1973,YoungBrownell:1976}.  Type I \EIRA units reflect the responses of single \ANFs 
+\TV cells have a
 non-monotonic response to tones with increasing sound level and respond
 poorly to broadband noise, categorised as a Type-II \EIRA unit
 \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}.  Units
@@ -1473,9 +1476,14 @@ with narrow tuning and weak response to noise
 
 
 
-#+CAPTION: [Experimental data of a single Type-II DCN unit]{Experimental data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
+#+CAPTION: [Rate-level responses of a single Type-II DCN unit]{Tone and noise rate-level responses of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig1
 [[../SimpleResponsesChapter/gfx/Spirou-Fig1-type2.pdf]]
+
+
+#+CAPTION: [Rate-level responses of a single Type-II DCN unit]{Pharmaceutical effects on tone and noise rate-level responses of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
+#+LABEL:  fig:SpirouFig8
+[[../SimpleResponsesChapter/gfx/Spirou-Fig8-RL-Strych-Bic.png]]
 
 
 # Responses of tuberculoventral neurons to sound
@@ -1639,8 +1647,10 @@ TV cell model.
     \end{center} }
 #+END_LaTeX
 
+** TODO Verification of the TV cell model
 
-** TODO Verification of the TV cell model: Rate-Level response to tones and noise
+Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
+
 
 \yellownote{more work to be done here. Possibly need calculations on
 Q10 values of TV units. Calculation of threshold to tone and noise. }
