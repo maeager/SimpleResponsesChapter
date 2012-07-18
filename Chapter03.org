@@ -1070,26 +1070,47 @@ mediates fast inhibition between the nuclei
 
 *** Acoustic Properties of D Stellate Cells
 
-Intracellular responses to sounds indicate that the bandwidth of
-inputs to \DS neurons is typically two octaves below \CF and one
-octave above \CF
+\DS cells (and their equivalent large multipolar cells) have been
+classified as having a \OnC \PSTH to \CF tones across many species
+\citep{BlackburnSachs:1989,FengKuwadaEtAl:1994,PalmerWallaceEtAl:2003,Pfeiffer:1966,SmithRhode:1989,ArnottWallaceEtAl:2004,PaoliniClark:1999,SmithMassieEtAl:2005}.
+Their high threshold to BF tones and increased response to noise show
+\DS cells receive inputs from many weak \ANFs across a wide frequency
+range \citep{RhodeSmith:1986}.  Electrophysiological intracellular
+responses /in vivo/ to sounds indicate that the bandwidth of \ANF inputs
+to \DS neurons is asymmetric, with an estimated range of two octaves
+below the \DS cells \CF and one octave above \CF
 \citep{PaoliniClark:1999,PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004}.
 
-Post-onset GABAergic inhibition in \DS cells is a major influence on
-the \PSTH of \OnC neurons
-\citep{FerragamoGoldingEtAl:1998a,EvansZhao:1998}.  Latency of
-excitation to auditory nerve shocks suggests Golgi cells are activated
-by type II \ANFs and low spontaneous rate type I \ANFs
-\citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}.  Therefore,
-type II and \LSR type I \ANFs could be involved in gain control
-through GABAergic modulation of activity in the \VCN.
+
+Post-onset GABAergic inhibition in \DS cells is a major influence on the
+\PSTH of \OnC neurons \citep{FerragamoGoldingEtAl:1998a}.
+Iontopheroretic investigations /in vivo/ using bicuculine (a \GABAa
+blocker) by Caspary and colleagues \citep{CasparyBackoffEtAl:1994} have
+shown the firing rate increases to tones and noise. The \GABA effects on
+\OnC units' response area are predominantly on \CF.  Application of
+bicuculine in the \VCN has a significant effect of changing the temporal
+behaviour in \DS cells \citep{EvansZhao:1998}, which also effects \AM
+responses in the \IC \citep{CasparyPalombiEtAl:2002}.  With click pairs,
+\citet{BackoffPalombiEtAl:1997} showed strong \GABA inhibition does not
+allow full click recovery in onset choppers until 16 ms separation of
+the probe and mask clicks.
+
+It is presumed for the \CNSM model, that \GABA-ergic input to \DS cells
+is only from local, acoustically driven Golgi cells.  The temporal
+response of Golgi cells to \AM is unknown, therefore clicks and click
+pairs \citep[as~used~by~][]{BackoffPalombiEtAl:1997} were deemed the
+most suitable for optimisation.  
+
+# Latency of excitation to auditory nerve
+# shocks suggests Golgi cells are activated by type II \ANFs and low
+# spontaneous rate type I \ANFs
+# \citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}.
+#   Therefore,
+# type II and \LSR type I \ANFs could be involved in gain control through
+# GABAergic modulation of activity in the \VCN.
 
 
-\GABA blockers in the \VCN have a significant effect of changing the
-behaviour in the response to AM in the IC
-\citep{CasparyPalombiEtAl:2002}.  AM coding effects of GABA in the
-Chinchilla
-
+# AM coding effects of GABA in the Chinchilla
 # \CN \citep{BackoffShadduckEtAl:1999}. \citep{CasparyBackoffEtAl:1994}
 # Caspary and colleagues worked on the effects of \GABA in in the \VCN.
 # Zhang and Winter looked at the response area of \VCN onset units to
@@ -1120,14 +1141,16 @@ Chinchilla
 # response to the probe (Fig. 1C).
 
 
-In order to specify how ANF and GABA-ergic inputs regulate the click recovery response
-in DS cells, a parameter optimisation routine was performed.  
-The \DS neural model was implemented with a single-compartment, type
-I-II Rothman and Manis model \citep{RothmanManis:2003b}. The type I-II
-Rothman and Manis is unique to \DS cells due to the small presence of
-low-threshold potassium currents.  A larger cell body diameter, average
-25 \um \citep{SmithRhode:1989,ArnottWallaceEtAl:2004}, was included in
-the model and conductance parameters were adjusted accordingly to keep
+In order to specify how \ANF and 
+\GABA-ergic inputs regulate the click
+recovery response in \DS cells, a simple parameter optimisation was
+performed.  The \DS neural model was implemented with a
+single-compartment, type I-II Rothman and Manis model
+\citep{RothmanManis:2003b}. The type I-II Rothman and Manis is unique to
+\DS cells due to the small presence of low-threshold potassium currents.
+A larger cell body diameter, average 25 \um
+\citep{SmithRhode:1989,ArnottWallaceEtAl:2004}, was included in the
+model and conductance parameters were adjusted accordingly to keep
 total-compartment conductance the same as the original values
 \citep{RothmanManis:2003b}.
 
@@ -1146,18 +1169,15 @@ graded weights should suffice.
 
 #+LaTeX:\input{../SimpleResponsesChapter/DSRecoveryTable}
 
-\DS input parameters that were preemptively fixed included the number of \GLG to
-\DS synapses ($\nGLGDS = 25$), the spread of \ANFs to \DS cells
-(\sANFDSh and \sANFDSl), and the conduction delay from the auditory
-nerve (\dANFDS).  The first spike latency in high \CF \DS cells ($2.8 \pm 0.09$ ms) is
-precise and faster than other stellate neurons in the VCN
-\citep{RhodeSmith:1986}.  The addition of 0.5 ms to \ANF to \DS input
-connections is a combination of conductance and synaptic delay.  
 
 The synaptic connections onto the D stellate cell model, shown in Table
 \ref{tab:DScellModelSummary}C, are simplified to afferent ANF inputs and
-intra-nuclear co-localised GABAergic input from Golgi cells.  The \ANF
-spread onto \DS cells is well documented
+intra-nuclear co-localised GABAergic input from Golgi cells.  
+The \DS cell model's input parameters were pre-emptively fixed.  These included the number of \GLG to
+\DS synapses ($\nGLGDS = 25$), the spread of \ANFs to \DS cells
+(\sANFDSh and \sANFDSl), and the conduction delay from the auditory
+nerve (\dANFDS).  
+The \ANF spread onto \DS cells is well documented
 \citep{PaoliniClark:1999,ArnottWallaceEtAl:2004,PalmerWallaceEtAl:2003,JiangPalmerEtAl:1996,PalmerJiangEtAl:1996}.
 The dendrites of \DS cells cover one third of the nucleus
 \citep{ArnottWallaceEtAl:2004}, and in physiological studies the
@@ -1168,20 +1188,26 @@ routine for \DS input bandwidth across the whole network, the spread of
 \ANF to \DS cells was split into a Gaussian distribution with spread
 below (\sANFDSl=5) and spread above \CF , assuming average octave
 separation between channels is 0.4 octaves, approximate the calculated
-response area \citep{PaoliniClark:1999}.  The offset of \ANF to \DS
-cells is zero.
+response area \citep{PaoliniClark:1999}.  
+
+The additional delay parameter, \dANFDS, was shown in Section \ref{sec:Ch3:Delays}.
+ The first spike latency in high \CF \DS cells ($2.8 \pm 0.09$ ms) is
+precise and faster than other stellate neurons in the \VCN
+\citep{RhodeSmith:1986}.  The additional of 1.2 ms to \ANF to \DS input
+connections is a combination of axonal conductance and dendritic delay.  
+
+
 
 The physiological effect of GABAergic inputs onto onset choppers is
-primarily on \CF
-\citep{CasparyHaveyEtAl:1979,PalombiCaspary:1992,CasparyBackoffEtAl:1994,CasparyPalombi:1993,CasparyPalombiEtAl:1993},
-but the bandwidth is difficult to ascertain.  The dendrites of D
-stellate cells cover one third of the nucleus (approximately 3 octaves
-of tonotopic frequencies) and occasionally project into the \GCD
-\citep{ArnottWallaceEtAl:2004}.  Golgi cells' axonal collaterals are
-confined to 200 microns in the \GCD and \ANF tonotopic organisation in
-the \GCD is less defined.  The \GLGDS spread is set to 2 channels with
-zero offset, which corresponds to a \DS cell selecting from
-approximately 5 nearest Golgi cells.
+primarily on \CF, but the bandwidth is difficult to ascertain
+\citep{CasparyHaveyEtAl:1979,PalombiCaspary:1992,CasparyBackoffEtAl:1994,CasparyPalombi:1993,CasparyPalombiEtAl:1993}.
+The dendrites of D stellate cells cover one third of the nucleus
+(approximately 3 octaves of tonotopic frequencies) and occasionally
+project into the \GCD \citep{ArnottWallaceEtAl:2004}.  Golgi cells'
+axonal collaterals are confined to 200 microns in the \GCD and \ANF
+tonotopic organisation in the \GCD is less defined.  The \GLGDS spread
+is set to 2 channels with zero offset, which corresponds to a \DS cell
+selecting from approximately 5 nearest Golgi cells.
 
 #+CAPTION: [Experimental data showing click recovery in onset choppers.]  {Experimental data showing click recovery in onset choppers. Figure shows mask/recovery response ratio using 1 ms window during GABA blocker (BMI) experiments (reproduced from \citet{BackoffPalombiEtAl:1997})}. 
 #+LABEL: fig:BackoffPalombi
@@ -1199,17 +1225,17 @@ the DS unit.  The unit used in the optimisation has a CF = 5.8 kHz
 measures of spontaneous activity and restrict over excitation by ANFs.
 
 
-In order to specify how Golgi cells regulate the click recovery
-response in DS cells, a parameter optimisation routine was performed.
-\DS input parameters that were preemptively fixed included: the number
-of \GLG to \DS synapses ($\nGLGDS = 25$), the spread of \ANFs to \DS
-cells (\sANFDSh and \sANFDSl), and the conduction delay from the
-auditory nerve (\dANFDS).  The first spike latency in high \CF \DS
-cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate
-neurons in the VCN \citep{RhodeSmith:1986}.  The addition of 0.5 ms to
-\ANFDS connections is a combination of conductance and synaptic delay.
+# In order to specify how Golgi cells regulate the click recovery
+# response in DS cells, a parameter optimisation routine was performed.
+# Some \DS cells' input parameters were preemptively fixed.  These included the number
+# of \GLG to \DS synapses ($\nGLGDS = 25$), the spread of \ANFs to \DS
+# cells (\sANFDSh and \sANFDSl), and the conduction delay from the
+# auditory nerve (\dANFDS).  The first spike latency in high \CF \DS
+# cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate
+# neurons in the VCN \citep{RhodeSmith:1986}.  The addition of 0.5 ms to
+# \ANFDS connections is a combination of conductance and synaptic delay.
 
-# %The effect of Golgi cells on \DS is delayed by the extra 0.7 ms delay from \ANF to Golgi, plus the slow peak of \GABAa inhibition.
+# %
 # \yellownote{fix this paragraph}
 
 ** INPROGRESS Results
@@ -1590,12 +1616,25 @@ for the principal cells of the \DCN including type II units.
 
 ** TODO Implementation
 
+The \TV neural model was implemented with a single-compartment
+conductance neural model of type I-c, a classic regular firing unit
+\citep{RothmanManis:2003b}.
+
+  \wLSRTV, 
+  \wHSRTV, 
+
+  \wDSTV, \nDSTV, 
+
+\TV E$_{{rev}}$ 
+
+
 \citet{ReissYoung:2005} performed their experiments on adult cats.
 \yellownote{Give details about the TV model implementation}
 
 #+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
 [[../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_Fig8.pdf]]
+
 
 ** TODO Results
 
