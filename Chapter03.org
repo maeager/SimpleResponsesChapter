@@ -1090,10 +1090,11 @@ shown the firing rate increases to tones and noise. The \GABA effects on
 \OnC units' response area are predominantly on \CF.  Application of
 bicuculine in the \VCN has a significant effect of changing the temporal
 behaviour in \DS cells \citep{EvansZhao:1998}, which also effects \AM
-responses in the \IC \citep{CasparyPalombiEtAl:2002}.  With click pairs,
-\citet{BackoffPalombiEtAl:1997} showed strong \GABA inhibition does not
-allow full click recovery in onset choppers until 16 ms separation of
-the probe and mask clicks.
+responses in the \IC
+\citep{CasparyHelfertEtAl:1997,CasparyPalombiEtAl:2002}.  With click
+pairs, \citet{BackoffPalombiEtAl:1997} showed strong \GABA inhibition
+does not allow full click recovery in onset choppers until 16 ms
+separation of the probe and mask clicks.
 
 It is presumed for the \CNSM model, that \GABA-ergic input to \DS cells
 is only from local, acoustically driven Golgi cells.  The temporal
