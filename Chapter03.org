@@ -503,7 +503,8 @@ The stimuli presented to the stellate microcircuit included:
 # make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
 # #+END_SRC
 
-* Golgi Cell Model: Monotonic Rate Level Responses in Marginal Shell Units 
+
+* Golgi Cell Model: Optimisation Using Rate Level Responses in Marginal Shell Units 
     :PROPERTIES:
     :CUSTOM_ID: GolgiOpt
     :END:
@@ -1012,7 +1013,8 @@ increased from 0 to 90 dB \SPL.
 
 \newpage
 
-* D Stellate Cell Model: Optimisation Using Click Recovery Responses 
+
+* D Stellate Cell Model: Optimisation Using Click Recovery and Rate Level Responses 
 
 ** Background
 
@@ -1239,7 +1241,7 @@ measures of spontaneous activity and restrict over excitation by ANFs.
 # %
 # \yellownote{fix this paragraph}
 
-** INPROGRESS Results
+** INPROGRESS Results of Click Recovery Optimisation
 
 Optimisation parameters for \GLGDS are optimised based on experimental
 click recovery data from \citet{BackoffPalombiEtAl:1997}, as shown in
@@ -1359,6 +1361,9 @@ up for the small weight that was obtained in the optimisation.
 #   \end{center}
 # \end{figure}
 
+** TODO Results of Rate Level Optimisation
+
+
 ** Verification of the DS Cell Model
 
 # \yellownote{Small presentation of PSTH, RL, NRL, MRC and RA. Leave AM responses till next chapter}
@@ -1413,7 +1418,7 @@ width of the activity across the CF of the central unit (Figure
 \newpage
 
 
-* Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses 
+* Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses  
   :PROPERTIES:
   :LABEL: sec:Ch3:TVModel
   :END:
@@ -1569,6 +1574,8 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
   and cross-correlation analysis.
 - \citep{DunnVetterEtAl:1996} performed some modelling.
 
+ - LomakinDavis:2008 \citep{ReissYoung:2005}
+
 Modelling of Type II units in the \DCN has been thoroughly investigated by
 Davis and colleagues
 \citep{YoungDavis:2002,HancockDavisEtAl:2001,DavisYoung:2000,SpirouDavisEtAl:1999,HancockDavisEtAl:1997,DavisVoigt:1996,DavisVoigt:1994,DavisVoigt:1991}.
@@ -1593,6 +1600,9 @@ favoured in this model.  Work by Reed and Blum
 \citep{ReedBlum:1995,BlumReedEtAl:1995,ReedBlum:1997,BlumReed:1998} on
 the circuitry of the \DCN showed that wide-band inhibition was necessary
 for the principal cells of the \DCN including type II units.
+
+
+
 
 # \yellownote{The above paragraphs need to be cleaned up and worked into the
 # idea of generating BNN models using a simple approach}
@@ -1768,7 +1778,9 @@ units to pure tones replicates the single channel excitatory inputs from
 
 The increase in rate of TV cells in regions below the frequency of the
 notch is the main argument for the assertion of offset in DS to TV
-cell connections.\yellownote{MTD think about combining this section with TV model optimisation}
+cell connections.
+
+\yellownote{MTD think about combining this section with TV model optimisation}
 
 #+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
 
@@ -2169,6 +2181,7 @@ band-pass noise.
 
 
 \newpage
+
 
 * TODO T Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones 
 
