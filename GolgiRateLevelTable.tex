@@ -34,9 +34,9 @@
 \begin{tabularx}{\textwidth}{|l|l|l|X|}\hline%
 \hdr{4}{C}{Connectivity}    \\\hline
      \textbf{Name}       & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\multirow{2}{*}{\ANFGLG} &       {\vspace{1ex} HSR}       &       {\vspace{1ex} GLG}       & 
+\multirow{2}{*}{\ANFGLG} &       {\HSR}       &       {\GLG}       & 
 Gaussian spatial convergence, centered on CF, variance equal to spread parameter ($\sHSRGLG=2$), weight \wHSRGLG, delay \dANFGLG \\
-                         &       {\vspace{1ex} LSR}       &       {\vspace{1ex} GLG}       & 
+                         &       {\LSR}       &       {\GLG}       & 
 Gaussian spatial convergent spread, centered on CF, spread ($\sLSRGLG$) to be optimised, weight \wLSRGLG, delay \dANFGLG\\\hline
 \end{tabularx}
 \vspace{1ex}
@@ -49,7 +49,8 @@ Gaussian spatial convergent spread, centered on CF, spread ($\sLSRGLG$) to be op
  \textbf{Type} & Instantaneous-rate Poisson neural  model \\\hline 
 %\raisebox{-4.5ex}{\parbox{\linewidth}{\textbf{Model Dynamics}}} & 
  \textbf{Model Dynamics} & %
-{\rule{1em}{0em}\vspace*{-5.5ex}\begin{equation*}
+{\rule{1em}{0em}\vspace*{-1.5ex}
+\begin{equation*}
       \begin{array}{r@{\;=\;}ll}
                \mathbf{w}_{L,H}                &                w_{LSR,HSR \to GLG}  \mathcal{N}(i,\sigma)                & , i=\text{channel position}, \sigma^2=\sLSRGLG \\ 
                   \alpha(t)                    &            \left( t  \exp(\frac{-t}{\Gtau}) \right)           &  \text{synapto-dendritic filter with unit area}  \dag \\
@@ -59,7 +60,7 @@ Gaussian spatial convergent spread, centered on CF, spread ($\sLSRGLG$) to be op
                      G(t)                      &                             \alpha(t)\,\ast\,g(t)                             & \text{convolution of $\alpha(t)$ and $g(t)$}\\
  & \text{if } G(t) < 0 \,G(t)=0 & \text{rectification of Golgi model rate} \\
 \end{array} \end{equation*}
-\vspace*{-2.5ex}\rule{1em}{0em}}                  \\\hline
+\vspace*{-1.5ex}\rule{1em}{0em}}                  \\\hline
  \textbf{Spiking} & Renewal Poisson process given instantaneous rate, $G(t)$,  with refractory effects  \citep{ZilanyBruce:2007,Jackson:2003} \\\hline
 \end{tabularx}
 \vspace{2ex} 

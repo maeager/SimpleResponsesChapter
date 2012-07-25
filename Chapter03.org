@@ -1539,7 +1539,6 @@ with narrow tuning and weak response to noise
 Recorded \PSTHs of \TV cells /in vivo/ are variable (pause-build,
 unusual chopper, or onset with sustained activity) 
 \citep{ShofnerYoung:1985,SpirouDavisEtAl:1999}. 
-
 Recordings /in vitro/ show that tuberculoventral cells respond with
  regular "chopper"-like behaviour to voltage-clamped current inputs
  \citep{ZhangOertel:1993b}.  The strong input from \DS cells across
@@ -1548,10 +1547,19 @@ Recordings /in vitro/ show that tuberculoventral cells respond with
  intensity.
 
 
+Pharmacological effects of neurotransmitter blockers have shown that \TV
+cells (Type II DCN units) are strongly regulated by glycinergic and
+GABA-ergic inputs. TV cells' zero spontaneous activity is still
+maintained despite application of glycinergic or \GABAa blockers
+\citep{DavisYoung:2000}. In reponse to sounds, both strychnine or
+bicuculine enabled TV cells to respond more vigorously to noise and
+lowered the threshold for tones \citep{DavisYoung:2000}.
+
+
 ## -- Are these mine?  --
 Taken together with histological studies, the results suggest that
 auditory nerve fibres (predominantly \LSR fibres) form the major
-excitatory input to type II DCN units along with other excitation from
+excitatory input to type II \DCN units along with other excitation from
 TS cells.  If true, this hypothesis could also explain the finding that
 type II DCN units have consistently higher thresholds than \DCN
 principal cells \citep{YoungBrownell:1976} because \LSR auditory nerve
@@ -1560,7 +1568,7 @@ of also have elevated thresholds relative to the lowest threshold
 auditory nerve innervation of the \DCN are most consistent with \HSR
 fibre innervation of \TV cell somata and \LSR fibre innervation of
 dendrites \citep{Liberman:1993}.  In that case, the low spontaneous
-rates and high sound thresholds of type II DCN units might be caused by
+rates and high sound thresholds of type II \DCN units might be caused by
 a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997};
 this is consistent with the responses of vertical cells to intracellular
 current injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
@@ -1577,10 +1585,10 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
 
 *** Modelling of Tuberculoventral cells
 
-- Expand previous studies of the DCN incl. TV cells
-- \citet{ArleKim:1991a} were the first to show type II \EIRA with
+ - Expand previous studies of the DCN incl. TV cells
+ - \citet{ArleKim:1991a} were the first to show type II \EIRA with
   simple McCullock-Pitts point neuron models.
-- (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
+ - (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
   inhibitory mechanism to create type II unit responses in a model of
   the DCN\. In that model, each cell population was described by a
   mathematical formula for its steady-state rate-level function. This
@@ -1589,9 +1597,8 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
   DCNunits. The level of abstraction employed in our model allows for
   examination of temporal response properties including PST histograms
   and cross-correlation analysis.
-- \citep{DunnVetterEtAl:1996} performed some modelling.
-
- - LomakinDavis:2008 \citep{ReissYoung:2005}
+ - \citep{DunnVetterEtAl:1996} performed some modelling.
+ - \citep{LomakinDavis:2008} \citep{ReissYoung:2005}
 
 Modelling of Type II units in the \DCN has been thoroughly investigated by
 Davis and colleagues
