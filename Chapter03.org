@@ -16,7 +16,7 @@
 #+BIBLIOGRAPHY: MyBib alphanat
 
 
-\setcounter{chapter}{2} 
+#+LaTeX: \setcounter{chapter}{2} 
 #+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential parameter fitting of synaptic variables using simple acoustic responses}\label{sec:Chapter3} 
 
 
@@ -45,7 +45,7 @@
      \\pretolerance=150 \\tolerance=100
      \\setlength{\\emergencystretch}{3em} 
      \\overfullrule=1mm 
-   %  \\usepackage[notcite]{showkeys} 
+     \\usepackage[notcite]{showkeys} 
      \\lfoot{\\footnotesize\\today\\ at \\thistime} 
      [NO-DEFAULT-PACKAGES]
      [NO-PACKAGES]" 
@@ -604,7 +604,7 @@ around 1.3 ms \citep{FerragamoGoldingEtAl:1998}.
 # Inward rectifying FerragamoGoldingEtAl:1998     130 Mohm
 # FerragamoGoldingEtAl:1998
 
-*** TODO Acoustic Response of Golgi cells
+*** Acoustic Response of Golgi cells
 
 # The physiological response of Golgi cells has not been extensively studied.
 
@@ -972,7 +972,7 @@ frequency spread from \LSR fibres.
 #   \end{figure}
 #   \clearpage \newpage
 
-** Verification Results of Golgi Cell Model
+** Verification of Results in the Golgi Cell Model
 
 After setting the optimised parameters in Table
 \ref{tab:GolgiCellResults}, the Golgi cell model was run with typical
@@ -1041,7 +1041,8 @@ projections that entered the GCD, as shown in Figure
 
 This section aims to set network parameters and intrinsic
 cell properties that influence the behaviour of \DS cells.  
-
+The first case of optimisation, Section \ref{sec:Ch3:DSClickRecovery}, click recovery responses are used to optimise the \GABAa synapse and inputs to the DS model.
+In the second optimisation, Section \ref{sec:Ch3:DSRateLevel}, rate-level responses to tones and noise are used to optimise the parameters controlling excitation in the \DS model. 
 
 # Large multipolar or stellate cells in the \VCN have been shown to have 3--4
 # long dendrites stretching 200 microns (or one third of the \VCN) and their
@@ -1120,7 +1121,7 @@ most suitable for optimisation.
 # determine \GABA {on\slash off} freq.  Smith and Rhode, Smith and
 # others looked at OnC response area and two-tone
 
-** INPROGRESS Implementation
+** Implementation
 
 # 2.5. Data analysis Data were collected as spike times with a
 # resolution of 10 μs and analyzed off-line on a micro-VAX 3100
@@ -1241,8 +1242,10 @@ measures of spontaneous activity and restrict over excitation by ANFs.
 # %
 # \yellownote{fix this paragraph}
 
-** INPROGRESS Results of Click Recovery Optimisation
-
+** Results of Click Recovery Optimisation
+   :PROPERTIES:
+   :LABEL:    sec:Ch3:DSClickRecovery
+   :END:
 Optimisation parameters for \GLGDS are optimised based on experimental
 click recovery data from \citet{BackoffPalombiEtAl:1997}, as shown in
 Figure \ref{fig:BackoffPalombi}.  The input stimulus presented a series
@@ -1317,7 +1320,7 @@ up for the small weight that was obtained in the optimisation.
 
 #+CAPTION: [Click recovery optimisation results in DS cell model]{Optimisation results of click recovery behaviour in DS cell model (CF 5.8 kHz). The optimal response (blue circle) is obtained from Fig. 3 in \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of an OnC unit (CF 5.8 kHz). Best result (green triangles).}
 #+LABEL: fig:DSClickRecoveryResult
-[[DS_ClickRecovery/DS_ClickRecovery_result.pdf]]
+[[../SimpleResponsesChapter/gfx/DS_ClickRecovery_result.pdf]]
 
 # \begin{figure}
 # \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_OptVars}\\
@@ -1361,7 +1364,22 @@ up for the small weight that was obtained in the optimisation.
 #   \end{center}
 # \end{figure}
 
-** TODO Results of Rate Level Optimisation
+** Results of Rate Level Optimisation
+   :PROPERTIES:
+   :LABEL:    sec:Ch3:DSRateLevel
+   :END:
+
+Figure \ref{fig:DSRateLevelResult} shows the final results of 
+the \DS model rate level optimisation.  The
+optimisation parameters show a clear favouritism toward the \LSR input
+rather than the \HSR input to \DS units.  While this may not seem ideal
+for fast coincidence detection, the large number of \HSR synapses makes
+up for the small weight that was obtained in the optimisation.
+
+#+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level behaviour in the DS cell model (CF 6.3 kHz) was optimised to experimental data in \citet{ArnottWallaceEtAl:2004}. The target response (blue circles) is obtained from Fig. 3 in \citet{BackoffPalombiEtAl:1997}, }
+#+LABEL: fig:DSClickRecoveryResult
+[[../SimpleResponsesChapter/gfx/DS_RateLevel_result.pdf]]
+
 
 
 ** Verification of the DS Cell Model
@@ -1422,7 +1440,6 @@ width of the activity across the CF of the central unit (Figure
   :PROPERTIES:
   :LABEL: sec:Ch3:TVModel
   :END:
-
 ** Background
 
 # Alibardi:2003 In layer 3 of the DCN, glycinergic vertical neurons are present,
@@ -1625,29 +1642,38 @@ for the principal cells of the \DCN including type II units.
 
 #+LaTeX:\input{../SimpleResponsesChapter/TV_RateLevelTable}
 
-** TODO Implementation
 
+** Implementation
+
+The \TV cell model used in the \CNSM model Table {tab:TVModelSummary}.
 The \TV neural model was implemented with a single-compartment
 conductance neural model of type I-c, a classic regular firing unit
-\citep{RothmanManis:2003b}.
+\citep{RothmanManis:2003b}.  The synaptic inputs to the \TV cell model
+include excitation from HSR and LSR ANFs, and inhibition from \DS cells.
+The weights (\wLSRTV, \wHSRTV) and number ( \nLSRTV, \nHSRTV) of ANF
+synapses were used in the optimisation procedures to allow for coarse
+and fine adjustments to the strength of excitation. The TV cell model
+receives ANF inputs from only one frequency channel at the same CF
+(\sANFTV=0).  The strength of inhibition in the \TV cell model was
+controlled by the weight and number of \DS cell inputs (\wDSTV,
+\nDSTV). These parameters were included in the rate level
+optimisation. The parameters controlling the distribution of \DS cell
+inputs to \TV cells were fixed (\sDSTV=3, \oDSTV=0) in the rate level
+optimisation and are the focus of optimisation in the next section,
+Section \ref{sec:Ch3:DSTV}.  The reversal potential of TV cells
+(E$_{{rev}}$) was also optimised to allow modulation of the level of the
+resting membrane potential from the default Type I Rothman and Manis
+neural model.
 
-  \wLSRTV, 
-  \wHSRTV, 
 
-  \wDSTV, \nDSTV, 
-
-\TV E$_{{rev}}$ 
-
-
-\citet{ReissYoung:2005} performed their experiments on adult cats.
-\yellownote{Give details about the TV model implementation}
+#\citet{ReissYoung:2005} performed their experiments on adult cats.
+#\yellownote{Give details about the TV model implementation}
 
 #+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
 [[../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_Fig8.pdf]]
 
-
-** TODO Results
+**  Results
 
 Figure \ref{fig:TVRLresult} shows the output behaviour of the five
 different neurons in the optimisation of the input parameters of the
@@ -1686,27 +1712,27 @@ TV cell model.
                  \wHSRTV (nS)                 & 0.983 \\ 
                   \wDSTV (nS)                 & 1.152 \\ 
                     \nDSTV                    & 29.4917 \\
-                   \TV \Erev                  & -68.25 \\\hline
-              RL Error (spikes/s)             & 36.7552 \\
-  RL without inhibition Error      (spikes/s) & 11.3262 \\
-             NRL Error (spikes/s)             & 13.8671 \\
-    NRL without inhibition Error (spikes/s)   & 67.4216 \\
+                   \TV \Erev                  & -68.25 \\ \hline
+      Rate level error (spikes/s)             & 36.7552 \\
+  No DS inhibition rate level error (spikes/s) & 11.3262 \\
+              Noise rate level error (spikes/s)             & 13.8671 \\
+    NRL without DS inhibition error (spikes/s)   & 67.4216 \\
             Final error (spikes/s)            & 129.37 \\ \hline 
   \end{tabularx}% 
     \end{minipage}\hfill 
     \end{center} }
 #+END_LaTeX
 
-** TODO Verification of the TV cell model
+**  Verification of the TV cell model
 
-Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
+# Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
 
 
-\yellownote{more work to be done here. Possibly need calculations on
-Q10 values of TV units. Calculation of threshold to tone and noise. }
+# \yellownote{more work to be done here. Possibly need calculations on
+# Q10 values of TV units. Calculation of threshold to tone and noise. }
 
-The Tuberculoventral cell model's optimised parameters were applied to all \TV units across the whole network and tested using tones, noise and tones plus noise stimuli.
-Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model.  
+#The Tuberculoventral cell model's optimised parameters were applied to all \TV units #across the whole network and tested using tones, noise and tones plus noise stimuli.
+#Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model.  
 # Adding masking noise increases the width of the activity across the
 # CF of the central unit (Figure \ref{fig:DSverification}D)
 # highlighting the broad inputs of \ANFs onto \DS units.
@@ -1769,12 +1795,11 @@ units to pure tones replicates the single channel excitatory inputs from
 
 \newpage
 
-
-* D Stellate to Tuberculoventral Cell Connection: Optimisation of Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses 
+* Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses: Optimisation of D Stellate to Tuberculoventral Cell Connection Offset  
   :PROPERTIES:
   :LABEL: sec:Ch3:DSTV
   :END:
-** TODO Background
+** Background
 
 The increase in rate of TV cells in regions below the frequency of the
 notch is the main argument for the assertion of offset in DS to TV
@@ -1856,7 +1881,7 @@ modeled on the \LSR response using a simple gradient-decent method.
 \yellownote{Population mean rate: Pros: fairly stable for smallish
 repetitions, Cons: removes timing}
 
-** TODO Results
+** Results
 
 # \begin{figure}[tbh]
 #   \centering
@@ -2131,7 +2156,7 @@ The eventual result of the \DS to \TV connection optimisation, highlighted in Ta
   \yellownote{Pull everything about  the TV cell model together.}
 #+END_LaTeX
 
-** TODO Verification of connectivity between DS and TV cells
+** Verification of TV cell models' Notch sweep response
 
 The response of individual type II units to notch and band-pass sweeps
 in Figure \ref{fig:TVReissFig9} (reprinted from Figure 9 in
@@ -2183,12 +2208,12 @@ band-pass noise.
 \newpage
 
 
-* TODO T Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones 
+* T Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones 
 
 Accurate modelling of the cochlear nucleus, in particular chopper
 units and T stellate cells.
 
-** TODO Background
+** Background
 
 \yellownote{Expand background}
 
@@ -2597,7 +2622,7 @@ respectively.
   \yellownote{Grab most recent data for the table}
 #+END_LaTeX
 
-** TODO Verification of the TS Cell Models
+**  Verification of the TS Cell Models
 
 \yellownote{Explain the figure \ref{fig:TSverification}}
 
@@ -2628,7 +2653,7 @@ respectively.
 # *** Effect of TV: comb filter and echo suppression}
 
 
-* TODO Discussion 
+* Discussion 
 
 \yellownote{Discuss the relevance of creating the CN stellate model,
   especially the methods.}
