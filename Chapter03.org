@@ -82,24 +82,27 @@
 #+END_QUOTE
 \yellownote{TODO: Get page number of this quote}
 
-Shihab Shamma calls upon the neuroscience community 
-to investigate the role of populations of neurons in neurophysiology. 
-This chapter draws on the
-wealth of experimental data accumulated in auditory neuroscience to
-create a detailed, \BNN model of the cochlear nucleus stellate cell
-network.  The design and methods for the construction of the model
-shall provide insights relevant to other neural network models of the
-brain, especially those that use highly-specific sensory pathways.
+Shihab Shamma calls upon the neuroscience community to investigate the
+role of populations of neurons in neurophysiology.  To do so, this
+chapter draws on the wealth of experimental data accumulated in auditory
+neuroscience to create a detailed \BNN model of the T stellate
+microcircuit in the cochlear nucleus (hereafter referred to as the \CNSM
+model, as described in Chapter \ref{sec:MethodsChapter}).  The design
+and methods for the construction of the model provide insights
+relevant to other neural network models of the brain, especially those
+that use sensory pathways.
 
-It still remains a laborious task to develop an accurate representation
-of complex behaviour of real neural networks.  Pre-eminent computational
-neuroscientists have noted that "choices, assumptions, and guesses" are
-an integral part of neuronal modelling \citep{SegevBurkeEtAl:1998}.  With
+Despite advances in computational neuroscience, it remains a challenging
+task to develop an accurate representation of the complex behaviour of
+real neural networks.  Choices, guess and assumptions continue to be
+integral parts of neuronal modelling \citep{SegevBurkeEtAl:1998}.  With
 the acceleration of computational power and enhanced experimental
-techniques in multi-unit recordings are enabling more detailed neural
-models to be developed.  There is much to be gained from
+techniques in multi-unit recordings, it is possible to develop more
+detailed neural models. There is much to be gained from
 biophysically-realistic modelling approaches, especially in the
 thoroughly investigated cochlear nucleus of mammals, bats and birds.
+
+\yellownote{TODO: think about linking to end of methods chapter.  I.e. reproducbable research}
 
 # \yellownote{TODO: See neural detail in auditory
 # system\citep{LuRubioEtAl:2008}} \yellownote{Discuss use of Poisson
@@ -107,51 +110,47 @@ thoroughly investigated cochlear nucleus of mammals, bats and birds.
 # network simulation during optimisation.}
 
 To develop and optimise detailed neural models and neural network
-models, reproducible research methods are required.  Examples of
-parameter estimation and fitting in neural models are also becoming
-more advanced, for example [[latex:progname][SSNS]] \citep{SichtigSchafferEtAl:2008},
-[[latex:progname][NeuroFitter]] \citep{VanAchardEtAl:2007} and [[latex:progname][MultiRunFitter]] (a feature
-in NEURON).  In this chapter, a table method introduced by
-\citet{NordlieGewaltigEtAl:2009} is used to summarise the neural
-models used in each optimisation step.  The Nordlie tables shown in
-each optimisation stage consist of A) the model summary, B) cell type
-populations, C) connectivity between two cell types, D) neuron and
-synapse models, and E) optimisation parameters.  This method aims to
-show a consistent and recognisable format for presenting various
-neural network models and their constituents.
-
+models, reproducible research methods are required .  
+In this chapter, the table method introduced by
+\citet[as~described~in~Chapter~2]{NordlieGewaltigEtAl:2009} is used to summarise the neural
+models used in each optimisation step.  
+# The Nordlie tables shown in
+# each optimisation stage consist of A) the model summary, B) cell type
+# populations, C) connectivity between two cell types, D) neuron and
+# synapse models, and E) optimisation parameters.
+# This method aims to
+# show a consistent and recognisable format for presenting various
+# neural network models and their constituents.
 # \yellownote{this needs more explanation in the methods sections}
 
 
-In attempting to create a realistic microcircuit the parameter
-optimisation routine, these steps need to be reiterated in sequential
-stages.  The parameters chosen in the sequential optimisation stages
-should be chosen so that they do not influence the properties of
-previously fitted parameters.
-In this chapter, the connections within the mammalian cochlear nucleus
-stellate network (Figure \ref{fig:microcircuit}) are developed using a
-sequential method of optimisation steps.  The parameters of each cell
-type are determined based on experimental data or are optimised based
-solely on responses to simple stimuli.
-Each cell type is typified with its characteristic \PSTH in response
-to short tone bursts
-\citep{Pfeiffer:1966,BlackburnSachs:1989,YoungRobertEtAl:1988}, and
-the \EIRA to tones across the frequency spectrum \citep{Evans:1992},
-although this may vary within cell types.  \yellownote{TODO: Explain the
-figure more thoroughly}
-
+To create a realistic microcircuit, the parameter optimisation routine
+needs to be developed in sequential stages.  \yellownote{what parameters
+are we talking about here? introduce Fig} The parameters in the
+sequential optimisation stages should be chosen so that they do not
+influence the properties of previously fitted parameters. In this
+chapter, the connections within the \CNSM model (Figure
+\ref{fig:microcircuit}) were developed using such a sequential method of
+optimisation steps. The parameters of each cell type were determined
+based on experimental data or were optimised based solely on responses to
+simple stimuli. Each cell type was typified with its characteristic
+\PSTH in response to short tone bursts
+\citep{Pfeiffer:1966,BlackburnSachs:1989,YoungRobertEtAl:1988}, and the
+\EIRA to tones across the frequency spectrum \citep{Evans:1992}.
 The process methods for optimisation were described in Chapter
-\ref{sec:Chapter2} Section \ref{sec:Ch2:Optimisation}, [[*Optimisation Techniques][Optimisation
-Techniques]]. These include specifying the model to be optimised,
-specifying the criteria, specifying the parameters and constraints of
-the model, and implementing the optimisation.
-The restricted network models to be optimised in each section are presented in their
-Background sub-section.   Criteria to be satisfied are presented in Implementation
-sections by specifying the experimental data set, the stimulus and the
-recorded output analysis required.  Parameters and constraints of the
-model are also presented in the Implementation section and the
-accompanying Nordlie table.  Optimisation results are presented in the
-Results section of each step.
+\ref{sec:Chapter2} (Section \ref{sec:Ch2:Optimisation}, [[*Optimisation Techniques][Optimisation
+Techniques]]). 
+# These included specifying the model to be optimised,
+# the criteria, and the parameters and the constraints of
+# the model, and implementing the optimisation.
+# The restricted network models optimised in each section are presented in their
+# Background sub-section.   
+# Criteria to be satisfied are presented in Implementation
+# sections by specifying the experimental data set, the stimulus and the
+# recorded output analysis required.  Parameters and constraints of the
+# model are also presented in the Implementation section and the
+# accompanying Nordlie table.  Optimisation results are presented in the
+# Results section of each step.
 
 
 ** CN Stellate Microcircuit 
@@ -448,7 +447,6 @@ cell models.
       \end{table}
 #+END_LaTeX
 
-
 ** Simulation and Parallel Capabilities
 
 The time step of the numerical integration performed in each of the simulations in the chapter was 0.05 ms.
@@ -467,7 +465,6 @@ function, which uses the principle axis algorithm
 =fun=, of n variables using the principal axis method without the
 use of =fun='s gradient.
 
-
 ** Verification of Cell Model Responses to Simple Tones and Noise
 
 Verification of the optimisation processes requires running a suite of
@@ -485,6 +482,7 @@ The stimuli presented to the stellate microcircuit included:
   
 
 \newpage
+
 * Figures 							   :noexport:
 
 ** fig:microcircuit
@@ -493,7 +491,6 @@ The stimuli presented to the stellate microcircuit included:
 # inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'
 # --export-latex '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg'
 # #+END_SRC
-
 
 ** fig:Compression
 
