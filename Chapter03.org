@@ -94,7 +94,7 @@ that use sensory pathways.
 
 Despite advances in computational neuroscience, it remains a challenging
 task to develop an accurate representation of the complex behaviour of
-real neural networks.  Choices, guess and assumptions continue to be
+real neural networks.  Choices, guesses and assumptions continue to be
 integral parts of neuronal modelling \citep{SegevBurkeEtAl:1998}.  With
 the acceleration of computational power and enhanced experimental
 techniques in multi-unit recordings, it is possible to develop more
@@ -110,7 +110,7 @@ thoroughly investigated cochlear nucleus of mammals, bats and birds.
 # network simulation during optimisation.}
 
 To develop and optimise detailed neural models and neural network
-models, reproducible research methods are required .  
+models, reproducible research methods are required.  
 In this chapter, the table method introduced by
 \citet[as~described~in~Chapter~2]{NordlieGewaltigEtAl:2009} is used to summarise the neural
 models used in each optimisation step.  
@@ -125,21 +125,26 @@ models used in each optimisation step.
 
 
 To create a realistic microcircuit, the parameter optimisation routine
-needs to be developed in sequential stages.  \yellownote{what parameters
-are we talking about here? introduce Fig} The parameters in the
-sequential optimisation stages should be chosen so that they do not
-influence the properties of previously fitted parameters. In this
-chapter, the connections within the \CNSM model (Figure
-\ref{fig:microcircuit}) were developed using such a sequential method of
-optimisation steps. The parameters of each cell type were determined
-based on experimental data or were optimised based solely on responses to
-simple stimuli. Each cell type was typified with its characteristic
-\PSTH in response to short tone bursts
+needs to be developed in sequential stages.  In this chapter, the
+connections within the \CNSM model (Figure \ref{fig:microcircuit}) were
+developed using such a sequential method of optimisation steps.
+Parameters in the microcircuit can be separated into two classes,
+cell-based and connectivity-based.  The cell-based parameters for each
+cell model in the \CNSM model, discussed in Section \ref{sec:Meth:cell-models}
+[[*Neural%20Cell%20Models][Neural Cell Models]], remain relatively fixed. The connectivity-based
+parameters, introduced in Section \ref{sec:Ch2:Parameters} [[*Connectivity%20Parameters][Connectivity
+Parameters]], are the main focus for this chapter.  The parameters in the
+sequential optimisation stages were chosen so that they did not
+influence the properties of previously fitted parameters.  The
+parameters of each cell type were determined based on experimental data
+or were optimised based solely on responses to simple stimuli. Each cell
+type was typified with its characteristic \PSTH in response to short
+tone bursts
 \citep{Pfeiffer:1966,BlackburnSachs:1989,YoungRobertEtAl:1988}, and the
-\EIRA to tones across the frequency spectrum \citep{Evans:1992}.
-The process methods for optimisation were described in Chapter
-\ref{sec:Chapter2} (Section \ref{sec:Ch2:Optimisation}, [[*Optimisation Techniques][Optimisation
-Techniques]]). 
+\EIRA to tones across the frequency spectrum \citep{Evans:1992}.  The
+process methods for optimisation were described in Section
+\ref{sec:Ch2:Optimisation}, [[*Optimisation%20Techniques][Optimisation Techniques]].
+
 # These included specifying the model to be optimised,
 # the criteria, and the parameters and the constraints of
 # the model, and implementing the optimisation.
@@ -153,18 +158,17 @@ Techniques]]).
 # Results section of each step.
 
 
-** CN Stellate Microcircuit 
+** Cochlear Nucleus Stellate Microcircuit Model 
 
-The stellate network model drawn in Figure \ref{fig:microcircuit}
-describes the following cells and models:
+The \CNSM model in Figure \ref{fig:microcircuit} shows the following cell models:
 1. The \AN model: A phenomenological auditory model provides spiking
-   input to cochlear nucleus neurons across frequencies and spontaneous
-   rate types of the \ANFs from an arbitrary input stimulus
+   input to \CN neurons across frequencies and spontaneous rate types of
+   the \ANFs from an arbitrary input stimulus
    \citep{ZilanyBruceEtAl:2009}.  The base line in Figure
-   \ref{fig:microcircuit} is a simplification of auditory nerve fibres
-   (ANF) from low \CF to high \CF (left to right). The model reproduces
-   responses for high and low SR ANFs at 100 channels across the
-   frequency range 200 Hz to 48 kHz.
+   \ref{fig:microcircuit} is a simplification of \ANFs from low \CF to
+   high \CF (left to right). The model reproduces responses for high and
+   low \SR \ANFs at 100 channels across the frequency range 200 Hz to 48
+   kHz.
 2. The Golgi cell: a \GABA-ergic \VCN marginal shell unit that is
    presumed to regulate excitability in the \GCD and core \VCN units
    \citep{FerragamoGoldingEtAl:1998}.  Only one /in vivo/ study has
@@ -173,9 +177,9 @@ describes the following cells and models:
    are taken from that study and are defined by a monotonic response to
    tones and noise, a type I\slash III \EIRA, and an unusual or chopper
    \PSTH.
-3. The D stellate cell: a glycinergic, large multipolar cell with \OnC
+3. The D stellate cell: a large, glycinergic, multipolar\slash stellate cell with \OnC\ 
    \PSTH response that acts as a coincidence detector.  Its large
-   dendritic area increases its response to noise allowing it to behave
+   dendritic area increases its response to noise, allowing it to behave
    as a wide-band inhibitor in the \VCN, \DCN, and contralateral \CN
    \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
 4. The Tuberculoventral cell: a glycinergic, type II \EIRA unit in the
@@ -184,7 +188,7 @@ describes the following cells and models:
    recurrent connections between D and T stellate cells in the \VCN
    \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
 5. The T stellate cell: one of the major output projection cells of the
-   cochlear nucleus to the inferior colliculus.  This multipolar neuron
+   \CN to the inferior colliculus.  This multipolar neuron
    has been shown to have robust spectral representation and enhanced
    synchronisation to modulation in speech sounds
    \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
@@ -199,63 +203,62 @@ describes the following cells and models:
 #   \end{figure}
 # #+END_LaTeX
 
-#+CAPTION: [Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (see text for details).}
+#+CAPTION: [Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (CNSM) model.}
 #+LABEL: fig:microcircuit
 [[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
 
 Optimisation of a detailed \BNN model requires a realistic input model
-with which to mimick the behaviour experimentally observed in live
-neural networks. The input to the CN stellate model, the auditory nerve
-fibres, is discussed in the next section. To further fit the parameters
-of the CN model, a simplistic and sequential method is applied to each
-of the cell-types using experimental data.
-\yellownote{TODO: This para is about pushing the reader towards the following
-  sections.  I'm not sure about the assertion of 'well-tested': too
-  narrative, less science-y.  Needs to expand on reasons for wanting to
-  create a biophysically realistic model of the CN. Discuss reason for
-  using whole network in TV and TS optimisation. }
-
-
-# \yellownote{Auditory model and history should be in the METHODS section.}
-
-# A paragraph on the history of AN modelling \citep{LeakeSnyderEtAl:1993,
-# ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.  Perhaps Rose et al 1959 would be
-# better suited here}
-
+with which to mimic the behaviour experimentally observed in live
+neural networks. 
 In examining the properties of a detailed neural model of the cochlear
 nucleus, a realistic and phenomenologically sound auditory model is
 needed to represent sounds and transformations that occur in the
 central auditory system.
+The input to the \CNSM model, the auditory nerve
+fibres, is discussed in the next section. To further fit the parameters
+of the CN model, a simplistic and sequential method is applied to each
+of the cell types using experimental data.
+
+# \yellownote{TODO: This para is about pushing the reader towards the following
+#   sections.  Needs to expand on reasons for wanting to
+#   create a biophysically realistic model of the CN. Discuss reason for
+#   using whole network in TV and TS optimisation. }
+# \yellownote{Auditory model and history should be in the METHODS section.}
+# A paragraph on the history of AN modelling \citep{LeakeSnyderEtAl:1993,
+# ArnesenOsen:1978, CloptonWinfieldEtAl:1974}.  Perhaps Rose et al 1959 would be
+# better suited here}
+
 
 
 * Methods
 
-This section describes the some of the general methods used within this
-chapter. Chapter \ref{sec:MethodsChapter} describes the common methods
-in more detail.
+This section describes the specific methods used in this
+chapter. 
+# Chapter \ref{sec:MethodsChapter} describes the common methods in more detail.
 # Org-mode link [[file:../MethodsChapter/Chapter02.org::* Methods]]
 # Cochlear Nucleus Stellate Microcircuit 
 
 ** Auditory Nerve Fibre Model 
-\yellownote{TODO: This may need to go in Methods chapter}
 
-The auditory nerve inputs to the cochlear nucleus model neurons are
-provided by phenomenological auditory periphery models originating from
-\citet{Carney:1993}, the ARLO model \citep{HeinzZhangEtAl:2001}, the
-Bruce model \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007}, and the Zilany model \citep{ZilanyBruceEtAl:2009}.
-The auditory model consists of an outer\slash middle ear pre-processing
-filter, a cochlea filterbank, IHC-to-AN synapse model and dead-time
-modified Poisson spike generator, as shown in Figure
-\ref{fig:ZilanyBruceFig}.  \citet{HeinzZhangEtAl:2001} incorporated
-cochlea filters based on the critical bandwidths obtained from
-psychophysical experiments in humans.  The ARLO model of the cat
-auditory periphery, with non-linear compression and two-tone
-suppression, is used in this study except in the vowel simulation where
-the human auditory periphery model is used.
 
-\yellownote{TODO: 
-AN model paragraph has been changed - fix any comment related to new
-Zilany}
+The \ANF inputs to the \CNSM model neurons were drawn from 
+the Carney model, a phenomenological auditory periphery model first presented  in \citet{Carney:1993}.
+This chapter uses more recent derivations of the Carney model:
+#Three \ANF  #the ARLO model \citep{HeinzZhangEtAl:2001}, the
+the Bruce model \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007} and the Zilany model \citep{ZilanyBruceEtAl:2009}.
+# The auditory model consists of an outer\slash middle ear pre-processing
+# filter, a cochlea filterbank, IHC-to-AN synapse model and dead-time
+# modified Poisson spike generator, as shown in Figure
+# \ref{fig:ZilanyBruceFig}.  \citet{HeinzZhangEtAl:2001} incorporated
+# cochlea filters based on the critical bandwidths obtained from
+# psychophysical experiments in humans.  The ARLO model of the cat
+# auditory periphery, with non-linear compression and two-tone
+# suppression, is used in this study except in the vowel simulation where
+# the human auditory periphery model is used.
+
+# \yellownote{TODO: 
+# AN model paragraph has been changed - fix any comment related to new
+# Zilany}
 
 # The \citet{ZilanyBruce:2007} model improves the previous AN model by
 # an additional signal path and its predictions have matched a wide
@@ -264,44 +267,28 @@ Zilany}
 # internal $1/f$ noise, that enhances the behaviour of long-term
 # dependence in ANFs \citep{ZilanyBruceEtAl:2009}.
 
-\yellownote{TODO Why is it the cat model? updating Carney model? Updating
-  of the Carney auditory model has led to the change in the model's
-  configuration from an original implementation of the rat model.  The
-  default species is the cat and will be used in the data presented in
-  this chapter.}
+# \yellownote{TODO Why is it the cat model? updating Carney model? Updating
+#   of the Carney auditory model has led to the change in the model's
+#   configuration from an original implementation of the rat model.  The
+#   default species is the cat and will be used in the data presented in
+#   this chapter.}
 
-#+ATTR_LaTeX:  width=0.8\textwidth
-#+CAPTION:     [Auditory periphery model]{Auditory periphery model with a middle ear filter, a gamma-chirp filter bank, a cochlea-feedback filter pathway, and a dual power-law synapse. Figure reprinted from \citealt{ZilanyBruceEtAl:2009}.}
-#+LABEL: fig:ZilanyBruceFig
-[[../SimpleResponsesChapter/gfx/ZilanyCarney-JASA-2009-Fig2.pdf]]
 
-#+BEGIN_LaTeX
-  \begin{figure}[htb]
-  %  \centering
-  %  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-  %  \resizebox{0.48\textwidth}{!}{\includegraphics[keepaspectratio=true]{CatAudiogram}}%
-  %  \resizebox{0.48\textwidth}{!}{\includegraphics[keepaspectratio=true]{RatAudiogram}}
-    {\figfont{A}\hfill}\\
-    \resizebox{0.8\textwidth}{!}{\includegraphics{CatAudiogram}}\\
-    {\figfont{B}\hfill}\\
-    \resizebox{0.8\textwidth}{!}{\includegraphics[keepaspectratio=true]{RatAudiogram}}\\
-    \caption{Compression in the Bruce and Zilany AN model for cat (A) and rat
-      (B).}
-    \label{fig:Compression}
-  \end{figure}
-#+END_LaTeX
+# ** Spiking in Poisson Neural Models 
 
-** Spiking in Poisson Neural Models 
+The neural models used in the \ANFs and Golgi cell model were
+inhomogeneous Poisson processes.  The instantaneous rate produced the
+input \AN model (chosen from the Bruce or Zilany model) or through the
+Golgi filter model (Section \ref{sec:GolgiOpt}) was passed through the
+Jackson spiking model \citep{Jackson:2003,JacksonCarney:2005}, which
+includes refractory effects typical of the \ANFs.  Spike trains for each
+neuron in the \AN model were created at the start of each repetition of
+the stimulus.  Further detail on \HSR and \LSR ANF models are in Section
+\ref{sec:Ch2:HSRLSR}.
 
-The neural models used in the auditory nerve fibres and Golgi cell
-model are inhomogeneous Poisson processes.  The instantaneous rate is
-passed through the Jackson spiking model
-\citep{Jackson:2003,JacksonCarney:2005}, which includes refractory
-effects typical of the auditory nerve fibres.  Spike trains for each
-neuron in the model are created at the start of each repetition of the
-stimulus, but can be saved and loaded from file.
 
-# \yellownote{TODO:  serious reworking to be done here}
+
+ \yellownote{TODO:  talk about HSR and LSR in the \CNSM model}
 
 # Analysis of the frequency
 # response area of ANF generates known parameters for each fibre, these are:
@@ -326,43 +313,46 @@ stimulus, but can be saved and loaded from file.
 ** Neural Models
 
 Single-compartment Hodgkin-Huxley-like neural models were used for the
-neural models.  The current models in each of the cell types of the
-cochlear nucleus stellate network were originally presented by
+\DS, \TV and \TS cells in the \CNSM model.  The membrane current models
+used in each of the cell types were those developed by
 \citet{RothmanManis:2003b}.
 
-Type I-c classic regular firing type contains a voltage-activated
-sodium, high threshold potassium, and hyperpolarisation mixed-cation,
-and leak current channels.  This neural model an integrator and is
-strongly influenced by the \Ih current, which is active at rest.  Type
-I-t transient regular firing type is similar to the Type 1 classic but
-with A-type potassium current channels.  A-type potassium channels are
-unique to the cochlear nucleus, particularly to T stellate cells
-\citep{RothmanManis:2003,RothmanManis:2003a}.  \DS cells contain
-low-threshold potassium current channels, which is strongest in bushy
-cells, to enhance response to coincident inputs.
+\yellownote{TODO expand on specifics for this chapter}
 
-\yellownote{TODO: Discuss RM model (put in Methods Chapter).  Perhaps expand
-  more on the role of the currents on each neuron in the CN model.}
+# Type I-c classic regular firing contains a voltage-activated
+# sodium, high threshold potassium, and hyperpolarisation mixed-cation,
+# and leak current channels.  This neural model an integrator and is
+# strongly influenced by the \Ih current, which is active at rest.  Type
+# I-t transient regular firing type is similar to the Type 1 classic but
+# with A-type potassium current channels.  A-type potassium channels are
+# unique to the cochlear nucleus, particularly to T stellate cells
+# \citep{RothmanManis:2003,RothmanManis:2003a}.  \DS cells contain
+# low-threshold potassium current channels, which is strongest in bushy
+# cells, to enhance response to coincident inputs.
+
+# \yellownote{TODO: Discuss RM model (put in Methods Chapter).  Perhaps expand
+#   more on the role of the currents on each neuron in the CN model.}
 
 ** Connectivity and Network Parameters
    :PROPERTIES:
    :LABEL: sec:Ch3:ConnectivityNetworkParameters
    :END:
 
-Tonotopic connectivity in the stellate cochlear nucleus model is
-defined by the regular organisation of afferent ANFs into distinct
+Tonotopic connectivity in the \CNSM model was
+defined by the regular organisation of afferent \ANFs into distinct
 iso-frequency channels.  The channels are separated using even spatial
 distance (based on the basilar membrane and auditory nerve separation)
 with centre frequency calculated by the Greenwood function for the cat
-\citep[see~Chapter~\ref{sec:Methods},][]{Greenwood:1990}.  The HSR
-terminals of individual fibres generally cover 70 \um and LSR fibres
+\citep[see~Chapter~\ref{sec:Methods},][]{Greenwood:1990}.  The \HSR \ANF
+terminals of individual fibres generally cover 70 \um and 
+\LSR fibres
 100 \um in mice \citep{OertelWuEtAl:1988,OertelWu:1989}. 
 \yellownote{TODO: put greenwood function in Methods}
 
-Figure \ref{fig:CNconn} shows the method for Gaussian spread of
-connections between cell types in the \CN.  The \CF of the CN channels
-are separated using the same Greenwood function as used for the
-filterbank of AN frequency channels.
+Figure \ref{fig:CNconn} shows the Gaussian distribution of
+connections between cell types in the \CN.  The \CFs of the \CN channels
+were separated using the same Greenwood function used for the
+filterbank of \AN frequency channels.
 
 #+ATTR_LaTeX: width=0.8\textwidth
 #+CAPTION:  Gaussian connection between cell types in cochlear nucleus stellate network.
@@ -392,28 +382,30 @@ The synaptic models for \AMPA, \GlyR and \GABAa receptors were described in Chap
    :LABEL: sec:Ch3:Delays
    :END:
 
-The effective delay of the AN model does not take into account the
-conduction and synaptic transmission delay to reach post-synaptic
-neurons in the CN. This requires an additional delay component in each
-of the synaptic connections in the CN stellate microcircuit.  Mean first
-spike latency to short \CF tones and click stimuli were used to set
-delay times between \ANFs and \CN cells
+The effective delay of the \AN model does not take into account the
+conduction and synaptic transmission delay in reaching post-synaptic
+neurons in the \CN. Accordingly, an additional delay component was
+required in each of the synaptic connections in the \CNSM model
+involving \ANFs.  Mean \FSL to short \CF tones and click
+stimuli were used to set delay times between \ANFs and \CN cells
 \citep{RhodeSmith:1986,RhodeOertelEtAl:1983,SpirouDavisEtAl:1999,FerragamoGoldingEtAl:1998a}.
-The additional delay was defined using the first spike latency of high
-frequency units as the sum of the \ANFs' first spike latency, \ANF
+The additional delay was defined using the \FSL of high
+frequency units as the sum of the \ANFs' \FSL, \ANF
 conduction delay, and the synaptic transmission delay.  The first spike
 latency measured in high \CF units in the ARLO \AN model
 \citep{HeinzZhangEtAl:2001} for \HSR fibers was 1.5 ms.
 
+\yellownote{DAVID:  Do you think the next paragraph and table belongs in the results?}
+
 Table \ref{tab:Meth:AddDelay} shows the additional delay component for
-each cell type calculated from population statistics to ensure the first
+each cell type, calculated from population statistics, to ensure the first
 spike latency in the models matched the experimental data.  The models
 were designated from the basic \citet{RothmanManis:2003b} neural
-models.  The relative difference between \DS cell model's mean FSL and
+models.  The relative difference between the \DS cell model's mean \FSL and
 the other Type I cell types can be attributed to the additional \IKLT
 channels in the Type I-II Rothman and Manis neural model.  \IKLT is
 active at \RMP and decreases the overall input resistance and membrane
-time constant, reducing the time to fire an \AP.  \TS cells are
+time constant, reducing the time to fire an action potential.  \TS cells are
 designated with the Type I-t Rothman and Manis model, which contains an
 additional \IKA channel current over the Type I-c model, but were not
 significantly different from the classic Type I models in \TV and \GLG
@@ -438,39 +430,49 @@ cell models.
         \begin{tabularx}{0.8\linewidth}{lXXXXX}\toprule
                         & \HSR \ANF &            \TS             &            \DS             &            \TV             & \GLG \\ \midrule
      R\&M Cell type     &           &          Type I-t          &         Type I-II          &          Type I-c          & Type I-c\\ 
-  Experimental Mean FSL &     -     & 3.6$\, ^{\footnotesize 1}$ & 2.8 $\,^{\footnotesize 2}$ & 4.0 $\,^{\footnotesize 3}$ & 4.3 $\,^{\footnotesize 4}$\\ 
-     Model Mean FSL     &    1.5    &            2.0             &            1.6             &            2.0             & 2.0\\ 
-  Additional delay, ms  &     -     &            1.6             &            1.2             &            2.0             & 2.3\\ 
+  Experimental Mean FSL \quad (ms)&     -     & 3.6$\, ^{\footnotesize 1}$ & 2.8 $\,^{\footnotesize 2}$ & 4.0 $\,^{\footnotesize 3}$ & 4.3 $\,^{\footnotesize 4}$\\ 
+     Model Mean FSL  \quad (ms)   &    1.5    &            2.0             &            1.6             &            2.0             & 2.0\\ 
+  Additional delay \quad (ms)  &     -     &            1.6             &            1.2             &            2.0             & 2.3\\ 
   \bottomrule
-  \end{tabularx}
+  \end{tabularx}\\
   {\captionsize $^1$  \citet{RhodeSmith:1986}, $^2$ \citet{RhodeOertelEtAl:1983}, $^3$ \citet{SpirouDavisEtAl:1999}, and $^4$ \citet{FerragamoGoldingEtAl:1998a}}
       \end{table}
 #+END_LaTeX
 
-** Simulation and Parallel Capabilities
+** Simulation Specifications
+#and Parallel Capabilities
 
-The time step of the numerical integration performed in each of the simulations in the chapter was 0.05 ms.
-the parallel capabilities is based on the NEURON
-network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006}
- (see SenseLab's ModelDB models
-[[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]]).
+All simulations were performed in the neural simulation package [[latex:progname][NEURON.]]
+The time step of the numerical integration performed in each of the
+simulations in the chapter was 0.05 ms.  
 
-** Optimisation 
+# The parallel is based on the
+[[latex:progname][# NEURON]] network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006} (see
+# SenseLab's ModelDB models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]]).
+
+** Optimisation Routine
 
 \yellownote{ TODO  }
 
 The optimisation routine used in this chapter was NEURON's [[latex:progname][fit\_praxis]]
 function, which uses the principle axis algorithm 
-\citep[PRAXIS,~][]{Brent:1976}. The praxis returns the minimum of the error function,
+\citep[PRAXIS,~][]{Brent:1976}. The PRAXIS method returns the minimum of the error function,
 =fun=, of n variables using the principal axis method without the
 use of =fun='s gradient.
 
 ** Verification of Cell Model Responses to Simple Tones and Noise
 
-Verification of the optimisation processes requires running a suite of
-tests across the whole network.  This section aims to show the
+To verify the optimisation processes, a suite of
+tests were run across the whole \CNSM model. 
+
+\yellownote{The purpose of these test were done to ensure ... 
+
+Make the link to optimisation.
+}
+
+This section aims to show the
 behaviour of the entire CN stellate microcircuit using parameters
-obtained from the previous sections.
+obtained from the optimisation processes.
 
 The stimuli presented to the stellate microcircuit included:
 1. Rate-level response to pure tones at the characteristic frequency
@@ -482,6 +484,7 @@ The stimuli presented to the stellate microcircuit included:
   
 
 \newpage
+
 
 * Figures 							   :noexport:
 
@@ -503,7 +506,7 @@ The stimuli presented to the stellate microcircuit included:
 
 * Golgi Cell Model: Optimisation Using Rate Level Responses in Marginal Shell Units 
     :PROPERTIES:
-    :CUSTOM_ID: GolgiOpt
+    :LABEL: sec:GolgiOpt
     :END:
 
 ** Background
@@ -656,7 +659,6 @@ control to the principal \VCN units, primarily D and T stellate cells
 # {Neuromodulatory effects of Golgi cells}
 
 ** Implementation
-
 
 The presence of GABAergic inputs to \VCN and \DCN neurons has been
 verified by labeled terminals adjacent to the soma and dendrites
@@ -972,7 +974,7 @@ frequency spread from \LSR fibres.
 ** Verification of the Golgi Cell Model
 
 After setting the optimised parameters in Table
-\ref{tab:GolgiCellResults}, the Golgi cell model was run with typical
+\ref{tab:GolgiCellResults}, the Golgi cell model was run with tone and noise
 inputs to determine it's behaviour outside of the optimisation
 routine.  The Golgi cell model was tested across the entire network
 using tones, noise and tones plus noise stimuli. Figure
@@ -1009,7 +1011,6 @@ increased from 0 to 90 dB \SPL.
 
 
 \newpage
-
 
 * D Stellate Cell Model: Optimisation Using Click Recovery and Rate Level Responses 
 
@@ -1118,6 +1119,7 @@ most suitable for optimisation.
 # determine \GABA {on\slash off} freq.  Smith and Rhode, Smith and
 # others looked at OnC response area and two-tone
 
+
 ** Implementation
 
 # 2.5. Data analysis Data were collected as spike times with a
@@ -1142,10 +1144,12 @@ most suitable for optimisation.
 # response to the probe (Fig. 1C).
 
 
-In order to specify how \ANF and 
-\GABA-ergic inputs regulate the click
+In order to specify how \ANF and \GABA-ergic inputs regulate the click
 recovery response in \DS cells, a simple parameter optimisation was
-performed.  The \DS neural model was implemented with a
+performed.  
+
+
+The \DS neural model was implemented with a
 single-compartment, type I-II Rothman and Manis model
 \citep{RothmanManis:2003b}. The type I-II Rothman and Manis is unique to
 \DS cells due to the small presence of low-threshold potassium currents.
@@ -1243,6 +1247,7 @@ measures of spontaneous activity and restrict over excitation by ANFs.
    :PROPERTIES:
    :LABEL:    sec:Ch3:DSClickRecovery
    :END:
+
 Optimisation parameters for \GLGDS are optimised based on experimental
 click recovery data from \citet{BackoffPalombiEtAl:1997}, as shown in
 Figure \ref{fig:BackoffPalombi}.  The input stimulus presented a series
@@ -1376,8 +1381,6 @@ up for the small weight that was obtained in the optimisation.
 #+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level behaviour in the DS cell model (CF 6.3 kHz) was optimised to experimental data in \citet{ArnottWallaceEtAl:2004}. The target response (blue circles) is obtained from Fig. 3 in \citet{BackoffPalombiEtAl:1997}, }
 #+LABEL: fig:DSClickRecoveryResult
 [[../SimpleResponsesChapter/gfx/DS_RateLevel_result.pdf]]
-
-
 
 ** Verification of the DS Cell Model
 
@@ -1676,7 +1679,7 @@ neural model.
 #+LABEL: fig:SpirouFig8
 [[../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_Fig8.pdf]]
 
-**  Results
+** Results
 
 Figure \ref{fig:TVRLresult} shows the output behaviour of the five
 different neurons in the optimisation of the input parameters of the
@@ -1726,7 +1729,7 @@ TV cell model.
     \end{center} }
 #+END_LaTeX
 
-**  Verification of the TV Cell Model
+** Verification of the TV Cell Model
 
 # Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
 
@@ -1816,7 +1819,6 @@ cell connections.
 #+CAPTION: [Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from Figure 9 \citet{ReissYoung:2005}.}
 #+LABEL: fig:TVReissFig9
 [[../../cnstellate/TV_Notch/Reiss_Fig9_E+F.png]]
-
 
 ** Implementation
 
@@ -2632,7 +2634,7 @@ respectively.
   \yellownote{TODO: Grab most recent data for the table}
 #+END_LaTeX
 
-**  Verification of the TS Cell Models
+**  Verification of the TS Cell Model Subtypes
 
 \yellownote{TODO: Explain the figure \ref{fig:TSverification}}
 
@@ -2679,8 +2681,7 @@ periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 
 *** Golgi Cell Model
 
-Section [[*Golgi Cell Model: Monotonic Rate Level Responses in
-Marginal Shell Units][Golgi Cell Model]]
+Section [[*Golgi%20Cell%20Model:%20Monotonic%20Rate%20Level%20Responses%20in%0AMarginal%20Shell%20Units][Golgi Cell Model]]
 
 \yellownote{TODO: Discuss the Golgi cell optimisation.  Is the filter-based
   approach effective at meeting the goal of simulating data from
@@ -2723,15 +2724,36 @@ the CN stellate microcircuit.
 
 ** Limitations of the CN stellate microcircuit model
 
+All \BNN models are limited by a number of factors.  Firstly, the level
+of detail in the neural models set the underlying complexity and
+dynamics that are possible within the \BNN.  Secondly, the connectivity
+and synaptic parameters, which set the network dynamics, are often
+hand-tuned or guessed. And lastly, the background and driving inputs to
+the network set the environmental conditions for genuine realistic
+models to be compared with experimental animal network under the same
+conditions and inputs.
+
+The level of detail in the neural models of the \CNSM model includes the
+complex channel dynamics of a \HH conductance model.  Three potassium
+current channels (\IKHT, \IKLT, and \IKA) and the mixed cation
+hyperpolarisation current (\Ih) were fit precisely from \VCN neurons in
+mice \citep{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b}.
+More complex multi-compartment conductance model could have been chosen
+to include dendritic filtering, especially in \DS and \TS cells, and
+already present in existing stellate models
+\cite{WangSachs:1995,WiegrebeMeddis:2004}.
+Dendritic filtering in each of the cells was not included 
 
 
 \yellownote{TODO: AM coding in model is not verified by
 \citet{ZilanyBruce:2006} model, and it was superseded by the addition
 of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
-Dendritic filtering in each of the cells was not included
+
+
 
 ** Implications of sequential microcircuit optimisation
+
 
 \yellownote{TODO: Probability distribution of delay (within cell-to-cell
 connection) not included.}
@@ -2765,22 +2787,18 @@ connection) not included.}
 
 The purpose for performing the optimisation experiments herein was to
 develop a biophysically-realistic neural network model of the stellate
-microcircuit.  The methods used in this section are a practical and
-realistic means for constructing microcircuits with sensory or
-feature-based topography; but requires extensive experimental evidence
-about the behaviour of each interneuron in the network.  The tabular
-format for neural network modelling as suggested by
-\citet{NordlieGewaltigEtAl:2009} was followed so that other researchers
+microcircuit in the cochlear nucleus.  The methods used in this section
+are a practical and realistic means for constructing microcircuits with
+sensory or feature-based topography; but requires extensive experimental
+evidence about the behaviour of each interneuron in the network.  The
+tabular reporting format for neural network modelling, as suggested by
+\citet{NordlieGewaltigEtAl:2009}, was followed so that other researchers
 can easily reproduce this work.
-
 
 
 #+BEGIN_LaTeX
   \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../MyBib}\newpage \listoftodos}{}
 #+END_LaTeX
-
-
-
 
 
 ### Local Variables:
