@@ -658,6 +658,7 @@ control to the principal \VCN units, primarily D and T stellate cells
 # GABA in the Ventral Cochlear Nucleus
 # {Neuromodulatory effects of Golgi cells}
 
+
 ** Implementation
 
 The presence of GABAergic inputs to \VCN and \DCN neurons has been
@@ -739,6 +740,9 @@ cells \citep{FerragamoGoldingEtAl:1998a}.
 [[../figures/GhoshalKim96_Fig2.pdf]]
 
 #+LaTeX:\input{../SimpleResponsesChapter/GolgiRateLevelTable}
+
+
+
 
 In the creation of the Golgi cell model, we can reduce the explicit
 behaviour of Golgi cells down to four major details:
@@ -971,6 +975,7 @@ frequency spread from \LSR fibres.
 #   \end{figure}
 #   \clearpage \newpage
 
+
 ** Verification of the Golgi Cell Model
 
 After setting the optimised parameters in Table
@@ -1011,6 +1016,7 @@ increased from 0 to 90 dB \SPL.
 
 
 \newpage
+
 
 * D Stellate Cell Model: Optimisation Using Click Recovery and Rate Level Responses 
 
@@ -1472,12 +1478,24 @@ width of the activity across the CF of the central unit (Figure
 # cells in the mouse show clear excitatory input from TS cells and diffuse
 # inhibitory input from DS cells \citep{ZhangOertel:1993b}.
 
-\TV cells are glycinergic, inhibitory cells found in the
-deep layers of the \DCN that send axon collaterals to the \VCN.  They
-are characterized as having unique cell bodies and synaptic characteristics that distinguish them from other cells in the deep layer, Giant cells and Golgi-stellate cells \citep{SaintBensonEtAl:1991,WickesbergOertel:1993,Alibardi:2000b,Alibardi:1999}.
-  Anterograde labeling in the \DCN
-suggests \TV cells project tonotopically to the \VCN not just on-CF, but
-also to the low and high frequency side bands
+** Morphology and Cellular Properties of Tuberculoventral Cells
+
+\TV cells are glycinergic, inhibitory cells found in the deep layers of
+the \DCN forming synaptic local circuits with pyramidal cell and send
+axon collaterals to the \VCN. The dendrites of TV cells are aligned with
+\ANFs, giving them an alternate name ``vertical'' cells, and indicating
+narrow frequency tuning .  They are characterized as having unique cell
+bodies and synaptic characteristics that distinguish them from other
+cells in the deep layer, Giant cells and Golgi-stellate cells
+\citep{SaintBensonEtAl:1991,WickesbergOertel:1993,Alibardi:2000b,Alibardi:1999}.
+Intracellular responses of TV cells to injected current are regularly
+spaced action potentials, indicating TV cells are simple integrators
+\citep{ZhangOertel:1993b}.
+
+
+Anterograde labeling in the \DCN suggests \TV cells project
+tonotopically to the \VCN not just on-CF, but also to the low and high
+frequency side bands
 \citep{MunirathinamOstapoffEtAl:2004,OstapoffMorestEtAl:1999}.  With
 retrograde labelling in the \DCN three types of ventro-tubercular units
 in rats were identified \citet{FriedlandPongstapornEtAl:2003}, as
@@ -1488,7 +1506,9 @@ adendritic neurons.
 
 \TV cells receive weak mono-synaptic excitatory input, mainly on their
 dendrites, from auditory nerve fibres
-\citep{OertelWu:1989,ZhangOertel:1993b}.  Ultra-structural labeling of
+\citep{OertelWu:1989,ZhangOertel:1993b}.  
+
+Ultra-structural labeling of
 synapses in the rat \DCN suggest \TV cells are inhibited by glycinergic
 \DS cells and from sources in the \DCN \citep{Rubio:2005}.
 Intracellular responses from labeled \TV cells in the mouse show clear
@@ -1500,12 +1520,16 @@ absolutely no \TS terminals on rat \TV cells.
   
 *** Acoustic Response of Tuberculoventral cells
 
+\TV cells have low spontaneous rates and variable \PSTHs (pauser,
+chopper, wide-chopper or onset/sustained) have been recorded
+\citep{ShofnerYoung:1985,SpirouDavisEtAl:1999,Rhode:1999}.
+
 The complex physiological characteristics of \DCN neurons are
 categorised into \EIRA groups
-\citep{EvansNelson:1973,YoungBrownell:1976}.  Type I \EIRA units reflect the responses of single \ANFs 
-\TV cells have a
-non-monotonic response to tones with increasing sound level and respond
-poorly to broadband noise, categorised as a Type-II \EIRA unit
+\citep{EvansNelson:1973,YoungBrownell:1976}.  Type I \EIRA units reflect
+the responses of single \ANFs.  \TV cells have a non-monotonic response
+to tones with increasing sound level and respond poorly to broadband
+noise, categorised as a Type II \EIRA unit
 \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}.  Units
 with type II responses are sharply tuned, have thresholds 10 dB higher
 than other units with which they are intermingled, and they do not
@@ -1540,7 +1564,7 @@ Recorded \PSTHs of \TV cells /in vivo/ are variable (pause-build,
 unusual chopper, or onset with sustained activity) 
 \citep{ShofnerYoung:1985,SpirouDavisEtAl:1999}. 
 Recordings /in vitro/ show that tuberculoventral cells respond with
- regular "chopper"-like behaviour to voltage-clamped current inputs
+ regular "chopper"-like behaviour to voltage-clamped current injection
  \citep{ZhangOertel:1993b}.  The strong input from \DS cells across
  frequencies contribute to little or no response to wide band noise and
  firing rates to \CF tones that are non-monotonic functions of
@@ -1577,7 +1601,7 @@ Type II units also supply an inhibitory input to the \VCN
 \citep{WickesbergOertel:1990}, but the role of type II terminals in the
 \VCN is less clear.  Three different hypotheses have been raised.  The
 first is that this projection modulates the response thresholds of \VCN
-neurons \citep{PaoliniClark:1998}.  The role of type II units in
+neurons \citep{PaoliniClark:1998}.  Secondly, the role of type II units in
 spectral processing is that of a narrowband inhibitor. Responses of \DCN
 principal cells are strongly inhibited by this narrowband source.  As a
 result, \DCN principal cells are inhibited by sharp spectral peaks close
@@ -1586,8 +1610,8 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
 *** Modelling of Tuberculoventral cells
 
  - Expand previous studies of the DCN incl. TV cells
- - \citet{ArleKim:1991a} were the first to show type II \EIRA with
-  simple McCullock-Pitts point neuron models.
+\citet{ArleKim:1991a} were the first to show Type II \EIRA units with
+  simple McCullock-Pitts point neuron models of the \DCN.
  - (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
   inhibitory mechanism to create type II unit responses in a model of
   the DCN\. In that model, each cell population was described by a
@@ -1603,13 +1627,14 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
 Modelling of Type II units in the \DCN has been thoroughly investigated by
 Davis and colleagues
 \citep{YoungDavis:2002,HancockDavisEtAl:2001,DavisYoung:2000,SpirouDavisEtAl:1999,HancockDavisEtAl:1997,DavisVoigt:1996,DavisVoigt:1994,DavisVoigt:1991}.
-Low spontaneous rate is created in a neural model by either increasing
-the intrinsic spiking threshold or lowering the synaptic strength of the
+
+To create a neural model with low spontaneous rate is to either increase
+the intrinsic spiking threshold or lower the synaptic strength of the
 inputs.  Intracellular observations in decerebrate gerbils show higher
 thresholds in type II units \citep{DingVoigt:1997}; and intracellularly
 recorded type II units.  Another case for type II behaviour of no
 spontaneous activity, is a preference of \LSR, high observations of
-hyperpolarisation responses to off \gls{BF} tones in threshold \AN
+hyperpolarisation responses to off \BF tones in threshold \AN
 fibres over \HSR fibres to synapse with \TV cells.  Whether \LSR fibres
 preference the deep layers of the \CN are yet to be confirmed
 \citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
@@ -1773,7 +1798,7 @@ inhibited (Figure \ref{fig:TVverification}A), typical of the type II
 \EIRA units in the deep layer of the \DCN
 \citep{SpirouDavisEtAl:1999,Rhode:1999}.  The PSTH response of the
 central \TV unit (CF=5.8 kHz) at 90 dB SPL, is a simple chopping
-response, characteristic of the type-Ic neural model(Figure
+response, characteristic of the Type I-c Rothman and Manis neural model (Figure
 \ref{fig:TVverification}A) \citep{RothmanManis:2003b}. The minimum first
 spikes occur at 4.3 ms after the stimulus onset (similar to the
 un-optimised \TV model's mean \FSL in Section \ref{sec:Ch3:Delays}). Due
@@ -2085,6 +2110,11 @@ and 0.13 at the highest channel).  The results in the first set
 (Optimisation A) show the dominance of \LSR over \HSR fibres in the
 number of synapses (29 to 1) and the increased need for \DS cell
 inhibition with a high \nDSTV.
+\LSR fibres have not been proven to preference the deep layers of the \DCN
+\citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
+
+
+
 
 # 70 dB Run
 #+BEGIN_LaTeX
@@ -2634,7 +2664,7 @@ respectively.
   \yellownote{TODO: Grab most recent data for the table}
 #+END_LaTeX
 
-**  Verification of the TS Cell Model Subtypes
+** Verification of the TS Cell Model Subtypes
 
 \yellownote{TODO: Explain the figure \ref{fig:TSverification}}
 
