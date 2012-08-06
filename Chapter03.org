@@ -465,10 +465,7 @@ use of =fun='s gradient.
 To verify the optimisation processes, a suite of
 tests were run across the whole \CNSM model. 
 
-\yellownote{The purpose of these test were done to ensure ... 
-
-Make the link to optimisation.
-}
+\yellownote{The purpose of these simulations were done to ensure the optimised parameters could be used across all frequency channels.}
 
 This section aims to show the
 behaviour of the entire CN stellate microcircuit using parameters
@@ -975,7 +972,7 @@ frequency spread from \LSR fibres.
 #   \end{figure}
 #   \clearpage \newpage
 
-
+\clearpage
 ** Verification of the Golgi Cell Model
 
 After setting the optimised parameters in Table
@@ -1063,35 +1060,38 @@ In the second optimisation, Section \ref{sec:Ch3:DSRateLevel}, rate-level respon
 
 \citet{SmithMassieEtAl:2005} combined evidence from several different
 studies in different animals to suggest that radiate neurons in rats,
-large multipolar neurons in cats and guinea pigs, and D stellate neurons
+large Type II multipolar neurons in cats and guinea pigs, and D stellate neurons
 in mice are the closest resemblance to glycinergic labeled \OnC units
 \citep{DoucetRossEtAl:1999,DoucetRyugo:1997,CantGaston:1982,Wenthold:1987,KolstonOsenEtAl:1992,AltschulerJuizEtAl:1993,ShoreGodfreyEtAl:1992,SchofieldCant:1996,Alibardi:2000a,NeedhamPaolini:2003,PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004,PaoliniClark:1999}.
-Hereafter they will be termed \DS cells in the \CNSM model.
+#Hereafter they will be termed \DS cells in the \CNSM model.
 
 
-Morphologically, DS cells typically have 3--4 long dendrites stretching 200 microns (or one
-third of the \VCN) and their axonal collaterals cover the same region
-in the \VCN, almost one half of the \DCN, and are one source of the
-commissural projection to the contralateral cochlear nucleus
+Morphologically, DS cells have typically 3--4 long dendrites stretching
+200 microns (or one third of the \VCN) and appear to integrate inputs
+over a wide frequency range.  Their axonal collaterals cover the same
+region in the \VCN, almost one half of the \DCN, and are one source of
+the commissural projection to the contralateral cochlear nucleus
 \citep{Cant:1992,Cant:1981,SchofieldCant:1996,CantBenson:2003,NeedhamPaolini:2007,PaoliniClark:1999}.
+
+
 Intracellular responses to sounds indicate the bandwidth of inputs to
 \DS neurons typically ranges from two octaves below \CF to one octave
 above \CF
 \citep{PalmerJiangEtAl:1996,JiangPalmerEtAl:1996,PaoliniClark:1999}.
-\DS cell axon terminals contain the inhibitory neurotransmitter
-glycine and synapse widely in the \VCN and \DCN\.  They also send a
-commissural projection to the contralateral cochlear nucleus that
-mediates fast inhibition between the nuclei
+\DS cell axon terminals contain the inhibitory neurotransmitter glycine
+and synapse widely in the \VCN and \DCN\.  They also send a commissural
+projection to the contralateral cochlear nucleus that mediates fast
+inhibition between the nuclei
 \citep{NeedhamPaolini:2003,NeedhamPaolini:2006,Oertel:1997}.
 
 *** Acoustic Properties of D Stellate Cells
 
 \DS cells (and their equivalent large multipolar cells) have been
 classified as having a \OnC \PSTH to \CF tones across many species
-\citep{BlackburnSachs:1989,FengKuwadaEtAl:1994,PalmerWallaceEtAl:2003,Pfeiffer:1966,SmithRhode:1989,ArnottWallaceEtAl:2004,PaoliniClark:1999,SmithMassieEtAl:2005}.
+\citep{RhodeSmithEtAl:1983,BlackburnSachs:1989,FengKuwadaEtAl:1994,PalmerWallaceEtAl:2003,Pfeiffer:1966,SmithRhode:1989,ArnottWallaceEtAl:2004,PaoliniClark:1999,SmithMassieEtAl:2005}.
 Their high threshold to BF tones and increased response to noise show
 \DS cells receive inputs from many weak \ANFs across a wide frequency
-range \citep{RhodeSmith:1986}.  Electrophysiological intracellular
+range \citep{RhodeSmith:1986,PalmerWallaceEtAl:2003}.  Electrophysiological intracellular
 responses /in vivo/ to sounds indicate that the bandwidth of \ANF inputs
 to \DS neurons is asymmetric, with an estimated range of two octaves
 below the \DS cells \CF and one octave above \CF
@@ -1211,12 +1211,12 @@ below (\sANFDSl=5) and spread above \CF , assuming average octave
 separation between channels is 0.4 octaves, approximate the calculated
 response area \citep{PaoliniClark:1999}.
 
-The additional delay parameter, \dANFDS, was shown in Section
- \ref{sec:Ch3:Delays}.  The first spike latency in high \CF \DS cells
- ($2.8 \pm 0.09$ ms) is precise and faster than other stellate neurons in
- the \VCN \citep{RhodeSmith:1986}.  The additional of 1.2 ms to \ANF to
- \DS input connections is a combination of axonal conductance and
- dendritic delay.
+The additional delay parameter for \ANF terminals on the \DS cell model,
+\dANFDS, was shown in Section \ref{sec:Ch3:Delays}.  The first spike
+latency in high \CF \DS cells ($2.8 \pm 0.09$ ms) is precise and faster
+than other stellate neurons in the \VCN \citep{RhodeSmith:1986}.  The
+additional of 1.2 ms to \ANF to \DS input connections is a combination
+of axonal conductance and dendritic delay.
 
 
 
@@ -1381,30 +1381,37 @@ up for the small weight that was obtained in the optimisation.
 # \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_unweighted_8}\\
 # \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_weighted_0}
 #     \caption{Handtuned}
-#     \label{hantuned}
+#     \label{handtuned}
 #   \end{center}
 # \end{figure}
+
+\newpage
+
+\clearpage
 
 ** Results of Rate Level Optimisation
    :PROPERTIES:
    :LABEL:    sec:Ch3:DSRateLevel
    :END:
 
-\yellownote{
-Intro to RL optimisation
+\yellownote{TODO:  Review this intro to RL optimisation.}
 
 Rate level (RL) curves to \BF tones and noise have been used as a physiological measure of neurons auditory system since the earliest experiments \citep{RoseGalambosEtAl:1959,SachsYoung:1978}.
 RL curves are used to determine the threshold, dynamic range and saturation rate in response to acoustic stimuli.
- 
-The dynamic range of DS cells (\OnC and \OnL units) is much larger than their primary afferent inputs 
-\citep[DS \> 50 dB, ANFs \< 25][]{Joris:1998,Rhode:1994,RhodeSmith:1986}.
 
-}
+The dynamic range of DS cells (\OnC and \OnL units) is much larger than their primary afferent inputs (DS \gt 50 dB SPL, ANFs \lt 25 dB SPL) \citep{Joris:1998,Rhode:1994,RhodeSmith:1986}.
+The rate level responses to \BF tones and broadband noise in an \OnC unit \citep{ArnottWallaceEtAl:2004}, shown in Figure \ref{fig:ArnottFig12}, was used as the target data to fit the DS cell model. 
 
+#+ATTR_LATEX: width=0.5\textwidth
+#+Caption: [Tone and noise rate level response of a OnC unit (DS cell)]{Tone and noise rate level response of a DS cell to be used in the DS cell model optimistation. (OnC unit data reproduced from \citet{ArnottWallaceEtAl:2004} Figure 12). } 
+#+LABEL: fig:ArnottFig12
+[[../SimpleResponsesChapter/gfx/Arnott2004_Fig12_CF10_9kHz.png]]
 
-Table \ref{tab:DSRateLevel} shows the results of the \DS model rate level optimisation .  
-Figure \ref{fig:DSRateLevelResult} 
-Figures \ref{fig:DSRateLevelResult} A and C show the rate level responses of inputs to the DS cell model, \HSR and \LSR \ANFs and \GLG cells.  
+Figure \ref{fig:DSRateLevelResult} shows the output rate level responses
+of the input and \DS cell model using the best fit parameters in Table
+\ref{tab:DSRateLevel}.  Figures \ref{fig:DSRateLevelResult} A and C show
+the rate level responses of inputs to the DS cell model, \HSR and \LSR
+\ANFs and \GLG cells. 
 
 
 
@@ -1414,35 +1421,50 @@ for fast coincidence detection, the large number of \HSR synapses makes
 up for the small weight that was obtained in the optimisation.
 
 #+BEGIN_LaTeX
-      {\small
-      \noindent\begin{center}%table} 
-      \begin{minipage}{0.48\linewidth} 
-      \begin{tabularx}{\textwidth}{|X|c|} \label{tab:DSRateLevel}
-    \hdr{2}{}{DS Cell Optimisation: Best Fit Parameters } \\ 
-    \textbf{Parameters}  & Final Value \\ \midrule
-    % \wGLGDS  \quad (uS)  & 0.0025316   \\
-    % \wHSRDS   \quad (uS) & 0.00086722  \\
-    % \wLSRDS  \quad (nS)  & 0.0137469   \\
-    %       \nLSRDS        & 52          \\
-    %       \nHSRDS        & 125         \\ \midrule
-    
-    %  Tone Error (sp/s)   & 121.075 \\
-    %  Noise Error (sp/s)  & 63.01 \\
-    %  Total Error (sp/s)  & 184.085 \\ \bottomrule
-  
-  \wGLGDS  \quad (uS)  &  0.0101869   \\         
-  \wHSRDS   \quad (uS) &  0.000167221 \\         
-  \wLSRDS  \quad (nS)  &  0.00483773  \\         
-        \nLSRDS        &  56.6  (57)   \\             
-        \nHSRDS        &  157.8  (158)   \\
-  \nGLGDS      &   8.9  (9)   \\ \midrule
-  
-     Tone RL Error (sp/s)   &    25.62 \\   
-     Noise RL Error (sp/s)  &    36.27 \\ 
-     Total Error (sp/s)  &    61.89 \\ \bottomrule
-    \end{tabularx}% 
-      \end{minipage}\hfill 
-      \end{center} }
+    %     {\small
+    %     \noindent\begin{center}%table} 
+    % %    \begin{minipage}{0.48\linewidth} 
+    %     \begin{tabularx}{\textwidth}{|X|c|} \label{tab:DSRateLevel}
+    %   \hdr{2}{}{DS Cell Optimisation: Best Fit Parameters } \\ 
+    %   \textbf{Parameters}  & Final Value \\ \midrule
+    %   % \wGLGDS  \quad (uS)  & 0.0025316   \\
+    %   % \wHSRDS   \quad (uS) & 0.00086722  \\
+    %   % \wLSRDS  \quad (nS)  & 0.0137469   \\
+    %   %       \nLSRDS        & 52          \\
+    %   %       \nHSRDS        & 125         \\ \midrule
+    %   %  Tone Error (sp/s)   & 121.075 \\
+    %   %  Noise Error (sp/s)  & 63.01 \\
+    %   %  Total Error (sp/s)  & 184.085 \\ \bottomrule
+    % \wGLGDS  \quad (uS)  &  0.0101869   \\         
+    % \wHSRDS   \quad (uS) &  0.000167221 \\         
+    % \wLSRDS  \quad (nS)  &  0.00483773  \\         
+    %       \nLSRDS        &  56.6  (57)   \\             
+    %       \nHSRDS        &  157.8  (158)   \\
+    % \nGLGDS      &   8.9  (9)   \\ \midrule
+    %    Tone RL Error (sp/s)   &    25.62 \\   
+    %    Noise RL Error (sp/s)  &    36.27 \\ 
+    %    Total Error (sp/s)  &    61.89 \\ \bottomrule
+    %   \end{tabularx}% 
+    % %    \end{minipage}\hfill 
+    %     \end{center} }
+  \begin{table}[htb]
+    \centering\small
+        \begin{tabularx}{0.48\textwidth}{|X|c|} \toprule
+  %    \hdr{2}{}{DS\ Cell Optimisation: Best Fit Parameters } \\ 
+      \textbf{Parameters}  & \textbf{Final Value} \\ \midrule
+    \wGLGDS  \quad (uS)  &  0.0101869   \\         
+    \wHSRDS   \quad (uS) &  0.000167221\ \\         
+    \wLSRDS  \quad (nS)  &  0.00483773  \\         
+          \nLSRDS        &  56.6  (57)   \\             
+          \nHSRDS        &  157.8  (158)   \\
+    \nGLGDS      &   8.9  (9)   \\ \midrule
+       Tone RL\ Error (sp/s)   &    25.62\ \\   
+       Noise RL\ Error (sp/s)  &    36.27\ \\ 
+       Total Error (sp/s)  &    61.89\ \\ \bottomrule
+      \end{tabularx}
+    \caption{Best fit parameters for \DS cell model rate-level optimisation}
+    \label{tab:DSRateLevel}
+  \end{table}
 #+END_LaTeX
 
 # #+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 6.3 kHz, channel 55, red circles) was optimised to experimental data, a Type II DCN unit \citep[CF~6.3~kHz,~][]{ArnottWallaceEtAl:2004}. (A) Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 6.3 kHz (HSR, LSR and GLG units). (B) Tone RL of DS cell optimised model and target unit. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit. }
@@ -1450,7 +1472,7 @@ up for the small weight that was obtained in the optimisation.
 # [[../SimpleResponsesChapter/gfx/DS_RateLevel_result.6.3kHz.pdf]]
 
 
-#+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) was optimised to experimental data, a Type II DCN unit \citep[CF~10.9~kHz,~in~Figure~12~of][]{ArnottWallaceEtAl:2004}. (A) Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 11.1~kHz (HSR, LSR and GLG units). (B) Tone RL of DS cell optimised model and target unit data. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit data. }
+#+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) was optimised to experimental data, a Type II DCN unit (CF 10.9 kHz, in figure 12 of \citet{ArnottWallaceEtAl:2004}). (A) Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 11.1 kHz (HSR, LSR and GLG units). (B) Tone RL of DS cell optimised model and target unit data. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit data. }
 #+LABEL: fig:DSRateLevelResult
 [[../SimpleResponsesChapter/gfx/DS_RateLevel_result.pdf]]
 
@@ -1466,7 +1488,7 @@ cell model in the optimisation other than to set a threshold for tone
 and noise sounds.  \LSR fibres (SR=0.1 sp/s) and \GLG units have  much higher
 thresholds and  wider dynamic ranges.  The best parameters
 
-
+\clearpage
 
 
 
@@ -1635,7 +1657,7 @@ with narrow tuning and weak response to noise
 #+LABEL:  fig:SpirouFig1
 [[../SimpleResponsesChapter/gfx/Spirou-Fig1-type2.pdf]]
 
-
+#+ATTR_LATEX: width=0.5\textwidth
 #+CAPTION: [Rate-level responses of a single Type-II DCN unit]{Pharmaceutical effects on tone and noise rate-level responses of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig8
 [[../SimpleResponsesChapter/gfx/Spirou-Fig8-RL-Strych-Bic.png]]
@@ -1691,7 +1713,9 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
 
 *** Modelling of Tuberculoventral cells
 
- - Expand previous studies of the DCN incl. TV cells
+
+\yellownote{ Expand previous studies of the DCN incl. TV cells}
+
 \citet{ArleKim:1991a} were the first to show Type II \EIRA units with
   simple McCullock-Pitts point neuron models of the \DCN.
  - (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
@@ -1704,7 +1728,7 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
   examination of temporal response properties including PST histograms
   and cross-correlation analysis.
  - \citep{DunnVetterEtAl:1996} performed some modelling.
- - \citep{LomakinDavis:2008} \citep{ReissYoung:2005}
+ - Most recent models from \citep{LomakinDavis:2008} and \citep{ReissYoung:2005}
 
 Modelling of Type II units in the \DCN has been thoroughly investigated by
 Davis and colleagues
@@ -1782,15 +1806,17 @@ neural model.
 #\citet{ReissYoung:2005} performed their experiments on adult cats.
 #\yellownote{TODO: Give details about the TV model implementation}
 
+#+ATTR_LATEX: width=0.5\textwidth
 #+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
 [[../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_Fig8.pdf]]
-
+\clearpage
 ** Results
 
 Figure \ref{fig:TVRLresult} shows the output behaviour of the five
 different neurons in the optimisation of the input parameters of the
 TV cell model.
+
 
 #+CAPTION:  Optimisation results for the TV model responses to tone and noise.
 #+LABEL: fig:TVRLresult
@@ -1950,7 +1976,7 @@ notch data for 1 octave.
 
 #+CAPTION: [TV model optimisation configuration]{Expected mean rate response to  notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge. (Top and bottom figures reproduced from \citealt{ReissYoung:2005}, Fig. 9)}
 #+LABEL: fig:TVNotchDiagram
-[[../SimpleResponsesChapter/gfx/TV_NotchDataConfig.pdf]]
+[[../SimpleResponsesChapter/gfx/TV_NotchDataConfig2.pdf]]
 
 
 The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated
@@ -2305,9 +2331,9 @@ Figure \ref{fig:TVSweepUnit70} shows the response of a unit with similar
   %\centering
     %\resizebox{\textwidth}{!}{\includegraphics{NoFigure}}
     \resizebox{0.8\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig9_E+F.pdf}}\\
-    \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{TV_Notch/BestSweep.pdf}}\\
-    \resizebox{0.8\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig10A+B.pdf}}\\
-    \resizebox{0.8\textwidth}{!}{\includegraphics[angle=-90]{TV_Notch/Best-Offset2/BestSweep.pdf}}\\
+    \resizebox{0.9\textwidth}{!}{\includegraphics[angle=-90]{../../cnstellate/TV_Notch/BestSweep.pdf}}\\
+    \resizebox{0.9\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig10A+B.pdf}}\\
+    \resizebox{0.9\textwidth}{!}{\includegraphics[angle=-90]{../../cnstellate/TV_Notch/Best-Offset2/BestSweep.pdf}}\\
     \caption[Response of optimised TV cell (CF=12.76 kHz) to notch and
     bandsweeps]{Response of optimised TV cell (CF=12.76 kHz) to notch and band
       sweeps with stimulus sound level at 50 dB SPL\@.  Mean rate responses are
