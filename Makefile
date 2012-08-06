@@ -806,6 +806,9 @@ KEEP_TEMP	?=
 # Defaults for GPI
 DEFAULT_GPI_EPS_FONTSIZE	?= 22
 DEFAULT_GPI_PDF_FONTSIZE	?= 12
+DEFAULT_GPI_EPS_TERMSIZE	?= 7,5
+DEFAULT_GPI_PDF_TERMSIZE	?= 7,5
+
 
 # Style file for ReST
 RST_STYLE_FILE			?= $(wildcard _rststyle_._include_.tex)
@@ -2511,6 +2514,7 @@ endef
 # Find the default fontsize given the *output* file (it is based on the output extension)
 #
 default-gpi-fontsize = $(if $(filter %.pdf,$1),$(DEFAULT_GPI_PDF_FONTSIZE),$(DEFAULT_GPI_EPS_FONTSIZE))
+default-gpi-termsize = $(if $(filter %.pdf,$1),$(DEFAULT_GPI_PDF_TERMSIZE),$(DEFAULT_GPI_EPS_TERMSIZE))
 
 # $(call gpi-fontsize,<gpi file>,<output file>)
 #
@@ -2522,6 +2526,18 @@ define gpi-fontsize
 $(strip $(firstword \
 	$(shell $(SED) -e 's/^\#\#FONTSIZE=\([[:digit:]]\{1,\}\)/\1/p' -e 'd' $1 $(strip $(gpi_global))) \
 	$(call default-gpi-fontsize,$2)))
+endef
+
+# $(call gpi-fontsize,<gpi file>,<output file>)
+#
+# Find out what the gnuplot fontsize should be.  Tries, in this order:
+# - ##SIZE comment in gpi file
+# - ##SIZE comment in global gpi file
+# - default fontsize based on output type
+define gpi-termsize
+$(strip $(firstword \
+	$(shell $(SED) -e 's/^\#\#SIZE=\([[:digit:]]\{1,\},[[:digit:]]\{1,\}\)/\1/p' -e 'd' $1 $(strip $(gpi_global))) \
+	$(call default-gpi-termsize,$2)))
 endef
 
 # $(call gpi-monochrome,<gpi file>,[gray])
@@ -2541,6 +2557,7 @@ gpi-fontname = Helvetica
 # Get the terminal settings for a given gpi and its intended output file
 define gpi-terminal
 $(if $(filter %.pdf,$2),pdfcairo enhanced,postscript enhanced eps) \
+size 7,5 \
 $(call gpi-monochrome,$1,$3) solid font "$(call gpi-fontname), \
 $(if $(filter %.pdf,$2),$(call gpi-fontsize,$1,$2), \
 $(call gpi-font-entry,$2,$(call gpi-fontsize,$1,$2)))" 
