@@ -1467,12 +1467,12 @@ up for the small weight that was obtained in the optimisation.
   \end{table}
 #+END_LaTeX
 
-# #+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 6.3 kHz, channel 55, red circles) was optimised to experimental data, a Type II DCN unit \citep[CF~6.3~kHz,~][]{ArnottWallaceEtAl:2004}. (A) Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 6.3 kHz (HSR, LSR and GLG units). (B) Tone RL of DS cell optimised model and target unit. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit. }
+# #+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 6.3 kHz, channel 55, red circles) was optimised to experimental data, an OnC unit \citep[CF~6.3~kHz,~][]{ArnottWallaceEtAl:2004}. (A) Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 6.3 kHz (HSR, LSR and GLG units). (B) Tone RL of DS cell optimised model and target unit. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit. }
 # #+LABEL: fig:DSRateLevelFig3Result
 # [[../SimpleResponsesChapter/gfx/DS_RateLevel_result.6.3kHz.pdf]]
 
 
-#+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) was optimised to experimental data, a Type II DCN unit (CF 10.9 kHz, in figure 12 of \citet{ArnottWallaceEtAl:2004}). (A) Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 11.1 kHz (HSR, LSR and GLG units). (B) Tone RL of DS cell optimised model and target unit data. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit data. }
+#+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) was optimised to an OnC unit (CF 10.9 kHz, in figure 12 of \citet{ArnottWallaceEtAl:2004}). (A) Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 11.1 kHz (HSR, LSR and GLG units). (B) Tone RL of DS cell optimised model and target unit data. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit data. }
 #+LABEL: fig:DSRateLevelResult
 [[../SimpleResponsesChapter/gfx/DS_RateLevel_result.pdf]]
 
@@ -1592,10 +1592,17 @@ narrow frequency tuning .  They are characterized as having unique cell
 bodies and synaptic characteristics that distinguish them from other
 cells in the deep layer, Giant cells and Golgi-stellate cells
 \citep{SaintBensonEtAl:1991,WickesbergOertel:1993,Alibardi:2000b,Alibardi:1999}.
-Intracellular responses of TV cells to injected current are regularly
-spaced action potentials, indicating TV cells are simple integrators
-\citep{ZhangOertel:1993b}.
 
+Intracellular responses of TV cells to injected current are linear, regularly
+spaced action potentials, indicating TV cells are simple integrators
+\citep{ZhangOertel:1993b}. 
+The input resistance of TV cells ranges from 80 to 125 mega ohms \citep{ZhangOertel:1993b,Manis:1990}.  
+
+# the low spontaneous
+# rates and high sound thresholds of type II \DCN units might be caused by
+# a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997};
+# this is consistent with the responses of vertical cells to intracellular
+# current injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
 
 Anterograde labeling in the \DCN suggests \TV cells project
 tonotopically to the \VCN not just on-CF, but also to the low and high
@@ -1652,27 +1659,31 @@ with narrow tuning and weak response to noise
 # \citep{EvansNelson:1973,ShofnerYoung:1985,VoigtYoung:1980,VoigtYoung:1990,Young:1980,YoungBrownell:1976}.
 
 
-
-#+CAPTION: [Rate-level responses of a single Type-II DCN unit]{Tone and noise rate-level responses of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
+#+ATTR_LATEX: height=0.5\textheight,keepaspectratio
+#+CAPTION: [Response area and rate-level responses of a typical  Type II DCN unit]{Response area and rate-level responses to tones and noise of a single Type-II DCN unit. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig1
 [[../SimpleResponsesChapter/gfx/Spirou-Fig1-type2.pdf]]
 
-#+ATTR_LATEX: width=0.5\textwidth
-#+CAPTION: [Rate-level responses of a single Type-II DCN unit]{Pharmaceutical effects on tone and noise rate-level responses of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
-#+LABEL:  fig:SpirouFig8
-[[../SimpleResponsesChapter/gfx/Spirou-Fig8-RL-Strych-Bic.png]]
+# #+ATTR_LATEX: width=0.45\textwidth,keepaspectratio
+# #+CAPTION: [Rate-level responses of a single Type II DCN unit]{Pharmaceutical effects on tone and noise rate-level responses of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
+# #+LABEL:  fig:SpirouFig8
+# [[../SimpleResponsesChapter/gfx/Spirou-Fig8.png]]
 
 
 # Responses of tuberculoventral neurons to sound
 Recorded \PSTHs of \TV cells /in vivo/ are variable (pause-build,
-unusual chopper, or onset with sustained activity) 
-\citep{ShofnerYoung:1985,SpirouDavisEtAl:1999}. 
-Recordings /in vitro/ show that tuberculoventral cells respond with
- regular "chopper"-like behaviour to voltage-clamped current injection
- \citep{ZhangOertel:1993b}.  The strong input from \DS cells across
- frequencies contribute to little or no response to wide band noise and
- firing rates to \CF tones that are non-monotonic functions of
- intensity.
+unusual chopper, or onset with sustained activity)
+\citep{ShofnerYoung:1985,SpirouDavisEtAl:1999}.  Recordings /in vitro/
+show that tuberculoventral cells respond with regular "chopper"-like
+behaviour to voltage-clamped current injection
+\citep{ZhangOertel:1993b}.  The strong input from \DS cells across
+frequencies contribute to little or no response to wide band noise and
+firing rates to \CF tones that are non-monotonic functions of intensity.
+The low spontaneous rates and high sound thresholds of type II \DCN
+units might be caused by a high intrinsic electrical threshold
+\citep{HancockDavisEtAl:1997}; this is consistent with the responses of
+\TV cells to intracellular current injection
+\citep{DingVoigt:1997,ZhangOertel:1993b}.
 
 
 Pharmacological effects of neurotransmitter blockers have shown that \TV
@@ -1687,20 +1698,14 @@ lowered the threshold for tones \citep{DavisYoung:2000}.
 ## -- Are these mine?  --
 Taken together with histological studies, the results suggest that
 auditory nerve fibres (predominantly \LSR fibres) form the major
-excitatory input to type II \DCN units along with other excitation from
-TS cells.  If true, this hypothesis could also explain the finding that
-type II DCN units have consistently higher thresholds than \DCN
-principal cells \citep{YoungBrownell:1976} because \LSR auditory nerve
-fibres auditory nerve fibres \citep{Liberman:1978}.  However, patterns
-of also have elevated thresholds relative to the lowest threshold
-auditory nerve innervation of the \DCN are most consistent with \HSR
-fibre innervation of \TV cell somata and \LSR fibre innervation of
-dendrites \citep{Liberman:1993}.  In that case, the low spontaneous
-rates and high sound thresholds of type II \DCN units might be caused by
-a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997};
-this is consistent with the responses of vertical cells to intracellular
-current injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
-
+excitatory input to type II \DCN units along with other excitation from TS cells.  
+# If true, this hypothesis could also explain the finding that
+# type II DCN units have consistently higher thresholds than \DCN
+# principal cells \citep{YoungBrownell:1976} because \LSR fibres \citep{Liberman:1978}.  However, patterns
+# of also have elevated thresholds relative to the lowest threshold
+# auditory nerve innervation of the \DCN are most consistent with \HSR
+# fibre innervation of \TV cell somata and \LSR fibre innervation of
+# dendrites \citep{Liberman:1993}.  In that case, 
 Type II units also supply an inhibitory input to the \VCN
 \citep{WickesbergOertel:1990}, but the role of type II terminals in the
 \VCN is less clear.  Three different hypotheses have been raised.  The
@@ -1809,58 +1814,66 @@ neural model.
 #+ATTR_LATEX: width=0.5\textwidth
 #+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and BBN rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
-[[../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_Fig8.pdf]]
+[[../SimpleResponsesChapter/gfx/Spirou-Fig8.png]]
+#TV_RateLevel/TV_RateLevel_Fig8.pdf
+
 \clearpage
+
 ** Results
 
-Figure \ref{fig:TVRLresult} shows the output behaviour of the five
-different neurons in the optimisation of the input parameters of the
-TV cell model.
+Figure \ref{fig:TVRLresult} shows the best fitted output behaviour of the optimised TV cell model (Table \ref{tab:TVRateLevelFig8B}) and its inputs to target data from the unit in Figure 8A in \citet{SpirouDavisEtAl:1999} (see Figure \ref{fig:SpirouFig8}). The target unit had an elevated threshold to noise relative to \BF tones and no change in threshold when strychnine was applied.  The optimised TV cell model was able emulate this response in tones but not in noise (Figure \ref{fig:TVRLresult}D).
 
 
-#+CAPTION:  Optimisation results for the TV model responses to tone and noise.
-#+LABEL: fig:TVRLresult
-[[../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_result.pdf]]
+#+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) was optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}). Figure format same as Figure \ref{fig:DSRateLevelResult}. Glycinergic blocker strynchnine used in the target unit is emulated in the TV cell model by removing DS cell synaptic inputs. (A) Tone RL of HSR, LSR and GLG and DS cell unit inputs at CF 5.8 kHz. (B) Tone RL of  optimised TV cell model and target unit data with and without inhibition. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit data with and without inhibition. }
+#+LABEL: fig:TVRateLevelResult
+[[../../cnstellate/TV_RateLevel/TV_RateLevel_result.pdf]]
+#../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_result.pdf
 
-#  50 dB Run
+# #  50 dB Run
+# #+BEGIN_LaTeX
+#   {\small
+#   \noindent\begin{center}%table} 
+#   \begin{minipage}{0.48\linewidth} 
+#   \begin{tabularx}{\textwidth}{|X|c|}
+#   \hdr{2}{}{TV Model Parameters } \\ \hline 
+#   %                 & \\ \hline
+#     \wLSRTV (nS)   & 2.1707 \\ 
+#     \wHSRTV (nS)   & 0.6168 \\ 
+#     \wDSTV (nS)    & 1.8 \\ \hline
+#   Error (spikes/s) & 219.10798\\ \hline 
+#   \end{tabularx}% 
+#   \end{minipage}\hfill 
+#   \end{center} }
+# #+END_LaTeX=
+
+
 #+BEGIN_LaTeX
   {\small
-  \noindent\begin{center}%table} 
+  \noindent\begin{center}
   \begin{minipage}{0.48\linewidth} 
-  \begin{tabularx}{\textwidth}{|X|c|}
+  \label{tab:TVRateLevelFig8B}
+  \begin{tabularx}{\textwidth}{|X|c|} 
   \hdr{2}{}{TV Model Parameters } \\ \hline 
-  %                 & \\ \hline
-    \wLSRTV (nS)   & 2.1707 \\ 
-    \wHSRTV (nS)   & 0.6168 \\ 
-    \wDSTV (nS)    & 1.8 \\ \hline
-  Error (spikes/s) & 219.10798\\ \hline 
-  \end{tabularx}% 
-  \end{minipage}\hfill 
-  \end{center} }
+          \wLSRTV  \quad (nS)         & 4.765  \\ 
+          \wHSRTV  \quad (nS)         & 0.983 \\ 
+          \wDSTV  \quad (nS)          & 1.152 \\ 
+                \nDSTV                & 29.4917 \\
+       \TV \Erev     \quad (mV)       & -68.25 \\ \hline
+        RL error  \, (spikes/s)       & 36.7552 \\
+  Without DS RL error  \, (spikes/s)  & 11.3262 \\
+       NRL error  \, (spikes/s)       & 13.8671 \\
+  Without DS NRL error  \, (spikes/s) & 67.4216 \\
+      Total error  \, (spikes/s)      & 129.37 \\ \hline 
+  \end{tabularx}\end{minipage}\hfill 
+  \end{center}}
 #+END_LaTeX
 
 
-#+BEGIN_LaTeX
-    {\small
-    \noindent\begin{center}%table} 
-    \begin{minipage}{0.48\linewidth} 
-    \begin{tabularx}{\textwidth}{|X|c|}
-  \hdr{2}{}{TV Model Parameters } \\ \hline 
-                       %                      & \\ \hline
-                 \wLSRTV (nS)                 & 4.765  \\ 
-                 \wHSRTV (nS)                 & 0.983 \\ 
-                  \wDSTV (nS)                 & 1.152 \\ 
-                    \nDSTV                    & 29.4917 \\
-                   \TV \Erev                  & -68.25 \\ \hline
-      Rate level error (spikes/s)             & 36.7552 \\
-  No DS inhibition rate level error (spikes/s) & 11.3262 \\
-              Noise rate level error (spikes/s)             & 13.8671 \\
-    NRL without DS inhibition error (spikes/s)   & 67.4216 \\
-            Final error (spikes/s)            & 129.37 \\ \hline 
-  \end{tabularx}% 
-    \end{minipage}\hfill 
-    \end{center} }
-#+END_LaTeX
+
+
+
+
+
 
 ** Verification of the TV Cell Model
 
@@ -2003,7 +2016,9 @@ the presence of multiple inhibitory synapses \citep{Alibardi:2006}
 suggest \TV cells either receive a strong inhibitory influence or they
 have a lower \RMP due to a lower leak current reversal potential. A
 reduced resting membrane potential may increase the threshold for
-excitatory inputs to generate action potentials.
+excitatory inputs to generate action potentials. To allow for this, the
+reversal potential of the TV cell model (\Erev) was used as a parameter
+in the optimisation routine with a range from -80 to -50 mV. 
 
 # \yellownote{TODO: I allowed HSR2TV weight value go negative to give a constant
 # inhibitory input. Then on 2 other runs I shifted the reversal potential of the
@@ -2015,7 +2030,7 @@ information.  The \HSR rate response is generally flat at medium to high
 sound intensities.  \DS cell response has a regular onset spike but has
 a low rate throughout the stimulus, which detracts from the purpose of
 using a whole network to optimise parameters for synaptic inputs
-regarding \TV cells.  The \TV rate response could therefore just be
+regarding \TV cells.  The \TV cell model's rate response could therefore just be
 modeled on the \LSR response using a simple gradient-decent method.
 
 \yellownote{TODO: Population mean rate: Pros: fairly stable for smallish
