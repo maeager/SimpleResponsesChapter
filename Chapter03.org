@@ -16,6 +16,7 @@
 #+BIBLIOGRAPHY: MyBib alphanat
 
 
+#+LaTeX:\ifthenelse{\isundefined{\manuscript}}{\printglossaries}{}
 #+LaTeX: \setcounter{chapter}{2} 
 #+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential Parameter Fitting of Synaptic Variables Using Simple Acoustic Responses}\label{sec:Chapter3} 
 
@@ -78,11 +79,11 @@
   include unit responses to the activity of other cells, and how these
   responses are distributed over a population of similar cells as
   wells as across populations of different cells. \\
-  {\raggedright\textit{\citet[; p.]{Shamma:1998}}
+  {\hfill \textit{\citet[~p.]{Shamma:1998}}}
 #+END_QUOTE
 \yellownote{TODO: Get page number of this quote}
 
-Shihab Shamma calls upon the neuroscience community to investigate the
+Shamma calls upon the neuroscience community to investigate the
 role of populations of neurons in neurophysiology.  To do so, this
 chapter draws on the wealth of experimental data accumulated in auditory
 neuroscience to create a detailed \BNN model of the T stellate
@@ -175,14 +176,14 @@ The \CNSM model in Figure \ref{fig:microcircuit} shows the following cell models
    recorded extracellular data in the marginal shell area of the \CN
    \citep{GhoshalKim:1997}.  The presumed characteristics of Golgi cells
    are taken from that study and are defined by a monotonic response to
-   tones and noise, a type I\slash III \EIRA, and an unusual or chopper
+   tones and noise, a Type I\slash III \EIRA, and an unusual or chopper
    \PSTH.
 3. The D stellate cell: a large, glycinergic, multipolar\slash stellate cell with \OnC\ 
    \PSTH response that acts as a coincidence detector.  Its large
    dendritic area increases its response to noise, allowing it to behave
    as a wide-band inhibitor in the \VCN, \DCN, and contralateral \CN
    \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
-4. The Tuberculoventral cell: a glycinergic, type II \EIRA unit in the
+4. The Tuberculoventral cell: a glycinergic, Type II \EIRA unit in the
    deep layer of the \DCN \citep{SpirouDavisEtAl:1999}.  This cell acts
    as a delayed echo-suppressor and narrow-band inhibitor, with
    recurrent connections between D and T stellate cells in the \VCN
@@ -279,7 +280,7 @@ the Bruce model \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007} an
 The neural models used in the \ANFs and Golgi cell model were
 inhomogeneous Poisson processes.  The instantaneous rate produced the
 input \AN model (chosen from the Bruce or Zilany model) or through the
-Golgi filter model (Section \ref{sec:GolgiOpt}) was passed through the
+Golgi filter model (Section \ref{sec:GolgiModelOpt}) was passed through the
 Jackson spiking model \citep{Jackson:2003,JacksonCarney:2005}, which
 includes refractory effects typical of the \ANFs.  Spike trains for each
 neuron in the \AN model were created at the start of each repetition of
@@ -345,7 +346,7 @@ distance (based on the basilar membrane and auditory nerve separation)
 with centre frequency calculated by the Greenwood function for the cat
 \citep[see~Chapter~\ref{sec:Methods},][]{Greenwood:1990}.  The \HSR \ANF
 terminals of individual fibres generally cover 70 \um and 
-\LSR fibres
+\LSR fibres cover
 100 \um in mice \citep{OertelWuEtAl:1988,OertelWu:1989}. 
 \yellownote{TODO: put greenwood function in Methods}
 
@@ -377,6 +378,32 @@ filterbank of \AN frequency channels.
 
 The synaptic models for \AMPA, \GlyR and \GABAa receptors were described in Chapter \ref{sec:Chapter2} Section \ref{sec:Ch2:Synapse}.
 
+
+** Synaptic Jitter
+   :PROPERTIES:
+   :LABEL: sec:Ch3:Jitter
+   :END:
+
+To account for \ANF synapses placed at various distances along the
+dendrites of \TS, \DS and \TV cells a random jitter was introduced to
+the synaptic delay.  Jitter was calculated around a minimum delay
+(e.g. \dANFTS) as an absolute Gaussian distribution with zero mean and
+standard deviation of 0.1 ms. Figure \ref{fig:CSjitter} shows the
+effects of jitter on the intracellular responses of a Type I-t Rothman
+and Manis neural model \cite{RothmanManis:2003b} averaged over 25
+repetitions.  The effects of adding jitter to individual ANF inputs the
+CN neurons are to increase the mean and standard deviation of
+\FSL. These effects replicate dendritic delays without the added
+computational cost of a passive neural compartment in the model.
+Dendritic attenuation of the \EPSP is not accounted for.
+
+
+#+caption: [Response of T stellate cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a T stellate cell model (Type I-t Rothnam and Manis) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.  Jitter responses (averaged over 25 repetitions) are shown as a thick line and responses without jitter are shown as thin lines. All weights were set to 0.0005\,$\mu$S. Twenty HSR and 30 LSR ANF synapse onto the recorded TS cell model. A. No jitter on TS cell without the sodium channel. B. No jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.
+#+label: fig:CSjitter
+[[../../cnstellate/TStellate/baseline_jitter.pdf]]
+
+\clearpage
+
 ** Synaptic Delays
    :PROPERTIES:
    :LABEL: sec:Ch3:Delays
@@ -395,7 +422,7 @@ conduction delay, and the synaptic transmission delay.  The first spike
 latency measured in high \CF units in the ARLO \AN model
 \citep{HeinzZhangEtAl:2001} for \HSR fibers was 1.5 ms.
 
-\yellownote{DAVID:  Do you think the next paragraph and table belongs in the results?}
+\yellownote{DAVID:  Do you think the next paragraph and table belongs in a results section?}
 
 Table \ref{tab:Meth:AddDelay} shows the additional delay component for
 each cell type, calculated from population statistics, to ensure the first
@@ -411,16 +438,16 @@ additional \IKA channel current over the Type I-c model, but were not
 significantly different from the classic Type I models in \TV and \GLG
 cell models.
 
-#+BEGIN_LaTeX
-  \begin{figure}[tbh]
-    \begin{center}
-  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-  %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{ClickDelay}}
-      \caption{Response of AN and CN cells to click stimuli. }
-      \label{fig:ClickDelayAN}
-    \end{center}
-  \end{figure}
-#+END_LaTeX
+# #+BEGIN_LaTeX
+#   \begin{figure}[tbh]
+#     \begin{center}
+#   %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
+#   %    \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{ClickDelay}}
+#       \caption{Response of AN and CN cells to click stimuli. }
+#       \label{fig:ClickDelayAN}
+#     \end{center}
+#   \end{figure}
+# #+END_LaTeX
 
 
 #+BEGIN_LaTeX
@@ -442,12 +469,14 @@ cell models.
 ** Simulation Specifications
 #and Parallel Capabilities
 
-All simulations were performed in the neural simulation package [[latex:progname][NEURON.]]
-The time step of the numerical integration performed in each of the
-simulations in the chapter was 0.05 ms.  
+All simulations were performed in the neural simulation package
+[[latex:progname][NEURON]]. for further specifications see Section \ref{sec:Ch2:SimSpecs}
+[[*Simulation%20and%20Implementation%20of%20the%20CNSM%20Model][Simulation and Implementation of the CNSM Model]].  The time step of the
+numerical integration performed in each of the simulations in the
+chapter was 0.05 ms.  Input spikes for Poisson neural models (\HSR, \LSR
+and \GLG cell models) were calculated at the start of repetitions.
 
-# The parallel is based on the
-[[latex:progname][# NEURON]] network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006} (see
+# The parallel is based on the  [[latex:progname][NEURON]] network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006} (see
 # SenseLab's ModelDB models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]]).
 
 ** Optimisation Routine
@@ -495,15 +524,24 @@ The stimuli presented to the stellate microcircuit included:
 ** fig:Compression
 
 
-# # + NAME: audiograms
 # #+BEGIN_SRC sh
-# make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
+# # make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
+# make gfx/AudiogramCompression.pdf
 # #+END_SRC
+
+** GolgiDiagram
+# #+BEGIN_SRC sh
+# 	dia -n -t pgf-tex -e gfx/GolgiDiagram.tex gfx/GolgiDiagram.dia
+# 	sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' ./gfx/GolgiDiagram.tex
+# #+END_SRC
+
+
+
 
 
 * Golgi Cell Model: Optimisation Using Rate Level Responses in Marginal Shell Units 
     :PROPERTIES:
-    :LABEL: sec:GolgiOpt
+    :LABEL: sec:GolgiModelOpt
     :END:
 
 ** Background
@@ -511,16 +549,16 @@ The stimuli presented to the stellate microcircuit included:
 # GLG Cell Model
 *** Morphology of Golgi Cells
 
-Golgi cells are distinguished from the numerous smaller granule cells
-by larger cell body and surrounding plexus of dendritic and axonal
+Golgi cells can be distinguished from the numerous smaller granule cells
+by their larger cell body and surrounding plexus of dendritic and axonal
 neurites. The soma diameter of Golgi cells is approximately 15 \um
-\citep{FerragamoGoldingEtAl:1998}, where the diameter of granule cells
+\citep{FerragamoGoldingEtAl:1998}, while the diameter of granule cells
 is 8 \um in cats \citep{MugnainiOsenEtAl:1980} and 6 \um in rats and
 mice \citep{MugnainiOsenEtAl:1980,Alibardi:2003}.  Smooth, tapering
-dendrites, between 50 and 100 \um long, emanated in all directions
+dendrites, between 50 and 100 \um long, emanate in all directions
 (mice: \citealt{FerragamoGoldingEtAl:1998}, see also
 \citealt{Cant:1993,MugnainiOsenEtAl:1980}).  A dense, axonal plexus,
-limited to the plane of the granule cell domain, extend about 250 \um
+limited to the plane of the granule cell domain, extends approximately 250 \um
 from the soma in all directions
 \citep{FerragamoGoldingEtAl:1998,BensonBrown:2004}.
 
@@ -532,8 +570,8 @@ glomeruli complexes with long synaptic junctions with the mossy fibre
 boutons \citep{MugnainiOsenEtAl:1980}. The somata generally have few
 boutons of flat or pleomorphic vesicle type, characteristic of
 glycinergic and GABAergic terminals. Along with inhibitory boutons,
-the dendrites also receive excitatory input with large (type I \ANF)
-and small (type II \ANF and granule cell) vesicles
+the dendrites also receive excitatory input with large (Type I \ANF)
+and small (Type II \ANF and granule cell) vesicles
 \citep{MugnainiOsenEtAl:1980,FerragamoGoldingEtAl:1998,Ryugo:2008}.
 
 #  \citep{Alibardi:2003} In non-tonotopic circuits integration between acoustic
@@ -552,9 +590,9 @@ and small (type II \ANF and granule cell) vesicles
 # granule cell domain'. The granule cells are small neurons with two or three
 # short dendrites that give rise to a few branches with terminal
 # expansions. These participate in glomerular synaptic arrays similar to those
-# of the cerebellar cortex. In the glomeruli the dendrites form short type 1
+# of the cerebellar cortex. In the glomeruli the dendrites form short Type 1
 # synapses with a large, centrally-located mossy bouton containing round
-# synaptic vesicles and type 2 synapses with peripherally located, smaller
+# synaptic vesicles and Type 2 synapses with peripherally located, smaller
 # boutons containing pleomorphic vesicles. The granule cell axons is thin and
 # beaded and, on its way to the molecular layer of the \DCN, takes a straight
 # course, which in ventral nucleus is parallel to the pial surface. Neurons of
@@ -565,7 +603,7 @@ and small (type II \ANF and granule cell) vesicles
 # thin appendages, giving them a hairy appearance.  Both the cell body and the
 # stem dendrites participate in glomerular synaptic arrays.  Golgi cell
 # glomeruli are distinguishable from the granule cell glomeruli by unique
-# features of the dendritic profiles and by longer, type 1 synaptic junctions
+# features of the dendritic profiles and by longer, Type 1 synaptic junctions
 # with the central mossy bouton.  The Golgi cell axon forms a beaded plexus
 # close to the parent cell body. The synaptic vesicle population of the mossy
 # boutons suggests that they are a heterogeneous group and may have multiple
@@ -581,14 +619,14 @@ and small (type II \ANF and granule cell) vesicles
 
 *** Cellular Mechanisms of Golgi Cells
 
-Intracellular recordings of Golgi cells, only one study in mice, have
-shown a classic repetitively-firing response to current clamp and an
+In a single study in mice, intracellular recordings of Golgi cells 
+showed a classic repetitively-firing response to current clamp and an
 inward rectifying response to voltage clamp
-\citep{FerragamoGoldingEtAl:1998}.  Figure \ref{fig:GolgiIV}.  Golgi
-cells are classified as type I and act as simple integrators of
+\citep[][Figure~\ref{fig:GolgiIV}]{FerragamoGoldingEtAl:1998}.  Golgi
+cells are classified as a Type I current-clamp neuron and act as simple integrators of
 synaptic input \citep{FerragamoGoldingEtAl:1998}.
 # Their intrinsic properties suggests Golgi cells are simple integrators.
-Response to AN shocks in Golgi cells were delayed by approximately 0.7
+Response to AN shocks in Golgi cells were found to be delayed by approximately 0.7
 ms relative to the core \VCN units, with minimum delay in most cells
 around 1.3 ms \citep{FerragamoGoldingEtAl:1998}.
 
@@ -618,27 +656,27 @@ to elicit electrical activity in the electrodes
 ## Change this sentence
 # There was a substantial presence of
 
-Strongly driven units in the AVCN shell exhibiting non-saturating
+Strongly driven units in the anterior \VCN shell exhibit non-saturating
 rate-level functions to pure tone, noise or both with dynamic ranges
-as wide as 89 dB \citep{GhoshalKim:1997}.  The majority of recorded
-\GCD units recorded by \citet{GhoshalKim:1997} were classified as type
+as wide as 89 dB \citep{GhoshalKim:1997}.  The majority of
+\GCD units recorded by \citet{GhoshalKim:1997} were classified as Type
 I\slash III or III \EIRA units, showing a monotonic increase in firing
 rate with increasing sound intensity to tones and noise.  Some units
-examined did show type II or type IV \EIRA properties. One unit was
-classified as type II due to its poor response to noise but it did not
+examined showed Type II or Type IV \EIRA properties. One unit was
+classified as Type II due to its poor response to noise but it did not
 show a reduction of response to tones at high \SPL (typical of \DCN
-type II units) \citep{GhoshalKim:1997}. Two units with low \CF (< 1.5
-kHz) were classified as type II \citep{GhoshalKim:1997}.  The \PSTH of
-the units included wide chopper, \OnC, and pause-build, however nearly
+Type II units) \citep{GhoshalKim:1997}. Two units with low \CF (< 1.5
+kHz) were classified as Type II \citep{GhoshalKim:1997}.  The \PSTH of
+the units included wide chopper, \OnC, and pause-build; however, nearly
 one third of units did not fit into the known classifications and were
 called unusual \citep{GhoshalKim:1997}.
 
-The latency of acoustically driven \GCD recorded units range from 2.4
-ms to over 10 ms, centred on 3.75 ms.  The acoustic latency closely
+The latency of acoustically driven \GCD recorded units ranges from 2.4
+ms to over 10 ms, with a mean of 3.75 ms.  The acoustic latency closely
 matches the minimum latency of \EPSPs to AN shocks recorded in mice
 /in vitro/ preparations \citep[1.3~ms,][]{FerragamoGoldingEtAl:1998}.
-Longer latencies (>10 ms) may be due to type II \ANFs (estimated
-theoretical latency about 10 ms \citep{Brown:1993}) or from
+Longer latencies (\gt10 ms) may be due to Type II \ANFs (estimated
+theoretical latency of 10 ms \citep{Brown:1993}) or from
 polysynaptic excitation by granule cells.
 
 # Their monotonic responses to tones and noise over a wide dynamic range
@@ -647,7 +685,7 @@ polysynaptic excitation by granule cells.
 # \VCN~units is analogous to automatic gain control.  provides strong evidence
 # for regulation of activity in granule cells.
 
-The general assumption of the functional role of Golgi cells is to
+The assumed functional role of Golgi cells is to
 regulate granule cells but they may also provide automatic gain
 control to the principal \VCN units, primarily D and T stellate cells
 \citep{GhoshalKim:1997,FerragamoGoldingEtAl:1998a}.
@@ -655,9 +693,9 @@ control to the principal \VCN units, primarily D and T stellate cells
 # GABA in the Ventral Cochlear Nucleus
 # {Neuromodulatory effects of Golgi cells}
 
-
 ** Implementation
 
+\yellownote{first sentence too long and could go at start of golgi section}
 The presence of GABAergic inputs to \VCN and \DCN neurons has been
 verified by labeled terminals adjacent to the soma and dendrites
 \citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003}
@@ -672,7 +710,7 @@ generally arise in the peri-olivary regions of the medulla in cats
 preparations of the isolated murine \VCN show strong and immediate
 sensitivity to bicuculine in T and D stellate cells from a source
 within the \CN complex \citep{FerragamoGoldingEtAl:1998a}.  The only
-known source of \GABA intrinsic to the \VCN are the Golgi cells of the
+known source of \GABA intrinsic to the \VCN is the Golgi cells of the
 \GCD overlying the \VCN
 \citep{Mugnaini:1985,FerragamoGoldingEtAl:1998}.
 
@@ -701,18 +739,21 @@ known source of \GABA intrinsic to the \VCN are the Golgi cells of the
 
 Inputs to Golgi cells are more complicated than the inputs to core
 \VCN neurons.  Golgi cells are sparse in the \GCD, surrounded by the
-many, smaller excitatory granule cells, that form small en-passant
+many smaller excitatory granule cells that form small en-passant
 endings.  Type II \ANFs create diffuse glutamatergic release sites in
 the \GCD \citep{HurdHutsonEtAl:1999,BensonBrown:2004} that may
 stimulate NMDA glutamate receptors in Golgi cells
 \citep{FerragamoGoldingEtAl:1998a}.
 
-The physiological response of Golgi cells has not been extensively
+\yellownote{REPETITIVE: The physiological response of Golgi cells has not been extensively
 studied.  Intracellular recordings of Golgi cells in one study by
-\citet{FerragamoGoldingEtAl:1998} have shown a classic type I current
+\citet{FerragamoGoldingEtAl:1998} have shown a classic Type I current
 response.  This suggests Golgi cells are simple integrators.  Their
 response to auditory nerve shocks were delayed by approximately 0.7 ms
 relative to the core \VCN units \citep{FerragamoGoldingEtAl:1998}.
+}
+
+\yellownote{REPETITIVE:
 Extracellular recordings from labelled Golgi cells is not available in
 the literature; however, the \GCD (or marginal shell of the \VCN in
 cats) has been studied by one group \citet{GhoshalKim:1997} without
@@ -723,86 +764,87 @@ electrical activity in the electrodes.  The majority of recorded units
 showed a monotonic increase in firing rate with increasing sound
 intensity \citep[Figure~\ref{fig:GolgiKimFig2}][]{GhoshalKim:1996}.
 
-Their monotonic responses to tones and noise over a wide dynamic range
-provides regulation of activity in granule cells.  The contribution of
+Golgi cells' monotonic responses to tones and noise over a wide dynamic range
+provide regulation of activity in granule cells.  The contribution of
 a delayed, negative feedback onto \VCN units is analogous to automatic
 gain control provides strong evidence for regulation of activity in
 granule cells. The general assumption of the functional role of Golgi
 cells is to regulate granule cells but they may also provide automatic
 gain control to the principal VCN units, primarily D and T stellate
 cells \citep{FerragamoGoldingEtAl:1998a}.
+}
 
-#+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top will be the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
+#+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top was the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
 #+LABEL:      fig:GolgiKimFig2
 [[../figures/GhoshalKim96_Fig2.pdf]]
 
+\clearpage
 #+LaTeX:\input{../SimpleResponsesChapter/GolgiRateLevelTable}
 
 
-
-
-In the creation of the Golgi cell model, we can reduce the explicit
+In the creation of the Golgi cell model, we reduced the explicit
 behaviour of Golgi cells down to four major details:
  1. Golgi cells are classic repetitively-firing neurons due to their
-    type I current clamp response \citep{FerragamoGoldingEtAl:1998}.
- 2. Golgi cells have a low maximum rate and large dynamic range to
-    tone and noise increases, given marginal shell extracellular
+    Type I current clamp response \citep{FerragamoGoldingEtAl:1998}.
+ 2. The minimum \EPSP in Golgi cells to an electric shock of the AN
+    \citep{FerragamoGoldingEtAl:1998} and mean first spike latency to
+    acoustic stimuli \citep{GhoshalKim:1997} are significantly different
+    from the core \VCN units.
+ 3. Golgi cells have a low maximum rate and large dynamic range to
+    tone and noise increases, given that marginal shell extracellular
     recordings of \citet{GhoshalKim:1997} could not come from granule
     cells.
- 3. The low threshold in Golgi cells, \citet{GhoshalKim:1997},
-    can\-not be due to \LSR auditory nerve fibres. The lack of
-    extensive experimental data regarding type II \ANF units, that do
-    project to the \GCD, and granule cell response to acoustic input
-    meant that a Poisson rate neural model would be preferred over the
-    Hodgkin-Huxley type neural model.  Although \HSR \ANF terminals do
-    not generally project into the \GCD, they are included in this
-    model to provide some low level sound-induced activity.
- 4. The minimum \EPSP to shock of the AN
-    \citep{FerragamoGoldingEtAl:1998} and mean first spike latency to
-    acoustic stimuli \citep{GhoshalKim:1997} are significantly
-    different from the core \VCN units.
+ 4. The low threshold in Golgi cells can\-not be solely due to \LSR
+    \ANFs \citep{GhoshalKim:1997}. The lack of extensive experimental
+    data regarding Type II \ANF units that project to the \GCD and
+    granule cell response to acoustic input, meant that an inhomogeneous
+    Poisson rate neural model was preferred over the Hodgkin-Huxley type
+    neural model in the Golgi cell used in the \CNSM model.  Although
+    \HSR \ANF terminals do not generally project into the \GCD, they are
+    included in this model to provide some low level sound-induced
+    activity.
 
 The Golgi cell model is implemented as an instantaneous-rate Poisson
 rate model, shown in Table \ref{tab:GolgiCellModelSummary}D and in
 Figure \ref{fig:GolgiDiagram}.  The primary inputs are from the auditory
 model's instantaneous rate outputs with connections across frequency
-channels.  \HSR and \LSR \ANF inputs to Golgi cells were determined the
-Gaussian distribution in units of channel separation in the network.
-The weighted sum of \HSR and \LSR instantaneous-rate vectors are
+channels.  The strength of \HSR and \LSR \ANF inputs to Golgi cells was determined by
+a Gaussian distribution in units of channel separation in the network.
+The weighted sum of \HSR and \LSR instantaneous-rate vectors were
 smoothed out by an alpha function mimicking a synaptic and dendritic
-smoothing filter.  The synaptic and dendritic filter kernel, $\alpha(t)$ is
-normalised by setting the area under the function to one. For a large
-enough filter length, the alpha function integral ($\int \alpha(t) dt =
-(-\Gtau^2 - t \cdot \Gtau)\cdot \exp(-\frac{t}{\Gtau})$) approximately equals
-$\Gtau^2$. In this case $10 \times \Gtau$ is used for the filter length.
+smoothing filter.  
+# The synaptic and dendritic filter kernel, $\alpha(t)$ was
+# normalised by setting the area under the function to 1. For a large
+# enough filter length, the alpha function integral ($\int \alpha(t) dt =
+# (-\Gtau^2 - t \cdot \Gtau)\cdot \exp(-\frac{t}{\Gtau})$) approximately equals
+# $\Gtau^2$. In this case $10 \times \Gtau$ is used for the filter length.
 
-Table \ref{tab:GolgiCellModelSummary}A shows the model summary for
-optimising the Golgi cell model.  As explained in the introduction,
-the Nordlie tables are used to communicate detailed neural models and
+Table \ref{tab:GolgiCellModelSummary}A shows the model summary used to
+optimise the Golgi cell model.  As explained in the Chapter
+\ref{sec:MethodsChapter}, Section \ref{sec:Ch2:Optimisation}, the
+Nordlie tables are used to communicate detailed neural models and
 networks for further replication by the computational neuroscience
 community.  The topology of the ventral cochlear nucleus follows the
 same tonotopic organisation of the auditory nerve, with 100 evenly
-spaced frequency channels.  The population of \ANFs in Table
-\ref{tab:GolgiCellModelSummary}B are zero because there is no need for
-spiking \ANF neurons, only the instantaneous profiles of each
-frequency channel is used in the Golgi model.  The connectivity
-between \ANFs and Golgi cells (Table \ref{tab:GolgiCellModelSummary}C)
-is a simple place-based Gaussian spread, as explained in the Methods Chapter
- (Section \ref{sec:Ch2:ConnectivityandTopology}
-[[*Connectivity%20and%20Topology][Connectivity and Topology in Neural Microcircuits]]).
+spaced frequency channels.  As Table \ref{tab:GolgiCellModelSummary}B
+shows, the ANFs were not required because only the instantaneous
+profiles of each \AN frequency channel were used in the Golgi model.
+The connectivity between \ANFs and Golgi cells (Table
+\ref{tab:GolgiCellModelSummary}C) is a simple place-based Gaussian
+spread, as explained in the Chapter \ref{sec:MethodsChapter} (Section
+\ref{sec:Ch2:ConnectivityandTopology}
+# [[*Connectivity%20and%20Topology][Connectivity and Topology in Neural Microcircuits]]).
 
 #+BEGIN_LaTeX
   \begin{figure}[htb]
    \resizebox{0.9\textwidth}{!}{\input{../SimpleResponsesChapter/gfx/GolgiDiagram.tex}}
    \caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile
-     was generated using a weighted sum ANF profiles and a alpha function
+     was generated using a weighted sum of ANF profiles and as alpha function
      smoothing filter to mimic dendritic and synaptic filtering. The
      Gaussian spread of connections is independent for HSR and LSR
-     auditory filters, with the mean equal to CF channel of unit. The
-     final stage sets the spontaneous rate by addition at t=0, changes any
-     negative values to zero, and includes an additional delay of 2.5 ms,
-     which is 0.7 ms greater than the core VCN units as shown by
-     \citet{GhoshalKim:1997}.}
+     auditory filters, with the mean equal to the CF channel of the unit. The
+     final stage set the spontaneous rate (SR) by addition at t=0, changed any
+     negative values to zero, and included an additional delay of 2.5 ms.}
    \label{fig:GolgiDiagram} 
   \end{figure}
 #+END_LaTeX
@@ -813,7 +855,7 @@ is a simple place-based Gaussian spread, as explained in the Methods Chapter
 
 The weight vectors, $\mathbf{w}_{HSR}$ and $\mathbf{w}_{LSR}$, span
 the network's channels with size $N_{\textrm channel}$, with a normal
-curve centred on the position in the channel and variance \sANFGLG.
+curve centred on the position in the channel and variance \sANFGLG\@.
 Instantaneous-rate profiles of the \AN have size $N_\textrm{channel}$
 and length determined by the stimulus ($N_\textrm{stim}$ = stimulus
 duration / sampling rate).  The intermediate step in the Golgi cell
@@ -824,7 +866,7 @@ with the alpha function, $\alpha(t)$, as the synapto-dendritic
 filtering mechanism in the Golgi cell.  The alpha filter length was 10
 times the time constant, \Gtau, and its area under the function was
 normalised to 1.  A more detailed explanation of the NEURON
-implementation of the Golgi cell model is in the Appendix \label{sec:Ch3:Appendix}.
+implementation of the Golgi cell model is provided in the Appendix \ref{sec:Ch3:Appendix}.
 
 # Eq. \ref{eq:alpha_Golgi},
 # In Chapter \ref{sec:GAChapter}, the Golgi cell model was implemented as a
@@ -856,6 +898,8 @@ implementation of the Golgi cell model is in the Appendix \label{sec:Ch3:Appendi
 # \caption{Optimisation Results for Golgi Model using Rate Level data from
 # \label{Ch3:fig:GolgiRL}}
 
+\clearpage
+
 ** Optimisation Results
 
 Figure \ref{fig:GolgiTestResult} shows the output of the test
@@ -864,54 +908,56 @@ only five sound levels (0, 15, 55, 75 and 85 dB \SPL) and detected the
 mean rate from the instantaneous profile in its fitting routine.  The
 best response obtained a minimum root mean squared error of 11.63
 spikes/sec against the five points in the target experimental data of
-unit S03-07 (CF=21 kHz) from \citet{GhoshalKim:1996}.  A rate-level
+unit S03-07  \citep[CF~21~kHz][]{GhoshalKim:1996}.  A rate-level
 curve (green circles, Figure \ref{fig:GolgiTestResult}) was generated
-from the spiking output only to show a big discrepancy in the
+from the spiking output to show the discrepancy in the
 spike-based rate-level and the monotonic rate based rate-level.  The
 lack of low level response and a higher threshold indicated the need
 for some \HSR input into the Golgi cell model.
 
 #+ATTR_LaTeX: width=0.8\textwidth
-#+CAPTION: [Initial results of Golgi cell model]{Initial trial results of the  Golgi cell model optimisation.  Responses of the Golgi cell model (blue  triangles) compared five five sound level (0,15, 55, 75 and 85 dB SPL) against  5 point in the target response (red squares).  The eventual best optimisation  response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  Golgi cell model using the final parameters.}
+#+CAPTION: [Initial results of Golgi cell model]{Initial trial results of the  Golgi cell model optimisation.  Responses of the Golgi cell model (blue  triangles) compared five sound levels (0,15, 55, 75 and 85 dB SPL) against five points in the target response (red squares).  The eventual best optimisation  response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  Golgi cell model using the final parameters.}
 #+LABEL: fig:GolgiTestResult
 [[../SimpleResponsesChapter/gfx/GolgiRateLevel_result2.pdf]]
 
 The final optimisation routine with 22 levels and a Golgi cell model
 with \HSR and \LSR \ANF inputs was used to generate a closer fit to
 the \citeauthor{GhoshalKim:1996} data.  Figure \ref{fig:GolgiResult}
-shows the rate-level output of the best model response and its best
-combination of parameters are shown in Table
-\ref{tab:GolgiCellModelSummary}E.  The root mean squared error of the
-best response was 4.48 spikes per second.
+shows the rate-level output of the Golgi cell model with its optimal
+combination of parameters as shown in Table
+\ref{tab:GolgiCellModelSummary}E.  The fitness function error value of the 
+#root mean squared error of the
+optimal Golgi cell model was 4.48 spikes per second.
 
 #+ATTR_LaTeX: width=0.8\textwidth
-#+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996}. A more detailed optimisation with 22 levels and included HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data.The final root mean squared error was 4.48 spikes/s.}
+#+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996}. A more detailed optimisation with 22 levels and including HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data. The final root mean squared error was 4.48 spikes per second.}
 #+LABEL: fig:GolgiResult
 [[../SimpleResponsesChapter/gfx/GolgiRateLevel_result.pdf]]
 
 The parameters in Table \ref{tab:GolgiCellResults} were within the
 range of expected values.  \LSR inputs to the Golgi cell model
-out-weighted \HSR inputs by more than a factor of 10.  The monotonic
-response of \LSR fibres at high sound levels were necessary to create
-the large dynamic range in the Golgi cell model, the \HSR fibres were
-just as necessary to provide some low level activity.  The spontaneous
+outweighed \HSR inputs by a factor greater than 10.  The monotonic
+response of \LSR fibres at high sound levels was necessary to create
+the large dynamic range in the Golgi cell model. Equally, the \HSR fibres were
+necessary to provide some low level spontaneous rate activity.  The spontaneous
 rate parameter matches the base response of unit S03-07 in Figure
 \ref{fig:GolgiResult}.  The smoothing filter time constant of 5 ms is
 a typical value in membrane time constants for neural models and fits
 with the input resistance in intracellular recordings of Golgi cells
 \citep{FerragamoGoldingEtAl:1998}.
 
-The input spread parameter is not well constrained by the optimisation
+The input spread parameter was not well constrained by the optimisation
 fitness routine with a pure tone input and a single neuron, but the
-result is satisfactory given the uncertainty in \LSR fibre's axonal
-organisation in the \GCD.  The dendritic widths in Golgi cells are
+result was satisfactory given the uncertainty in \LSR fibres' axonal
+organisation in the \GCD\@.  The dendritic widths in Golgi cells are
 around 100 microns and the frequency separation laminae in the \VCN
 core is approximately 70 \um, giving an expected result of 1.5
-connectivity spread hence the result of 2.48 channels gives added
+connectivity spread. Consequently, the result of 2.48 channels gives added
 frequency spread from \LSR fibres.
 
-\yellownote{TODO: Explain the figures and table more} Table
-\ref{tab:GolgiCellModelSummary}E result table.
+\yellownote{TODO: Explain the figures and table more} 
+
+Table \ref{tab:GolgiCellResults} result table.
 
 #+BEGIN_LaTeX
   {\small 
@@ -977,14 +1023,14 @@ frequency spread from \LSR fibres.
 
 After setting the optimised parameters in Table
 \ref{tab:GolgiCellResults}, the Golgi cell model was run with tone and noise
-inputs to determine it's behaviour outside of the optimisation
-routine.  The Golgi cell model was tested across the entire network
-using tones, noise and tones plus noise stimuli. Figure
-\ref{fig:GolgiVerification}A, B and D show the response of a Golgi
+inputs to determine its behaviour outside of the optimisation
+routine.  The Golgi cell model was tested across the entire \CNSM model network
+using tones, noise, and tones plus noise stimuli. Figure
+\ref{fig:GolgiVerification}A, B and D shows the response of a Golgi
 cell model at the centre of the network (CF=5.8 kHz) and had monotonic
 responses to tones and noise similar to other Ghoshal and Kim units
 (Figure \ref{fig:GolgiKimFig2}).  Figure \ref{fig:GolgiVerification}C
-shows the response of all \GLG units in the network to a 5.8 kHz tone,
+shows the response of all Golgi units in the network to a 5.8 kHz tone,
 increased from 0 to 90 dB \SPL.
 
 #+BEGIN_LaTeX
@@ -1025,7 +1071,7 @@ In the mammalian \CN, \DS cells have a wide ranging influence on almost all
 primary cells of the \CN.  Glycinergic terminals of the \DS cell
 contact \TS and bushy neurons in the \VCN \citep{RhodeSmithEtAl:1983},
 and fusiform and \TV neurons in the ipsilateral \DCN
-(type II and type IV \EIRA units). Some \DS cells exit the \CN,
+(Type II and Type IV \EIRA units). Some \DS cells exit the \CN,
 forming the commissural connection with the contralateral \CN
 \citep{NeedhamPaolini:2007}.  /In vitro/ studies have shown that \DS
 cells are strongly regulated by the neurotransmitter GABA
@@ -1119,11 +1165,11 @@ pairs \citep[as~used~by~][]{BackoffPalombiEtAl:1997} were deemed the
 most suitable for optimisation.  
 
 # Latency of excitation to auditory nerve
-# shocks suggests Golgi cells are activated by type II \ANFs and low
-# spontaneous rate type I \ANFs
+# shocks suggests Golgi cells are activated by Type II \ANFs and low
+# spontaneous rate Type I \ANFs
 # \citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}.
 #   Therefore,
-# type II and \LSR type I \ANFs could be involved in gain control through
+# Type II and \LSR Type I \ANFs could be involved in gain control through
 # GABAergic modulation of activity in the \VCN.
 
 
@@ -1161,8 +1207,8 @@ most suitable for optimisation.
 
 
 The \DS neural model was implemented with a
-single-compartment, type I-II Rothman and Manis model
-\citep{RothmanManis:2003b}. The type I-II Rothman and Manis is unique to
+single-compartment, Type I-II Rothman and Manis model
+\citep{RothmanManis:2003b}. The Type I-II Rothman and Manis is unique to
 \DS cells due to the small presence of low-threshold potassium currents.
 A larger cell body diameter, average 25 \um
 \citep{SmithRhode:1989,ArnottWallaceEtAl:2004}, was included in the
@@ -1178,7 +1224,7 @@ GABA, was used in the first optimisation routine.  DS cell rate level
 responses to tones and noise \citep{ArnottWallaceEtAl:2004} was used in
 the second optimisation.  Key elements in the creation of the D stellate
 cell model are shown in the Nordlie Table \ref{tab:DScellModelSummary}A.
-A type I-II single compartment neuron by \citet{RothmanManis:2003b} has
+A Type I-II single compartment neuron by \citet{RothmanManis:2003b} has
 the characteristics of a onset chopper unit and has previously been used
 to simulate a \DS cell model.  The choice of having a large multipolar
 neuron without dendrites was based on computational efficiency and
@@ -1217,7 +1263,6 @@ latency in high \CF \DS cells ($2.8 \pm 0.09$ ms) is precise and faster
 than other stellate neurons in the \VCN \citep{RhodeSmith:1986}.  The
 additional of 1.2 ms to \ANF to \DS input connections is a combination
 of axonal conductance and dendritic delay.
-
 
 
 ** Results of Click Recovery Optimisation
@@ -1491,7 +1536,6 @@ thresholds and  wider dynamic ranges.  The best parameters
 \clearpage
 
 
-
 ** Verification of the DS Cell Model
 
 # \yellownote{TODO: Small presentation of PSTH, RL, NRL, MRC and RA. Leave AM responses till next chapter}
@@ -1599,7 +1643,7 @@ spaced action potentials, indicating TV cells are simple integrators
 The input resistance of TV cells ranges from 80 to 125 mega ohms \citep{ZhangOertel:1993b,Manis:1990}.  
 
 # the low spontaneous
-# rates and high sound thresholds of type II \DCN units might be caused by
+# rates and high sound thresholds of Type II \DCN units might be caused by
 # a high intrinsic electrical threshold \citep{HancockDavisEtAl:1997};
 # this is consistent with the responses of vertical cells to intracellular
 # current injection \citep{DingVoigt:1997,ZhangOertel:1993b}.
@@ -1642,7 +1686,7 @@ the responses of single \ANFs.  \TV cells have a non-monotonic response
 to tones with increasing sound level and respond poorly to broadband
 noise, categorised as a Type II \EIRA unit
 \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}.  Units
-with type II responses are sharply tuned, have thresholds 10 dB higher
+with Type II responses are sharply tuned, have thresholds 10 dB higher
 than other units with which they are intermingled, and they do not
 respond to broad-band noise
 \citep{SpirouDavisEtAl:1999,YoungBrownell:1976,Young:1980,SachsYoung:1980,YoungVoigt:1982,ShofnerYoung:1985,VoigtYoung:1990,YoungSpirouEtAl:1992,Rhode:1999}.
@@ -1655,7 +1699,7 @@ with narrow tuning and weak response to noise
 #as shown in Figure \ref{fig:SpirouFig1}.
 # Young and his colleagues have shown that most neurons in the deep DCN
 # respond to sound with either of two major types of response maps, type
-# II or type IV
+# II or Type IV
 # \citep{EvansNelson:1973,ShofnerYoung:1985,VoigtYoung:1980,VoigtYoung:1990,Young:1980,YoungBrownell:1976}.
 
 
@@ -1679,7 +1723,7 @@ behaviour to voltage-clamped current injection
 \citep{ZhangOertel:1993b}.  The strong input from \DS cells across
 frequencies contribute to little or no response to wide band noise and
 firing rates to \CF tones that are non-monotonic functions of intensity.
-The low spontaneous rates and high sound thresholds of type II \DCN
+The low spontaneous rates and high sound thresholds of Type II \DCN
 units might be caused by a high intrinsic electrical threshold
 \citep{HancockDavisEtAl:1997}; this is consistent with the responses of
 \TV cells to intracellular current injection
@@ -1698,19 +1742,19 @@ lowered the threshold for tones \citep{DavisYoung:2000}.
 ## -- Are these mine?  --
 Taken together with histological studies, the results suggest that
 auditory nerve fibres (predominantly \LSR fibres) form the major
-excitatory input to type II \DCN units along with other excitation from TS cells.  
+excitatory input to Type II \DCN units along with other excitation from TS cells.  
 # If true, this hypothesis could also explain the finding that
-# type II DCN units have consistently higher thresholds than \DCN
+# Type II DCN units have consistently higher thresholds than \DCN
 # principal cells \citep{YoungBrownell:1976} because \LSR fibres \citep{Liberman:1978}.  However, patterns
 # of also have elevated thresholds relative to the lowest threshold
 # auditory nerve innervation of the \DCN are most consistent with \HSR
 # fibre innervation of \TV cell somata and \LSR fibre innervation of
 # dendrites \citep{Liberman:1993}.  In that case, 
 Type II units also supply an inhibitory input to the \VCN
-\citep{WickesbergOertel:1990}, but the role of type II terminals in the
+\citep{WickesbergOertel:1990}, but the role of Type II terminals in the
 \VCN is less clear.  Three different hypotheses have been raised.  The
 first is that this projection modulates the response thresholds of \VCN
-neurons \citep{PaoliniClark:1998}.  Secondly, the role of type II units in
+neurons \citep{PaoliniClark:1998}.  Secondly, the role of Type II units in
 spectral processing is that of a narrowband inhibitor. Responses of \DCN
 principal cells are strongly inhibited by this narrowband source.  As a
 result, \DCN principal cells are inhibited by sharp spectral peaks close
@@ -1724,7 +1768,7 @@ to their \BF \citep{SpirouDavisEtAl:1999}.
 \citet{ArleKim:1991a} were the first to show Type II \EIRA units with
   simple McCullock-Pitts point neuron models of the \DCN.
  - (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
-  inhibitory mechanism to create type II unit responses in a model of
+  inhibitory mechanism to create Type II unit responses in a model of
   the DCN\. In that model, each cell population was described by a
   mathematical formula for its steady-state rate-level function. This
   level of abstraction was used to focus specifically on the role of
@@ -1742,15 +1786,15 @@ Davis and colleagues
 To create a neural model with low spontaneous rate is to either increase
 the intrinsic spiking threshold or lower the synaptic strength of the
 inputs.  Intracellular observations in decerebrate gerbils show higher
-thresholds in type II units \citep{DingVoigt:1997}; and intracellularly
-recorded type II units.  Another case for type II behaviour of no
+thresholds in Type II units \citep{DingVoigt:1997}; and intracellularly
+recorded Type II units.  Another case for Type II behaviour of no
 spontaneous activity, is a preference of \LSR, high observations of
 hyperpolarisation responses to off \BF tones in threshold \AN
 fibres over \HSR fibres to synapse with \TV cells.  Whether \LSR fibres
 preference the deep layers of the \CN are yet to be confirmed
 \citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
 
-# - \citep{Rhode:1999} Vertical cells in gerbils (mainly type III)
+# - \citep{Rhode:1999} Vertical cells in gerbils (mainly Type III)
 
 The intrinsic mechanism is more favourable in Type II units, provided
 there is sufficient inhibition and excitation
@@ -1759,7 +1803,7 @@ favour of wide-band inhibition \citep{HancockDavisEtAl:1997} and is
 favoured in this model.  Work by Reed and Blum
 \citep{ReedBlum:1995,BlumReedEtAl:1995,ReedBlum:1997,BlumReed:1998} on
 the circuitry of the \DCN showed that wide-band inhibition was necessary
-for the principal cells of the \DCN including type II units.
+for the principal cells of the \DCN including Type II units.
 
 
 
@@ -1789,7 +1833,7 @@ for the principal cells of the \DCN including type II units.
 
 The \TV cell model used in the \CNSM model Table {tab:TVModelSummary}.
 The \TV neural model was implemented with a single-compartment
-conductance neural model of type I-c, a classic regular firing unit
+conductance neural model of Type I-c, a classic regular firing unit
 \citep{RothmanManis:2003b}.  The synaptic inputs to the \TV cell model
 include excitation from HSR and LSR ANFs, and inhibition from \DS cells.
 The weights (\wLSRTV, \wHSRTV) and number ( \nLSRTV, \nHSRTV) of ANF
@@ -1874,7 +1918,6 @@ Figure \ref{fig:TVRLresult} shows the best fitted output behaviour of the optimi
 
 
 
-
 ** Verification of the TV Cell Model
 
 # Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
@@ -1915,7 +1958,7 @@ applied to all \TV units across the whole network using tones, noise and
 tones plus noise stimuli.  Unlike the Golgi cell model, the rate-level
 response of TV cells is non-linear and the noise rate-level(Figure
 \ref{fig:TVverification}A)(Figure \ref{fig:TVverification}A) is mostly
-inhibited (Figure \ref{fig:TVverification}A), typical of the type II
+inhibited (Figure \ref{fig:TVverification}A), typical of the Type II
 \EIRA units in the deep layer of the \DCN
 \citep{SpirouDavisEtAl:1999,Rhode:1999}.  The PSTH response of the
 central \TV unit (CF=5.8 kHz) at 90 dB SPL, is a simple chopping
@@ -1933,7 +1976,7 @@ and the chopping behaviour is suppressed (Figure
 # model Figure \ref{fig:Golgiverification}.  
 Figure \ref{fig:TVverification}A and B show the response of the central
 \TV model (CF=5.8 kHz). The PSTH in Figure \ref{fig:TVverification}B is
-a wide chopper, generated from regular firing type I-c neural model and
+a wide chopper, generated from regular firing Type I-c neural model and
 the strong onset inhibition from DS cells.  Figure
 \ref{fig:TVverification}C shows the wide response of all \TV units in
 the network to a 5.8 kHz tone with increasing sound level.  The masked
@@ -1974,7 +2017,7 @@ for the optimisation of \DS cell connections to \TV cells.
 # \citet{ReissYoung:2005} recorded from individual \TV neurons, is
 # adapted for a range of \TV cell models using a single notch stimulus.
 The experimental data, shown in Figure \ref{fig:TVReissFig9}, is the
-average responses of type II \DCN units to notch sweeps
+average responses of Type II \DCN units to notch sweeps
 \cite{ReissYoung:2005}.  The optimisation routine would be prohibitive
 if it was a notch sweep simulated on a single neuron; therefore, this
 optimisation uses a single notch presentation across an entire network
@@ -1997,7 +2040,7 @@ with logarithmically constant notch widths and notch center frequencies
 ranging from 1 octave below to 1 octave above \BF in $1/50$ octave
 steps.  The single notch noise stimulus presented in this optimisation
 routine was generated in [[latex:progname][MATLAB/GNU Octave]] using frozen Gaussian noise
-(100 kHz sampling rate) and a Chebyshev type II band reject filter[fn::
+(100 kHz sampling rate) and a Chebyshev Type II band reject filter[fn::
 The \textsf{[[latex:progname][cheby2}]] function is in the octave-forge signal package and
 MATLAB's Signal Processing Toolbox.].  The sound level in the
 \citet{ReissYoung:2005} data further complicates the situation.  The
@@ -2011,7 +2054,7 @@ Tone and Noise Rate Level Responses]]), the preliminary response to noise
 in \TV cell models was linear between 40 to 80 dB SPL.
 
 
-Higher thresholds in type II \DCN units \citep{SpirouDavisEtAl:1999} and
+Higher thresholds in Type II \DCN units \citep{SpirouDavisEtAl:1999} and
 the presence of multiple inhibitory synapses \citep{Alibardi:2006}
 suggest \TV cells either receive a strong inhibitory influence or they
 have a lower \RMP due to a lower leak current reversal potential. A
@@ -2326,7 +2369,7 @@ the table below more. }
 
 
 
-The response of individual type II units to notch and band-pass sweeps
+The response of individual Type II units to notch and band-pass sweeps
 in Figure \ref{fig:TVReissFig9} (reprinted from Figure 9 in
 \citep*{ReissYoung:2005}) was the target data used for the
 optimisation of \DS cell connections to \TV cells.  To replicate the
@@ -2393,7 +2436,7 @@ analysis and classification techniques, \TS cells were segregated into
 slowly or transiently adapting and sustained chopper sub-types
 \citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.  In cats,
 \citet{SmithRhode:1989} was the first to do simultaneous labelling of
-\TS cells and confirmed the physiological response of type I multipolar
+\TS cells and confirmed the physiological response of Type I multipolar
 neurons into choppers.  This simultaneous classification and labelling
 was followed by others in gerbils
 \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}, guinea pigs
@@ -2482,7 +2525,7 @@ stimulus.
 # myelination began about 20 \um from the soma (chinchilla [\citep{JosephsonMorest:1998}])
 
 # - Effective somatic membrane time constant 6.5 \pm 5.7 msec
-#   \citep{ManisMarx:1991} type I 9.1 \pm 4.5 \citep{ManisMarx:1991} 6.2 to
+#   \citep{ManisMarx:1991} Type I 9.1 \pm 4.5 \citep{ManisMarx:1991} 6.2 to
 #   18.0 msec \citep{FengKuwadaEtAl:1994} 6.9\pm 3 msec, 10--90\% rise time was
 #   1.05\pm 0.4 msec \citep{IsaacsonWalmsley:1995}
 # - Linear I-V \citep{ManisMarx:1991}
@@ -2496,7 +2539,7 @@ stimulus.
 
 *** Synaptic Properties
 
-# \yellownote{TODO: Para 1: Nordlie Table \ref{tab:TSModelSummary}A. Using RM  type I-t, Other previous models}
+# \yellownote{TODO: Para 1: Nordlie Table \ref{tab:TSModelSummary}A. Using RM  Type I-t, Other previous models}
 
 \yellownote{TODO: Synaptic inputs known and unknown, included and not
 included in model.  Previous work include and excludes}
@@ -2513,42 +2556,23 @@ sustained depolarisation.
 #+BEGIN_LaTeX
   \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
   \begin{figure}[htb]
-  \centering%
-  \includegraphics[keepaspectratio,width=0.9\textwidth]{TStellate/baseline_exc}\\
-  \includegraphics[keepaspectratio,width=0.9\textwidth]{TStellate/baseline_inh}
-  {Intracellular membrane voltage response of a T stellate cell model to isolated synaptic inputs.
-  A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CN network. The CF of the recorded \TS unit was 8.267 kHz.
-  Single stimulus responses are shown as a thin line and average response over 25 repetitions is shown as the dark line.
-  A. 30 LSR ANF synapses.
-  B. 20 HSR ANF synapses.
-  C. 20 D stellate cell glycinergic synapses.
-  D. 15 Golgi cell \GABAa synapses.
-  All weights
-  were set to $0.0005\,\mu{\rm S}$ and the sodium conductance (\gNa) set
-  to zero.  The parameters for synapse's were: excitatory (tau = 0.36
-  ms), glycinergic (tau1=0.4 and tau2=2.5 ms), and GABAergic (tau1=0.26
-  and tau2=5.43 ms).\label{fig:TSinputs}}
+    \centering%
+    \includegraphics[keepaspectratio,width=0.9\textwidth]{../../cnstellate/TStellate/baseline_exc.pdf}\\
+    \includegraphics[keepaspectratio,width=0.9\textwidth]{../../cnstellate/TStellate/baseline_inh.pdf}
+    \caption[Intracellular membrane voltage response of a T stellate cell model to isolated synaptic inputs]{Intracellular membrane voltage response of a T stellate cell model to isolated synaptic inputs.
+      A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CN network. The CF of the recorded \TS unit was 8.267 kHz.
+      Single stimulus responses are shown as a thin line and average response over 25 repetitions is shown as the dark line.
+      A. 30 LSR ANF synapses.
+      B. 20 HSR ANF synapses.
+      C. 20 D stellate cell glycinergic synapses.
+      D. 15 Golgi cell \GABAa synapses.
+      All weights were set to $0.0005\,\mu{\rm S}$ and the sodium conductance (\gNa) set
+      to zero.  The parameters for synapse's were: excitatory (tau = 0.36
+      ms), glycinergic (tau1=0.4 and tau2=2.5 ms), and GABAergic (tau1=0.26
+      and tau2=5.43 ms).\label{fig:TSinputs}}
   \end{figure}
-  
-  \begin{figure}[htb]
-  \centering%
-   \resizebox{0.9\textwidth}{!}{\includegraphics{TStellate/baseline_jitter}}
-    % \caption[Response of T stellate cells to isolated synaptic
-    % inputs]{Intracellular membrane voltage response of a T stellate cell
-    %   model to isolated synaptic inputs. A pure tone stimulus of 8.2 kHz at
-    %   85 dB SPL was presented to the CN network. The CF of the recorded
-    %   T stellate cell was 8.267 kHz.  Single stimulus responses are shown as
-    %   a thin line and average response over 25 repetitions is shown as the
-    %   dark line. A. 30 LSR ANF synapses. B. 20 HSR ANF synapsexs. C. 20 D
-    %   stellate cell glycinergic synapses. D. 15 Golgi cell GABA$_{\rm A}$
-    %   synapses. All weights were set to $0.0005\,\mu{\rm S}$ and the sodium
-    %   conductance set to zero.  The parameters for synapases were: excitatory
-    %   (tau = 0.36 ms), glycinergic (tau1=0.4 and tau2=2.5 ms), and
-    %   GABAergic (tau1=0.26 and tau2=5.43 ms).\label{fig:TSExcinputs}}
-  \caption[]{Jitter of AN input T stellate Optimisation results}
-  \label{fig:CSjitter}
-  \end{figure}
-#+END_LaTeX
+#+END_LaTeX  
+
 
 *** Fitness Function
 
@@ -2556,16 +2580,17 @@ The optimisation fitness function, $F$, of the T stellate cell model
 calculated the relative error between a combination of the
 intracellular and spikes statistics against the experimental data by
 \citet{PaoliniClareyEtAl:2005}.
-
 Spike trains were collected for 25 repetitions of a 50 ms \CF tone and analysed for \PSTH characteristics \citep{Pfeiffer:1966a,BlackburnSachs:1989,YoungRobertEtAl:1988}.
 Chopper \PSTHs without the first three regular spikes were ignored.
 Coefficient of variation of the inter-spike intervals was calculated
-over 10 ms windows \citep[as used by][]{PaoliniClareyEtAl:2005}.  
-
-
-
-The intracellular voltage statistics included the onset ratio,
-adaptation shift and offset shift.
+over 10 ms windows \citep{PaoliniClareyEtAl:2005}.  
+The intracellular voltage statistics included the onset ratio (Equation \ref{eq:IVstats-Onset}),
+adaptation shift (Equation \ref{eq:IVstats-Adap}) and offset shift (Equation \ref{eq:IVstats-Offset}). 
+The fitness value was a square root of the mean squared errors between the computed \AIV and CV statistics of the target units and the simulated \TS model.
+The final fitness value had
+additional penalties for \SR above 10 spikes per second and for \CV
+values above 0.3 in the first 10 ms and above 0.4 for the remaining
+stimulus.
 
 #+BEGIN_LaTeX
   \begin{eqnarray}
@@ -2576,7 +2601,7 @@ adaptation shift and offset shift.
 #+END_LaTeX
 
 
-The eventual fitness value 
+
 
 # #+BEGIN_LaTeX
 #   \begin{multline} 
@@ -2846,7 +2871,7 @@ Section [[*Golgi%20Cell%20Model:%20Monotonic%20Rate%20Level%20Responses%20in%0AM
 \yellownote{TODO: Discuss the Golgi cell optimisation.  Is the filter-based
   approach effective at meeting the goal of simulating data from
   GhoshalKim:1997. The Golgi cell model optimised in Section
-  \ref{GolgiOpt} reproduces the experimental data of a single unit in
+  \ref{sec:GolgiModelOpt} reproduces the experimental data of a single unit in
   the marginal shell of the VCN \citep{GhoshalKim:1997}.}
 
 *** D Stellate Cell Model
@@ -2927,18 +2952,18 @@ connection) not included.}
 [[*Optimisation%20Results][Optimisation Results]]
 
 # Example conclusion The purpose for performing the experiments herein
-# was to gain insights into the functional relevance of the type II
+# was to gain insights into the functional relevance of the Type II
 # neurons by analyzing their endogenous firing features. The observed
 # electrophysiological diversity between the two classes of primary
-# auditory neurons argues for different roles for the type I and II
-# neurons. In contrast to the type I spiral ganglion neurons, the type
+# auditory neurons argues for different roles for the Type I and II
+# neurons. In contrast to the Type I spiral ganglion neurons, the type
 # II neurons show markedly distinct kinetics and receive a classically
 # convergent innervation pattern that is also present in other sensory
-# systems. Like the rod neural circuitry in the retina, the type II
+# systems. Like the rod neural circuitry in the retina, the Type II
 # spiral ganglion neurons appear to be designed to integrate input
 # from the many receptors that they innervate. This would have very
 # little impact, however, on signal detection without the process of
-# temporal summation. The slow kinetics of the type II spiral ganglion
+# temporal summation. The slow kinetics of the Type II spiral ganglion
 # neurons, along with their ability to respond at relatively
 # hyperpolarized voltage levels, are features consistent with mechanisms
 # designed to detect low-intensity stimuli.
