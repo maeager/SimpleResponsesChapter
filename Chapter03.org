@@ -79,8 +79,8 @@
   include unit responses to the activity of other cells, and how these
   responses are distributed over a population of similar cells as
   wells as across populations of different cells. \\
-  {\hfill \textit{\citet[~p.]{Shamma:1998}}}
 #+END_QUOTE
+#+LATEX: {\hfill \textit{\citet[~p.]{Shamma:1998}}}
 \yellownote{TODO: Get page number of this quote}
 
 Shamma calls upon the neuroscience community to investigate the
@@ -115,6 +115,7 @@ models, reproducible research methods are required.
 In this chapter, the table method introduced by
 \citet[as~described~in~Chapter~2]{NordlieGewaltigEtAl:2009} is used to summarise the neural
 models used in each optimisation step.  
+
 # The Nordlie tables shown in
 # each optimisation stage consist of A) the model summary, B) cell type
 # populations, C) connectivity between two cell types, D) neuron and
@@ -398,7 +399,7 @@ computational cost of a passive neural compartment in the model.
 Dendritic attenuation of the \EPSP is not accounted for.
 
 
-#+caption: [Response of T stellate cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a T stellate cell model (Type I-t Rothnam and Manis) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.  Jitter responses (averaged over 25 repetitions) are shown as a thick line and responses without jitter are shown as thin lines. All weights were set to 0.0005\,$\mu$S. Twenty HSR and 30 LSR ANF synapse onto the recorded TS cell model. A. No jitter on TS cell without the sodium channel. B. No jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.
+#+caption: [Response of T stellate cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a T stellate cell model (Type I-t \RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.  Jitter responses (averaged over 25 repetitions) are shown as a thick line and responses without jitter are shown as thin lines. All weights were set to 0.0005\,$\mu$S. Twenty HSR and 30 LSR ANF synapse onto the recorded TS cell model. A. No jitter on TS cell without the sodium channel. B. No jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
 #+label: fig:CSjitter
 [[../../cnstellate/TStellate/baseline_jitter.pdf]]
 
@@ -427,13 +428,13 @@ latency measured in high \CF units in the ARLO \AN model
 Table \ref{tab:Meth:AddDelay} shows the additional delay component for
 each cell type, calculated from population statistics, to ensure the first
 spike latency in the models matched the experimental data.  The models
-were designated from the basic \citet{RothmanManis:2003b} neural
-models.  The relative difference between the \DS cell model's mean \FSL and
+were designated from the basic \RM  neural
+models \citep{RothmanManis:2003b}.  The relative difference between the \DS cell model's mean \FSL and
 the other Type I cell types can be attributed to the additional \IKLT
-channels in the Type I-II Rothman and Manis neural model.  \IKLT is
+channels in the Type I-II \RM neural model.  \IKLT is
 active at \RMP and decreases the overall input resistance and membrane
 time constant, reducing the time to fire an action potential.  \TS cells are
-designated with the Type I-t Rothman and Manis model, which contains an
+designated with the Type I-t \RM model, which contains an
 additional \IKA channel current over the Type I-c model, but were not
 significantly different from the classic Type I models in \TV and \GLG
 cell models.
@@ -1201,8 +1202,8 @@ most suitable for optimisation.
 
 
 The \DS neural model was implemented with a single-compartment, Type
-I-II Rothman and Manis model \citep{RothmanManis:2003b}. The Type I-II
-Rothman and Manis is unique to \DS cells due to the small presence of
+I-II \RM model \citep{RothmanManis:2003b}. The Type I-II
+\RM is unique to \DS cells due to the small presence of
 low-threshold potassium currents.  A larger cell body diameter, average
 25 \um \citep{SmithRhode:1989,ArnottWallaceEtAl:2004}, was included in
 the model and conductance parameters were adjusted accordingly to keep
@@ -1857,7 +1858,7 @@ inputs to \TV cells were fixed (\sDSTV=3, \oDSTV=0) in the rate level
 optimisation and are the focus of the next section of this chapter,
 Section \ref{sec:Ch3:DSTV}.  The reversal potential of TV cells
 (E$_{{rev}}$) was also optimised to allow modulation of the level of the
-resting membrane potential from the default Type I Rothman and Manis
+resting membrane potential from the default Type I \RM
 neural model.
 
 
@@ -1976,7 +1977,7 @@ response of TV cells is non-linear and the noise rate-level is mostly inhibited 
 \EIRA units in the deep layer of the \DCN
 \citep{SpirouDavisEtAl:1999,Rhode:1999}.  The PSTH response of the
 central \TV unit (CF=5.8 kHz) at 90 dB \SPL is a simple chopping
-response, characteristic of the Type I-c Rothman and Manis neural model (Figure
+response, characteristic of the Type I-c \RM neural model (Figure
 \ref{fig:TVverification}A) \citep{RothmanManis:2003b}. The minimum first
 spikes occur at 4.3 ms after the stimulus onset (similar to the
 un-optimised \TV model's mean \FSL in Section \ref{sec:Ch3:Delays}). Due
@@ -1990,7 +1991,7 @@ and the chopping behaviour is suppressed (Figure
 # model Figure \ref{fig:Golgiverification}.  
 Figure \ref{fig:TVverification}A and B show the response of the central
 \TV model (CF=5.8 kHz). The PSTH in Figure \ref{fig:TVverification}B is
-a wide chopper, generated from regular firing Type I-c neural model and
+a wide chopper, generated from regular firing Type I-c \RM neural model and
 the strong onset inhibition from DS cells.  Figure
 \ref{fig:TVverification}C shows the wide response of all \TV units in
 the network to a 5.8 kHz tone with increasing sound level.  The masked
