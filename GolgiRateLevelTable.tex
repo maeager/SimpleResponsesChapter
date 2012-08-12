@@ -35,9 +35,9 @@
 \hdr{4}{C}{Connectivity}    \\\hline
      \textbf{Name}       & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
 \multirow{2}{*}{\ANFGLG} &       {\HSR}       &       {\GLG}       & 
-Gaussian spatial convergence, centered on CF, variance equal to spread parameter ($\sHSRGLG=2$), weight \wHSRGLG, delay \dANFGLG \\
+Gaussian spatial convergence, centred on CF, variance equal to spread parameter ($\sHSRGLG=2$), weight (\wHSRGLG), delay (\dANFGLG) \\
                          &       {\LSR}       &       {\GLG}       & 
-Gaussian spatial convergent spread, centered on CF, spread ($\sLSRGLG$) to be optimised, weight \wLSRGLG, delay \dANFGLG\\\hline
+Gaussian spatial convergent spread, centered on CF, spread ($\sLSRGLG$) to be optimised, weight (\wLSRGLG), delay (\dANFGLG)\\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -52,8 +52,8 @@ Gaussian spatial convergent spread, centered on CF, spread ($\sLSRGLG$) to be op
 {\rule{1em}{0em}\vspace*{-1.5ex}
 \begin{equation*}
       \begin{array}{r@{\;=\;}ll}
-               \mathbf{w}_{L,H}                &                w_{LSR,HSR \to GLG}  \mathcal{N}(i,\sigma)                & , i=\text{channel position}, \sigma^2=\sLSRGLG \\ 
-                  \alpha(t)                    &            \left( t  \exp(\frac{-t}{\Gtau}) \right)           &  \text{synapto-dendritic filter with unit area}  \dag \\
+               \mathbf{w}_{L,H}                &                w_{LSR,HSR \to GLG}  \mathcal{N}(i,\sigma)                & i=\text{channel position}, \sigma^2=\sLSRGLG \\ 
+                  \alpha(t)                    &            \left( t  \exp(\frac{-t}{\Gtau}) \right)           &  \text{synapto-dendritic filter with unit area} \\
                      g(t)                      & \mathbf{w}_{L}\bullet\mathbf{L}+\mathbf{w}_{H}\bullet\mathbf{H} & \text{sum of weighted ANF rates}\\ 
 %\mathbf{H},\mathbf{L} \to f(\text{channel},t) & \mathbf{w}_{H,L} \to f(\text{channel})\\
              %      r(\mathbf{x})              &               \max\{\mathbf{x}(t-\dANFGLG) - x(0) + \Gspon,0\}                & \\
