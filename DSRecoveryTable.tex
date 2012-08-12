@@ -39,11 +39,11 @@
 \hdr{4}{C}{Connectivity}\\\hline
      \textbf{Name}      & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
 \multirow{2}{*}{\ANFDS} &      \HSR       &       \DS       & 
-Skewed Gaussian convergence, centered on CF, spread below CF $\sigma^2 = \sANFDSl$, spread above CF $\sigma^2 = \sANFDSh$, weight \wHSRDS, number \nHSRDS, delay \dANFDS \\\cline{2-4}
+Skewed Gaussian convergence, centred on CF, spread below CF $\sigma^2 = \sANFDSl$, spread above CF $\sigma^2 = \sANFDSh$, weight \wHSRDS, number \nHSRDS, delay \dANFDS \\\cline{2-4}
                         &      \LSR       &       \DS       & as above, weight \wLSRDS, number \nLSRDS\\\hline
        $\GLGDS$         &       \GLG       &       \DS        & 
-Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGDS$, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
-\multicolumn{4}{|X|}{\ANFGLG from previous section, \GLG optimisation.}\\\hline
+Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
+\multicolumn{4}{|X|}{\ANFGLG from previous section, see Table~\ref{tab:GolgiCellModelSummary}.}\\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -61,7 +61,7 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGDS$, uniform weigh
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{E}{Optimisation}\\\hline
-\textbf{Input Stimulus}  & Mask and recovery click pairs, with delay 16, 2, 8, 4, and 3 ms(in this order), separated by 50 ms.   \\\hline
+\textbf{Input Stimulus}  & Mask and recovery click pairs, with delay 16, 2, 8, 4, and 3 ms (in this order), separated by 50 ms   \\\hline
      \textbf{Parameters}      & 
       \wGLGDS,    
       \wHSRDS,    
@@ -74,7 +74,7 @@ $\tau_{\rm GABA-2}$,
 % %\textbf{Optimisation} & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
  %\textbf{Measurements}  & First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II~\DCN~unit~\citep{ReissYoung:2005}, Fig.~9. \\\hline
 
-\textbf{Fitness Function} & Weighted mean squared error between \DS model and experimental \DS cell \citep{BackoffPalombiEtAl:1997} masker-probe rate ratios. Idle rates were recorded for spontaneous activity and level of ANF excitation were used as additional penalties. \\\hline
+\textbf{Fitness Function} & Weighted mean squared error between \DS model and experimental \DS cell \citep{BackoffPalombiEtAl:1997} masker-probe rate ratios. Idle rates were recorded for spontaneous activity and levels of ANF excitation were used as additional penalties. \\\hline
 \end{tabularx}
 \vspace{1ex}
 \end{table}
