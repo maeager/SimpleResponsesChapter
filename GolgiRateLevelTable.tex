@@ -1,10 +1,12 @@
-{\scriptsize%\linespread{0.5}
-  \begin{table}[htb]
+{
+\small\linespread{0.5}
+\begin{table}[htb]
     \caption{Golgi cell model summary (Nordlie format)}
     \label{tab:GolgiCellModelSummary}
+\end{table}
 \noindent%
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{A}{Model Summary}\\\hline 
+\begin{tabularx}{\textwidth}{|l|X|} %
+\hdr{2}{A}{Model Summary}\\
 %\begin{ntab}{|l|X|}{2}{\ref{tab:GolgiCellModelSummary} A}{Model Summary}\\\hline
  \textbf{Populations}  & ANF~(HSR, LSR) and Golgi cells \\\hline 
   \textbf{Topology}    & Tonotopic - $100$ frequency channels (0.2--40 kHz) separated evenly based on even place positions on the basilar membrane \citep{Greenwood:1990}\\\hline
@@ -20,8 +22,8 @@
 
 % - B ------------------------------------------------------------------------
 \noindent%
-\begin{tabularx}{\textwidth}{|l|X|X|}\hline%
-\hdr{3}{B}{Populations}\\\hline
+\begin{tabularx}{\textwidth}{|l|X|X|}%
+\hdr{3}{B}{Populations}\\
 \textbf{Name} &                         \textbf{Elements}                          & \textbf{Number} \\\hline
      HSR      & Auditory nerve fibre model \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & N/A \\\hline
      LSR      & Auditory nerve fibre \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & N/A \\\hline
@@ -31,20 +33,20 @@
 
 % - C ------------------------------------------------------------------------------
 \noindent
-\begin{tabularx}{\textwidth}{|l|l|l|X|}\hline%
-\hdr{4}{C}{Connectivity}    \\\hline
+\begin{tabularx}{\textwidth}{|l|l|l|X|}%
+\hdr{4}{C}{Connectivity}    \\
      \textbf{Name}       & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\multirow{2}{*}{\ANFGLG} &       {\HSR}       &       {\GLG}       & 
-Gaussian spatial convergence, centred on CF, variance equal to spread parameter ($\sHSRGLG=2$), weight (\wHSRGLG), delay (\dANFGLG) \\
-                         &       {\LSR}       &       {\GLG}       & 
-Gaussian spatial convergent spread, centered on CF, spread ($\sLSRGLG$) to be optimised, weight (\wLSRGLG), delay (\dANFGLG)\\\hline
+\multirow{2}{*}{\ANFGLG} &     {\HSR}      &      Golgi      & 
+Gaussian spatial convergence, centred on CF, variance equal to spread parameter (\sHSRGLG = 2), weight (\wHSRGLG), delay (\dANFGLG) \\
+   &     {\LSR}      &      Golgi      & 
+Gaussian spatial convergent spread, centered on CF, spread (\sLSRGLG) to be optimised, weight (\wLSRGLG), delay (\dANFGLG)\\\hline
 \end{tabularx}
 \vspace{1ex}
 
 % - D ------------------------------------------------------------------------------
 \noindent%
-\begin{tabularx}{\linewidth}{|p{0.1\linewidth}|X|}\hline
-\hdr{2}{D}{Neuron and Synapse Model}\\\hline
+\begin{tabularx}{\linewidth}{|p{0.25\linewidth}|X|}
+\hdr{2}{D}{Neuron and Synapse Model}\\
  \textbf{Name} & Golgi cell \\\hline
  \textbf{Type} & Instantaneous-rate Poisson neural  model \\\hline 
 %\raisebox{-4.5ex}{\parbox{\linewidth}{\textbf{Model Dynamics}}} & 
@@ -73,8 +75,8 @@ Gaussian spatial convergent spread, centered on CF, spread ($\sLSRGLG$) to be op
 
 % - E -----------------------------------------------------------------------------
 \noindent
-\begin{tabularx}{\linewidth}{|l|X|}\hline %
-\hdr{2}{E}{Optimisation}\\\hline 
+\begin{tabularx}{\linewidth}{|l|X|} %
+\hdr{2}{E}{Optimisation}\\
 \textbf{Input Stimulus} & Rate Level function, 22.7~kHz tone at SPL -15 to 85 dB (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
 \textbf{Parameters} & 
  \sANFGLG,  
@@ -93,7 +95,7 @@ Gaussian spatial convergent spread, centered on CF, spread ($\sLSRGLG$) to be op
 %       Weighted sum of LSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
 % Golgi spontaneous rate (spikes per second) & \texttt{golgi\_spon} &     [0,50]     & 3.73  \\\hline
 % \end{ntab}
-\end{table}
+
 }
 
 %%% Local Variables: 
