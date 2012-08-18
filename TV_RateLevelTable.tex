@@ -3,9 +3,10 @@
 \begin{table}[htb]
     \caption{Tuberculoventral cell model summary}
     \label{tab:TVModelSummary}
+\end{table}
 \noindent%
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{A}{Model Summary}\\\hline
+\begin{tabularx}{\textwidth}{|l|X|} %
+\hdr{2}{A}{Model Summary}\\
          \textbf{Populations}          & HSR and LSR ANFs, Golgi, DS, and TV cells \\\hline
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
         \textbf{Connectivity}          & ANF$\to$\{GLG, DS, TV\}, GLG$\to$DS, DS$\to$TV  \\\hline
@@ -24,8 +25,8 @@
 
 % - B -----------------------------------------------------------------------------
 \noindent%
-\begin{tabularx}{\textwidth}{|l|X|X|}\hline
-\hdr{3}{B}{Populations}\\\hline
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hdr{3}{B}{Populations}\\
 \textbf{Name} &    \textbf{Elements}    & \textbf{Size} \\\hline
      HSR      &    Poisson generator    & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
      LSR      &    Poisson generator    & $N_{\text{LSR}}= 30$  per freq.\ channel \\\hline
@@ -37,8 +38,8 @@
 
 % - C ------------------------------------------------------------------------------
 \noindent%
-\begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
-\hdr{4}{C}{Connectivity}\\\hline
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+\hdr{4}{C}{Connectivity}\\
 \textbf{Name}  & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
 %   ANF$\to$DS &       ANF       &   D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
     \ANFTV     &    LSR, HSR     &       TV        & 
@@ -53,8 +54,8 @@ Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, wei
 
 % - D ------------------------------------------------------------------------------
 \noindent%
-\begin{tabularx}{\textwidth}{|l|X|}\hline
-\hdr{2}{D}{Neuron and Synapse Model}\\\hline
+\begin{tabularx}{\textwidth}{|l|X|}
+\hdr{2}{D}{Neuron and Synapse Model}\\
         \textbf{Name}          & TV cell model \\\hline
         \textbf{Type}          & Type I-classic \RM model \citep{RothmanManis:2003b}, conductance synapse input \\\hline
 \textbf{Subthreshold dynamics} & Na, KHT, Ih, and leak currents \\\hline
@@ -90,8 +91,8 @@ Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, wei
 %\vspace{2ex}
 
 \noindent%
-\begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{E}{Optimisation}\\\hline
+\begin{tabularx}{\textwidth}{|l|X|} %
+\hdr{2}{E}{Optimisation}\\
 \textbf{Input Stimulus} & Tone Rate Level: 4.9~kHz tone at SPL 20 to 47 dB SPL in 3 dB steps (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
 & Noise Rate Level: BBN at 50 to 95 dB SPL in 5 dB steps (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
 %\textbf{Input Stimulus} & Notch-noise stimulus based on \citet{ReissYoung:2005}. Stop-band filtered white noise (60 dB SPL, 50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay), 30 dB half-octave stop-band width, centered on the middle of the network (5.8 kHz)\\\hline
@@ -127,7 +128,7 @@ Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, wei
 % Spread of DS connections onto TV (channel units) &    \sDSTV     &     [0,10]     & 2.1         \\
 % Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,10]     & 0.24        \\ \hline
 % \end{tabularx}
-\end{table}
+
 }
 
 
