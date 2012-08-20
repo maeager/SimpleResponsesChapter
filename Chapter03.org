@@ -155,18 +155,17 @@ process methods for optimisation were described in Section [[Optimisation Techni
 # accompanying Nordlie table.  Optimisation results are presented in the
 # Results section of each step.
 
-
 ** Cochlear Nucleus Stellate Microcircuit Model 
 
-The \CNSM model in Figure \ref{fig:microcircuit} shows the following cell models:
-1. The \AN model: A phenomenological auditory model provides spiking
+The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following cells:
+1. The \ANF : A phenomenological auditory model provides spiking
    input to \CN neurons across frequencies and spontaneous rate types of
    the \ANFs from an arbitrary input stimulus
    \citep{ZilanyBruceEtAl:2009}.  The base line in Figure
    \ref{fig:microcircuit} is a simplification of \ANFs from low \CF to
    high \CF (left to right). The model reproduces responses for high and
    low \SR \ANFs at 100 channels across the frequency range 200 Hz to 48
-   kHz.
+   kHz. 
 2. The Golgi cell: a \GABA-ergic \VCN marginal shell unit that is
    presumed to regulate excitability in the \GCD and core \VCN units
    \citep{FerragamoGoldingEtAl:1998}.  Only one /in vivo/ study has
@@ -1272,7 +1271,6 @@ than other stellate neurons in the \VCN \citep{RhodeSmith:1986}.  The
 additional delay of 1.2 ms from \ANF to \DS input connections is a combination
 of axonal conductance and dendritic delay.
 
-
 ** Results of Click Recovery Optimisation
    :PROPERTIES:
    :LABEL:  sec:Ch3:DSClickRecovery
@@ -1581,7 +1579,6 @@ thresholds and  wider dynamic ranges.
 # The best parameters \ldots
 
 \clearpage
-
 
 ** Verification of the DS Cell Model
 
@@ -1992,7 +1989,6 @@ cell model was able emulate this response in tones but not in noise
     % \end{tabularx}\end{minipage}\hfill 
     }
 #+END_LaTeX
-
 
 
 
@@ -2683,7 +2679,6 @@ sustained depolarisation.
   \end{figure}
 #+END_LaTeX  
 
-
 *** Fitness Function
 
 The optimisation fitness function, $F$, of the T stellate cell model
@@ -2794,7 +2789,6 @@ hyperpolarisation (Eq. \ref{eq:IVstats-Offset}).
   \end{table}\vspace{2ex}
   }
 #+END_LaTeX
-
 
 *** Sustained Chopper
 
@@ -2951,7 +2945,6 @@ respectively.
 
 
 
-
 ** Verification of the TS Cell Model Subtypes
 
 \yellownote{TODO: Explain the figure \ref{fig:TSverification}}
@@ -3065,7 +3058,6 @@ Dendritic filtering in each of the cells was not included.
 \yellownote{TODO: AM coding in model is not verified by
 \citet{ZilanyBruce:2006} model, and it was superseded by the addition
 of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
-
 
 
 
