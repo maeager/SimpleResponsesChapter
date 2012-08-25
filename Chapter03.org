@@ -161,7 +161,7 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
 1. The \ANF : A phenomenological auditory model provides spiking
    input to \CN neurons across frequencies and spontaneous rate types of
    the \ANFs from an arbitrary input stimulus
-   \citep{ZilanyBruceEtAl:2009}.  The base line in Figure
+   \citep{ZilanyBruceEtAl:2009}.  The baseline in Figure
    \ref{fig:microcircuit} is a simplification of \ANFs from low \CF to
    high \CF (left to right). The model reproduces responses for high and
    low \SR \ANFs at 100 channels across the frequency range 200 Hz to 48
@@ -174,10 +174,11 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
    are taken from that study and are defined by a monotonic response to
    tones and noise, a Type I\slash III \EIRA, and an unusual or chopper
    \PSTH.
-3. The D stellate cell: a large, glycinergic, multipolar\slash stellate cell with \OnC\ 
-   \PSTH response that acts as a coincidence detector.  Its large
-   dendritic area increases its response to noise, allowing it to behave
-   as a wide-band inhibitor in the \VCN, \DCN, and contralateral \CN
+3. The D stellate cell: a large, glycinergic, multipolar\slash stellate
+   cell with \OnC \space \PSTH response that acts as a coincidence detector.
+   Its large dendritic area increases its response to noise, allowing it
+   to behave as a wide-band inhibitor in the \VCN, \DCN, and
+   contralateral \CN
    \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
 4. The Tuberculoventral cell: a glycinergic, Type II \EIRA unit in the
    deep layer of the \DCN \citep{SpirouDavisEtAl:1999}.  This cell acts
@@ -382,7 +383,7 @@ in Chapter \ref{sec:MethodsChapter} Section [[Synapse Models]].
    :END:
 
 To account for \ANF synapses placed at various distances along the
-dendrites of \TS, \DS and \TV cells a random jitter was introduced to
+dendrites of \TS, \DS and \TV cells, a random jitter was introduced to
 the synaptic delay.  Jitter was calculated around a minimum delay
 (e.g. \dANFTS) as an absolute Gaussian distribution with zero mean and
 standard deviation of 0.1 ms. Figure \ref{fig:CSjitter} shows the
@@ -531,6 +532,12 @@ The stimuli presented to the stellate microcircuit included:
 # 	sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' ./gfx/GolgiDiagram.tex
 # #+END_SRC
 
+#+BEGIN_SRC sh
+ 	dia -n -t pgf-tex -e gfx/GolgiPointProcessDiagram.tex gfx/GolgiPointProcessDiagram.dia
+ 	sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 	's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
+#+END_SRC
+
+#+RESULTS:
 
 
 
@@ -770,6 +777,29 @@ stimulate NMDA glutamate receptors in Golgi cells
 # cells \citep{FerragamoGoldingEtAl:1998a}.
 # }
 
+
+# ** Golgi Cell Model
+# Inputs to Golgi cells are more complicated than the inputs to core \VCN
+# neurons.  Golgi cells are sparse in the region surrounding the \VCN
+# called the granule cell domain.  Extracellular recordings from labelled
+# Golgi cells are not available in the literature; however, the \GCD (or
+# marginal shell of the \VCN in cats) has been studied in only one study
+# without direct labelling of recorded units \citep{GhoshalKim:1997}.  Any
+# extracellular spikes recorded in the \GCD are most likely from Golgi
+# cells since granule cell somata are less than 10 \um and their narrow
+# axons are unlikely to elicit electrical activity in the electrodes.  The
+# majority of recorded units showed a monotonic increase in firing rate
+# with increasing sound intensity \citep{GhoshalKim:1997}.
+# The Golgi cell model is implemented as an instantaneous-rate Poisson
+# rate model.  The primary inputs are from the auditory model's
+# instantaneous rate outputs with connections across frequency channels.
+# \HSR and \LSR \ANF inputs to Golgi cells were specified by a Gaussian
+# distribution in fibres across the network.  The weighted sum of \HSR and
+# \LSR instantaneous-rate vectors were smoothed out by an alpha function
+# mimicking a synaptic and dendritic smoothing filter.
+
+
+
 #+ATTR_LATEX: height=0.7\textheight,keepaspectratio=true
 #+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top was the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
 #+LABEL:      fig:GolgiKimFig2
@@ -824,19 +854,26 @@ profiles of each \AN frequency channel were used in the Golgi model.
 The connectivity between \ANFs and Golgi cells (Table
 \ref{tab:GolgiCellModelSummary}C) is a simple place-based Gaussian
 spread, as explained in the Chapter \ref{sec:MethodsChapter} (Section
- [[Connectivity%20and%20Topology%20in%20Neural%20Microcircuits][Connectivity and Topology in Neural Microcircuits]]).
+[[Connectivity%20and%20Topology%20in%20Neural%20Microcircuits][Connectivity and Topology in Neural Microcircuits]]).
 
 #+BEGIN_LaTeX
   \begin{figure}[htb]
-   \resizebox{0.9\textwidth}{!}{\input{../SimpleResponsesChapter/gfx/GolgiDiagram.tex}}
-   \caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile
-     was generated using a weighted sum of ANF profiles and as alpha function
-     smoothing filter to mimic dendritic and synaptic filtering. The
-     Gaussian spread of connections is independent for HSR and LSR
-     auditory filters, with the mean equal to the CF channel of the unit. The
-     final stage set the spontaneous rate (SR) by addition at t=0, changed any
-     negative values to zero, and included an additional delay of 2.5 ms.}
-   \label{fig:GolgiDiagram} 
+  \centering
+  % \resizebox{0.9\textwidth}{!}{\input{../SimpleResponsesChapter/gfx/GolgiDiagram.tex}}
+  %  \caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile
+  %    was generated using a weighted sum of ANF profiles and as alpha function
+  %    smoothing filter to mimic dendritic and synaptic filtering. The
+  %    Gaussian spread of connections is independent for HSR and LSR
+  %    auditory filters, with the mean equal to the CF channel of the unit. The
+  %    final stage set the spontaneous rate (SR) by addition at t=0, changed any
+  %    negative values to zero, and included an additional delay of 2.5 ms.}
+  \resizebox{0.7\textwidth}{!}{\input{../SimpleResponsesChapter/gfx/GolgiPointProcessDiagram.tex}}
+  \caption[Golgi cell model diagram]{The Golgi cell model's instantaneous-rate
+    profile was generated using a weighted sum of ANF profiles.  The Gaussian
+    spread of connections is independent for HSR and LSR auditory filters, with
+    the mean equal to the CF channel of the unit.  An alpha function smoothing
+    kernel was used to mimic dendritic and synaptic filtering.}
+  \label{fig:GolgiDiagram} 
   \end{figure}
 #+END_LaTeX
 
@@ -844,22 +881,23 @@ spread, as explained in the Chapter \ref{sec:MethodsChapter} (Section
 # the weighted sum of HSR and LSR instantaneous-rate vectors,
 # $\alpha$ is the synaptic and dendritic smoothing function.
 
-The weight vectors, $\mathbf{w}_{HSR}$ and $\mathbf{w}_{LSR}$, span
-the network's channels with size $N_{\textrm channel}$, with a normal
-curve centred on the position in the channel and variance \sANFGLG\@.
-Instantaneous-rate profiles of the \AN have size $N_\textrm{channel}$
-and length determined by the stimulus ($N_\textrm{stim}$ = stimulus
-duration / sampling rate).  The intermediate step in the Golgi cell
-model, $r(\cdot)$, corrects the output rate for the desired
-spontaneous activity, \Gspon, and performs rectification on the signal
-to avoid negative rate values.  The final step involves convolution
-with the alpha function, $\alpha(t)$, as the synapto-dendritic
-filtering mechanism in the Golgi cell.  
-The synaptic and dendritic filter kernel, $\alpha(t)$ was
- normalised by setting the area under the function to 1.[fn:: For a large
-enough filter length, the alpha function integral ($\int \alpha(t) dt = (-\Gtau^2 - t \cdot \Gtau)\cdot \exp(-\frac{t}{\Gtau})$) approximately equals $\Gtau^2$. In this case $10 \times \Gtau$ is used for the filter length.]
-A more detailed explanation of the NEURON
-implementation of the Golgi cell model is provided in the Appendix \ref{sec:Ch3:Appendix}.
+The weight vectors, $\mathbf{w}_{HSR}$ and $\mathbf{w}_{LSR}$, span the
+network's channels with size $N_{\textrm channel}$, with a normal curve
+centred on the position in the channel and variance \sANFGLG\@.
+Instantaneous-rate profiles of the \AN have size $N_\textrm{channel}$ and
+length determined by the stimulus ($N_\textrm{stim}$ = stimulus duration
+/ sampling rate).  The intermediate step in the Golgi cell model,
+$r(\cdot)$, corrects the output rate for the desired spontaneous activity,
+\Gspon, and performs rectification on the signal to avoid negative rate
+values.  The final step involves convolution with the alpha function,
+$\alpha(t)$, as the synapto-dendritic filtering mechanism in the Golgi cell.
+The synaptic and dendritic filter kernel, $\alpha(t)$ was normalised by
+setting the area under the function to 1.[fn:: For a large enough filter
+length, the alpha function integral ($\int \alpha(t) dt = (-\Gtau^2 - t \cdot
+\Gtau)\cdot \exp(-\frac{t}{\Gtau})$) approximately equals $\Gtau^2$. In this
+case $10 \times \Gtau$ is used for the filter length.]  A more detailed
+explanation of the NEURON implementation of the Golgi cell model is
+provided in the Appendix \ref{sec:Ch3:Appendix}.
 
 # Eq. \ref{eq:alpha_Golgi},
 # In Chapter \ref{sec:GAChapter}, the Golgi cell model was implemented as a
@@ -976,7 +1014,7 @@ frequency spread from \LSR fibres.
   \begin{table}[htb]
   \centering 
     \caption{Best-fit parameters oft the Golgi cell model optimisation}  \label{tab:GolgiCellResults} 
-  \begin{tabularx}{\textwidth}{c c D{,}{.}{2.4}}
+  \begin{tabularx}{0.6\textwidth}{c c D{,}{.}{2.4}}
   \toprule 
         \textbf{Parameters (Units)}        &        \textbf{Range}         & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
      \sANFGLG \hfill (channel)   & [0,10] & 2,48   \\
@@ -1029,7 +1067,6 @@ frequency spread from \LSR fibres.
 #   \end{figure}
 #   \clearpage \newpage
 
-\clearpage
 
 ** Verification of the Golgi Cell Model
 
@@ -1070,8 +1107,8 @@ increased from 0 to 90 dB \SPL.
 #+END_LaTeX
 
 
+\clearpage
 \newpage
-
 
 * D Stellate Cell Model: Optimisation Using Click Recovery and Rate Level Responses 
 
@@ -1350,12 +1387,8 @@ kHz).
 
 #+BEGIN_LaTeX
   \begin{figure}[htb] 
-  \centering %\resizebox{0.6\textwidth}{!}{}
+  \centering 
    \includegraphics[keepaspectratio,width=0.7\textwidth]{DS_ClickRecovery/ANinput}
-   %\subfloat[D stellate cell]{
-   %\includegraphics[width=0.4\textwidth]{DS_ClickRecovery_DSpsth}%
-   \label{fig:DSClickRecoveryPSTH} %}\quad% \subfloat[Golgi cell]{
-   %\includegraphics[width=0.4\textwidth]{DS_ClickRecovery_Gpsth}%\label{fig:GClickRecoveryPSTH}%}
    \caption[Click recovery stimulus]{Click stimulus and PSTH responses of an HSR
     fibre, a GLG unit, and a DS unit from the click recovery stimulus used in the
     optimisation.}
@@ -1390,7 +1423,7 @@ kHz).
   %  \GABAa synapse slow decay constant   & $\tau_{\rm GABA-2}$ \hfill (ms)&   [0.1,50.0]   & 0,262 \\ 
   %       DS cell leak conductance        & \gleak   \hfill (mS cm$^{-2}$) &  [1e-5,0.05]   & 0,0163 \\ \bottomrule
   % \end{tabularx}
-  \begin{tabularx}{\textwidth}{c c D{,}{.}{1.4}}
+  \begin{tabularx}{0.7\textwidth}{c c D{,}{.}{1.4}}
   \toprule
            \textbf{Parameters (Units)}          & \textbf{Range} & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
         \wGLGDS \hfill (nS)       &   [0.01,50]    & 0,532 \\ 
@@ -1957,7 +1990,7 @@ cell model was able emulate this response in tones but not in noise
       \centering
       \caption{Best-fit parameters of the TV cell model using the rate-level optimisation}
       \label{tab:TVRateLevelFig8B}
-      \begin{tabularx}{0.8\textwidth}{X X D{,}{.}{3.4}} 
+      \begin{tabularx}{0.7\textwidth}{X X D{,}{.}{3.4}} 
   \toprule
   \textbf{Parameters (Units)}& \textbf{Ranges}&\multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
             \wLSRTV  \hfill (nS)    &  [0.01,50]   & 4,765  \\ 
