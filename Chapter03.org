@@ -72,7 +72,7 @@
 * Introduction  
 
 #+BEGIN_QUOTE
-\small
+  \small
   To understand brain function, the focus of investigations
   must expand from detailed responses and structure of single cells to
   include unit responses to the activity of other cells, and how these
@@ -131,17 +131,19 @@ connections within the \CNSM model (Figure \ref{fig:microcircuit}) were
 developed using such a sequential method of optimisation steps.
 Parameters in the microcircuit can be separated into two classes,
 cell-based and connectivity-based.  The cell-based parameters for each
-cell model in the \CNSM model, discussed in Section [[Neural Cell Models]], remain relatively fixed. The connectivity-based
-parameters, introduced in Section [[Connectivity Parameters]], are the main focus for this chapter.  The parameters in the
-sequential optimisation stages were chosen so that they did not
-influence the properties of previously fitted parameters.  The
-parameters of each cell type were determined based on experimental data
-or were optimised based solely on responses to simple stimuli. Each cell
-type was typified with its characteristic \PSTH in response to short
-tone bursts
+cell model in the \CNSM model, discussed in Section [[Neural Cell Models]],
+remain relatively fixed. The connectivity-based parameters, introduced
+in Section [[Connectivity Parameters]], are the main focus of this chapter.
+The parameters in the sequential optimisation stages were chosen so that
+they did not influence the properties of previously fitted parameters.
+The parameters of each cell type were determined based on experimental
+data or were optimised based solely on responses to simple stimuli. Each
+cell type was typified with its characteristic \PSTH in response to
+short tone bursts
 \citep{Pfeiffer:1966,BlackburnSachs:1989,YoungRobertEtAl:1988}, and the
 \EIRA to tones across the frequency spectrum \citep{Evans:1992}.  The
-process methods for optimisation were described in Section [[Optimisation Techniques]].
+process methods for optimisation were described in Section
+ [[Optimisation%20Techniques][Optimisation Techniques]].
 
 # These included specifying the model to be optimised,
 # the criteria, and the parameters and the constraints of
@@ -186,10 +188,10 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
    recurrent connections between D and T stellate cells in the \VCN
    \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
 5. The T stellate cell: one of the major output projection cells of the
-   \CN to the inferior colliculus.  This multipolar neuron
-   has been shown to have robust spectral representation and enhanced
-   synchronisation to modulation in speech sounds
-   \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
+   \CN to the inferior colliculusand the primary output of the \CNSM
+   model.  This multipolar neuron has been shown to have robust spectral
+   representation and enhanced synchronisation to modulation in speech
+   sounds \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 
 # #+BEGIN_LaTeX
 #   \begin{figure}[ht]
@@ -217,6 +219,20 @@ The input to the \CNSM model, the auditory nerve
 fibres, is discussed in the next section. To further fit the parameters
 of the CN model, a simplistic and sequential method is applied to each
 of the cell types using experimental data.
+
+
+The order of the optimisation routines are important since there are many
+inter-dependencies in the microcircuit and across the whole network.  In the
+\CNSM model, Golgi cells  only receive inputs from the \ANFs and is the
+first model and network parameters to be optimised.  \DS cells receive
+inputs from \ANFs and \GABA-ergic Golgi cells, therefore with both
+dependencies optimised it's parameters were modeled mext. Thirdly, \TV cell's input
+network parameters were optimised as they are strongly inhibited by \DS
+cells and receive excitation from \ANFs. Finally,  \input parameters to
+\TS cells, which receive inputs from all other cell types in the \CNSM,
+were optimised.  Due to the variety of possible inputs to \TS cells (and
+the observed physiological classification sub-types in chopper units),
+three \TS cell model sub-types were optimised.  
 
 # \yellownote{TODO: This para is about pushing the reader towards the following
 #   sections.  Needs to expand on reasons for wanting to
@@ -396,7 +412,7 @@ computational cost of a passive neural compartment in the model.
 Dendritic attenuation of the \EPSP is not accounted for.
 
 
-#+caption: [Response of T stellate cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a T stellate cell model (Type I-t \RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.  Jitter responses (averaged over 25 repetitions) are shown as a thick line and responses without jitter are shown as thin lines. All weights were set to 0.0005\,$\mu$S. Twenty HSR and 30 LSR ANF synapse onto the recorded TS cell model. A. No jitter on TS cell without the sodium channel. B. No jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
+#+caption: [Response of T stellate cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a T stellate cell model (Type I-t \RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.  Jitter responses (averaged over 25 repetitions) are shown as a thick line and responses without jitter are shown as thin lines. All weights were set to 0.5~nS. Twenty HSR and 30 LSR ANF synapse onto the recorded TS cell model. A. No jitter on TS cell without the sodium channel. B. No jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
 #+label: fig:CSjitter
 [[../../cnstellate/TStellate/baseline_jitter.pdf]]
 
@@ -452,10 +468,10 @@ cell models.
   \begin{table}[tp]
   \centering
   \caption{Additional delay component of ANF to CN cell-types}\label{tab:Meth:AddDelay}
-  \begin{tabularx}{0.9\textwidth}{XXXXXX}
+  \begin{tabularx}{0.9\textwidth}{p{2in}XXXXX}
   \toprule
                                   & \HSR \ANF &     \TS      &     \DS      &     \TV      & Golgi \\\otoprule
-          R\&M Cell type          &           &   Type I-t   &  Type I-II   &   Type I-c   & Type I-c\\ 
+          R\&M Cell type          &           &     I-t      &     I-II     &     I-c      & I-c\\ 
   Experimental Mean FSL \hfill(ms)&     -     & 3.6$\,^{ 1}$ & 2.8 $\,^{2}$ & 4.0 $\,^{3}$ & 4.3 $\,^{4}$\\ 
     Model Mean FSL  \hfill (ms)   &    1.5    &     2.0      &     1.6      &     2.0      & 2.0\\ 
    Additional delay \hfill (ms)   &     -     &     1.6      &     1.2      &     2.0      & 2.3\\\bottomrule
@@ -836,9 +852,85 @@ Figure \ref{fig:GolgiDiagram}.  The primary inputs are from the auditory
 model's instantaneous rate outputs with connections across frequency
 channels.  The strength of \HSR and \LSR \ANF inputs to Golgi cells was
 determined by a Gaussian distribution in units of channel separation in
-the network.  The weighted sum of \HSR and \LSR instantaneous-rate
-vectors were smoothed out by an alpha function mimicking a synaptic and
-dendritic smoothing filter.
+the network.  
+The weight vectors, $\mathbf{w}_{\HSRGLG}$ and $\mathbf{w}_{\LSRGLG}$, span the
+\CNSM model's channels with size $N_{\textrm channel}$, with a normal curve
+centred on the position in the channel and variance \sANFGLG\@.
+For example, \LSR inputs to Golgi cells, at position /i/ in the frequency channels, the weight vector was modified
+by the weight parameter \wLSRGLG, and the spread parameter \sLSRGLG,
+which is the variance in a standard Gaussian function
+#+BEGIN_LaTeX
+  \begin{equation}
+\mathbf{w}_{i\, \small\LSRGLG} (x)= \wLSRGLG/sqrt(2\,\pi\,\sLSRGLG))\, exp(-((x-i)^2)/(2*\sLSRGLG)),
+  \end{equation} 
+#+END_LaTeX
+\noident where $x=1,{\rm \ldots},N_{\small\rm channel}$.
+
+
+
+
+The intermediate step in the Golgi cell model,
+$g_i(t)$, combines the weighted sum of \HSR and \LSR instantaneous-rate
+and corrects the output rate for the desired spontaneous activity,
+\Gspon, 
+#+BEGIN_LaTeX
+  \begin{equation}
+    \label{eq:GolgiInputSum}
+  \textrm{g}_i(t) = \sum_{j=1}^{N_{\small\rm channel}}{\mathbf{w}_{\small\LSRGLG}(j) {\rm LSR}_j(t) +
+    \mathbf{w}_{\small\HSRGLG}(j) {\rm HSR}_j(t)}  - \textrm{SR}_{\small\rm GLG}
+  \end{equation} 
+#+END_LaTeX
+Instantaneous rate profiles of \HSR and \LSR models (and consequently
+\GLG models) 
+length determined by the stimulus ($N_{\rm stim}$ = stimulus duration
+/ sampling rate). Profiles are caclulated for each channel in the
+network (size=$N_{\small\rm channel}$).  
+
+
+The weighted sum of \HSR and \LSR instantaneous-rate
+vectors were convolved  by an smoothing kernel mimicking synaptic and
+dendritic properties using  an alpha function , $\alpha_{\rm GLG }$(t), given by
+#+BEGIN_LaTeX
+  \begin{equation}
+  \label{eq:GolgiAlpha}
+  \alpha_{\rm GLG}(t) =  t\, \exp(\frac{-t}{\Gtau). 
+  \end{equation}
+#+END_LaTeX
+\noindent The smoothing kernel was normalised by
+setting the area under the function to 1. For a large enough filter
+length, the alpha function integral 
+#+BEGIN_LaTeX
+  \begin{equation}
+\int \alpha(t) dt = (-\Gtau^2 - t\,\Gtau) \exp(-\frac{t}{\Gtau})
+  \end{equation}
+#+END_LaTeX
+\noindent which equals $\Gtau^2$ for $t\to\infty$. In this
+case $10 \times \Gtau$ is used for the filter length.  
+
+The final step involves convolution of the weighted inputs, /g/ with
+normalised synapto-dendritic filtering kernel, $\bar{\alpha}_{\small\rm GLG}(t)$,
+#+BEGIN_LaTeX
+  \begin{equation}
+  \label{eq:GolgiConvolution}
+  \textrm{GLG}_{i}(t) = \bar{\alpha}_{\small\rm GLG} \ast g_{i}.
+  \end{equation}
+#+END_LaTeX
+\noident The discrete convolution method is used and cropped to the length of
+the input stimulus,
+#+BEGIN_LaTeX
+  \begin{equation}
+  \label{eq:GolgiConvolution}
+  \textrm{GLG}_{i}(t) =\sum_{u=0}^{u=N_{\alpha}} \alpha_{\small\rm GLG}(u)  g_{i}(t-u),
+  \end{equation}
+#+END_LaTeX
+\noindent where $N_\alpha=10\,\mathrm{dt}\,\Gtau$ is the length of the
+smoothing kernel and $\mathrm{dt}$ is the time step of the \ANF rate
+profiles.  The inhomogenenous Poisson spiking model with refractory
+effects \citep[as used for the \ANF models][]{Jackson:2004} was used to
+generate the output spike times for the Golgi cell model.  The [[latex:progname][NEURON]]
+implementation of the Golgi cell model is provided in the Appendix
+\ref{sec:Ch3:Appendix}.
+
 
 Table \ref{tab:GolgiCellModelSummary}A shows the model summary used to
 optimise the Golgi cell model.  As explained in the Chapter
@@ -881,23 +973,7 @@ spread, as explained in the Chapter \ref{sec:MethodsChapter} (Section
 # the weighted sum of HSR and LSR instantaneous-rate vectors,
 # $\alpha$ is the synaptic and dendritic smoothing function.
 
-The weight vectors, $\mathbf{w}_{HSR}$ and $\mathbf{w}_{LSR}$, span the
-network's channels with size $N_{\textrm channel}$, with a normal curve
-centred on the position in the channel and variance \sANFGLG\@.
-Instantaneous-rate profiles of the \AN have size $N_\textrm{channel}$ and
-length determined by the stimulus ($N_\textrm{stim}$ = stimulus duration
-/ sampling rate).  The intermediate step in the Golgi cell model,
-$r(\cdot)$, corrects the output rate for the desired spontaneous activity,
-\Gspon, and performs rectification on the signal to avoid negative rate
-values.  The final step involves convolution with the alpha function,
-$\alpha(t)$, as the synapto-dendritic filtering mechanism in the Golgi cell.
-The synaptic and dendritic filter kernel, $\alpha(t)$ was normalised by
-setting the area under the function to 1.[fn:: For a large enough filter
-length, the alpha function integral ($\int \alpha(t) dt = (-\Gtau^2 - t \cdot
-\Gtau)\cdot \exp(-\frac{t}{\Gtau})$) approximately equals $\Gtau^2$. In this
-case $10 \times \Gtau$ is used for the filter length.]  A more detailed
-explanation of the NEURON implementation of the Golgi cell model is
-provided in the Appendix \ref{sec:Ch3:Appendix}.
+
 
 # Eq. \ref{eq:alpha_Golgi},
 # In Chapter \ref{sec:GAChapter}, the Golgi cell model was implemented as a
@@ -1109,6 +1185,7 @@ increased from 0 to 90 dB \SPL.
 
 \clearpage
 \newpage
+
 
 * D Stellate Cell Model: Optimisation Using Click Recovery and Rate Level Responses 
 
@@ -1357,7 +1434,8 @@ measures of spontaneous activity and to restrict over-excitation by \ANFs.
 # %
 # \yellownote{fix this paragraph}
 
-\yellownote{duplicate paragraph}
+\yellownote{duplicate paragraph?}
+
 Optimisation parameters for Golgi cell inputs to \DS cells were optimised based on experimental
 click recovery data from \citet{BackoffPalombiEtAl:1997}, as shown in
 Figure \ref{fig:BackoffPalombi}.  The input stimulus presented a series
@@ -1427,7 +1505,7 @@ kHz).
   \toprule
            \textbf{Parameters (Units)}          & \textbf{Range} & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
         \wGLGDS \hfill (nS)       &   [0.01,50]    & 0,532 \\ 
-        \wHSRDS \hfill (nS)       &   [0.01,50]    & 0,16\\ 
+        \wHSRDS \hfill (nS)       &   [0.01,50]    & 0,167\\ 
         \wLSRDS  \hfill (nS)      &   [0.01,50]    & 13,1 \\  
    $\tau_{\rm GABA-1}$ \hfill (ms)&  [0.01,10.0]   & 5,432 \\  
    $\tau_{\rm GABA-2}$ \hfill (ms)&   [0.1,50.0]   & 0,262 \\ 
@@ -1572,12 +1650,12 @@ over \HSR fibres, but the number of .
     \label{tab:DSRateLevelResults}
         \begin{tabularx}{0.6\textwidth}{X X D{,}{.}{3.4}} \toprule %    \hdr{2}{}{DS\ Cell Optimisation: Best Fit Parameters } \\ 
    \textbf{Parameters (Units)}   & \textbf{Range}& \multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
-   \wGLGDS  \hfill (nS)  &   [0.01,50]   & 10,1869   \\         
-   \wHSRDS  \hfill (nS)  &   [0.01,50]   & 0,1672 \\         
-   \wLSRDS  \hfill (nS)  &   [0.01,50]   & 4,8377  \\         
-    \nLSRDS \hfill ()    &    [1,500]    & 57    \\             
-    \nHSRDS \hfill ()    &    [1,500]    & 158    \\
-   \nGLGDS   \hfill ()   &     [1,50]    & 9   \\ \midrule
+   \wGLGDS \hfill (nS)  &   [0.01,50]   &  4,8377   \\         
+   \wHSRDS \hfill (nS)  &   [0.01,50]   & 0,1672 \\         
+   \wLSRDS \hfill (nS)  &   [0.01,50]   & 10,1869  \\         
+   \nLSRDS \hfill ()    &    [1,500]    & 57    \\             
+   \nHSRDS \hfill ()    &    [1,500]    & 158    \\
+   \nGLGDS \hfill ()   &     [1,50]    & 9   \\ \midrule
   \multicolumn{2}{c}{Tone RL\ Error \hfill (sp/s)}  &    25,62      \\   
   \multicolumn{2}{c}{Noise RL\ Error \hfill (sp/s)} &    36,27      \\ 
     \multicolumn{2}{c}{Total Error \hfill (sp/s)}   &    61,89      \\ \bottomrule
