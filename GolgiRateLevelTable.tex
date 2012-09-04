@@ -8,11 +8,14 @@
 \begin{tabularx}{\textwidth}{|l|X|} %
 \hdr{2}{A}{Model Summary}\\
 %\begin{ntab}{|l|X|}{2}{\ref{tab:GolgiCellModelSummary} A}{Model Summary}\\\hline
- \textbf{Populations}  & ANF~(HSR, LSR) and Golgi cells \\\hline 
-  \textbf{Topology}    & Tonotopic - $100$ frequency channels (0.2--40 kHz) separated evenly based on even place positions on the basilar membrane \citep{Greenwood:1990}\\\hline
-\textbf{Connectivity}  & Place-based Gaussian spread of connections from ANF to GLG \\\hline
-\textbf{Input model}  & ANF~model: instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\\hline
-\textbf{Neuron model}  & Golgi cell model: instantaneous-rate Poisson model developed from ANF inputs \\\hline
+ \textbf{Populations}  & ANF~(HSR, LSR) and Golgi (GLG) cells \\\hline 
+  \textbf{Topology}    & Tonotopic - 100 frequency channels (0.2--40
+  kHz);  Cat model; Greenwood function centre frequencies \citep{Greenwood:1990}\\\hline
+\textbf{Connectivity}  & ANF to GLG filter inputs, Gaussian spread
+centred on channel\\\hline
+\textbf{Input model}  & ANF~model: Version 4 and 5 Zilany model \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} \\\hline
+\textbf{Neuron model}  & Golgi cell model: instantaneous-rate Poisson
+neuron model \\\hline
 \textbf{Synapse model} & Synapto-dendritic smoothing filter (alpha function) \\\hline
 %    \textbf{Input}     & Pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range 0--100 dB~SPL   \\\hline
 %\textbf{Measurements}  & Mean firing rate of Golgi cell instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions) \\\hline
@@ -25,9 +28,13 @@
 \begin{tabularx}{\textwidth}{|l|X|X|}%
 \hdr{3}{B}{Populations}\\
 \textbf{Name} &                         \textbf{Elements}                          & \textbf{Number} \\\hline
-     HSR      & Auditory nerve fibre model \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & N/A \\\hline
-     LSR      & Auditory nerve fibre \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & N/A \\\hline
-     GLG      &                 Instantaneous-rate Poisson neuron                  & 1 unit (CF 22.7 kHz, channel 76)  \\\hline
+     HSR      & Auditory nerve fibre model
+     \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & Rate models only,
+     1 per channel\\\hline
+     LSR      & Auditory nerve fibre
+     \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & Rate models only,
+     1 per channel \\\hline
+     GLG      &                 Instantaneous-rate Poisson neuron model                  & 1 unit (CF 22.7 kHz, channel 76)  \\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -36,10 +43,11 @@
 \begin{tabularx}{\textwidth}{|l|l|l|X|}%
 \hdr{4}{C}{Connectivity}    \\
      \textbf{Name}       & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\multirow{2}{*}{\ANFGLG} &     {\HSR}      &      Golgi      & 
-Gaussian spatial convergence, centred on CF, variance equal to spread parameter (\sHSRGLG = 2), weight (\wHSRGLG), delay (\dANFGLG) \\
-   &     {\LSR}      &      Golgi      & 
-Gaussian spatial convergent spread, centered on CF, spread (\sLSRGLG) to be optimised, weight (\wLSRGLG), delay (\dANFGLG)\\\hline
+\multirow{2}{*}{\ANFGLG} &     {\HSR}      &      GLG      & 
+Gaussian spatial convergence, centred on CF, spread parameter
+(\sHSRGLG = 2). Weight (\wHSRGLG) to be optimised. \\
+   &     {\LSR}      &      GLG      & 
+Gaussian spatial convergence, centered on CF.  Spread (\sLSRGLG) and weight (\wLSRGLG) to be optimised. \\\hline
 \end{tabularx}
 \vspace{1ex}
 \end{table}%
@@ -48,7 +56,7 @@ Gaussian spatial convergent spread, centered on CF, spread (\sLSRGLG) to be opti
 \noindent%
 \begin{tabularx}{\linewidth}{|p{0.22\linewidth}|X|}
 \hdr{2}{D}{Neuron and Synapse Model}\\
- \textbf{Name} & Golgi cell \\\hline
+ \textbf{Name} & Golgi cell model \\\hline
  \textbf{Type} & Instantaneous-rate Poisson neural  model \\\hline 
 %\raisebox{-4.5ex}{\parbox{\linewidth}{\textbf{Model Dynamics}}} & 
  \textbf{Model Dynamics} & %
@@ -64,9 +72,11 @@ Gaussian spatial convergent spread, centered on CF, spread (\sLSRGLG) to be opti
 % % & \text{if } G(t) < 0 \,G(t)=0 & \text{rectification of Golgi model rate} \\
 % \end{array} \end{equation*}\vspace*{-1.5ex}\rule{1em}{0em}}  \\\hline
 %{\rule{1em}{0em}\vspace*{-1.5ex}%\scriptsize%
-Figure~\ref{fig:GolgiDiagram} shows the rate filter model ($g_{i}(t)$) used for
-the Golgi cell model. It was created using convolution of weighted ANF input rates
-and synapto-dendritic kernel ($\alpha_{\small\rm GLG}(t)$) with rectification. 
+See Figure~\ref{fig:GolgiDiagram} and the GLG rate filter model
+Equations~\ref{eq:GolgiWeights}--\ref{eq:GolgiConvolution}.
+% ($g_{i}(t)$) used for
+% the Golgi cell model. It was created using convolution of weighted ANF input rates
+% and synapto-dendritic kernel ($\alpha_{\small\rm GLG}(t)$) with rectification. 
 % \begin{equation*}%
 %  \begin{array}{r@{\;=\;}l}
 %  {\rm GLG}_{i}(t)  &  \alpha_{\rm GLG}(t)\,\ast\,g(t) \,\rfloor + \text{SR}_{\rm GLG} \quad \text{where} \\
