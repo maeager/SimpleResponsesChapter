@@ -228,7 +228,7 @@ first model and network parameters to be optimised.  \DS cells receive
 inputs from \ANFs and \GABA-ergic Golgi cells, therefore with both
 dependencies optimised it's parameters were modeled mext. Thirdly, \TV cell's input
 network parameters were optimised as they are strongly inhibited by \DS
-cells and receive excitation from \ANFs. Finally,  \input parameters to
+cells and receive excitation from \ANFs. Finally,  input parameters to
 \TS cells, which receive inputs from all other cell types in the \CNSM,
 were optimised.  Due to the variety of possible inputs to \TS cells (and
 the observed physiological classification sub-types in chopper units),
@@ -548,10 +548,10 @@ The stimuli presented to the stellate microcircuit included:
 # 	sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' ./gfx/GolgiDiagram.tex
 # #+END_SRC
 
-#+BEGIN_SRC sh
- 	dia -n -t pgf-tex -e gfx/GolgiPointProcessDiagram.tex gfx/GolgiPointProcessDiagram.dia
- 	sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 	's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
-#+END_SRC
+# #+BEGIN_SRC sh
+#  	dia -n -t pgf-tex -e gfx/GolgiPointProcessDiagram.tex gfx/GolgiPointProcessDiagram.dia
+#  	sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 	's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
+# #+END_SRC
 
 #+RESULTS:
 
@@ -662,57 +662,57 @@ around 1.3 ms \citep{FerragamoGoldingEtAl:1998}.
 
 # The physiological response of Golgi cells has not been extensively studied.
 
-Extracellular recordings from labelled Golgi cells are not available
-in the literature; however, an electrophysiological study of the \GCD
-(or marginal shell of the \VCN in cats) has been done by one group
-\citep{Ghoshal:1997,GhoshalKim:1997,GhoshalKim:1996,GhoshalKim:1996a}
-without direct labelling of recorded units.  Any extracellular spikes
-recorded in the \GCD are most likely from Golgi cells since granule
-cell somata are less than 10 \um and their narrow axons are unlikely
-to elicit electrical activity in the electrodes
+Extracellular recordings from labelled Golgi cells are not available in
+the literature; however, electrophysiological studies of the \GCD (or
+marginal shell of the \VCN in cats) have been done without direct
+labelling of recorded units
+\citep{Ghoshal:1997,GhoshalKim:1997,GhoshalKim:1996,GhoshalKim:1996a}.
+Any extracellular spikes recorded in the \GCD are most likely from Golgi
+cells since granule cell somata are less than 10 \um and their narrow
+axons are unlikely to elicit electrical activity in the electrodes
 \citep{GhoshalKim:1997,FerragamoGoldingEtAl:1998}.
 
 ## Change this sentence
 # There was a substantial presence of
 
 Strongly driven units in the anterior \VCN shell exhibit non-saturating
-rate-level functions to pure tone, noise or both with dynamic ranges
-as wide as 89 dB \citep{GhoshalKim:1997}.  The majority of
-\GCD units recorded by \citet{GhoshalKim:1997} were classified as Type
-I\slash III or III \EIRA units, showing a monotonic increase in firing
-rate with increasing sound intensity to tones and noise.  Some units
-examined showed Type II or Type IV \EIRA properties. One unit was
-classified as Type II due to its poor response to noise but it did not
-show a reduction of response to tones at high \SPL (typical of \DCN
-Type II units) \citep{GhoshalKim:1997}. Two units with low \CF (< 1.5
-kHz) were classified as Type II \citep{GhoshalKim:1997}.  The \PSTH of
-the units included wide chopper, \OnC, and pause-build; however, nearly
-one third of units did not fit into the known classifications and were
-called unusual \citep{GhoshalKim:1997}.
+rate-level functions to pure tones, noise or both with dynamic ranges as
+wide as 89 dB \citep{GhoshalKim:1997}.  The majority of \GCD units
+recorded by \citet{GhoshalKim:1997} were classified as Type I\slash III
+or III \EIRA units, showing a monotonic increase in firing rate with
+increasing sound intensity to tones and noise.  Some units showed Type
+II or Type IV \EIRA properties. One unit was classified as Type II due
+to its poor response to noise but it did not show a reduction of
+response to tones at high \SPL, typical of \DCN Type II units
+\citep{GhoshalKim:1997}. Two units with low \CF (\lt 1.5 kHz) were
+classified as Type II \citep{GhoshalKim:1997}.  The \PSTH of the units
+included wide chopper, onset-chopper (\OnC), and pause-build; however,
+nearly one third of units did not fit into the known classifications and
+were called "unusual" \citep{GhoshalKim:1997}.
 
 The latency of acoustically driven \GCD recorded units ranges from 2.4
 ms to over 10 ms, with a mean of 3.75 ms.  The acoustic latency closely
-matches the minimum latency of \EPSPs to AN shocks recorded in mice
-/in vitro/ preparations \citep[1.3~ms,][]{FerragamoGoldingEtAl:1998}.
-Longer latencies (greater than 10 ms) may be due to Type II \ANFs (estimated
-theoretical latency of 10 ms \citep{Brown:1993}) or from
+matches the minimum latency of \EPSPs to AN shocks recorded in mice /in
+vitro/ preparations \citep[1.3~ms,][]{FerragamoGoldingEtAl:1998}.
+Longer latencies (greater than 10 ms) may be due to Type II \ANFs,
+estimated theoretical latency of 10 ms \citep{Brown:1993}, or from
 polysynaptic excitation by granule cells.
 
 # Their monotonic responses to tones and noise over a wide dynamic range
 # provides regulation of activity in granule cells that also receive
-# non-acoustic input.  The contribution of a delayed, negative feedback onto
-# \VCN~units is analogous to automatic gain control.  provides strong evidence
-# for regulation of activity in granule cells.
+# non-acoustic input.  The contribution of a delayed, negative feedback
+# onto \VCN~units is analogous to automatic gain control.  provides
+# strong evidence for regulation of activity in granule cells.
 
-The assumed functional role of Golgi cells is to
-regulate granule cells but they may also provide automatic gain
-control to the principal \VCN units, primarily D and T stellate cells
+The assumed functional role of Golgi cells is to regulate granule cells
+but they may also provide automatic gain control to the principal \VCN
+units, primarily D and T stellate cells
 \citep{GhoshalKim:1997,FerragamoGoldingEtAl:1998a}.
 
 # GABA in the Ventral Cochlear Nucleus
 # {Neuromodulatory effects of Golgi cells}
 
-** Implementation
+
 
 \yellownote{first sentence too long and could go at start of golgi section}
 The presence of GABAergic inputs to \VCN and \DCN neurons has been
@@ -816,6 +816,8 @@ stimulate NMDA glutamate receptors in Golgi cells
 
 
 
+** Implementation
+
 #+ATTR_LATEX: height=0.7\textheight,keepaspectratio=true
 #+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top was the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
 #+LABEL:      fig:GolgiKimFig2
@@ -824,26 +826,24 @@ stimulate NMDA glutamate receptors in Golgi cells
 #+LaTeX:\input{../SimpleResponsesChapter/GolgiRateLevelTable}
 
 
-In the creation of the Golgi cell model, we reduced the explicit
-behaviour of Golgi cells down to four major details:
- 1. Golgi cells are classic repetitively-firing neurons due to their
+In the creation of the Golgi cell model, the explicit
+behaviour of Golgi cells was reduced down to four major aspects:
+ 1. Golgi cells are classic repetitively-firing neurons shown by to their
     Type I current clamp response \citep{FerragamoGoldingEtAl:1998}.
  2. The minimum \EPSP in Golgi cells to an electric shock of the AN
     \citep{FerragamoGoldingEtAl:1998} and mean first spike latency to
     acoustic stimuli \citep{GhoshalKim:1997} are significantly different
     from the core \VCN units.
  3. Golgi cells have a low maximum rate and large dynamic range to
-    tone and noise increases, given that marginal shell extracellular
-    recordings of \citet{GhoshalKim:1997} could not come from granule
-    cells.
+    tone and noise stimuli \citep{GhoshalKim:1997}.
  4. The low threshold in Golgi cells can\-not be solely due to \LSR
     \ANFs \citep{GhoshalKim:1997}. The lack of extensive experimental
     data regarding Type II \ANF units that project to the \GCD and
-    granule cell response to acoustic input, meant that an inhomogeneous
-    Poisson rate neural model was preferred over the Hodgkin-Huxley type
+    granule cell response to acoustic input, reward an inhomogeneous
+    Poisson rate neural model  over the Hodgkin-Huxley type
     neural model in the Golgi cell used in the \CNSM model.  Although
     \HSR \ANF terminals do not generally project into the \GCD, they are
-    included in this model to provide some low level sound-induced
+    included in this model to provide some low level spontaneous 
     activity.
 
 The Golgi cell model is implemented as an instantaneous-rate Poisson
@@ -861,31 +861,29 @@ by the weight parameter \wLSRGLG, and the spread parameter \sLSRGLG,
 which is the variance in a standard Gaussian function
 #+BEGIN_LaTeX
   \begin{equation}
+\label{eq:GolgiWeights}
 \mathbf{w}_{i\, \small\LSRGLG} (x)= \wLSRGLG/sqrt(2\,\pi\,\sLSRGLG))\, exp(-((x-i)^2)/(2*\sLSRGLG)),
   \end{equation} 
 #+END_LaTeX
-\noident where $x=1,{\rm \ldots},N_{\small\rm channel}$.
-
-
+\noindent where $x=1,{\rm \ldots},N_{\small\rm channel}$.
 
 
 The intermediate step in the Golgi cell model,
 $g_i(t)$, combines the weighted sum of \HSR and \LSR instantaneous-rate
 and corrects the output rate for the desired spontaneous activity,
-\Gspon, 
+\Gspon, and is given by
 #+BEGIN_LaTeX
   \begin{equation}
     \label{eq:GolgiInputSum}
   \textrm{g}_i(t) = \sum_{j=1}^{N_{\small\rm channel}}{\mathbf{w}_{\small\LSRGLG}(j) {\rm LSR}_j(t) +
-    \mathbf{w}_{\small\HSRGLG}(j) {\rm HSR}_j(t)}  - \textrm{SR}_{\small\rm GLG}
+    \mathbf{w}_{\small\HSRGLG}(j) {\rm HSR}_j(t)}  - \textrm{SR}_{\small\rm GLG}.
   \end{equation} 
 #+END_LaTeX
 Instantaneous rate profiles of \HSR and \LSR models (and consequently
-\GLG models) 
-length determined by the stimulus ($N_{\rm stim}$ = stimulus duration
-/ sampling rate). Profiles are caclulated for each channel in the
-network (size=$N_{\small\rm channel}$).  
-
+\GLG models) length determined by the stimulus duration and sampling
+rate ($N_{\rm stim}$ = stimulus duration / sampling rate). Profiles are
+caclulated for each channel in the network (size=$N_{\small\rm channel}$)
+and stored for use during repeated simulations.
 
 The weighted sum of \HSR and \LSR instantaneous-rate
 vectors were convolved  by an smoothing kernel mimicking synaptic and
@@ -893,7 +891,7 @@ dendritic properties using  an alpha function , $\alpha_{\rm GLG }$(t), given by
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:GolgiAlpha}
-  \alpha_{\rm GLG}(t) =  t\, \exp(\frac{-t}{\Gtau). 
+  \alpha_{\rm GLG}(t) =  t\, \exp(\frac{-t}{\Gtau}. 
   \end{equation}
 #+END_LaTeX
 \noindent The smoothing kernel was normalised by
@@ -915,7 +913,7 @@ normalised synapto-dendritic filtering kernel, $\bar{\alpha}_{\small\rm GLG}(t)$
   \textrm{GLG}_{i}(t) = \bar{\alpha}_{\small\rm GLG} \ast g_{i}.
   \end{equation}
 #+END_LaTeX
-\noident The discrete convolution method is used and cropped to the length of
+\noindent The discrete convolution method is used and cropped to the length of
 the input stimulus,
 #+BEGIN_LaTeX
   \begin{equation}
@@ -929,7 +927,7 @@ profiles.  The inhomogenenous Poisson spiking model with refractory
 effects \citep[as used for the \ANF models][]{Jackson:2004} was used to
 generate the output spike times for the Golgi cell model.  The [[latex:progname][NEURON]]
 implementation of the Golgi cell model is provided in the Appendix
-\ref{sec:Ch3:Appendix}.
+\ref{sec:Ch3:Appendix:Golgi}.
 
 
 Table \ref{tab:GolgiCellModelSummary}A shows the model summary used to
