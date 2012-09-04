@@ -24,38 +24,18 @@
 This section provides an overview of the pragmatic details of the
 [[latex:progname][cnstellate]] NEURON model used in Chapter 3.
 
-* General Neural Modelling Tools
-
-
-*** Data extraction
-    :PROPERTIES:
-    :LABEL: sec:Apx:G3data
-    :END:
-
-
-\yellownote{Special comments on the use of g3data to extract data
-points from literature documents }
-
-#+ATTR_LATEX: width=0.95\textwidth
-#+LABEL: fig:Extractdata
-#+Caption: Extracting experimental data from Figure 10 in \citet{ReissYoung:2005} using \textsf{g3data}.
-  [[file:gfx/Screenshot_Reiss_Fig10_g3data.png]]
-
 
 
 * [[latex:progname][NEURON]] Cochlear Nucleus Stellate Microcircuit Model
 
 The cochlear nucleus stellate microcircuit software code used in this
-chapter is called [[latex:progname][cnstellate]] and is implemented in
-[[latex:progname][NEURON]], [[latex:progname][NMODL]] and
-[[latex:progname][C]] source code.  
+chapter is called [[latex:progname][cnstellate]] and is implemented in [[latex:progname][NEURON]], [[latex:progname][NMODL]] and [[latex:progname][C]]
+source code.
 
-Acknowledgments should be made to
-M.S.A. Zilany, Laurel Carney, Ian Bruce and colleagues for their work
-on the AN model.
-Jason Rothman and Paul Manis for their investigation of membrane currents in \CN neurons.
-
-
+I acknowledge the contribution M.S.A. Zilany, Laurel Carney, Ian Bruce
+and colleagues for their work on the AN model.  Also, for their
+investigation of membrane currents in \CN neurons, I would like to
+thank  Jason Rothman and Paul Manis. 
 
 The organisation of the NEURON model and its the parallel capabilities is based on the NEURON
 network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006}
@@ -82,7 +62,7 @@ kHz to match the simulations' time step of 0.1 ms.  Version 4 of the AN
 model \citep{ZilanyBruceEtAl:2009} only needs 200 kHz sampling rate for
 CF units above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.
 
- The directory for the saved AN responses is determined by the variable [[latex:progname][=ANsoundspath]]=.
+The directory for the saved AN responses is determined by the variable [[latex:progname][=ANsoundspath]]=.
 
 
 \yellownote{Discuss Listing headerlines} Listing \ref{lst:headerlines}
@@ -308,7 +288,6 @@ the =SGC_fast= object.  The updated method presented in
 developed in =AuditoryNerve.hoc= to generate lists of spike trains for each
 repetition before simulation.
 
-
 ** Cochlear Nucleus Cell Templates
 
 # \yellownote{RM NMODL files}
@@ -400,6 +379,7 @@ inserted separately.
   endtemplate CNcell
   \end{lstlisting}
 #+END_LaTeX
+
 
 * Optimisation Procedures
     :PROPERTIES:
@@ -678,6 +658,24 @@ The procedures for modulation transfer functions and f_0 responses are
 also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:Chapter4}
 [[file:../VowelProcessingChapter/Chapter04.org:*chapter]]. 
  
+
+
+* General Neural Modelling Tools
+
+
+*** Data extraction
+    :PROPERTIES:
+    :LABEL: sec:Apx:G3data
+    :END:
+
+
+\yellownote{Special comments on the use of g3data to extract data
+points from literature documents }
+
+#+ATTR_LATEX: width=0.95\textwidth
+#+LABEL: fig:Extractdata
+#+Caption: Extracting experimental data from Figure 10 in \citet{ReissYoung:2005} using \textsf{g3data}.
+  [[file:gfx/Screenshot_Reiss_Fig10_g3data.png]]
 
 
 
