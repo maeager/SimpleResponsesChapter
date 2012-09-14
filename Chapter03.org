@@ -781,7 +781,7 @@ stimulate NMDA glutamate receptors in Golgi cells
 # are less than 10 \um and their narrow axons are unlikely to elicit
 # electrical activity in the electrodes.  The majority of recorded units
 # showed a monotonic increase in firing rate with increasing sound
-# intensity \citep[Figure~\ref{fig:GolgiKimFig2}][]{GhoshalKim:1996}.
+# intensity \citep[Figure~\ref{fig:GolgiKimFig2}][]{GhoshalKim:1996a}.
 
 # Golgi cells' monotonic responses to tones and noise over a wide dynamic range
 # provide regulation of activity in granule cells.  The contribution of
@@ -821,7 +821,8 @@ stimulate NMDA glutamate receptors in Golgi cells
 #+ATTR_LATEX: height=0.7\textheight,keepaspectratio=true
 #+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top was the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
 #+LABEL:      fig:GolgiKimFig2
-[[../figures/GhoshalKim96_Fig2.pdf]]
+[[../SimpleResponsesChapter/gfx/GhoshalKim_Fig2_S03_07.png]]
+
 
 #+LaTeX:\input{../SimpleResponsesChapter/GolgiRateLevelTable}
 
@@ -1007,60 +1008,67 @@ spread, as explained in the Chapter \ref{sec:MethodsChapter} (Section
 
 ** Optimisation Results
 
-Figure \ref{fig:GolgiTestResult} shows the output of the test
-optimisation trials for the Golgi cell model.  The testing trial used
-only five sound levels (0, 15, 55, 75 and 85 dB \SPL) and detected the
-mean rate from the instantaneous profile in its fitting routine.  The
-best response obtained a minimum root mean squared error of 11.63
-spikes/sec against the five points in the target experimental data of
-unit S03-07  \citep[CF~21~kHz][]{GhoshalKim:1996}.  A rate-level
-curve (green circles, Figure \ref{fig:GolgiTestResult}) was generated
-from the spiking output to show the discrepancy in the
-spike-based rate-level and the monotonic rate based rate-level.  The
-lack of low level response and a higher threshold indicated the need
-for some \HSR input into the Golgi cell model.
+## COMMENT OUT UNUSED FIGURE AND TEXT
+# Figure \ref{fig:GolgiTestResult} shows the output of the test
+# optimisation trials for the Golgi cell model.  The testing trial used
+# only five sound levels (0, 15, 55, 75 and 85 dB \SPL) and detected the
+# mean rate from the instantaneous profile in its fitting routine.  The
+# best response obtained a minimum root mean squared error of 11.63
+# spikes/sec against the five points in the target experimental data of
+# unit S03-07  \citep[CF~21~kHz][]{GhoshalKim:1996a}.  A rate-level
+# curve (green circles, Figure \ref{fig:GolgiTestResult}) was generated
+# from the spiking output to show the discrepancy in the
+# spike-based rate-level and the monotonic rate based rate-level.  The
+# lack of low level response and a higher threshold indicated the need
+# for some \HSR input into the Golgi cell model.
+
+# #+ATTR_LaTeX: width=0.8\textwidth
+# #+CAPTION: [Initial results of Golgi cell model]{Initial trial results of the  Golgi cell model optimisation.  Responses of the Golgi cell model (blue  triangles) compared five sound levels (0,15, 55, 75 and 85 dB SPL) against five points in the target response (red squares).  The eventual best optimisation  response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  Golgi cell model using the final parameters.}
+# #+LABEL: fig:GolgiTestResult
+# [[ ../SimpleResponsesChapter/gfx/GolgiRateLevel_result2.pdf]]
+
+
+Figure \ref{fig:GolgiResult} shows the rate-level output of the Golgi
+cell model with its optimal combination of parameters as shown in Table
+\ref{tab:GolgiCellModelSummary}E.  Twenty-two sound levels from -15 dB
+SPL to 90 dB SPL was used in the fitness function to compare the Golgi
+cell model (CF=22.7 kHz) with the experimental unit S03-07
+\citep[CF=21~kHz,][]{GhoshalKim:1996a} representing the target response.
+The mean firing rate, generated from 25 repetitions at each level, was
+used in the fitness function to produce a square root of the mean
+squared difference between the model response and the target response.
+The optimal parameters of the Golgi cell model had a fitness score of
+4.48 spikes per second.  A normalised metric that takes into account the
+different firing rate magnitudes at each sound level relative to the
+target response shows a mean absolute difference of 21.5%.
 
 #+ATTR_LaTeX: width=0.8\textwidth
-#+CAPTION: [Initial results of Golgi cell model]{Initial trial results of the  Golgi cell model optimisation.  Responses of the Golgi cell model (blue  triangles) compared five sound levels (0,15, 55, 75 and 85 dB SPL) against five points in the target response (red squares).  The eventual best optimisation  response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  Golgi cell model using the final parameters.}
-#+LABEL: fig:GolgiTestResult
-[[../SimpleResponsesChapter/gfx/GolgiRateLevel_result2.pdf]]
-
-The final optimisation routine with 22 levels and a Golgi cell model
-with \HSR and \LSR \ANF inputs was used to generate a closer fit to
-the \citeauthor{GhoshalKim:1996} data.  Figure \ref{fig:GolgiResult}
-shows the rate-level output of the Golgi cell model with its optimal
-combination of parameters as shown in Table
-\ref{tab:GolgiCellModelSummary}E.  The fitness function error value of the 
-#root mean squared error of the
-optimal Golgi cell model was 4.48 spikes per second.
-
-#+ATTR_LaTeX: width=0.8\textwidth
-#+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996}. A more detailed optimisation with 22 levels and including HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data. The final root mean squared error was 4.48 spikes per second.}
+#+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996a}. A more detailed optimisation with 22 levels and including HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data. The final root mean squared error was 4.48 spikes per second.}
 #+LABEL: fig:GolgiResult
 [[../SimpleResponsesChapter/gfx/GolgiRateLevel_result.pdf]]
 
-The parameters in Table \ref{tab:GolgiCellResults} were within the
-range of expected values.  \LSR inputs to the Golgi cell model
-outweighed \HSR inputs by a factor greater than 10.  The monotonic
-response of \LSR fibres at high sound levels was necessary to create
-the large dynamic range in the Golgi cell model. Equally, the \HSR fibres were
-necessary to provide some low level spontaneous rate activity.  The spontaneous
-rate parameter matches the base response of unit S03-07 in Figure
-\ref{fig:GolgiResult}.  The smoothing filter time constant of 5 ms is
-a typical value in membrane time constants for neural models and fits
-with the input resistance in intracellular recordings of Golgi cells
+The parameters in Table \ref{tab:GolgiCellResults} were within the range
+of expected values.  \LSR inputs to the Golgi cell model outweighed \HSR
+inputs by a factor greater than 10.  The monotonic response of \LSR
+fibres at high sound levels was necessary to create the large dynamic
+range in the Golgi cell model. Equally, the \HSR fibres were necessary
+to provide spontaneous rate activity at low SPL.  The spontaneous rate
+parameter matches the base response of unit S03-07 in Figure
+\ref{fig:GolgiResult}.  The smoothing filter time constant of 5 ms is a
+typical value in membrane time constants for neural models and fits with
+the input resistance in intracellular recordings of Golgi cells
 \citep{FerragamoGoldingEtAl:1998}.
 
 The input spread parameter was not well constrained by the optimisation
 fitness routine with a pure tone input and a single neuron, but the
 result was satisfactory given the uncertainty in \LSR fibres' axonal
 organisation in the \GCD\@.  The dendritic widths in Golgi cells are
-around 100 microns and the frequency separation laminae in the \VCN
-core is approximately 70 \um, giving an expected result of 1.5
-connectivity spread. Consequently, the result of 2.48 channels gives added
-frequency spread from \LSR fibres.
+around 100 microns and the frequency separation laminae in the \VCN core
+is approximately 70 \um, giving an expected result of 1.5 connectivity
+spread. Consequently, the result of 2.48 channels gives added frequency
+spread from \LSR fibres.
 
-\yellownote{TODO: Explain the figures and table more} 
+#\yellownote{TODO: Explain the figures and table more} 
 
 # Table \ref{tab:GolgiCellResults} result table.
 
@@ -1069,33 +1077,36 @@ frequency spread from \LSR fibres.
   % \small 
   % \noindent% 
   % \begin{table}[htb]
-  % \centering 
+  %   \centering 
   %   \caption{Best-fit parameters oft the Golgi cell model optimisation}  \label{tab:GolgiCellResults} 
-  % \begin{tabularx}{\textwidth}{X c c D{,}{.}{2.4}}
-  % \toprule 
-  %                 \textbf{Parameters}                 & \textbf{Name (Units)} & \textbf{Range} &  \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-  %        Spatial spread \LSRGLG         &   \sANFGLG \hfill (channel)   &     [0,10]     & 2,48   \\
-  %         Alpha function time constant         &     \Gtau  \hfill (ms)   &     [0,20]     & 5,01   \\ 
-  %           Weighted sum of LSR input           &   \wLSRGLG \hfill ()    &     [0,5]      & 0,517  \\ 
-  %           Weighted sum of HSR input           &   \wHSRGLG \hfill ()   &     [0,5]      & 0,0487 \\
-  % Spontaneous rate in the Golgi cell model  &    \Gspon  \hfill (spikes / sec)   &     [0,50]     & 3,73   \\ \bottomrule
-  % \end{tabularx} 
+  %   \begin{tabularx}{\textwidth}{X c c D{,}{.}{2.4}}
+  %     \toprule 
+  %     \textbf{Parameters}                 & \textbf{Name (Units)} & \textbf{Range} &  \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
+  %     Spatial spread \LSRGLG         &   \sANFGLG \hfill (channel)   &     [0,10]     & 2,48   \\
+  %     Alpha function time constant         &     \Gtau  \hfill (ms)   &     [0,20]     & 5,01   \\ 
+  %     Weighted sum of LSR input           &   \wLSRGLG \hfill ()    &     [0,5]      & 0,517  \\ 
+  %     Weighted sum of HSR input           &   \wHSRGLG \hfill ()   &     [0,5]      & 0,0487 \\
+  %     Spontaneous rate in the Golgi cell model  &    \Gspon  \hfill
+  %     (spikes / sec)   &     [0,50]     & 3,73   \\ \bottomrule
+  %   \end{tabularx} 
   % \end{table}
   % }
   {
-  \small 
-  \noindent% 
+  \small\noindent% 
   \begin{table}[htb]
-  \centering 
-    \caption{Best-fit parameters oft the Golgi cell model optimisation}  \label{tab:GolgiCellResults} 
-  \begin{tabularx}{0.6\textwidth}{c c D{,}{.}{2.4}}
+      \centering 
+      \caption{Best-fit parameters oft the Golgi cell model optimisation}  \label{tab:GolgiCellResults} 
+      \begin{tabularx}{0.6\textwidth}{c c D{,}{.}{2.4}}
   \toprule 
-        \textbf{Parameters (Units)}        &        \textbf{Range}         & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-     \sANFGLG \hfill (channel)   & [0,10] & 2,48   \\
-        \Gtau  \hfill (ms)       & [0,20] & 5,01   \\ 
-        \wLSRGLG \hfill ( )       & [0,5]  & 0,517  \\ 
-        \wHSRGLG \hfill ( )       & [0,5]  & 0,0487 \\
-   \Gspon  \hfill (spikes / sec) & [0,50] & 3,73   \\ \bottomrule
+   \textbf{Parameters (Units)}  &                  \textbf{Range}                   & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
+    \sANFGLG \hfill (channel)   &                      [0,10]                       & 2,48   \\
+       \Gtau  \hfill (ms)       &                      [0,20]                       & 5,01   \\ 
+       \wLSRGLG \hfill (-)      &                       [0,5]                       & 0,517  \\ 
+       \wHSRGLG \hfill (-)      &                       [0,5]                       & 0,0487 \\
+  \Gspon  \hfill (spikes / sec) &                      [0,50]                       & 3,73   \\ \midrule
+  \multicolumn{2}{c}{$\sqrt{\langle(\mathbf{t}-\mathbf{r})^2\rangle}$ \quad (sp/s)} & 4.48 \\
+   \multicolumn{2}{c}{$\langle(\mathbf{t}-\mathbf{r})/\mathbf{t}\rangle$ \quad ()}  & 0.2145 \\
+  \bottomrule
   \end{tabularx} 
   \end{table}
   }
@@ -1141,6 +1152,7 @@ frequency spread from \LSR fibres.
 #   \end{figure}
 #   \clearpage \newpage
 
+\clearpage
 
 ** Verification of the Golgi Cell Model
 
@@ -1148,36 +1160,85 @@ After setting the optimised parameters in Table
 \ref{tab:GolgiCellResults}, the Golgi cell model was run with tone and noise
 inputs to determine its behaviour outside of the optimisation
 routine.  The Golgi cell model was tested across the entire \CNSM model network
-using tones, noise, and tones plus noise stimuli. Figure
-\ref{fig:GolgiVerification}A, B and D shows the response of a Golgi
+using tones, noise, and tones plus noise stimuli. Figures \ref{fig:GolgiVerificationPSTH} and \ref{fig:GolgiVerificationWhole} show the
+response of an optimised Golgi
 cell model at the centre of the network (CF=5.8 kHz) and had monotonic
-responses to tones and noise similar to other Ghoshal and Kim units
-(Figure \ref{fig:GolgiKimFig2}).  Figure \ref{fig:GolgiVerification}C
+responses to tones and noise similar to other experimental units
+\citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}. 
+
+
+Figure \ref{fig:GolgiVerification}C
 shows the response of all Golgi units in the network to a 5.8 kHz tone,
-increased from 0 to 90 dB \SPL.
+over 0 to 90 dB \SPL.
+
+
+#+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
+#+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top was the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
+#+LABEL:      fig:GolgiKimFig2
+[[../figures/GhoshalKim96_Fig2.pdf]]
+
+
 
 #+BEGIN_LaTeX
+  % \begin{figure}[htb]
+  %   % \centering
+  %   {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+  %   % \resizebox{0.95\textwidth}{!}{
+  %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/G_ratelevel_combined}%
+  %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle90-3}\\
+  %   % }\\
+  %   {\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
+  %   % \resizebox{0.95\textwidth}{!}{
+  %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-3}%
+  %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
+  %   % }\\
+  %   % }}
+  %   %   \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90-3}}\\
+  %   %   \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50-3}}\\
+  
+  %   \caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8 kHz).
+  %  A. Rate level responses to tone, noise and tone plus noise.
+  %  B. PSTH at 90 dB SPL\.
+  %  C. Response area equivalent using all GLG units in the network.
+  %  D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF.} \label{fig:GolgiVerification}
+  % \end{figure}
   \begin{figure}[htb]
     % \centering
-    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    % \resizebox{0.95\textwidth}{!}{
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/G_ratelevel_combined}%
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle90-3}\\
-    % }\\
-    {\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
-    % \resizebox{0.95\textwidth}{!}{
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-3}%
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
-    % }\\
-    % }}
-    %   \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90-3}}\\
-    %   \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50-3}}\\
+  %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
+  %   \hfill\resizebox{0.95\textwidth}{!}{%
+  %   \includegraphics{ResponsesNoComp/G_ratelevel_combined}%
+  % \includegraphics{}\hfill}\\
+    {\figfont{B}\hspace{0.5\textwidth}\figfont{E}\hfill}\\
+    {\hfill\resizebox{0.95\textwidth}{!}{%
+    \includegraphics{ResponsesNoComp/RateLevel/psthsingle5090-3}%
+    \includegraphics{gfx/GhoshalKim_PSTHs.png}}\hfill}\\
+    {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+    %\hfill\resizebox{0.95\textwidth}{!}{%
+   % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
+   %\includegraphics{}\hfill}\\
     \caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8 kHz).
    A. Rate level responses to tone, noise and tone plus noise.
    B. PSTH at 90 dB SPL\.
    C. Response area equivalent using all GLG units in the network.
-   D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF.} \label{fig:GolgiVerification}
+   D. Masked noise-tone response of the central unit to 15 dB masking noise and
+   frequencies one octave above and below its CF.
+  E. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996}. 
+  } \label{fig:GolgiVerificationPSTH}
   \end{figure}
+  %
+  \begin{figure}[htb]
+  \centering
+  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+  \resizebox{0.95\textwidth}{!}{\hfill%
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/RateLevel/response_area-3}\hfill%
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/NoiseRateLevel/response_area-3}\hfill}%   
+     \caption[Whole network response of Golgi cell model]{Response of Golgi cell models across the
+       whole network (CF=5.8 kHz) to pure tones and noise.
+    A. Rate response of all GLG units in the network to pure tone at centre of
+    network (5.8 kHz).
+    B. Rate response of all GLG units to broad-band noise.}
+  \label{fig:GolgiVerificationWhole}
+   \end{figure}
 #+END_LaTeX
 
 
@@ -1709,6 +1770,23 @@ tone for increasing sound level.  Adding masking noise increased the
 width of the activity across the CF of the central unit (Figure
 \ref{fig:DSverification}D), highlighting the broad inputs of \ANFs onto
 \DS cells.
+
+
+
+#+BEGIN_LaTeX
+  \begin{figure}[htb]
+    \centering
+      {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+  \includegraphics{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}\\
+  \includegraphics{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d}
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
+      \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined}%
+    [[../figures/GhoshalKim96_Fig2.pdf
+    \caption{Response area of DS cell model}
+    \label{fig:DSVerificationRA}
+  \end{figure}
+#+END_LaTeX
+
 
 #+BEGIN_LaTeX
   \begin{figure}[htb]
