@@ -1,4 +1,4 @@
-#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS: beamer-xelatex
 #+BEAMER_FRAME_LEVEL: 2
 #+MACRO: BEAMERMODE presentation
 #+MACRO: BEAMERTHEME default
@@ -17,20 +17,20 @@ Constructing realistic microcircuits: the Cochlear Nucleus stellate model
 ** Introduction
 
 #+begin_LaTeX:
-\begin{columns}[c]
-\column{2.5in}
-\small{Information bottleneck at Auditory Nerve\\
-{}\\
-Cochlear Nucleus\\
-    Ventral (Antero/Postero)\\
-    Dorsal (Cerebellum features) \\
-    Outer shell\\
-{}\\
-Six pathways leading out of the Coclear Nucleus\\
-}
-\column{2.5in}
-\framebox{\includegraphics[width=2.25in,keepaspectratio]{gfx/Cat_Human_CN.jpg}}
-\end{columns}
+  \begin{columns}[c]
+  \column{2.5in}
+  \small{Information bottleneck at Auditory Nerve\\
+  {}\\
+  Cochlear Nucleus\\
+      Ventral (Antero/Postero)\\
+      Dorsal (Cerebellum features) \\
+      Outer shell\\
+  {}\\
+  Six pathways leading out of the Coclear Nucleus\\
+  }
+  \column{2.5in}
+  \framebox{\includegraphics[width=2.25in,keepaspectratio]{gfx/Cat_Human_CN.jpg}}
+  \end{columns}
 #+end_LaTeX
 
 ** Cochlear Nucleus Stellate Network
@@ -41,7 +41,7 @@ Six pathways leading out of the Coclear Nucleus\\
 #    [[./gfx/CNnetwork.jpg]]
  
 #+begin_LaTeX 
-\makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{gfx/CNnetwork.jpg}}
+  \makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{gfx/CNnetwork.jpg}}
 #+end_LaTeX
    
 ** Unique Features in VCN
@@ -55,7 +55,7 @@ Six pathways leading out of the Coclear Nucleus\\
 # [[../figures/May2003-Fig.png]]
 
 #+begin_LaTeX
-\makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{../figures/May2003-Fig.png}}
+  \makebox[0pt][l]{\includegraphics[width=\columnwidth,keepaspectratio]{../figures/May2003-Fig.png}}
 #+end_LaTeX
 
 \small{\citep[][Speech Comm.]{May:2003}}
@@ -77,7 +77,7 @@ Six pathways leading out of the Coclear Nucleus\\
  Potassium and Hyper-polarising Current Channels
 
 #+begin_LaTeX:
-\includegraphics[width=0.5\columnwidth,clip,trim=0 0 0 3mm]{./gfx/RothmanManisDynamics.pdf}
+  \includegraphics[width=0.5\columnwidth,clip,trim=0 0 0 3mm]{./gfx/RothmanManisDynamics.pdf}
 #+end_LaTeX
 
 \small{\citep[J~Neurophysiol]{RothmanManis:2003a}}
@@ -110,7 +110,7 @@ Six pathways leading out of the Coclear Nucleus\\
  Intracellular behaviour unique to every cell\\
  Fit to \citet{RothmanManis:2003a}
 #+begin_LaTeX:
-\includegraphics[width=0.7\columnwidth,clip,trim=5mm 5mm 15mm 5mm]{./gfx/IntraCellTypes.jpg}
+  \includegraphics[width=0.7\columnwidth,clip,trim=5mm 5mm 15mm 5mm]{./gfx/IntraCellTypes.jpg}
 #+end_LaTeX
 
 #  #+CAPTION:    Rothman and Manis current-clamp in VCN
@@ -176,16 +176,16 @@ Six pathways leading out of the Coclear Nucleus\\
 
 ** Golgi Cell Model :  Experimental evidence
 #+begin_LaTeX   
-\begin{columns}[c]
-\column{2.5in}
-\textbf{Physiological} 
-   \begin{itemize} 
-   \item \citep{GhoshalKim:1997} (marginal shell, 5 units)
-   \item monotonic response to tones and noise 
-\end{itemize}
-\column{2.5in}
-\framebox{\includegraphics[width=0.8\columnwidth,keepaspectratio]{./gfx/GhoshalKim.png}}
-\end{columns}
+  \begin{columns}[c]
+  \column{2.5in}
+  \textbf{Physiological} 
+     \begin{itemize} 
+     \item \citep{GhoshalKim:1997} (marginal shell, 5 units)
+     \item monotonic response to tones and noise 
+  \end{itemize}
+  \column{2.5in}
+  \framebox{\includegraphics[width=0.8\columnwidth,keepaspectratio]{./gfx/GhoshalKim.png}}
+  \end{columns}
 #+end_LaTeX
 
 # \small{Rate level response of unit S03-07 (CF 21~kHz) \citep[Fig.2]{GhoshalKim:1997}}
@@ -206,11 +206,11 @@ Six pathways leading out of the Coclear Nucleus\\
 #     3. Convolve the golgi vector with the alpha synaptic function 
 
 #+begin_LaTeX
-\begin{eqnarray}
+  \begin{eqnarray}
       w(i,j) = \frac{1}{\sigma \sqrt{2\pi}} \exp \left\{-\frac{(i-j)^2}{2\sigma^2}\right\}, i,j \in [0,nchannels-1] \\
       \mathbf{g}_i = \sum^{i} w_L(i)\mathbf{L}_i + w_H(i)\mathbf{H}_i \\
       \mathbf{G}_i = \mathbf{g}_i * f_{\alpha} 
-      \end{eqnarray}
+  \end{eqnarray}
 #+end_LaTeX
 #    - Create spikes from golgi vectors using Jackson's spike generator 
 
@@ -359,7 +359,7 @@ Simulation time reduced due to golgi and Poisson models
    - asymmetric response to notch noise \citep{ReissYoung:2005}
 
 #+begin_LaTeX
-\makebox[0pt][l]{\includegraphics[height=3cm,keepaspectratio]{gfx/TV_Reiss}}
+   \makebox[0pt][l]{\includegraphics[height=3cm,keepaspectratio]{gfx/TV_Reiss}}
 #+end_LaTeX
 
 
@@ -494,7 +494,7 @@ For technical presentations, motivation is key
 
 
 #+begin_LaTeX:
-\bibliographystyle{plainnat} 
-\bibliography{../hg/manuscript/bib/MyBib}
+  \bibliographystyle{plainnat} 
+  \bibliography{../hg/manuscript/bib/MyBib}
 #+end_LaTeX
 
