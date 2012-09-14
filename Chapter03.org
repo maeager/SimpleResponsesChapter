@@ -1157,26 +1157,25 @@ spread from \LSR fibres.
 ** Verification of the Golgi Cell Model
 
 After setting the optimised parameters in Table
-\ref{tab:GolgiCellResults}, the Golgi cell model was run with tone and noise
-inputs to determine its behaviour outside of the optimisation
-routine.  The Golgi cell model was tested across the entire \CNSM model network
-using tones, noise, and tones plus noise stimuli. Figures \ref{fig:GolgiVerificationPSTH} and \ref{fig:GolgiVerificationWhole} show the
-response of an optimised Golgi
-cell model at the centre of the network (CF=5.8 kHz) and had monotonic
-responses to tones and noise similar to other experimental units
-\citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}. 
+\ref{tab:GolgiCellResults}, the Golgi cell model was run with tone and
+noise inputs to determine its behaviour outside of the optimisation
+routine.  The Golgi cell model was tested across the entire \CNSM model
+network using tones, noise, and tones plus noise stimuli. Figures
+\ref{fig:GolgiVerificationPSTH} and \ref{fig:GolgiVerificationWhole}
+show the response of an optimised Golgi cell model at the centre of the
+network (CF=5.8 kHz) and had monotonic responses to tones and noise
+similar to other experimental units
+\citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.
 
 
-Figure \ref{fig:GolgiVerification}C
-shows the response of all Golgi units in the network to a 5.8 kHz tone,
-over 0 to 90 dB \SPL.
+Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
+units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
 
 
 #+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
-#+CAPTION:    [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top was the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
-#+LABEL:      fig:GolgiKimFig2
+#+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top was the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
+#+LABEL:  fig:GolgiKimFig2
 [[../figures/GhoshalKim96_Fig2.pdf]]
-
 
 
 #+BEGIN_LaTeX
@@ -1781,7 +1780,6 @@ width of the activity across the CF of the central unit (Figure
   \includegraphics{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d}
   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
       \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined}%
-    [[../figures/GhoshalKim96_Fig2.pdf
     \caption{Response area of DS cell model}
     \label{fig:DSVerificationRA}
   \end{figure}
