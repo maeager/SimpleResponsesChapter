@@ -813,7 +813,6 @@ stimulate NMDA glutamate receptors in Golgi cells
 # mimicking a synaptic and dendritic smoothing filter.
 
 
-
 ** Implementation
 
 #+ATTR_LATEX: height=0.7\textheight,keepaspectratio=true
@@ -1314,24 +1313,45 @@ in mice have the closest resemblance to glycinergic labeled neurons and physiolo
 
 *** Cellular Mechanisms of D Stellate Cells
 
+\yellownote{TODO: complete DS cellular mechanism  section}
 
 DS
 -56±3.2 mV RMP see fig 15 
 Double expon. Undershoot (Paolini and Clark 1999; Wu and Oertel 1984)
-Type I-i have high thresholds probably mediated by small ILT (Rothman and Manis 2003c); Membrane properties of Oc cell have not bee adequately characterised, bu the information that is available (d stellate in mouse  (Oertel et al. 1990)) suggests that the low-threshold potassium channel that is important in extending the phase-locking range of bushy cells (Manis and Marx 1991; Oertel 1983) is not present in Oc neurons (White et al. 1994)
+Type I-II have high thresholds probably mediated by small ILT (Rothman and Manis 2003c); Membrane properties of Oc cell have not bee adequately characterised, bu the information that is available (d stellate in mouse  (Oertel et al. 1990)) suggests that the low-threshold potassium channel that is important in extending the phase-locking range of bushy cells (Manis and Marx 1991; Oertel 1983) is not present in Oc neurons (White et al. 1994)
 Fast
 Linear (Paolini and Clark 1999)
 40M ohm (Oertel et al. 1990); 96.2 ± 27.8 MΩ mouse slice prep (Ferragamo et al. 1998b)
 
 
+Figure~\ref{fig:DS_OertelFujino} shows the depolarising and
+hyperpolarising responses of DS cells /in vitro/
+\cite{OertelWuEtAl:1990,FujinoOertel:2001}.  Depolarising currents
+produced regular \APs with double-exponential undershoots. Weak
+depolarisation produces an action potential at the onset of the stimulus
+(Figure~\ref{fig:DS_OertelFujino}A).  Hyperpolarising current responses
+show strong inward rectification with rapid return to stable levels
+(time constants under 15 ms). DS cells are different from the slowly
+integrating TS cells which are Type I current clamp units with single
+exponential undershoot \APs and less prominant hyperpolarising sag.
+
 The \DS neural model was implemented with a single-compartment, Type
-I-II \RM model \citep{RothmanManis:2003b}
+I-II \RM model \citep{RothmanManis:2003b}, which includes small traces
+of \IKLT current.  The Type I-II \RM model has one or two \APs in
+response to a small depolarising current pulse but a
+regular discharge of APs in response to a larger depolarising current
+pulse.
 
-#+ATTR_LATEX: width=\textwidth
-#+CAPTION: 
-#+LABEL: fig:DSAPs 
-[[../figures/Oertel90DS_bottom.png]]
+#+BEGIN_LaTeX
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.98\textwidth]{../figures/DS_Oertel_Fujino.pdf}
+    \caption[Intracellular membrane voltage response of DS cells to depolarising and hyperpolarising current]{Intracellular membrane voltage response of DS cells to depolarising and hyperpolarising current.  A-D One DS cell's response to different levels of current injection \citep[reproduced~from]{OertelWuEtAl:1990}. E-G Three DS units with prominent hyperpolarising sag \citep[reproduced~from]{FujinoOertel:2001}.}
+    \label{fig:DS_OertelFujino}
+  \end{figure}
+#+END_LaTeX
 
+  
 *** Acoustic Properties of D Stellate Cells
 
 \DS cells (and their equivalent large multipolar cells) have been
@@ -1364,7 +1384,7 @@ separation of the probe and mask clicks.
 The \CNSM model assumes that \GABA-ergic input to \DS cells
 is only from local, acoustically-driven Golgi cells.  The temporal
 response of Golgi cells to \AM is unknown, therefore clicks and click
-pairs \citep[as~used~by~][]{BackoffPalombiEtAl:1997} were deemed the
+pairs, as used in \citet{BackoffPalombiEtAl:1997}, were deemed the
 most suitable for optimisation.  
 
 # Latency of excitation to auditory nerve
@@ -1419,7 +1439,7 @@ excitation in the \DS model.
 
 The \DS neural model was implemented with a single-compartment, Type
 I-II \RM model \citep{RothmanManis:2003b}. The Type I-II \RM model is
-unique to \DS cells due to the small presence of low-threshold potassium
+unique to \DS cells due to the presence of low-threshold potassium
 currents. The Type I-II model was cho- sen so that at high levels of
 intracellular current injection the model produces a regular firing
 pattern, whereas near threshold the model responds with a spike at the
@@ -2212,7 +2232,6 @@ cell model was able emulate this response in tones but not in noise
 #+END_LaTeX
 
 
-
 ** Verification of the TV Cell Model
 
 # Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
@@ -2281,8 +2300,6 @@ inhibition particularly for tones above \CF. The responses of all \TV
 units to pure tones replicate the single channel excitatory inputs from
 \ANFs and wide-band inhibition from \DS units (Figure
 \ref{fig:TVverification}C and D).
-
-
 
 \clearpage
 
@@ -2830,18 +2847,18 @@ stimulus.
 
 *** Synaptic connections
 
+\yellownote{TODO: complete synpatic connections to TS cell section}
 The \CNSM model shown in Figure \ref{fig:microcircuit}
 
 Recurrent synaptic connection between TS cells have been the flavour of
 recent neural models
 \cite{BahmerLangner:2006,BahmerLangner:2006a,WiegrebeMeddis:2004}.
-Based on rarity of small round vesicles on \CS units
+Based on rarity of small round vesicles on \ChS units
 \citep{SmithRhode:1989} and likely to come from 1 input
 \citep{FerragamoGoldingEtAl:1998a}, their influence is weak and not
 included in the \CNSM model.
 
 #+LaTeX: \input{../SimpleResponsesChapter/TStellateTable}
-
 
 
 

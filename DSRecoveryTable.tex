@@ -7,12 +7,12 @@
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline
-         \textbf{Populations}           & ANF (HSR,LSR), Golgi, and  D~stellate cells\\\hline
+         \textbf{Populations}           & ANF (HSR,LSR), GLG, and  DS cell models\\\hline
            \textbf{Topology}            & Tonotopic, auditory system of the rat, 100 frequency channels  \\\hline
          \textbf{Connectivity}          & Gaussian spread dependent on morphology and afferent connections  \\\hline
          \textbf{Input model}           & ANF~model: instantaneous-rate Poisson model using the Zilany model \citep{ZilanyBruceEtAl:2009} \\\hline
-\multirow{2}{*}{\textbf{Neuron model}}  & Golgi cell: instantaneous-rate Poisson model \\
-                                        & D~stellate cell: Type I-II \RM single compartment neuron\\ \hline
+\multirow{2}{*}{\textbf{Neuron model}}  & GLG cell model: instantaneous-rate Poisson neural model \\
+                                        & DS cell model: Type I-II \RM single compartment neuron\\ \hline
         \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
 \multirow{2}{*}{\textbf{Synapse model}} & Excitatory: AMPA glutamatergic receptor (single-exponential)\\
                                         & Inhibitory: GABA$_{\rm A}$ GABAergic receptor (double-exponential), Glycinergic receptor (double-exponential) \\\hline
@@ -27,10 +27,10 @@
 \begin{tabularx}{\textwidth}{|l|X|X|}\hline %{\textwidth}
 \hdr{3}{B}{Populations}\\\hline
 \textbf{Name} &               \textbf{Elements}                & \textbf{Number} \\\hline
-     HSR      & Auditory nerve fibre \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009}  & $N_{\text{HSR}} = 50$ per channel \\\hline
-     LSR      & Auditory nerve fibre \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009}                       & $N_{\text{LSR}} = 20$ per channel \\\hline
+     HSR      & Auditory nerve fibre \citep{ZilanyBruceEtAl:2009}  & $N_{\text{HSR}} = 50$ per channel \\\hline
+     LSR      & Auditory nerve fibre \citep{ZilanyBruceEtAl:2009}                       & $N_{\text{LSR}} = 20$ per channel \\\hline
      GLG      & Instantaneous-rate Poisson neuron        & $N_{\text{GLG}} = 1$ per channel \\\hline
-     DS       & Type I-II \citeauthor{RothmanManis:2003b} model & 1 unit at channel 50, $CF = 5.6$ kHz \\\hline
+     DS       & Type I-II \RM model & 1 unit at channel 50, $CF = 5.6$ kHz \\\hline
 \end{tabularx}
 \vspace{1ex}
 
