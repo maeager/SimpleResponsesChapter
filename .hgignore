@@ -34,6 +34,7 @@ _region_.prv/*
 .svn/*
 $pfebk/*
 *.ps
+auto/*
 
 syntax: regexp
 .*\#.*\#$

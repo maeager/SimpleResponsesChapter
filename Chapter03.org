@@ -1354,17 +1354,17 @@ pulse.
   
 *** Acoustic Properties of D Stellate Cells
 
-\DS cells (and their equivalent large multipolar cells) have been
-classified as having an \OnC\space \PSTH to \CF tones across many species
+\DS cells have been classified as having an \OnC\space \PSTH to \CF
+tones across many species
 \citep{RhodeSmithEtAl:1983,BlackburnSachs:1989,FengKuwadaEtAl:1994,PalmerWallaceEtAl:2003,Pfeiffer:1966,SmithRhode:1989,ArnottWallaceEtAl:2004,PaoliniClark:1999,SmithMassieEtAl:2005}.
 Their high threshold to \CF tones and increased response to noise show
 \DS cells receive inputs from many weak \ANFs across a wide frequency
-range \citep{RhodeSmith:1986,PalmerWallaceEtAl:2003}.  Electrophysiological intracellular
-responses /in vivo/ to sounds indicate that the bandwidth of \ANF inputs
-to \DS neurons is asymmetric, with an estimated range of two octaves
-below the \DS cells' \CF and one octave above \CF
+range \citep{RhodeSmith:1986,PalmerWallaceEtAl:2003}.
+Electrophysiological intracellular responses /in vivo/ to sounds
+indicate that the bandwidth of \ANF inputs to \DS neurons is asymmetric,
+with an estimated range of two octaves below the \DS cells' \CF and one
+octave above \CF
 \citep{PaoliniClark:1999,PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004}.
-
 
 Post-onset GABAergic inhibition in \DS cells is a major influence on the
 \PSTH of \OnC neurons \citep{FerragamoGoldingEtAl:1998a}.
