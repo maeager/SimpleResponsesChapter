@@ -62,8 +62,7 @@
    (setq org-export-latex-hyperref-format "\\ref{%s}")
 #+end_src
 
-#+RESULTS:
-: \ref{%s}
+
 
 
 
@@ -77,10 +76,10 @@
   must expand from detailed responses and structure of single cells to
   include unit responses to the activity of other cells, and how these
   responses are distributed over a population of similar cells as
-  wells as across populations of different cells. \\
+  wells as across populations of different cell types. \\
 #+END_QUOTE
-#+LATEX: {\hfill \textit{\citet[~p.]{Shamma:1998}}}
-\yellownote{TODO: Get page number of this quote}
+#+LATEX: {\hfill \textit{\citet[~p.~411]{Shamma:1998}}}
+
 
 Shamma calls upon the neuroscience community to investigate the
 role of populations of neurons in neurophysiology.  To do so, this
@@ -426,7 +425,7 @@ Dendritic attenuation of the \EPSP is not accounted for.
 
 The effective delay of the \AN model does not take into account the
 conduction and synaptic transmission delay in reaching post-synaptic
-neurons in the \CN. Accordingly, an additional delay component was
+neurons in the \CNSM model. Accordingly, an additional delay component was
 required in each of the synaptic connections in the \CNSM model
 involving \ANFs.  Mean \FSL to short \CF tones and click
 stimuli were used to set delay times between \ANFs and \CN cells
@@ -437,7 +436,6 @@ conduction delay, and the synaptic transmission delay.  The first spike
 latency measured in high \CF units in the ARLO \AN model
 \citep{HeinzZhangEtAl:2001} for \HSR fibers was 1.5 ms.
 
-\yellownote{DAVID:  Do you think the next paragraph and table belongs in a results section?}
 
 Table \ref{tab:Meth:AddDelay} shows the additional delay component for
 each cell type, calculated from population statistics, to ensure the first
@@ -473,8 +471,8 @@ cell models.
   \toprule
                                   & \HSR \ANF &     \TS      &     \DS      &     \TV      & Golgi \\\otoprule
           R\&M Cell type          &           &     I-t      &     I-II     &     I-c      & I-c\\ 
-  Experimental Mean FSL \hfill(ms)&     -     & 3.6$\,^{ 1}$ & 2.8 $\,^{2}$ & 4.0 $\,^{3}$ & 4.3 $\,^{4}$\\ 
-    Model Mean FSL  \hfill (ms)   &    1.5    &     2.0      &     1.6      &     2.0      & 2.0\\ 
+  Experimental FSL \hfill(ms)&     -     & 3.6$\,^{ 1}$ & 2.8 $\,^{2}$ & 4.0 $\,^{3}$ & 4.3 $\,^{4}$\\ 
+    Default Model FSL  \hfill (ms)   &    1.5    &     2.0      &     1.6      &     2.0      & 2.0\\ \midrule
    Additional delay \hfill (ms)   &     -     &     1.6      &     1.2      &     2.0      & 2.3\\\bottomrule
   \end{tabularx}\\
     {\scriptsize $^1$  \citet{RhodeSmith:1986}, $^2$ \citet{RhodeOertelEtAl:1983}, $^3$ \citet{SpirouDavisEtAl:1999}, and $^4$ \citet{FerragamoGoldingEtAl:1998a}}
@@ -530,31 +528,34 @@ The stimuli presented to the stellate microcircuit included:
 
 ** fig:microcircuit
 
-# #+BEGIN_SRC sh
-# inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'
-# --export-latex '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg'
-# #+END_SRC
+#+BEGIN__SRC sh :export none
+ inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'  --export-latex '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg
+#+END_SRC
 
 ** fig:Compression
 
 
-# #+BEGIN_SRC sh
-# # make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
-# make gfx/AudiogramCompression.pdf
-# #+END_SRC
+#+BEGIN_SRC sh :export none
+ # make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
+ gnuplot -p gfx/AudiogramCompression.gpi
+#+END_SRC
+
+#+RESULTS:
+: ./gfx/AudiogramCompression.eps
 
 ** GolgiDiagram
-# #+BEGIN_SRC sh
+# #+BEGIN_SRC sh :export none
 # 	dia -n -t pgf-tex -e gfx/GolgiDiagram.tex gfx/GolgiDiagram.dia
 # 	sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' ./gfx/GolgiDiagram.tex
 # #+END_SRC
 
-# #+BEGIN_SRC sh
-#  	dia -n -t pgf-tex -e gfx/GolgiPointProcessDiagram.tex gfx/GolgiPointProcessDiagram.dia
-#  	sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 	's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
-# #+END_SRC
+#+BEGIN_SRC sh :export none
+   echo 'Exporting GolgiPointProcessDiagram.dia to Tikz latex'
+   dia -n -t pgf-tex -e gfx/GolgiPointProcessDiagram.tex gfx/GolgiPointProcessDiagram.dia
+   sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 	's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
+#+END_SRC
 
-#+RESULTS:
+
 
 
 
@@ -812,7 +813,6 @@ stimulate NMDA glutamate receptors in Golgi cells
 # \LSR instantaneous-rate vectors were smoothed out by an alpha function
 # mimicking a synaptic and dendritic smoothing filter.
 
-
 ** Implementation
 
 #+ATTR_LATEX: height=0.7\textheight,keepaspectratio=true
@@ -850,20 +850,20 @@ Figure \ref{fig:GolgiDiagram}.  The primary inputs are from the auditory
 model's instantaneous rate outputs with connections across frequency
 channels.  The strength of \HSR and \LSR \ANF inputs to Golgi cells was
 determined by a Gaussian distribution in units of channel separation in
-the network.  
-The weight vectors, $\mathbf{w}_{\HSRGLG}$ and $\mathbf{w}_{\LSRGLG}$, span the
-\CNSM model's channels with size $N_{\textrm channel}$, with a normal curve
-centred on the position in the channel and variance \sANFGLG\@.
-For example, \LSR inputs to Golgi cells, at position /i/ in the frequency channels, the weight vector was modified
-by the weight parameter \wLSRGLG, and the spread parameter \sLSRGLG,
-which is the variance in a standard Gaussian function
+the network.  The weight vectors, $\mathbf{w}_{\HSRGLG}$ and
+$\mathbf{w}_{\LSRGLG}$, span the \CNSM model's channels with size
+$N_{\textrm{channel}}$, with a normal curve centred on the position in the
+channel and variance \sANFGLG\@.  For example, \LSR inputs to Golgi
+cells, at position /i/ in the frequency channels, the weight vector was
+modified by the weight parameter \wLSRGLG, and the spread parameter
+\sLSRGLG, which is the variance in a standard Gaussian function
 #+BEGIN_LaTeX
   \begin{equation}
 \label{eq:GolgiWeights}
 \mathbf{w}_{i\, \small\LSRGLG} (x)= \wLSRGLG/sqrt(2\,\pi\,\sLSRGLG))\, exp(-((x-i)^2)/(2*\sLSRGLG)),
   \end{equation} 
 #+END_LaTeX
-\noindent where $x=1,{\rm \ldots},N_{\small\rm channel}$.
+\noindent where $x=1,{\rm \ldots},\Nchannels$.
 
 
 The intermediate step in the Golgi cell model,
@@ -873,14 +873,14 @@ and corrects the output rate for the desired spontaneous activity,
 #+BEGIN_LaTeX
   \begin{equation}
     \label{eq:GolgiInputSum}
-  \textrm{g}_i(t) = \sum_{j=1}^{N_{\small\rm channel}}{\mathbf{w}_{\small\LSRGLG}(j) {\rm LSR}_j(t) +
-    \mathbf{w}_{\small\HSRGLG}(j) {\rm HSR}_j(t)}  - \textrm{SR}_{\small\rm GLG}.
+  \textrm{g}_i(t) = \sum_{j=1}^{\Nchannels}}{\mathbf{w}_{\LSRGLG}(j) {\rm LSR}_j(t) +
+    \mathbf{w}_{\HSRGLG}(j) {\rm HSR}_j(t)}  - \textrm{SR}_{\rm GLG}.
   \end{equation} 
 #+END_LaTeX
 Instantaneous rate profiles of \HSR and \LSR models (and consequently
 \GLG models) length determined by the stimulus duration and sampling
 rate ($N_{\rm stim}$ = stimulus duration / sampling rate). Profiles are
-caclulated for each channel in the network (size=$N_{\small\rm channel}$)
+caclulated for each channel in the network (size=\Nchannels})
 and stored for use during repeated simulations.
 
 The weighted sum of \HSR and \LSR instantaneous-rate
@@ -1302,7 +1302,7 @@ They also send a commissural projection to the contralateral cochlear
 nucleus that mediates fast inhibition between the nuclei
 \citep{NeedhamPaolini:2003,NeedhamPaolini:2006,Oertel:1997}.
 \citet{SmithMassieEtAl:2005} combined evidence from studies in different animals to suggest that radiate neurons in rats,
-large Type II multipolar neurons in cats and guinea pigs, and D stellate neurons
+large Type II multipolar neurons in cats and guinea pigs, and DS neurons
 in mice have the closest resemblance to glycinergic labeled neurons and physiologically classified \OnC and \OnL units
 \citep{DoucetRossEtAl:1999,DoucetRyugo:1997,CantGaston:1982,Wenthold:1987,KolstonOsenEtAl:1992,AltschulerJuizEtAl:1993,ShoreGodfreyEtAl:1992,SchofieldCant:1996,Alibardi:2000a,NeedhamPaolini:2003,PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004,PaoliniClark:1999}.
 #Hereafter they will be termed \DS cells in the \CNSM model.
@@ -1457,7 +1457,7 @@ GABA, to investigate the temporal behaviour of the \DS cell model.
 
 DS cell rate level responses to tones and noise
 \citep{ArnottWallaceEtAl:2004} were used in the second optimisation.
-Key elements in the creation of the D stellate cell model are shown in
+Key elements in the creation of the \DS cell model are shown in
 the Nordlie Table \ref{tab:DScellModelSummary}A.  A Type I-II single
 compartment neuron by \citet{RothmanManis:2003b} has the characteristics
 of a onset chopper unit and has previously been used to simulate a \DS
@@ -1472,7 +1472,7 @@ graded weights was sufficient for the \DS cell model.
 #+LaTeX:\input{../SimpleResponsesChapter/DSRecoveryTable}
 
 
-The synaptic connections onto the D stellate cell model, shown in Table
+The synaptic connections onto the \DS cell model, shown in Table
 \ref{tab:DScellModelSummary}C, were simplified to afferent ANF inputs
 and intra-nuclear co-localised GABAergic input from Golgi cells.  The
 \DS cell model's input parameters were pre-emptively fixed.  These
@@ -1523,7 +1523,7 @@ selecting from the 5 nearest Golgi cells.
 #+LABEL: fig:BackoffPalombi
 [[../SimpleResponsesChapter/gfx/Backoff+Palombi-Fig3.pdf]]
 
-The \DS model was tested with six pairs of mask/recovery click pairs,
+The \DS model was tested with six pairs of masker-probe click pairs,
 with intervals 2, 3, 4, 8, and 16 ms (consistent with 
 \citet{BackoffPalombiEtAl:1997} and the responses shown in Figure
 \ref{fig:BackoffPalombi}).  \PSTHs of the spiking output of \DS units were
@@ -1577,16 +1577,11 @@ The unit used in the optimisation had a \CF of 5.8 kHz (equivalent to
 channel number 50 in the CN network with 100 channels from 0.2 to 30
 kHz).
 
-#+BEGIN_LaTeX
-  \begin{figure}[htb] 
-  \centering 
-   \includegraphics[keepaspectratio,width=0.7\textwidth]{DS_ClickRecovery/ANinput}
-   \caption[Click recovery stimulus]{Click stimulus and PSTH responses of an HSR
-    fibre, a GLG unit, and a DS unit from the click recovery stimulus used in the
-    optimisation.}
-  \label{fig:ClickExamples}
-  \end{figure}
-#+END_LaTeX
+#+ATTR_LaTeX: width=0.7\textwidth
+#+caption: [Click recovery stimulus and recording procedure]{Sample of the fitness function stimulus and recording procedure for the DS cell model click recovery optimisation. (Top) Two pairs of clicks (0.3 ms width) with delays of 16 ms and 2 ms. (Bottom) PSTH response of a DS unit (high CF) with 2ms boxes indicating the window of response for the mask and probe periods. Windows begin 3ms after the stimulus click to account for AN model and first spike latency in DS units.}
+#+label: fig:ClickExample
+[[../SimpleResponsesChapter/gfx/ClickRecoveryDiagram.pdf]]
+
 
 
 # \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
@@ -2170,8 +2165,7 @@ cell model was able emulate this response in tones but not in noise
 
 #+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) was optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}). Figure format same as Figure \ref{fig:DSRateLevelResult}. Glycinergic blocker strynchnine used in the target unit is emulated in the TV cell model by removing DS cell synaptic inputs. (A) Tone RL of HSR, LSR and GLG and DS cell unit inputs at CF 5.8 kHz. (B) Tone RL of  optimised TV cell model and target unit data with and without inhibition. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit data with and without inhibition. }
 #+LABEL: fig:TVRateLevelResult
-[[../../cnstellate/TV_RateLevel/TV_RateLevel_result.pdf]]
-#../SimpleResponsesChapter/TV_RateLevel/TV_RateLevel_result.pdf
+[[../SimpleResponsesChapter/gfx/TV_RateLevel_result.pdf]]
 
 # #  50 dB Run
 # #+BEGIN_LaTeX
@@ -2957,17 +2951,20 @@ sustained depolarisation.
 *** Fitness Function
 
 The optimisation fitness function, $F$, of the T stellate cell model
-calculated the relative error between a combination of the
-intracellular and spikes statistics against the experimental data by
-\citet{PaoliniClareyEtAl:2005}.
-Spike trains were collected for 25 repetitions of a 50 ms \CF tone and analysed for \PSTH characteristics \citep{Pfeiffer:1966a,BlackburnSachs:1989,YoungRobertEtAl:1988}.
+calculated the relative error between a combination of the intracellular
+and spikes statistics against the experimental data by
+\citet{PaoliniClareyEtAl:2005}.  Spike trains were collected for 25
+repetitions of a 50 ms \CF tone and analysed for \PSTH characteristics
+\citep{Pfeiffer:1966a,BlackburnSachs:1989,YoungRobertEtAl:1988}.
 Chopper \PSTHs without the first three regular spikes were ignored.
 Coefficient of variation of the inter-spike intervals was calculated
-over 10 ms windows \citep{PaoliniClareyEtAl:2005}.  
-The intracellular voltage statistics included the onset ratio (Equation \ref{eq:IVstats-Onset}),
-adaptation shift (Equation \ref{eq:IVstats-Adap}) and offset shift (Equation \ref{eq:IVstats-Offset}). 
-The fitness value was a square root of the mean squared errors between the computed \AIV and CV statistics of the target units and the simulated \TS model.
-The final fitness value had
+over 10 ms windows \citep{PaoliniClareyEtAl:2005}.  The intracellular
+voltage statistics included the onset ratio (Equation
+\ref{eq:IVstats-Onset}), adaptation shift (Equation
+\ref{eq:IVstats-Adap}) and offset shift (Equation
+\ref{eq:IVstats-Offset}).  The fitness value was a square root of the
+mean squared errors between the computed \AIV and CV statistics of the
+target units and the simulated \TS model.  The final fitness value had
 additional penalties for \SR above 10 spikes per second and for \CV
 values above 0.3 in the first 10 ms and above 0.4 for the remaining
 stimulus.
