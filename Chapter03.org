@@ -291,7 +291,7 @@ the Bruce model \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007} an
 The neural models used in the \ANFs and Golgi cell model were
 inhomogeneous Poisson processes.  The instantaneous rate produced the
 input \AN model (chosen from the Bruce or Zilany model) or through the
-Golgi filter model (Section [[Golgi Cell Model: Optimisation Using Rate Level Responses in Marginal Shell Units]]) 
+Golgi filter model (Section [[Golgi%20Cell%20Model][Golgi Cell Model]]) 
 was passed through the Jackson
 spiking model \citep{Jackson:2003,JacksonCarney:2005}, which includes
 refractory effects typical of the \ANFs.  Spike trains for each neuron
@@ -560,7 +560,8 @@ The stimuli presented to the stellate microcircuit included:
 
 
 
-* Golgi Cell Model: Optimisation Using Rate Level Responses in Marginal Shell Units 
+* Golgi Cell Model 
+#: Optimisation Using Rate Level Responses in Marginal Shell Units 
   :PROPERTIES:
   :LABEL:    sec:GolgiModelOpt
   :END:
@@ -860,7 +861,7 @@ modified by the weight parameter \wLSRGLG, and the spread parameter
 #+BEGIN_LaTeX
   \begin{equation}
 \label{eq:GolgiWeights}
-\mathbf{w}_{i\, \small\LSRGLG} (x)= \wLSRGLG/sqrt(2\,\pi\,\sLSRGLG))\, exp(-((x-i)^2)/(2*\sLSRGLG)),
+\mathbf{w}_{i\, \small\LSRGLG} (x)= \wLSRGLG/\sqrt(2\,\pi\,\sLSRGLG))\, exp(-((x-i)^2)/(2*\sLSRGLG)),
   \end{equation} 
 #+END_LaTeX
 \noindent where $x=1,{\rm \ldots},\Nchannels$.
@@ -889,19 +890,17 @@ dendritic properties using  an alpha function , $\alpha_{\rm GLG }$(t), given by
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:GolgiAlpha}
-  \alpha_{\rm GLG}(t) =  t\, \exp(\frac{-t}{\Gtau}. 
+  \alpha_{\rm GLG}(t) =  t\, \exp\left(\frac{-t}{\Gtau}\right). 
   \end{equation}
 #+END_LaTeX
 \noindent 
-
-
 
 The final step involves convolution of the weighted inputs, /g/ with
 normalised synapto-dendritic filtering kernel, $\bar{\alpha}_{\rm GLG}(t)$,
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:GolgiConvolutionA}
-  \textrm{GLG}_{i}(t) = \bar{\alpha}_{\rm GLG} \ast g_{i}.
+  \textrm{GLG}_{i}(t) = \bar{{\alpha}_{\rm GLG}} \ast g_{i}.
   \end{equation}
 #+END_LaTeX
 The smoothing kernel was normalised by
@@ -909,7 +908,7 @@ setting the area under the function to 1. For a large enough filter
 length, the alpha function integral 
 #+BEGIN_LaTeX
   \begin{equation}
-\int \alpha(t) dt = (-\Gtau^2 - t\,\Gtau) \exp(-\frac{t}{\Gtau})
+\int \alpha(t) dt = (-\Gtau^2 - t\,\Gtau) \exp\left(-\frac{t}{\Gtau}\right)
   \end{equation}
 #+END_LaTeX
 \noindent equals $\Gtau^2$ as /t/ approaches infinity. 
@@ -1246,7 +1245,8 @@ units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
 \newpage
 
 
-* D Stellate Cell Model: Optimisation Using Click Recovery and Rate Level Responses 
+* D Stellate Cell Model
+#: Optimisation Using Click Recovery and Rate Level Responses 
 
 ** Background
 
@@ -1875,7 +1875,8 @@ width of the activity across the CF of the central unit (Figure
 \newpage
 
 
-* Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses  
+* Tuberculoventral Cell Model
+#:  Optimisation Using Tone and Noise Rate Level Responses  
   :PROPERTIES:
   :LABEL: sec:Ch3:TVModel
   :END:
@@ -2134,7 +2135,7 @@ controlled by the weight and number of \DS cell inputs (\wDSTV,
 optimisation. The parameters controlling the distribution of \DS cell
 inputs to \TV cells were fixed (\sDSTV=3, \oDSTV=0) in the rate level
 optimisation and are the focus of the next section of this chapter,
-Section [[Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses: Optimisation of D Stellate to Tuberculoventral Cell Connection Offset]].  The reversal potential of TV cells
+Section [[Results%20of%20TV%20Cell%20Parameter%20Optimisation%20Using%20Tone%20and%20Noise%20Rate%20Level%20Responses][Results of TV Cell Parameter Optimisation Using Tone and Noise Rate Level Responses]].  The reversal potential of TV cells
 (\Erev) was also optimised to allow modulation of the level of the
 resting membrane potential from the default Type I \RM
 neural model.
@@ -2151,7 +2152,7 @@ neural model.
 
 \clearpage
 
-** Results
+** Results of TV Cell Parameter Optimisation Using Tone and Noise Rate Level Responses
 
 Figure \ref{fig:TVRateLevelResult} shows the best fitted output behaviour of
 the optimised TV cell model (Table \ref{tab:TVRateLevelFig8B}) and its
@@ -2226,7 +2227,7 @@ cell model was able emulate this response in tones but not in noise
 #+END_LaTeX
 
 
-** Verification of the TV Cell Model
+** Verification of the TV Cell Model's Response to Tones and Noise
 
 # Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
 
@@ -2298,12 +2299,11 @@ units to pure tones replicate the single channel excitatory inputs from
 \clearpage
 
 
-* Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses: Optimisation of D Stellate to Tuberculoventral Cell Connection Offset  
+
+** Optimisation of Wide-band Inhibition onto TV Cells Using Notch Noise Responses
   :PROPERTIES:
   :LABEL: sec:Ch3:DSTV
   :END:
-
-** Background
 
 The increase in rate of TV cells in regions below the frequency of the
 notch is the main argument for the assertion of offset in DS to TV
@@ -2317,7 +2317,6 @@ cell connections.
 #+LABEL: fig:TVReissFig9
 [[../../cnstellate/TV_Notch/Reiss_Fig9_E+F.png]]
 
-** Implementation
 
 Table \ref{tab:TVNotchModelSummary} shows the implementation parameters
 for the optimisation of \DS cell connections to \TV cells.
@@ -2355,10 +2354,9 @@ spectrum was maintained at a constant level per frequency band (dB per
 Hz$^{1/2}$) and this was scaled at each point in the notch sweep.  For a
 single presentation used in this experiment the sound level plays an
 important part in stimulating the \ANFs and contributing
-interneurons. From the previous optimisation (Section [[Tuberculoventral
-Cell Model: Optimisation Using Tone and Noise Rate Level Responses]]), the
-preliminary response to noise in \TV cell models was linear between 40
-to 80 dB SPL.
+interneurons. From the previous optimisation (Section [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell Model]]),
+the preliminary response to noise in \TV cell models was linear between
+40 to 80 dB SPL.
 
 
 Higher thresholds in Type II \DCN units \citep{SpirouDavisEtAl:1999} and
@@ -2388,7 +2386,7 @@ work.
 # \yellownote{TODO: Population mean rate: Pros: fairly stable for smallish
 # repetitions, Cons: removes timing}
 
-** Results
+
 
 # \begin{figure}[tbh]
 #   \centering
@@ -3266,7 +3264,7 @@ periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 *** Golgi Cell Model
 
 Section
-[[Golgi Cell Model: Optimisation Using Rate Level Responses in Marginal Shell Units]]
+[[Golgi%20Cell%20Model][Golgi Cell Model]]
 
 \yellownote{TODO: Discuss the Golgi cell optimisation.  Is the
   filter-based approach effective at meeting the goal of simulating data
@@ -3277,7 +3275,7 @@ Section
 *** D Stellate Cell Model
 
 Discuss Section 
-[[D Stellate Cell Model: Optimisation Using Click Recovery and Rate Level Responses]]
+[[D%20Stellate%20Cell%20Model][D Stellate Cell Model]]
 
 \yellownote{TODO: Discuss the DS cell model optimisation.  What were the
 reasons for using cell-based parameters, and why is this necessary?
@@ -3287,8 +3285,7 @@ responses to other stimuli, when there are already plenty?}
 
 *** Tuberculoventral Cell Model
 
-Discuss Sections [[Tuberculoventral%20Cell%20Model:%20Optimisation%20Using%20Tone%20and%20Noise%20Rate%20Level%20Responses][Tuberculoventral Cell Model: Optimisation Using Tone and Noise Rate Level Responses]] and
-[[Asymmetry in Wide-band Inhibition to TV Cells Using Notch Noise Responses: Optimisation of D Stellate to Tuberculoventral Cell Connection Offset]]
+Discuss Sections [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell Model]] 
 
 
 \yellownote{TODO: Discuss the TV cell optimisation. Is the goal of
