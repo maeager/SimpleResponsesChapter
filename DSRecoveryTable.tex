@@ -39,7 +39,12 @@
 \begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
      \textbf{Name}      & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\ANFDS & {\begin{minipage}\begin{center} \HSR \\ \LSR  \end{center} \end{minipage}}&       \DS       & 
+\ANFDS & 
+%{\begin{minipage}\begin{center}
+ \HSR 
+\LSR  
+%\end{center} \end{minipage}}
+&       \DS       & 
 Skewed Gaussian convergence, centred on CF, spread below  CF $\sigma^2 = \sANFDSl$, spread above CF $\sigma^2 = \sANFDSh$, delay  \dANFDS.  Weight and number differ for HSR and  LSR connections ( \wHSRDS,  \nHSRDS, \wLSRDS, \nLSRDS) \\\hline
        $\GLGDS$         &       \GLG       &       \DS        & 
 Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline

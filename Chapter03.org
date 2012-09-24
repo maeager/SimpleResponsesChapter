@@ -38,10 +38,10 @@
                   '("UoM-draft-org-article"
  "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
    \\documentclass[10pt,a4paper,twoside,openright]{book}
-     \\usepackage{style/uomthesis} 
+     \\usepackage{../org-manuscript/style/uomthesis} 
      \\input{user-defined}
      \\usepackage[nonumberlist,acronym]{glossaries}
-     \\input{../hg/manuscript/misc/glossary} 
+     \\input{../org-manuscript/misc/glossary} 
      \\makeglossaries
      \\pretolerance=150 \\tolerance=100
      \\setlength{\\emergencystretch}{3em} 
@@ -1351,7 +1351,6 @@ pulse.
   \end{figure}
 #+END_LaTeX
 
-  
 *** Acoustic Properties of D Stellate Cells
 
 \DS cells have been classified as having an \OnC\space \PSTH to \CF
