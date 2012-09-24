@@ -106,4 +106,4 @@ plot './gfx/rat_bruce_audiogram.dat' using 1:2  title "Audiogram" with lines axe
 
 unset multiplot
 
-# !fixbb ./gfx/AudiogramCompression.eps
+!fixbb ./gfx/AudiogramCompression.eps
