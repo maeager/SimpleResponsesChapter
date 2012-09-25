@@ -64,10 +64,6 @@
 
 
 
-
-
-
-
 * Introduction  
 
 #+BEGIN_QUOTE
@@ -81,13 +77,13 @@
 #+END_QUOTE
 
 
-In the above statement, Shamma calls upon the neuroscience community to investigate the
-role of populations of neurons in neurophysiology.  To do so, this
-chapter draws on the wealth of experimental data accumulated in auditory
-neuroscience to create a detailed \BNN model of the T stellate
-microcircuit in the cochlear nucleus (hereafter referred to as the \CNSM
-model, as described in Chapter \ref{sec:MethodsChapter}).  The design
-and methods for the construction of the model provide insights
+In the above statement, Shamma calls upon the neuroscience community to
+investigate the role of populations of neurons in neurophysiology.  To
+do so, this chapter draws on the wealth of experimental data accumulated
+in auditory neuroscience to create a detailed \BNN model of the T
+stellate microcircuit in the cochlear nucleus (hereafter referred to as
+the \CNSM model, as described in Chapter \ref{sec:MethodsChapter}).  The
+design and methods for the construction of the model provide insights
 relevant to other neural network models of the brain, especially those
 that use sensory pathways.
 
@@ -414,7 +410,7 @@ passive neural compartment in the model.  Dendritic attenuation of the
 
 #+caption: [Response of T stellate cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a T stellate cell model (Type I-t \RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.  Jitter responses (averaged over 25 repetitions) are shown as a thick line and responses without jitter are shown as thin lines. All weights were set to 0.5~nS. Twenty HSR and 30 LSR ANF synapse onto the recorded TS cell model. A. No jitter on TS cell without the sodium channel. B. No jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
 #+label: fig:CSjitter
-[[../../cnstellate/TStellate/baseline_jitter.pdf]]
+[[../SimpleResponsesChapter/gfx/TStellate/baseline_jitter.pdf]]
 
 \clearpage
 
@@ -2137,48 +2133,49 @@ modeling of the principal cells of the \DCN including Type II units
 
 ** Implementation
 
-The implementation of the \TV cell model used in the \CNSM model and its optimisation routines are described in Table \ref{tab:TVModelSummary}.
-The \TV cell model was implemented with a single-compartment
-conductance neural model of Type I-c, a classic regular firing unit
+The implementation of the \TV cell model used in the \CNSM model and its
+optimisation routines are described in Table \ref{tab:TVModelSummary}.
+The \TV cell model was implemented with a single-compartment conductance
+neural model of Type I-c, a classic regular firing unit
 \citep{RothmanManis:2003b}.  The synaptic inputs to the \TV cell model
-included excitation from \HSR and \LSR \ANFs, and inhibition from \DS cells.
-The weights (\wLSRTV, \wHSRTV) and number (\nLSRTV, \nHSRTV) of \ANF
-synapses were used in the optimisation procedures to allow for coarse
-and fine adjustments to the strength of excitation. The TV cell model
-received \ANF inputs from only one frequency channel at the same CF
-(\sANFTV=0).  The strength of inhibition in the \TV cell model was
+included excitation from \HSR and \LSR \ANFs, and inhibition from \DS
+cells.  The weights (\wLSRTV, \wHSRTV) and number (\nLSRTV, \nHSRTV) of
+\ANF synapses were used in the optimisation procedures to allow for
+coarse and fine adjustments to the strength of excitation. The TV cell
+model received \ANF inputs from only one frequency channel at the same
+CF (\sANFTV=0).  The strength of inhibition in the \TV cell model was
 controlled by the weight and number of \DS cell inputs (\wDSTV,
 \nDSTV). These parameters were included in the rate level
 optimisation. The parameters controlling the distribution of \DS cell
 inputs to \TV cells were fixed (\sDSTV=3, \oDSTV=0) in the rate level
 optimisation and are the focus of the next section of this chapter,
-Section [[Results%20of%20TV%20Cell%20Parameter%20Optimisation%20Using%20Tone%20and%20Noise%20Rate%20Level%20Responses][Results of TV Cell Parameter Optimisation Using Tone and Noise Rate Level Responses]].  The reversal potential of TV cells
-(\Erev) was also optimised to allow modulation of the level of the
-resting membrane potential from the default Type I \RM
-neural model.
+Section [[Results%20of%20Tone%20and%20Noise%20Rate%20Level%20Optimisation%20][Results of Tone and Noise Rate Level Optimisation ]].  The
+reversal potential of TV cells (\Erev) was also optimised to allow
+modulation of the level of the resting membrane potential from the
+default Type I \RM neural model.
 
 
 #\citet{ReissYoung:2005} performed their experiments on adult cats.
 #\yellownote{TODO: Give details about the TV model implementation}
 
 #+ATTR_LATEX: width=0.5\textwidth
-#+CAPTION: [Experimental data of a single Type-II~DCN~unit]{Experimental tone and broad-band noise rate-level data of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
+#+CAPTION: [Experimental data of Type-II~DCN~unit]{Physiological effects of neurotransmitter blockers strychnine and bicuculine on the rate level response  \citep{SpirouDavisEtAl:1999}. Ionotopopheretic application of    Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
-[[../SimpleResponsesChapter/gfx/Spirou-Fig8.png]]
+[[../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8.pdf]]
 #TV_RateLevel/TV_RateLevel_Fig8.pdf
 
 \clearpage
 
-** Results of TV Cell Parameter Optimisation Using Tone and Noise Rate Level Responses
+** Results of Tone and Noise Rate Level Optimisation
 
-Figure \ref{fig:TVRateLevelResult} shows the best fitted output behaviour of
-the optimised TV cell model (Table \ref{tab:TVRateLevelFig8B}) and its
-inputs to target data from the unit in Figure 8A in
-\citet{SpirouDavisEtAl:1999} (see Figure \ref{fig:SpirouFig8}). The
-target unit had an elevated threshold to noise relative to \BF tones and
-no change in threshold when strychnine was applied.  The optimised TV
-cell model was able emulate this response in tones but not in noise
-(Figure \ref{fig:TVRateLevelResult}D).
+Figure \ref{fig:TVRateLevelResult} shows the best fitted output
+behaviour of the optimised TV cell model (Table
+\ref{tab:TVRateLevelFig8B}) and its inputs to target data from the unit
+in Figure 8A in \citet{SpirouDavisEtAl:1999} (see Figure
+\ref{fig:SpirouFig8}). The target unit had an elevated threshold to
+noise relative to \BF tones and no change in threshold when strychnine
+was applied.  The optimised TV cell model was able emulate this response
+in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
 
 
 #+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) was optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}). Figure format same as Figure \ref{fig:DSRateLevelResult}. Glycinergic blocker strynchnine used in the target unit is emulated in the TV cell model by removing DS cell synaptic inputs. (A) Tone RL of HSR, LSR and GLG and DS cell unit inputs at CF 5.8 kHz. (B) Tone RL of  optimised TV cell model and target unit data with and without inhibition. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit data with and without inhibition. }
@@ -2317,14 +2314,15 @@ units to pure tones replicate the single channel excitatory inputs from
 
 
 
-** Optimisation of Wide-band Inhibition onto TV Cells Using Notch Noise Responses
+** Results of Notch Noise Optimisation 
   :PROPERTIES:
   :LABEL: sec:Ch3:DSTV
   :END:
+# of Wide-band Inhibition onto TV Cells Using Notch Noise Responses
 
 The increase in rate of TV cells in regions below the frequency of the
-notch is the main argument for the assertion of offset in DS to TV
-cell connections.
+notch is the main argument for the assertion of offset in DS to TV cell
+connections.
 
 \yellownote{TODO: think about combining this section with TV model optimisation}
 
@@ -2332,7 +2330,7 @@ cell connections.
 
 #+CAPTION: [Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from Figure 9 \citet{ReissYoung:2005}.}
 #+LABEL: fig:TVReissFig9
-[[../../cnstellate/TV_Notch/Reiss_Fig9_E+F.png]]
+[[../SimpleResponsesChapter/gfx/TV_Notch/Reiss_Fig9_E+F.png]]
 
 
 Table \ref{tab:TVNotchModelSummary} shows the implementation parameters
@@ -2371,9 +2369,9 @@ spectrum was maintained at a constant level per frequency band (dB per
 Hz$^{1/2}$) and this was scaled at each point in the notch sweep.  For a
 single presentation used in this experiment the sound level plays an
 important part in stimulating the \ANFs and contributing
-interneurons. From the previous optimisation (Section [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell Model]]),
-the preliminary response to noise in \TV cell models was linear between
-40 to 80 dB SPL.
+interneurons. From the previous optimisation (Section [[Tuberculoventral%20Cell%20Model][Tuberculoventral
+Cell Model]]), the preliminary response to noise in \TV cell models was
+linear between 40 to 80 dB SPL.
 
 
 Higher thresholds in Type II \DCN units \citep{SpirouDavisEtAl:1999} and
@@ -2476,7 +2474,7 @@ Complicated issues in \TV model optimisation:
 
 #+CAPTION: [TV cell model: optimisation results]{Optimisation results for TV Notch model with stimulus sound levels at 110, 90, 70 and 50 dB SPL.}
 #+LABEL: fig:TVresultspl
-[[../../cnstellate/TV_Notch/TV_Notch_spl.pdf]]
+[[../SimpleResponsesChapter/gfx/TV_Notch/TV_Notch_spl.pdf]]
 
 # % D ----------------------------------
 # \begin{tabularx}{\linewidth}{|X|c|c|c|}
@@ -2516,15 +2514,14 @@ Complicated issues in \TV model optimisation:
 #   \label{fig:TVresultRun1}
 # \end{figure}
 
-To investigate the number and spread of synaptic
-connections a new error function was created to delete all synapses then
-reconnect the network with the new parameters.  
-Figure
-\ref{fig:TVresultRun250} shows the optimisation results for different
-input sound intensities.  The performance improved when reducing the
-sound level of the notch stimulus from 110 to 50 dB \SPL.
+To investigate the number and spread of synaptic connections a new error
+function was created to delete all synapses then reconnect the network
+with the new parameters.  Figure \ref{fig:TVresultRun250} shows the
+optimisation results for different input sound intensities.  The
+performance improved when reducing the sound level of the notch stimulus
+from 110 to 50 dB \SPL.
  
-\yellownote{TODO: TODO:  show a simple rate-level plot of HSR, LSR , Golgi,
+\yellownote{TODO:  show a simple rate-level plot of HSR, LSR , Golgi,
 DS, basic TV }
 
 #+CAPTION: [Optimisation results for a refined TV cell model]{Optimisation  results for a refined TV cell model with stimulus sound levels at 50 dB \SPL. The first three runs used the parameters \nDSTV,\wDSTV, \nLSRTV,  \nHSRTV, \wLSRTV, \wHSRTV\@.  The second group of 3 runs included the  parameters \sDSTV, reversal potential of TV cells, \oDSTV, \nDSTV, \wDSTV.}
@@ -3126,7 +3123,7 @@ for small bouton endings in the CN.}
 #+BEGIN_LaTeX
   \begin{figure}[htb]
     \centering%
-    \resizebox{0.95\textwidth}{!}{\includegraphics{../../cnstellate/TStellate_CS/multiplotIVCV3.pdf}}
+    \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate_CS/multiplotIVCV3.pdf}}
     \caption[ChS T stellate Optimisation results]{Optimisation results for the ChS
       type T stellate cell.  The reference data for the ChS unit 01-864-004 from
       \citep[CF~3.9~kHz][]{PaoliniClareyEtAl:2005}, is shown in blue and the
@@ -3227,10 +3224,11 @@ resting membrane potential for the exemplar and model ChT2 unit was
 respectively.
 
 # \resizebox{0.95\textwidth}{!}{\includegraphics{TStellate_CT2/multiplotIVCV3}}
-#+caption: [ChT2 T stellate Optimisation results]{ChT2 T stellate Optimisation results. The RMP for the reference unit and best ChT1 model was -60.63 and -64.95 mV, respectively. See Figure \ref{fig:CSresults} for figure configuration.  A. PSTH, B. CV statistics,  C. Average intracellular membrane voltage, and D. Intracellular voltage measures.}
+#+caption: [ChT2 T stellate Optimisation results]{ChT2 T stellate Optimisation results. The RMP for the reference unit and best ChT1 model was -60.63 and -64.95 mV, respectively. See Figure \ref{fig:CSresults} for figure configuration.  A. PSTH response of the optimised ChT-2 TS cell model to 50 repetitions of a 12.4 kHz tone at 35 dB SPL.   B. CV statistics,  C. Average intracellular membrane voltage, and D. Intracellular voltage measures.}
 #+label: fig:CT2results
-[[../../cnstellate/TStellate_CT2/multiplotIVCV.pdf]]
+[[../SimpleResponsesChapter/gfx/TStellate_CT2/multiplotIVCV3.pdf]]
 
+[[../../cnstellate/TStellate_CT2/multiplotIVCV.pdf]]
 
 
 ** Verification of the TS Cell Model Subtypes
@@ -3276,7 +3274,7 @@ reproducing the spectrum in a robust fashion
 \citep{BlackburnSachs:1990,May:2003} and synchronisation to significant
 periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 
-** Verification of CN Cell Models
+** CNSM Cell Models
 
 *** Golgi Cell Model
 
@@ -3288,6 +3286,21 @@ Section
   from GhoshalKim:1997. The Golgi cell model reproduces the monotonic
   rate-level response observed in experimental data of a single unit in
   the marginal shell of the VCN \citep{GhoshalKim:1997}.}
+
+# GhosalKim97: Possible functions mediated by shell units
+# Wide dynamic ranges exhibited by AVCN shell units sug-
+# gest that they may be better suited to the encoding of intensity
+# over a wide range than AVCN core units exhibiting narrower
+# dynamic ranges. The AVCN shell projects to the superior oli-
+# vary complex, including projections to MOC neurons (Kim et
+# al. 1995). Considering that MOC neurons would need accurate
+# information about absolute stimulus intensity to provide a
+# proper negative feedback control signal to the cochlear ampli-
+# fier, the physiological and anatomic observations from the
+# AVCN shell support a hypothesis that the AVCN shell forms
+# an important link in the OHC-MOC reflex circuit.
+
+
 
 *** D Stellate Cell Model
 
@@ -3351,6 +3364,7 @@ of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 ** Implications of sequential microcircuit optimisation
 
 
+
 \yellownote{TODO: Probability distribution of delay (within cell-to-cell
 connection) not included.}
 
@@ -3360,7 +3374,7 @@ connection) not included.}
 
 * Conclusion 
 
-[[*Optimisation%20Results][Optimisation Results]]
+Figure [[*Optimisation%20Results][Optimisation Results]]
 
 # Example conclusion The purpose for performing the experiments herein
 # was to gain insights into the functional relevance of the Type II
