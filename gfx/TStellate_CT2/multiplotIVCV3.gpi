@@ -91,7 +91,7 @@ set yrange [0:1.1]
 set y2range [-2:*]
 set xrange [-0.5:2.5]
 set x2range [-0.5:2.5]
-set label 1 "F" at screen 0.55,screen 0.5 font "Helvetica,24"
+set label 1 "D" at screen 0.55,screen 0.5 font "Helvetica,24"
 
 plot '< tail -7 ../SimpleResponsesChapter/gfx/TStellate_CT2/TStellate.Fit.dat | head -1 | awk ''{print $3}'' ' axes x1y1 t "Test" w lp lc "black" lt 1 lw 2 pt 7 ps 1.5,\
      '< tail -7 ../SimpleResponsesChapter/gfx/TStellate_CT2/TStellate.Fit.dat | head -1 | awk ''{print $2}'' ' axes x1y1 t "Ref" w lp ls 1 pt 5 ps 1.5, \
