@@ -14,7 +14,8 @@ set output '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8.eps'
 #cd '../SimpleResponsesChapter/gfx/TV_RateLevel'
 load '../SimpleResponsesChapter/gfx/default.gpi'
 
-set key tmargin left top horizontal Left noreverse enhanced autotitles nobox maxrows 2
+set key inside center top horizontal Left noreverse enhanced autotitles nobox
+#maxrows 2
 #set key
 # set xtics border in scale 1,0.5 nomirror norotate  offset character 0, 0, 0
 # set xtics autofreq  norangelimit
@@ -62,7 +63,7 @@ set label 2 "Noise" at -35,50
 set multiplot layout 1,2
 
 
-plot '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-Control-BFTone.png.dat' u 1:2 t "Control" w l ls 1, \
+plot [*:*][0:600] '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-Control-BFTone.png.dat' u 1:2 t "Control" w l ls 1, \
    '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withStrych-BFTone.png.dat' u 1:2 t "with Str" w l ls 2, \
    '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withBic-BFTone.png.dat' u 1:2 t "with Bic" w l ls 3, \
    '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-Control-Noise.png.dat' u 1:2 not "Control-Noise" w l ls 1, \
