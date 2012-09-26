@@ -73,9 +73,8 @@
   include unit responses to the activity of other cells, and how these
   responses are distributed over a population of similar cells as
   wells as across populations of different cell types. \\
-  {\hfill \textit{\citet[~p.~411]{Shamma:1998}}}
 #+END_QUOTE
-
+#+LaTeX:\vspace{-2ex}{\hfill \textit{\citet[~p.~411]{Shamma:1998}}}
 
 In the above statement, Shamma calls upon the neuroscience community to
 investigate the role of populations of neurons in neurophysiology.  To
@@ -97,7 +96,7 @@ detailed neural models. There is much to be gained from
 biophysically-realistic modelling approaches, especially in the
 thoroughly investigated cochlear nucleus of mammals, bats and birds.
 
-\yellownote{TODO: think about linking to end of methods chapter.  I.e. reproducbable research}
+#\yellownote{TODO: think about linking to end of methods chapter.  I.e. reproducbable research}
 
 # \yellownote{TODO: See neural detail in auditory
 # system\citep{LuRubioEtAl:2008}} \yellownote{Discuss use of Poisson
@@ -109,7 +108,6 @@ models, reproducible research methods are required.
 In this chapter, the table method introduced by
 \citet[as described in Chapter~\ref{sec:MethodsChapter}]{NordlieGewaltigEtAl:2009} is used to summarise the neural
 models used in each optimisation step.  
-
 # The Nordlie tables shown in each optimisation stage consist of A) the
 # model summary, B) cell type populations, C) connectivity between two
 # cell types, D) neuron and synapse models, and E) optimisation
@@ -117,8 +115,6 @@ models used in each optimisation step.
 # format for presenting various neural network models and their
 # constituents.  \yellownote{this needs more explanation in the methods
 # sections}
-
-
 To create a realistic microcircuit, the parameter optimisation routine
 needs to be developed in sequential stages.  In this chapter, the
 connections within the \CNSM model (Figure \ref{fig:microcircuit}) were
@@ -153,12 +149,13 @@ Techniques]].
 
 ** Cochlear Nucleus Stellate Microcircuit Model 
 
+\glsunset{GABA}
+
 The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following cells:
-1. The \ANF : A phenomenological auditory model provides spiking
+1. The \HSR and \LSR \ANFs : A phenomenological auditory model provides spiking
    input to \CN neurons across frequencies and spontaneous rate types of
    the \ANFs from an arbitrary input stimulus
-   \citep{ZilanyBruceEtAl:2009}.  The baseline in Figure
-   \ref{fig:microcircuit} is a simplification of \ANFs from low \CF to
+   \citep{ZilanyBruceEtAl:2009}.  The baseline in Figure \ref{fig:microcircuit} is a simplification of \ANFs from low \CF to
    high \CF (left to right). The model reproduces responses for high and
    low \SR \ANFs at 100 channels across the frequency range 200 Hz to 48
    kHz. 
@@ -394,9 +391,45 @@ in Chapter \ref{sec:MethodsChapter} Section [[Synapse Models]].
    :LABEL: sec:Ch3:Jitter
    :END:
 
-To account for \ANF synapses placed at various distances along the
+Precise onset cues are a critical feature of the auditory pathway
+especially in the localisation of sounds.  In the \CNSM, onset precision
+is essential for enhancing periodic stimuli in TS cells
+\citep{KeilsonRichardsEtAl:1997} and echo-suppression in \TV cells
+\citep{BurckHemmen:2007,WickesbergOertel:1990}.  Stochastic behaviour at
+the \IHC-\AN synapse limits the onset encoding performance in the
+auditory nerve.  Jitter of the \FSL is commonly measured in the standard
+deviation, jitter in ANF is 0.73 ms.  Most units in the VCN exhibit
+reduced onset jitter through sampling multiple ANFs, but onset units
+like \DS cell have additional morphological and intrinsic specialisations for
+greater onset precision.
+
+
+
+# Units that encode the precise time of arrival
+# would be of utility for such a system in deter-
+# mining the sound location. The onset cells en-
+# code the start of sound more precisely than
+# any other group of neurons in the cochlear
+# nucleus. 
+# \OC units exhibit a particularly small
+# variability in first spike latency between units,
+# whereas a given Oc unit also has the smallest
+# amount of noise in the time of occurrence of
+# the first spike to a series of tone stimuli. The
+# standard deviation of the first spike is usually
+# between 20 and 50 \mus and
+#  it was common to
+# have every first spikein an Oc response to 250
+# tone pips occurring in a lOO-ps interval. This
+# compares with a 730 ps average in the jitter
+# of auditory nerve fibers. Other onset units also
+# had a much smaller fluctuation in latency than
+# auditory fibers. 
+
+
+To account for \ANF jitter and synapses placed at various distances along the
 dendrites of \TS, \DS and \TV cells, a random jitter was introduced to
-the synaptic delay.  Jitter was calculated around a minimum delay
+the AN synaptic delay.  Jitter was calculated around a minimum delay
 (e.g. \dANFTS) as an absolute Gaussian distribution with zero mean and
 standard deviation of 0.1 ms. Figure \ref{fig:CSjitter} shows the
 effects of jitter on the intracellular responses of a Type I-t \RM
@@ -414,10 +447,11 @@ passive neural compartment in the model.  Dendritic attenuation of the
 
 \clearpage
 
-** Synaptic Delays
+** Synaptic Delay Additional Parameter
    :PROPERTIES:
    :LABEL: sec:Ch3:Delays
    :END:
+
 
 The effective delay of the \AN model does not take into account the
 conduction and synaptic transmission delay in reaching post-synaptic
@@ -466,12 +500,13 @@ cell models.
   \begin{tabularx}{0.9\textwidth}{p{2in}XXXXX}
   \toprule
                                   & \HSR \ANF &     \TS      &     \DS      &     \TV      & Golgi \\\otoprule
-          R\&M Cell type          &           &     I-t      &     I-II     &     I-c      & I-c\\ 
-  Experimental FSL \hfill(ms)&     -     & 3.6$\,^{ 1}$ & 2.8 $\,^{2}$ & 4.0 $\,^{3}$ & 4.3 $\,^{4}$\\ 
+          \RM Cell type          &           &     I-t      &     I-II     &     I-c      & I-c\\ 
+  Experimental FSL \hfill(ms)&    $2.4\pm0.73\,^{ 1}$      & $3.6\pm0.36\,^{ 1}$ & $2.8\pm0.09 \,^{1,2}$ & 4.0 $\,^{3}$ & 4.3 $\,^{4}$\\ 
     Default Model FSL  \hfill (ms)   &    1.5    &     2.0      &     1.6      &     2.0      & 2.0\\ \midrule
    Additional delay \hfill (ms)   &     -     &     1.6      &     1.2      &     2.0      & 2.3\\\bottomrule
   \end{tabularx}\\
-    {\scriptsize $^1$  \citet{RhodeSmith:1986}, $^2$ \citet{RhodeOertelEtAl:1983}, $^3$ \citet{SpirouDavisEtAl:1999}, and $^4$ \citet{FerragamoGoldingEtAl:1998a}}
+    {\scriptsize $^1$  \citet{RhodeSmith:1986}, $^2$ \citet{RhodeOertelEtAl:1983}, $^3$ \citet{SpirouDavisEtAl:1999}, and $^4$ \citet{GhoshalKim:1997}%\citet{FerragamoGoldingEtAl:1998a}
+}
         \end{table}
 #+END_LaTeX
 
@@ -502,13 +537,9 @@ method without the use of =fun='s gradient.
 
 To verify the optimisation processes, a suite of
 tests were run across the whole \CNSM model. 
-
-\yellownote{The purpose of these simulations were done to ensure the optimised parameters could be used across all frequency channels.}
-
-This section aims to show the behaviour of the entire CN stellate
-microcircuit using parameters obtained from the optimisation processes.
-
-The stimuli presented to the stellate microcircuit included:
+The purpose of these simulations is to ensure the optimised parameters could be used across all frequency channels.
+These sections aim to show the behaviour of a \CNSM model neuron at the centre the network to tones corresponding to its \CF, broad-band noise and a combination of tones and noise. Responses of all model neurons across the network (one cell type for each frequency channel) were recorded during the verification procedure.  
+The stimuli presented to the \CNSM model included:
 1. Rate-level response to pure tones at the characteristic frequency
    of the centre channel of the network, 5.81 kHz. The sound level was
    varied from 0 to 90 dB SPL.
@@ -516,9 +547,7 @@ The stimuli presented to the stellate microcircuit included:
 3. Masked rate-level response with pure tones varied in level from 0
    to 100 dB SPL and simultaneous withe noise at 50 dB SPL.
   
-
 \newpage
-
 
 * Figures 							   :noexport:
 
@@ -895,22 +924,12 @@ rate). Profiles are calculated for each channel in the network
 (size=\Nchannels}) and stored for use during repeated simulations.
 
 The weighted sum of \HSR and \LSR instantaneous-rate vectors were
-convolved by an smoothing kernel mimicking synaptic and dendritic
-properties using an alpha function , $\alpha_{\rm GLG }$(t), given by
+convolved with a smoothing kernel, mimicking synaptic and dendritic
+properties of the Golgi cell model. The smoothing kernel is an alpha function , $\alpha_{\rm GLG }$(t), given by
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:GolgiAlpha}
   \alpha_{\rm GLG}(t) =  t\, \exp\left(\frac{-t}{\Gtau}\right). 
-  \end{equation}
-#+END_LaTeX
-\noindent 
-
-The final step involves convolution of the weighted inputs, /g/ with
-normalised synapto-dendritic filtering kernel, $\bar{\alpha}_{\rm GLG}(t)$,
-#+BEGIN_LaTeX
-  \begin{equation}
-  \label{eq:GolgiConvolutionA}
-  \textrm{GLG}_{i}(t) = \bar{{\alpha}_{\rm GLG}} \ast g_{i}.
   \end{equation}
 #+END_LaTeX
 The smoothing kernel was normalised by setting the area under the
@@ -923,11 +942,19 @@ integral
 #+END_LaTeX
 \noindent equals $\Gtau^2$ as /t/ approaches infinity.
 # In this case $10 \times \Gtau$ is used for the filter duration.  
-The discrete convolution method is used and cropped to the length of the
+The convolution of the weighted inputs, /g/ with
+normalised smoothing kernel
+# #+BEGIN_LaTeX
+#   \begin{equation}
+#   \label{eq:GolgiConvolutionA}
+#   \textrm{GLG}_{i}(t) = \overline{{\alpha}_{\rm GLG}} \ast g_{i}.
+#   \end{equation}
+# #+END_LaTeX
+uses a discrete convolution method and cropped to the length of the
 input stimulus,
 #+BEGIN_LaTeX
   \begin{equation}
-  \label{eq:GolgiConvolutionB}
+  \label{eq:GolgiConvolution}
   \textrm{GLG}_{i}(t) =\sum_{u=0}^{u=N_{\alpha}} \frac{1}{\Gtau^2} \alpha_{\textrm{GLG}}(u)  g_{i}(t-u),
   \end{equation}
 #+END_LaTeX
@@ -1821,10 +1848,10 @@ Golgi units have much higher thresholds and wider dynamic ranges.
 
 The optimised parameters for inputs to the D stellate cell model were
 applied to \DS cells across the whole network using tones, noise and
-tones plus noise stimuli.  The behaviour of the \DS cell model output is
-shown in Figure \ref{fig:DSverification}, similar to the Golgi cell
+tones plus noise stimuli.  The behaviour of an individual \DS cell model output is
+shown in Figure \ref{fig:DSverificationPSTH} and , similar to the Golgi cell
 model (Figure \ref{fig:GolgiVerification}).  Figure
-\ref{fig:DSverification}A and B shows the response of the central \DS
+\ref{fig:DSverificationPSTH}A and B shows the response of the central \DS
 cell model (CF=5.8 kHz).
 # The onset PSTH
 # monotonic responses to tones and noise were similar to other Ghoshal and Kim
@@ -2244,8 +2271,6 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
 ** Verification of the TV Cell Model's Response to Tones and Noise
 
 # Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
-
-
 # \yellownote{TODO: more work to be done here. Possibly need calculations on
 # Q10 values of TV units. Calculation of threshold to tone and noise. }
 
@@ -2276,6 +2301,45 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
         D. Masked noise-tone response of the central unit to 15 dB masking noise and frequenciResponsesNoComp/NoiseRateLevel/psthsingle90-1es one octave above and below its CF\@.}
       \label{fig:TVverification}
     \end{figure}
+
+  \begin{figure}[htb]
+    % \centering
+  %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
+  %   \hfill\resizebox{0.95\textwidth}{!}{%
+  %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
+  % \includegraphics{}\hfill}\\
+    {\figfont{B}\hspace{0.5\textwidth}\figfont{E}\hfill}\\
+    {\hfill\resizebox{0.95\textwidth}{!}{%
+    \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-1.pdf}%
+    %\includegraphics{gfx/GhoshalKim_PSTHs.png}%
+  }\hfill}\\
+    {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+    %\hfill\resizebox{0.95\textwidth}{!}{%
+   % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
+   %\includegraphics{}\hfill}\\
+    \caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8 kHz).
+   A. Rate level responses to tone, noise and tone plus noise.
+   B. PSTH at 90 dB SPL\.
+   C. Response area equivalent using all GLG units in the network.
+   D. Masked noise-tone response of the central unit to 15 dB masking noise and
+   frequencies one octave above and below its CF.
+  E. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996}. 
+  } \label{fig:TVVerificationPSTH}
+  \end{figure}
+  %
+  \begin{figure}[htb]
+  \centering
+  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+  \resizebox{0.95\textwidth}{!}{\hfill%
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/RateLevel/response_area-3}\hfill%
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/NoiseRateLevel/response_area-3}\hfill}%   
+     \caption[Whole network response of Golgi cell model]{Response of Golgi cell models across the
+       whole network (CF=5.8 kHz) to pure tones and noise.
+    A. Rate response of all GLG units in the network to pure tone at centre of
+    network (5.8 kHz).
+    B. Rate response of all GLG units to broad-band noise.}
+  \label{fig:TVVerificationWhole}
+   \end{figure}
 #+END_LaTeX
 
 The optimised parameters for inputs to the \TV cell model were applied
@@ -2320,11 +2384,6 @@ units to pure tones replicate the single channel excitatory inputs from
   :END:
 # of Wide-band Inhibition onto TV Cells Using Notch Noise Responses
 
-The increase in rate of TV cells in regions below the frequency of the
-notch is the main argument for the assertion of offset in DS to TV cell
-connections.
-
-\yellownote{TODO: think about combining this section with TV model optimisation}
 
 #+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
 
@@ -2333,16 +2392,19 @@ connections.
 [[../SimpleResponsesChapter/gfx/TV_Notch/Reiss_Fig9_E+F.png]]
 
 
-Table \ref{tab:TVNotchModelSummary} shows the implementation parameters
-for the optimisation of \DS cell connections to \TV cells.
+Table \ref{tab:TVNotchModelSummary} shows the implementation methods
+used in the \TV cell model notch noise optimisation.  The main purpose
+of this optimisation is to test whether \DS cell connection distribution
+variables (i.e. spread and offset) play a role in modifying the output
+of \TV cells (as suggested by \citet{ReissYoung:2005}).
 # The experimental data used in the fitness function, from
 # \citet{ReissYoung:2005} recorded from individual \TV neurons, is
 # adapted for a range of \TV cell models using a single notch stimulus.
-The experimental data (Figure \ref{fig:TVReissFig9}) are the average
+The experimental data in Figure \ref{fig:TVReissFig9} shows the average
 responses of Type II \DCN units to notch sweeps \citep{ReissYoung:2005}.
-The optimisation routine would be prohibitive if it used a notch sweep
-simulated on a single neuron; therefore, this optimisation uses a single
-notch presentation across an entire network of TV cells.  Accordingly,
+The optimisation routine would be prohibitive if it used multiple notch sweeps
+simulated using a single neuron; therefore, this optimisation uses a single
+notch presented across the network  \TV cells.  Accordingly,
 the fitness function must take into account the relative position of
 cells in the network when comparing the experimental data.  For example,
 when presented with a notch noise filtered between 5 kHz and 10 kHz, a
@@ -2928,8 +2990,8 @@ Linear (Manis and Marx 1991)
 
 # \yellownote{TODO: Para 1: Nordlie Table \ref{tab:TSModelSummary}A. Using RM  Type I-t, Other previous models}
 
-\yellownote{TODO: Synaptic inputs known and unknown, included and not
-included in model.  Previous work include and excludes}
+#\yellownote{TODO: Synaptic inputs known and unknown, included and not
+#included in model.  Previous work include and excludes}
 
 Figure \ref{fig:TSinputs} shows the expected response of a T stellate
 cell to individual connections from different cells in the CN stellate
@@ -2941,23 +3003,24 @@ depolarisation.  \HSR inputs show a rapid onset and a slowly adapting
 sustained depolarisation.
 
 #+BEGIN_LaTeX
-  \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
-  \begin{figure}[htb]
-    \centering%
-    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_exc.pdf}\\
-    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_inh.pdf}
-    \caption[Intracellular membrane voltage response of a T stellate cell model to isolated synaptic inputs]{Intracellular membrane voltage response of a T stellate cell model to isolated synaptic inputs.
-      A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CN network. The CF of the recorded \TS unit was 8.267 kHz.
-      Single stimulus responses are shown as a thin line and average response over 25 repetitions is shown as the dark line.
-      A. 30 LSR ANF synapses.
-      B. 20 HSR ANF synapses.
-      C. 20 D stellate cell glycinergic synapses.
-      D. 15 Golgi cell \GABAa synapses.
-      All weights were set to $0.0005\,\mu{\rm S}$ and the sodium conductance (\gNa) set
-      to zero.  The parameters for synapse's were: excitatory (tau = 0.36
-      ms), glycinergic (tau1=0.4 and tau2=2.5 ms), and GABAergic (tau1=0.26
-      and tau2=5.43 ms).\label{fig:TSinputs}}
-  \end{figure}
+    \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
+    \begin{figure}[htb]
+      \centering%
+  %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_exc.pdf}\\
+  %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_inh.pdf}
+  \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_excinh.pdf}
+      \caption[Intracellular membrane voltage response of a T stellate cell model to isolated synaptic inputs]{Intracellular membrane voltage response of a T stellate cell model to isolated synaptic inputs.
+        A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CN network. The CF of the recorded \TS unit was 8.267 kHz.
+        Single stimulus responses are shown as a thin line and average response over 25 repetitions is shown as the dark line.
+        A. 30 LSR ANF synapses.
+        B. 20 HSR ANF synapses.
+        C. 20 D stellate cell glycinergic synapses.
+        D. 15 Golgi cell \GABAa synapses.
+        All weights were set to $0.0005\,\mu{\rm S}$ and the sodium conductance (\gNa) set
+        to zero.  The parameters for synapse's were: excitatory (tau = 0.36
+        ms), glycinergic (tau1=0.4 and tau2=2.5 ms), and GABAergic (tau1=0.26
+        and tau2=5.43 ms).\label{fig:TSinputs}}
+    \end{figure}
 #+END_LaTeX  
 
 *** Fitness Function
@@ -3199,8 +3262,8 @@ stimulus.  The leak conductance had a slight decrease (\gleak
 The \ChT2 unit (01-305-014, CF 12.4 kHz \citep*{PaoliniClareyEtAl:2005})
 was used for the \ChT2 TS cell model (CF 12.2 kHz) optimisation. This
 unit had a low depolarising threshold (5 dB \SPL) so the stimulus level
-was set to 35 dB \SPL, a significant difference from the \ChT1
-optimisation unit.  The main difference between the transient chopper types
+was set to 35 dB \SPL; a significant difference from the \ChT1
+optimisation unit that was optimised using an 85 dB \SPL tone.  The main difference between the transient chopper types
 is reflected in their \CV values after 10 ms, with the \ChT2 type
 becoming irregular (i.e. having a CV value over 0.3) and maintaining
 that regularity for the remained of the stimulus.  \ChT2 has a higher
@@ -3219,14 +3282,12 @@ post-tone inhibition is greater (8.82 mV) \citep*{PaoliniClareyEtAl:2005}.
 # IVAdaptation	8.82784	7.8878
 # IVOffset	3.24212	2.18856
 
-Fitting data was compared against experimental data of a chopper units
-in the rat cochlear nucleus \citep{PaoliniClareyEtAl:2005}.  
+#Fitting data was compared against experimental data of a chopper units
+#in the rat cochlear nucleus \citep{PaoliniClareyEtAl:2005}.  
 
-Figure \ref{fig:CT2results} shows the results of the \ChT2 TS cell model optimisation.  
-The
-resting membrane potential for the exemplar and model ChT2 unit was
--60.63 and -64.96 mV for the optimised model and exemplar unit,
-respectively.
+Figure \ref{fig:CT2results} shows the results of the \ChT2 TS cell model
+optimisation.  The resting membrane potential for the experimental and model
+ChT2 unit was -60.63 and -64.96 mV, respectively.
 
 
 #+caption: [ChT2 T stellate Optimisation results]{ChT2 T stellate Optimisation results. The RMP for the reference unit and best ChT1 model was -60.63 and -64.95 mV, respectively. See Figure \ref{fig:CSresults} for figure configuration.  A. PSTH response of the optimised ChT-2 TS cell model to 50 repetitions of a 12.4 kHz tone at 35 dB SPL.   B. CV statistics,  C. Average intracellular membrane voltage, and D. Intracellular voltage measures.}
