@@ -2944,8 +2944,8 @@ sustained depolarisation.
   \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
   \begin{figure}[htb]
     \centering%
-    \includegraphics[keepaspectratio,width=0.9\textwidth]{../../cnstellate/TStellate/baseline_exc.pdf}\\
-    \includegraphics[keepaspectratio,width=0.9\textwidth]{../../cnstellate/TStellate/baseline_inh.pdf}
+    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_exc.pdf}\\
+    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_inh.pdf}
     \caption[Intracellular membrane voltage response of a T stellate cell model to isolated synaptic inputs]{Intracellular membrane voltage response of a T stellate cell model to isolated synaptic inputs.
       A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CN network. The CF of the recorded \TS unit was 8.267 kHz.
       Single stimulus responses are shown as a thin line and average response over 25 repetitions is shown as the dark line.
@@ -3196,13 +3196,16 @@ stimulus.  The leak conductance had a slight decrease (\gleak
 
 *** Transient Chopper 2
 
-The exemplar \ChT2 unit (01-305-014, CF 12.4 kHz
-\citep*{PaoliniClareyEtAl:2005}), has a low depolarising threshold (5
-dB \SPL) so the stimulus is set to 35 dB \SPL.  This second
-transiently adapting chopper unit's difference to \ChT1 is reflected
-in its average membrane potential and \CV.  \ChT2 has a higher
+The \ChT2 unit (01-305-014, CF 12.4 kHz \citep*{PaoliniClareyEtAl:2005})
+was used for the \ChT2 TS cell model (CF 12.2 kHz) optimisation. This
+unit had a low depolarising threshold (5 dB \SPL) so the stimulus level
+was set to 35 dB \SPL, a significant difference from the \ChT1
+optimisation unit.  The main difference between the transient chopper types
+is reflected in their \CV values after 10 ms, with the \ChT2 type
+becoming irregular (i.e. having a CV value over 0.3) and maintaining
+that regularity for the remained of the stimulus.  \ChT2 has a higher
 reduction in onset depolarization (90.2\%) compared to ChT1, and
-post-tone inhibition is greater (8.82 mV).
+post-tone inhibition is greater (8.82 mV) \citep*{PaoliniClareyEtAl:2005}.
 
 #    chopper transient type 2
 #    // unit 01-305-014 \citep{PaoliniClareyEtAl:2005}
@@ -3217,13 +3220,15 @@ post-tone inhibition is greater (8.82 mV).
 # IVOffset	3.24212	2.18856
 
 Fitting data was compared against experimental data of a chopper units
-in the rat cochlear nucleus \citep{PaoliniClareyEtAl:2005}.  Figure
-\ref{fig:CT2results} shows the results of the ChT2 optimisation.  The
+in the rat cochlear nucleus \citep{PaoliniClareyEtAl:2005}.  
+
+Figure \ref{fig:CT2results} shows the results of the \ChT2 TS cell model optimisation.  
+The
 resting membrane potential for the exemplar and model ChT2 unit was
 -60.63 and -64.96 mV for the optimised model and exemplar unit,
 respectively.
 
-# \resizebox{0.95\textwidth}{!}{\includegraphics{TStellate_CT2/multiplotIVCV3}}
+
 #+caption: [ChT2 T stellate Optimisation results]{ChT2 T stellate Optimisation results. The RMP for the reference unit and best ChT1 model was -60.63 and -64.95 mV, respectively. See Figure \ref{fig:CSresults} for figure configuration.  A. PSTH response of the optimised ChT-2 TS cell model to 50 repetitions of a 12.4 kHz tone at 35 dB SPL.   B. CV statistics,  C. Average intracellular membrane voltage, and D. Intracellular voltage measures.}
 #+label: fig:CT2results
 [[../SimpleResponsesChapter/gfx/TStellate_CT2/multiplotIVCV3.pdf]]
