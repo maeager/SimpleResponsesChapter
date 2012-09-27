@@ -3473,7 +3473,7 @@ other researchers can easily reproduce this work.
 
 
 #+BEGIN_LaTeX
-  \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../MyBib}\newpage \listoftodos}{}
+  \ifthenelse{\isundefined{\manuscript}}{\newpage \listoftodos \newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../MyBib}}{}
 #+END_LaTeX
 
 
