@@ -2832,9 +2832,11 @@ Figure \ref{fig:TVSweepUnit70} shows the response of a unit with similar
 \newpage
 
 
-* T Stellate Cell Model: Optimisation of Three Chopper Subtypes Using CF Tones 
+* T Stellate Cell Model: Three Chopper Subtypes
 
-This section investigates the major output neurons in the \CNSM model, T stellate cells, which are classified into three sub-types based on their chopper-like characteristics.
+This section investigates the major output neurons in the \CNSM model, T
+stellate cells, which are classified into three sub-types based on their
+regular firing or chopper characteristics.
 
 ** Background
 
