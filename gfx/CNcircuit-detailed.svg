@@ -37,13 +37,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1440"
-     inkscape:window-height="850"
+     inkscape:window-width="1024"
+     inkscape:window-height="550"
      id="namedview198"
      showgrid="false"
      inkscape:zoom="2.4349766"
-     inkscape:cx="173.08673"
-     inkscape:cy="184.95035"
+     inkscape:cx="402.9585"
+     inkscape:cy="320.90171"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="1"
@@ -834,7 +834,7 @@
          height="17.709476"
          x="336.48019"
          y="26.836412" /></flowRegion><flowPara
-       id="flowPara4416">T-stellate Cell</flowPara></flowRoot>  <flowRoot
+       id="flowPara4416">T stellate Cell</flowPara></flowRoot>  <flowRoot
      xml:space="preserve"
      id="flowRoot4418"
      style="font-size:10px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
@@ -867,7 +867,7 @@
          height="20.070749"
          x="16.528852"
          y="79.17778" /></flowRegion><flowPara
-       id="flowPara4440">D-stellate Cell</flowPara></flowRoot>  <path
+       id="flowPara4440">D stellate Cell</flowPara></flowRoot>  <path
      style="fill:none;stroke:#000000;stroke-width:0.28222224;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;marker-start:url(#Arrow1Lstart);marker-end:none"
      d="m 47.858804,-90.32763 c 2.961784,3.109873 6.1457,7.855883 7.88575,11.217756 1.700524,3.590449 2.295381,10.6254 2.443471,14.216562"
      id="path4463"
