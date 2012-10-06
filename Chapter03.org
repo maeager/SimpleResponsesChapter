@@ -184,26 +184,23 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
    representation and enhanced synchronisation to modulation in speech
    sounds \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 
-#+BEGIN_LaTeX
-  \begin{figure}[ht]
-    \centering
-    \input{./gfx/CNcircuit-detailed.pdf_tex}  
-%\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/CNcircuit-detailed.svg}
-    \caption[Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (see text for details).}
-    \label{fig:microcircuit}
-  \end{figure}
-#+END_LaTeX
+# #+BEGIN_LaTeX
+#   \begin{figure}[ht]
+#     \centering
+#     \input{../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf_tex}  
+# %\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/CNcircuit-detailed.svg}
+#     \caption[Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (CNSM) in each iso-frequency laminae.}
+#     \label{fig:microcircuit}
+#   \end{figure}
+# #+END_LaTeX
 
 
 
-# #+BEGIN_SRC sh :export none
-#   inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'  --export-latex  '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg
-# #+END_SRC
 
-# #+ATTR_LATEX: width=0.9\linewidth
-# #+CAPTION: [Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (CNSM) model.}
-# #+LABEL: fig:microcircuit
-[[#  ../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg]]
+#+ATTR_LATEX: width=0.9\linewidth
+#+CAPTION: [Cochlear nucleus stellate microcircuit model]{Cochlear nucleus stellate microcircuit (CNSM) model.}
+#+LABEL: fig:microcircuit
+[[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
 
 Optimisation of a detailed \BNN model requires a realistic input model
 with which to mimic the behaviour observed in live neural
@@ -559,23 +556,22 @@ The next part of this chapter introduces the specific attributes of the Golgi ce
 
 
 * Figures 							   :noexport:
-
+  
 ** fig:microcircuit
 
-#+BEGIN__SRC sh :export none
-  inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'  --export-latex  '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg
+#+BEGIN_SRC sh :export none
+  inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'  --export-latex  '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg'
 #+END_SRC
 
-** fig:Compression
+#+RESULTS:
 
+** fig:Compression
 
 #+BEGIN_SRC sh :export none
  # make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
  gnuplot -p gfx/AudiogramCompression.gpi
 #+END_SRC
 
-#+RESULTS:
-: ./gfx/AudiogramCompression.eps
 
 ** GolgiDiagram
 # #+BEGIN_SRC sh :export none
@@ -1085,35 +1081,6 @@ The optimal parameters of the Golgi cell model had a fitness score of
 different firing rate magnitudes at each sound level relative to the
 target response shows a mean absolute difference of 21.5%.
 
-#+ATTR_LaTeX: width=0.6\textwidth
-#+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996a}. A more detailed optimisation with 22 levels and including HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data. }
-#+LABEL: fig:GolgiResult
-[[../SimpleResponsesChapter/gfx/GolgiRateLevel_result.pdf]]
-
-The parameters in Table \ref{tab:GolgiCellResults} were within the range
-of expected values.  \LSR inputs to the Golgi cell model outweighed \HSR
-inputs by a factor greater than 10.  The monotonic response of \LSR
-fibres at high sound levels was necessary to create the large dynamic
-range in the Golgi cell model. Equally, the \HSR fibres were necessary
-to provide spontaneous rate activity at low \SPL.  The spontaneous rate
-parameter matches the base response of unit S03-07 in Figure
-\ref{fig:GolgiResult}.  The smoothing filter time constant of 5 ms is a
-typical value in membrane time constants for neural models and fits with
-the input resistance in intracellular recordings of Golgi cells
-\citep{FerragamoGoldingEtAl:1998}.
-
-The input spread parameter was not well constrained by the optimisation
-fitness routine with a pure tone input and a single neuron, but the
-result was satisfactory given the uncertainty in \LSR fibres' axonal
-organisation in the \GCD.  The dendritic widths in Golgi cells are
-around 100 \um and the frequency separation laminae in the \VCN core
-is approximately 70 \um, giving an expected spread of 1.5 channels in the 100 channel \CNSM model. Consequently, the result of 2.48 channels gives added frequency
-spread from \LSR fibres.
-
-#\yellownote{TODO: Explain the figures and table more} 
-
-# Table \ref{tab:GolgiCellResults} result table.
-
 #+BEGIN_LaTeX
   % {
   % \small 
@@ -1141,21 +1108,52 @@ spread from \LSR fibres.
       \begin{tabularx}{0.6\textwidth}{l c D{,}{.}{2.4}}
   \toprule 
    \textbf{Parameters (Units)}  &                  \textbf{Range}                   & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-    \sANFGLG \hfill (channel)   &                      [0,10]                       & 2,48   \\
-       \Gtau  \hfill (ms)       &                      [0,20]                       & 5,01   \\ 
-         \wLSRGLG \hfill        &                       [0,5]                       & 0,517  \\ 
-         \wHSRGLG \hfill        &                       [0,5]                       & 0,0487 \\
-  \Gspon  \hfill (spikes / sec) &                      [0,50]                       & 3,73   \\ \midrule
+    \sANFGLG (channel)   &                      [0,10]                       & 2,48   \\
+       \Gtau   (ms)       &                      [0,20]                       & 5,01   \\ 
+         \wLSRGLG         &                       [0,5]                       & 0,517  \\ 
+         \wHSRGLG         &                       [0,5]                       & 0,0487 \\
+  \Gspon  (spikes/s) &                      [0,50]                       & 3,73   \\ %\midrule
   %\multicolumn{2}{c}{$\sqrt{\langle(\mathbf{t}-\mathbf{r})^2\rangle}$ \quad (sp/s)}
-  MSE & & 4.48 \\
+%  Fitness Error & & 4.48 \\
   % \multicolumn{2}{c}{$\langle(\mathbf{t}-\mathbf{r})/\mathbf{t}\rangle$ \quad ()} 
-  RE & 0.2145 \\
+%  Relative Error & 0.2145 \\
   \bottomrule
   \end{tabularx} 
-  {\small MSE mean squared error, RE error relative to the target}
+%\\
+%  {\small MSE mean squared error, RE error relative to the target}
   \end{table}
   }
 #+END_LaTeX
+
+
+#+ATTR_LaTeX: width=0.6\textwidth
+#+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996a}. A more detailed optimisation with 22 levels and including HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data. }
+#+LABEL: fig:GolgiResult
+[[../SimpleResponsesChapter/gfx/GolgiRateLevel_result.pdf]]
+
+The parameters in Table \ref{tab:GolgiCellResults} were within the range
+of expected values.  \LSR inputs to the Golgi cell model outweighed \HSR
+inputs by a factor greater than 10.  The monotonic response of \LSR
+fibres at high sound levels was necessary to create the large dynamic
+range in the Golgi cell model. Equally, the \HSR fibres were necessary
+to provide spontaneous rate activity at low \SPL.  The spontaneous rate
+parameter matches the base response of unit S03-07 in Figure
+\ref{fig:GolgiResult}.  The smoothing filter time constant of 5 ms is a
+typical value in membrane time constants for neural models and fits with
+the input resistance in intracellular recordings of Golgi cells
+\citep{FerragamoGoldingEtAl:1998}.
+
+The input spread parameter was not well constrained by the optimisation
+fitness routine with a pure tone input and a single neuron, but the
+result was satisfactory given the uncertainty in \LSR fibres' axonal
+organisation in the \GCD.  The dendritic widths in Golgi cells are
+around 100 \um and the frequency separation laminae in the \VCN core
+is approximately 70 \um, giving an expected spread of 1.5 channels in the 100 channel \CNSM model. Consequently, the optimal spread parameter of 2.48 channels in the \GLG cell model allowed added frequency spread from \LSR fibres in the \CNSM model.
+
+#\yellownote{TODO: Explain the figures and table more} 
+
+# Table \ref{tab:GolgiCellResults} result table.
+
 
 
 #   % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
@@ -1201,13 +1199,22 @@ spread from \LSR fibres.
 
 ** Verification of the Golgi Cell Model
 
+Figure \ref{fig:GolgiKimFig2} shows the tone and noise rate level responses of 6 marginal shell units observed by \citet{GhoshalKim:1996a}.  The unit at the top of Figure \ref{fig:GolgiKimFig2}, S03-07 (CF 22.7 kHz), was chosen to optimise the \GLG cell model as it is monotonic, and has the median maximum rate of all the units shown.
+
+
+#+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
+#+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 AVCN marginal shell units (Figure reproduced from \citealt{GhoshalKim:1996a}).}
+#+LABEL:  fig:GolgiKimFig2
+[[../figures/GhoshalKim96_Fig2.pdf]]
+
+
 After setting the optimised parameters in Table
-\ref{tab:GolgiCellResults}, the Golgi cell model was run with tone and
+\ref{tab:GolgiCellResults}, the \GLG cell model was run with tone and
 noise inputs to determine its behaviour outside of the optimisation
-routine.  The Golgi cell model was tested across the entire \CNSM model
-network using tones, noise, and tones plus noise stimuli. Figures
+routine.  The \GLG cell model was tested across the entire \CNSM model
+network, using tones, noise, and tones plus noise stimuli. Figures
 \ref{fig:GolgiVerificationPSTH} and \ref{fig:GolgiVerificationWhole}
-show the response of an optimised Golgi cell model at the centre of the
+show the response of an optimised \GLG cell model at the centre of the
 network (CF=5.8 kHz) and had monotonic responses to tones and noise
 similar to other experimental units
 \citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.
@@ -1215,12 +1222,6 @@ similar to other experimental units
 
 Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
 units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
-
-
-#+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
-#+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 units \citep{GhoshalKim:1996,GhoshalKim:1996a}. Unit S03-07 (CF 22.7 kHz) at the top was the unit chosen to optimise the Golgi cell model as it is monotonic, and has the median maximum rate of all the units shown. (Figure reproduced from \citealt{GhoshalKim:1996a})}
-#+LABEL:  fig:GolgiKimFig2
-[[../figures/GhoshalKim96_Fig2.pdf]]
 
 
 #+BEGIN_LaTeX
@@ -1252,26 +1253,23 @@ units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
   %   \hfill\resizebox{0.95\textwidth}{!}{%
   %   \includegraphics{ResponsesNoComp/G_ratelevel_combined}%
   % \includegraphics{}\hfill}\\
-    {\figfont{B}\hspace{0.5\textwidth}\figfont{E}\hfill}\\
+    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
     {\hfill\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{ResponsesNoComp/RateLevel/psthsingle5090-3}%
+    \includegraphics{ResponsesNoComp/RateLevel/psthsingle5090-3.pdf}%
     \includegraphics{gfx/GhoshalKim_PSTHs.png}}\hfill}\\
-    {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+  %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
     %\hfill\resizebox{0.95\textwidth}{!}{%
    % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
    %\includegraphics{}\hfill}\\
     \caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8 kHz).
-   A. Rate level responses to tone, noise and tone plus noise.
-   B. PSTH at 90 dB SPL\.
-   C. Response area equivalent using all GLG units in the network.
-   D. Masked noise-tone response of the central unit to 15 dB masking noise and
-   frequencies one octave above and below its CF.
-  E. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996}. 
+   A. PSTH of the \GLG cell model at 50 and 90 dB SPL\.
+   B. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}. 
+  
   } \label{fig:GolgiVerificationPSTH}
   \end{figure}
   %
   \begin{figure}[htb]
-  \centering
+  %\centering
   {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
   \resizebox{0.95\textwidth}{!}{\hfill%
   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/RateLevel/response_area-3}\hfill%
@@ -2933,7 +2931,6 @@ Based on rarity of small round vesicles on \ChS units
 included in the \CNSM model.
 
 #+LaTeX: \input{../SimpleResponsesChapter/TStellateTable}
-
 
 ** Implementation
 
