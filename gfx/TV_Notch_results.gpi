@@ -152,7 +152,7 @@ xplace=8000
 #error2="`grep error r2/TV_Notch.Fit.dat | awk -F'=' '{print $2}'`"
 #error3="`grep error r3/TV_Notch.Fit.dat | awk -F'=' '{print $2}'`"
 
-error4="`grep error ../SimpleResponsesChapter/gfx/TV_Notch/TV_Notch.Fit.dat | awk -F'=' '{print $2}'`"
+error4="`grep error ../SimpleResponsesChapter/gfx/TV_Notch/TV_Notch.Fit.dat | awk -F'=' '{print sqrt($2)}'`"
 #error5="`grep error r5/TV_Notch.Fit.dat | awk -F'=' '{print $2}'`"
 #error6="`grep error r6/TV_Notch.Fit.dat | awk -F'=' '{print $2}'`"
 
@@ -181,5 +181,5 @@ set style line 2 lc rgb '#dd181f' lt 1 lw 2 pt 7 ps 2   # red
 
 
 plot '../SimpleResponsesChapter/gfx/TV_Notch/TV_Notch.Fit.dat' using ($1/1000):3 t "Optimal response" with lp ls 1, \
-     '' using ($1/1000):2 t sprintf("Model response (MSE  %s)",error4[0:S+2]) with lp ls 2
+     '' using ($1/1000):2 t sprintf("Model response (RMS error  %s)",error4[0:S+2]) with lp ls 2
 
