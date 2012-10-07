@@ -318,11 +318,12 @@ in Section [[High and Low Spontaneous Rate Fibres]].
 ** Neural Models
 
 Single-compartment Hodgkin-Huxley-like neural models were used for the
-\DS, \TV and \TS cells in the \CNSM model.  The membrane current models
-used in each of the cell types were those developed by
-\citet{RothmanManis:2003b}.
+\DS, \TV and \TS cells in the \CNSM model. 
+The \RM neural model is a conductance based neural model with membrane current models
+ developed by \citet{RothmanManis:2003b}. The \RM model is discussed in detail in Section \ref{sec:Meth:cell-models} in Chapter \ref{sec:MethodsChapter}.
 
-\yellownote{TODO expand on specifics for this chapter}
+
+
 
 # Type I-c classic regular firing contains a voltage-activated
 # sodium, high threshold potassium, and hyperpolarisation mixed-cation,
@@ -528,8 +529,11 @@ models) were calculated at the start of repetitions.
 The optimisation routine used in this chapter was NEURON's [[latex:progname][fit\_praxis]]
 function, which uses the principle axis algorithm
 \citep[PRAXIS,~][]{Brent:1976}. The PRAXIS method returns the minimum of
-the error function, =fun=, of n variables using the principal axis
-method without the use of =fun='s gradient.
+the fitness function of /n/ variables using the principal axis
+method without the use of function's gradient.
+The fitness function converts the parameters to a single measure by simulating the \CNSM model using the parameters, then comparing selected neural outputs to experimental data.
+\RMS error is generally used as the comparison measure of similar data points, for example mean firing rate at different sound levels in a rate-level simulation.
+Mean error relative to the expected or target values is also used to ensure there is no bias between data points with large variation in differences.
 
 ** Verification of Cell Model Responses to Simple Tones and Noise
 
@@ -1286,6 +1290,9 @@ units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
 \clearpage
 
 
+The next section introduces the major target of Golgi cells, the \DS cell model in the \CNSM model.
+
+
 * D Stellate Cell Model
 #: Optimisation Using Click Recovery and Rate Level Responses 
 
@@ -1821,9 +1828,9 @@ over \HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio o
    \nLSRDS \hfill     &    [1,500]    & 57    \\             
    \nHSRDS \hfill     &    [1,500]    & 158    \\
    \nGLGDS \hfill    &     [1,50]    & 9   \\ \midrule
-  \multicolumn{2}{c}{Tone RL\ Error \hfill (sp/s)}  &    25,62      \\   
-  \multicolumn{2}{c}{Noise RL\ Error \hfill (sp/s)} &    36,27      \\ 
-    \multicolumn{2}{c}{Total Error \hfill (sp/s)}   &    61,89      \\ \bottomrule
+  \multicolumn{2}{c}{Tone RMS error \hfill (sp/s)}  &    25,62      \\   
+  \multicolumn{2}{c}{Noise RMS error \hfill (sp/s)} &    36,27      \\ 
+    \multicolumn{2}{c}{Total error \hfill (sp/s)}   &    61,89      \\ \bottomrule
   \end{tabularx}
   \end{table}
   \vspace{2ex} 
@@ -1858,7 +1865,7 @@ Golgi units have much higher thresholds and wider dynamic ranges.
 
 ** Verification of the DS Cell Model
 
-\yellownote{TODO: Small presentation of PSTH, RL, NRL, MRC and RA.}
+
 
 The optimised parameters for inputs to the \DS cell model were
 applied to \DS cells across the whole network using tones, noise and
@@ -1883,9 +1890,8 @@ broad inputs of \ANFs onto \DS cells.
   \begin{figure}[htb]
 %    \centering
       {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-  \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}\\
-  %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d}
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
+  \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%  %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d} 
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
       %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined}%
     \caption{Response area of \DS cell model}
     \label{fig:DSVerificationRA}
@@ -2203,7 +2209,6 @@ default Type I \RM neural model.
 
 \clearpage
 
-
 ** Results of Tone and Noise Rate Level Optimisation
 
 Figure \ref{fig:TVRateLevelResult} shows the best fitted output
@@ -2277,7 +2282,6 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
     % \end{tabularx}\end{minipage}\hfill 
     }
 #+END_LaTeX
-
 
 
 ** Verification of the TV Cell Model
@@ -2391,7 +2395,6 @@ units to pure tones replicate the single channel excitatory inputs from
 
 \clearpage
 
-
 ** Results of Notch Noise Optimisation 
   :PROPERTIES:
   :CUSTOM_ID: sec:Ch3:DSTV
@@ -2460,6 +2463,59 @@ reduced resting membrane potential may increase the threshold for
 excitatory inputs to generate action potentials. To allow for this, the
 reversal potential of the TV cell model (\Erev) was used as a parameter
 in the optimisation routine with a range from -80 to -50 mV.
+
+#+ATTR_LATEX: width=0.7\textwidth
+#+CAPTION: [Best-fit result of TV cell model notch optimisation]{Best-fit result of TV cell model notch optimisation.  }
+#+LABEL: fig:TVNotchresult
+[[../SimpleResponsesChapter/gfx/TV_Notch_results.pdf]]
+
+Figure \ref{fig:TVNotchresult} shows the notch noise response best performing parameter
+
+
+Table \ref{tab:TVNotchresult}
+
+The eventual result of the \DS to \TV connection optimisation,
+highlighted in Table \ref{tab:TVNotchresult}, was derived from Run 1A and
+Run 1B in the set using 70 dB \SPL stimulus.  The optimisation produced
+a better result for the offset parameter and the overall error value of
+the fitness function.  The offset of \DS onto \TV cells at 2.1 channels,
+equivalent to a mean of 0.14 octaves (0.34 octaves at the lowest channel
+and 0.13 at the highest channel), was closer to the offset predicted by
+\citet{ReissYoung:2005}.
+
+The results in the \TV cell model not optimisation  show the dominance of \LSR
+over \HSR fibres in the number of synapses (29 to 1) and the increased
+need for \DS cell inhibition with a high number of synapses, \nDSTV.  \LSR fibres have not
+been proven to preference the deep layers of the \DCN
+\citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
+
+
+#+BEGIN_LaTeX
+   {
+   \vspace{2ex}
+   \small\noindent% 
+   \begin{table}[htb]
+   \centering
+   \caption{Best fit parameters of \DS to \TV cell connections using the notch optimisation.}
+    \label{tab:TVNotchresult} 
+  \begin{tabularx}{0.6\linewidth}{X c D{,}{.}{2.4}} 
+  \toprule 
+   \textbf{Parameters (Units)}  & \textbf{Range}& \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
+        \nDSTV \hfill        &    [0,100]    & 17 \\ 
+       \wDSTV  \hfill (nS)      &   [0.01,5]    & 2,9 \\ 
+       \nLSRTV \hfill        &    [0,100]    & 29\\ 
+       \nHSRTV \hfill        &    [0,100]    & 1 \\ 
+       \wLSRTV \hfill (nS)      &   [1e-2,5]    & 0,17 \\ 
+       \wHSRTV \hfill (nS)      &   [1e-2,5]    & 0,17 \\ 
+     \sDSTV \hfill (channel)    &    [0,100]    & 13 \\ 
+     \oDSTV \hfill (channel)    &   [-10,30]    & 2,1 \\ 
+  \Eleak $_{\rm TV}$\hfill (mV) &   [-80,-50]   & -65,89 \\ \midrule
+         \multicolumn{2}{l}{RMS error \quad (spikes/s)}        & \\ \bottomrule
+  \end{tabularx}      
+   \end{table}\vspace{2ex}
+   } 
+  
+#+END_LaTeX
 
 
 ** Verification of Notch Sweep Response in the TV Cell Model 
@@ -2627,17 +2683,8 @@ They were not included in the \CNSM model because  of the rarity of small round 
 
 *** Cell-based Properties of T Stellate Cells
 
-Cells
-Current Clamp
-Membrane Currents
-Time Constant (msec)
-I-V
-Input R
-Papers
-TS
-Type 1, single exponential undershoot (Feng et al. 1994; Manis and Marx 1991; Wu and Oertel 1984)
-No Low threshold K (Manis and Marx 1991); IA has a role in modulating the rate of repetitive firing.  Effect of Inhibition on T stellate cells could be to reset IA (Rothman and Manis 2003c)
-
+\yellownote{Cells Current Clamp Membrane Currents Time Constant (msec) I-V Input R Papers \\ TS Type 1, single exponential undershoot (Feng et al. 1994; Manis and Marx 1991; Wu and Oertel 1984) \\ No Low threshold K (Manis and Marx 1991); IA has a role in modulating the rate of repetitive firing.  Effect of Inhibition on T stellate cells could be to reset IA (Rothman and Manis 2003c)
+}
 6.5±5.7 msec (Manis and Marx 1991); type I 9.1±4.5 (Manis and Marx 1991); 6.2 to 18.0 msec (Feng et al. 1994); 6.9±3msec, 10-90% rise time was 1.05±0.4msec (Isaacson and Walmsley 1995)
 Linear (Manis and Marx 1991)
 447±265 Mohm isolated guinea pig stellate cell type 1 current clamp (Manis and Marx 1991); 44 to 151 MΩ (mean  89.4 ±24.4) mouse slice prep (Ferragamo et al. 1998b); ”stellate” 231±113MΩ, 14.9±9pF primary membrane capacitance, room temp rat (Isaacson and Walmsley 1995)
@@ -2766,8 +2813,7 @@ stimulus.
 #   \end{multline}
 # #+END_LaTeX
 
-
-** Optimisation Results
+** Results of Three Multi-Modal Tone Optimisations 
 
 \yellownote{TODO: Choosing optimisation data - average population data or
 individual exemplar based on Paolini rat data.}
@@ -2804,12 +2850,12 @@ Table \ref{tab:TSCellResults} reports the best-fit parameter values for the thre
   \gleak  (mS cm$^{-2}$) &    [1e-3,3]    & 0,657  & 0,494  & 0,724\\
   \gKHT   (S cm$^{-2}$)  &  [1e-6,0.003]  & 0,0189 & 0,0189  & 0,023\\
       \Eleak   (mV)      & [$-45$,$-70$]  &  -65,15   &  -54,26   & -63,50\\ \midrule
-            \multicolumn{2}{l}{MSE}           &   6,49   &   5,93   & 5,57\\ \bottomrule
+            \multicolumn{2}{l}{RMS error}           &   6,49   &   5,93   & 5,57\\ \bottomrule
   \end{tabularx}
   % \begin{tabularx}{\linewidth}{X c c D{,}{.}{2.4} D{,}{.}{2.4} D{,}{.}{2.6}} 
   % \toprule 
   %         \textbf{Parameters}          &        \textbf{Label}        & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
-  %                                      &                              &                &    ChS    &   ChT1    & ChT2 \\ \otoprule
+  %                                      &                              &                &   \multicolumn{1}{c}{ ChS }    &   \multicolumn{1}{c}{ ChT1 }    & \multicolumn{1}{c}{ ChT2 }\\ \otoprule
   %  Weight of HSR synapses on TS cell   &     \wHSRTS \hfill (nS)      &   [0.01,30]    &  2,01089  & 0,817015  & 2,48999 \\
   %  Weight of LSR synapses on TS cell   &     \wLSRTS \hfill (nS)      &   [0.01,30]    &  2,86796  & 0,774459  & 2,03762\\
   %   %  Number of synapses, LSR to TS   &      \nLSRTV  \hfill ()      &     [0,64]     &           &           & \\
