@@ -10,8 +10,8 @@
          \textbf{Populations}          & Six: \HSR \& \LSR ANFs, \GLG, \DS, \TV and \TS cells \\\hline
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
         \textbf{Connectivity}          & \ANF$\to$\{\GLG,\DS,\TV,\TS\}, Golgi$\to$\{\DS,\TS\}, \DS$\to$\{\TV,\TS\}, and \TVTS  \\\hline
-         \textbf{Input model}          & ANF~model: instantaneous-rate Poisson model \citep{ZilanyBruce:2007} \\\hline
-\multirow{4}{*}{\textbf{Neuron model}} & Golgi: instantaneous-rate Poisson model\\
+         \textbf{Input model}          & ANF~model: Instantaneous-rate Poisson neural model \citep{ZilanyBruce:2007} \\\hline
+\multirow{4}{*}{\textbf{Neuron model}} & Golgi: Instantaneous-rate Poisson neural model\\
                                        & D~stellate cell: HH-like single-compartment type I-II \RM model\\ 
                                        & Tuberculo-ventral cell:  HH-like single-compartment type I-c \RM model \\
                                        & T~stellate cell: HH-like single-compartment type I-t \RM model\\ \hline
@@ -100,7 +100,7 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
 \noindent
 \begin{tabularx}{\textwidth}{|l|X|}%
 \hdr{2}{E}{Optimisation}\\
-\textbf{Input Stimulus} & Pure tone stimuli with 50 ms duration, 2 ms cosine squared on\slash off ramp, and 20 ms delay. Optimisation of each chopper unit used the CF and 30 dB re threshold sound level of the exemplar unit: CS (3.9~kHz 40 dB SPL), CT1 (8.2 kHz, 85 dB SPL), CT2 (12.4~kHz 35 dB SPL). \\\hline 
+\textbf{Input Stimulus} & Pure tone stimuli with 50 ms duration, 2 ms cosine squared on\slash off ramp, and 20 ms delay. Optimisation of each chopper unit used the CF and 30 dB relative to the threshold sound level of the exemplar unit: CS (3.9~kHz 40 dB SPL), CT1 (8.2 kHz, 85 dB SPL), CT2 (12.4~kHz 35 dB SPL). \\\hline 
      \textbf{Parameters}      & 
       \wHSRTS, \nHSRTS,    
       \wLSRTS, \nLSRTS,   
@@ -108,7 +108,7 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
       \wTVTS,  \nTVTS, 
   \wGLGTS, \nGLGTS 
       \TS \gleak, \TS \gh    \\\hline
-\textbf{Fitness Function}    &  Intracellular voltage was recorded and special measures were calculated (see text).  Spikes were recorded and co-efficient of variation statistic was calculated in 10 ms windows from 2.5 ms after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
+\textbf{Fitness Function}    &  Intracellular voltage was recorded and special measures were calculated.  Spikes were recorded and \CV statistics were calculated in 10 ms windows from 2.5 ms after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
 \end{tabularx}
 \vspace{1ex}
 }
