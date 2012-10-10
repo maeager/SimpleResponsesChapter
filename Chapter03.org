@@ -363,7 +363,7 @@ separated using the same Greenwood function used for the filterbank of
 #+ATTR_LaTeX: width=0.8\textwidth
 #+CAPTION:  Gaussian connection between cell types in the CNSM model.
 #+LABEL:    fig:CNconn
-[[../SimpleResponsesChapter/gfx/CNConn.png]]
+[[../SimpleResponsesChapter/gfx/CNConn.pdf]]
 
 
 
@@ -1770,7 +1770,7 @@ target data to fit the DS cell model.
 # #+ATTR_LATEX: width=0.5\textwidth
 # #+Caption: [Tone and noise rate level response of a OnC unit (DS cell)]{Tone and noise rate level response of a DS cell used in the DS cell model rate-level optimistation (OnC unit data reproduced from Figure 12 in \citet{ArnottWallaceEtAl:2004}). } 
 # #+LABEL: fig:ArnottFig12
-[[# ../SimpleResponsesChapter/gfx/Arnott2004_Fig12_CF10_9kHz.png]]
+#   [[../SimpleResponsesChapter/gfx/Arnott2004_Fig12_CF10_9kHz.png]]
 
 Figure \ref{fig:DSRateLevelResult} shows the output rate level responses
 of the input and \DS cell model using the best fit parameters in Table
@@ -1788,7 +1788,7 @@ over \HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio o
 
 \yellownote{alignment of table, spacing, and number of significant digits!!!!}
 #+BEGIN_LaTeX
-  {
+  {%
   \small\noindent
     % \begin{center}%table} 
     % %    \begin{minipage}{0.48\linewidth} 
@@ -2244,7 +2244,7 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
 
 \yellownote{caption for table}
 #+BEGIN_LaTeX
-    {
+    {%
     \small\noindent
     \begin{table}[htbp]
       \centering
@@ -2491,8 +2491,7 @@ been proven to preference the deep layers of the \DCN
 
 
 #+BEGIN_LaTeX
-   {
-   \vspace{2ex}
+   {%\vspace{2ex}
    \small\noindent% 
    \begin{table}[htb]
    \centering
@@ -3073,6 +3072,7 @@ ChT2 unit was -60.63 and -64.96 mV, respectively.
 
 \yellownote{TODO: Discuss the relevance of creating the CN stellate model,
   especially the methods.}
+ 
 
 The microcircuit in the cochlear nucleus is one of the
 most interesting neural features of the auditory system.  It enables a
@@ -3111,8 +3111,7 @@ Section
 
 *** D Stellate Cell Model
 
-Discuss Section 
-[[D%20Stellate%20Cell%20Model][D Stellate Cell Model]]
+Discuss Section [[D%20Stellate%20Cell%20Model][D Stellate Cell Model]]
 
 \yellownote{TODO: Discuss the DS cell model optimisation.  What were the
 reasons for using cell-based parameters, and why is this necessary?
