@@ -2662,7 +2662,8 @@ name transient, but stays below 0.3.  The second CT type is regular in
 the first 10 ms period, but rises to 0.3 or above throughout the
 stimulus.
 
-#+CAPTION: [Regularity in chopper units]{Regularity in chopper units. Data reproduced from figure 2 in \citet{PaoliniClareyEtAl:2005}.}
+#+ATTR_LATEX: width=0.6\textwidth
+#+CAPTION: [Regularity in TS cell subtypes]{Regularity in TS cell subtypes. Average CV inter-spike interval statistic calculated over 10 ms periods. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}.}
 #+LABEL: fig:PaoliniCVdata
 [[../SimpleResponsesChapter/gfx/PaoliniCV.pdf]]
 
