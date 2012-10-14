@@ -198,7 +198,7 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
 
 
 #+ATTR_LATEX: width=0.9\linewidth
-#+CAPTION: [Cochlear nucleus stellate microcircuit model]{Cochlear nucleus stellate microcircuit (CNSM) model.}
+#+CAPTION: [Cochlear nucleus stellate microcircuit model]{Cochlear nucleus stellate microcircuit (CNSM) model. The \CNSM model is shown in one iso-frequency plane at best frequency (BF) with incoming ANFs forming the baseline. Dashed lines show connections not in the CNSM model. Each cell type is shown with a characteristic PSTH to short tone bursts and a depiction of their  excitatory-inhibitory response area (EIRA) using sound level (L) versus frequency (F).  Synaptic connections are depicted as: empty triangles - excitatory glutamatergic-AMPA synapse; filled circles - inhibitory glycinergic synapse; and filled rectangles - inhibitory GABA-ergic synapses onto GABA$_{\rm A}$ receptors.  }
 #+LABEL: fig:microcircuit
 [[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
 
@@ -2131,9 +2131,18 @@ source, especially at sharp spectral peaks close to their \BF.
 
 Modelling of Type II units in the \DCN has been thoroughly investigated.
 \citet{ArleKim:1991a} were the first to show Type II \EIRA units with
- simple McCullock-Pitts point neuron models of the \DCN.
-\citet{BlumReedEtAl:1995} created an abstract steady-state rate model to determine the effects of network connectivity in the \DCN. \citet{HancockDavisEtAl:1997} improved the spiking model by incorporating cross-correlation analysis and others in Davis collaborations    
-\citep{YoungDavis:2002,HancockDavisEtAl:2001,DavisYoung:2000,SpirouDavisEtAl:1999,HancockDavisEtAl:1997,DavisVoigt:1996,DavisVoigt:1994,DavisVoigt:1991}. The most recent model from \citet{ReissYoung:2005},  suggests asymmetry in Type II \DCN units' response to notch noise is due to an offset in the distribution of wide-band inhibition from \DS cells. 
+simple McCullock-Pitts point neuron models of the \DCN.
+\citet{BlumReedEtAl:1995} created an abstract steady-state rate model to
+determine the effects of network connectivity in the \DCN
+\citep{ReedBlum:1995,ReedBlum:1997,BlumReed:1998}. \citet{HancockDavisEtAl:1997}
+improved point neuron model by incorporating cross-correlation analysis
+in fitting network parameters; further modifications have been included
+based on additional physiological observations and modeling
+\citep{HancockVoigt:1999,YoungDavis:2002,HancockDavisEtAl:2001,DavisYoung:2000,SpirouDavisEtAl:1999}. The
+most recent model from \citet{ReissYoung:2005}, suggests asymmetry in
+Type II \DCN units' response to notch noise is due to an offset in
+centre distribution of wide-band inhibition from \DS cells; this has not
+been confirmed in other studies \citep{LomakinDavis:2008}.
 
 
 To create a neural model with low spontaneous rate requires either
@@ -2145,20 +2154,15 @@ behaviour of no spontaneous activity, is a preference of \LSR \ANFs over
 \HSR fibres.  Whether \LSR fibres preference the deep layers of the \CN
 is yet to be confirmed
 \citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
-
 # - \citep{Rhode:1999} Vertical cells in gerbils (mainly Type III)
-
 The intrinsic mechanism is more favourable in Type II units, provided
 there is sufficient inhibition and excitation
-\citep{HancockDavisEtAl:1997}.  Consistent with previous \TV cell models
-\citep{HancockDavisEtAl:1997}, the \CNSM model used the wide-band
-inhibition of \DS cells onto \TV cells.  Studies of the circuitry of the
-\DCN have shown that wide-band inhibition is necessary for accurate
-modeling of the principal cells of the \DCN including Type II units
-\citep{ReedBlum:1995,BlumReedEtAl:1995,ReedBlum:1997,BlumReed:1998}.
-
-
-
+\citep{HancockDavisEtAl:1997,HancockVoigt:1999,ReissYoung:2005}.  Consistent with previous \TV cell models, the \CNSM model used the wide-band
+inhibition of \DS cells onto \TV cells.  
+# Studies of the circuitry of the
+# \DCN have shown that wide-band inhibition is necessary for accurate
+# modeling of the principal cells of the \DCN including Type II units
+# \citep{ReedBlum:1995,BlumReedEtAl:1995,ReedBlum:1997,BlumReed:1998}.
 
 # \yellownote{TODO: The above paragraphs need to be cleaned up and worked into the
 # idea of generating BNN models using a simple approach}
@@ -2199,7 +2203,7 @@ optimisation and are the focus of the next section of this chapter,
 Section [[Results%20of%20Tone%20and%20Noise%20Rate%20Level%20Optimisation%20][Results of Tone and Noise Rate Level Optimisation ]].  The
 reversal potential of TV cells (\Erev) was also optimised to allow
 modulation of the level of the resting membrane potential from the
-default Type I \RM neural model.
+default Type I classic \RM neural model.
 
 
 #+LaTeX:\input{../SimpleResponsesChapter/TV_RateLevelTable}
@@ -2216,6 +2220,8 @@ default Type I \RM neural model.
 
 \clearpage
 
+
+
 ** Results of Tone and Noise Rate Level Optimisation
 
 Figure \ref{fig:TVRateLevelResult} shows the best fitted output
@@ -2226,7 +2232,6 @@ in Figure 8A in \citet{SpirouDavisEtAl:1999} (see Figure
 noise relative to \BF tones and no change in threshold when strychnine
 was applied.  The optimised TV cell model was able emulate this response
 in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
-
 
 #+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) were optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}).  Glycinergic blocker strychnine used in the target unit is emulated in the TV cell model by removing DS cell synaptic inputs. (A) Tone RL of HSR, LSR, GLG and DS cell unit inputs at CF 5.8 kHz. (B) Tone RL of  optimised TV cell model and target unit data with and without inhibition. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit data with and without inhibition. }
 #+LABEL: fig:TVRateLevelResult
@@ -2260,11 +2265,11 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
       \begin{tabularx}{0.7\textwidth}{X X D{,}{.}{3.4}} 
   \toprule
   \textbf{Parameters (Units)}& \textbf{Ranges}&\multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
-            \wLSRTV  \hfill (nS)    &  [0.01,50]   & 4,765  \\ 
-            \wHSRTV  \hfill (nS)    &  [0.01,50]   & 0,983 \\ 
-            \wDSTV  \hfill (nS)      & [0.01,50]   & 1,152 \\ 
-                  \nDSTV  \hfill   & [1,500]          & 29 \\
-         \Erev \TV    \hfill (mV)     &  [-80,-50]& -68,25 \\ \midrule
+            \wLSRTV  \hfill (nS)    &  [0.01, 50]   & 4,765  \\ 
+            \wHSRTV  \hfill (nS)    &  [0.01, 50]   & 0,983 \\ 
+            \wDSTV  \hfill (nS)      & [0.01, 50]   & 1,152 \\ 
+                  \nDSTV  \hfill   &   [1, 500]          & 29 \\
+         \Erev \TV    \hfill (mV)     &  [-80, -50]& -68,25 \\ \midrule
              \multicolumn{2}{l}{Tone RMS error  \hfill (spikes/s)}       & 36,75 \\
        \multicolumn{2}{l}{ Without DS tone RMS error  \hfill (spikes/s) } & 11,33 \\
             \multicolumn{2}{l}{ Noise RMS error  \hfill (spikes/s)      } & 13,87 \\
@@ -2305,40 +2310,39 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
 
 
 
-
 #+BEGIN_LaTeX
-    \begin{figure}[htb]
-      \centering%\hspace{0.5cm}
-      {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-      % \resizebox{0.95\textwidth}{!}{
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/TV_ratelevel_combined}%
-       \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle50-1}\\
-  %    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/psthsingle90-1}\\
-      % }\\\hspace{0.5cm}
-      \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
-      % \resizebox{0.95\textwidth}{!}{%
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-1}%
-      \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
-      \caption[Optimised TV cell model responses]{Response of optimised TV cell models at the centre of the network (CF=5.8 kHz).
-        A. Rate level responses to tone, noise and tone plus noise.
-        B. PSTH at 90 dB SPL to noise.
-        C. Response area equivalent using all DS units in the network.
-        D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF\@.}
-      \label{fig:TVverification}
-    \end{figure}
-
   \begin{figure}[htb]
-    % \centering
+    \centering%\hspace{0.5cm}
+    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    % \resizebox{0.95\textwidth}{!}{
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/TV_ratelevel_combined}%
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle50-1}\\
+  %    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/psthsingle90-1}\\
+  %  }\\\hspace{0.5cm}
+    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+    % \resizebox{0.95\textwidth}{!}{%
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-1}%
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
+    \caption[Optimised TV cell model responses]{Response of optimised TV cell models at the centre of the network (CF=5.8 kHz).
+      A. Rate level responses to tone, noise and tone plus noise.
+      B. PSTH at 90 dB SPL to noise.
+      C. Response area equivalent using all DS units in the network.
+      D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF\@.}
+    \label{fig:TVverification}
+  \end{figure}
+  
+  \begin{figure}[htb]
+  % \centering
   %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
   %   \hfill\resizebox{0.95\textwidth}{!}{%
   %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
   % \includegraphics{}\hfill}\\
-    {\figfont{B}\hspace{0.5\textwidth}\figfont{E}\hfill}\\
+    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
     {\hfill\resizebox{0.95\textwidth}{!}{%
     \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-1.pdf}%
     %\includegraphics{gfx/GhoshalKim_PSTHs.png}%
   }\hfill}\\
-    {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+  %  {\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
     %\hfill\resizebox{0.95\textwidth}{!}{%
    % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
    %\includegraphics{}\hfill}\\
@@ -2509,16 +2513,13 @@ been proven to preference the deep layers of the \DCN
   \begin{tabularx}{0.6\linewidth}{X c D{,}{.}{2.4}} 
   \toprule 
    \textbf{Parameters (Units)}  & \textbf{Range}& \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-        \nDSTV \hfill        &    [0,100]    & 17 \\ 
-       \wDSTV  \hfill (nS)      &   [0.01,5]    & 2,9 \\ 
-       \nLSRTV \hfill        &    [0,100]    & 29\\ 
-       \nHSRTV \hfill        &    [0,100]    & 1 \\ 
-       \wLSRTV \hfill (nS)      &   [1e-2,5]    & 0,17 \\ 
-       \wHSRTV \hfill (nS)      &   [1e-2,5]    & 0,17 \\ 
+ 
      \sDSTV \hfill (channel)    &    [0,100]    & 13 \\ 
      \oDSTV \hfill (channel)    &   [-10,30]    & 2,1 \\ 
-  \Eleak $_{\rm TV}$\hfill (mV) &   [-80,-50]   & -65,89 \\ \midrule
-         \multicolumn{2}{l}{RMS error \quad (spikes/s)}        & \\ \bottomrule
+  \Eleak $_{\rm TV}$\hfill (mV) &   [-80,-50]   & -65,89 \\ 
+        \nDSTV \hfill        &    [0,100]    & 17 \\ 
+       \wDSTV  \hfill (nS)      &   [0.01,5]    & 2,9 \\ \midrule
+         \multicolumn{2}{l}{RMS error \quad (spikes/s)}        & 20.86 \\ \bottomrule
   \end{tabularx}      
    \end{table}\vspace{2ex}
    } 
@@ -2689,11 +2690,29 @@ They were not included in the \CNSM model because  of the rarity of small round 
 
 ** Implementation
 
-*** Cell-based Properties of T Stellate Cells
+*** Morphology and Cell-based Properties of T Stellate Cells
 
-\yellownote{Cells Current Clamp Membrane Currents Time Constant (msec) I-V Input R Papers \\ TS Type 1, single exponential undershoot (Feng et al. 1994; Manis and Marx 1991; Wu and Oertel 1984) \\ No Low threshold K (Manis and Marx 1991); IA has a role in modulating the rate of repetitive firing.  Effect of Inhibition on T stellate cells could be to reset IA (Rothman and Manis 2003c)
+\TS cells are multipolar neurons of the \VCN and outnumber \DS cells 15
+to one in cats \citep{RyugoParks:2003}. The size of their soma is generally smaller than \DS cells, ranging from 16--20 \um \citep{PalmerWallaceEtAl:2003,ReddCahillEtAl:2002,DoucetRyugo:1997,DoucetRyugoEtAl:1999,DoucetRyugo:2006}, with one study suggesting variation in soma size across the nucleus (14.5 \pm 2.0 high CF,  17.6 \pm 2.7 low CF, in chinchilla \citealt*{JosephsonMorest:1998}).  Two to four primary dendrites
+emanate from their cell body, extending 150-300 \um parallel to \ANF
+axons and do not extend beyond the isofrequency lamina of similar CF
+units \citep{SmithRhode:1989,PalmerWallaceEtAl:2003}.  \TS cells are
+immuno-labeled as glutamatergic \citep{SmithRhode:1989} and their axons
+leave via the trapezoidal body sending excitatory projections to the
+inferior colliculus \citep{CantBenson:2003}.
+
+In response to intracellular current injection \TS cells have a Type I current clamp response. They fire with regularly spaced, single-exponential undershoot APs and have a linear current-voltage response \citep{OertelWuEtAl:1988,OertelWuEtAl:1990,RhodeOertelEtAl:1983,SmithRhode:1989,FengKuwadaEtAl:1994,WuOertel:1984}.  
+The effective membrane time constant varies between species ranging from 6 to 18 ms 
+\citep{ManisMarx:1991,IsaacsonWalmsley:1995}.
+\TS cells have no \IKLT, but do have two currents active at rest, \IKA and \Ih \citep{ManisMarx1991,RothmanManis:2003}.
+
+
+\yellownote{Cells Current Clamp Membrane Currents Time Constant (msec) I-V Input R Papers \\ TS Type 1, single exponential undershoot (Feng et al. 1994; Manis and Marx 1991; Wu and Oertel 1984) \\ No Low threshold K (Manis and Marx 1991); IKA has a role in modulating the rate of repetitive firing.  Effect of Inhibition on T stellate cells could be to reset IKA (Rothman and Manis 2003c)
 }
+
+
 6.5±5.7 msec (Manis and Marx 1991); type I 9.1±4.5 (Manis and Marx 1991); 6.2 to 18.0 msec (Feng et al. 1994); 6.9±3msec, 10-90% rise time was 1.05±0.4msec (Isaacson and Walmsley 1995)
+
 Linear (Manis and Marx 1991)
 447±265 Mohm isolated guinea pig stellate cell type 1 current clamp (Manis and Marx 1991); 44 to 151 MΩ (mean  89.4 ±24.4) mouse slice prep (Ferragamo et al. 1998b); ”stellate” 231±113MΩ, 14.9±9pF primary membrane capacitance, room temp rat (Isaacson and Walmsley 1995)
 (Bal, Baydas, Naziroglu 2009) Dog 176+/- 35.9 Mohm membrane time constant 8.8 +/-1.4 (n=21)
@@ -2712,9 +2731,9 @@ Linear (Manis and Marx 1991)
 # 16--20\um  (rat [\citep{DoucetRyugo:1997,DoucetRyugoEtAl:1999,DoucetRyugo:2006}])
 # 14.5 \pm 2.0 (high CF)  17.6 \pm 2.7 (low CF) (chinchilla [\citep{JosephsonMorest:1998}])
 
-# Three to four primary dendrites eminate from the cell body
-# 2-3 main dend, total dend length $\sim$ 2000\um (guinea pig [\citep{PalmerWallaceEtAl:2003}])
-# 75-100\um and 150-300\um parallel, 3--4 primary dendrites (cat [\citep{SmithRhode:1989}])
+
+# 2-3 main dend, total dend length $\sim$ 2000\um (guinea pig [\citep{}])
+# 75-100\um and 150-300\um parallel, 3--4 primary dendrites (cat 
 # 200 \um parallel, 2--5 \um in diam  (chinchilla [\citep{JosephsonMorest:1998}])
 # axon width 0.5--1.1 \um [\citep{OertelWuEtAl:1990}]
 # hillock initial segment averaged 2.5 \pm 0.96 \um,
@@ -2734,23 +2753,31 @@ Linear (Manis and Marx 1991)
 #   capacitance, room temp rat \citep{IsaacsonWalmsley:1995} dog
 #   \citep{BalBaydasEtAl:2009} 176 \pm 35.9 Mohm membrane time constant 8.8 \pm 1.4 (n=21)
 
-*** Synaptic Properties
+*** Synaptic Inputs and Properties
 
 # \yellownote{TODO: Para 1: Nordlie Table \ref{tab:TSModelSummary}A. Using RM  Type I-t, Other previous models}
 
 #\yellownote{TODO: Synaptic inputs known and unknown, included and not
 #included in model.  Previous work include and excludes}
 
-Figure \ref{fig:TSinputs} shows the expected response of a T stellate
-cell to individual connections from different cells in the \CNSM model.  The membrane parameters for the single compartment \TS
-cell model were default except for sodium conductance, which was set to zero.  In
-this example, excitation from the afferent \ANF inputs (\LSR Figure
-\ref{fig:TSinputs}A and \HSR Figure \ref{fig:TSinputs}B) show a large
-depolarisation.  \HSR inputs show a rapid onset and a slowly adapting
-sustained depolarisation.
+Few synaptic terminals contact the cell body of \TS cells, the majority of inputs contacting the proximal dendrites \citep{Cant:1981}. 
+
+
+
+The chopping pattern shown in Figure \ref{fig:microcircuit} is characteristic of \TS cells. Sustained and transient choppers (ChS and ChT) are differentiated by the regularity of discharge throughout the stimulus \citep{YoungRobertEtAl:1988}.   
+
+
+Figure \ref{fig:TSinputs} shows the expected response of a \TS cell to
+individual connections from different cells in the \CNSM model.  The
+membrane parameters for the single compartment \TS cell model were
+default parameters for the Type I-t \RM neural model with the sodium
+conductance disabled.  In this example, excitation from the afferent
+\ANF inputs (\LSR Figure \ref{fig:TSinputs}A and \HSR Figure
+\ref{fig:TSinputs}B) show a large depolarisation.  \HSR inputs show a
+rapid onset and a slowly adapting sustained depolarisation.
 
 #+BEGIN_LaTeX
-    \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
+%    \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
     \begin{figure}[htb]
       \centering%
   %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_exc.pdf}\\
