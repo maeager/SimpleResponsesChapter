@@ -747,7 +747,7 @@ units, primarily D and T stellate cells
 
 
 
-\yellownote{first sentence too long and could go at start of Golgi section}
+# \yellownote{first sentence too long and could go at start of Golgi section}
 
 
 The presence of GABAergic inputs to \VCN and \DCN neurons has been
@@ -1768,14 +1768,13 @@ Rate level curves are used to determine the threshold, dynamic range and
 saturation rate in response to acoustic stimuli.  The dynamic range of
 DS cells (\OnC and \OnL units) is much larger than their primary
 afferent inputs (DS \gt 50 dB SPL, ANFs \lt 25 dB SPL)
-\citep{Joris:1998,Rhode:1994,RhodeSmith:1986}.  The rate level responses
-to \CF tones and broadband noise in an \OnC unit \citep[shown~in~Figure~12~from]{ArnottWallaceEtAl:2004}, were used as the
-target data to fit the DS cell model.
+\citep{Joris:1998,Rhode:1994,RhodeSmith:1986}.  Figure \ref{fig:ArnottExamples} show two \OnC unit rate level responses
+to \CF tones and broadband noise \citep{ArnottWallaceEtAl:2004}; these units were used as the target data to fit the \DS cell model.
 
-# #+ATTR_LATEX: width=0.5\textwidth
-# #+Caption: [Tone and noise rate level response of a OnC unit (DS cell)]{Tone and noise rate level response of a DS cell used in the DS cell model rate-level optimisation (OnC unit data reproduced from Figure 12 in \citet{ArnottWallaceEtAl:2004}). } 
-# #+LABEL: fig:ArnottFig12
-#   [[../SimpleResponsesChapter/gfx/Arnott2004_Fig12_CF10_9kHz.png]]
+#+ATTR_LATEX: width=0.9\textwidth
+#+Caption: [Tone and noise rate level response of a OnC unit (DS cell)]{Tone and noise rate level response of a DS cell used in the DS cell model rate-level optimisation (OnC unit data reproduced from Figures 3 and 12 in \citet{ArnottWallaceEtAl:2004}). } 
+#+LABEL: fig:ArnottExamples
+ [[../SimpleResponsesChapter/gfx/Arnott2004Combined.pdf]]
 
 Figure \ref{fig:DSRateLevelResult} shows the output rate level responses
 of the input and \DS cell model using the best fit parameters in Table
@@ -1833,9 +1832,9 @@ over \HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio o
    \nLSRDS \hfill     &    [1,500]    & 57    \\             
    \nHSRDS \hfill     &    [1,500]    & 158    \\
    \nGLGDS \hfill    &     [1,50]    & 9   \\ \midrule
-  \multicolumn{2}{c}{Tone RMS error \hfill (sp/s)}  &    25,62      \\   
-  \multicolumn{2}{c}{Noise RMS error \hfill (sp/s)} &    36,27      \\ 
-    \multicolumn{2}{c}{Total error \hfill (sp/s)}   &    61,89      \\ \bottomrule
+  \multicolumn{2}{c}{Tone RMS error \hfill (spikes/s)}  &    25,62      \\   
+  \multicolumn{2}{c}{Noise RMS error \hfill (spikes/s)} &    36,27      \\ 
+    \multicolumn{2}{c}{Total error \hfill (spikes/s)}   &    61,89      \\ \bottomrule
   \end{tabularx}
   \end{table}
   \vspace{2ex} 
@@ -1855,12 +1854,12 @@ over \HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio o
 The output of the DS cell model in the optimisation was strongly
 determined by its input responses, as shown in Figure
 \ref{fig:DSRateLevelResult} A and C.  \HSR fibres (all with \SR=50
-sp/s) have low threshold to sounds and saturate at moderate sound
+spikes/s) have low threshold to sounds and saturate at moderate sound
 levels, as shown by the stable rate level responses to tones and noise
 (orange circles in Figures \ref{fig:DSRateLevelResult}). These flat
-responses at a high rate (approximately 250 sp/s) were not able to
+responses at a high rate (approximately 250 spikes/s) were not able to
 manipulate the DS cell model in the optimisation other than to set a
-threshold for tone and noise sounds.  \LSR fibres (SR=0.1 sp/s) and
+threshold for tone and noise sounds.  \LSR fibres (SR=0.1 spikes/s) and
 Golgi units have much higher thresholds and wider dynamic ranges.
 
 \yellownote{fix this: state output error value}
@@ -2109,28 +2108,32 @@ of \DCN principal cells are strongly inhibited by this narrowband
 source, especially at sharp spectral peaks close to their \BF.
 
 
-*** Modelling of Tuberculoventral cells
+** Implementation
 
 
-\yellownote{ Expand previous studies of the DCN incl. TV cells}
+# \yellownote{ Expand previous studies of the DCN incl. TV cells}
 
+# \citet{ArleKim:1991a} were the first to show Type II \EIRA units with
+#   simple McCullock-Pitts point neuron models of the \DCN.
+#  - (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
+#   inhibitory mechanism to create Type II unit responses in a model of
+#   the \DCN. In that model, each cell population was described by a
+#   mathematical formula for its steady-state rate-level function. This
+#   level of abstraction was used to focus specifically on the role of
+#   network connectivity in determining the steady-state behaviour of
+#   \DCN units. The level of abstraction employed in our model allows for
+#   examination of temporal response properties including PST histograms
+#   and cross-correlation analysis.
+#  - \citep{DunnVetterEtAl:1996} performed some modelling.
+#  - Most recent models from \citep{LomakinDavis:2008} and \citep{ReissYoung:2005}
+
+
+
+Modelling of Type II units in the \DCN has been thoroughly investigated.
 \citet{ArleKim:1991a} were the first to show Type II \EIRA units with
-  simple McCullock-Pitts point neuron models of the \DCN.
- - (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
-  inhibitory mechanism to create Type II unit responses in a model of
-  the \DCN. In that model, each cell population was described by a
-  mathematical formula for its steady-state rate-level function. This
-  level of abstraction was used to focus specifically on the role of
-  network connectivity in determining the steady-state behaviour of
-  \DCN units. The level of abstraction employed in our model allows for
-  examination of temporal response properties including PST histograms
-  and cross-correlation analysis.
- - \citep{DunnVetterEtAl:1996} performed some modelling.
- - Most recent models from \citep{LomakinDavis:2008} and \citep{ReissYoung:2005}
-
-Modelling of Type II units in the \DCN has been thoroughly investigated by
-Davis and colleagues
-\citep{YoungDavis:2002,HancockDavisEtAl:2001,DavisYoung:2000,SpirouDavisEtAl:1999,HancockDavisEtAl:1997,DavisVoigt:1996,DavisVoigt:1994,DavisVoigt:1991}.
+ simple McCullock-Pitts point neuron models of the \DCN.
+\citet{BlumReedEtAl:1995} created an abstract steady-state rate model to determine the effects of network connectivity in the \DCN. \citet{HancockDavisEtAl:1997} improved the spiking model by incorporating cross-correlation analysis and others in Davis collaborations    
+\citep{YoungDavis:2002,HancockDavisEtAl:2001,DavisYoung:2000,SpirouDavisEtAl:1999,HancockDavisEtAl:1997,DavisVoigt:1996,DavisVoigt:1994,DavisVoigt:1991}. The most recent model from \citet{ReissYoung:2005},  suggests asymmetry in Type II \DCN units' response to notch noise is due to an offset in the distribution of wide-band inhibition from \DS cells. 
 
 
 To create a neural model with low spontaneous rate requires either
@@ -2176,7 +2179,6 @@ modeling of the principal cells of the \DCN including Type II units
 # \item Solution: Parallelism model
 # \end{itemize}
 
-** Implementation
 
 The implementation of the \TV cell model used in the \CNSM model and its
 optimisation routines are described in Table \ref{tab:TVModelSummary}.
@@ -2624,8 +2626,7 @@ intracellular responses in rats as the basis for a thorough statistical
 analysis to separate chopper units into three distinct subtypes.  Figure
 \ref{fig:PaoliniAIV} shows the intracellular acoustic classification of
 chopper units in the rat into three types
-\citep{PaoliniClareyEtAl:2005}: ChS chopper sustained, and two transient
-choppers, ChT1 and ChT2.  The intracellular traces in Figure
+\citep{PaoliniClareyEtAl:2005}: \ChS, \ChTone and \ChTtwo.  The intracellular traces in Figure
 \ref{fig:PaoliniAIV} along with the \CV statistics in Figure
 \ref{fig:PaoliniCVdata} formed the basis for the optimisation routine
 of the \TS cell model of each chopper type in the \CNSM model.
@@ -2678,7 +2679,7 @@ stimulus.
 
 The \CNSM model shown in Figure \ref{fig:microcircuit}
 
-Recurrent synaptic connection between TS cells have been the focus of
+Recurrent synaptic connection between \TS cells have been the focus of
 recent neural models
 \citep{BahmerLangner:2006,BahmerLangner:2006a,WiegrebeMeddis:2004}.
 They were not included in the \CNSM model because  of the rarity of small round vesicles on \ChS units
@@ -2843,7 +2844,7 @@ Table \ref{tab:TSCellResults} reports the best-fit parameter values for the thre
   \begin{tabularx}{\textwidth}{X c D{,}{.}{2.6} D{,}{.}{2.6} D{,}{.}{2.6}} 
   \toprule 
   \textbf{Parameters (Units)}  & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
-                               &                &    \ChS    &   \ChT1    & \ChT2 \\ \otoprule
+                               &                &    \ChS    &   \ChTone   & \ChTtwo \\ \otoprule
       \wHSRTS  (nS)      &   [0.01,30]    &  2,019  & 0,817  & 2,489 \\
       \wLSRTS  (nS)      &   [0.01,30]    &  2,868  & 0,774  & 2,037\\
     %     \nLSRTV  \hfill ()   &     [0,64]     &           &           & \\
@@ -2862,7 +2863,7 @@ Table \ref{tab:TSCellResults} reports the best-fit parameter values for the thre
   % \begin{tabularx}{\linewidth}{X c c D{,}{.}{2.4} D{,}{.}{2.4} D{,}{.}{2.6}} 
   % \toprule 
   %         \textbf{Parameters}          &        \textbf{Label}        & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
-  %                                      &                              &                &   \multicolumn{1}{c}{ ChS }    &   \multicolumn{1}{c}{ ChT1 }    & \multicolumn{1}{c}{ ChT2 }\\ \otoprule
+  %                                      &                              &                &   \multicolumn{1}{c}{ \ChS }    &   \multicolumn{1}{c}{ \ChTone }    & \multicolumn{1}{c}{ \ChTtwo }\\ \otoprule
   %  Weight of HSR synapses on TS cell   &     \wHSRTS \hfill (nS)      &   [0.01,30]    &  2,01089  & 0,817015  & 2,48999 \\
   %  Weight of LSR synapses on TS cell   &     \wLSRTS \hfill (nS)      &   [0.01,30]    &  2,86796  & 0,774459  & 2,03762\\
   %   %  Number of synapses, LSR to TS   &      \nLSRTV  \hfill ()      &     [0,64]     &           &           & \\
@@ -2883,29 +2884,27 @@ Table \ref{tab:TSCellResults} reports the best-fit parameter values for the thre
 #+END_LaTeX
 
 *** Sustained Chopper
-
-\glsreset{ChS} 
+ 
 Figure \ref{fig:CSresults} shows the optimisation
 results for the \ChS unit 01-864-004 from
-\citep{PaoliniClareyEtAl:2005}, with \CF 3.9 kHz.  This unit had a
+\citep{PaoliniClareyEtAl:2005}, with \CF of 3.9 kHz and threshold 40 dB \SPL.  This unit had an average membrane 
 depolarisation threshold at 10 dB and a firing rate saturation at 75
-dB \SPL.  The stimulus for the optimisation routine was a pure tone 30
-dB above depolarisation threshold at \CF (3.9 kHz 40 dB \SPL), 5 ms
-on\slash off cosine squared ramp.  A 20 ms delay was included to allow
-the model to reach a sustained \RMP. The ChS model unit had CF of
-3.872 kHz due to the separation of frequency channels in the model.
-
+dB \SPL.   The \TS cell model \ChS unit had a \CF of
+3.87 kHz due to the separation of frequency channels in the \CNSM model.
+The stimulus for the optimisation routine was a pure tone at 70 dB \SPL, 30
+dB above threshold at \CF (3.87 kHz 40 dB \SPL).  A 20 ms delay was included to allow
+the model to reach a sustained \RMP.
 
 The best parameters found by the optimisation and shown in Figure
 \ref{fig:CSresults}, were very high excitatory input (\wLSRTS =
-2.86796 nS, \wHSRTS = 2.01089 nS) and moderate to high inhibition
-(\wDSTS 0.291181 nS, \wTVTS 0.884174 nS, \wGLGTS 0.749812 nS).  The low
+2.868 nS, \wHSRTS = 2.011 nS) and moderate to high inhibition
+(\wDSTS 0.291 nS, \wTVTS 0.884 nS, \wGLGTS 0.749 nS).  The low
 input stimulus level meant that the majority of synaptic input came
 from \HSR fibres.  There was a slight increase in the leak conductance
-($\gleak=6.57345e-4 \textrm{S/cm}^2$ ) from the initial value
+($\gleak=6.573e-4 \textrm{S/cm}^2$ ) from the initial value
 (4.907e-4), causing a decrease in the input resistance to 120
 M$\Omega$ from 163 M$\Omega$.  The final error, calculated with more
-weight on the CV variables, was 0.839952.  Post-tone hyperpolarisation
+weight on the CV variables, was 0.8399.  Post-tone hyperpolarisation
 (reference 1.30035, best \ChS model -0.029843) and the first \CV value
 (ref 0.1543, best \ChS model 0.49706) had the greatest difference.
 The poor initial \CV response was due to the irregular first spike.
@@ -3151,7 +3150,7 @@ All \BNN models are limited by a number of factors.  Firstly, the level
 of detail in the neural models set the underlying complexity and
 dynamics that are possible within the \BNN.  Secondly, the connectivity
 and synaptic parameters, which set the network dynamics, are often
-hand-tuned or guessed. Finally, the background and driving inputs to
+hand-tuned or guessed based on expected outputs and behaviour. Finally, the background and driving inputs to
 the network set the environmental conditions for genuine realistic
 models to be compared with experimental animal network under the same
 conditions and inputs.
@@ -3164,8 +3163,8 @@ mice \citep{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b}.
 More complex multi-compartment conductance model could have been chosen
 to include dendritic filtering, especially in \DS and \TS cells, and
 already present in existing stellate models
-\citep{WangSachs:1995,WiegrebeMeddis:2004}.
-Dendritic filtering in each of the cells was not included. 
+\citep{WangSachs:1995,WiegrebeMeddis:2004}. Dendritic filtering in each of the cells was not included. 
+
 
 
 \yellownote{TODO: AM coding in model is not verified by
@@ -3187,7 +3186,7 @@ connection) not included.}
 
 * Conclusion 
 
-Figure [[*Optimisation%20Results][Optimisation Results]]
+# Figure [[*Optimisation%20Results][Optimisation Results]]
 
 # Example conclusion The purpose for performing the experiments herein
 # was to gain insights into the functional relevance of the Type II
