@@ -30,7 +30,8 @@
      HSR      & Auditory nerve fibre \citep{ZilanyBruceEtAl:2009}  & $N_{\text{HSR}} = 50$ per channel \\\hline
      LSR      & Auditory nerve fibre \citep{ZilanyBruceEtAl:2009}                       & $N_{\text{LSR}} = 20$ per channel \\\hline
      GLG      & Instantaneous-rate Poisson neuron        & $N_{\text{GLG}} = 1$ per channel \\\hline
-     DS       & Type I-II \RM model & 1 unit at channel 50, CF$ = 5.6$ kHz \\\hline
+    \multirow{2}{*}{DS}       & \multirow{2}{*}{Type I-II \RM model} &  Click Recovery: 1 unit at channel 50, CF$ = 5.6$ kHz \\ 
+&& Rate Level: 1 unit at channel 76, CF = 11.1 KHz \\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -64,7 +65,7 @@ Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight
 
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
-\hdr{2}{E}{Optimisation}\\\hline
+\hdr{2}{E}{Optimisation - Click Recovery}\\\hline
 \textbf{Input Stimulus}  & Mask and recovery click pairs, with delay 16, 2, 8, 4, and 3 ms (in this order), separated by 50 ms   \\\hline
      \textbf{Parameters}      & 
       \wGLGDS,    
@@ -80,7 +81,21 @@ $\tau_{\rm GABA-2}$,
 
 \textbf{Fitness Function} & Weighted mean squared error between \DS model and experimental \DS cell \citep{BackoffPalombiEtAl:1997} masker-probe rate ratios. Idle rates were recorded for spontaneous activity and levels of ANF excitation were used as additional penalties. \\\hline
 \end{tabularx}
-\yellownote{Rate level optimisation table}
+
+\vspace{1ex}
+
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\hdr{2}{F}{Optimisation - Rate Level}\\\hline
+\textbf{Input Stimulus}  & 1. Tone rate Level function, 11.1~kHz tone at 30 to 100 dB SPL in 5 dB intervals (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay). 2. Noise rate level, broad-band noise at 40 to 95 db SPL in 5 dB intervals  \\\hline (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay).
+\textbf{Parameters}      & 
+      \wGLGDS, \nGLGDS,    
+      \wHSRDS, \nHSRDS,   
+      \wLSRDS, \nLSRDS   
+          \\\hline
+\textbf{Fitness Function} & RMS error between \DS cell model (CF 11.1 kHz) and experimental \OnC unit \citep[CF~10.9~kHz, ][]{ArnottWallaceEtAl:2004} at each input stimulus in tone and noise rate levels. \\\hline
+\end{tabularx}
+
 }
 
 %%% Local Variables: 
