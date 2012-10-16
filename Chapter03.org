@@ -1768,10 +1768,12 @@ saturation rate in response to acoustic stimuli.  The dynamic range of
 DS cells (\OnC and \OnL units) is much larger than their primary
 afferent inputs (DS \gt 50 dB SPL, ANFs \lt 25 dB SPL)
 \citep{Joris:1998,Rhode:1994,RhodeSmith:1986}.  Figure \ref{fig:ArnottExamples} show two \OnC unit rate level responses
-to \CF tones and broadband noise \citep{ArnottWallaceEtAl:2004}; these units were used as the target data to fit the \DS cell model.
+to \CF tones and broadband noise \citep{ArnottWallaceEtAl:2004}; the unit 284 from Figure \ref{fig:ArnottExamples}A  was used as the target data to fit the \DS cell model. 
+
+Table \ref{tab:DScellModelSummary}F describes the DS cell model rate-level optimisation routine. Weight and number parameters for the three input connections to \DS cells were modified in the procedure.
 
 #+ATTR_LATEX: width=0.9\textwidth
-#+Caption: [Tone and noise rate level response of a OnC unit (DS cell)]{Tone and noise rate level response of a DS cell used in the DS cell model rate-level optimisation (OnC unit data reproduced from Figures 3 and 12 in \citet{ArnottWallaceEtAl:2004}). } 
+#+Caption: [Tone and noise rate level response of a OnC unit (DS cell)]{Tone and noise rate level response of \OnC units used in the DS cell model rate-level optimisation.  (OnC unit data reproduced from Figures 3 and 12 in \citet{ArnottWallaceEtAl:2004}). } 
 #+LABEL: fig:ArnottExamples
  [[../SimpleResponsesChapter/gfx/Arnott2004Combined.pdf]]
 
@@ -1779,17 +1781,14 @@ Figure \ref{fig:DSRateLevelResult} shows the output rate level responses
 of the input and \DS cell model using the best fit parameters in Table
 \ref{tab:DSRateLevelResults}.  Figures \ref{fig:DSRateLevelResult}A and C show
 the rate level responses of inputs  \HSR and \LSR \ANFs and \GLG cells, used during the optimisation. 
-
-\yellownote{TODO: More discussion about parameters. Ratelevel results reaffirm click recovery optimisation}
+# \yellownote{TODO: More discussion about parameters. Ratelevel results reaffirm click recovery optimisation}
 The \ANF weight parameters show a clear favouritism toward the \LSR input
-over \HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio of 2:1.  
+over \HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio of 2:1.  The best parameters  produced a combined RMS error of 61.89 spikes per second; for non-zero target data elements the mean error relative to the target was 89\%. 
 
 # While this may not seem ideal
 # for fast coincidence detection, the large number of \HSR synapses makes
 # up for the small weight that was obtained in the optimisation.
 
-
-\yellownote{alignment of table, spacing, and number of significant digits!!!!}
 #+BEGIN_LaTeX
   {%
   \small\noindent
@@ -1850,7 +1849,7 @@ over \HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio o
 [[../SimpleResponsesChapter/gfx/DS_RateLevel_result.pdf]]
 
 
-The output of the DS cell model in the optimisation was strongly
+The output of the \DS cell model in the optimisation was strongly
 determined by its input responses, as shown in Figure
 \ref{fig:DSRateLevelResult} A and C.  \HSR fibres (all with \SR=50
 spikes/s) have low threshold to sounds and saturate at moderate sound
@@ -1861,7 +1860,7 @@ manipulate the DS cell model in the optimisation other than to set a
 threshold for tone and noise sounds.  \LSR fibres (SR=0.1 spikes/s) and
 Golgi units have much higher thresholds and wider dynamic ranges.
 
-\yellownote{fix this: state output error value}
+#\yellownote{fix this: state output error value}
 # The best parameters \ldots
 
 \clearpage
