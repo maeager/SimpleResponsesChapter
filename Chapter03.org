@@ -13,7 +13,7 @@
 #+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
-#+BIBLIOGRAPHY: MyBib alphanat
+#+BIBLIOGRAPHY: ../MyBib alphanat
 
 
 #+LaTeX:\ifthenelse{\isundefined{\manuscript}}{\printglossaries}{}
@@ -119,7 +119,7 @@ within the \CNSM model (Figure \ref{fig:microcircuit}) were developed
 using such a sequential method of optimisation steps.  Parameters in the
 microcircuit can be separated into two classes, cell-based and
 connectivity-based.  The cell-based parameters for each cell model in
-the \CNSM model, discussed in Section [[Neural Cell Models]], remain
+the \CNSM model, discussed in Section [[Neural%20Cell%20Models][Neural Cell Models]], remain
 relatively fixed. The connectivity-based parameters, introduced in
 Section [[Connectivity Parameters]], are the main focus of this chapter.
 The parameters in the sequential optimisation stages were chosen so that
@@ -131,8 +131,7 @@ short tone bursts
 \citep{Pfeiffer:1966,BlackburnSachs:1989,YoungRobertEtAl:1988}, and the
 \EIRA to tones across the frequency spectrum \citep{Evans:1992}.  
 # The
-# process methods for optimisation were described in Section [[Optimisation%20Techniques][Optimisation
-# Techniques]].
+# process methods for optimisation were described in Section [[Optimisation%20Techniques][Optimisation Techniques]].
 
 # These included specifying the model to be optimised,
 # the criteria, and the parameters and the constraints of
@@ -287,7 +286,7 @@ Zilany model \citep{ZilanyBruceEtAl:2009}.
 The neural models used in the \ANFs and Golgi cell model were
 inhomogeneous Poisson processes.  The instantaneous rate produced the
 input \AN model (chosen from the Bruce or Zilany model) or through the
-Golgi filter model (Section [[Golgi%20Cell%20Model][Golgi Cell Model]]) was passed through the
+Golgi filter model (Section \ref{sec:GolgiModelOpt}) was passed through the
 Jackson spiking model \citep{Jackson:2003,JacksonCarney:2005}, which
 includes refractory effects typical of the \ANFs.  Spike trains for each
 neuron in the \AN model were created at the start of each repetition of
@@ -3111,12 +3110,23 @@ ChT2 unit was -60.63 and -64.96 mV, respectively.
   especially the methods.}
  
 
-The microcircuit in the cochlear nucleus is one of the
-most interesting neural features of the auditory system.  It enables a
+The stellate microcircuit in the cochlear nucleus is one of the 
+most interesting neural network features of the auditory brainstem.  It enables a
 high fidelity sensory input to be passed to higher order centres, by
 reproducing the spectrum in a robust fashion
 \citep{BlackburnSachs:1990,May:2003} and synchronisation to significant
 periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
+
+Delayed echo supression
+
+Spectral peak enhancement
+
+Enhanced periodicity 
+
+Selective processing of two primary modes of ANFs
+
+Attention selective modulation  from higher auditory centres modulating 
+
 
 ** CNSM Cell Models
 
@@ -3145,10 +3155,54 @@ Section
 # an important link in the OHC-MOC reflex circuit.
 
 
+The function of Golgi cells in the \GCD is very complex and very few
+studies have investigated their behaviour /in vivo/ or /in vitro/.  They
+interact with many of their granule cell neighbours and with mossy fibre
+complexes.  Acoustically driven Golgi cells have a wide dynamic range
+which make them well suited to encode the intensity of sound.  Small
+cells in the \GCD project to groups of neurons around the superior
+olivary complex that are known to be part of the medial olivocochlear
+reflex circuit.  The medial olivocochlear circuit regulates the outer
+hair cells of the cochlea, the cochlea amplifier.  Golgi
+cells are an important link in the medial olivocochlear circuit and
+their accurate representation of sound levels is important in the \CNSM model.
+
+The Golgi cell model reproduces the monotonic rate-level response
+observed in experimental data of a single unit in the marginal shell of
+the \VCN \citep{GhoshalKim:1997}.  The filter model and spiking process
+are an effective and fast means of generating the expected Golgi cell
+behaviour.  The strength of ANF inputs was dominated by \LSR fibres, as
+expected by their wider dynamic ranges; however \HSR fibres were needed
+to begin the GLG cell model's rate-level rise at earlier sound levels.
+
 
 *** D Stellate Cell Model
 
 Discuss Section \ref{sec:Ch3:DSModel} [[D%20Stellate%20Cell%20Model][D Stellate Cell Model]]
+
+
+The output characteristics of DS cells after onset are determined by a
+combination of intrinsic and extrinsic properties. The current clamp
+response of \DS cells is bimodal; firing only at onset for low
+excitatory current and firing repetitively for higher input
+currents. The Type I-II \RM neural model contains small traces of \IKLT,
+which in larger traces is responsible for the phasic (Type II) responses
+characteristic of \AVCN bushy cells, reproducing the bimodal current
+clamp behaviour in DS cells.  Extrinsic properties influencing the \OnC
+behaviour post onset include a reduced level of excitation and delayed
+inhibition.  The reduced level of excitation post-onset is observed in
+\ANFs with a fast adaptation in the first 10 ms and slow adaptation
+throughout the stimulus.  Inhibition is present in DS cells with glycine
+and GABAergic synapses
+\citep{SmithRhode:1989,FerragamoGoldingEtAl:1998a}. In the \CNSM model,
+the \DS cell only receives inhibition from GABAergic Golgi cells. This
+connection represents the actual Golgi cell connections to \DS cells at
+the distal end of their dendrites and somatic GABAergic inputs (most
+likely from peri-olivary neurons).
+
+
+ 
+
 
 \yellownote{TODO: Discuss the DS cell model optimisation.  What were the
 reasons for using cell-based parameters, and why is this necessary?
@@ -3204,6 +3258,7 @@ of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
 
 ** Implications of sequential microcircuit optimisation
+
 
 
 
