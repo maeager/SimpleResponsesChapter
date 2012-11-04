@@ -1,0 +1,128 @@
+{
+\small\linespread{0.5}
+\noindent%
+\begin{table}[!thb]
+    \caption{Golgi cell model summary (Nordlie format)}
+    \label{tab:GolgiCellModelSummary}
+
+\begin{tabularx}{\textwidth}{|l|X|} %
+\hdr{2}{A}{Model Summary}\\
+%\begin{ntab}{|l|X|}{2}{\ref{tab:GolgiCellModelSummary} A}{Model Summary}\\\hline
+ \textbf{Populations}  & ANF~(HSR, LSR) and Golgi (GLG) cells \\\hline 
+  \textbf{Topology}    & Tonotopic - 100 frequency channels (0.2--40
+  kHz);  Cat model; Greenwood function centre frequencies \citep{Greenwood:1990}\\\hline
+\textbf{Connectivity}  & ANF to GLG filter inputs, Gaussian spread
+centred on channel\\\hline
+\textbf{Input model}  & ANF~model: Version 4 and 5 Zilany model \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} \\\hline
+\textbf{Neuron model}  & Golgi cell model: Instantaneous-rate Poisson
+neuron model \\\hline
+\textbf{Synapse model} & Synapto-dendritic smoothing filter (alpha function) \\\hline
+%    \textbf{Input}     & Pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range 0--100 dB~SPL   \\\hline
+%\textbf{Measurements}  & Mean firing rate of Golgi cell instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions) \\\hline
+\end{tabularx}
+\vspace{1ex}
+%\end{ntab}
+
+% - B ------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|X|}%
+\hdr{3}{B}{Populations}\\
+\textbf{Name} &                         \textbf{Elements}                          & \textbf{Number} \\\hline
+     HSR      & Auditory nerve fibre model
+     \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & Rate models only,
+     1 per channel\\\hline
+     LSR      & Auditory nerve fibre
+     \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & Rate models only,
+     1 per channel \\\hline
+     GLG      &                 Instantaneous-rate Poisson neuron model                  & 1 unit (CF 22.7 kHz, channel 76)  \\\hline
+\end{tabularx}
+\vspace{1ex}
+
+% - C ------------------------------------------------------------------------------
+\noindent
+\begin{tabularx}{\textwidth}{|l|l|l|X|}%
+\hdr{4}{C}{Connectivity}    \\
+     \textbf{Name}       & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
+\multirow{2}{*}{\ANFGLG} &     {\HSR}      &      GLG      & 
+Gaussian spatial convergence, centred on CF, spread parameter
+(\sHSRGLG = 2). Weight (\wHSRGLG) to be optimised. \\
+   &     {\LSR}      &      GLG      & 
+Gaussian spatial convergence, centered on CF.  Spread (\sLSRGLG) and weight (\wLSRGLG) to be optimised. \\\hline
+\end{tabularx}
+\vspace{1ex}
+\end{table}%
+
+% - D ------------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\linewidth}{|p{0.22\linewidth}|X|}
+\hdr{2}{D}{Neuron and Synapse Model}\\
+ \textbf{Name} & Golgi cell model \\\hline
+ \textbf{Type} & Instantaneous-rate Poisson neural  model \\\hline 
+%\raisebox{-4.5ex}{\parbox{\linewidth}{\textbf{Model Dynamics}}} & 
+ \textbf{Model Dynamics} & %
+% {\rule{1em}{0em}\vspace*{-1.5ex}\scriptsize%
+% \begin{equation*}%
+%  \begin{array}{r@{\;=\;}ll}
+%   \mathbf{w}_{L,H}&  w_{LSR,HSR \to GLG}\,\mathcal{N}(i_{{\rm CF}},\sigma)    & \text{Gaussian weight mean at CF, \sigma^2=\sLSRGLG} \\ 
+%   \alpha(t)      &\left( t  \exp(\frac{-t}{\Gtau}) \right)   &  \text{Synapto-dendritic filter with unit area} \\
+%   g(t)           & \mathbf{w}_{L}\bullet\mathbf{L}+\mathbf{w}_{H}\bullet\mathbf{H} & \text{Sum of dot products} \\ % between weights and ANF rate matrices}\\ 
+% %\mathbf{H},\mathbf{L} \to f(\text{channel},t) & \mathbf{w}_{H,L} \to f(\text{channel})\\
+%              %      r(\mathbf{x})              &               \max\{\mathbf{x}(t-\dANFGLG) - x(0) + \Gspon,0\}                & \\
+%  G(t)  &   \lfloor \, \alpha(t)\,\ast\,g(t) \,\rfloor                  & \text{Convolution of $\alpha(t)$ and $g(t)$ and rectification}\\
+% % & \text{if } G(t) < 0 \,G(t)=0 & \text{rectification of Golgi model rate} \\
+% \end{array} \end{equation*}\vspace*{-1.5ex}\rule{1em}{0em}}  \\\hline
+%{\rule{1em}{0em}\vspace*{-1.5ex}%\scriptsize%
+See Figure~\ref{fig:GolgiDiagram} and the GLG rate filter model
+Equations~\ref{eq:GolgiWeights}--\ref{eq:GolgiConvolution}.
+% ($g_{i}(t)$) used for
+% the Golgi cell model. It was created using convolution of weighted ANF input rates
+% and synapto-dendritic kernel ($\alpha_{\small\rm GLG}(t)$) with rectification. 
+% \begin{equation*}%
+%  \begin{array}{r@{\;=\;}l}
+%  {\rm GLG}_{i}(t)  &  \alpha_{\rm GLG}(t)\,\ast\,g(t) \,\rfloor + \text{SR}_{\rm GLG} \quad \text{where} \\
+%   \alpha(t)      &\left( t  \exp(\frac{-t}{\Gtau}) \right)   \quad  \text{and} \\
+%   g(t)           & \mathbf{w}_{L}\bullet\mathbf{L}+\mathbf{w}_{H}\bullet\mathbf{H} 
+% \end{array} \end{equation*}\vspace*{-1.5ex}\rule{1em}{0em}
+%Preliminary rate, $g(t)$, is the sum of dot products between weight vectors and ANF rate matrices.
+% Gaussian weight vectors have mean at CF and $\sigma^2=\sLSRGLG$.}  
+\\\hline
+ \textbf{Spiking} & Renewal Poisson process given instantaneous rate, ${\rm GLG}_{i}(t)$,  with refractory effects  \citep{ZilanyBruce:2007,Jackson:2003} \\\hline
+\end{tabularx}
+\vspace{2ex} 
+
+% $\dag$\footnotesize{Synaptic filter, $\alpha(t)$, is normalised, by setting the
+%   area under the alpha function to one. For a large enough filter length, the
+%   alpha function integral ($\int \alpha(t) dt = (-\Gtau^2 - t \cdot \Gtau)\cdot
+%   \exp(-\frac{t}{\Gtau})$) approximately equals $\Gtau^2$. In this case $10
+%   \times \Gtau$ is used for the filter length.}  
+
+% - E -----------------------------------------------------------------------------
+\noindent
+\begin{tabularx}{\linewidth}{|l|X|} %
+\hdr{2}{E}{Optimisation}\\
+\textbf{Input Stimulus} & Rate Level function, 22.7~kHz tone at SPL -15 to 90 dB (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
+\textbf{Parameters} & 
+ \sANFGLG,  
+   \Gtau,   
+ \wHSRGLG,  
+ \wLSRGLG,  
+  \Gspon   \\\hline
+\textbf{Fitness function}  & Mean squared error between rate-level functions of Golgi model (channel 76, CF=22.7 kHz) and unit S03-07 (CF=21 kHz) from \citet{GhoshalKim:1996}. Mean rate of Golgi model spikes sampled from 25 repetitions. \\\hline
+\end{tabularx}
+\vspace{1ex}
+% \begin{ntab}{4}{|X|c|c|c|}{E}{Optimisation NTAB}
+% \textbf{Parameters}             &    \textbf{Name}     & \textbf{Range} & \textbf{Best Values} \\\hline 
+%  Spatial spread $\ANFGLG$ (channel unit)   &      $\sANFGLG$      &     [0,10]     & 2.48  \\\hline 
+%  Synaptodendritic filter time constant (ms)     &   $\tau_{\ANFGLG}$     &     [0,20]       & 5.01  \\\hline 
+%       Weighted sum of HSR (unitless)       &      $\wHSRGLG$      &     [0,5]      & 0.517 \\\hline 
+%       Weighted sum of LSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
+% Golgi spontaneous rate (spikes per second) & \texttt{golgi\_spon} &     [0,50]     & 3.73  \\\hline
+% \end{ntab}
+
+}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: nil
+%%% End: 
