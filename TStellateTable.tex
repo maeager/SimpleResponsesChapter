@@ -52,8 +52,8 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGTS$, weight \wGLGT
     \DSTS     &       DS        &        TS        & 
 Gaussian convergence, centered on CF, spread $\sigma^2 = \sDSTS$, weight \wDSTS, number \nDSTS, delay $\dDSTS=0.5$ ms \\\hline
     \TVTS     &       TV        &        TS        & 
-Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, number \nTVTS, delay $\dTVTS=0.5$ ms \\\hline
-\multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model. }\\\hline
+Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, number \nTVTS, delay $\dTVTS=1.0$ ms \\\hline
+\multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model in Table \ref{tab:TVNotchModelSummary}C. }\\\hline
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
 \vspace{1ex}
@@ -108,7 +108,7 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
       \wTVTS,  \nTVTS, 
   \wGLGTS, \nGLGTS 
       \TS \gleak, \TS \gh    \\\hline
-\textbf{Fitness Function}    &  Intracellular voltage was recorded and special measures were calculated.  Spikes were recorded and \CV statistics were calculated in 10 ms windows from 2.5 ms after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
+\textbf{Fitness Function}    &  Input stimulus was presented to the CNSM model with intracellular voltage and spike timing output recorded from one \TS cell model. Special \AIV measures and spike statistics were calculated.  \CV statistics were measured in 10 ms windows from 2.5 ms after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
 \end{tabularx}
 \vspace{1ex}
 }

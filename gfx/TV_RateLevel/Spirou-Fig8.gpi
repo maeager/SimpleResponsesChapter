@@ -59,6 +59,7 @@ set style line 3 lc rgb "black" lt 4 lw 2
 
 set label 1 at -95,350 "BF Tone"
 set label 2 "Noise" at -35,50 
+set label 3 "{/Helvetica=36 A}" at graph 0.05, graph 1.15
 
 set multiplot layout 1,2
 
@@ -72,6 +73,7 @@ plot [*:*][0:600] '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-Co
 
 set label 1 at -85,250 "BF Tone"
 set label 2 "Noise" at -40,50 
+set label 3 "{/Helvetica=36 B}" at graph 0.05, graph 1.15
 
    
 plot '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8B-RL-withStry-Control-Tone-Noise.png.dat' i 1 u 1:2 not "Control-BFTone" w l ls 1, \
