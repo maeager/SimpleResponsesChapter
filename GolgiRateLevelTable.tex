@@ -1,4 +1,4 @@
-{
+{%
 \small\linespread{0.5}
 \noindent%
 \begin{table}[!thb]
@@ -14,7 +14,7 @@
 \textbf{Connectivity}  & ANF to GLG filter inputs, Gaussian spread
 centred on channel\\\hline
 \textbf{Input model}  & ANF~model: Version 4 and 5 Zilany model \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} \\\hline
-\textbf{Neuron model}  & Golgi cell model: Instantaneous-rate Poisson
+\textbf{Neuron model}  & GLG cell model: Instantaneous-rate Poisson
 neuron model \\\hline
 \textbf{Synapse model} & Synapto-dendritic smoothing filter (alpha function) \\\hline
 %    \textbf{Input}     & Pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range 0--100 dB~SPL   \\\hline
@@ -47,7 +47,7 @@ neuron model \\\hline
 Gaussian spatial convergence, centred on CF, spread parameter
 (\sHSRGLG = 2). Weight (\wHSRGLG) to be optimised. \\
    &     {\LSR}      &      GLG      & 
-Gaussian spatial convergence, centered on CF.  Spread (\sLSRGLG) and weight (\wLSRGLG) to be optimised. \\\hline
+Gaussian spatial convergence, centered on \CF.  Spread (\sLSRGLG) and weight (\wLSRGLG) to be optimised. \\\hline
 \end{tabularx}
 \vspace{1ex}
 \end{table}%
@@ -102,12 +102,12 @@ Equations~\ref{eq:GolgiWeights}--\ref{eq:GolgiConvolution}.
 \hdr{2}{E}{Optimisation}\\
 \textbf{Input Stimulus} & Rate Level function, 22.7~kHz tone at SPL -15 to 90 dB (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
 \textbf{Parameters} & 
- \sANFGLG,  
+ \sANFGLG, 
    \Gtau,   
  \wHSRGLG,  
  \wLSRGLG,  
   \Gspon   \\\hline
-\textbf{Fitness function}  & Mean squared error between rate-level functions of Golgi model (channel 76, CF=22.7 kHz) and unit S03-07 (CF=21 kHz) from \citet{GhoshalKim:1996}. Mean rate of Golgi model spikes sampled from 25 repetitions. \\\hline
+\textbf{Fitness function}  & RMS squared error between rate-level functions of Golgi model (channel 76, CF=22.7 kHz) and unit S03-07 (CF=21 kHz) from \citet{GhoshalKim:1996}. Mean rate of Golgi model spikes sampled from 25 repetitions. \\\hline
 \end{tabularx}
 \vspace{1ex}
 % \begin{ntab}{4}{|X|c|c|c|}{E}{Optimisation NTAB}
