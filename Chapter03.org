@@ -124,8 +124,8 @@ In this chapter, the table method introduced by
 In order to create a realistic microcircuit, the parameter optimisation routine
 needs to be developed in sequential stages.  The
 connections within the \CNSM model (Figure \ref{fig:microcircuit}) were
-developed using such a sequential method of optimisation steps:
-Parameters in the microcircuit can be separated into two classes
+developed using such a sequential method of optimisation steps.
+Parameters in the microcircuit can be separated into two classes:
 cell-based and connectivity-based.  The cell-based parameters for each
 cell model in the \CNSM model, discussed in Section \ref{sec:Meth:cell-models}, remain relatively fixed. The connectivity-based
 parameters, introduced in Section \ref{sec:Ch2:Parameters}, are the main focus of this chapter.  The parameters in the
@@ -326,9 +326,10 @@ the stimulus.  Further detail on \HSR and \LSR ANF models are in Section
 ** Neural Models
 
 Single-compartment Hodgkin-Huxley-like neural models were used for the
-\DS, \TV and \TS cells in the \CNSM model. 
-The \RM neural model is a conductance based neural model with membrane current models
- developed by \citet{RothmanManis:2003b}. The \RM model is discussed in detail in Section \ref{sec:Meth:cell-models} in Chapter \ref{sec:MethodsChapter}.
+\DS, \TV and \TS cells in the \CNSM model.  The \RM neural model is a
+conductance based neural model with membrane current models developed by
+\citet{RothmanManis:2003b}. The \RM model is discussed in detail in
+Section \ref{sec:Meth:cell-models} in Chapter \ref{sec:MethodsChapter}.
 
 
 
