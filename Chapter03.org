@@ -103,12 +103,13 @@ detailed neural models. There is much to be gained from
 biophysically-realistic modelling approaches, especially in the
 thoroughly investigated cochlear nucleus of mammals, bats and birds.
 
-#\yellownote{TODO: think about linking to end of methods chapter.  I.e. reproducbable research}
+#TODO: think about linking to end of methods chapter.  I.e. reproducbable research
 
-# \yellownote{TODO: See neural detail in auditory
-# system\citep{LuRubioEtAl:2008}} \yellownote{Discuss use of Poisson
+# TODO: See neural detail in auditory
+# system\citep{LuRubioEtAl:2008}
+# Discuss use of Poisson
 # models vs HH-like models.  Discuss single cell simulation vs whole
-# network simulation during optimisation.}
+# network simulation during optimisation.
 
 To develop and optimise detailed neural models and neural network
 models, reproducible research methods are required.  
@@ -121,7 +122,6 @@ In this chapter, the table method introduced by
 # This method aims to
 # show a consistent and recognisable format for presenting various
 # neural network models and their constituents.
-# \yellownote{this needs more explanation in the methods sections}
 In order to create a realistic microcircuit, the parameter optimisation
 routine needs to be developed in sequential stages.  The connections
 within the \CNSM model (Figure \ref{fig:microcircuit}) were developed
@@ -234,14 +234,14 @@ optimised last.  Due to the variety of possible inputs to \TS cells (and
 the observed physiological classification sub-types in chopper units),
 three \TS cell model sub-types were optimised.
 
-# \yellownote{TODO: This para is about pushing the reader towards the
+# TODO: This para is about pushing the reader towards the
 # following sections.  Needs to expand on reasons for wanting to create
 # a biophysically realistic model of the CN. Discuss reason for using
-# whole network in TV and TS optimisation. } \yellownote{Auditory model
+# whole network in TV and TS optimisation. Auditory model
 # and history should be in the METHODS section.}  A paragraph on the
 # history of AN modelling \citep{LeakeSnyderEtAl:1993, ArnesenOsen:1978,
 # CloptonWinfieldEtAl:1974}.  Perhaps Rose et al 1959 would be better
-# suited here}
+# suited here
 
 
 * Methods
@@ -273,9 +273,9 @@ Zilany model \citep{ZilanyBruceEtAl:2009}.
 # suppression, is used in this study except in the vowel simulation where
 # the human auditory periphery model is used.
 
-# \yellownote{TODO: 
+
 # AN model paragraph has been changed - fix any comment related to new
-# Zilany}
+# Zilany
 
 # The \citet{ZilanyBruce:2007} model improves the previous AN model by
 # an additional signal path and its predictions have matched a wide
@@ -284,11 +284,11 @@ Zilany model \citep{ZilanyBruceEtAl:2009}.
 # internal $1/f$ noise, that enhances the behaviour of long-term
 # dependence in ANFs \citep{ZilanyBruceEtAl:2009}.
 
-# \yellownote{TODO Why is it the cat model? updating Carney model? Updating
+# TODO Why is it the cat model? updating Carney model? Updating
 #   of the Carney auditory model has led to the change in the model's
 #   configuration from an original implementation of the rat model.  The
 #   default species is the cat and will be used in the data presented in
-#   this chapter.}
+#   this chapter.
 
 
 # ** Spiking in Poisson Neural Models 
@@ -348,8 +348,8 @@ Section \ref{sec:Meth:cell-models}.
 # low-threshold potassium current channels, which is strongest in bushy
 # cells, to enhance response to coincident inputs.
 
-# \yellownote{TODO: Discuss RM model (put in Methods Chapter).  Perhaps expand
-#   more on the role of the currents on each neuron in the CN model.}
+# TODO: Discuss RM model (put in Methods Chapter).  Perhaps expand
+#   more on the role of the currents on each neuron in the CN model.
 
 ** Connectivity and Network Parameters
    :PROPERTIES:
@@ -385,9 +385,9 @@ separated using the same Greenwood function used for the filterbank of
 # 
 # The simulation for each optimisation routine the integration timestep was either 0.05 or 0.1 ms.    parameters
 
-#\yellownote{TODO: A generic section called 'Simulations' was proposed to go
+# TODO: A generic section called 'Simulations' was proposed to go
 #  here.  This would state the integration timestep, the system used,
-#  the RNG used etc.  This could perhaps go in the Methods chapter}
+#  the RNG used etc.  This could perhaps go in the Methods chapter
 
 ** Synapse Models
 
@@ -762,11 +762,7 @@ units, primarily D and T stellate cells
 # GABA in the Ventral Cochlear Nucleus
 # {Neuromodulatory effects of Golgi cells}
 
-
-
-\yellownote{first sentence too long and could go at start of golgi section}
-
-
+# first sentence too long and could go at start of golgi section
 The presence of GABAergic inputs to \VCN and \DCN neurons has been
 verified by labeled terminals adjacent to the soma and dendrites
 \citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003}
@@ -785,7 +781,8 @@ known source of \GABA intrinsic to the \VCN are the Golgi cells of the
 \GCD overlying the \VCN
 \citep{Mugnaini:1985,FerragamoGoldingEtAl:1998}.
 
-# \yellownote{TODO:  Clean up paragraph} Other studies in the rat cochlear
+# TODO:  Clean up paragraph
+# Other studies in the rat cochlear
 # nucleus relating to the Golgi cell or \GABA:
 # \begin{itemize}
 # \item \citep{MugnainiOsenEtAl:1980} Fine structure of granule cells and
@@ -799,7 +796,8 @@ known source of \GABA intrinsic to the \VCN are the Golgi cells of the
 #   {GABAergic} and {Glycinergic} {Transmission} in the {MNTB}
 # \end{itemize}
 #
-# \yellownote{TODO:  Expand role of \GABA, or combine with previous para} Role of
+# TODO:  Expand role of \GABA, or combine with previous para
+# Role of
 # \GABA in the \VCN.
 # \begin{itemize}
 # \item Effects of microiontophoretically applied glycine and {GABA} on neuronal
@@ -815,15 +813,15 @@ Type II \ANFs create diffuse glutamatergic release sites in the \GCD
 \citep{HurdHutsonEtAl:1999,BensonBrown:2004} that may stimulate NMDA
 glutamate receptors in Golgi cells \citep{FerragamoGoldingEtAl:1998a}.
 
-# \yellownote{REPETITIVE: The physiological response of Golgi cells has not been extensively
+# REPETITIVE: The physiological response of Golgi cells has not been extensively
 # studied.  Intracellular recordings of Golgi cells in one study by
 # \citet{FerragamoGoldingEtAl:1998} have shown a classic Type I current
 # response.  This suggests Golgi cells are simple integrators.	Their
 # response to auditory nerve shocks were delayed by approximately 0.7 ms
 # relative to the core \VCN units \citep{FerragamoGoldingEtAl:1998}.
-# }
+# 
 
-# \yellownote{REPETITIVE:
+# 
 # Extracellular recordings from labelled Golgi cells is not available in
 # the literature; however, the \GCD (or marginal shell of the \VCN in
 # cats) has been studied by one group \citet{GhoshalKim:1997} without
@@ -842,7 +840,7 @@ glutamate receptors in Golgi cells \citep{FerragamoGoldingEtAl:1998a}.
 # cells is to regulate granule cells but they may also provide automatic
 # gain control to the principal VCN units, primarily D and T stellate
 # cells \citep{FerragamoGoldingEtAl:1998a}.
-# }
+# 
 
 
 # ** Golgi Cell Model
@@ -1049,7 +1047,8 @@ are shown in Table \ref{tab:GolgiCellModelSummary}E.
 # ensure conductance and dendritic filtering are included.
 
 # *** Key design factors}
-# \yellownote{TODO:  expand para, include fig ref} Choosing neural model: \HH-type
+# TODO:  expand para, include fig ref
+# Choosing neural model: \HH-type
 # or Poisson - Problem of monotonic excitation at low levels - Spread of \ANF to
 # \GCD ARE broader than core \VCN- are we spoiling the broth too early?
 # \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
@@ -1065,7 +1064,6 @@ are shown in Table \ref{tab:GolgiCellModelSummary}E.
 # \caption{Optimisation Results for Golgi Model using Rate Level data from
 # \label{Ch3:fig:GolgiRL}}
 
-#\clearpage
 
 ** Optimisation Results
 
@@ -1175,8 +1173,6 @@ approximately 70 \um, giving an expected spread of 1.5 channels in the
 2.48 channels in the \GLG cell model allowed added frequency spread from
 \LSR fibres in the \CNSM model.
 
-#\yellownote{TODO: Explain the figures and table more} 
-
 # Table \ref{tab:GolgiCellResults} result table.
 
 
@@ -1257,7 +1253,7 @@ cell model had a monotonic response to tones and noise similar to other
 experimental units
 \citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.
 
-#\yellownote{FIXME}
+
 #Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
 #units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
 
@@ -1323,13 +1319,11 @@ experimental units
 
 \clearpage
 
-#\newpage
-
-
 * D Stellate Cell Model
 # Optimisation Using Click Recovery and Rate Level Responses 
 
-The next section introduces the major wide-band onset inhibitor of the \CNSM model, the \DS cell. 
+The next section introduces the major wide-band onset inhibitor of the
+\CNSM model, the \DS cell.
 
 
 ** Background
@@ -1343,11 +1337,12 @@ and fusiform and \TV neurons in the ipsilateral \DCN (Type II and Type
 IV \EIRA units). Some \DS cells exit the \CN, forming commissural
 connections with the contralateral \CN \citep{NeedhamPaolini:2007}.  /In
 vitro/ studies have shown that \DS cells are strongly inhibited by the
-neurotransmitter GABA, predominantly at \GABAa receptor synapses  \citep{FerragamoGoldingEtAl:1998a}.  Golgi cells
-are the only \GABA-ergic neuron in the VCN, but their axonal plexus does
-not extend into the magnocellular core. \citet{DoucetRyugo:1997} found
-that all \DS cells labelled with BDA staining in the \DCN had dendritic
-projections that entered the \GCD, as shown in Figure \ref{fig:DSinGCD}.
+neurotransmitter GABA, predominantly at \GABAa receptor synapses
+\citep{FerragamoGoldingEtAl:1998a}.  Golgi cells are the only
+\GABA-ergic neuron in the VCN, but their axonal plexus does not extend
+into the magnocellular core. \citet{DoucetRyugo:1997} found that all \DS
+cells labelled with BDA staining in the \DCN had dendritic projections
+that entered the \GCD, as shown in Figure \ref{fig:DSinGCD}.
 
 # All DS cells, labeled by \citet{DoucetRyugo:1997}, had dendritic
 # processes extending into the granule cell domain. Large multipolar VCN
@@ -1355,7 +1350,7 @@ projections that entered the \GCD, as shown in Figure \ref{fig:DSinGCD}.
 # GCD, the location of GABAergic Golgi cells.
 
 #+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
-#+CAPTION: [D stellate cell retrogradely labeled from the DCN]{(Left) TS cells that were retrogradely stained with BDA injections in the DCN lie in the narrow frequency band corresponding to the presumed frequency band of the injection site in the DCN. (Right) Reconstructed DS cell with dendritic processes in the granule cell domain (GCD).	 Images reproduced from Figure 3C in \citet{DoucetRyugo:1997}.}
+#+CAPTION: [D stellate cell retrogradely labeled from the DCN]{(Left) TS cells that were retrogradely stained with BDA injections in the DCN lie in the narrow frequency band corresponding to the presumed frequency band of the injection site in the DCN. (Right) Reconstructed DS cell with dendritic processes in the granule cell domain (GCD). Image reproduced from Figure 3C in \citet{DoucetRyugo:1997}.}
 #+LABEL: fig:DSinGCD
 [[../figures/DoucetRyugo1997_C_DSinGCD.png]]
 
@@ -1373,7 +1368,7 @@ parameters controlling level of \ANF excitation in the \DS model.
 # axonal collaterals cover the same region in the \VCN, almost one half of the
 # \DCN, and are one source of the commissural projection to the contralateral
 # cochlear nucleus \citep{NeedhamPaolini:2007}.
-# %%%%%%%%%%%%%%%%%%% Copied from original jneurometh article
+
 *** Morphology of D Stellate Cells
 
 #\DS cells are large multipolar neurons in the \VCN and have an \OnC
@@ -1832,7 +1827,7 @@ of the input and \DS cell model using the best fit parameters in Table
 C show the rate level responses of inputs \HSR and \LSR \ANFs and \GLG
 cells, used during the optimisation.
 
-#\yellownote{TODO: More discussion about parameters. Ratelevel results reaffirm click recovery optimisation}
+\yellownote{TODO: More discussion about parameters. Ratelevel results reaffirm click recovery optimisation}
 The \ANF weight parameters show a clear favouritism toward the \LSR input
 over \HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio of 2:1.	
 The best parameters produced a combined RMS
@@ -1843,8 +1838,6 @@ mean error relative to the target was 89\%.
 # for fast coincidence detection, the large number of \HSR synapses makes
 # up for the small weight that was obtained in the optimisation.
 
-
-\yellownote{alignment of table, spacing, and number of significant digits!!!!}
 #+BEGIN_LaTeX
   {%
   \small\noindent
@@ -1916,8 +1909,7 @@ cell model in the optimisation other than to set a threshold for tone
 and noise sounds.  \LSR fibres (SR=0.1 spikes/s) and \GLG units have much
 higher thresholds and wider dynamic ranges.  
 
-#\yellownote{fix this: state output error value}
-#The best parameters \yellownote{TODO complete sentence}
+\yellownote{fix this: state output error value and discuss The best parameters }
 
 \clearpage
 
@@ -1981,8 +1973,9 @@ broad inputs of \ANFs onto \DS cells.
 
 # ** Effects of $g_{leak}$ and $g_{KLT}$ on DS resting membrane potential
 
-# \yellownote{TODO: This section is optional}
-# The resting membrane potential of these large multipolar cells has  been shown to be in the range of 3--5 MOhms \yellownote{TODO: citation needed  here}.
+# TODO: This section is optional
+# The resting membrane potential of these large multipolar cells has  been shown to be in the range of 3--5 MOhms 
+# TODO: citation needed  here.
 # A quick observation of the parameter space around the optimisation  results for $g_{leak}$ and $g_{KLT}$ is shown in  Figure \ref{fig:leakVltk}.
 # \begin{figure}[t!]
 #   \centering
@@ -1991,8 +1984,6 @@ broad inputs of \ANFs onto \DS cells.
 # \caption[DS RMP dynamics]{Resting Membrane potential calculated for  leak conductance and KLT conductance changes around the previously obtained best values for these parameters.}    \label{fig:leakVltk}
 # \end{figure}
 
-
-\newpage
 
 
 * Tuberculoventral Cell Model
@@ -2167,7 +2158,7 @@ source, especially at sharp spectral peaks close to their \BF.
 *** Modelling of Tuberculoventral cells
 
 
-# \yellownote{ Expand previous studies of the DCN incl. TV cells}
+
 
 # \citet{ArleKim:1991a} were the first to show Type II \EIRA units with
 #   simple McCullock-Pitts point neuron models of the \DCN.
@@ -2210,8 +2201,8 @@ The most recent \TV cell models have focused on refining the Davis model
 of the \DCN circuit \citep{ReissYoung:2005,LomakinDavis:2008}
 
 
-# \yellownote{TODO: The above paragraphs need to be cleaned up and worked into the
-# idea of generating BNN models using a simple approach}
+# TODO: The above paragraphs need to be cleaned up and worked into the
+# idea of generating BNN models using a simple approach
 # *** Key design factors
 # \textbf{Morphological}
 # \begin{itemize}
@@ -2256,7 +2247,7 @@ membrane potential from the default Type I \RM neural model.
 
 
 #\citet{ReissYoung:2005} performed their experiments on adult cats.
-#\yellownote{TODO: Give details about the TV model implementation}
+#TODO: Give details about the TV model implementation
 
 #+ATTR_LATEX: width=0.95\textwidth
 #+CAPTION: [Experimental data of Type-II~DCN~unit]{Physiological effects of neurotransmitter blockers strychnine and bicuculine on the rate level response  \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
@@ -2299,7 +2290,7 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
 #   \end{center} }
 # #+END_LaTeX=
 
-\yellownote{caption for table}
+\yellownote{discuss table}
 #+BEGIN_LaTeX
     {%
     \small\noindent
@@ -2351,9 +2342,8 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
 
 # Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
 
-
-# \yellownote{TODO: more work to be done here. Possibly need calculations on
-# Q10 values of TV units. Calculation of threshold to tone and noise. }
+# TODO: more work to be done here. Possibly need calculations on
+# Q10 values of TV units. Calculation of threshold to tone and noise.
 
 #The Tuberculoventral cell model's optimised parameters were applied to all \TV units #across the whole network and tested using tones, noise and tones plus noise stimuli.
 #Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model.  
@@ -2532,13 +2522,14 @@ in the optimisation routine with a range from -80 to -50 mV.
 #+ATTR_LATEX: width=0.7\textwidth
 #+CAPTION: [Best-fit result of TV cell model notch optimisation]{Best-fit result of TV cell model notch optimisation.  }
 #+LABEL: fig:TVNotchresult
-../SimpleResponsesChapter/gfx/TV_Notch_results.pdf]]
+[[../SimpleResponsesChapter/gfx/TV_Notch_results.pdf]]
 
+\yellownote{Expand paragraph}
 Figure \ref{fig:TVNotchresult} shows the notch noise response of the TV
 cell mode using the best parameters in Table \ref{tab:TVNotchresult}.
 
-# \yellownote{TODO: Population mean rate: Pros: fairly stable for smallish
-# repetitions, Cons: removes timing}
+# TODO: Population mean rate: Pros: fairly stable for smallish
+# repetitions, Cons: removes timing
 
 
 The eventual result of the \DS to \TV connection optimisation,
@@ -2689,10 +2680,10 @@ choppers, \ChTone and \ChTtwo.  The intracellular traces in Figure
 \ref{fig:PaoliniCVdata} formed the basis for the optimisation routine
 of the \TS cell model of each chopper type in the \CNSM model.
 
-# \yellownote{TODO: The work by Tony Paolini, Janine Clarey, Karina Needham
+#  The work by Karina Needham, Tony Paolini, Janine Clarey, 
 # and others at the Royal Victorian Eye and Ear Hospital were pivotal in
 # collecting the T stellate cell experimental data used in this
-# section.}
+# section.
 
 
 #+BEGIN_LaTeX
@@ -2725,15 +2716,12 @@ stimulus.
 #+LABEL: fig:PaoliniCVdata
 [[../SimpleResponsesChapter/gfx/PaoliniCV.pdf]]
 
-
-
 # \DS cell axon terminals contain the inhibitory neurotransmitter glycine
 # and synapse widely in the \VCN and \DCN.
 
-\clearpage
 *** Synaptic connections
 
-\yellownote{TODO: complete synpatic connections to TS cell section}
+\yellownote{ complete synpatic connections to TS cell section}
 
 The \CNSM model shown in Figure \ref{fig:microcircuit}
 
@@ -2797,13 +2785,13 @@ Linear (Manis and Marx 1991)
 
 # \yellownote{TODO: Para 1: Nordlie Table \ref{tab:TSModelSummary}A. Using RM  Type I-t, Other previous models}
 
-#\yellownote{TODO: Synaptic inputs known and unknown, included and not
-#included in model.  Previous work include and excludes}
+\yellownote{TODO: Synaptic inputs known and unknown, included and not included in model.  Previous work include and excludes}
 
-Figure \ref{fig:TSinputs} shows the expected response of a T stellate
-cell to individual connections from different cells in the \CNSM model.	 The membrane parameters for the single compartment \TS
-cell model were default except for sodium conductance, which was set to zero.  In
-this example, excitation from the afferent \ANF inputs (\LSR Figure
+Figure \ref{fig:TSinputs} shows the expected response of a \TS
+cell to individual connections from different cells in the \CNSM model.
+The membrane parameters for the single compartment \TS cell model were
+default except for sodium conductance, which was set to zero.  In this
+example, excitation from the afferent \ANF inputs (\LSR Figure
 \ref{fig:TSinputs}A and \HSR Figure \ref{fig:TSinputs}B) show a large
 depolarisation.  \HSR inputs show a rapid onset and a slowly adapting
 sustained depolarisation.
@@ -2843,15 +2831,16 @@ provide fast inhibition.
 
 *** Fitness Function
 
-The optimisation fitness function, $F$, of the \TS cell model
-calculated the relative error between a combination of the intracellular
-and spike statistics against the experimental data by
-\citet{PaoliniClareyEtAl:2005}.	 Spike trains were collected for 25
+The optimisation fitness function, $F$, of the \TS cell model calculated
+the relative error between a combination of the intracellular and spike
+statistics against the experimental data by
+\citet{PaoliniClareyEtAl:2005}.  Spike trains were collected for 25
 repetitions of a 50 ms \CF tone and analysed for \PSTH characteristics
-\citep{Pfeiffer:1966a,BlackburnSachs:1989,YoungRobertEtAl:1988}.
-Spike times for a single repetition were ignored for \CV calculations without the first three regular spikes or spikes occurring before the stimulus onset.
-\CV of the inter-spike intervals was calculated
-over 10 ms windows \citep[as used by][]{PaoliniClareyEtAl:2005}.
+\citep{Pfeiffer:1966a,BlackburnSachs:1989,YoungRobertEtAl:1988}.  Spike
+times for a single repetition were ignored for \CV calculations without
+the first three regular spikes or spikes occurring before the stimulus
+onset.  \CV of the inter-spike intervals was calculated over 10 ms
+windows \citep[as used by][]{PaoliniClareyEtAl:2005}.
 
 The intracellular voltage statistics, introduced by
 \citet{PaoliniClareyEtAl:2005}, included the onset ratio, adaptation
@@ -3010,7 +2999,9 @@ onset, just before the stimulus invoked spike arrival at the \TS cell
 
 \yellownote{TODO: Note the ChS optimisation had added weight to the CV values
 in the error calculation.  The PSTH and IV trace do not even show a
-decent chopping behaviour.}  \yellownote{TODO: The peaks for the IV are 3.66,
+decent chopping behaviour.}  
+
+\yellownote{TODO: The peaks for the IV are 3.66,
 6.77, and 10.99 ms. The AN model input is affected by the rat audiogram,
 the low CF and low level.  This shifts the arrival time of spikes to the
 TS model, and a raw IV comparison would need to be shifted by approx 2
@@ -3132,7 +3123,6 @@ model \ChTtwo units was -60.63 and -64.96 mV , respectively.  The
 experimental \ChTtwo unit has a higher reduction in onset depolarisation
 (90.2\%) compared to \ChTone units, and are comparable with \OnC units
 \citep{PaoliniClareyEtAl:2005}.
-
 The post-tone inhibition of the experimental \ChTtwo unit is the
 greatest of all the chopper subtypes (-8.82 mV).
 
