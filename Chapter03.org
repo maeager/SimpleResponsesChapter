@@ -743,7 +743,8 @@ were called "unusual" \citep{GhoshalKim:1997}.
 
 The latency of acoustically driven \GCD recorded units ranges from 2.4
 ms to over 10 ms, with a mean of 3.75 ms.  The acoustic latency closely
-matches the minimum latency of \EPSPs to AN shocks recorded in mice /in vitro/ preparations \citep[1.3~ms,][]{FerragamoGoldingEtAl:1998}.
+matches the minimum latency of \EPSPs to AN shocks recorded in mice 
+/in vitro/ preparations \citep[1.3~ms,][]{FerragamoGoldingEtAl:1998}.
 Longer latencies (greater than 10 ms) may be due to Type II \ANFs,
 estimated theoretical latency of 10 ms \citep{Brown:1993}, or from
 polysynaptic excitation by granule cells.
@@ -1375,15 +1376,16 @@ parameters controlling level of \ANF excitation in the \DS model.
 #\PSTH to tones and noise \citep{SmithRhode:1989,NeedhamPaolini:2006}.
 
 Morphologically, DS cells typically have 3--4 long dendrites stretching
-one third of the \VCN and receiving \ANF inputs over a
-wide frequency range.  \DS cell axon terminals contain the inhibitory
-neurotransmitter glycine and synapse with a fast acting receptor \GlyR
-with other cells in the \CN
+one third of the \VCN and receiving \ANF inputs over a wide frequency
+range.  \DS cell axon terminals contain the inhibitory neurotransmitter
+glycine and synapse with a fast acting receptor \GlyR with other cells
+in the \CN
 \citep{MahendrasingamWallamEtAl:2004,RubioJuiz:2004,Alibardi:2003a,BabalianJacommeEtAl:2002,PiechottaWethEtAl:2001,MahendrasingamWallamEtAl:2000,DoucetRossEtAl:1999,HartyManis:1998,HartyManis:1996}.
-Their axonal collaterals cover the same region in the \VCN, and almost one
-half of the \DCN
+Their axonal collaterals cover the same region in the \VCN, and almost
+one half of the \DCN
 \citep{Cant:1992,Cant:1981,SchofieldCant:1996,CantBenson:2003,NeedhamPaolini:2007,PaoliniClark:1999}.
-They also send a commissural projection to the contralateral \CN  that mediates fast inhibition between the nuclei
+They also send a commissural projection to the contralateral \CN that
+mediates fast inhibition between the nuclei
 \citep{NeedhamPaolini:2003,NeedhamPaolini:2006,Oertel:1997}.
 \citet{SmithMassieEtAl:2005} combined evidence from studies in different
 animals to suggest that radiate neurons in rats, large Type II
@@ -1422,7 +1424,7 @@ depolarisation produces an action potential at the onset of the stimulus
 show strong inward rectification with rapid return to stable levels
 (time constants under 15 ms). In this way, \DS cells are different from
 the slowly integrating TS cells which are Type I current clamp units
-with single exponential undershoot \APs and less prominant
+with single exponential undershoot \APs and less prominent
 hyperpolarising sag.
 
 
@@ -1460,7 +1462,7 @@ Iontopheroretic investigations /in vivo/ using bicuculine
 #by Caspary and colleagues \citep{CasparyBackoffEtAl:1994} have
 have shown that the firing rate increases to tones and noise
 \citep{CasparyBackoffEtAl:1994}. The \GABA effects on \OnC units'
-response area are predominantly on \CF.	 Application of bicuculine in
+response area are predominantly on \CF.  Application of bicuculine in
 the \VCN has the effect of changing the temporal behaviour in \DS cells
 \citep{EvansZhao:1998}, which also affects \AM responses in the \IC
 \citep{CasparyHelfertEtAl:1997,CasparyPalombiEtAl:2002}.  With click
@@ -1484,6 +1486,8 @@ separation of the probe and mask clicks.
 # Zhang and Winter looked at the response area of \VCN onset units to
 # determine \GABA {on\slash off} freq.  Smith and Rhode, Smith and
 # others looked at OnC response area and two-tone
+
+
 
 ** Implementation
 
@@ -1546,7 +1550,7 @@ and noise from extracellular recordings of \DS cells
 levels helped to optimise the parameters controlling the level of \ANF
 excitation in the \DS cell model.
 
-
+#+LaTeX:\input{../SimpleResponsesChapter/DSRecoveryTable}
 
 Key elements in the creation of the \DS cell model are shown in
 the Nordlie Table \ref{tab:DScellModelSummary}A.  A Type I-II single
@@ -1560,7 +1564,7 @@ the height of excitatory \PSPs reaching the soma
 \citep{WhiteYoungEtAl:1994}. Accordingly, a single compartment with
 graded weights was sufficient for the \DS cell model.
 
-#+LaTeX:\input{../SimpleResponsesChapter/DSRecoveryTable}
+
 
 The synaptic connections onto the \DS cell model, shown in Table
 \ref{tab:DScellModelSummary}C, were simplified to excitatory \ANF inputs
@@ -1604,6 +1608,7 @@ stellate neurons in the \VCN \citep{RhodeSmith:1986}.  The additional
 delay of 1.2 ms from \ANF to \DS input connections is a combination of
 axonal conductance and dendritic delay.
 
+
 ** Results of Click Recovery Optimisation
    :PROPERTIES:
    :CUSTOM_ID:    sec:Ch3:DSClickRecovery
@@ -1626,23 +1631,23 @@ the experimental design of \citet{BackoffPalombiEtAl:1997}).
 Figure \ref{fig:ClickExample} shows the first two click pairs of the fitness
 function stimulus and recording method of the \DS cell model's output.
 
-The six parameters to be fit by the routine were the weights of the \HSR \ANFs, \LSR \ANFs and \GLG
-cell model synapses on \DS cells (\wHSRDS, \wLSRDS, \wGLGDS); the \GABAa
-synapse fast and slow decay constants ($\tau_{\rm GABA-1}$, $\tau_{\rm GABA-2}$); and the \DS
-cell maximum leak conductance (\gleak). 
-Initial optimisation procedures
-were not successful at constraining the short delay recovery responses
-(2, 3, 4 ms), so the \DS cells' \Ileak conductance parameter
-was included in the optimised parameters to allow the \DS cell model's
-input resistance to fit fast-acting behaviour in the cell.
+The six parameters to be fit by the routine were the weights of the \HSR
+\ANFs, \LSR \ANFs and \GLG cell model synapses on \DS cells (\wHSRDS,
+\wLSRDS, \wGLGDS); the \GABAa synapse fast and slow decay constants
+($\tau_{\rm GABA-1}$, $\tau_{\rm GABA-2}$); and the \DS cell maximum leak
+conductance (\gleak).  Initial optimisation procedures were not
+successful at constraining the short delay recovery responses (2, 3, 4
+ms), so the \DS cells' \Ileak conductance parameter was included in the
+optimised parameters to allow the \DS cell model's input resistance to
+fit fast-acting behaviour in the cell.
 
 
 Figure \ref{fig:BackoffPalombi} shows the click recovery response of
-unit G61.U6, an AVCN \OnC unit (CF 5.69, Th 30 dB SPL) \citep{BackoffPalombiEtAl:1997}.  The \DS cell
-model used in the optimisation had a CF of 5.8 kHz (channel no. 50).
-Spontaneous activity in idle periods was used for additional weighted
-penalty measures of spontaneous activity and to restrict over-excitation
-by \ANFs.
+unit G61.U6, an AVCN \OnC unit (CF 5.69, Th 30 dB SPL)
+\citep{BackoffPalombiEtAl:1997}.  The \DS cell model used in the
+optimisation had a CF of 5.8 kHz (channel no. 50).  Spontaneous activity
+in idle periods was used for additional weighted penalty measures of
+spontaneous activity and to restrict over-excitation by \ANFs.
 
 
 # \PSTHs of the spiking output of \DS units
@@ -1704,7 +1709,7 @@ compensates for the small weight that was obtained in the optimisation.
   {
   \vspace{2ex} 
   \small\noindent 
-  \begin{table}[t!p]
+  \begin{table}[t!]
   \centering
   \caption{Best-fit parameters for the DS cell model in the click recovery optimistation}
   \label{tab:DSClickRecoveryResults}
@@ -1787,8 +1792,6 @@ compensates for the small weight that was obtained in the optimisation.
 #   \end{center}
 # \end{figure}
 
-
-\clearpage
 
 ** Results of Rate Level Optimisation
    :PROPERTIES:
@@ -2703,6 +2706,8 @@ of the \TS cell model of each chopper type in the \CNSM model.
   \end{figure}
 #+END_LaTeX
 
+
+In the optimisation of \TS cells 
 The categorisation of TS cells via \CV is shown in Figure
 \ref{fig:PaoliniCVdata}.  Sustained choppers maintain a stable CV below
 0.2 throughout the entire stimulus. The transient chopper optimisation
@@ -2711,10 +2716,22 @@ type, \ChTone, is categorised with \CV starting below 0.2 then rising, hence the
 name transient, but stays below 0.3.  The second transient type, \ChTtwo, is regular in
 the first 10 ms period, but rises to 0.3 or higher throughout the
 stimulus.
+Figure \ref{fig:PaoliniCVdata}B shows the 
 
-#+CAPTION: [Regularity in chopper units]{Regularity in chopper units. Data reproduced from figure 2 in \citet{PaoliniClareyEtAl:2005}.}
-#+LABEL: fig:PaoliniCVdata
-[[../SimpleResponsesChapter/gfx/PaoliniCV.pdf]]
+#+BEGIN_LaTeX
+    \begin{figure}[thp]
+      \centering
+    \includegraphics{../SimpleResponsesChapter/gfx/PaoliniCV.pdf}\\
+    \includegraphics{../SimpleResponsesChapter/gfx/PaoliniIV.pdf}
+    \caption[Categorisation in chopper units]{A. Regularity in chopper units measured using 10 ms interval CV at 30 dB relative to acoustic threshold. Data represents mean and standard deviation in units in each category. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}. B.  Average membrane adaptation (Equation \ref{eq:IVstats-Adap}) at different sound levels (relative to threshold). Transient chopper data, representing average within ChT$_{1}$ and ChT$_{2}$ groups, was gathered from Figure 6A in \citet{PaoliniClareyEtAl:2005}. 
+  C. Average membrane voltage hyperpolarisation after stimulus offset (Equation \ref{eq:IVstats-Offset}) at different sound levels relative to threshold. Transient chopper data was gathered from Figure 6B in \citet{PaoliniClareyEtAl:2005}.
+  The average hyperpolarisation offset in ChS units at 30 dB re threshold is 1.6 mV.
+  ChS unit 01-859-013  (CF=3.9 kHz, Th 25 dB) is used for the ChS hyperpolarisation data at 20 and 40 dB re threshold \citep[reproduced from Figure 3][]{PaoliniClareyEtAl:2005}.
+  }
+    \label{fig:PaoliniCVdata}    
+    \end{figure}
+#+END_LaTeX
+
 
 # \DS cell axon terminals contain the inhibitory neurotransmitter glycine
 # and synapse widely in the \VCN and \DCN.
@@ -2889,6 +2906,24 @@ and the three voltage measures.
 #   F =  \sqrt{MSE\left(\textrm{CV}_{0-10} + \textrm{CV}_{10-20} + \textrm{CV}_{20-30} + \textrm{CV}_{30-40}  + \textrm{IV}_\textrm{Onset Ratio} + \textrm{IV}_\textrm{Adaptation} + \textrm{IV}_\textrm{Offset} \right)} + \textrm{SR Penalty} +  \textrm{CV Penalty} 
 #   \end{multline}
 # #+END_LaTeX
+
+#+BEGIN_LaTeX
+    \begin{figure}[thp]
+      \centering
+    \includegraphics{../SimpleResponsesChapter/gfx/PaoliniIV.pdf}
+    \caption[IV categorisation in chopper units]{A.  Average membrane adaptation (Equation \ref{eq:IVstats-Adap}) at different sound levels (relative to threshold). Transient chopper data, representing average within ChT$_{1}$ and ChT$_{2}$ groups, was gathered from Figure 6A in \citet{PaoliniClareyEtAl:2005}. 
+  B. Average membrane voltage hyperpolarisation after stimulus offset (Equation \ref{eq:IVstats-Offset}) at different sound levels relative to threshold. Transient chopper data was gathered from Figure 6B in \citet{PaoliniClareyEtAl:2005}.
+  The average hyperpolarisation offset in ChS units at 30 dB re threshold is 1.6 mV.
+  ChS unit 01-859-013  (CF=3.9 kHz, Th 25 dB) is used for the ChS hyperpolarisation data at 20 and 40 dB re threshold \citep[reproduced from Figure 3][]{PaoliniClareyEtAl:2005}.
+  }
+    \label{fig:PaoliniIVdata}    
+    \end{figure}
+#+END_LaTeX
+
+\yellownote{Explain new fitness functions}
+Figure \ref{fig:PaoliniIVdata} 
+
+
 
 ** Optimisation Results
 
