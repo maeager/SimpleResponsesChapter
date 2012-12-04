@@ -2149,13 +2149,15 @@ Taken together with histological studies, the results suggest that \ANFs
 # dendrites \citep{Liberman:1993}.  In that case, 
 Type II units also supply an inhibitory input to the \VCN
 \citep{WickesbergOertel:1990}, but the role of Type II terminals in the
-\VCN is less clear.  Three different hypotheses have been raised.  
+\VCN is less clear.  Three different hypotheses have been raised.
 \citet{WickesbergOertel:1990} suggested that the role of Type II units
-in spectral processing may be that of a delayed narrowband inhibitor in the \VCN, with important echo-suppression characteristics.
-\citet{PaoliniClark:1998} suggest that this projection modulates the response thresholds of \VCN neurons.   
-\citep{SpirouDavisEtAl:1999} have suggested that the responses
-of \DCN principal cells are strongly inhibited by this narrowband
-source, especially at sharp spectral peaks close to their \BF.
+in spectral processing may be that of a delayed narrowband inhibitor in
+the \VCN, with important echo-suppression characteristics.
+\citet{PaoliniClark:1998} suggest that this projection modulates the
+response thresholds of \VCN neurons.  \citep{SpirouDavisEtAl:1999} have
+suggested that the responses of \DCN principal cells are strongly
+inhibited by this narrowband source, especially at sharp spectral peaks
+close to their \BF.
 
 
 *** Modelling of Tuberculoventral cells
@@ -2499,18 +2501,19 @@ combination of the Type II \DCN unit notch data for 1 octave.
 The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated
 with logarithmically constant notch widths and notch centre frequencies
 ranging from 1 octave below to 1 octave above \CF in $1/50$ octave
-steps.	The single notch noise stimulus presented in this optimisation
+steps. The single notch noise stimulus presented in this optimisation
 routine was generated in [[latex:progname][MATLAB/GNU Octave]] using frozen Gaussian noise
 (100 kHz sampling rate) and a Chebyshev Type II band reject filter.[fn::
 The \textsf{[[latex:progname][cheby2}]] function is in the octave-forge signal package and
 MATLAB's Signal Processing Toolbox.]  The sound level in the
-\citet{ReissYoung:2005} data added further complexity.	The power
+\citet{ReissYoung:2005} data added further complexity. The power
 spectrum was maintained at a constant level per frequency band (dB per
-Hz$^{1/2}$) and this was scaled at each point in the notch sweep.	For the
+Hz$^{1/2}$) and this was scaled at each point in the notch sweep. For the
 single presentation used in this experiment the sound level plays an
 important part in stimulating the \ANFs and contributing
-interneurons. From the previous optimisation 
-(Section [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell Model]]), the preliminary response to noise in \TV cell models was linear between 40 to 80 dB SPL.
+interneurons. From the previous optimisation (Section [[Tuberculoventral%20Cell%20Model][Tuberculoventral
+Cell Model]]), the preliminary response to noise in \TV cell models was
+linear between 40 to 80 dB SPL.
 
 
 Higher thresholds in Type II \DCN units \citep{SpirouDavisEtAl:1999} and
@@ -2544,10 +2547,11 @@ channels, equivalent to a mean of 0.14 octaves (0.34 octaves at the
 lowest channel and 0.13 at the highest channel), was closer to the
 offset predicted by \citet{ReissYoung:2005}.
 
-The results in the \TV cell model not optimisation  show the dominance of \LSR
-over \HSR fibres in the number of synapses (29 to 1) and the increased
-need for \DS cell inhibition with a high number of synapses, \nDSTV.  \LSR fibres have not
-been proven to preference the deep layers of the \DCN
+The results in the \TV cell model not optimisation show the dominance of
+\LSR over \HSR fibres in the number of synapses (29 to 1) and the
+increased need for \DS cell inhibition with a high number of synapses,
+\nDSTV.  \LSR fibres have not been proven to preference the deep layers
+of the \DCN
 \citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
 
 
@@ -2650,27 +2654,28 @@ regular firing or chopper characteristics.
 ** Background
 
 
-A considerable literature exists on the \TS
-cells of the \VCN \citep[see~review~][]{OertelWrightEtAl:2011}.	 The first extracellular
+A considerable literature exists on the \TS cells of the \VCN
+\citep[see~review~][]{OertelWrightEtAl:2011}.  The first extracellular
 physiology studies classified supposed \TS cells into regular-firing
 choppers \citep{Bourk:1976,Pfeiffer:1966}.  With further developments in
 analysis and classification techniques, \TS cells were segregated into
 slowly or transiently adapting and sustained chopper sub-types
 \citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.  In cats,
-\citet{SmithRhode:1989} were the first to perform simultaneous labelling of
-\TS cells, and they confirmed the physiological response of Type I multipolar
-neurons as units classified as choppers.  This simultaneous classification and labelling
-was followed by others in gerbils
+\citet{SmithRhode:1989} were the first to perform simultaneous labelling
+of \TS cells, and they confirmed the physiological response of Type I
+multipolar neurons as units classified as choppers.  This simultaneous
+classification and labelling was followed by others in gerbils
 \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}, guinea pigs
 \citep{PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004}, and rats
 \citep{PaoliniClarkEtAl:1997,PaoliniClark:1999,PaoliniClareyEtAl:2004}. In
 each of these studies, there were no morphological properties that
-segregated transient and sustained choppers, which indicates that synaptic
-inputs play a strong role in determining the output of \TS cells.
+segregated transient and sustained choppers, which indicates that
+synaptic inputs play a strong role in determining the output of \TS
+cells.
 
-The technique of averaging intracellular membrane responses to acoustic input to determine
-stochastic excitatory\slash inhibitory inputs was first used in the
-chopper units of gerbils
+The technique of averaging intracellular membrane responses to acoustic
+input to determine stochastic excitatory\slash inhibitory inputs was
+first used in the chopper units of gerbils
 \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}.
 \citet{PaoliniClareyEtAl:2005} used similar averaging of \TS and DS cell
 intracellular responses in rats as the basis for a thorough statistical
@@ -2680,8 +2685,8 @@ chopper units in the rat into three types
 \citep{PaoliniClareyEtAl:2005}: ChS chopper sustained, and two transient
 choppers, \ChTone and \ChTtwo.  The intracellular traces in Figure
 \ref{fig:PaoliniAIV} along with the \CV statistics in Figure
-\ref{fig:PaoliniCVdata} formed the basis for the optimisation routine
-of the \TS cell model of each chopper type in the \CNSM model.
+\ref{fig:PaoliniCVdata} formed the basis for the optimisation routine of
+the \TS cell model of each chopper type in the \CNSM model.
 
 #  The work by Karina Needham, Tony Paolini, Janine Clarey, 
 # and others at the Royal Victorian Eye and Ear Hospital were pivotal in
@@ -2707,7 +2712,8 @@ of the \TS cell model of each chopper type in the \CNSM model.
 #+END_LaTeX
 
 
-In the optimisation of \TS cells 
+#In the optimisation of \TS cells 
+
 The categorisation of TS cells via \CV is shown in Figure
 \ref{fig:PaoliniCVdata}.  Sustained choppers maintain a stable CV below
 0.2 throughout the entire stimulus. The transient chopper optimisation
@@ -2716,17 +2722,14 @@ type, \ChTone, is categorised with \CV starting below 0.2 then rising, hence the
 name transient, but stays below 0.3.  The second transient type, \ChTtwo, is regular in
 the first 10 ms period, but rises to 0.3 or higher throughout the
 stimulus.
-Figure \ref{fig:PaoliniCVdata}B shows the 
+
+#Figure \ref{fig:PaoliniCVdata}B shows the 
 
 #+BEGIN_LaTeX
     \begin{figure}[thp]
       \centering
-    \includegraphics{../SimpleResponsesChapter/gfx/PaoliniCV.pdf}\\
-    \includegraphics{../SimpleResponsesChapter/gfx/PaoliniIV.pdf}
-    \caption[Categorisation in chopper units]{A. Regularity in chopper units measured using 10 ms interval CV at 30 dB relative to acoustic threshold. Data represents mean and standard deviation in units in each category. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}. B.  Average membrane adaptation (Equation \ref{eq:IVstats-Adap}) at different sound levels (relative to threshold). Transient chopper data, representing average within ChT$_{1}$ and ChT$_{2}$ groups, was gathered from Figure 6A in \citet{PaoliniClareyEtAl:2005}. 
-  C. Average membrane voltage hyperpolarisation after stimulus offset (Equation \ref{eq:IVstats-Offset}) at different sound levels relative to threshold. Transient chopper data was gathered from Figure 6B in \citet{PaoliniClareyEtAl:2005}.
-  The average hyperpolarisation offset in ChS units at 30 dB re threshold is 1.6 mV.
-  ChS unit 01-859-013  (CF=3.9 kHz, Th 25 dB) is used for the ChS hyperpolarisation data at 20 and 40 dB re threshold \citep[reproduced from Figure 3][]{PaoliniClareyEtAl:2005}.
+    \includegraphics{../SimpleResponsesChapter/gfx/PaoliniCV.pdf}
+    \caption[Categorisation in chopper units]{A. Regularity in chopper units measured using 10 ms interval CV at 30 dB relative to acoustic threshold. Data represents mean and standard deviation in units in each category. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}. 
   }
     \label{fig:PaoliniCVdata}    
     \end{figure}
@@ -2800,76 +2803,79 @@ Linear (Manis and Marx 1991)
 
 *** Synaptic Properties
 
-# \yellownote{TODO: Para 1: Nordlie Table \ref{tab:TSModelSummary}A. Using RM  Type I-t, Other previous models}
+The synaptic inputs to the \TS cell model (as shown in Figure
+\ref{fig:microcircuit}) include excitatory inputs from \LSR and \HSR \ANFs;
+\GABA-ergic inputs from \GLG cells; and glycinergic inputs from \DS and \TV
+cells.
 
-\yellownote{TODO: Synaptic inputs known and unknown, included and not included in model.  Previous work include and excludes}
-
-Figure \ref{fig:TSinputs} shows the expected response of a \TS
-cell to individual connections from different cells in the \CNSM model.
-The membrane parameters for the single compartment \TS cell model were
-default except for sodium conductance, which was set to zero.  In this
-example, excitation from the afferent \ANF inputs (\LSR Figure
-\ref{fig:TSinputs}A and \HSR Figure \ref{fig:TSinputs}B) show a large
-depolarisation.  \HSR inputs show a rapid onset and a slowly adapting
-sustained depolarisation.
+Figure \ref{fig:TSinputs} shows the expected response of a \TS cell to
+individual connections from different cells in the \CNSM model.  The membrane
+parameters for the single compartment \TS cell model were default except for
+sodium conductance, which was set to zero.  In this example, excitation from the
+afferent \ANF inputs (\LSR Figure \ref{fig:TSinputs}A and \HSR Figure
+\ref{fig:TSinputs}B) show a large depolarisation.  \HSR inputs show a rapid
+onset and a slowly adapting depolarisation throughout the remainder of the
+stimulus.  \HSR fibres have a spontaneous rate of 50 Hz and recover to the same
+rate around 15 ms after the stimulus offset.
 
 #+BEGIN_LaTeX
-    \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
-    \begin{figure}[t!]
-      \centering%
-  %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_exc.pdf}\\
-  %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_inh.pdf}
-  \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_excinh.pdf}
-      \caption[Intracellular membrane voltage response of a TS cell model to isolated synaptic inputs]{Intracellular membrane voltage response of a TS cell model to isolated synaptic inputs.
-	A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CN network. The CF of the recorded \TS unit was 8.267 kHz.
-	Single stimulus responses are shown as a thin line and average response over 25 repetitions is shown as the thick line.
-	A. 30 LSR ANF synapses.
-	B. 20 HSR ANF synapses.
-	C. 20 DS cell model glycinergic synapses.
-	D. 15 GLG cell model \GABAa synapses.
-	All weights were set to $0.0005\,\mu{\rm S}$ and the sodium conductance (\gNa) was set
-	to zero.  The \TS cell model parameters for synapses were: excitatory (tau = 0.36
-	ms), glycinergic (tau1=0.4 and tau2=2.5 ms), and GABAergic (tau1=0.26
-	and tau2=5.43 ms).\label{fig:TSinputs}}
-    \end{figure}
+     \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
+     \begin{figure}[t!]
+       \centering%
+   %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_exc.pdf}\\
+   %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_inh.pdf}
+   \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_excinh.pdf}
+       \caption[Intracellular membrane voltage response of a TS cell model to isolated synaptic inputs]{Intracellular membrane voltage response of a TS cell model  to isolated synaptic inputs.
+         A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CN network. The CF of the recorded \TS unit was 8.267 kHz.
+         Single stimulus responses are shown as a thin line and average response over 25 repetitions is shown as the thick line.
+         A default Type I-t \RM neural model was used and the sodium conductance (\gNa) was set
+         to zero to inhibit spike generation.
+         All synaptic weights were set to $0.5\,{\rm nS}$.
+         A. 30 LSR ANFs onto AMPA synapses ($\tau = 0.36$ ms).
+         B. 20 HSR ANFs (mean rate 250 spikes per second) onto AMPA synapses.
+         C. 20 DS cell model glycinergic synapses ($\tau_1=0.4$ and $\tau_2=2.5$ ms).
+         D. 15 GLG cell model \GABAa synapses ($\tau_{1}=0.7$ and $\tau_{1}=9$ ms).  
+  \label{fig:TSinputs}}
+     \end{figure}
 #+END_LaTeX  
 
 \yellownote{Improve this paragraph to describe influence of \Ih and \IKA in the \TS cell model}
-Figure \ref{fig:TSinputs} omits the non-linear dynamics
-of the action potential in the neural model. The hyperpolarisation
-activation of \Ih and \IKA currents due to inhibitory input are not
-evident.  The second factor is important in enhancing the first spike
-response across the T stellate cells \citep{PaoliniClareyEtAl:2004} to
-an oncoming stimulus, since the \OnC units will respond earlier and
-provide fast inhibition.
 
+Figure \ref{fig:TSinputs} omits the non-linear dynamics of the action potential
+and the responses of the intrinsic currents in the \RM neural model. The
+hyperpolarisation activation of \Ih and \IKA currents due to inhibitory input
+are not evident.  \Ih influences the recovery from \AP and modulates the
+regularity of the chopping behaviour \citep{RothmanManis:2003b}.  \IKA is active
+at rest and is important in enhancing the first spike response across \TS cells
+to an oncoming stimulus \citep{PaoliniClareyEtAl:2004,KanoldManis:2005}.
 
 
 
 *** Fitness Function
 
-The optimisation fitness function, $F$, of the \TS cell model calculated
-the relative error between a combination of the intracellular and spike
-statistics against the experimental data by
-\citet{PaoliniClareyEtAl:2005}.  Spike trains were collected for 25
-repetitions of a 50 ms \CF tone and analysed for \PSTH characteristics
-\citep{Pfeiffer:1966a,BlackburnSachs:1989,YoungRobertEtAl:1988}.  Spike
-times for a single repetition were ignored for \CV calculations without
-the first three regular spikes or spikes occurring before the stimulus
-onset.  \CV of the inter-spike intervals was calculated over 10 ms
-windows \citep[as used by][]{PaoliniClareyEtAl:2005}.
+The optimisation fitness function, $F$, of the \TS cell model calculated the
+relative error between a combination of average intracellular membrane voltage
+measures and spike time statistics against the experimental data given by
+\citet{PaoliniClareyEtAl:2005}.  Spike trains were collected for 25 repetitions
+of a 50 ms \CF tone (5 ms ramp) and analysed for \PSTH and inter-spike interval
+characteristics \citep{Pfeiffer:1966a,BlackburnSachs:1989,YoungRobertEtAl:1988}.
+\CV of the inter-spike intervals were calculated over a 10 ms window, beginning
+at stimulus onset .  Chopper units were required to have three regular intervals
+at the start of the stimulus otherwise the stimulus repetition was excluded from
+the \CV calculations.  The intracellular voltage statistics, introduced by
+\citet{PaoliniClareyEtAl:2005}, included the onset ratio, adaptation shift and
+offset shift.  The \IV measures highlight inhibition in \TS cells and were
+designed to be independent of \RMP and \FSL. The effective stimulus onset was
+determined as 2.5 ms prior to the peak in average membrane voltage
 
-The intracellular voltage statistics, introduced by
-\citet{PaoliniClareyEtAl:2005}, included the onset ratio, adaptation
-shift and offset shift.  The measures of membrane voltage highlight
-inhibition in \TS cells and were designed to be independent of \RMP. The
-onset ratio measures the change in peak onset depolarisation over the
-first 5 ms relative to sustained depolarisation after 20 ms.
+The onset ratio measure was calculated as the ratio in peak onset depolarisation (sum over the
+first 5 ms) relative to the sustained depolarisation (sum measured between 20 to 25 ms).
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:IVstats-Onset} \textrm{Onset Ratio} = \bar{\mathbf{v}}|_{t=0}^{t=5}\quad/\quad \bar{\mathbf{v}}|_{t=20}^{t=25}.
 \end{equation}
 #+END_LaTeX
+
 
 The adaptation shift measurement calculates the drop in depolarisation
 at the end of the stimulus compared to the stable point 20 ms after the
@@ -2880,24 +2886,20 @@ onset
 \end{equation}
 #+END_LaTeX
 Greater adaptation to a sustained stimulus is represented by a larger
-drop in depolarisation. Adaptation is caused by a combination of
+drop in depolarisation. Adaptation shift is caused by a combination of
 factors, but is mostly due to reduction excitation from ANF inputs which
 is caused in turn by adaptation at the IHC-AN synapse.
 
-The offset shift measures the effects of sustained inhibition and
-recovery of excitation 10 ms after the stimulus offset
+The offset shift measures the effects of sustained inhibition and recovery of
+excitation 10 ms after the stimulus offset
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:IVstats-Offset} \textrm{Offset} = \bar{\mathbf{v}}|_{t=-10}^{t=0}\quad - \quad\bar{\mathbf{v}}|_{t=60}^{t=61}. 
   \end{equation}
 #+END_LaTeX
-Negative values indicate hyperpolarisation which is caused by reduction
-or absence of post-stimulus excitation and/or the presence of
-inhibition.
+Negative values indicate post-stimulus hyperpolarisation which is caused by
+ reduction of excitation and/or the presence of inhibition.
 
-The final error for the optimisation routine was calculated as the
-square root of the mean squared error between the first 4 CV periods
-and the three voltage measures.  
 
 # The eventual fitness value 
 
@@ -2910,22 +2912,44 @@ and the three voltage measures.
 #+BEGIN_LaTeX
     \begin{figure}[thp]
       \centering
-    \includegraphics{../SimpleResponsesChapter/gfx/PaoliniIV.pdf}
-    \caption[IV categorisation in chopper units]{A.  Average membrane adaptation (Equation \ref{eq:IVstats-Adap}) at different sound levels (relative to threshold). Transient chopper data, representing average within ChT$_{1}$ and ChT$_{2}$ groups, was gathered from Figure 6A in \citet{PaoliniClareyEtAl:2005}. 
+    \includegraphics{../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.pdf}
   B. Average membrane voltage hyperpolarisation after stimulus offset (Equation \ref{eq:IVstats-Offset}) at different sound levels relative to threshold. Transient chopper data was gathered from Figure 6B in \citet{PaoliniClareyEtAl:2005}.
-  The average hyperpolarisation offset in ChS units at 30 dB re threshold is 1.6 mV.
-  ChS unit 01-859-013  (CF=3.9 kHz, Th 25 dB) is used for the ChS hyperpolarisation data at 20 and 40 dB re threshold \citep[reproduced from Figure 3][]{PaoliniClareyEtAl:2005}.
+    \caption[IV categorisation in chopper units]{A.  Adaptation shift (Equation \ref{eq:IVstats-Adap}) at different sound levels (relative to threshold). Transient chopper data, representing average within ChT$_{1}$ and ChT$_{2}$ groups, was gathered from Figure 6A in \citet{PaoliniClareyEtAl:2005}. 
+  The average post-tone hyperpolarisation (offset shift) in ChS units at 30 dB re threshold is 1.6 mV.
+  ChS unit 01-859-013  (CF=3.9 kHz, Th 25 dB) is used for the ChS offset shift data at 20 and 40 dB re threshold \citep[reproduced from Figure~3][]{PaoliniClareyEtAl:2005}.
   }
     \label{fig:PaoliniIVdata}    
     \end{figure}
 #+END_LaTeX
+#  [[../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.pdf]]
 
-\yellownote{Explain new fitness functions}
-Figure \ref{fig:PaoliniIVdata} 
+
+
+
+\CF tone bursts at three \SPLs above threshold (20, 30 and 40 dB) were used in
+all three \TS cell model optimisation.  The threshold was assumed to be 10 dB
+SPL and the CF of the unit was 9.1 kHz.  Figure \ref{fig:PaoliniIVdata} shows
+the results of the chopper sub-groups for adaptation shift (see Equation
+\ref{eq:IVstats-Adap}) and average post-tone hyperpolarisation (Equation
+\ref{eq:IVstats-Offset}). These data points, along with the CV data points in
+Figure \ref{fig:PaoliniCV} at 30 db re threshold, were used in the fitness
+function as a root mean squared comparison against the \TS cell model.
+Population data given by \citet{PaoliniClareyEtAl:2005} was used where
+appropriate, otherwise an exemplar unit was chosen to fill remaining data
+points.  Average \ChS population IV data was limited to one data point at
+offset shift at 30 dB re threshold (1.6\pm1.0 mV) significant from
+membrane variations at rest.  The unfilled triangles in Figure
+\ref{fig:PaoliniIVdata} were measured from the average membrane voltage trace of
+unit 01-859-013 \citep[Figure~3~in][]{PaoliniClareyEtAl:2005}.  Adaptation shift in
+\ChT1 and \ChT2 units increased with increasing \SPL (Figure
+\ref{fig:PaoliniIVdata}A), reaching a peak at 30 dB abovethreshold.  \ChTtwo
+units consistently had a stronger inhibitory influence (adaptation and
+offset shifts) compared to \ChTone for all \SPLs above threshold.
 
 
 
 ** Optimisation Results
+
 
 The target data for each of the chopper sub-types were comprised of
 average population CV data and individual IV data based on rat data by
@@ -3003,14 +3027,19 @@ provided below.
 #+END_LaTeX
 
 
+
+
+
 *** Sustained Chopper
 
 \glsreset{ChS} 
 
 Figure \ref{fig:CSresults} shows the optimisation results
-for the \ChS unit 01-864-004 from \citep{PaoliniClareyEtAl:2005}, with
-\CF 3.9 kHz.  This unit had a depolarisation threshold at 10 dB and a
-firing rate saturation at 75 dB \SPL.  The stimulus for the optimisation
+for the \ChS \TS cell model.  
+This unit had a depolarisation threshold at 10 dB and a
+firing rate saturation at 75 dB \SPL.  
+
+The stimulus for the optimisation
 routine was a pure tone 30 dB above depolarisation threshold at \CF (3.9
 kHz 40 dB \SPL), 5 ms on\slash off cosine squared ramp.  A 20 ms delay
 was included to allow the model to reach a sustained \RMP. The ChS model
@@ -3052,7 +3081,7 @@ for small bouton endings in the CN.}
 #+BEGIN_LaTeX
   \begin{figure}[thb]
     \centering%
-  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate_CS/multiplotIVCV3}}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate_CS/multiplotIVCV4.pdf}}
   \caption[Sustained chopper optimisation results]{Optimisation results for the
     sustained chopper subtype of the T stellate cell model.  The reference data
     for ChS unit 01-864-004 from \citet{PaoliniClareyEtAl:2005}, with CF=3.9 kHz,
@@ -3090,10 +3119,27 @@ able to generated a good IV trace when the full trace was the error
 function at higher SPL and higher CF, but this was unable to generate
 the same trace for 3.9 KHz at 40 dB or a sustained CV. }
 
+#  [[../SimpleResponsesChapter/gfx/TStellate_CS/multiplotIVCV4.pdf]]
+
+#+name: CS_rate
+#+BEGIN_SRC sh :exports none
+  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CS/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{print sum/5.0}'
+#+END_SRC
+
+The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re threshold was
+call_CS_rate(SPLreTh=30), 
+call_CS_rate(SPLreTh=40) and 
+call_CS_rate(SPLreTh=50) 
+spikes per second, respectively.
+
+
+
+
+
 *** Transient Chopper 1
 
-The \ChTone unit chosen for the optimisation was unit 01-857-007, CF=8.2
-kHz \citep{PaoliniClareyEtAl:2005}.  The depolarisation threshold for
+The \ChTone unit chosen for the optimisation was unit 01-857-007 
+\citep[CF=8.2~kHz][]{PaoliniClareyEtAl:2005}.  The depolarisation threshold for
 this unit was 55 dB \SPL, close to the average 47.2 dB \SPL for all
 \ChTone units.  The stimulus for the optimisation routine was an 85 dB 8.2
 kHz pure tone and the exemplar \TS cell model had CF 8.27 kHz.
@@ -3111,8 +3157,7 @@ stimulus.  The leak conductance had a slight decrease (\gleak
 #+BEGIN_LaTeX
   \begin{figure}[t!]
     \centering
-  
-  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate_CT1/multiplotIVCV3}}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate_CT1/multiplotIVCV4}}
   \caption[Transient chopper 1 optimisation results]{Transient chopper 1
     optimisation results of the TS cell model.  A 8.27 kHz pure tone at 85 dB SPL
     was used in the optimisation procedure to reproduce intracellular and spiking
@@ -3124,10 +3169,28 @@ stimulus.  The leak conductance had a slight decrease (\gleak
   \end{figure}
 #+END_LaTeX
 
+#     [[../SimpleResponsesChapter/gfx/TStellate_CT1/multiplotIVCV4.pdf]]
+
+#+name: CT1_rate
+#+BEGIN_SRC sh  :exports none 
+  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CT1/TStellate.Fit.dat | tail -6 | awk ' {print $3}' | meanminmax | awk '{printf("%.1f",$3)}'
+#+END_SRC
+
+
+The mean rate for the optimised \ChT1 unit at 20, 30 and 40 dB re threshold was
+call_CT1_rate(SPLreTh=60), 
+call_CT1_rate(SPLreTh=70) and 
+call_CT1_rate(SPLreTh=80)
+spikes per second, respectively.
+
+
+
+
 *** Transient Chopper 2
 
-The \ChTtwo \TS cell model optimisation used unit 01-305-014 (CF 12.4
-kHz \citep*{PaoliniClareyEtAl:2005}) as its exemplar cell. The reference
+The \ChTtwo unit optimisation used average population data for CV data and 
+unit 01-305-014 (CF 12.4
+kHz \citep*{PaoliniClareyEtAl:2005}) for IV measure data. The reference
 unit had a low depolarising threshold (5 dB \SPL) so the stimulus was
 set to 35 dB \SPL; a significant difference from the \ChT1 optimisation
 unit that was optimised using an 85 dB \SPL tone. The main difference
@@ -3228,7 +3291,7 @@ periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 
 *** Golgi Cell Model
 
-Section [[*Golgi%20Cell%20Model:%20Monotonic%20Rate%20Level%20Responses%20in%0AMarginal%20Shell%20Units][Golgi Cell Model]]
+Section Golgi Cell Model
 
 \yellownote{TODO: Discuss the Golgi cell optimisation.	Is the
   filter-based approach effective at meeting the goal of simulating data
@@ -3254,8 +3317,7 @@ Section [[*Golgi%20Cell%20Model:%20Monotonic%20Rate%20Level%20Responses%20in%0AM
 *** D Stellate Cell Model
 
 Discuss Section 
-[[*D Stellate Cell Model: Optimisation Using Click
-Recovery Responses][D Stellate Cell Model]]
+[[*D%20Stellate%20Cell%20Model][D Stellate Cell Model]]
 
 \yellownote{TODO: Discuss the DS cell model optimisation.  What were the
 reasons for using cell-based parameters, and why is this necessary?
@@ -3302,7 +3364,7 @@ More complex multi-compartment conductance model could have been chosen
 to include dendritic filtering, especially in \DS and \TS cells, and
 already present in existing stellate models
 \citep{WangSachs:1995,WiegrebeMeddis:2004}.
-Dendritic filtering in each of the cells was not included. 
+Dendritic filtering  was not included in \DS and \TV cell models. 
 
 
 \yellownote{TODO: AM coding in model is not verified by
@@ -3357,7 +3419,7 @@ other researchers can easily reproduce this work.
 
 
 #+BEGIN_LaTeX
-  \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../MyBib}\newpage \listoftodos}{}
+  \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../MyBib}\newpage \printglossaries\newpage\listoftodos }{}
 #+END_LaTeX
 
 
