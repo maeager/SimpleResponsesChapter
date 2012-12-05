@@ -2862,14 +2862,16 @@ characteristics \citep{Pfeiffer:1966a,BlackburnSachs:1989,YoungRobertEtAl:1988}.
 \CV of the inter-spike intervals were calculated over a 10 ms window, beginning
 at stimulus onset .  Chopper units were required to have three regular intervals
 at the start of the stimulus otherwise the stimulus repetition was excluded from
-the \CV calculations.  The intracellular voltage statistics, introduced by
+the \CV calculations.  The \AIV statistics, introduced by
 \citet{PaoliniClareyEtAl:2005}, included the onset ratio, adaptation shift and
-offset shift.  The \IV measures highlight inhibition in \TS cells and were
-designed to be independent of \RMP and \FSL. The effective stimulus onset was
-determined as 2.5 ms prior to the peak in average membrane voltage
+offset shift.  The \AIV measures highlight the balance of excitation and
+inhibition in \TS cells and were designed to be independent of \RMP and
+\FSL. The effective stimulus onset was determined as 2.5 ms prior to the peak in
+the \AIV trace.
 
-The onset ratio measure was calculated as the ratio in peak onset depolarisation (sum over the
-first 5 ms) relative to the sustained depolarisation (sum measured between 20 to 25 ms).
+The onset ratio measure was calculated as the ratio in peak onset depolarisation
+(sum over the first 5 ms) relative to the sustained depolarisation (sum measured
+between 20 to 25 ms).
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:IVstats-Onset} \textrm{Onset Ratio} = \bar{\mathbf{v}}|_{t=0}^{t=5}\quad/\quad \bar{\mathbf{v}}|_{t=20}^{t=25}.
@@ -2877,18 +2879,17 @@ first 5 ms) relative to the sustained depolarisation (sum measured between 20 to
 #+END_LaTeX
 
 
-The adaptation shift measurement calculates the drop in depolarisation
-at the end of the stimulus compared to the stable point 20 ms after the
-onset
+The adaptation shift measurement calculates the drop in depolarisation at the
+end of the stimulus compared to the stable point 20 ms after the onset
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:IVstats-Adap} \textrm{Adaptation} = \bar{\mathbf{v}}|_{t=20}^{t=21}\quad - \quad\bar{\mathbf{v}}|_{t=50}^{t=51}. 
 \end{equation}
 #+END_LaTeX
-Greater adaptation to a sustained stimulus is represented by a larger
-drop in depolarisation. Adaptation shift is caused by a combination of
-factors, but is mostly due to reduction excitation from ANF inputs which
-is caused in turn by adaptation at the IHC-AN synapse.
+Greater adaptation to a sustained stimulus is represented by a larger drop in
+depolarisation. Adaptation shift is caused by a combination of factors, but is
+mostly due to reduction excitation from ANF inputs which is caused in turn by
+adaptation at the IHC-AN synapse.
 
 The offset shift measures the effects of sustained inhibition and recovery of
 excitation 10 ms after the stimulus offset
@@ -2924,27 +2925,25 @@ Negative values indicate post-stimulus hyperpolarisation which is caused by
 #  [[../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.pdf]]
 
 
-
-
-\CF tone bursts at three \SPLs above threshold (20, 30 and 40 dB) were used in
+Three \CF tone bursts at different \SPL above threshold (20, 30 and 40 dB) were used in
 all three \TS cell model optimisation.  The threshold was assumed to be 10 dB
 SPL and the CF of the unit was 9.1 kHz.  Figure \ref{fig:PaoliniIVdata} shows
 the results of the chopper sub-groups for adaptation shift (see Equation
-\ref{eq:IVstats-Adap}) and average post-tone hyperpolarisation (Equation
+\ref{eq:IVstats-Adap}) and average post-tone hyperpolarisation (see offset shift Equation
 \ref{eq:IVstats-Offset}). These data points, along with the CV data points in
 Figure \ref{fig:PaoliniCV} at 30 db re threshold, were used in the fitness
 function as a root mean squared comparison against the \TS cell model.
 Population data given by \citet{PaoliniClareyEtAl:2005} was used where
 appropriate, otherwise an exemplar unit was chosen to fill remaining data
-points.  Average \ChS population IV data was limited to one data point at
-offset shift at 30 dB re threshold (1.6\pm1.0 mV) significant from
-membrane variations at rest.  The unfilled triangles in Figure
-\ref{fig:PaoliniIVdata} were measured from the average membrane voltage trace of
-unit 01-859-013 \citep[Figure~3~in][]{PaoliniClareyEtAl:2005}.  Adaptation shift in
-\ChT1 and \ChT2 units increased with increasing \SPL (Figure
-\ref{fig:PaoliniIVdata}A), reaching a peak at 30 dB abovethreshold.  \ChTtwo
-units consistently had a stronger inhibitory influence (adaptation and
-offset shifts) compared to \ChTone for all \SPLs above threshold.
+points.  Average \ChS population IV data was limited to one data point at offset
+shift at 30 dB re threshold ($1.6\pm1.0$ mV) significant from membrane variations at
+rest.  The unfilled triangles in Figure \ref{fig:PaoliniIVdata} were measured
+from the average membrane voltage trace of unit 01-859-013
+\citep[Figure~3~in][]{PaoliniClareyEtAl:2005}.  Adaptation shift in \ChT1 and
+\ChT2 units increased with increasing \SPL (Figure \ref{fig:PaoliniIVdata}A),
+reaching a peak at 30 dB above threshold.  \ChTtwo units consistently had a
+stronger inhibitory influence (adaptation and offset shifts) compared to \ChTone
+for all \SPL above threshold.
 
 
 
@@ -2953,7 +2952,9 @@ offset shifts) compared to \ChTone for all \SPLs above threshold.
 
 The target data for each of the chopper sub-types were comprised of
 average population CV data and individual IV data based on rat data by
-\citep{PaoliniClareyEtAl:2005}. Due to time constraints, the optimisation
+\citep{PaoliniClareyEtAl:2005}. 
+
+Due to time constraints, the optimisation
 of
 
 \yellownote{TODO: Choosing optimisation data - average population data or
@@ -2971,60 +2972,6 @@ individual exemplar based on Paolini rat data.}
 #  \includegraphics{RateLevel/psthsingle90.0}% %
 #  \includegraphics{RateLevel/TS_ratelevel}} \end{figure}
 
-
-Table \ref{tab:TSCellResults} reports the best-fit parameter values for
-the three \TS cell subtypes. Further details on each subtype are
-provided below.
-
-#+BEGIN_LaTeX
-  {
-  \vspace{2ex}%
-  \small\noindent%
-  \begin{table}[t!p]
-  \centering
-  \caption{Best fit parameters of three TS cell subtypes using the intracellular and CV statistics optimisation}
-  \label{tab:TSCellResults}
-  \begin{tabularx}{\textwidth}{X c D{,}{.}{2.6} D{,}{.}{2.6} D{,}{.}{2.6}} 
-  \toprule 
-  \textbf{Parameters (Units)}  & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
-			       &		&    \ChS    &	 \ChT1	  & \ChT2 \\ \otoprule
-      \wHSRTS  (nS)	 &   [0.01,30]	  &  2,019  & 0,817  & 2,489 \\
-      \wLSRTS  (nS)	 &   [0.01,30]	  &  2,868  & 0,774  & 2,037\\
-    %	  \nLSRTV  \hfill ()   &     [0,64]	&	    &		& \\
-    %	 \nHSRTV   \hfill ()   &     [0,64]	&	    &		& \\
-       \wDSTS  (nS)	 &   [0.01,30]	  & 0,291  & 0,0638 & 1,135\\
-    %	  \nDSTS  \hfill ()    &     [0,64]	&	    &		& \\
-       \wTVTS  (nS)	 &   [0.01,30]	  & 0,884  & 0,0646 & 0,867\\
-    %	  \nTVTS  \hfill ()    &     [0,64]	&	    &		& \\
-      \wGLGTS  (nS)	 &   [0.01,30]	  & 0,749  & 0,0939  & 0,050\\
-    %	 \nGLGTS \hfill (nS)   &     [0,64]	&	    &		& \\ \hline
-  \gleak  (mS cm$^{-2}$) &	   [1e-3,3]    & 0,657	& 0,494	 & 0,724\\
-  \gKHT	  (S cm$^{-2}$)  &	 [1e-6,0.003]  & 0,0189 & 0,0189  & 0,023\\
-      \Eleak   (mV)	 & [$-45$,$-70$]  &  -65,15   &	 -54,26	  & -63,50\\ \midrule
-	    \multicolumn{2}{l}{RMS error}	    &	6,49   &   5,93	  & 5,57\\ \bottomrule
-  \end{tabularx}
-  % \begin{tabularx}{\linewidth}{X c c D{,}{.}{2.4} D{,}{.}{2.4} D{,}{.}{2.6}} 
-  % \toprule 
-  %	    \textbf{Parameters}		 &	  \textbf{Label}	& \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
-  %					 &				&		 &   \multicolumn{1}{c}{ ChS }	  &   \multicolumn{1}{c}{ ChT1 }    & \multicolumn{1}{c}{ ChT2 }\\ \otoprule
-  %  Weight of HSR synapses on TS cell	 &     \wHSRTS \hfill (nS)	&   [0.01,30]	 &  2,01089  & 0,817015	 & 2,48999 \\
-  %  Weight of LSR synapses on TS cell	 &     \wLSRTS \hfill (nS)	&   [0.01,30]	 &  2,86796  & 0,774459	 & 2,03762\\
-  %   %	 Number of synapses, LSR to TS	 &	\nLSRTV	 \hfill ()	&     [0,64]	 &	     &		 & \\
-  %   %	 Number of synapses, HSR to TS	 &     \nHSRTV	 \hfill ()	&     [0,64]	 &	     &		 & \\
-  %   Weight of DS synapses on TS cell	 &	\wDSTS \hfill (nS)	&   [0.01,30]	 & 0,291181  & 0,0638011 & 1,13529\\
-  %	  %Number of DS syn on TS	 &	\nDSTS	\hfill ()	&     [0,64]	 &	     &		 & \\
-  %   Weight of TV synapses on TS cell	 &	\wTVTS \hfill (nS)	&   [0.01,30]	 & 0,884174  & 0,0646063 & 0,866815\\
-  %	  %Number of TV syn on TS	 &	\nTVTS	\hfill ()	&     [0,64]	 &	     &		 & \\
-  % Weight of Golgi synapses on TS cells &     \wGLGTS \hfill (nS)	&   [0.01,30]	 & 0,749812  & 0,093936	 & 0,05\\
-  %	  %Number of GLG syn on TS	 &     \nGLGTS \hfill (nS)	&     [0,64]	 &	     &		 & \\ \hline
-  % Maximum leak conductance in TS cell	 & \gleak \hfill (mS cm$^{-2}$) &	  [1e-3,3]    & 0.657345  & 0,494097  & 0,72474\\
-  %  Maximum KHT conductance in TS cell	 & \gKHT  \hfill (S cm$^{-2}$)  &	[1e-6,0.003]  & 0,0189416 & 0,018941  & 0,022858\\
-  %	%      TS reversal potential	 &     \Eleak  \hfill (mV)	& [$-45$,$-70$]	 &	     & $-54,26$	 & $-63,50$\\ \midrule
-  %				 \multicolumn{3}{l}{Error}				 &   6,496   &	 5,928	 & 5,569\\ \bottomrule
-  % \end{tabularx}
-  \end{table}\vspace{2ex}
-  }
-#+END_LaTeX
 
 
 
@@ -3242,6 +3189,45 @@ greatest of all the chopper subtypes (-8.82 mV).
     \label{fig:CT2results} 
    \end{figure}
 #+END_LaTeX
+
+** Overview of TS cell model results
+
+
+
+Table \ref{tab:TSCellResults} reports the best-fit parameter values for
+the three \TS cell subtypes. Further details on each subtype are
+provided below.
+
+#+BEGIN_LaTeX
+  {
+  \vspace{2ex}%
+  \small\noindent%
+  \begin{table}[t!p]
+  \centering
+  \caption{Best fit parameters of three TS cell subtypes using the intracellular and CV statistics optimisation}
+  \label{tab:TSCellResults}
+  \begin{tabularx}{\textwidth}{X c D{,}{.}{2.6} D{,}{.}{2.6} D{,}{.}{2.6}} 
+  \toprule 
+      \textbf{Parameters}      & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
+                               &                &  \ChS  & \ChTone  & \ChTtwo \\ \otoprule
+         \wHSRTS  (nS)         &   [0.01,30]    & 2,019  & 0,817  & 2,489 \\
+         \wLSRTS  (nS)         &   [0.01,30]    & 2,868  & 0,774  & 2,037\\
+       \nLSRTV  \hfill ()      &     [0,64]     &        &        & \\
+      \nHSRTV   \hfill ()      &     [0,64]     &        &        & \\
+          \wDSTS  (nS)         &   [0.01,30]    & 0,291  & 0,0638 & 1,135\\
+       \nDSTS  \hfill ()       &     [0,64]     &        &        & \\
+          \wTVTS  (nS)         &   [0.01,30]    & 0,884  & 0,0646 & 0,867\\
+       \nTVTS  \hfill ()       &     [0,64]     &        &        & \\
+         \wGLGTS  (nS)         &   [0.01,30]    & 0,749  & 0,0939 & 0,050\\
+      \nGLGTS \hfill (nS)      &     [0,64]     &        &        & \\ \midrule
+  \gleak \hfill (mS cm$^{-2}$) &    [1e-3,3]    & 0,657  & 0,494  & 0,724\\
+  \gKHT  \hfill (S cm$^{-2}$)  &  [1e-6,0.003]  & 0,0189 & 0,0189 & 0,023\\
+      \Eleak \hfill  (mV)      & [$-45$,$-70$]  & -65,15 & -54,26 & -63,50\\  \bottomrule
+  \end{tabularx}
+  \end{table}\vspace{2ex}
+  }
+#+END_LaTeX
+
 
 
 ** Verification of the TS Cell Model Subtypes
