@@ -1320,6 +1320,7 @@ experimental units
 
 \clearpage
 
+
 * D Stellate Cell Model
 # Optimisation Using Click Recovery and Rate Level Responses 
 
@@ -2754,6 +2755,7 @@ They were not included in the \CNSM model because  of the rarity of small round 
 
 #+LaTeX: \input{../SimpleResponsesChapter/TStellateTable}
 
+
 ** Implementation
 
 *** Cell-based Properties of T Stellate Cells
@@ -2950,12 +2952,12 @@ for all \SPL above threshold.
 ** Optimisation Results
 
 
-The target data for each of the chopper sub-types were comprised of
-average population CV data and individual IV data based on rat data by
-\citep{PaoliniClareyEtAl:2005}. 
+#The target data for each of the chopper sub-types were comprised of
+#average population CV data and individual IV data based on rat data by#
+#\citep{PaoliniClareyEtAl:2005}. 
 
-Due to time constraints, the optimisation
-of
+# Due to time constraints, the optimisation
+# of
 
 \yellownote{TODO: Choosing optimisation data - average population data or
 individual exemplar based on Paolini rat data.}
@@ -2982,7 +2984,7 @@ individual exemplar based on Paolini rat data.}
 \glsreset{ChS} 
 
 Figure \ref{fig:CSresults} shows the optimisation results
-for the \ChS \TS cell model.  
+for the \ChS subtype of the \TS cell model.  
 This unit had a depolarisation threshold at 10 dB and a
 firing rate saturation at 75 dB \SPL.  
 
@@ -3008,22 +3010,22 @@ The large excitatory \HSR input causes spikes to occur after tone
 onset, just before the stimulus invoked spike arrival at the \TS cell
 3 ms later, but still included in the \CV calculation.
 
-\yellownote{TODO: Note the ChS optimisation had added weight to the CV values
-in the error calculation.  The PSTH and IV trace do not even show a
-decent chopping behaviour.}  
+# \yellownote{TODO: Note the ChS optimisation had added weight to the CV values
+# in the error calculation.  The PSTH and IV trace do not even show a
+# decent chopping behaviour.}  
 
-\yellownote{TODO: The peaks for the IV are 3.66,
-6.77, and 10.99 ms. The AN model input is affected by the rat audiogram,
-the low CF and low level.  This shifts the arrival time of spikes to the
-TS model, and a raw IV comparison would need to be shifted by approx 2
-ms. The onset ratio and the first CV value are effected by this.}
+# \yellownote{TODO: The peaks for the IV are 3.66,
+# 6.77, and 10.99 ms. The AN model input is affected by the rat audiogram,
+# the low CF and low level.  This shifts the arrival time of spikes to the
+# TS model, and a raw IV comparison would need to be shifted by approx 2
+# ms. The onset ratio and the first CV value are effected by this.}
 
-\yellownote{TODO: Synaptic weight in the model above 0.002 will initiate a
-spike at each input spike, similar to the calyx synapse on bushy
-cells. This means that the TS cell will respond with a primary-like or
-primary with notch PSTH. Dendritic filtering could improve this but the
-high synaptic weights do not seem like a realistic physiological option
-for small bouton endings in the CN.}
+# \yellownote{TODO: Synaptic weight in the model above 0.002 will initiate a
+# spike at each input spike, similar to the calyx synapse on bushy
+# cells. This means that the TS cell will respond with a primary-like or
+# primary with notch PSTH. Dendritic filtering could improve this but the
+# high synaptic weights do not seem like a realistic physiological option
+# for small bouton endings in the CN.}
 
 #+BEGIN_LaTeX
   \begin{figure}[thb]
@@ -3048,30 +3050,31 @@ for small bouton endings in the CN.}
 #+END_LaTeX
 
 
-\yellownote{Increase gKA helps increase potassium conductance at rest}
+# \yellownote{Increase gKA helps increase potassium conductance at rest}
 
-\yellownote{TODO: The RMP of the experimental data was relatively high, and if
-this was produced in a model the spontaneous rate would be close to 100
-spikes per seconds.  The IV measures allow for comparison of the
-experimental and model data that is independent of the RMP.}
+# \yellownote{TODO: The RMP of the experimental data was relatively high, and if
+# this was produced in a model the spontaneous rate would be close to 100
+# spikes per seconds.  The IV measures allow for comparison of the
+# experimental and model data that is independent of the RMP.}
 
-\yellownote{TODO: Hand tuning creates many types of ChS models, but the best
-effects are when you smooth out the input with dendritic filtering.
-This can be used in a single compartment using a higher time constant on
-the synapse or better, using a double-exponential synapse with longer
-onset and decay time constants. Very high excitatory inputs saturates
-the cell and it will spike repeatedly in a regular fashion but the onset
-is too precise. See ChT2 IV trace for an example of precise onset. I was
-able to generated a good IV trace when the full trace was the error
-function at higher SPL and higher CF, but this was unable to generate
-the same trace for 3.9 KHz at 40 dB or a sustained CV. }
+# \yellownote{TODO: Hand tuning creates many types of ChS models, but the best
+# effects are when you smooth out the input with dendritic filtering.
+# This can be used in a single compartment using a higher time constant on
+# the synapse or better, using a double-exponential synapse with longer
+# onset and decay time constants. Very high excitatory inputs saturates
+# the cell and it will spike repeatedly in a regular fashion but the onset
+# is too precise. See ChT2 IV trace for an example of precise onset. I was
+# able to generated a good IV trace when the full trace was the error
+# function at higher SPL and higher CF, but this was unable to generate
+# the same trace for 3.9 KHz at 40 dB or a sustained CV. }
 
 #  [[../SimpleResponsesChapter/gfx/TStellate_CS/multiplotIVCV4.pdf]]
 
 #+name: CS_rate
 #+BEGIN_SRC sh :exports none
-  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CS/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{print sum/5.0}'
+  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CS/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
 #+END_SRC
+
 
 The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re threshold was
 call_CS_rate(SPLreTh=30), 
@@ -3085,21 +3088,21 @@ spikes per second, respectively.
 
 *** Transient Chopper 1
 
-The \ChTone unit chosen for the optimisation was unit 01-857-007 
+The optimisation results of \ChTone are shown in Figure \ref{fig:CT1results}
+with best parameters as shown in Table \ref{tab:TSCellResults}.  The \ChTone
+unit chosen as the exemplar for the optimisation was unit 01-857-007
 \citep[CF=8.2~kHz][]{PaoliniClareyEtAl:2005}.  The depolarisation threshold for
-this unit was 55 dB \SPL, close to the average 47.2 dB \SPL for all
-\ChTone units.  The stimulus for the optimisation routine was an 85 dB 8.2
-kHz pure tone and the exemplar \TS cell model had CF 8.27 kHz.
+the exemplar unit was 55 dB \SPL, close to the average 47.2 dB \SPL for all \ChTone
+units.  The acoustic for the optimisation routine was an 40 dB SPL and the
+reversal potential of $-63.9 mV$.
 
-The optimisation results of \ChTone are shown in Figure
-\ref{fig:CT1results} with best parameters as shown in Table \ref{tab:TSCellResults}.
 Moderate excitatory synaptic weights (\wLSRTS 8.22E-4, \wHSRTS
 0.000620294) were balanced with moderate to low glycinergic synaptic input
 (\wDSTS 0.000148518, \wTVTS 0.000195416).  The GABAergic input weight
-was very low (\wGLGTS 1.70742e-05), but the loud input stimulus (85 dB)
+was very low (\wGLGTS 1.70742e-05), but the loud input stimulus (70 dB SPL = 30 dB re threshold)
 would cause reasonable inhibition to the \TS cell throughout the
-stimulus.  The leak conductance had a slight decrease (\gleak
-4.098e-4 S/cm).
+stimulus.  
+# The leak conductance had a slight decrease (\gleak 4.098e-4 S/cm).
 
 #+BEGIN_LaTeX
   \begin{figure}[t!]
@@ -3120,16 +3123,16 @@ stimulus.  The leak conductance had a slight decrease (\gleak
 
 #+name: CT1_rate
 #+BEGIN_SRC sh  :exports none 
-  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CT1/TStellate.Fit.dat | tail -6 | awk ' {print $3}' | meanminmax | awk '{printf("%.1f",$3)}'
+  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CT1/TStellate.Fit.dat |  tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
 #+END_SRC
 
-
+ 
 The mean rate for the optimised \ChT1 unit at 20, 30 and 40 dB re threshold was
-call_CT1_rate(SPLreTh=60), 
-call_CT1_rate(SPLreTh=70) and 
-call_CT1_rate(SPLreTh=80)
-spikes per second, respectively.
-
+call_CT1_rate(SPLreTh=60), call_CT1_rate(SPLreTh=70) and call_CT1_rate(SPLreTh=80)
+spikes per second, respectively.  The CV responses of the optimised model were
+not sufficient at 30 dB re threshold with the mean over the whole stimulus of
+0.308 but the final 10 ms period of the being outside the 0.3 CV threshold for
+regularity (CV$_{30-40}=0.42$).
 
 
 
@@ -3177,7 +3180,7 @@ greatest of all the chopper subtypes (-8.82 mV).
    \begin{figure}[t!]
     \centering %\resizebox{0.95\textwidth}{!}{}
   % \includegraphics{TStellate_CT2/multiplotIVCV}
-  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate_CT2/multiplotIVCV3}}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate2_CT2/multiplotIVCV4.pdf}}
   \caption[Transient chopper 2 optimisation results]{TS cell model
     optimisation results for the second transient chopper subtype. The reference
     unit (01-305-014) had a low threshold (5 dB SPL)
@@ -3189,6 +3192,35 @@ greatest of all the chopper subtypes (-8.82 mV).
     \label{fig:CT2results} 
    \end{figure}
 #+END_LaTeX
+#
+  [[../SimpleResponsesChapter/gfx/TStellate2_CT2/multiplotIVCV4.pdf]]
+
+#+name: CT2_rate
+#+BEGIN_SRC sh 
+  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
+#+END_SRC
+
+#+name: CT2_fsl
+#+BEGIN_SRC sh :exports none
+   grep -A33 'at spl '$SPLreTh'' ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f \\pm %.2f$\n",$4,$7)}'
+#+END_SRC
+
+
+The mean rate for the optimised \ChTtwo unit at the three \SPL tones was
+# call_CT2_rate(SPLreTh=30)
+$161.6$, 
+# call_CT2_rate(SPLreTh=40)
+$208.8$
+and
+$267.2$  
+# call_CT2_rate(SPLreTh=50)
+spikes per second, respectively. 
+# call_CT2_fsl(SPLreTh=40) 
+The \FSL at 30 dB re threshold ($5.43 \pm 0.13$ ms) showed a precise first spike but the following spikes were too irregular for this unit to be classified a chopper (CV$_{0-10} > 0.3$).
+At 40 dB re threshold the 
+
+
+
 
 ** Overview of TS cell model results
 
