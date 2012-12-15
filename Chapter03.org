@@ -23,7 +23,7 @@
 
 * Prelude 							   :noexport:
   
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :export none
    (setq TeX-master t)
      ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
      ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
@@ -46,7 +46,7 @@
      \\pretolerance=150 \\tolerance=100
      \\setlength{\\emergencystretch}{3em} 
      \\overfullrule=1mm 
-     %\\usepackage[notcite]{showkeys} 
+     \\usepackage[notcite]{showkeys} 
      \\lfoot{\\footnotesize\\today\\ at \\thistime} 
      [NO-DEFAULT-PACKAGES]
      [NO-PACKAGES]" 
@@ -290,10 +290,10 @@ Zilany model \citep{ZilanyBruceEtAl:2009}.
 #   default species is the cat and will be used in the data presented in
 #   this chapter.
 
-
+ 
 # ** Spiking in Poisson Neural Models 
 
-The neural models used in the \ANFs and Golgi cell model were
+T he neural models used in the \ANFs and Golgi cell model were
 inhomogeneous Poisson processes.  The instantaneous rate produced the
 input \AN model (chosen from the Bruce or Zilany model) was passed through the
 Jackson spiking model \citep{Jackson:2003,JacksonCarney:2005}, which
@@ -2916,10 +2916,9 @@ Negative values indicate post-stimulus hyperpolarisation which is caused by
     \begin{figure}[thp]
       \centering
     \includegraphics{../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.pdf}
-  B. Average membrane voltage hyperpolarisation after stimulus offset (Equation \ref{eq:IVstats-Offset}) at different sound levels relative to threshold. Transient chopper data was gathered from Figure 6B in \citet{PaoliniClareyEtAl:2005}.
-    \caption[IV categorisation in chopper units]{A.  Adaptation shift (Equation \ref{eq:IVstats-Adap}) at different sound levels (relative to threshold). Transient chopper data, representing average within ChT$_{1}$ and ChT$_{2}$ groups, was gathered from Figure 6A in \citet{PaoliniClareyEtAl:2005}. 
-  The average post-tone hyperpolarisation (offset shift) in ChS units at 30 dB re threshold is 1.6 mV.
-  ChS unit 01-859-013  (CF=3.9 kHz, Th 25 dB) is used for the ChS offset shift data at 20 and 40 dB re threshold \citep[reproduced from Figure~3][]{PaoliniClareyEtAl:2005}.
+    \caption[IV categorisation in chopper units]{A.  Adaptation shift (Equation \ref{eq:IVstats-Adap}) at different sound levels (relative to threshold). Transient chopper data, representing average within ChT$_{1}$ and ChT$_{2}$ groups \citep[reproduced~from~Figure~6A~in~]{PaoliniClareyEtAl:2005}. 
+  B. Average membrane voltage hyperpolarisation after stimulus offset (Equation \ref{eq:IVstats-Offset}) at different sound levels relative to threshold. Transient chopper data uses group averages from Figure 6B in \citet{PaoliniClareyEtAl:2005}.
+  The offset shift in ChS units (green triangles) uses the group average at 30 dB re threshold (1.6 mV, filled triangle) and measurements from ChS unit 01-859-013  (CF=3.9 kHz, Th 25 dB, see Figure~3 \citet{PaoliniClareyEtAl:2005})  at 20 and 40 dB re threshold (unfilled triangle).
   }
     \label{fig:PaoliniIVdata}    
     \end{figure}
@@ -3077,13 +3076,19 @@ onset, just before the stimulus invoked spike arrival at the \TS cell
 
 
 The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re threshold was
-call_CS_rate(SPLreTh=30), 
-call_CS_rate(SPLreTh=40) and 
-call_CS_rate(SPLreTh=50) 
-spikes per second, respectively.
+call_CS_rate(SPLreTh=30)[:results replace raw], call_CS_rate(SPLreTh=40)[:results replace raw] and 
+call_CS_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
 
 
 
+
+
+
+
+
+
+
+ 
 
 
 *** Transient Chopper 1
@@ -3128,8 +3133,10 @@ stimulus.
 
  
 The mean rate for the optimised \ChT1 unit at 20, 30 and 40 dB re threshold was
-call_CT1_rate(SPLreTh=60), call_CT1_rate(SPLreTh=70) and call_CT1_rate(SPLreTh=80)
-spikes per second, respectively.  The CV responses of the optimised model were
+call_CT1_rate(SPLreTh=60)[:results replace raw], 
+call_CT1_rate(SPLreTh=70)[:results replace raw] and 
+call_CT1_rate(SPLreTh=80)[:results replace raw] spikes per second, respectively.  
+The CV responses of the optimised model were
 not sufficient at 30 dB re threshold with the mean over the whole stimulus of
 0.308 but the final 10 ms period of the being outside the 0.3 CV threshold for
 regularity (CV$_{30-40}=0.42$).
@@ -3196,7 +3203,7 @@ greatest of all the chopper subtypes (-8.82 mV).
   [[../SimpleResponsesChapter/gfx/TStellate2_CT2/multiplotIVCV4.pdf]]
 
 #+name: CT2_rate
-#+BEGIN_SRC sh 
+#+BEGIN_SRC sh :exports none
   grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
 #+END_SRC
 
@@ -3207,17 +3214,11 @@ greatest of all the chopper subtypes (-8.82 mV).
 
 
 The mean rate for the optimised \ChTtwo unit at the three \SPL tones was
-# call_CT2_rate(SPLreTh=30)
-$161.6$, 
-# call_CT2_rate(SPLreTh=40)
-$208.8$
-and
-$267.2$  
-# call_CT2_rate(SPLreTh=50)
-spikes per second, respectively. 
-# call_CT2_fsl(SPLreTh=40) 
-The \FSL at 30 dB re threshold ($5.43 \pm 0.13$ ms) showed a precise first spike but the following spikes were too irregular for this unit to be classified a chopper (CV$_{0-10} > 0.3$).
-At 40 dB re threshold the 
+call_CT2_rate(SPLreTh=30)[:results replace raw], 
+call_CT2_rate(SPLreTh=40)[:results replace raw] and
+call_CT2_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively. 
+The \FSL at 30 dB re threshold (call_CT2_fsl(SPLreTh=40)[:results replace raw] ms) showed a precise first spike but the following spikes were too irregular for this unit to be classified a chopper (CV$_{0-10} > 0.3$).
+# At 40 dB re threshold the 
 
 
 
