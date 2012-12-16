@@ -1,9 +1,9 @@
 {%
 \small%\linespread{0.5}
-\begin{table}[htb]
+\begin{table}[p!]
     \caption{Tuberculoventral cell model summary}
     \label{tab:TVModelSummary}
-\end{table}
+
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|} %
 \hdr{2}{A}{Model Summary}\\
@@ -61,6 +61,12 @@ Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, wei
 \textbf{Subthreshold dynamics} & Na, KHT, Ih, and leak currents \\\hline
        \textbf{Spiking}        & Emit spike when $v(t) \geq \theta$  \\\hline
 \end{tabularx}
+
+\end{table}
+\begin{table}[p!]
+    \caption{Tuberculoventral cell model summary - continued}
+    \label{tab:TVModelSummary}
+
 %\vspace{1ex}
 % \noindent\begin{tabularx}{\textwidth}{|p{0.150.95\textwidth}|X|}\hline
 % \hdr{2}{D}{Neuron and Synapse Model}\\\hline
@@ -128,12 +134,12 @@ Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, wei
 % Spread of DS connections onto TV (channel units) &    \sDSTV     &     [0,10]     & 2.1         \\
 % Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,10]     & 0.24        \\ \hline
 % \end{tabularx}
-
+\end{table}
 }
 
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "SimpleResponses"
+%%% TeX-master: "Chapter03"
 %%% TeX-PDF-mode: nil
 %%% End: 

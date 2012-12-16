@@ -1,9 +1,9 @@
 {%
 \small\linespread{0.5}
-\begin{table}[pt!]
+\begin{table}[!pt]
     \caption{D~stellate cell  model summary}
     \label{tab:DScellModelSummary}
-\noindent%
+%\noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{A}{Model Summary}\\\hline
          \textbf{Populations}           & ANF (HSR, LSR), GLG, and  DS cell models\\\hline
@@ -59,8 +59,10 @@ Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight
  \end{tabularx}
 %\vspace{1ex}
 \end{table}
-\clearpage
-\noindent%
+\begin{table}[!pt]
+    \caption{D~stellate cell  model summary - continued}
+    \label{tab:DScellModelSummary}
+%\noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{E}{Optimisation - Click Recovery}\\\hline
 \textbf{Input Stimulus}  & Mask and recovery click pairs, with delay 16, 2, 8, 4, and 3 ms (in this order), separated by 50 ms   \\\hline
@@ -90,7 +92,7 @@ $\tau_{\rm GABA-2}$,
           \\\hline
 \textbf{Fitness Function} & RMS error between \DS cell model (CF 11.1 kHz) and experimental \OnC unit \citep[CF~10.9~kHz, ][]{ArnottWallaceEtAl:2004} at each input stimulus in tone and noise rate levels. \\\hline
 \end{tabularx}
-
+\end{table}
 }
 
 %%% Local Variables: 

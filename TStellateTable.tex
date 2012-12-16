@@ -1,10 +1,10 @@
 {%\vspace{2ex}
 \small\linespread{0.5}
-\begin{table}[htb]
+\begin{table}[pt]
     \caption{T~stellate cell model summary}
     \label{tab:TSModelSummary}
-\end{table}
-\noindent%
+%\end{table}
+%\noindent%
 \begin{tabularx}{\textwidth}{|l|X|} %
 \hdr{2}{A}{Model Summary}\\
          \textbf{Populations}          & Six: \HSR \& \LSR ANFs, \GLG, \DS, \TV and \TS cells \\\hline
@@ -94,8 +94,11 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
 % \end{enumerate}
 % \vspace*{-4ex}\rule{1em}{0em}
 % \\\hline
-% \end{tabularx}
 
+\end{table}
+\begin{table}[!tp]
+    \caption{T~stellate cell model summary}
+    \label{tab:TSModelSummary}
 %\vspace{2ex}
 \noindent
 \begin{tabularx}{\textwidth}{|l|X|}%
@@ -111,6 +114,7 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
 \textbf{Fitness Function}    &  Input stimulus was presented to the CNSM model with intracellular voltage and spike timing output recorded from one \TS cell model. Special \AIV measures and spike statistics were calculated.  \CV statistics were measured in 10 ms windows from 2.5 ms after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
 \end{tabularx}
 \vspace{1ex}
+\end{table}
 }
 
 %  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
@@ -121,6 +125,6 @@ Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS,
 
 %%% Local Variables: 
 %%% mode: latex
-%%% TeX-master: "SimpleResponses"
+%%% TeX-master: "Chapter03"
 %%% TeX-PDF-mode: nil
 %%% End: 
