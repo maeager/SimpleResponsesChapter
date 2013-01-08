@@ -1,7 +1,8 @@
 #+TITLE: Chapter 3
 #+DATE:
 #+AUTHOR: Michael A Eager
-#+OPTIONS: toc:nil author:nil H:5  <:t >:t tasks:nil
+#+OPTIONS: toc:nil  H:5  <:t >:t tasks:nil 
+#author:nil
 #+STARTUP: oddeven inlineimages
 # C-c C-x C-v     (org-toggle-inline-images)
 #+SEQ_TODO:    TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
@@ -9,7 +10,7 @@
 #+TODO:  REFTEX
 #+LANGUAGE: en_GB-ise-wo_accents
 
-#+LaTeX_CLASS: UoM-draft-org-article
+#+LaTeX_CLASS: UoM-draftA-org-article
 # + LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
 #+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
@@ -23,48 +24,47 @@
 
 * Prelude 							   :noexport:
   
-#+name: my-latex-export
-#+begin_src emacs-lisp :export none
-   (setq TeX-master t)
-     ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
-     ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
-     ;;                                  "pdflatex -interaction nonstopmode %f" )) 
-      (setq org-latex-to-pdf-process '("pdfquick Chapter3")) 
-     ;;(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
-     ;;                                 "makeglossaries %b" 
-     ;;                                 "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
-     (setq org-export-latex-title-command "") 
-     (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
-     (add-to-list 'org-export-latex-classes 
-                  '("UoM-draft-org-article"
- "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
-   \\documentclass[11pt,a4paper,twoside,openright]{book}
-     \\usepackage{../org-manuscript/style/uomthesis} 
-     \\input{user-defined}
-     \\usepackage[nonumberlist,acronym]{glossaries}
-     \\input{../org-manuscript/misc/glossary} 
-     \\makeglossaries
-     \\pretolerance=150 \\tolerance=100
-     \\setlength{\\emergencystretch}{3em} 
-     \\overfullrule=1mm 
-     \\usepackage[notcite]{showkeys} 
-     \\lfoot{\\footnotesize\\today\\ at \\thistime} 
-     [NO-DEFAULT-PACKAGES]
-     [NO-PACKAGES]" 
-     ("\\newpage\n\\section{%s}" . "\n\\section{%s}")
-     ("\\subsection{%s}"         . "\n\\subsection{%s}") 
-     ("\\subsubsection{%s}"      . "\n\\subsubsection{%s}") 
-     ("\\paragraph{%s}"          . "\n\\paragraph{%s}"))) 
-     (setq org-export-latex-title-command
-           "{\n\\singlespacing\n\\tableofcontents\n}\n") 
-   (setq org-export-latex-hyperref-format "\\ref{%s}")
-#+end_src
 
-#+RESULTS: my-latex-export
-: \ref{%s}
+#+begin_src emacs-lisp :export none
+     (setq TeX-master t)
+       ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
+       ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
+       ;;                                  "pdflatex -interaction nonstopmode %f" )) 
+        (setq org-latex-to-pdf-process '("pdfquick Chapter3")) 
+       ;;(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
+       ;;                                 "makeglossaries %b" 
+       ;;                                 "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
+       (setq org-export-latex-title-command "") 
+       (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
+  ;; my-latex-export
+       (add-to-list 'org-export-latex-classes 
+                    '("UoM-draftA-org-article"
+   "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
+     \\documentclass[11pt,a4paper,twoside,openright]{book}
+       \\usepackage{../org-manuscript/style/uomthesis} 
+       \\input{user-defined}
+       \\usepackage[nonumberlist,acronym]{glossaries}
+       \\input{../org-manuscript/misc/glossary} 
+       \\makeglossaries
+       \\pretolerance=150 \\tolerance=100
+       \\setlength{\\emergencystretch}{3em} 
+       \\overfullrule=1mm 
+       \\usepackage[notcite]{showkeys} 
+       \\lfoot{\\footnotesize\\today\\ at \\thistime} 
+       [NO-DEFAULT-PACKAGES]
+       [NO-PACKAGES]" 
+       ("\\newpage\n\\section{%s}" . "\n\\section{%s}")
+       ("\\subsection{%s}"         . "\n\\subsection{%s}") 
+       ("\\subsubsection{%s}"      . "\n\\subsubsection{%s}") 
+       ("\\paragraph{%s}"          . "\n\\paragraph{%s}"))) 
+       (setq org-export-latex-title-command
+             "{\n\\singlespacing\n\\tableofcontents\n}\n") 
+     (setq org-export-latex-hyperref-format "\\ref{%s}")
+#+end_src
 
 #+RESULTS:
 : \ref{%s}
+
 
 
 
@@ -244,7 +244,6 @@ three \TS cell model sub-types were optimised.
 # CloptonWinfieldEtAl:1974}.  Perhaps Rose et al 1959 would be better
 # suited here
 
-
 * Methods
 
 This section describes the specific methods used in this
@@ -389,10 +388,14 @@ separated using the same Greenwood function used for the filterbank of
 
 ** Synapse Models
 
-\glsunset{AMPA}\glsunset{GlyR}
+\glsunset{AMPA}\glsunset{GlyR}\glsunset{NMDA}
 
 The synaptic models for \AMPA, \GlyR and \GABAa receptors were described
-in  Section [[sec:Ch2:SynapseModels]]. All weight variables are in microsieverts.
+in Section [[sec:Ch2:SynapseModels]].  The synapses act by changing in the
+conductivity at a single point in the neural compartment with either
+single or double exponential dynamics.  All weight variables (in
+microsiemens) and delay parameters (in milliseconds) are the same for
+each synapse in a connectivity group.
 # Chapter \ref{sec:MethodsChapter}
 #\ref{sec:Ch2:Synapse}
 
@@ -569,10 +572,7 @@ to the \CNSM model included:
 
 \newpage
 
-
 * Figures							   :noexport:
-  
-
 ** fig:microcircuit
 
 # #+BEGIN_SRC sh
@@ -587,7 +587,6 @@ to the \CNSM model included:
  gnuplot -p gfx/AudiogramCompression.gpi
 #+END_SRC
 
-
 ** GolgiDiagram
 # #+BEGIN_SRC sh :export none
 #	dia -n -t pgf-tex -e gfx/GolgiDiagram.tex gfx/GolgiDiagram.dia
@@ -599,11 +598,6 @@ to the \CNSM model included:
    dia -n -t pgf-tex -e gfx/GolgiPointProcessDiagram.tex gfx/GolgiPointProcessDiagram.dia
    sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e	's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
 #+END_SRC
-
-
-
-
-
 
 * Golgi Cell Model 
 #: Optimisation Using Rate Level Responses in Marginal Shell Units 
@@ -618,6 +612,8 @@ Golgi (GLG) cell model in the \CNSM model.
 
 # GLG Cell Model
 *** Morphology of Golgi Cells
+
+\glsset{NMDA}
 
 Golgi cells can be distinguished from the numerous smaller granule cells
 in the \GCD by their larger cell body and surrounding plexus of
@@ -649,6 +645,7 @@ small (Type II \ANF and granule cell) vesicles
 The contribution of the circuits of granule cell areas of the cochlear
 nucleus to the processing of the acoustic signal is poorly understood
 \citep[for~a~review~of~non-auditory~inputs~to~GCD~see]{OhlroggeDoucetEtAl:2001}.
+\citet{FerragamoGoldingEtAl:1998} confirmed the excitation of Golgi cells from granule cells with \NMDA glutamatergic synapses
 
 # # from Mugnaini This paper describes the fine structure of granule cells and
 # granule-associated interneurons (termed Golgi cells) in the cochlear nuclei of
@@ -689,7 +686,7 @@ nucleus to the processing of the acoustic signal is poorly understood
 In a single study in mice, intracellular recordings of Golgi cells
 showed a classic repetitively-firing response to current clamp and an
 inward rectifying response to voltage clamp
-\citep[][Figure~\ref{fig:GolgiIV}]{FerragamoGoldingEtAl:1998}.	Golgi
+\citep{FerragamoGoldingEtAl:1998}.	Golgi
 cells are classified as Type I current-clamp neurons and act as simple
 integrators of synaptic input \citep{FerragamoGoldingEtAl:1998}.
 # Their intrinsic properties suggests Golgi cells are simple integrators.
@@ -697,10 +694,10 @@ Response to AN shocks in Golgi cells were found to be delayed by
 approximately 0.7 ms relative to the core \VCN units, with minimum delay
 in most cells around 1.3 ms \citep{FerragamoGoldingEtAl:1998}.
 
-#+ATTR_LaTeX: width=0.6\textwidth
-#+Caption: Current clamp response of a Golgi cell in a mouse slice preparation. Figure reproduced from \citet{FerragamoGoldingEtAl:1998}.
-#+LABEL: fig:GolgiIV
-[[../figures/FerragamoGolgi.png]]
+# #+ATTR_LaTeX: width=0.6\textwidth
+# #+Caption: Current clamp response of a Golgi cell in a mouse slice preparation. Figure reproduced from \citet{FerragamoGoldingEtAl:1998}.
+# #+LABEL: fig:GolgiIV
+# [[../figures/FerragamoGolgi.png]]
 
 # Regular spiking with overshooting action potentials and double exponential undershoot
 # Inward rectifying FerragamoGoldingEtAl:1998     130 Mohm
@@ -723,9 +720,17 @@ axons are unlikely to elicit electrical activity in the electrodes
 ## Change this sentence
 # There was a substantial presence of
 
+
+#+ATTR_LATEX: width=\textwidth,keepaspectratio=true
+#+CAPTION:    [Rate level response of marginal shell units]{Marginal shell neuron (Unit S03-07, CF 22.7 kHz, \citealt{GhoshalKim:1997}) with monotonic rate-level response to pure BF tones and broad-band noise. This unit was chosen as the exemplar Golgi cell for optimisation purposes. (Figure reproduced from \citealt{GhoshalKim:1997})}
+#+LABEL:      fig:GhoshalKim97_Fig2
+[[../SimpleResponsesChapter/gfx/GhoshalKim_Fig2_S03_07.png]]
+
+
+Figure \ref{fig:GhoshalKim97_Fig2} shows an example of the acoustically-driven marginal shell units in the \VCN. 	
 Strongly driven units in the anterior \VCN shell exhibit non-saturating
 rate-level functions to pure tones, noise or both with dynamic ranges as
-wide as 89 dB \citep{GhoshalKim:1997}.	The majority of \GCD units
+wide as 89 dB \citep{GhoshalKim:1997}.  The majority of \GCD units
 recorded by \citet{GhoshalKim:1997} were classified as Type I\slash III
 or III \EIRA units, showing a monotonic increase in firing rate with
 increasing sound intensity to tones and noise.	Some units showed Type
@@ -906,7 +911,7 @@ The key attributes of the Golgi cell used to inform the creation of the
 #+END_LaTeX
 
 
-The Golgi cell model was implemented as an instantaneous-rate Poisson
+The \GLG cell model was implemented as an instantaneous-rate Poisson
 rate model, as shown in Table \ref{tab:GolgiCellModelSummary}D and in
 Figure \ref{fig:GolgiDiagram}.	The primary inputs were from the \HSR and \LSR \ANF
 model's instantaneous rate outputs with connections across frequency
@@ -990,12 +995,6 @@ was used to generate the output spike times for the Golgi cell model.
 #+LaTeX:\input{../SimpleResponsesChapter/GolgiRateLevelTable}
 
 
-#+ATTR_LATEX: width=\textwidth,keepaspectratio=true
-#+CAPTION:    [Rate level response of marginal shell units]{Marginal shell neuron (Unit S03-07, CF 22.7 kHz, \citealt{GhoshalKim:1997}) chosen to optimise the Golgi cell model as it is moderately-driven and monotonic to pure BF tones and broad-band noise. (Figure reproduced from \citealt{GhoshalKim:1997})}
-#+LABEL:      fig:GhoshalKim97_Fig2
-[[../SimpleResponsesChapter/gfx/GhoshalKim_Fig2_S03_07.png]]
-
-
 Table \ref{tab:GolgiCellModelSummary} shows the model summary used to
 optimise the Golgi cell model.	
 #As explained in the Chapter
@@ -1008,20 +1007,20 @@ The topology of the \VCN follows the same tonotopic
 organisation of the \AN, with 100 evenly-spaced frequency channels.  As
 Table \ref{tab:GolgiCellModelSummary}B shows, the ANFs were not required
 because only the instantaneous profiles of each \AN frequency channel
-were used in the Golgi model.  In the \CNSM model, the connectivity
-between \ANFs and Golgi cells (Table \ref{tab:GolgiCellModelSummary}C)
+were used in the \GLG cell model.  In the \CNSM model, the connectivity
+between \ANFs and \GLG cells (Table \ref{tab:GolgiCellModelSummary}C)
 was a simple place-based Gaussian spread (as explained in Section [[Connectivity%20and%20Topology%20in%20Neural%20Microcircuits][Connectivity and Topology in Neural Microcircuits]]).
 
 
-The experimental data used to optimise the Golgi cell model was the rate
+The experimental data used to optimise the \GLG cell model was the rate
 level response of the marginal shell unit shown in Figure
 \ref{fig:GhoshalKim97_Fig2}.  This unit was chosen due to its monotonic
 response to pure BF tones and its moderate maximal firing rate (100
 spikes per second). The closest frequency channel (channel 76,
-CF=22.7kHz) to the experimental unit's CF (21 kHz) was used for the GLG
-cell model. The fitness function for the GLG cell model optimisation
+CF=22.7kHz) to the experimental unit's \CF (21 kHz) was used for the GLG
+cell model. The fitness function for the \GLG cell model optimisation
 used 22.7 kHz pure tones at 22 sound levels to compare the experimental
-and model units. The GLG cell model parameters used in the optimisation
+and model units. The \GLG cell model parameters used in the optimisation
 are shown in Table \ref{tab:GolgiCellModelSummary}E.
 
 
@@ -2292,7 +2291,7 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
 #   \end{center} }
 # #+END_LaTeX=
 
-\yellownote{discuss table}
+
 #+BEGIN_LaTeX
     {%
     \small\noindent
@@ -2333,10 +2332,9 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
     }
 #+END_LaTeX
 
+\yellownote{discuss the TV results table}
 
-
-
-
+The optimised parameters of the \TV cell model in Table \ref{tab:TVRateLevelFig8B} are indicative of a strongly-inhibited neuron.
 
 
 ** Verification of the TV Cell Model
@@ -2356,30 +2354,31 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
 
 
 #+BEGIN_LaTeX
-    \begin{figure}[t!]
-      %\centering%\hspace{0.5cm}
-  %    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-      % \resizebox{0.95\textwidth}{!}{
-  %  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/TV_ratelevel_combined}%
-  %     \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle50-1}\\
-  %    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/psthsingle90-1}\\
-  
-      % }\\\hspace{0.5cm}
-  %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
-      % \resizebox{0.95\textwidth}{!}{%
-  %  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-1}%
-      \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
-      \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/30/TV_masked}\\
-      \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/45/TV_masked}\\
-      \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/60/TV_masked}\\
-  
-      \caption[Optimised TV cell model responses]{Response of optimised TV cell models at the centre of the network (CF=5.8 kHz).
-        A. Rate level responses to tone, noise and tone plus noise.
-        B. PSTH at 90 dB SPL to noise.
-        C. Response area equivalent using all DS units in the network.
-        D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF\@.}
-      \label{fig:TVverification}
-    \end{figure}
+      \begin{figure}[pt!]
+        %\centering%\hspace{0.5cm}
+    %    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+        % \resizebox{0.95\textwidth}{!}{
+    %  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/TV_ratelevel_combined}%
+    %     \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle50-1}\\
+    %    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/psthsingle90-1}\\ 
+        % }\\\hspace{0.5cm}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-Strych-Bic.png}}
+    %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+    \resizebox{0.95\textwidth}{!}{%
+    %  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-1}%
+        \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}%
+        \includegraphics{ResponsesNoComp/MaskedResponseCurve3/30/TV_masked}}
+    \resizebox{0.95\textwidth}{!}{%
+        \includegraphics{ResponsesNoComp/MaskedResponseCurve3/45/TV_masked}%
+        \includegraphics{ResponsesNoComp/MaskedResponseCurve3/60/TV_masked}}
+        \caption[Tone and noise masking response area in TV cells]{Tone and noise masking response area in TV cells. A-B Tone and noise response map of a cat TV cell (Type II DCN unit \citep{SpirouDavisEtAl:1999}) with and without ionotopopheretic application of strynchnine.
+          A. Rate level responses to tone, noise and tone plus noise.
+          B. PSTH at 90 dB SPL to noise.
+          C. Response area equivalent using all DS units in the network.
+          D. Tone response maps with masking noise in optimised TV cell model at the centre of the CNSM network.  frequencies range from one octave above and below its CF\@.
+  }
+        \label{fig:TV_masked_response}
+      \end{figure}
 #+END_LaTeX
 
 #+BEGIN_LaTeX
@@ -3103,14 +3102,14 @@ after tone onset, just before the stimulus invoked spike arrival at the
     is shown in blue and the optimised model is shown in black (CF=3.872 kHz).
     The stimulus (pure tone 3.9 kHz stimulus, 40dB SPL) was repeated 50 times for
     this figure but during the optimisation routine the repetition was 25.
-    A. PSTH of the \TS cell model (CF=3.872 kHz) to a pure tone at CF at 30 dB re threshold. B. Coefficient of variation averaged over 10 ms periods.  C. Average
+    A. PSTH of the \TS cell model (CF=3.872 kHz) to a pure tone at CF at 30 dB re threshold. B. Coefficient of variation Xaveraged over 10 ms periods.  C. Average
     membrane voltage (note shaded areas indicate areas used in the measures in D.
-    D. Measures of membrane voltage including a) onset ratio (Equation~\ref{eq:IVstats-Onset}), b) adaptation of sustained depolarisation (Equation~\ref{eq:IVstats-Adap}), and c) post-tone hyperpolarisation (Equation~\ref{eq:IVstats-Offset}).  The RMP, calculated from -10 to 0 ms, for the
+    D. Measures of membrane vol4 hours 3 minutes of battery power remaining (96%)tage including a) onset ratio (Equation~\ref{eq:IVstats-Onset}), b) adaptation of sustained depolarisation (Equation~\ref{eq:IVstats-Adap}), and c) post-tone hyperpolarisation (Equation~\ref{eq:IVstats-Offset}).  The RMP, calculated from -10 to 0 ms, for the
     reference unit and best parameter model was -45.1 and -64.22 mV, respectively.}
     \label{fig:CSresults}
   \end{figure} 
   \clearpage
-#+END_LaTeX
+#+END_LaTeX 
 
 
 # \note{Increase gKA helps increase potassium conductance at rest}
@@ -3302,33 +3301,34 @@ the three \TS cell subtypes. Further details on each subtype are
 provided below.
 
 #+BEGIN_LaTeX
-   {
-   \vspace{2ex}%
-   \small\noindent%
-   \begin{table}[t!p]
-   \centering
-   \caption{Best fit parameters of three TS cell subtypes using the intracellular and CV statistics optimisation}
-   \label{tab:TSCellResults}
-   \begin{tabularx}{\textwidth}{X c D{,}{.}{2.6} D{,}{.}{2.6} D{,}{.}{2.6}} 
+  {
+  \vspace{2ex}%
+  \small\noindent%
+  \begin{table}[t!]
+  \centering
+  \caption{Best fit parameters of three TS cell subtypes using the intracellular and CV statistics optimisation}
+  \label{tab:TSCellResults}
+  \begin{tabularx}{\textwidth}{l c D{,}{.}{2.6} D{,}{.}{2.6} D{,}{.}{2.6}} 
   \toprule 
-        \textbf{Parameters}       & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
-                                  &                & \multicolumn{1}{c}{\ChS} & \multicolumn{1}{c}{\ChTone} & \multicolumn{1}{c}{\ChTtwo} \\ \otoprule
-           \wHSRTS  (mS)          &   [0.01,30]    &          3,928           &            3,16             & 5,67 \\
-              \nHSRTS             &                &            8             &             20              & 8  & \\
-       \wLSRTS   \hfill (mS)      &   [0.01,30]    &          6,011           &            4,91             & 6,56\\
-              \nLSRTS             &                &            15            &             15              & 15 & \\
-       \wDSTS  \hfill  (mS)       &   [0.01,30]    &          0,0361          &           0,1094            & 0,106\\
-              \nDSTS              &                &            4             &                             & 4  & \\
-       \wTVTS  \hfill  (mS)       &   [0.01,30]    &          0,0247          &           0,0146            & 0,0206\\
-              \nTVTS              &                &            7             &              7              & 7  & \\
-       \wGLGTS  \hfill  (mS)      &   [0.01,30]    &          0,0313          &           0,3073            & 1,1868\\
-              \nGLGTS             &                &            5             &              5              & 5  & \\ \midrule
+    \textbf{Parameters}       & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
+                              &                & \multicolumn{1}{c}{\ChS} & \multicolumn{1}{c}{\ChTone} & \multicolumn{1}{c}{\ChTtwo} \\ \otoprule
+       \wHSRTS \hfill (mS)          &   [0.01,30]    &          3,928           &            3,16             & 5,67 \\
+          \nHSRTS \hfill            &                &            8             &             20              & 8   \\
+   \wLSRTS   \hfill (mS)      &   [0.01,30]    &          6,011           &            4,91             & 6,56\\
+          \nLSRTS   \hfill          &                &            15            &             15              & 15  \\
+   \wDSTS  \hfill  (mS)       &   [0.01,30]    &          0,0361          &           0,1094            & 0,106\\
+          \nDSTS   \hfill           &                &            4             &                             & 4   \\
+   \wTVTS  \hfill  (mS)       &   [0.01,30]    &          0,0247          &           0,0146            & 0,0206\\
+          \nTVTS    \hfill          &                &            7             &              7              & 7   \\
+   \wGLGTS  \hfill  (mS)      &   [0.01,30]    &          0,0313          &           0,3073            & 1,1868\\
+          \nGLGTS    \hfill         &                &            5             &              5              & 5   \\ \bottomrule
+  %\midrule
   %  \gleak \hfill (mS cm$^{-2}$) &    [1e-3,3]    &          0,657           &            0,494            & 0,724\\
   %  \gKHT  \hfill (S cm$^{-2}$)  &  [1e-6,0.003]  &          0,0189          &           0,0189            & 0,023\\
-     %     \Eleak \hfill  (mV)    & [$-45$,$-70$]  &          -65,15          &           -54,26            & -63,50\\  \bottomrule
+       %     \Eleak \hfill  (mV)    & [$-45$,$-70$]  &          -65,15          &           -54,26            & -63,50\\   
   \end{tabularx}
-   \end{table}\vspace{2ex}
-   }
+  \end{table}\vspace{2ex}%
+  }
 #+END_LaTeX
 
 
@@ -3362,7 +3362,6 @@ provided below.
 # # Go on Paolini's proposal
 
 # # *** Effect of TV: comb filter and echo suppression}
-
 
 * Discussion 
 
@@ -3474,7 +3473,6 @@ connection) not included.}
 
 \yellownote{TODO: Probability of AP-to-synaptic release ratio not included
 (Liley assumption of 1\% vesicle release in cortical buttons.) }
-
 
 * Conclusion 
 
