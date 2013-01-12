@@ -49,7 +49,7 @@
        \\pretolerance=150 \\tolerance=100
        \\setlength{\\emergencystretch}{3em} 
        \\overfullrule=1mm 
-       \\usepackage[notcite]{showkeys} 
+       %\\usepackage[notcite]{showkeys} 
        \\lfoot{\\footnotesize\\today\\ at \\thistime} 
        [NO-DEFAULT-PACKAGES]
        [NO-PACKAGES]" 
@@ -2495,13 +2495,14 @@ combination of the Type II \DCN unit notch data for 1 octave.
 
 #+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
 
+#+ATTR_LATEX: width=0.9\textwidth
 #+CAPTION: [Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from Figure 9 \citet{ReissYoung:2005}. BF, best frequency.}
 #+LABEL: fig:TVReissFig9
 [[../SimpleResponsesChapter/gfx/TV_Notch/Reiss_Fig9_E+F.png]]
 
 
 
-
+#+ATTR_LATEX: width=0.7\textwidth
 #+CAPTION: [TV model optimisation configuration]{Expected mean rate response to	 notch noise in the TV cells is created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge (top and bottom figures from Figure 9 in \citet{ReissYoung:2005}).}
 #+LABEL: fig:TVNotchDiagram
 [[../SimpleResponsesChapter/gfx/TV_NotchDataConfig2.pdf]]
@@ -2534,8 +2535,8 @@ excitatory inputs to generate action potentials. To allow for this, the
 reversal potential of the TV cell model (\Erev) was used as a parameter
 in the optimisation routine with a range from -80 to -50 mV. 
 
-#+ATTR_LATEX: width=0.7\textwidth
-#+CAPTION: [Best-fit result of TV cell model notch optimisation]{Best-fit result of TV cell model notch optimisation.  }
+#+ATTR_LATEX: width=0.6\textwidth
+#+CAPTION: [Best-fit result of TV cell model notch optimisation]{Best-fit result of TV cell model notch optimisation.}
 #+LABEL: fig:TVNotchresult
 [[../SimpleResponsesChapter/gfx/TV_Notch_results.pdf]]
 
@@ -2610,10 +2611,10 @@ Figure \ref{fig:TVSweepUnit70} shows the response of a unit with similar
 
 #+BEGIN_LaTeX
   \begin{figure}[t!]
-  %\centering
+  \centering
     %\resizebox{\textwidth}{!}{\includegraphics{NoFigure}}
-    \resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TV_Notch/Reiss_Fig9_E+F.png}}\\
-    \resizebox{0.9\textwidth}{!}{\includegraphics{../../cnstellate/TV_Notch/BestSweep.pdf}}\\
+    \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TV_Notch/Reiss_Fig9_E+F.png}}\\
+    \resizebox{0.95\textwidth}{!}{\includegraphics{../../cnstellate/TV_Notch/BestSweep.pdf}}\\
   
     \caption[Response of optimised TV cell (CF=12.76 kHz) to notch and
     bandsweeps]{Response of optimised TV cell (CF=12.76 kHz) to notch and band-pass
@@ -2764,6 +2765,7 @@ The \CNSM model shown in Figure \ref{fig:microcircuit}, shows the TS cell model 
 
 *** Cell-based Properties of T Stellate Cells
 
+\yellownote{TODO}
 # \yellownote{Cells Current Clamp Membrane Currents Time Constant (msec) I-V Input R Papers \\ TS Type 1, single exponential undershoot (Feng et al. 1994; Manis and Marx 1991; Wu and Oertel 1984) \\ No Low threshold K (Manis and Marx 1991); IA has a role in modulating the rate of repetitive firing.  Effect of Inhibition on T stellate cells could be to reset IA (Rothman and Manis 2003c)
 # }
 # 6.5±5.7 msec (Manis and Marx 1991); type I 9.1±4.5 (Manis and Marx 1991); 6.2 to 18.0 msec (Feng et al. 1994); 6.9±3msec, 10-90% rise time was 1.05±0.4msec (Isaacson and Walmsley 1995)
@@ -2906,7 +2908,6 @@ are not evident.  \Ih influences the recovery from \AP and modulates the
 regularity of the chopping behaviour \citep{RothmanManis:2003b}.  \IKA is active
 at rest and is important in enhancing the first spike response across \TS cells
 to an oncoming stimulus \citep{PaoliniClareyEtAl:2004,KanoldManis:2005}.
-
 
 
 *** Fitness Function
