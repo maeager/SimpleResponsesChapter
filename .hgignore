@@ -27,6 +27,8 @@ syntax: glob
 *.xml
 *.doc
 *.d
+*.toc
+*.tdo
 *.make
 *.temp
 _region_.*
