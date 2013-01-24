@@ -14,7 +14,7 @@
                                         & DS cell model: Type I-II \RM single compartment neural model\\ \hline
         \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
 \multirow{2}{*}{\textbf{Synapse model}} & Excitatory: \AMPA glutamatergic receptor (single-exponential)\\
-                                        & Inhibitory: \GABAa GABAergic receptor (double-exponential), \GlyR Glycinergic receptor (double-exponential) \\\hline
+                                        & Inhibitory: \GABAA GABAergic receptor (double-exponential), \GlyR glycinergic receptor (double-exponential) \\\hline
        % \textbf{Synapse model}         & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
 %        \textbf{Input Stimulus}         & Five mask and recovery click pairs separated by 50 ms\\\hline
 %         \textbf{Measurements}          & PSTH sampled at each click for 2 ms to measure recovery from masking clicks\\\hline
@@ -77,7 +77,7 @@ $\tau_{\rm GABA-2}$,
 % %\textbf{Optimisation} & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
  %\textbf{Measurements}  & First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II~\DCN~unit~\citep{ReissYoung:2005}, Fig.~9. \\\hline
 
-\textbf{Fitness Function} & Weighted mean squared error between \DS model and experimental \DS cell \citep{BackoffPalombiEtAl:1997} masker-probe rate ratios. Idle rates were recorded for spontaneous activity and levels of ANF excitation were used as additional penalties. \\\hline
+\textbf{Fitness Function} & Weighted mean squared error between masker-probe rate ratios of \DS cell  model and experimental \DS cell \citep{BackoffPalombiEtAl:1997} to pairs of clicks. Idle rates were recorded for spontaneous activity and levels of ANF excitation were used as additional penalties. \\\hline
 \end{tabularx}
 \vspace{1ex}
 \noindent%

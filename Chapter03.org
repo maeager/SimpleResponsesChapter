@@ -1998,7 +1998,7 @@ broad inputs of \ANFs onto \DS cells.
   :CUSTOM_ID: sec:Ch3:TVModel
   :END:
 
-The following section introduces, defines and optimises the neural model of Tuberculoventral cells of the \DCN.
+The following section introduces, defines and optimises the neural model of \TV cells of the \DCN.
 
 ** Background
 
