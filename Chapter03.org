@@ -334,9 +334,6 @@ Single-compartment Hodgkin-Huxley-like neural models were used for the
 conductance based neural model with membrane current models developed by
 \citet{RothmanManis:2003b}. The \CNSM model makes extensive use of the \RM neural model, which is discussed in detail in
 Section \ref{sec:Methods:cell-models}.
-
-
-
 # in Chapter \ref{sec:MethodsChapter}.
 
 # Type I-c classic regular firing contains a voltage-activated
@@ -811,7 +808,7 @@ known source of \GABA intrinsic to the \VCN is the Golgi cells of the
 # \item Effects of microiontophoretically applied glycine and {GABA} on neuronal
 #   response patterns in the cochlear nuclei \citep{CasparyHaveyEtAl:1979}
 # \end{itemize}
-# \citep{Alibardi:2003a} rat \CN complex -> Golgi-stellate cells (fusiform layer:
+# \citep{Alibardi:2003a} rat \CN complex -S > Golgi-stellate cells (fusiform layer:
 # 2) in \DCN contact granule and unipolar brush cells
 
 Inputs to Golgi cells are more complicated than the inputs to core \VCN
@@ -1493,7 +1490,6 @@ separation of the probe and mask clicks.
 # determine \GABA {on\slash off} freq.  Smith and Rhode, Smith and
 # others looked at OnC response area and two-tone
 
-
 ** Implementation
 
 
@@ -1904,8 +1900,8 @@ mean error relative to the target was 89\%.
 
 The output of the \DS cell model in the optimisation was strongly
 determined by its input responses, as shown in Figure
-\ref{fig:DSRateLevelResult} A and C.  \HSR fibres 
-(all with \SR=50 spikes/s) have low threshold to sounds and saturate at moderate sound levels, as
+\ref{fig:DSRateLevelResult} A and C.  \HSR fibres (all with \SR=50 spikes/s
+) have low threshold to sounds and saturate at moderate sound levels, as
 shown by the stable rate level responses to tones and noise (orange
 circles in Figure \ref{fig:DSRateLevelResult}). These flat responses at
 a high rate (approximately 250 spikes/s) were not able to manipulate the DS
@@ -2162,7 +2158,6 @@ suggested that the responses of \DCN principal cells are strongly
 inhibited by this narrowband source, especially at sharp spectral peaks
 close to their \BF.
 
-
 *** Modelling of Tuberculoventral cells
 
 
@@ -2235,7 +2230,7 @@ optimisation routines are described in Table \ref{tab:TVModelSummary}.
 The \TV cell model was implemented with a single-compartment conductance
 neural model of Type I-c, a classic regular firing unit
 \citep{RothmanManis:2003b}.  The synaptic inputs to the \TV cell model
- included excitation from \HSR and \LSR \ANFs, and inhibition from \DS
+included excitation from \HSR and \LSR \ANFs, and inhibition from \DS
 cells. The weights (\wLSRTV, \wHSRTV) and number (\nLSRTV, \nHSRTV) of
 \ANF synapses were used in the optimisation procedures to allow for
 coarse and fine adjustments to the strength of excitation. The TV cell
@@ -2342,7 +2337,6 @@ in tones but not in noise (Figure \ref{fig:TVRateLevelResult}D).
 \yellownote{discuss the TV results table}
 
 The optimised parameters of the \TV cell model in Table \ref{tab:TVRateLevelFig8B} are indicative of a strongly-inhibited neuron.
-
 
 ** Verification of the TV Cell Model
 
@@ -2911,7 +2905,6 @@ regularity of the chopping behaviour \citep{RothmanManis:2003b}.  \IKA is active
 at rest and is important in enhancing the first spike response across \TS cells
 to an oncoming stimulus \citep{PaoliniClareyEtAl:2004,KanoldManis:2005}.
 
-
 *** Fitness Function
 
 The optimisation fitness function, $F$, of the \TS cell model calculated the
@@ -3052,7 +3045,6 @@ for all \SPL above threshold.
  grep 'final error' gfx/TStellate_${type}/TStellate.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
 #+END_SRC
 
-
 *** Sustained Chopper
 
 \glsreset{ChS} 
@@ -3150,7 +3142,6 @@ The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re threshold was
 call_CS_rate(SPLreTh=30)[:results replace raw], call_CS_rate(SPLreTh=40)[:results replace raw] and 
 call_CS_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
 
-
 *** Transient Chopper 1
 
 The optimisation results of \ChTone are shown in Figure \ref{fig:CT1results}
@@ -3204,7 +3195,6 @@ threshold with the mean over the whole stimulus of 0.308 but the final 10 ms
 period of the being outside the 0.3 CV threshold for regularity
 (CV$_{30-40}=0.42$).
   
-
 *** Transient Chopper 2
 
 The \ChTtwo unit optimisation used average population data for CV data
@@ -3297,8 +3287,6 @@ respectively.  The \FSL at 30 dB re threshold
 first spike but the following spikes were too irregular for this unit to
 be classified a chopper (CV$_{0-10} > 0.3$).
 # At 40 dB re threshold the 
-
-
 
 ** Overview of TS cell model results
 
@@ -3408,8 +3396,6 @@ Section Golgi Cell Model
   rate-level response observed in experimental data of a single unit in
   the marginal shell of the VCN \citep{GhoshalKim:1997}.}
 
-
-
 # GhosalKim97: Possible functions mediated by shell units
 # Wide dynamic ranges exhibited by AVCN shell units sug-
 # gest that they may be better suited to the encoding of intensity
@@ -3422,8 +3408,6 @@ Section Golgi Cell Model
 # fier, the physiological and anatomic observations from the
 # AVCN shell support a hypothesis that the AVCN shell forms
 # an important link in the OHC-MOC reflex circuit.
-
-
 
 *** D Stellate Cell Model
 
@@ -3566,9 +3550,6 @@ the
 network parameters that regulate the major output of the \CN stellate
 microcircuit.
 
-
-
-
 ** Limitations of the CN stellate microcircuit model
 
 All \BNN models are limited by a number of factors.  Firstly, the level
@@ -3598,8 +3579,6 @@ phenomenologically-realistic auditory nerve model.
 \yellownote{TODO: AM coding in model is not verified by
 \citet{ZilanyBruce:2006} model, and it was superseded by the addition
 of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
-
-
 
 ** Implications of sequential microcircuit optimisation
 
