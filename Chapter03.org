@@ -3633,6 +3633,8 @@ suggested by \citet{NordlieGewaltigEtAl:2009}, was followed so that
 other researchers can easily reproduce this work.
 
 
+The next chapter investigates the optimised \CNSM model with more the complex, biologically-realistic stimuli involved in amplitude modulation.
+
 #+BEGIN_LaTeX
   \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../MyBib}\newpage \printglossaries\newpage\listoftodos }{}
 #+END_LaTeX
