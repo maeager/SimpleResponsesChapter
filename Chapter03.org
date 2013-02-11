@@ -2673,7 +2673,7 @@ A considerable literature exists on the \TS cells of the \VCN
 physiology studies classified supposed \TS cells as regular-firing
 choppers \citep{Bourk:1976,Pfeiffer:1966}.  With further developments in
 analysis and classification techniques, \TS cells were segregated into
-\ChT and \CS sub-types
+\ChT and \ChS sub-types
 % slowly or transiently adapting and sustained chopper sub-types
 \citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.  In cats,
 \citet{SmithRhode:1989} were the first to perform simultaneous labelling
@@ -2995,7 +2995,7 @@ points in Figure \ref{fig:PaoliniCVdata} at 30 db re threshold, were used in the
 fitness function as a root mean squared comparison against the \TS cell model.
 Population data given by \citet{PaoliniClareyEtAl:2005} was used where
 appropriate, otherwise an exemplar unit was chosen to fill remaining data
-points.  \ChS unit population data for average \IV results was limited to one data point at offset
+points.  \ChS unit population data for \AIV results was limited to one data point at offset
 shift at 30 dB re threshold ($1.6\pm1.0$ mV).
 # significant from membrane variations at rest.  
 The unfilled triangles in Figure \ref{fig:PaoliniIVdata} were measured
