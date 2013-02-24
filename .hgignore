@@ -29,6 +29,7 @@ syntax: glob
 *.d
 *.toc
 *.tdo
+*.toc.make
 *.make
 *.temp
 _region_.*

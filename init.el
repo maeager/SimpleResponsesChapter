@@ -10,7 +10,6 @@
 ;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 ;; (setq reftex-plug-into-auctex t)
 ;; (setq reftex-cite-format 'natbib)
-;; (setq reftex-default-bibliography (quote ("~/Work/thesis/MyBib.bib")))
 
 ;; flyspell mode for spell checking everywhere
 ;; (add-hook 'org-mode-hook 'turn-off-flyspell 'append)

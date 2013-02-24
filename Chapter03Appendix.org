@@ -14,9 +14,6 @@
 #+BIBLIOGRAPHY: MyBib alphanat
 #+LaTeX_CLASS: UoM-draft-org-article
 
-## NOINCLUDE
-{\singlespacing\tableofcontents\printglossaries}
-## NOINCLUDE
 
 #\setcounter{chapter}{7}
 \chapter{ Chapter 3 Appendix } \label{sec:Ch3:Appendix}
@@ -738,10 +735,10 @@ points from literature documents }
     (setq org-export-latex-title-command "")  
     (add-to-list 'org-export-latex-classes '("UoM-draft-org-article"
     "\\documentclass[11pt,a4paper,twoside,openright]{book}
-    \\usepackage{../hg/manuscript/style/uomthesis}
-    \\input{../hg/manuscript/user-defined}
+    \\usepackage{../org-manuscript/style/uomthesis}
+    \\input{../org-manuscript/user-defined}
     \\usepackage[acronym]{glossaries}
-    \\input{../hg/manuscript/misc/glossary} 
+    \\input{../org-manuscript/misc/glossary} 
     \\makeglossaries
     \\graphicspath{{./gfx/}} 
     \\pretolerance=150 
