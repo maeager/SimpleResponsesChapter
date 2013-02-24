@@ -10,7 +10,7 @@
 #+TODO: TODO(t) STARTED(s) | DONE(d) DEFERRED(f) REFTEX
 #+LANGUAGE: en_GB-ise-wo_accents 
 #+LaTeX_CLASS: UoM-draft-org-article
-#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
+#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+LATEX_HEADER:  %\usepackage[notcite]{showkeys} 
@@ -575,6 +575,7 @@ to the \CNSM model included:
 \newpage
 
 * Figures							   :noexport:
+
 ** fig:microcircuit
 
 # #+BEGIN_SRC sh
@@ -598,7 +599,7 @@ to the \CNSM model included:
 #+BEGIN_SRC sh :export none
    echo 'Exporting GolgiPointProcessDiagram.dia to Tikz latex'
    dia -n -t pgf-tex -e gfx/GolgiPointProcessDiagram.tex gfx/GolgiPointProcessDiagram.dia
-   sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e	's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
+   sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
 #+END_SRC
 
 * Golgi Cell Model 
@@ -699,7 +700,7 @@ in most cells around 1.3 ms \citep{FerragamoGoldingEtAl:1998}.
 # #+ATTR_LaTeX: width=0.6\textwidth
 # #+Caption: Current clamp response of a Golgi cell in a mouse slice preparation. Figure reproduced from \citet{FerragamoGoldingEtAl:1998}.
 # #+LABEL: fig:GolgiIV
-# [[../figures/FerragamoGolgi.png]]
+# [[../SimpleResponsesChapter/gfx/FerragamoGolgi.png]]
 
 # Regular spiking with overshooting action potentials and double exponential undershoot
 # Inward rectifying FerragamoGoldingEtAl:1998     130 Mohm
@@ -1228,7 +1229,7 @@ all the units shown.
 #+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
 #+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 AVCN marginal shell units (Figure reproduced from \citealt{GhoshalKim:1996a}).}
 #+LABEL:  fig:GolgiKimFig2
-[[../figures/GhoshalKim96_Fig2.pdf]]
+[[../SimpleResponsesChapter/gfx/GhoshalKim96_Fig2.pdf]]
 
 
 After setting the optimised parameters in Table
@@ -1348,7 +1349,7 @@ that entered the \GCD, as shown in Figure \ref{fig:DSinGCD}.
 #+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
 #+CAPTION: [D stellate cell retrogradely labeled from the DCN]{(Left) TS cells that were retrogradely stained with BDA injections in the DCN lie in the narrow frequency band corresponding to the presumed frequency band of the injection site in the DCN. (Right) Reconstructed DS cell with dendritic processes in the granule cell domain (GCD). Image reproduced from Figure 3C in \citet{DoucetRyugo:1997}.}
 #+LABEL: fig:DSinGCD
-[[../figures/DoucetRyugo1997_C_DSinGCD.png]]
+[[../SimpleResponsesChapter/gfx/DoucetRyugo1997_C_DSinGCD.png]]
 
 
 This section  identifies network parameters and intrinsic cell
@@ -1428,11 +1429,11 @@ hyperpolarising sag.
   \centering
   {\figfont{A}\hspace{0.45\textwidth}\figfont{B}\hspace{0.45\textwidth}}\\ 
   \hfill\includegraphics[width=0.35\textwidth]{../SimpleResponsesChapter/gfx/RothmanManisFig2D.png}%
-  \hfill\resizebox{0.45\textwidth}{!}{\includegraphics{../figures/Fujino_Fig1E.png}}\\
-%\includegraphics{../figures/Fujino_Fig1E.png}}
-  %\includegraphics{../figures/Fujino_Fig1F.png}}\\
+  \hfill\resizebox{0.45\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png}}\\
+%\includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png}}
+  %\includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1F.png}}\\
   \figfont{C}\hspace{0.95\textwidth}\hfill\\    
-  \includegraphics[width=0.8\textwidth]{../figures/Oertel90DS_bottom.png}
+  \includegraphics[width=0.8\textwidth]{../SimpleResponsesChapter/gfx/Oertel90DS_bottom.png}
   \caption[Intracellular membrane voltage response of DS cells to depolarising and hyperpolarising current]{Intracellular membrane voltage response of DS cells to depolarising and hyperpolarising current. A. Simulated current clamp response in a Type I-II RM model \citep[reproduced~from][]{RothmanManis:2003b}. %
   B. Current clamp response of a DS cell in an \textit{in vitro} slice preparation to 0.1 nA and 0.6 nA current injections. This cell shows a prominent hyperpolarising sag and double exponential AP   \citep[reproduced~from~Figure~1~E][]{FujinoOertel:2001}. %
   C. One VCN DS cell's response to different levels of current injection \citep[reproduced~from][]{OertelWuEtAl:1990}. %
@@ -1597,7 +1598,7 @@ project into the \GCD \citep{ArnottWallaceEtAl:2004}.  Golgi cells'
 axonal collaterals are confined to 200 \um in the \GCD.	 
 #   # #  and \ANF tonotopic organisation in the \GCD is less defined.	
 The \GLG to \DS cell model connection within the \CNSM model was set to
-a spread of 2 channels (i.e. SD= $\sqrt{2}$) with zero offset, which
+a spread of 2 channels (i.e.\space SD= $\sqrt{2}$) with zero offset, which
 corresponds to a \DS cell receiving synapses from \GLG cell models in a
 narrow range of frequency channels.
 
@@ -2479,7 +2480,7 @@ units to pure tones replicate the single channel excitatory inputs from
 Table \ref{tab:TVNotchModelSummary} shows the implementation methods
 used in the \TV cell model notch noise optimisation.  The main purpose
 of this optimisation was to test whether \DS cell connection distribution
-variables (i.e. spread and offset) play a role in modifying the output
+variables (i.e.\space spread and offset) play a role in modifying the output
 of \TV cells (as suggested by \citet{ReissYoung:2005}).
 # The experimental data used in the fitness function, from
 # \citet{ReissYoung:2005} recorded from individual \TV neurons, is
