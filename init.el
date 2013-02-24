@@ -235,7 +235,7 @@
 	       "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
      \\documentclass[11pt,a4paper,twoside,openright]{book}
        \\usepackage{../org-manuscript/style/uomthesis} 
-       \\input{../SimpleResponsesChapter/user-defined}
+       \\input{../org-manuscript/misc/user-defined}
        \\usepackage[nonumberlist,acronym]{glossaries}
        \\input{../org-manuscript/misc/glossary} 
        \\makeglossaries
