@@ -106,7 +106,7 @@ detailed neural models. There is much to be gained from
 biophysically-realistic modelling approaches, especially in the
 thoroughly investigated cochlear nucleus of mammals, bats and birds.
 
-#TODO: think about linking to end of methods chapter.  I.e. reproducbable research
+# TODO: think about linking to end of methods chapter.  I.e. reproducbable research
 
 # TODO: See neural detail in auditory
 # system\citep{LuRubioEtAl:2008}
@@ -264,7 +264,7 @@ Carney model:
 the Bruce model
 \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007} and the
 Zilany model \citep{ZilanyBruceEtAl:2009}.
-#Three \ANF  #the ARLO model \citep{HeinzZhangEtAl:2001}, the
+# Three \ANF  the ARLO model \citep{HeinzZhangEtAl:2001}, the
 # The auditory model consists of an outer\slash middle ear pre-processing
 # filter, a cochlea filterbank, IHC-to-AN synapse model and dead-time
 # modified Poisson spike generator, as shown in Figure
@@ -399,8 +399,9 @@ conductivity at a single point in the neural compartment with either
 single or double exponential dynamics.  All weight variables (in
 microsiemens) and delay parameters (in milliseconds) are the same for
 each synapse in a connectivity group.
+
 # Chapter \ref{sec:MethodsChapter}
-#\ref{sec:Methods:Synapse}
+# \ref{sec:Methods:Synapse}
 
 ** Synaptic Jitter
    :PROPERTIES:
@@ -526,10 +527,10 @@ cell models.
 #+END_LaTeX
 
 ** Simulation Specifications
-#and Parallel Capabilities
+# and Parallel Capabilities
 
 All simulations were performed in the neural simulation package [[latex:progname][NEURON]]. 
-#For further specifications see Section [[Simulation%20and%20Implementation%20of%20the%20CNSM%20Model][Simulation and Implementation of the CNSM Model]].  
+# For further specifications see Section [[Simulation%20and%20Implementation%20of%20the%20CNSM%20Model][Simulation and Implementation of the CNSM Model]].  
 The time step of the numerical
 integration performed in each of the simulations in the chapter was 0.05
 ms.  Input spikes for Poisson neural models (\HSR, \LSR and Golgi cell
@@ -576,12 +577,6 @@ to the \CNSM model included:
 
 * Figures							   :noexport:
 
-** fig:microcircuit
-
-# #+BEGIN_SRC sh
-# inkscape --without-gui --export-pdf='../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf'
-# --export-latex '../SimpleResponsesChapter/gfx/CNcircuit-detailed.svg'
-# #+END_SRC
 
 ** fig:Compression
 
@@ -603,11 +598,10 @@ to the \CNSM model included:
 #+END_SRC
 
 * Golgi Cell Model 
-#: Optimisation Using Rate Level Responses in Marginal Shell Units 
   :PROPERTIES:
   :CUSTOM_ID:	sec:GolgiModelOpt
   :END:
-
+# : Optimisation Using Rate Level Responses in Marginal Shell Units 
 The next part of this chapter introduces the specific attributes of the
 Golgi (GLG) cell model in the \CNSM model.
   
@@ -1000,12 +994,12 @@ was used to generate the output spike times for the \GLG cell model.
 
 Table \ref{tab:GolgiCellModelSummary} summarises the model used to
 optimise the \GLG cell model.	
-#As explained in the Chapter
-#\ref{sec:MethodsChapter}, Section [[Optimisation Techniques]],
+# As explained in the Chapter
+# \ref{sec:MethodsChapter}, Section [[Optimisation Techniques]],
 # \ref{sec:Methods:Optimisation},
-#the Nordlie tables are used to communicate detailed neural models and
-#networks for further replication by the computational neuroscience
-#community.  
+# the Nordlie tables are used to communicate detailed neural models and
+# networks for further replication by the computational neuroscience
+# community.  
 The topology of the \VCN follows the same tonotopic
 organisation of the \AN, with 100 evenly-spaced frequency channels.  As
 Table \ref{tab:GolgiCellModelSummary}B shows, the ANFs were not required
@@ -1215,7 +1209,7 @@ approximately 70 \um, giving an expected spread of 1.5 channels in the
 #   \end{figure}
 #   \clearpage \newpage
 
-#\clearpage
+# \clearpage
 ** Verification of the Golgi Cell Model
 
 Figure \ref{fig:GolgiKimFig2} shows the tone and noise rate level
@@ -1253,8 +1247,8 @@ experimental units
 \citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.
 
 
-#Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
-#units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
+# Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
+# units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
 
 
 #+BEGIN_LaTeX
@@ -1368,8 +1362,8 @@ parameters controlling level of \ANF excitation in the \DS model.
 
 *** Morphology of D Stellate Cells
 
-#\DS cells are large multipolar neurons in the \VCN and have an \OnC
-#\PSTH to tones and noise \citep{SmithRhode:1989,NeedhamPaolini:2006}.
+# \DS cells are large multipolar neurons in the \VCN and have an \OnC
+# \PSTH to tones and noise \citep{SmithRhode:1989,NeedhamPaolini:2006}.
 
 Morphologically, DS cells typically have 3--4 long dendrites stretching
 one third of the \VCN and receiving \ANF inputs over a wide frequency
@@ -1389,7 +1383,7 @@ multipolar neurons in cats and guinea pigs, and DS neurons in mice have
 the closest resemblance to glycinergic labeled neurons and
 physiologically classified \OnC and \OnL units
 \citep[see~also~][]{DoucetRossEtAl:1999,DoucetRyugo:1997,CantGaston:1982,Wenthold:1987,KolstonOsenEtAl:1992,AltschulerJuizEtAl:1993,ShoreGodfreyEtAl:1992,SchofieldCant:1996,Alibardi:2000a,NeedhamPaolini:2003,PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004,PaoliniClark:1999}.
-#Hereafter they will be termed \DS cells in the \CNSM model.
+# Hereafter they will be termed \DS cells in the \CNSM model.
 # Intracellular responses to sounds indicate the bandwidth of inputs to
 # \DS neurons typically ranges from two octaves below \CF to one octave
 # above \CF
@@ -1461,11 +1455,11 @@ Post-onset GABAergic inhibition in \DS cells is a major influence on the
 \PSTH of \OnC neurons \citep{FerragamoGoldingEtAl:1998a}.
 Iontopheroretic investigations /in vivo/ using bicuculine 
 # (a \GABAa blocker) 
-#by Caspary and colleagues \citep{CasparyBackoffEtAl:1994} have
+# by Caspary and colleagues \citep{CasparyBackoffEtAl:1994} have
 have shown that the firing rate increases to tones and noise
 \citep{CasparyBackoffEtAl:1994}. 
-#The \GABA effects on \OnC units'
-#response area are predominantly on \CF.  
+# The \GABA effects on \OnC units'
+# response area are predominantly on \CF.  
 Application of bicuculine in
 the \VCN has the effect of changing the temporal behaviour in \DS cells
 \citep{EvansZhao:1998}, which also affects \AM responses in the \IC
@@ -1697,7 +1691,7 @@ optimised parameters, shown in Table \ref{tab:DSClickRecoveryResults},
 from the \DS cell model click recovery optimisation routine.  The
 optimisation parameters demonstrate a clear favouritism toward the \LSR \ANF
 input rather than the \HSR input to \DS cells.  
-#While this may not seem ideal for fast coincidence detection, 
+# While this may not seem ideal for fast coincidence detection, 
 The large number of \HSR synapses
 compensates for the small weight that was obtained in the optimisation.
 
@@ -1990,11 +1984,10 @@ broad inputs of \ANFs onto \DS cells.
 \clearpage\newpage
 
 * Tuberculoventral Cell Model
-#:  Optimisation Using Tone and Noise Rate Level Responses  
   :PROPERTIES:
   :CUSTOM_ID: sec:Ch3:TVModel
   :END:
-
+# :  Optimisation Using Tone and Noise Rate Level Responses  
 The following section introduces, defines and optimises the neural model of \TV cells of the \DCN.
 
 ** Background
@@ -2091,14 +2084,14 @@ respond to broad-band noise
 Figure \ref{fig:SpirouFig1} shows the recording of a single \TV cell,
 with narrow tuning and weak response to noise
 \citep{SpirouDavisEtAl:1999}.
-#\TV cells are characterized as having a non-monotonic response to
-#tones with increasing sound level and respond poorly to broadband
-#noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005},
-#as shown in Figure \ref{fig:SpirouFig1}.
+# \TV cells are characterized as having a non-monotonic response to
+# tones with increasing sound level and respond poorly to broadband
+# noise \citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005},
+# as shown in Figure \ref{fig:SpirouFig1}.
 # Young and his colleagues have shown that most neurons in the deep DCN
 # respond to sound with either of two major types of response maps, type
 # II or Type IV
-# \citep{EvansNelson:1973,ShofnerYoung:1985,VoigtYoung:1980,VoigtYoung:1990,Young:1980,YoungBrownell:1976}.
+#  \citep{EvansNelson:1973,ShofnerYoung:1985,VoigtYoung:1980,VoigtYoung:1990,Young:1980,YoungBrownell:1976}.
 
 
 #+ATTR_LATEX: height=0.5\textheight,keepaspectratio
@@ -2255,14 +2248,14 @@ membrane potential from the default Type I \RM neural model.
 
 
 
-#\citet{ReissYoung:2005} performed their experiments on adult cats.
-#TODO: Give details about the TV model implementation
+# \citet{ReissYoung:2005} performed their experiments on adult cats.
+# TODO: Give details about the TV model implementation
 
 #+ATTR_LATEX: width=0.95\textwidth
 #+CAPTION: [Experimental data of Type-II~DCN~unit]{Physiological effects of neurotransmitter blockers strychnine and bicuculine on the rate level response  \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8.pdf]]
-#TV_RateLevel/TV_RateLevel_Fig8.pdf
+# TV_RateLevel/TV_RateLevel_Fig8.pdf
 
 \clearpage
 
@@ -2353,8 +2346,8 @@ The optimised parameters of the \TV cell model in Table \ref{tab:TVRateLevelFig8
 # TODO: more work to be done here. Possibly need calculations on
 # Q10 values of TV units. Calculation of threshold to tone and noise.
 
-#The Tuberculoventral cell model's optimised parameters were applied to \TV units across the whole \CNSM # network and tested using tones, noise and tones plus noise stimuli.
-#Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model.  
+# The Tuberculoventral cell model's optimised parameters were applied to \TV units across the whole \CNSM # network and tested using tones, noise and tones plus noise stimuli.
+# Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model.  
 # Adding masking noise increases the width of the activity across the
 # CF of the central unit (Figure \ref{fig:DSverification}D)
 # highlighting the broad inputs of \ANFs onto \DS units.
@@ -2728,7 +2721,7 @@ the \TS cell model of each chopper type in the \CNSM model.
 #+END_LaTeX
 
 
-#In the optimisation of \TS cells 
+# In the optimisation of \TS cells 
 
 The categorisation of TS cells via \CV is shown in Figure
 \ref{fig:PaoliniCVdata}.  Sustained choppers maintain a stable CV below
@@ -2739,7 +2732,7 @@ name transient, but stays below 0.3.  The second transient type, \ChTtwo, is reg
 the first 10 ms period, but rises to 0.3 or higher throughout the
 stimulus.
 
-#Figure \ref{fig:PaoliniCVdata}B shows the 
+# Figure \ref{fig:PaoliniCVdata}B shows the 
 
 #+BEGIN_LaTeX
     \begin{figure}[thp]
@@ -2755,7 +2748,7 @@ stimulus.
 # \DS cell axon terminals contain the inhibitory neurotransmitter glycine
 # and synapse widely in the \VCN and \DCN.
 
-#*** Synaptic connections
+# *** Synaptic connections
 
 
 #+LaTeX: \input{../SimpleResponsesChapter/TStellateTable}
@@ -3219,7 +3212,7 @@ reduction in onset depolarization (90.2\%) compared to ChT1, and
 post-tone inhibition is greater (+8.82 mV at 30 dB re threshold)
 \citep*{PaoliniClareyEtAl:2005}.
 
-#The second transiently adapting chopper unit responses are different to typical \ChTone unit responses are reflected
+# The second transiently adapting chopper unit responses are different to typical \ChTone unit responses are reflected
 # average membrane potential and \CV. 
 
 #    chopper transient type 2
@@ -3239,8 +3232,8 @@ model \ChTtwo units was $-60.63$ and $-64.96$ mV, respectively.  The
 experimental \ChTtwo unit has a higher reduction in onset depolarisation
 (90.2\%) compared to \ChTone units, and are comparable with \OnC units
 \citep{PaoliniClareyEtAl:2005}.
-#The post-tone inhibition of the experimental \ChTtwo unit is the
-#greatest of all the chopper subtypes (-8.82 mV).
+# The post-tone inhibition of the experimental \ChTtwo unit is the
+# greatest of all the chopper subtypes (-8.82 mV).
 Excitatory synaptic weights (\wLSRTS
 call_opt_param(param="w.x[lsr][ts]",type="CT2")[:results replace raw]
 \uS, \wHSRTS 
