@@ -397,13 +397,13 @@ used in this chapter was NEURON's [[latex:progname][fit\_praxis]], which uses th
   -------------------
     NPARAMS=3
     objref pvec,fvec,pvec_ranges,pvec_name,pvec_factor
-    pvec = new Vector()                // Vector contains the parameters to be fitted
-    pvec_ranges= new Matrix(NPARAMS,2)    // (min,max) pairs for each param
+    pvec = new Vector()                  // Vector contains the parameters to be fitted
+    pvec_ranges= new Matrix(NPARAMS,2)   // (min,max) pairs for each param
     pvec_name = new List()               // names of parameters in String list
-    pvec_factor = new Vector(NPARAMS,1)   // regulates variables so pvec is in same range to aid fit_praxis
-    //min
+    pvec_factor = new Vector(NPARAMS,1)  // regulates variables so pvec is in same range to aid fit_praxis
+    //minumum
     for i=0,NPARAMS-1 pvec_ranges.x[i][0]= 0.000001
-    //max
+    //maximum
     for i=0,NPARAMS-1 pvec_ranges.x[i][1]= 0.03
     //Names                                               //Initial values        //Param Factor
     pvec_name.append(new String("param.w.x[lsr][tv]"))    pvec.append(0.00190)    pvec_factor.append(1)
@@ -617,13 +617,13 @@ The =IVMeasures()= procedure tries to replicate the similar measures
 (resting membrane potential, onset ratio, adaptation ratio, and offset
 hyperpolarisation) by \citet{PaoliniClareyEtAl:2005}.
 
+
 * Response to tones and noise procedures
 
 =Responses.hoc= is used to generate the many different responses from
 the optimised, with many of the procedures contained in
 =ResponsesRoutines.hoc=. Many of the procedures follow standards in
 notable papers, particularly \citet{RhodeGreenberg:1994a}.
-
 
 The rate-level function (=RateLevelFunction()=) was then determined by
 presenting 50 ms pure tone bursts at the central channel's CF (5.81 kHz;
@@ -655,7 +655,6 @@ The procedures for modulation transfer functions and f_0 responses are
 also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:Chapter4}
 [[file:../VowelProcessingChapter/Chapter04.org:*chapter]]. 
  
-
 
 * General Neural Modelling Tools
 
@@ -724,6 +723,7 @@ points from literature documents }
 
 
 ## set global variables for in-code blocks 
+
 
 * Prelude 							   :noexport:
 
