@@ -1673,7 +1673,7 @@ spontaneous activity and to restrict over-excitation by \ANFs.
 #+ATTR_LATEX: width=0.6\linewidth
 #+CAPTION: [Experimental data showing click recovery in onset choppers.]  {Experimental data showing click recovery in onset choppers. Figure shows mask-probe response ratio using 1 ms window during GABA blocker experiments (reproduced from Figure 3 in \citet{BackoffPalombiEtAl:1997}).} 
 #+LABEL: fig:BackoffPalombi
-[[../SimpleResponsesChapter/gfx/Backoff+Palombi-Fig3.pdf]]
+[[../SimpleResponsesChapter/gfx/Backoff+Palombi-Fig3.png]]
 
 
 # \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
@@ -3576,6 +3576,8 @@ already existing in stellate models
 The performance of the \CNSM model owes a large part to the input of a
 phenomenologically-realistic auditory nerve model.
  
+
+\yellownote{TV inhibition of DS creates a negative feedback loop in the microcircuit}
 
 \yellownote{TODO: AM coding in model is not verified by
 \citet{ZilanyBruce:2006} model, and it was superseded by the addition
