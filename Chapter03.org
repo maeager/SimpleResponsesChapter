@@ -83,28 +83,22 @@
 #+LaTeX:\vspace{-4ex}{\hfill \textit{S.~\citet[~p.~411]{Shamma:1998}}}\\ \vspace{4ex}
 
 
-
-
-
 \citet{Shamma:1998} calls upon the neuroscience community to investigate the
-role of populations of neurons in neurophysiology.  To do so, this
-chapter draws on the wealth of experimental data accumulated in auditory
-neuroscience to create a detailed \BNN model of the T stellate
-microcircuit in the cochlear nucleus (hereafter referred to as the \CNSM
-model, as described in Chapter \ref{sec:MethodsChapter}).  The design
-and methods used for the construction of the model provide insights
-relevant to other neural network models of the brain, especially those
-that use sensory pathways.
+role of populations of neurons in neurophysiology.  To do so, this chapter draws
+on the wealth of experimental data accumulated in auditory neuroscience to
+create a detailed \BNN model of the \TS microcircuit in the \CN (hereafter referred to as the \CNSM model, as described in Chapter
+\ref{sec:MethodsChapter}).  The design and methods used for the construction of
+the model provide insights relevant to other neural network models of the brain,
+especially those that use sensory pathways.
 
-Despite advances in computational neuroscience, it remains a challenging
-task to develop an accurate representation of the complex behaviour of
-real neural networks.  Choices, guesses and assumptions continue to be
-integral parts of neuronal modelling \citep{SegevBurkeEtAl:1998}.  With
-the acceleration of computational power and enhanced experimental
-techniques in multi-unit recordings, it is possible to develop more
-detailed neural models. There is much to be gained from
-biophysically-realistic modelling approaches, especially in the
-thoroughly investigated cochlear nucleus of mammals, bats and birds.
+Despite advances in computational neuroscience, it remains a challenging task to
+develop an accurate representation of the complex behaviour of real neural
+networks.  Choices, guesses and assumptions continue to be integral parts of
+neuronal modelling \citep{SegevBurkeEtAl:1998}.  With the acceleration of
+computational power and enhanced experimental techniques in multi-unit
+recordings, it is possible to develop more detailed neural models. There is much
+to be gained from biophysically-realistic modelling approaches, especially in
+the thoroughly investigated \CN of mammals, bats and birds.
 
 # TODO: think about linking to end of methods chapter.  I.e. reproducbable research
 
@@ -114,10 +108,11 @@ thoroughly investigated cochlear nucleus of mammals, bats and birds.
 # models vs HH-like models.  Discuss single cell simulation vs whole
 # network simulation during optimisation.
 
-To develop and optimise detailed neural models and neural network
-models, reproducible research methods are required.  
-In this chapter, the table method introduced by
-\citet[as described in Chapter~\ref{sec:MethodsChapter}]{NordlieGewaltigEtAl:2009} is used to summarise the neural models used in each optimisation step.  
+To develop and optimise detailed neural models and neural network models,
+reproducible research methods are required.  In this chapter, the table method
+introduced by \citet[as described in
+Chapter~\ref{sec:MethodsChapter}]{NordlieGewaltigEtAl:2009} is used to summarise
+the neural models used in each optimisation step.
 # The Nordlie tables shown in
 # each optimisation stage consist of A) the model summary, B) cell type
 # populations, C) connectivity between two cell types, D) neuron and
@@ -213,29 +208,37 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
 #+LABEL: fig:microcircuit
 [[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
 
-Optimisation of a detailed \BNN model requires a realistic input model
-with which to mimic the behaviour observed in live neural
-networks.  In examining the properties of a detailed neural model of the
-cochlear nucleus, a realistic and phenomenologically sound auditory
-model is needed to represent sounds and transformations that occur in
-the central auditory system.  The input to the \CNSM model, the auditory
-nerve fibres, is discussed in the next section. To further fit the
-parameters of the CN model, a simple and sequential method was
+Optimisation of a detailed \BNN model requires a realistic input model with
+which to mimic the behaviour observed in live neural networks.  In examining the
+properties of a detailed neural model of the cochlear nucleus, a realistic and
+phenomenologically sound auditory model is needed to represent sounds and
+transformations that occur in the central auditory system.  The input to the
+\CNSM model, the auditory nerve fibres, is discussed in the next section. To
+further fit the parameters of the CN model, a simple and sequential method was
 applied to each of the cell types using experimental data.
 
 
 The order of the optimisation routines was important because of the
-interdependencies in the iso-frequency microcircuit and across the whole
-nucleus. In the \CNSM model, Golgi cells only received inputs from the
-\ANFs and were the first model and network parameters to be
-optimised. \DS cells were modeled next because they received inputs from
-\ANFs and \GABA-ergic Golgi cells. The \TV cells' input network
-parameters were optimised next as they were strongly inhibited by \DS
-cells and received excitation from \ANFs. Input parameters to \TS cells,
-which received inputs from all other cell types in the \CNSM model, were
-optimised last.  Due to the variety of possible inputs to \TS cells (and
-the observed physiological classification sub-types in chopper units),
-three \TS cell model sub-types were optimised.
+inter-dependencies in the isofrequency microcircuit and across the whole
+nucleus. In the \CNSM model, Golgi cells only received inputs from the \ANFs and
+were the first model and network parameters to be optimised. \DS cells were
+modeled next because they received inputs from \ANFs and \GABA-ergic Golgi
+cells. The \TV cells' input network parameters were optimised next as they were
+strongly inhibited by \DS cells and received excitation from \ANFs. Input
+parameters to \TS cells, which received inputs from all other cell types in the
+\CNSM model, were optimised last.  Due to the variety of possible inputs to \TS
+cells (and the observed physiological classification sub-types in chopper
+units), three \TS cell model sub-types were optimised.  Glycinergic input to \DS
+cells from \TV cells and other \DS cells was not included due to their weak
+effects /in vitro/ \cite{FerragamoGoldingEtAl:1998a} and the added complexity of
+a negative feedback loop in the microcircuit.  Recurrent synaptic connection
+between \TS cells have been the focus of recent neural models
+\citep{BahmerLangner:2006,BahmerLangner:2006a,WiegrebeMeddis:2004}.  They were
+not included in the \CNSM model because of the rarity of small round vesicles on
+\ChS units \citep{SmithRhode:1989}. Additionally,
+\citet{FerragamoGoldingEtAl:1998a} reported that \EPSPs in one \TS cell were
+likely to come from only one input. Consequently, because of the weak influence
+of \TS cell recurrent connections they were not included in the \CNSM model.
 
 # TODO: This para is about pushing the reader towards the
 # following sections.  Needs to expand on reasons for wanting to create
@@ -599,7 +602,7 @@ to the \CNSM model included:
   :END:
 # : Optimisation Using Rate Level Responses in Marginal Shell Units 
 The next part of this chapter introduces the specific attributes of the
-Golgi (GLG) cell model in the \CNSM model then optimises the model
+\GLG cell model in the \CNSM model then optimises the model
 parameters based on rate level information.
   
 ** Background
@@ -635,8 +638,7 @@ small (Type II \ANF and granule cell) vesicles
 
 #  \citep{Alibardi:2003} In non-tonotopic circuits integration between acoustic
 # and non-acoustic inputs occurs \citep{RyugoWrigthEtAl:1993}.
-The contribution of the circuits of granule cell areas of the cochlear
-nucleus to the processing of the acoustic signal is poorly understood
+The contribution of the circuits of granule cell areas of the \VCN to the processing of the acoustic signal is poorly understood
 \citep[for~a~review~of~non-auditory~inputs~to~GCD~see~][]{OhlroggeDoucetEtAl:2001}.
 \citet{FerragamoGoldingEtAl:1998} confirmed the excitation of Golgi
 cells from granule cells with \NMDA glutamatergic synapses.  
@@ -2803,9 +2805,7 @@ stimulus.
 The synaptic inputs to the \TS cell model (as shown in Figure
 \ref{fig:microcircuit}) include excitatory inputs from \LSR and \HSR \ANFs;
 \GABA-ergic inputs from \GLG cells; and glycinergic inputs from \DS and \TV
-cells.
-
-Figure \ref{fig:TSinputs} shows the expected response of a \TS cell to
+cells.  Figure \ref{fig:TSinputs} shows the expected response of a \TS cell to
 individual connections from different cells in the \CNSM model.  The membrane
 parameters for the single compartment \TS cell model were default except for
 sodium conductance, which was set to zero.  In this example, excitation from the
@@ -2818,50 +2818,36 @@ rate around 15 ms after the stimulus offset.
 
 Auditory nerve input to \TS cells is on-\CF. This is due to the arrangement of
 their dendrites along the same direction. \ANF terminals rarely contact \TS
-cells on their soma and are mainly on proximal dendrites 
+cells on their soma and are mainly on proximal dendrites
 # cats and rodents
 \citep{SmithRhode:1989}.  Terminals closer to the site of \AP activation have a
 greater influence and are less likely to be shunted by inhibitory terminals
 along the dendrite. \citet{JosephsonMorest:1998} found some \ANF terminals at
-the axon hillock of \TS cells in chincillas. This would remove the
-contribution of the neuron's intrinsic cell membrane properties and other
-synaptic inputs on the output of the neuron.  The number of \ANF terminals on
-\TS cells is small relative to their multipolar cousin, \DS cells.  An /in vivo/
-study in mice suggested \TS cells receive as few as 5 excitatory inputs
+the axon hillock of \TS cells in chincillas. This would remove the contribution
+of the neuron's intrinsic cell membrane properties and other synaptic inputs on
+the output of the neuron.  The number of \ANF terminals on \TS cells is small
+relative to their multipolar cousin, \DS cells.  An /in vivo/ study in mice
+suggested \TS cells receive as few as 5 excitatory inputs
 \citep{FerragamoGoldingEtAl:1998a}.
 
 The \CNSM model in Figure \ref{fig:microcircuit} shows the TS cell model
 receives synaptic inputs from all other neurons in the microcircuit.
 Glycinergic inputs to \TS cells come from \DS and \TV cells
-\citep{OertelWickesberg:1993}.  Using the glycine-receptor blocker
-strychnine, \citet{CasparyBackoffEtAl:1994} showed the physiological
-effects of glycine on the response area are within the frequency
-receptive field of chopper units.  The distribution of \DS and \TV
-pre-synaptic cells are assumed to be centred on the post-synaptic \TS
-cell.  The timing of glycinergic inputs is important to controlling the
-response properties of \TS cells
+\citep{OertelWickesberg:1993}.  Using the glycine-receptor blocker strychnine,
+\citet{CasparyBackoffEtAl:1994} showed the physiological effects of glycine on
+the response area are within the frequency receptive field of chopper units.
+The distribution of \DS and \TV pre-synaptic cells are assumed to be centred on
+the post-synaptic \TS cell.  The timing of glycinergic inputs is important to
+controlling the response properties of \TS cells
 \citep{NeedhamPaolini:2003,NeedhamPaolini:2006,PaoliniClareyEtAl:2005,PaoliniClareyEtAl:2004}.
-The transient potassium current \IKA has been shown to increase the time
-to first spike when an inhibitory synapse input precedes an excitatory
-one \citep{KanoldManis:2005,KanoldManis:2001}.  \DS cells have a precise
-onset spike to load tones and broadband noise and provide fast
-inhibition that can reach the \TS cell soma before excitation in off-CF
-tones \citep{PaoliniClareyEtAl:2004}.  \TV cells do not have consistent
-PSTH responses to tones \citep{Rhode:1999,SpirouDavisEtAl:1999} and
-their location in the \DCN adds further delay to inhibiting \TS cells
-\citep{WickesbergOertel:1990}.
-
-
- 
-Recurrent synaptic connection between TS cells have been the focus of recent
-neural models
-\citep{BahmerLangner:2006,BahmerLangner:2006a,WiegrebeMeddis:2004}.  They were
-not included in the \CNSM model because of the rarity of small round vesicles on
-\ChS units \citep{SmithRhode:1989}. Additionally,
-\citet{FerragamoGoldingEtAl:1998a} reported that \EPSPs in one \TS cell were
-likely to come from only one input. Consequently, because of the weak influence
-of \TS cell recurrent connections they were not included in the \CNSM model.
-
+The transient potassium current \IKA has been shown to increase the time to
+first spike when an inhibitory synapse input precedes an excitatory one
+\citep{KanoldManis:2005,KanoldManis:2001}.  \DS cells have a precise onset spike
+to load tones and broadband noise and provide fast inhibition that can reach the
+\TS cell soma before excitation in off-CF tones \citep{PaoliniClareyEtAl:2004}.
+\TV cells do not have consistent PSTH responses to tones
+\citep{Rhode:1999,SpirouDavisEtAl:1999} and their location in the \DCN adds
+further delay to inhibiting \TS cells \citep{WickesbergOertel:1990}.
 
 #+BEGIN_LaTeX
  %    \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
@@ -3016,6 +3002,7 @@ for all \SPL above threshold.
 #  \includegraphics{RateLevel/psthsingle90.0}% %
 #  \includegraphics{RateLevel/TS_ratelevel}} \end{figure}
 
+
 ****  Source blocks :noexport:
 
 # Get optimisation parameter: default
@@ -3043,6 +3030,31 @@ for all \SPL above threshold.
 #+BEGIN_SRC sh :results replace raw
  grep 'final error' gfx/TStellate_${type}/TStellate.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
 #+END_SRC
+
+
+
+#+name: CS_rate
+#+BEGIN_SRC sh :exports none
+  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CS/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
+#+END_SRC
+
+#+name: CT1_rate
+#+BEGIN_SRC sh  :exports none 
+  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CT1/TStellate.Fit.dat |  tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
+#+END_SRC
+
+
+#+name: CT2_rate
+#+BEGIN_SRC sh :exports none
+  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
+#+END_SRC
+
+#+name: CT2_fsl
+#+BEGIN_SRC sh :exports none
+   grep -A33 'at spl '$SPLreTh'' ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f \\pm %.2f$\n",$4,$7)}'
+#+END_SRC
+
+
 
 *** Sustained Chopper
 
@@ -3131,11 +3143,6 @@ after tone onset, just before the stimulus-invoked spike arrival at the
 
 #  [[../SimpleResponsesChapter/gfx/TStellate_CS/multiplotIVCV4.pdf]]
 
-#+name: CS_rate
-#+BEGIN_SRC sh :exports none
-  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CS/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
-#+END_SRC
-
 
 The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re threshold was
 call_CS_rate(SPLreTh=30)[:results replace raw], call_CS_rate(SPLreTh=40)[:results replace raw] and 
@@ -3179,10 +3186,6 @@ cause reasonable inhibition to the \TS cell throughout the stimulus.
 
 #     [[../SimpleResponsesChapter/gfx/TStellate_CT1/multiplotIVCV4.pdf]]
 
-#+name: CT1_rate
-#+BEGIN_SRC sh  :exports none 
-  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CT1/TStellate.Fit.dat |  tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
-#+END_SRC
 
  
 The mean rate for the optimised \ChT1 unit at 20, 30 and 40 dB re threshold was
@@ -3266,16 +3269,6 @@ call_opt_error(type="CT2")[:results replace raw].
 #+END_LaTeX
 #
 #  [[../SimpleResponsesChapter/gfx/TStellate2_CT2/multiplotIVCV4.pdf]]
-
-#+name: CT2_rate
-#+BEGIN_SRC sh :exports none
-  grep -A 14 'at spl '$SPLreTh''  ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
-#+END_SRC
-
-#+name: CT2_fsl
-#+BEGIN_SRC sh :exports none
-   grep -A33 'at spl '$SPLreTh'' ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f \\pm %.2f$\n",$4,$7)}'
-#+END_SRC
 
 
 The mean rate for the optimised \ChTtwo unit at the three \SPL tones was
@@ -3364,8 +3357,8 @@ provided below.
 \yellownote{TODO: Discuss the relevance of creating the CN stellate
   model, especially the methods.}
 
-The T stellate cell microcircuit in the cochlear nucleus is one of the
-most interesting neural features of the auditory system.  It enables a
+The T stellate cells in the \CNSM model  form one of the major ascending auditory pathways through the brainstem.
+  It enables a
 high fidelity sensory input to be passed to higher order centres, by
 reproducing the spectrum in a robust fashion
 \citep{BlackburnSachs:1990,May:2003} and synchronisation to significant
@@ -3594,7 +3587,7 @@ connection) not included.}
 
 * Conclusion 
 
-Figure [[*Optimisation%20Results][Optimisation Results]]
+# Figure [[*Optimisation%20Results][Optimisation Results]]
 
 # Example conclusion The purpose for performing the experiments herein
 # was to gain insights into the functional relevance of the Type II
@@ -3615,16 +3608,14 @@ Figure [[*Optimisation%20Results][Optimisation Results]]
 
 \yellownote{TODO: More editing in chapter conclusion}
 
-The purpose of the optimisation experiments was to
-develop a biophysically-realistic neural network model of the stellate
-microcircuit in the cochlear nucleus.  The methods used in this section
-are a practical and realistic means for constructing microcircuits with
-sensory or feature-based topography. They exploit extensive experimental
-evidence that describes the behaviour of each interneuron in the
-network.  The tabular reporting format for neural network modelling, as
-suggested by \citet{NordlieGewaltigEtAl:2009}, was followed so that
-other researchers can easily reproduce this work.
-
+The purpose of the optimisation experiments was to develop a
+biophysically-realistic neural network model of the stellate microcircuit in the
+cochlear nucleus.  The methods used in this section are a practical and
+realistic means for constructing microcircuits with sensory or feature-based
+topography. They exploit extensive experimental evidence that describes the
+behaviour of each interneuron in the network.  The tabular reporting format for
+neural network modelling, as suggested by \citet{NordlieGewaltigEtAl:2009}, was
+followed so that other researchers can easily reproduce this work.
 
 The next chapter investigates the optimised \CNSM model with more the complex, biologically-realistic stimuli involved in amplitude modulation.
 
