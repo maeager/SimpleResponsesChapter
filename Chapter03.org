@@ -304,7 +304,7 @@ input \AN model (chosen from the Bruce or Zilany model) and was passed through t
 Jackson spiking model \citep{Jackson:2003,JacksonCarney:2005}, which
 includes refractory effects typical of the \ANFs.  Spike trains for each
 neuron in the \AN model were created at the start of each repetition of
-the stimulus.  Further detail on \HSR and \LSR ANF models are in Section
+the stimulus.  Further detail on \HSR and \LSR \ANF models are in Section
 \ref{sec:Methods:HSRLSR}.
 
 
@@ -413,14 +413,14 @@ each synapse in a connectivity group.
 
 Precise onset cues are a critical feature of the auditory pathway
 especially in the localisation of sounds.  In modeling the \CN, onset
-precision is essential for enhancing periodic stimuli in TS cells
+precision is essential for enhancing periodic stimuli in \TS cells
 \citep{KeilsonRichardsEtAl:1997} and echo-suppression in \TV cells
 \citep{BurckHemmen:2007,WickesbergOertel:1990}.  Stochastic behaviour at
 the \IHC-\AN synapse limits the onset encoding performance in the
 auditory nerve.  Jitter of the \FSL is commonly measured by the standard
 deviation; jitter in \ANFs is 0.73 ms \citep{RhodeOertelEtAl:1983}.
-Most units in the VCN exhibit reduced onset jitter through sampling
-multiple ANFs, but onset units like \DS cell have additional
+Most units in the \VCN exhibit reduced onset jitter through sampling
+multiple \ANFs, but onset units like \DS cell have additional
 morphological and intrinsic specialisations for greater onset precision.
 
 
@@ -447,7 +447,7 @@ morphological and intrinsic specialisations for greater onset precision.
 # auditory fibers. 
 
 
-A random jitter was introduced to the AN synaptic delay to account for
+A random jitter was introduced to the \AN synaptic delay to account for
 \ANF variation and synapses placed at various distances along the
 dendrites of \TS, \DS and \TV cells.  Figure \ref{fig:CSjitter} shows
 the effects of jitter on the intracellular responses of a Type I-t \RM
@@ -461,7 +461,7 @@ effects replicated dendritic delays without the added computational cost
 of a passive neural compartment in the model.  The models did not account for dendritic attenuation of the \EPSP.
 
 
-#+caption: [Response of T stellate cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a T stellate cell model (Type I-t \RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.	 Jitter responses (averaged over 25 repetitions) are shown as a thick line and responses without jitter are shown as thin lines. All weights were set to 0.5~nS. Twenty HSR and 30 LSR ANFs connected with the recorded TS cell model. A. No jitter in ANF synapses on TS cell without the sodium channel. B. No \ANF jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
+#+caption: [Response of T stellate cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a T stellate cell model (Type I-t RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.	 Jitter responses (averaged over 25 repetitions) are shown as a thick line and responses without jitter are shown as thin lines. All weights were set to 0.5~nS. Twenty HSR and 30 LSR ANFs connected with the recorded TS cell model. A. No jitter in ANF synapses on TS cell without the sodium channel. B. No ANF jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
 #+label: fig:CSjitter
 [[../SimpleResponsesChapter/gfx/TStellate/baseline_jitter.pdf]]
 
@@ -607,27 +607,26 @@ parameters based on rate level information.
   
 ** Background
 
-# GLG Cell Model
 *** Morphology of Golgi Cells
 
 
-Golgi cells are distinguishable from the numerous smaller granule cells
+\GLG cells are distinguishable from the numerous smaller granule cells
 in the \GCD by their larger cell body and surrounding plexus of
-dendritic and axonal neurites. The soma diameter of Golgi cells is
+dendritic and axonal neurites. The soma diameter of \GLG cells is
 approximately 15 \um \citep{FerragamoGoldingEtAl:1998}, while the
 diameter of granule cells is 8 \um in cats \citep{MugnainiOsenEtAl:1980}
 and 6 \um in rats and mice \citep{MugnainiOsenEtAl:1980,Alibardi:2003}.
 Smooth, tapering dendrites, between 50 and 100 \um long, emanate in all
 directions
 \citep{FerragamoGoldingEtAl:1998,Cant:1993,MugnainiOsenEtAl:1980}.  A
-dense, axonal plexus, limited to the plane of the granule cell domain,
+dense, axonal plexus, limited to the plane of the \GCD,
 extends approximately 250 \um from the soma in all directions
 \citep{FerragamoGoldingEtAl:1998,BensonBrown:2004}.
 
 # In layer 2 of the DCN Alibardi rat (9–15 \um) GABA-ergic cells round cell body
 # surrounded by small granule cells immuno-negative to Glycine and GABA.
 
-The dendrites of \VCN Golgi cells are mitochondria-rich and make
+The dendrites of \VCN \GLG cells are mitochondria-rich and make
 glomeruli complexes with long synaptic junctions with mossy fibre
 boutons \citep{MugnainiOsenEtAl:1980}. The somata generally have few
 boutons of the flat or pleomorphic vesicle type, that are characteristic
@@ -638,8 +637,9 @@ small (Type II \ANF and granule cell) vesicles
 
 #  \citep{Alibardi:2003} In non-tonotopic circuits integration between acoustic
 # and non-acoustic inputs occurs \citep{RyugoWrigthEtAl:1993}.
-The contribution of the circuits of granule cell areas of the \VCN to the processing of the acoustic signal is poorly understood
-\citep[for~a~review~of~non-auditory~inputs~to~GCD~see~][]{OhlroggeDoucetEtAl:2001}.
+The contribution of the circuits of granule cell areas of the cochlear
+nucleus to the processing of the acoustic signal is poorly understood
+\citep[for~a~review~of~non-auditory~inputs~to~\GCD~see~][]{OhlroggeDoucetEtAl:2001}.
 \citet{FerragamoGoldingEtAl:1998} confirmed the excitation of Golgi
 cells from granule cells with \NMDA glutamatergic synapses.  
 
@@ -679,19 +679,19 @@ cells from granule cells with \NMDA glutamatergic synapses.
 
 *** Cellular Mechanisms of Golgi Cells
 
-In a single study in mice, intracellular recordings of Golgi cells
+In a single study in mice, intracellular recordings of \GLG cells
 showed a classic repetitively-firing response to current clamp and an
 inward rectifying response to voltage clamp
-\citep{FerragamoGoldingEtAl:1998}.	Golgi
-cells are classified as Type I current-clamp neurons and act as simple
-integrators of synaptic input \citep{FerragamoGoldingEtAl:1998}.
-# Their intrinsic properties suggests Golgi cells are simple integrators.
-Response to AN shocks in Golgi cells were found to be delayed by
+\citep{FerragamoGoldingEtAl:1998}. \GLG cells are classified as Type I
+current-clamp neurons and act as simple integrators of synaptic input
+\citep{FerragamoGoldingEtAl:1998}.
+# Their intrinsic properties suggests \GLG cells are simple integrators.
+Response to \AN shocks in \GLG cells were found to be delayed by
 approximately 0.7 ms relative to the core \VCN units, with minimum delay
 in most cells around 1.3 ms \citep{FerragamoGoldingEtAl:1998}.
 
 # #+ATTR_LaTeX: width=0.6\textwidth
-# #+Caption: Current clamp response of a Golgi cell in a mouse slice preparation. Figure reproduced from \citet{FerragamoGoldingEtAl:1998}.
+# #+Caption: Current clamp response of a \GLG cell in a mouse slice preparation. Figure reproduced from \citet{FerragamoGoldingEtAl:1998}.
 # #+LABEL: fig:GolgiIV
 # [[../SimpleResponsesChapter/gfx/FerragamoGolgi.png]]
 
@@ -701,9 +701,9 @@ in most cells around 1.3 ms \citep{FerragamoGoldingEtAl:1998}.
 
 *** Acoustic Response of Golgi cells
 
-# The physiological response of Golgi cells has not been extensively studied.
+# The physiological response of \GLG cells has not been extensively studied.
 
-Extracellular recordings from labelled Golgi cells are not available in
+Extracellular recordings from labelled \GLG cells are not available in
 the literature; however, electrophysiological studies of the \GCD (or
 marginal shell of the \VCN in cats) have been done without direct
 labelling of recorded units
@@ -718,7 +718,7 @@ axons are unlikely to elicit electrical activity in the electrodes
 
 
 #+ATTR_LATEX: width=\textwidth,keepaspectratio=true
-#+CAPTION:    [Rate level response of marginal shell units]{Marginal shell neuron (Unit S03-07, CF 22.7 kHz, \citealt{GhoshalKim:1997}) with monotonic rate-level response to pure BF tones and broad-band noise. This unit was chosen as the exemplar Golgi cell for optimisation purposes. (Figure reproduced from \citealt{GhoshalKim:1997})}
+#+CAPTION:    [Rate level response of marginal shell units]{Marginal shell neuron (Unit S03-07, CF 22.7 kHz, \citealt{GhoshalKim:1997}) with monotonic rate-level response to pure BF tones and broad-band noise. This unit was chosen as the exemplar GLG cell for optimisation purposes. (Figure reproduced from \citealt{GhoshalKim:1997})}
 #+LABEL:      fig:GhoshalKim97_Fig2
 [[../SimpleResponsesChapter/gfx/GhoshalKim_Fig2_S03_07.png]]
 
@@ -741,7 +741,7 @@ were called "unusual" \citep{GhoshalKim:1997}.
 
 The latency of acoustically driven \GCD recorded units ranges from 2.4
 ms to over 10 ms, with a mean of 3.75 ms.  The acoustic latency closely
-matches the minimum latency of \EPSPs to AN shocks recorded in mice 
+matches the minimum latency of \EPSPs to \AN shocks recorded in mice 
 /in vitro/ preparations \citep[1.3~ms,][]{FerragamoGoldingEtAl:1998}. \EPSPs with 
 longer latencies may be due to Type II \ANFs, which have an 
 estimated theoretical latency of 10 ms \citep{Brown:1993}, or from
@@ -753,13 +753,13 @@ polysynaptic excitation by granule cells.
 # onto \VCN~units is analogous to automatic gain control.  provides
 # strong evidence for regulation of activity in granule cells.
 
-The assumed functional role of Golgi cells is to regulate granule cells.
+The assumed functional role of \GLG cells is to regulate granule cells.
 They may also provide automatic gain control to the principal \VCN
 units, primarily D and T stellate cells
 \citep{GhoshalKim:1997,FerragamoGoldingEtAl:1998a}.
 #
 # GABA in the Ventral Cochlear Nucleus
-# {Neuromodulatory effects of Golgi cells}
+# {Neuromodulatory effects of \GLG cells}
 #
 # first sentence too long and could go at start of golgi section
 The presence of GABAergic inputs to \VCN and \DCN neurons has been
@@ -776,13 +776,13 @@ generally arise in the peri-olivary regions of the medulla in cats
 preparations of the isolated murine \VCN show strong and immediate
 sensitivity to bicuculine in T and D stellate cells from a source
 within the \CN complex \citep{FerragamoGoldingEtAl:1998a}.  The only
-known source of \GABA intrinsic to the \VCN is the Golgi cells of the
+known source of \GABA intrinsic to the \VCN is the \GLG cells of the
 \GCD overlying the \VCN
 \citep{Mugnaini:1985,FerragamoGoldingEtAl:1998}.
 
 # TODO:  Clean up paragraph
 # Other studies in the rat cochlear
-# nucleus relating to the Golgi cell or \GABA:
+# nucleus relating to the \GLG cell or \GABA:
 # \begin{itemize}
 # \item \citep{MugnainiOsenEtAl:1980} Fine structure of granule cells and
 #   related inter-neurons (termed {Golgi} cells) in the cochlear nuclear complex
@@ -805,33 +805,33 @@ known source of \GABA intrinsic to the \VCN is the Golgi cells of the
 # \citep{Alibardi:2003a} rat \CN complex -S > Golgi-stellate cells (fusiform layer:
 # 2) in \DCN contact granule and unipolar brush cells
 
-Inputs to Golgi cells are more complicated than the inputs to core \VCN
-neurons.  Golgi cells are sparse in the \GCD, surrounded by the many
+Inputs to \GLG cells are more complicated than the inputs to core \VCN
+neurons.  \GLG cells are sparse in the \GCD, surrounded by the many
 smaller excitatory granule cells that form small en-passant endings.
 Type II \ANFs create diffuse glutamatergic release sites in the \GCD
-\citep{HurdHutsonEtAl:1999,BensonBrown:2004} that may stimulate NMDA
-glutamate receptors in Golgi cells \citep{FerragamoGoldingEtAl:1998a}.
+\citep{HurdHutsonEtAl:1999,BensonBrown:2004} that may stimulate \NMDA
+glutamate receptors in \GLG cells \citep{FerragamoGoldingEtAl:1998a}.
 
-# REPETITIVE: The physiological response of Golgi cells has not been extensively
-# studied.  Intracellular recordings of Golgi cells in one study by
+# REPETITIVE: The physiological response of \GLG cells has not been extensively
+# studied.  Intracellular recordings of \GLG cells in one study by
 # \citet{FerragamoGoldingEtAl:1998} have shown a classic Type I current
-# response.  This suggests Golgi cells are simple integrators.	Their
+# response.  This suggests \GLG cells are simple integrators.	Their
 # response to auditory nerve shocks were delayed by approximately 0.7 ms
 # relative to the core \VCN units \citep{FerragamoGoldingEtAl:1998}.
 # 
 
 # 
-# Extracellular recordings from labelled Golgi cells is not available in
+# Extracellular recordings from labelled \GLG cells is not available in
 # the literature; however, the \GCD (or marginal shell of the \VCN in
 # cats) has been studied by one group \citet{GhoshalKim:1997} without
 # direct labelling of recorded units.  Any extracellular spikes recorded
-# in the \GCD are most likely from Golgi cells since granule cell somata
+# in the \GCD are most likely from \GLG cells since granule cell somata
 # are less than 10 \um and their narrow axons are unlikely to elicit
 # electrical activity in the electrodes.  The majority of recorded units
 # showed a monotonic increase in firing rate with increasing sound
 # intensity \citep[Figure~\ref{fig:GolgiKimFig2}][]{GhoshalKim:1996a}.
 
-# Golgi cells' monotonic responses to tones and noise over a wide dynamic range
+# \GLG cells' monotonic responses to tones and noise over a wide dynamic range
 # provide regulation of activity in granule cells.  The contribution of
 # a delayed, negative feedback onto \VCN units is analogous to automatic
 # gain control provides strong evidence for regulation of activity in
@@ -842,11 +842,11 @@ glutamate receptors in Golgi cells \citep{FerragamoGoldingEtAl:1998a}.
 # 
 
 
-# ** Golgi Cell Model
-# Inputs to Golgi cells are more complicated than the inputs to core \VCN
-# neurons.  Golgi cells are sparse in the region surrounding the \VCN
+# ** \GLG Cell Model
+# Inputs to \GLG cells are more complicated than the inputs to core \VCN
+# neurons.  \GLG cells are sparse in the region surrounding the \VCN
 # called the granule cell domain.  Extracellular recordings from labelled
-# Golgi cells are not available in the literature; however, the \GCD (or
+# \GLG cells are not available in the literature; however, the \GCD (or
 # marginal shell of the \VCN in cats) has been studied in only one study
 # without direct labelling of recorded units \citep{GhoshalKim:1997}.  Any
 # extracellular spikes recorded in the \GCD are most likely from Golgi
@@ -854,34 +854,34 @@ glutamate receptors in Golgi cells \citep{FerragamoGoldingEtAl:1998a}.
 # axons are unlikely to elicit electrical activity in the electrodes.  The
 # majority of recorded units showed a monotonic increase in firing rate
 # with increasing sound intensity \citep{GhoshalKim:1997}.
-# The Golgi cell model is implemented as an instantaneous-rate Poisson
+# The \GLG cell model is implemented as an instantaneous-rate Poisson
 # rate model.  The primary inputs are from the auditory model's
 # instantaneous rate outputs with connections across frequency channels.
-# \HSR and \LSR \ANF inputs to Golgi cells were specified by a Gaussian
+# \HSR and \LSR \ANF inputs to \GLG cells were specified by a Gaussian
 # distribution in fibres across the network.  The weighted sum of \HSR and
 # \LSR instantaneous-rate vectors were smoothed out by an alpha function
 # mimicking a synaptic and dendritic smoothing filter.
 
 ** Implementation
 
-The key attributes of the Golgi cell that informed the creation of the
+The key attributes of the \GLG cell that informed the creation of the
 \GLG cell model were as follows:
- 1. Golgi cells are classic integrator neurons, as shown by 
+ 1. \GLG cells are classic integrator neurons, as shown by 
     their Type I current clamp response \citep{FerragamoGoldingEtAl:1998}.
- 2. The minimum \EPSP in Golgi cells to an electric shock of the AN
+ 2. The minimum \EPSP in \GLG cells to an electric shock of the \AN
     \citep{FerragamoGoldingEtAl:1998} and mean first spike latency to
     acoustic stimuli \citep{GhoshalKim:1997} are significantly different
     from the core \VCN units.
- 3. Golgi cells have a low maximum rate and large dynamic range to tone
+ 3. \GLG cells have a low maximum rate and large dynamic range to tone
     and noise stimuli \citep{GhoshalKim:1997}.
- 4. The low threshold in Golgi cells can\-not be solely due to \LSR
+ 4. The low threshold in \GLG cells can\-not be solely due to \LSR
     fibre inputs that have high thresholds \citep{GhoshalKim:1997}. This
     suggests medium and high spontaneous rate Type I or Type II \ANFs
-    (that project to the \GCD) may provide weak inputs to Golgi cells.
+    (that project to the \GCD) may provide weak inputs to \GLG cells.
     The lack of extensive experimental data regarding Type II \ANF units
     and granule cell response to acoustic input, reward an inhomogeneous
     Poisson rate neural model over the Hodgkin-Huxley type neural model
-    in the Golgi cell used in the \CNSM model.	Although \HSR \ANF
+    in the \GLG cell used in the \CNSM model.	Although \HSR \ANF
     terminals do not generally project into the \GCD, they were included
     in the \CNSM model to provide some low level spontaneous activity.
 
@@ -889,7 +889,7 @@ The key attributes of the Golgi cell that informed the creation of the
   \begin{figure}[t!]
   \centering
   % \resizebox{0.9\textwidth}{!}{\input{../SimpleResponsesChapter/gfx/GolgiDiagram.tex}}
-  %  \caption[Golgi cell model diagram]{The Golgi instantaneous-rate profile
+  %  \caption[Golgi cell model diagram]{The GLG  instantaneous-rate profile
   %    was generated using a weighted sum of ANF profiles and as alpha function
   %    smoothing filter to mimic dendritic and synaptic filtering. The
   %    Gaussian spread of connections is independent for HSR and LSR
@@ -897,7 +897,7 @@ The key attributes of the Golgi cell that informed the creation of the
   %    final stage set the spontaneous rate (SR) by addition at t=0, changed any
   %    negative values to zero, and included an additional delay of 2.5 ms.}
   \resizebox{0.7\textwidth}{!}{\input{../SimpleResponsesChapter/gfx/GolgiPointProcessDiagram.tex}}
-  \caption[Golgi cell model diagram]{The Golgi cell model's instantaneous-rate
+  \caption[GLG cell model diagram]{The GLG cell model's instantaneous-rate
     profile was generated using a weighted sum of ANF profiles.	 The Gaussian
     spread of connections is independent for HSR and LSR auditory filters, with
     the mean equal to the CF channel of the unit.  An alpha function smoothing
@@ -928,7 +928,7 @@ modified by the weight parameter \wLSRGLG, and the spread parameter
 #+END_LaTeX
 \noindent where $x=1,\ldots,\Nchannels$.
 
-The intermediate step in the Golgi cell model, $g_i(t)$, combines the
+The intermediate step in the \GLG cell model, $g_i(t)$, combines the
 weighted sum of \HSR and \LSR instantaneous-rate and corrects the output
 rate for the desired spontaneous activity, \Gspon, and is given by
 #+BEGIN_LaTeX
@@ -945,7 +945,7 @@ rate). Profiles were calculated for each channel in the network
 
 The weighted sum of \HSR and \LSR instantaneous-rate vectors was
 convolved with a smoothing kernel, mimicking synaptic and dendritic
-properties of the Golgi cell model. The smoothing kernel is an alpha
+properties of the \GLG cell model. The smoothing kernel is an alpha
 function, $\alpha_{\rm GLG }(t)$, given by
 #+BEGIN_LaTeX
   \begin{equation}
@@ -985,7 +985,7 @@ input rate vectors.  The inhomogenenous Poisson spiking model with
 refractory effects (as used for the \ANF models \citep{Jackson:2004})
 was used to generate the output spike times for the \GLG cell model.
 # The [[latex:progname][NEURON]]
-# implementation of the Golgi cell model is provided in the Appendix
+# implementation of the \GLG cell model is provided in the Appendix
 # \ref{sec:Ch3:Appendix:Golgi}.
 
 #+LaTeX:\input{../SimpleResponsesChapter/GolgiRateLevelTable}
@@ -1001,7 +1001,7 @@ optimise the \GLG cell model.
 # community.  
 The topology of the \VCN follows the same tonotopic
 organisation of the \AN, with 100 evenly-spaced frequency channels.  As
-Table \ref{tab:GolgiCellModelSummary}B shows, the ANFs were not required
+Table \ref{tab:GolgiCellModelSummary}B shows, the \ANFs were not required
 because only the instantaneous profile of each \AN frequency channel
 was used in the \GLG cell model.  In the \CNSM model, the connectivity
 between \ANFs and \GLG cells (Table \ref{tab:GolgiCellModelSummary}C)
@@ -1011,10 +1011,10 @@ was a simple place-based Gaussian spread (as explained in Section [[Connectivity
 The experimental data used to optimise the \GLG cell model was the rate
 level response of the marginal shell unit shown in Figure
 \ref{fig:GhoshalKim97_Fig2}.  This unit was chosen due to its monotonic
-response to pure BF tones and its moderate maximal firing rate (100
-spikes per second). The closest frequency channel  to the experimental unit's \CF (21 kHz) was used for the GLG
+response to pure \BF tones and its moderate maximal firing rate (100
+spikes per second). The closest frequency channel  to the experimental unit's \CF (21 kHz) was used for the \GLG
 cell model (channel 76,
-CF=22.7kHz). The fitness function for the \GLG cell model optimisation
+\CF=22.7 kHz). The fitness function for the \GLG cell model optimisation
 used 22.7 kHz pure tones at 22 sound levels to compare the experimental
 and model units. The \GLG cell model parameters used in the optimisation
 are shown in Table \ref{tab:GolgiCellModelSummary}E.
@@ -1027,12 +1027,12 @@ are shown in Table \ref{tab:GolgiCellModelSummary}E.
 
 
 # Eq. \ref{eq:alpha_Golgi},
-# In Chapter \ref{sec:GAChapter}, the Golgi cell model was implemented as a
+# In Chapter \ref{sec:GAChapter}, the \GLG cell model was implemented as a
 # single-compartment conductance neuron. Due to the unavailability of sufficient
-# data regarding \emph{in vivo} Golgi cell responses, the decision was made to
-# simulate the Golgi cell model as an inhomogeneous Poisson neuron.  The instantaneous-rate
-# profile of Golgi cells use inputs from the auditory model's instantaneous rate
-# outputs, and a number of steps were taken to investigate the Golgi cell model.
+# data regarding \emph{in vivo} \GLG cell responses, the decision was made to
+# simulate the \GLG cell model as an inhomogeneous Poisson neuron.  The instantaneous-rate
+# profile of \GLG cells use inputs from the auditory model's instantaneous rate
+# outputs, and a number of steps were taken to investigate the \GLG cell model.
 
 # Due to its replication of granule cells in the model, weight for \LSR
 # (\wLSRGLG) and \HSR (\wHSRGLG) are determined for all synapses, number
@@ -1045,23 +1045,23 @@ are shown in Table \ref{tab:GolgiCellModelSummary}E.
 # or Poisson - Problem of monotonic excitation at low levels - Spread of \ANF to
 # \GCD ARE broader than core \VCN- are we spoiling the broth too early?
 # \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
-# \caption{Optimisation Results for Golgi Model using Rate Level data from
+# \caption{Optimisation Results for \GLG Model using Rate Level data from
 # \label{Ch3:fig:GolgiFit}}
 # \includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
-# \caption{Optimisation Results for Golgi Model using Rate Level data from
+# \caption{Optimisation Results for \GLG Model using Rate Level data from
 # \label{Ch3:fig:GolgiRL}}
 # \includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
-# \caption{Optimisation Results for Golgi Model using Rate Level data from
+# \caption{Optimisation Results for \GLG Model using Rate Level data from
 # \label{Ch3:fig:GolgiRL}}
 # \includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
-# \caption{Optimisation Results for Golgi Model using Rate Level data from
+# \caption{Optimisation Results for \GLG Model using Rate Level data from
 # \label{Ch3:fig:GolgiRL}}
 
 ** Optimisation Results
 
 # # COMMENT OUT UNUSED FIGURE AND TEXT
 # Figure \ref{fig:GolgiTestResult} shows the output of the test
-# optimisation trials for the Golgi cell model.	 The testing trial used
+# optimisation trials for the \GLG cell model.	 The testing trial used
 # only five sound levels (0, 15, 55, 75 and 85 dB \SPL) and detected the
 # mean rate from the instantaneous profile in its fitting routine.  The
 # best response obtained a minimum root mean squared error of 11.63
@@ -1071,24 +1071,24 @@ are shown in Table \ref{tab:GolgiCellModelSummary}E.
 # from the spiking output to show the discrepancy in the
 # spike-based rate-level and the monotonic rate based rate-level.  The
 # lack of low level response and a higher threshold indicated the need
-# for some \HSR input into the Golgi cell model.
+# for some \HSR input into the \GLG cell model.
 
 # #+ATTR_LaTeX: width=0.8\textwidth
-# #+CAPTION: [Initial results of Golgi cell model]{Initial trial results of the	 Golgi cell model optimisation.	 Responses of the Golgi cell model (blue  triangles) compared five sound levels (0,15, 55, 75 and 85 dB SPL) against five points in the target response (red squares).	The eventual best optimisation	response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  Golgi cell model using the final parameters.}
+# #+CAPTION: [Initial results of \GLG cell model]{Initial trial results of the	 \GLG cell model optimisation.	 Responses of the \GLG cell model (blue  triangles) compared five sound levels (0,15, 55, 75 and 85 dB SPL) against five points in the target response (red squares).	The eventual best optimisation	response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  \GLG cell model using the final parameters.}
 # #+LABEL: fig:GolgiTestResult
 # [[ ../SimpleResponsesChapter/gfx/GolgiRateLevel_result2.pdf]]
 
 
-Figure \ref{fig:GolgiResult} shows the rate-level output of the Golgi
+Figure \ref{fig:GolgiResult} shows the rate-level output of the \GLG
 cell model with its optimal combination of parameters as shown in Table
 \ref{tab:GolgiCellModelSummary}E.  Twenty two sound levels from -15 dB
-SPL to 90 dB SPL were used in the fitness function to compare the Golgi
-cell model (CF=22.7 kHz) with the experimental unit S03-07
-\citep[CF=21~kHz,][]{GhoshalKim:1996a} representing the target response.
+SPL to 90 dB SPL were used in the fitness function to compare the \GLG
+cell model (\CF=22.7 kHz) with the experimental unit S03-07
+\citep[\CF=21~kHz,][]{GhoshalKim:1996a} representing the target response.
 The mean firing rate, generated from 25 repetitions at each level, was
 used in the fitness function to produce a square root of the mean
 squared difference between the model response and the target response.
-The optimal parameters of the Golgi cell model had a fitness score of
+The optimal parameters of the \GLG cell model had a fitness score of
 4.48 spikes per second.	 A normalised metric that takes into account the
 different firing rate magnitudes at each sound level relative to the
 target response shows a mean absolute difference of 21.5%.
@@ -1139,26 +1139,26 @@ target response shows a mean absolute difference of 21.5%.
 
 
 #+ATTR_LaTeX: width=0.6\textwidth
-#+CAPTION: [Golgi cell model optimisation results]{Golgi cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996a}. A more detailed optimisation with 22 levels and including HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data. }
+#+CAPTION: [GLG cell model optimisation results]{GLG cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996a}. A more detailed optimisation with 22 levels and including HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data. }
 #+LABEL: fig:GolgiResult
 [[../SimpleResponsesChapter/gfx/GolgiRateLevel_result.pdf]]
 
 The parameters in Table \ref{tab:GolgiCellResults} were within the range
-of expected values.  \LSR inputs to the Golgi cell model outweighed \HSR
+of expected values.  \LSR inputs to the \GLG cell model outweighed \HSR
 inputs by a factor greater than 10.  The monotonic response of \LSR
 fibres at high sound levels was necessary to create the large dynamic
-range in the Golgi cell model. Equally, the \HSR fibres were necessary
+range in the \GLG cell model. Equally, the \HSR fibres were necessary
 to provide spontaneous rate activity at low \SPL.  The spontaneous rate
 parameter matches the base response of unit S03-07 in Figure
 \ref{fig:GolgiResult}.	The smoothing filter time constant of 5 ms is a
 typical value in membrane time constants for neural models and fits with
-the input resistance in intracellular recordings of Golgi cells
+the input resistance in intracellular recordings of \GLG cells
 \citep{FerragamoGoldingEtAl:1998}.
 
 The input spread parameter was not well constrained by the optimisation
 fitness routine with a pure tone input and a single neuron, but the
 result was satisfactory given the uncertainty in \LSR fibres' axonal
-organisation in the \GCD.  The dendritic widths in Golgi cells are
+organisation in the \GCD.  The dendritic widths in \GLG cells are
 around 100 \um and the frequency separation laminae in the \VCN core are
 approximately 70 \um, giving an expected spread of 1.5 channels in the
 100 channel \CNSM model. Consequently, the optimal spread parameter of
@@ -1170,40 +1170,40 @@ approximately 70 \um, giving an expected spread of 1.5 channels in the
 
 
 #   % \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
-#   % \caption{Optimisation Results for Golgi Model using Rate Level data from
+#   % \caption{Optimisation Results for \GLG Model using Rate Level data from
 #   %     \label{Ch3:fig:GolgiFit}}
 #   %   \includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
-#   %   \caption{Optimisation Results for Golgi Model using Rate Level data from
+#   %   \caption{Optimisation Results for \GLG Model using Rate Level data from
 #   %     \label{Ch3:fig:GolgiRL}}
 
 #   %   \includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
-#   %   \caption{Optimisation Results for Golgi Model using Rate Level data from
+#   %   \caption{Optimisation Results for \GLG Model using Rate Level data from
 #   %     \label{Ch3:fig:GolgiRL}}
 #   % \includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
-#     %   \caption{Optimisation Results for Golgi Model using Rate Level data
+#     %   \caption{Optimisation Results for \GLG Model using Rate Level data
 #     %   from     \label{Ch3:fig:GolgiRL}}
 #   \begin{figure}[t!]
 #     \centering
 # \includegraphics[width=0.6\textwidth,angle=-90]{GolgiRateLevelActualFit}\\
-#     \caption{Optimisation Results for Golgi Model using Rate Level data from
+#     \caption{Optimisation Results for \GLG Model using Rate Level data from
 #       \label{Ch3:fig:GolgiFit}}
 #   \end{figure}
 #   \begin{figure}[t!]
 #     \centering
 #     \includegraphics[width=0.8\textwidth]{GolgiRateLevel}\\
-#     \caption{Optimisation Results for Golgi Model using Rate Level data from
+#     \caption{Optimisation Results for \GLG Model using Rate Level data from
 #       \label{Ch3:fig:GolgiRL}}
 #   \end{figure}
 #   \begin{figure}[t!]
 #     \centering
 #     \includegraphics[width=0.8\textwidth]{golgi_RateLevel_opt}\\
-#     \caption{Optimisation Results for Golgi Model using Rate Level data from
+#     \caption{Optimisation Results for \GLG Model using Rate Level data from
 #       \label{Ch3:fig:GolgiRL}}
 #   \end{figure}
 #   \begin{figure}[t!]
 #     \centering
 # \includegraphics[width=0.8\textwidth,angle=-90]{GolgiRateLevel2}\\
-#     \caption{Optimisation Results for Golgi Model using Rate Level data from
+#     \caption{Optimisation Results for \GLG Model using Rate Level data from
 #       \label{Ch3:fig:GolgiRL}}
 #   \end{figure}
 #   \clearpage \newpage
@@ -1267,7 +1267,7 @@ experimental units
   %   %	  \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90-3}}\\
   %   %	  \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50-3}}\\
   
-  %   \caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8 kHz).
+  %   \caption[Optimised \GLG cell model responses]{Response of optimised \GLG cell model at the centre of the network (CF=5.8 kHz).
   %  A. Rate level responses to tone, noise and tone plus noise.
   %  B. PSTH at 90 dB SPL\.
   %  C. Response area equivalent using all GLG units in the network.
@@ -1287,7 +1287,7 @@ experimental units
     %\hfill\resizebox{0.95\textwidth}{!}{%
    % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
    %\includegraphics{}\hfill}\\
-    \caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8 kHz).
+    \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF=5.8 kHz).
    A. PSTH of the \GLG cell model at 50 and 90 dB SPL. B. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}. 
   
   } \label{fig:GolgiVerificationPSTH}
@@ -1299,7 +1299,7 @@ experimental units
   \resizebox{0.95\textwidth}{!}{\hfill%
   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/RateLevel/response_area-3}\hfill%
   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/NoiseRateLevel/response_area-3}\hfill}%	  
-     \caption[Whole network response of Golgi cell model]{Response of Golgi cell models across the
+     \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
        whole network (CF=5.8 kHz) to pure tones and noise.
     A. Rate response of all GLG units in the network to pure tone at centre of
     network (5.8 kHz).
@@ -1307,8 +1307,6 @@ experimental units
   \label{fig:GolgiVerificationWhole}
    \end{figure}
 #+END_LaTeX
-
-\clearpage
 
 
 \clearpage\newpage
@@ -1328,7 +1326,7 @@ IV \EIRA units). Some \DS cells exit the \CN, forming commissural
 connections with the contralateral \CN \citep{NeedhamPaolini:2007}.  /In
 vitro/ studies have shown that \DS cells are strongly inhibited by the
 neurotransmitter GABA, predominantly at \GABAa receptor synapses
-\citep{FerragamoGoldingEtAl:1998a}.  Golgi cells are the only
+\citep{FerragamoGoldingEtAl:1998a}.  \GLG cells are the only
 \GABA-ergic neuron in the VCN, but their axonal plexus does not extend
 into the magnocellular core. \citet{DoucetRyugo:1997} found that all \DS
 cells labelled with BDA staining in the \DCN had dendritic projections
@@ -1337,7 +1335,7 @@ that entered the \GCD, as shown in Figure \ref{fig:DSinGCD}.
 # All DS cells, labeled by \citet{DoucetRyugo:1997}, had dendritic
 # processes extending into the granule cell domain. Large multipolar VCN
 # neurons, DS cells, are known to have dendritic projections into the
-# GCD, the location of GABAergic Golgi cells.
+# GCD, the location of GABAergic \GLG cells.
 
 #+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
 #+CAPTION: [D stellate cell retrogradely labeled from the DCN]{(Left) TS cells that were retrogradely stained with BDA injections in the DCN lie in the narrow frequency band corresponding to the presumed frequency band of the injection site in the DCN. (Right) Reconstructed DS cell with dendritic processes in the granule cell domain (GCD). Image reproduced from Figure 3C in \citet{DoucetRyugo:1997}.}
@@ -1469,7 +1467,7 @@ separation of the probe and mask clicks.
 
 
 # Latency of excitation to auditory nerve
-# shocks suggests Golgi cells are activated by Type II \ANFs and low
+# shocks suggests \GLG cells are activated by Type II \ANFs and low
 # spontaneous rate Type I \ANFs
 # \citep{BensonBerglundEtAl:1996,FerragamoGoldingEtAl:1998}.
 #   Therefore,
@@ -1531,7 +1529,7 @@ model.
 
 In order to specify how \ANF and \GABA-ergic inputs regulate the rate
 and temporal behaviour of \DS cells, two optimisation routines were
-performed.  The temporal response of Golgi cells to \AM is unknown,
+performed.  The temporal response of \GLG cells to \AM is unknown,
 therefore clicks, as used in \citet{BackoffPalombiEtAl:1997}, were
 deemed the most suitable for optimisation.  The first optimisation,
 Section [[Results%20of%20Click%20Recovery%20Optimisation][Results of Click Recovery Optimisation]], used the mask recovery
@@ -1563,9 +1561,9 @@ graded weights was sufficient for the \DS cell model.
 
 The synaptic connections onto the \DS cell model, shown in Table
 \ref{tab:DScellModelSummary}C, were simplified to excitatory \ANF inputs
-(\HSR and \LSR) and \GABA-ergic input from Golgi cells in the \GCD.  The
+(\HSR and \LSR) and \GABA-ergic input from \GLG cells in the \GCD.  The
 \DS cell model's input parameters were pre-emptively fixed.  These
-included the number of Golgi to \DS synapses ($\nGLGDS = 25$), the
+included the number of \GLG to \DS synapses ($\nGLGDS = 25$), the
 spread of \ANFs to \DS cells (\sANFDSh and \sANFDSl), and the conduction
 delay from the \AN (\dANFDS).  The \ANF spread onto \DS cells
 is well documented
@@ -1587,7 +1585,7 @@ primarily on \CF, but the bandwidth is difficult to ascertain
 \citep{CasparyHaveyEtAl:1979,PalombiCaspary:1992,CasparyBackoffEtAl:1994,CasparyPalombi:1993,CasparyPalombiEtAl:1993}.
 The dendrites of \DS cells cover one third of the nucleus
 (approximately 3 octaves of tonotopic frequencies) and occasionally
-project into the \GCD \citep{ArnottWallaceEtAl:2004}.  Golgi cells'
+project into the \GCD \citep{ArnottWallaceEtAl:2004}.  \GLG cells'
 axonal collaterals are confined to 200 \um in the \GCD.	 
 #   # #  and \ANF tonotopic organisation in the \GCD is less defined.	
 The \GLG to \DS cell model connection within the \CNSM model was set to
@@ -1661,7 +1659,7 @@ spontaneous activity and to restrict over-excitation by \ANFs.
 # by 50 ms.  Although the experimental stimuli was presented every 250 ms,
 # the optimisation stimulus needed to be computationally efficient so the
 # separation was shortened and the sequence reordered to obtain the best
-# click recovery response in the \DS and Golgi cells.  The stimulus was
+# click recovery response in the \DS and \GLG cells.  The stimulus was
 # repeated 25 times and a PSTH was produced from the DS cells' spikes.
 # Spike counts for 2 ms after the probe and masker click were selected
 # (accounting for the the minimum first spike latency for the unit) to
@@ -1711,7 +1709,7 @@ compensates for the small weight that was obtained in the optimisation.
   % \begin{tabularx}{\textwidth}{X c c D{,}{.}{1.4}}
   % \toprule
   %	     \textbf{Parameters}	  &	    \textbf{Name}	   & \textbf{Range} & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-  % Weight of Golgi synapses on \DS cells &	 \wGLGDS \hfill (nS)	   &   [0.01,50]    & 0,532 \\ 
+  % Weight of GLG synapses on \DS cells &	 \wGLGDS \hfill (nS)	   &   [0.01,50]    & 0,532 \\ 
   % Weight of \HSR synapses on \DS cells  &	 \wHSRDS \hfill (nS)	   &   [0.01,50]    & 0,16\\ 
   % Weight of \LSR synapses on \DS cells  &	 \wLSRDS  \hfill (nS)	   &   [0.01,50]    & 13,1 \\  
   %  \GABAa synapse fast decay constant	  & $\tau_{\rm GABA-1}$ \hfill (ms)&	[0.01,10.0]   & 5,432 \\  
@@ -1731,7 +1729,7 @@ compensates for the small weight that was obtained in the optimisation.
     % \begin{tabularx}{\textwidth}{|X|c|c|c|}\hline %{\textwidth} 
     % \hdr{4}{}{Optimisation} \\ \hline 
     %		\textbf{Parameters}	      &	   \textbf{Name}    & \textbf{Range} & \textbf{Best Values} \\\hline
-    %	    Weight of Golgi on \DS \hfill(nS)	     &	     \wGLGDS	   &   [0.01,50]    & 0.532 \\ \hline
+    %	    Weight of GLG on \DS \hfill(nS)	     &	     \wGLGDS	   &   [0.01,50]    & 0.532 \\ \hline
     %	  Weight of \HSR syn on \DS \hfill(nS)	    &	    \wHSRDS	  &   [0.01,50]	   & 0.16\\ \hline 
     %	  Weight of \LSR syn on \DS \hfill(nS)	    &	    \wLSRDS	  &   [0.01,50]	   & 13.1 \\ \hline 
     % \GABAa synapse fast decay constant (ms) & $\tau_{\rm GABA-1}$ &	 [0.01,10.0]   & 5.432 \\ \hline 
@@ -1914,7 +1912,7 @@ higher thresholds and wider dynamic ranges.
 The optimised parameters for inputs to the \DS cell model were applied
 to \DS cells across the whole network using tones, noise and tones plus
 noise stimuli.  The behaviour of an individual \DS cell model output is
-shown in Figure \ref{fig:DSverificationPSTH}, similar to the Golgi cell
+shown in Figure \ref{fig:DSverificationPSTH}, similar to the \GLG cell
 model (Figure \ref{fig:GolgiVerification}).  Figure
 \ref{fig:DSverificationPSTH}A and B shows the response of the central
 \DS cell model (CF=5.8 kHz).
@@ -2385,30 +2383,30 @@ The optimised parameters of the \TV cell model in Table \ref{tab:TVRateLevelFig8
 
 \yellownote{Fix PSTH figure and discuss plots in text.}
 #+BEGIN_LaTeX
-  \begin{figure}[t!]
-    % \centering
-  %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
-  %   \hfill\resizebox{0.95\textwidth}{!}{%
-  %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
-  % \includegraphics{}\hfill}\\
-    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    {\hfill\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-1.pdf}%
-    %\includegraphics{gfx/GhoshalKim_PSTHs.png}%
-  }\hfill}\\
-    {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
-    %\hfill\resizebox{0.95\textwidth}{!}{%
-   % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
-   %\includegraphics{}\hfill}\\
-    \caption[Optimised Golgi cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8 kHz).
-   A. Rate level responses to tone, noise and tone plus noise.
-   B. PSTH at 90 dB SPL\@.
-   C. Response area equivalent using all GLG units in the network.
-   D. Masked noise-tone response of the central unit to 15 dB masking noise and
-   frequencies one octave above and below its CF.
-  E. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996}. 
-  } \label{fig:TVVerificationPSTH}
-  \end{figure}
+   \begin{figure}[t!]
+     % \centering
+   %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
+   %   \hfill\resizebox{0.95\textwidth}{!}{%
+   %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
+   % \includegraphics{}\hfill}\\
+     {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+     {\hfill\resizebox{0.95\textwidth}{!}{%
+     \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-1.pdf}%
+     %\includegraphics{gfx/GhoshalKim_PSTHs.png}%
+   }\hfill}\\
+     {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+     %\hfill\resizebox{0.95\textwidth}{!}{%
+    % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
+    %\includegraphics{}\hfill}\\
+     \caption[Optimised TV cell model responses]{Response of optimised TV cell model at the centre of the network (CF=5.8 kHz).
+    A. Rate level responses to tone, noise and tone plus noise.
+    B. PSTH at 90 dB SPL\@.
+    C. Response area equivalent using all TV units in the network.
+    D. Masked noise-tone response of the central unit to 15 dB masking noise and
+    frequencies one octave above and below its CF.
+  % E. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996}. 
+   } \label{fig:TVVerificationPSTH}
+   \end{figure}
 #+END_LaTeX
 
 #+BEGIN_LaTeX
@@ -2418,18 +2416,18 @@ The optimised parameters of the \TV cell model in Table \ref{tab:TVRateLevelFig8
   \resizebox{0.95\textwidth}{!}{\hfill%
   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/RateLevel/response_area-3}\hfill%
   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/NoiseRateLevel/response_area-3}\hfill}%	  
-     \caption[Whole network response of Golgi cell model]{Response of Golgi cell models across the
+     \caption[Whole network response of TV cell model]{Response of TV cell models across the
        whole network (CF=5.8 kHz) to pure tones and noise.
-    A. Rate response of all GLG units in the network to pure tone at centre of
+    A. Rate response of all TV units in the network to pure tone at centre of
     network (5.8 kHz).
-    B. Rate response of all GLG units to broad-band noise.}
+    B. Rate response of all TV units to broad-band noise.}
   \label{fig:TVVerificationWhole}
    \end{figure}
 #+END_LaTeX
 
 The optimised parameters for inputs to the \TV cell model were applied
 to \TV units across 100 frequency channels (the whole \CNSM model) and their responses to tones, noise and tones
-plus noise stimuli were recorded.  Unlike the Golgi cell model, the rate-level
+plus noise stimuli were recorded.  Unlike the \GLG cell model, the rate-level
 response of TV cells is non-linear and the noise rate-level is strongly
 inhibited (Figure \ref{fig:TVverification}A).  This is typical of the
 Type II \EIRA units in the deep layer of the \DCN
@@ -2446,7 +2444,7 @@ was delayed to 6.5 ms for a 50 dB SPL tone (Figure
 and the chopping behaviour is suppressed (Figure
 \ref{fig:TVverification}B).
 # The \TV model outputs' behaviour
-# is shown in Figure \ref{fig:TVverification}, similar to the Golgi cell
+# is shown in Figure \ref{fig:TVverification}, similar to the \GLG cell
 # model Figure \ref{fig:Golgiverification}.  
 Figure \ref{fig:TVverification}A and B show the response of the central
 \TV model (CF=5.8 kHz). The PSTH in Figure \ref{fig:TVverification}B is
@@ -3375,13 +3373,14 @@ Moderately-driven, monotonic behaviour was found in a majority of
 recorded units /in vivo/ \citep{GhoshalKim:1997} The lack of evidence
 surrounding the distribution of \ANFs, particularly \HSR fibres, in the
 region of the \GCD led to using a filter-based neural model for the \GLG
-cell. The weighted Gaussian function.
+cell. 
+# The weighted Gaussian function.
 
 The evidence surrounding non-auditory inputs to the \GLG cell were not
 included as this was not relevant to a strong sensory-driven input and
 the role of the \CNSM model is to recreate acoustically-driven outputs.
 
-Section Golgi Cell Model
+# Section Golgi Cell Model
 
 \yellownote{TODO: Discuss the Golgi cell optimisation.	Is the
   filter-based approach effective at meeting the goal of simulating data
@@ -3609,7 +3608,7 @@ connection) not included.}
 \yellownote{TODO: More editing in chapter conclusion}
 
 The purpose of the optimisation experiments was to develop a
-biophysically-realistic neural network model of the stellate microcircuit in the
+biophysically-realistic model of the stellate microcircuit in the
 cochlear nucleus.  The methods used in this section are a practical and
 realistic means for constructing microcircuits with sensory or feature-based
 topography. They exploit extensive experimental evidence that describes the
@@ -3617,7 +3616,9 @@ behaviour of each interneuron in the network.  The tabular reporting format for
 neural network modelling, as suggested by \citet{NordlieGewaltigEtAl:2009}, was
 followed so that other researchers can easily reproduce this work.
 
-The next chapter investigates the optimised \CNSM model with more the complex, biologically-realistic stimuli involved in amplitude modulation.
+
+The next chapter investigates the optimised \CNSM model with more the complex,
+biologically-realistic stimuli involved in amplitude modulation.
 
 #+BEGIN_LaTeX
   \ifthenelse{\isundefined{\manuscript}}{\newpage\singlespacing\bibliographystyle{plainnat} \bibliography{../org-manuscript/bib/MyBib}\newpage \printglossaries\newpage\listoftodos }{}
