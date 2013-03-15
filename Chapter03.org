@@ -1106,7 +1106,7 @@ relative to the target response shows a mean absolute difference of 21.5%.
 #+ATTR_LaTeX: width=0.6\textwidth
 #+CAPTION: [GLG cell model optimisation results]{GLG cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996a}. A more detailed optimisation with 22 levels and including HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data. }
 #+LABEL: fig:GolgiResult
-[[../SimpleResponsesChapter/gfx/GolgiRateLevel_result.pdf]]
+[[../SimpleResponsesChapter/gfx/golgi/GolgiRateLevel_result.pdf]]
 
 The parameters in Table \ref{tab:GolgiCellResults} were within the range of
 expected values.  \LSR inputs to the \GLG cell model outweighed \HSR inputs by a
