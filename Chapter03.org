@@ -581,7 +581,6 @@ presented to the \CNSM model included:
    sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
 #+END_SRC
 
-
 * Golgi Cell Model 
   :PROPERTIES:
   :CUSTOM_ID:	sec:GolgiModelOpt
@@ -2702,8 +2701,8 @@ and the responses of the intrinsic currents in the \RM neural model. The
 hyperpolarisation activation of \Ih and \IKA currents due to inhibitory input
 are not evident.  \Ih influences the recovery from \AP and modulates the
 regularity of the chopping behaviour \citep{RothmanManis:2003b}.  \IKA is active
-to an oncoming stimulus \citep{PaoliniClareyEtAl:2004,KanoldManis:2005}.
 at rest and is important in enhancing the first spike response across \TS cells
+to an oncoming stimulus \citep{PaoliniClareyEtAl:2004,KanoldManis:2005}.
 
 *** Fitness Function
 
