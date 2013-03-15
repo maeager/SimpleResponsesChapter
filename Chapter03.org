@@ -111,9 +111,9 @@ the thoroughly investigated \CN of mammals, bats and birds.
 
 To develop and optimise detailed neural models and neural network models,
 reproducible research methods are required.  In this chapter, the table method
-introduced by \citet[as described in
-Chapter~\ref{sec:MethodsChapter}]{NordlieGewaltigEtAl:2009} is used to summarise
-the neural models used in each optimisation step.
+introduced by \citet{NordlieGewaltigEtAl:2009} is used to summarise
+the neural models used in each optimisation step (as described in
+Chapter \ref{sec:MethodsChapter}).
 # The Nordlie tables shown in
 # each optimisation stage consist of A) the model summary, B) cell type
 # populations, C) connectivity between two cell types, D) neuron and
