@@ -1,0 +1,101 @@
+{%
+\small\linespread{0.5}
+\begin{table}[!pt]
+    \caption{D~stellate cell  model summary}
+    \label{tab:DScellModelSummary}
+%\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\hdr{2}{A}{Model Summary}\\\hline
+         \textbf{Populations}           & ANF (HSR, LSR), GLG, and  DS cell models\\\hline
+           \textbf{Topology}            & Tonotopic, auditory system of the rat, 100 frequency channels  \\\hline
+         \textbf{Connectivity}          & Gaussian spread dependent on morphology and afferent connections  \\\hline
+         \textbf{Input model}           & ANF~model: Instantaneous-rate Poisson neural model  \citep{ZilanyBruceEtAl:2009} \\\hline
+\multirow{2}{*}{\textbf{Neuron model}}  & GLG cell model: Instantaneous-rate Poisson neural model \\
+                                        & DS cell model: Type I-II \RM single compartment neural model\\ \hline
+        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
+\multirow{2}{*}{\textbf{Synapse model}} & Excitatory: \AMPA glutamatergic receptor (single-exponential)\\
+                                        & Inhibitory: \GABAA GABAergic receptor (double-exponential), \GlyR glycinergic receptor (double-exponential) \\\hline
+       % \textbf{Synapse model}         & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
+%        \textbf{Input Stimulus}         & Five mask and recovery click pairs separated by 50 ms\\\hline
+%         \textbf{Measurements}          & PSTH sampled at each click for 2 ms to measure recovery from masking clicks\\\hline
+\end{tabularx}
+\vspace{1ex}
+% - B -----------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|X|}\hline %{\textwidth}
+\hdr{3}{B}{Populations}\\\hline
+\textbf{Name} &               \textbf{Elements}                & \textbf{Number} \\\hline
+     HSR      & Auditory nerve fibre \citep{ZilanyBruceEtAl:2009}  & $N_{\text{HSR}} = 50$ per channel \\\hline
+     LSR      & Auditory nerve fibre \citep{ZilanyBruceEtAl:2009}                       & $N_{\text{LSR}} = 20$ per channel \\\hline
+     GLG      & Instantaneous-rate Poisson neuron        & $N_{\text{GLG}} = 1$ per channel \\\hline
+    \multirow{2}{*}{DS}       & \multirow{2}{*}{Type I-II \RM model} &  Click Recovery: 1 unit at channel 50, CF$ = 5.6$ kHz \\ 
+&& Rate Level: 1 unit at channel 76, CF = 11.1 KHz \\\hline
+\end{tabularx}
+\vspace{1ex}
+% - C ------------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
+\hdr{4}{C}{Connectivity}\\\hline
+     \textbf{Name}      & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
+\ANFDS & 
+%{\begin{minipage}\begin{center}
+ \HSR,\,\LSR  
+%\end{center} \end{minipage}}
+&       \DS       & 
+Skewed Gaussian convergence, centred on CF, spread below  CF $\sigma^2 = \sANFDSl$, spread above CF $\sigma^2 = \sANFDSh$, delay  \dANFDS.  Weight and number differ for HSR and  LSR connections ( \wHSRDS,  \nHSRDS, \wLSRDS, \nLSRDS) \\\hline
+       $\GLGDS$         &       \GLG       &       \DS        & 
+Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
+\multicolumn{4}{|X|}{\ANFGLG from previous section, see Table~\ref{tab:GolgiCellModelSummary}C.}\\\hline
+\end{tabularx}
+\vspace{1ex}
+% - D ------------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}\hline
+\hdr{2}{D}{Neuron and Synapse Model}\\\hline
+ \textbf{Name} & DS cell model \\\hline
+ \textbf{Type} & Type I-II \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+\textbf{Subthreshold dynamics} & Na, KLT, KHT, Ih, and leak currents \\\hline
+ \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
+ \end{tabularx}
+%\vspace{1ex}
+\end{table}
+\begin{table}[!pt]
+    \caption{Table~\ref{tab:DScellModelSummary}: D~stellate cell  model summary - continued}
+%\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\hdr{2}{E}{Optimisation - Click Recovery}\\\hline
+\textbf{Input Stimulus}  & Mask and recovery click pairs, with delay 16, 2, 8, 4, and 3 ms (in this order), separated by 50 ms   \\\hline
+     \textbf{Parameters}      & 
+      \wGLGDS,    
+      \wHSRDS,    
+      \wLSRDS,    
+$\tau_{\rm GABA-1}$, 
+$\tau_{\rm GABA-2}$, 
+      \DS \gleak    \\\hline
+% \textbf{Measurements}   &  Spiking output of DS unit, in channel 50, from 25 repetitions and collected in a PSTH.  The PSTH was sampled at each click for 2 ms to measure click recovery. Idle times were recorded for spontaneous activity and level of ANF excitation.\\\hline
+% PSTHs were generated from 25 stimulus repetitions. Each response to a click is measured for a period of 2 ms.  The sample period was delayed by 4 ms, an estimate of the auditory delay and minimum first spike latency for the DS unit.  The unit used   in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
+% %\textbf{Optimisation} & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
+ %\textbf{Measurements}  & First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II~\DCN~unit~\citep{ReissYoung:2005}, Fig.~9. \\\hline
+
+\textbf{Fitness Function} & Weighted mean squared error between masker-probe rate ratios of \DS cell  model and experimental \DS cell \citep{BackoffPalombiEtAl:1997} to pairs of clicks. Idle rates were recorded for spontaneous activity and levels of ANF excitation were used as additional penalties. \\\hline
+\end{tabularx}
+\vspace{1ex}
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}\hline %
+\hdr{2}{F}{Optimisation - Rate Level}\\\hline
+\textbf{Input Stimulus}  & 1. Tone rate Level function, 11.1~kHz tone at 30 to 100 dB SPL in 5 dB intervals (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay). 2. Noise rate level, broad-band noise at 40 to 95 db SPL in 5 dB intervals   (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay). \\\hline
+\textbf{Parameters}      & 
+      \wGLGDS, \nGLGDS,    
+      \wHSRDS, \nHSRDS,   
+      \wLSRDS, \nLSRDS   
+          \\\hline
+\textbf{Fitness Function} & RMS error between \DS cell model (CF 11.1 kHz) and experimental \OnC unit \citep[CF~10.9~kHz, ][]{ArnottWallaceEtAl:2004} at each input stimulus in tone and noise rate levels. \\\hline
+\end{tabularx}
+\end{table}
+}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: nil
+%%% End: 

@@ -1,0 +1,27 @@
+set terminal postscript eps enhanced defaultplex \
+   leveldefault color solid\
+   dashlength 1.0 linewidth 2.0 butt noclip \
+   palfuncparam 2000,0.003 \
+   "Helvetica" 18 
+#color solid 
+set output "./gfx/ArnottFig12.eps"
+## FONTSIZE 18
+
+
+load '../SimpleResponsesChapter/gfx/default.gpi'
+set xtics nomirror out # ("0-10" 0,"10-20" 1,"20-30" 2,"30-40" 3,"40-50" 4)
+set xrange [*:*]
+set yrange [*:*]
+#set border 3
+set xlabel "Sound Level (dB SPL)" font "Helvetica,20"
+set ytics nomirror out #0.1,0.1,0.5
+set ylabel "Spike Count" font "Helvetica,20"
+set style line 1 lc rgb "#0060ad" lt 1 lw 2 pt 7 ps 3 # 1.5 # --beautiful blue line and filled circle
+set style line 2 lc rgb '#dd181f' lt 1 lw 2 pt 5 ps 3 # 1.5 # --beautiful red line and square
+set style line 3 lc rgb '#00ad06' lt 1 lw 2 pt 9 ps 3 # 1.5 # --green line and triangle
+
+#set key on outside right center  Right spacing 5 font "Helvetica,22" nobox
+plot 'gfx/Arnott2004_Fig12_CF10.9kHz.Tone.png.dat'  u 1:2 t "Tone" w lp ls 1, \
+     'gfx/Arnott2004_Fig12_CF10.9kHz.Noise.png.dat'  u ($1+100):2 t "Noise"  w lp ls 2
+
+     

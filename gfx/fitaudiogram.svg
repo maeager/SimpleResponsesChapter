@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="25cm" height="8cm" viewBox="74 27 485 158" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <polygon style="fill: #ffffff" points="257.043,110.556 373.516,110.556 358.958,150.556 242.484,150.556 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="257.043,110.556 373.516,110.556 358.958,150.556 242.484,150.556 "/>
+    <text style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal" x="308" y="134.456">
+      <tspan x="308" y="134.456">fit_audiogram</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="226.925" y="29" width="160.15" height="38"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="226.925" y="29" width="160.15" height="38"/>
+    <text style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal" x="307" y="51.9">
+      <tspan x="307" y="51.9">THRESHOLD_ALL.mat</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #ffffff" d="M 75.6 87.963 L 202.4,87.963 L 202.4,171.963 C 177.04,157.963 164.36,157.963 139,171.963 C 113.64,185.963 100.96,185.963 75.6,171.963 L 75.6,87.963z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 75.6 87.963 L 202.4,87.963 L 202.4,171.963 C 177.04,157.963 164.36,157.963 139,171.963 C 113.64,185.963 100.96,185.963 75.6,171.963 L 75.6,87.963"/>
+    <text style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal" x="139" y="102.963">
+      <tspan x="139" y="102.963">Heffner</tspan>
+      <tspan x="139" y="118.963">Cat audiogram</tspan>
+      <tspan x="139" y="134.963"></tspan>
+      <tspan x="139" y="150.963">[freq.], [Threshold]</tspan>
+    </text>
+  </g>
+  <g>
+    <path style="fill: #ffffff" d="M 410.983 98.2 L 557.683,98.2 L 557.683,163 C 528.343,152.2 513.673,152.2 484.333,163 C 454.993,173.8 440.323,173.8 410.983,163 L 410.983,98.2z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 410.983 98.2 L 557.683,98.2 L 557.683,163 C 528.343,152.2 513.673,152.2 484.333,163 C 454.993,173.8 440.323,173.8 410.983,163 L 410.983,98.2"/>
+    <text style="fill: #000000;text-anchor:middle;font-size:12.8;font-family:sanserif;font-style:normal;font-weight:normal" x="484.333" y="113.2">
+      <tspan x="484.333" y="113.2">cat_audiogram.txt</tspan>
+      <tspan x="484.333" y="129.2"></tspan>
+      <tspan x="484.333" y="145.2">[freq], [COHC], [CIHC]</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="202.4" y1="129.963" x2="245.292" y2="130.5"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="237.466,135.402 247.528,130.528 237.591,125.403 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="366.237" y1="130.556" x2="406.511" y2="130.596"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="398.742,135.588 408.747,130.598 398.752,125.588 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 2; stroke: #000000" x1="307" y1="67" x2="307.599" y2="105.09"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="302.478,97.4059 307.635,107.326 312.477,97.2486 "/>
+  </g>
+  <text style="fill: #000000;text-anchor:start;font-size:12.7998;font-family:sanserif;font-style:normal;font-weight:normal" x="255.378" y="163.816">
+    <tspan x="255.378" y="163.816">MATLAB/Octave</tspan>
+  </text>
+</svg>

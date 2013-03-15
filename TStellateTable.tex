@@ -1,0 +1,130 @@
+{%\vspace{2ex}
+\small\linespread{0.5}
+\begin{table}[pt]
+    \caption{T~stellate cell model summary}
+    \label{tab:TSModelSummary}
+%\end{table}
+%\noindent%
+\begin{tabularx}{\textwidth}{|l|X|} %
+\hdr{2}{A}{Model Summary}\\
+         \textbf{Populations}          & Six: \HSR \& \LSR ANFs, \GLG, \DS, \TV and \TS cells \\\hline
+          \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
+        \textbf{Connectivity}          & \ANF$\to$\{\GLG,\DS,\TV,\TS\}, Golgi$\to$\{\DS,\TS\}, \DS$\to$\{\TV,\TS\}, and \TVTS  \\\hline
+         \textbf{Input model}          & ANF~model: Instantaneous-rate Poisson neural model \citep{ZilanyBruce:2007} \\\hline
+\multirow{4}{*}{\textbf{Neuron model}} & Golgi cell: \GLG neural model\\
+                                       & D~stellate cell: HH-like single-compartment type I-II \RM model\\ 
+                                       & Tuberculo-ventral cell:  HH-like single-compartment type I-c \RM model \\
+                                       & T~stellate cell: HH-like single-compartment type I-t \RM model\\ \hline
+       \textbf{Channel models}         & \INa, \Ileak, \IKHT, \IKLT, \IKA, and \Ih \citep{RothmanManis:2003b}\\\hline
+        \textbf{Synapse model}         & \AMPA (single exponential), \GABAa and \GlyR (double exponential) \\\hline
+%            \textbf{Input}             & Pure tones at CF of designated exemplar neuron.\\\hline
+%        \textbf{Measurements}          & Intracellular membrane voltage and spikes recorded over 25 repetitions. Membrane voltage clipped at threshold, $\Theta$, then averaged and processed for IV measurements discussed in text.  Spikes are processed for PSTH and CV statistics. \\\hline
+\end{tabularx}
+\vspace{1ex}
+
+% - B -----------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hdr{3}{B}{Populations}\\
+\textbf{Name} &      \textbf{Elements}      & \textbf{Size} \\\hline
+     HSR      &      Poisson generator      & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
+     LSR      &      Poisson generator      & $N_{\text{LSR}}= 20$  per freq.\ channel \\\hline
+     GLG      &      Poisson generator      & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
+     DS       &    Type I-II \RM model     & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
+     TV       &  Type I-classic \RM model  & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
+     TS       & Type I-transient \RM model & $N_{\text{TV}}= 1$ per freq.\ channel\\\hline
+\end{tabularx}
+\vspace{1ex}
+
+% - C ------------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+\hdr{4}{C}{Connectivity}\\
+\textbf{Name} & \textbf{Source} & \textbf{Target}  & \textbf{Pattern} \\\hline
+ %   \ANFDS   &       ANF       &    D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
+ %   \ANFTV   &       ANF       & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
+   \ANFTS     &       ANF       &        TS        & 
+Narrowband connection at CF, zero spread, weight \wLSRTS and \wHSRTS, number \nLSRTS and \nHSRTS, delay \dANFTS \\\hline
+ %   \GLGDS   &      Golgi      &    D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
+ %    \DSTV   &   D~Stellate    & Tuberculoventral & Gaussian, centered at CF with spread \sDSTV \\\hline
+   \GLGTS     &       GLG       &        TS        & 
+Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGTS$, weight \wGLGTS, number \nGLGTS, delay $\dGLGTS=0.5$ ms \\\hline
+    \DSTS     &       DS        &        TS        & 
+Gaussian convergence, centered on CF, spread $\sigma^2 = \sDSTS$, weight \wDSTS, number \nDSTS, delay $\dDSTS=0.5$ ms \\\hline
+    \TVTS     &       TV        &        TS        & 
+Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, number \nTVTS, delay $\dTVTS=1.0$ ms \\\hline
+\multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model in Table~\ref{tab:TVNotchModelSummary}C. }\\\hline
+\end{tabularx}
+% , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
+\vspace{1ex}
+
+% - D ------------------------------------------------------------------------------
+
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}
+\hdr{2}{D}{Neuron and Synapse Model}\\
+ \textbf{Name} & DS, TV and TS cell models \\\hline
+ \textbf{Type} & \RM \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+\textbf{Subthreshold dynamics} & \INa, \IKA, \IKHT, \Ih, and \Ileak currents \\\hline
+ \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
+ \end{tabularx}
+\vspace{1ex}
+% \noindent\begin{tabularx}{\textwidth}{|p{0.150.95\textwidth}|X|}\hline
+% \hdr{2}{D}{Neuron and Synapse Model}\\\hline
+% \textbf{Name} &  \\\hline
+% \textbf{Type} & \\\hline
+% \raisebox{-4.5ex}{\parbox{0.95\textwidth}{\textbf{Subthreshold dynamics}}} &
+% \rule{1em}{0em}\vspace*{-3.5ex}
+%     \begin{equation*}
+%       \begin{array}{r@{\;=\;}lll}
+%       \tau \dot{V}(t) & -V(t) + R I(t) &\text{if} & t > t^*+\tau_{\text{rp}} \\
+%       V(t) & V_{\text{r}} & \text{else} \\[2ex]
+%       I(t) & \multicolumn{3}{l}{\frac{\tau}{R} \sum_{\tilde{t}} w
+%         \delta(t-(\tilde{t}+\Delta))}
+%       \end{array}
+%     \end{equation*}
+% \vspace*{-2.5ex}\rule{1em}{0em}
+%  \\\hline
+% \multirow{3}{*}{\textbf{Spiking}} &
+%    If $V(t-)<\theta \wedge V(t+)\geq \theta$
+% \vspace*{-1ex}
+% \begin{enumerate}\setlength{\itemsep}{-0.5ex}
+% \item set $t^* = t$
+% \item emit spike with time-stamp $t^*$
+% \end{enumerate}
+% \vspace*{-4ex}\rule{1em}{0em}
+% \\\hline
+
+\end{table}
+\begin{table}[!tp]
+    \caption{Table~ \ref{tab:TSModelSummary}: T~stellate cell model summary - continued}
+
+%\vspace{2ex}
+\noindent
+\begin{tabularx}{\textwidth}{|l|X|}%
+\hdr{2}{E}{Optimisation}\\
+\textbf{Input Stimulus} & Pure tone stimuli with 50 ms duration, 2 ms cosine squared on\slash off ramp, and 20 ms delay. Optimisation of each chopper unit used the CF and 30 dB relative to the threshold sound level of the exemplar unit: CS (3.9~kHz 40 dB SPL), CT1 (8.2 kHz, 85 dB SPL), CT2 (12.4~kHz 35 dB SPL). \\\hline 
+     \textbf{Parameters}      & 
+      \wHSRTS, \nHSRTS,    
+      \wLSRTS, \nLSRTS,   
+      \wDSTS,  \nDSTS,   
+      \wTVTS,  \nTVTS, 
+  \wGLGTS, \nGLGTS 
+      \TS \gleak, \TS \gh    \\\hline
+\textbf{Fitness Function}    &  Input stimulus was presented to the CNSM model with intracellular voltage and spike timing output recorded from one \TS cell model. Special \AIV measures and spike statistics were calculated.  \CV statistics were measured in 10 ms windows from 2.5 ms after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
+\end{tabularx}
+\vspace{1ex}
+\end{table}
+}
+
+%  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
+%   \textbf{Function}     & Weighted mean squared error see listing below  \\ \hline
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Chapter03"
+%%% TeX-PDF-mode: nil
+%%% End: 
