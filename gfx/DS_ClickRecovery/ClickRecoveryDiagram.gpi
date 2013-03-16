@@ -28,7 +28,7 @@ f(x)=(x==10 || x==26 || x==80 || x==82 ? 1 : 0 )
 
 #set yrange [0:1]
 #plot [0:100] f(x) w l lw 1 lc rgb "black"
-plot [0:100] '< xz --decompress --stdout ../SimpleResponsesChapter/gfx/ClickStim.dat.xz ' u ($1*1000):2 w l lc rgb "black"
+plot [0:100] '< xz --decompress --stdout ../SimpleResponsesChapter/gfx/DS_ClickRecovery/ClickStim.dat.xz ' u ($1*1000):2 w l lc rgb "black"
 
 #set ytics in nomirror
 #set border 3
@@ -50,10 +50,10 @@ set object 4 rect from  85, screen 0.08 to  87, screen 0.5 fc lt -1 fs solid 0.2
 set yrange [0:15]
 set style fill solid 1.0 border lc rgb "black"
 set arrow from 0,0 to 100,0 nohead 
-plot [0:100] '../SimpleResponsesChapter/gfx/DSPSTH.dat' u 1:2 w boxes lc "black"
+plot [0:100] '../SimpleResponsesChapter/gfx/DS_ClickRecovery/DSPSTH.dat' u 1:2 w boxes lc "black"
 
 unset multiplot
 
-!fixbb ../SimpleResponsesChapter/gfx/ClickRecoveryDiagram.eps
+!fixbb ../SimpleResponsesChapter/gfx/DS_ClickRecovery/ClickRecoveryDiagram.eps
 # !epstopdf gfx/ClickRecoveryDiagram.eps
 
