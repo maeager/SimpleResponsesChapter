@@ -1513,7 +1513,7 @@ dendritic delay.
 #+ATTR_LaTeX: width=0.7\textwidth
 #+caption: [Click recovery stimulus and recording procedure]{Sample of the fitness function stimulus and recording procedure for the DS cell model click recovery optimisation. Top: Two pairs of clicks (0.3 ms width) with delays of 16 ms and 2 ms. Bottom: PSTH response of a DS unit (high CF) with 2 ms boxes indicating the window of response for the mask and probe periods. Windows began 3 ms after the stimulus click to account for the FSL in DS units.}
 #+label: fig:ClickExample
-[[../SimpleResponsesChapter/gfx/ClickRecoveryDiagram.pdf]]
+[[../SimpleResponsesChapter/gfx/DS_ClickRecovery/ClickRecoveryDiagram.pdf]]
 
 
 In order to specify how \GLG cells regulate the click recovery response in DS
@@ -1591,7 +1591,7 @@ weight that was obtained in the optimisation.
 
 #+CAPTION: [Click recovery optimisation results in DS cell model]{Optimisation results for click recovery behaviour in the DS cell model (CF 5.8 kHz). The optimal response (blue circle) was obtained from Figure 3 in \citet{BackoffPalombiEtAl:1997}. The red squares represent the best-fit parameter results for the DS cell model.}
 #+LABEL: fig:DSClickRecoveryResult
-[[../SimpleResponsesChapter/gfx/DS_ClickRecovery_result.pdf]]
+[[../SimpleResponsesChapter/gfx/DS_ClickRecovery/DS_ClickRecovery_result.pdf]]
 
 #+BEGIN_LaTeX
   {
@@ -1657,7 +1657,7 @@ fit the \DS cell model.
 #+ATTR_LATEX: width=0.9\textwidth
 #+Caption: [Tone and noise rate level response of a OnC unit (DS~cell)]{Tone and noise rate level response of OnC units used in the DS cell model rate-level optimisation.  (OnC unit data reproduced from Figures 3 and 12 in \citet{ArnottWallaceEtAl:2004}). } 
 #+LABEL: fig:ArnottExamples
- [[../SimpleResponsesChapter/gfx/Arnott2004Combined.pdf]]
+ [[../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004Combined.pdf]]
 
 Table \ref{tab:DScellModelSummary}F describes the DS cell model rate-level
 optimisation routine. Weight and number parameters for the three input
@@ -2445,7 +2445,7 @@ with similar \CF (\TV unit 70, \CF = 12.76 kHz) to notch and band-pass noise.
     %	%\resizebox{\textwidth}{!}{\includegraphics{NoFigure}}
     %	\resizebox{0.9\textwidth}{!}{\includegraphics{TV_Notch/Reiss_Fig9_E+F.pdf}}\\
     %	\resizebox{0.9\textwidth}{!}{\includegraphics{../../cnstellate/TV_Notch/BestSweep.pdf}}\\
-    %	\resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/TV_Notch/Reiss_Fig10A+B.pdf}}\\ \resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx//TV_Notch/Best-Offset2/BestSweep.pdf}}\\
+    %	\resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/TV_Notch/Reiss_Fig10A+B.pdf}}\\  \resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TV_Notch/Best-Offset2/BestSweep.pdf}}\\
     %	\caption[Response of optimised TV cell (CF=12.76 kHz) to notch and
     %	bandsweeps]{Response of optimised TV cell (CF=12.76 kHz) to notch and band
     %	  sweeps with stimulus sound level at 50 dB SPL\@.  Mean rate responses are
