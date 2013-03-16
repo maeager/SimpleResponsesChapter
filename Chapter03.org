@@ -302,9 +302,6 @@ typical of the \ANFs.  Spike trains for each neuron in the \AN model were
 created at the start of each repetition of the stimulus.  Further detail on \HSR
 and \LSR \ANF models are in Section \ref{sec:Methods:HSRLSR}.
 
-
-
-
 # Analysis of the frequency
 # response area of ANF generates known parameters for each fibre, these are:
 # \begin{itemize}
@@ -315,15 +312,6 @@ and \LSR \ANF models are in Section \ref{sec:Methods:HSRLSR}.
 #   responds above the spontaneous rate
 # \item characteristic frequency (CF)
 # \end{itemize}
-
-# \begin{figure}[tbh]
-#   \begin{center}
-# % \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-# % \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{ClickDelay}}
-#     \caption{Response of AN and CN cells to click stimuli. }
-#     \label{fig:ClickDelayAN}
-#   \end{center}
-# \end{figure}
 
 ** Neural Models
 
@@ -889,7 +877,7 @@ The strength of \HSR and \LSR \ANF inputs to \GLG cells was determined by a
 Gaussian distribution in units of channel separation in the network.  The weight
 vectors, $\mathbf{w}_{\HSRGLG}$ and $\mathbf{w}_{\LSRGLG}$, span the \CNSM
 model's channels with size \Nchannels, with a normal curve centred on the
-position in the channel and variance \sANFGLG\@.  For example, for \LSR inputs
+position in the channel and variance \sANFGLG.  For example, for \LSR inputs
 to \GLG cells, at position /i/ in the frequency channels, the weight vector was
 modified by the weight parameter \wLSRGLG, and the spread parameter \sLSRGLG,
 which is the variance in a standard Gaussian function
@@ -2102,7 +2090,7 @@ in noise (Figure \ref{fig:TVRateLevelResult}D).
 
 #+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) were optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}).  Glycinergic blocker strynchnine used in the target unit was emulated in the TV cell model by removing DS cell synaptic inputs. A. Tone RL of HSR, LSR, GLG and DS cell unit inputs at CF 5.8 kHz. B. Tone RL of  optimised TV cell model and target unit data with and without inhibition. C. Noise RL of HSR, LSR and GLG units at same CF. D. Noise RL of optimised DS cell model and target unit data with and without inhibition. }
 #+LABEL: fig:TVRateLevelResult
-[[../SimpleResponsesChapter/gfx/TV_RateLevel_result.pdf]]
+[[../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel_result.pdf]]
 
 # #  50 dB Run
 # #+BEGIN_LaTeX
@@ -2247,8 +2235,8 @@ The optimised parameters of the \TV cell model in Table
   \centering
   {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
   \resizebox{0.95\textwidth}{!}{\hfill%
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/RateLevel/response_area-3}\hfill%
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{Responses2/NoiseRateLevel/response_area-3}\hfill}%	  
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-1}\hfill%
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/response_area-1}\hfill}%	  
      \caption[Whole network response of TV cell model]{Response of TV cell models across the
        whole network (CF=5.8 kHz) to pure tones and noise.
     A. Rate response of all TV units in the network to pure tone at centre of
