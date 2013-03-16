@@ -60,5 +60,5 @@ plot '< grep "^70" ../SimpleResponsesChapter/gfx/TV_Notch/cnstellate/TV_Notch/ha
 
 unset multiplot
 
-!rm -rf ../SimpleResponsesChapter/gfx/TV_Notchcnstellate
+!rm -rf ../SimpleResponsesChapter/gfx/TV_Notch/cnstellate
 !fixbb ../SimpleResponsesChapter/gfx/TV_Notch/BestSweep.eps
