@@ -22,8 +22,6 @@ set output '../SimpleResponsesChapter/gfx/TV_Notch/BestSweep.eps'
 
 !(cd ../SimpleResponsesChapter/gfx/TV_Notch;tar Jxvf one_bsweep.tar.xz;tar Jxvf half_bsweep.tar.xz;tar Jxvf half_sweep.tar.xz;tar Jxvf  one_sweep.tar.xz;)
 
-
-   
 set border 3
 set xtics nomirror
 set ytics nomirror
