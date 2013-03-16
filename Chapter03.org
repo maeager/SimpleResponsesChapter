@@ -2330,7 +2330,7 @@ combination of the Type II \DCN unit notch data for 1 octave.
 #+ATTR_LATEX: width=0.7\textwidth
 #+CAPTION: [TV model optimisation configuration]{Expected mean rate response to	 notch noise in the TV cells, created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge (augmented from Figure 9 in \citet{ReissYoung:2005}).}
 #+LABEL: fig:TVNotchDiagram
-[[../SimpleResponsesChapter/gfx/TV_NotchDataConfig2.pdf]]
+[[../SimpleResponsesChapter/gfx/TV_Notch/TV_NotchDataConfig2.pdf]]
 
 
 The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated with
@@ -2361,7 +2361,7 @@ a parameter in the optimisation routine with a range from -80 to -50 mV.
 #+ATTR_LATEX: width=0.6\textwidth
 #+CAPTION: [Best-fit result of TV cell model notch optimisation]{Best-fit result of TV cell model notch optimisation.}
 #+LABEL: fig:TVNotchresult
-[[../SimpleResponsesChapter/gfx/TV_Notch_results.pdf]]
+[[../SimpleResponsesChapter/gfx/TV_Notch/TV_Notch_results.pdf]]
 
 # \yellownote{Expand paragraph} 
 Figure \ref{fig:TVNotchresult} shows the notch
