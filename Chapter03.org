@@ -1731,12 +1731,12 @@ was 89\%.
 
 # #+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 6.3 kHz, channel 55, red circles) was optimised to experimental data, an OnC unit \citep[CF~6.3~kHz,~][]{ArnottWallaceEtAl:2004}. (A) Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 6.3 kHz (HSR, LSR and GLG units). (B) Tone RL of DS cell optimised model and target unit. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit. }
 # #+LABEL: fig:DSRateLevelFig3Result
-# [[../SimpleResponsesChapter/gfx/DS_RateLevel_result.6.3kHz.pdf]]
+# [[../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel_result.6.3kHz.pdf]]
 
 
 #+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) were optimised to an OnC unit (CF 10.9 kHz, in figure 12 of \citet{ArnottWallaceEtAl:2004}). A. Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 11.1 kHz. B. Tone RL of DS cell optimised model and target unit data. C. Noise RL of HSR, LSR and GLG units at same CF. D. Noise RL of optimised DS cell model and target unit data. }
 #+LABEL: fig:DSRateLevelResult
-[[../SimpleResponsesChapter/gfx/DS_RateLevel_result.pdf]]
+[[../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel_result.pdf]]
 
 
 The output of the \DS cell model in the optimisation was strongly determined by
