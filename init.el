@@ -157,13 +157,11 @@
 	    (goto-char (mark))
 	    ;(replace-regexp "\\([A-Zu][A-Zsm]\\) \\([\\\\A-Z]\\)"
 ;		    "\\1\\\\ \\2")
-;	    (while (re-search-forward  "\\([A-Zu][A-Zsm]\\) \\([\\\\A-Z]\\)" nil t)
-;	      (replace-match "\\1\\\\ \\2" nil nil))
+	    (while (re-search-forward  "\\([A-Z][A-Zs]\\) \\([\\\\A-Z]\\)" nil t)
+	      (replace-match "\\1\\\\ \\2" nil nil))
 
 	    ;; Force \@ between acronyms and period.
 	    (goto-char (mark))
-	    ;(replace-regexp "\\([A-Zu][A-Zsm]\\) \\([\\\\A-Z]\\)"
-;		    "\\1\\\\ \\2")
 	    (while (re-search-forward  "\\([A-Zu][A-Z]\\)[\\.] " nil t)
 	      (replace-match "\\1\\\\@. " nil nil))
 

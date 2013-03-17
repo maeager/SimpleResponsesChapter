@@ -304,14 +304,13 @@ and \LSR \ANF models are in Section \ref{sec:Methods:HSRLSR}.
 
 # Analysis of the frequency
 # response area of ANF generates known parameters for each fibre, these are:
-# \begin{itemize}
-# \item the spontaneous rate (SR), generated in silence and is
-#   categoried into two groups High SR (\gt 18 sp/s) and Low SR (\lt 18
-#   sp/s);
-# \item threshold, the sound pressure level(SPL) at which the cell
+# 
+# - the spontaneous rate (SR), generated in silence and is
+#   categoried into two groups High SR (\gt 18 sp/s) and Low SR (\lt 18  sp/s);
+# - threshold, the sound pressure level(SPL) at which the cell
 #   responds above the spontaneous rate
-# \item characteristic frequency (CF)
-# \end{itemize}
+# - characteristic frequency (CF)
+# 
 
 ** Neural Models
 
@@ -363,7 +362,7 @@ same Greenwood function used for the filterbank of \AN frequency channels.
 
 
 
-# * Simulations
+#  Simulations
 # Optimisation simulations were designed to be performed on
 # either a single PC or a parallel architecture system.
 # 
@@ -446,7 +445,7 @@ not account for dendritic attenuation of the \EPSP.
 #+label: fig:CSjitter
 [[../SimpleResponsesChapter/gfx/TStellate/baseline_jitter.pdf]]
 
-# \clearpage
+
 
 ** Synaptic Delay Additional Parameter
    :PROPERTIES:
@@ -477,16 +476,6 @@ potential.  \TS cells were designed with the Type I-t \RM model, which contains
 an additional \IKA channel current over the Type I-c \RM model, but were not
 significantly different from the classic Type I \RM models in \TV cell models.
 
-# #+BEGIN_LaTeX
-#   \begin{figure}[tbh]
-#     \begin{center}
-#   %	 \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{NoFigure}}
-#   %	 \resizebox{3.5in}{!}{\includegraphics[keepaspectratio=true]{ClickDelay}}
-#	\caption{Response of AN and CN cells to click stimuli. }
-#	\label{fig:ClickDelayAN}
-#     \end{center}
-#   \end{figure}
-# #+END_LaTeX
 
 
 #+BEGIN_LaTeX
@@ -1558,7 +1547,7 @@ restrict over-excitation by \ANFs.
 
 
 #+ATTR_LATEX: width=0.6\linewidth
-#+CAPTION: [Experimental data showing click recovery in onset choppers.]  {Experimental data showing click recovery in onset choppers. Figure shows mask-probe response ratio using 1 ms window during GABA blocker experiments (reproduced from Figure 3 in \citet{BackoffPalombiEtAl:1997}).} 
+#+CAPTION: [Experimental data showing click recovery in onset choppers.]{Experimental data showing click recovery in onset choppers. Figure shows mask-probe response ratio using 1 ms window during GABA blocker experiments (reproduced from Figure 3 in \citet{BackoffPalombiEtAl:1997}).} 
 #+LABEL: fig:BackoffPalombi
 [[../SimpleResponsesChapter/gfx/Backoff+Palombi-Fig3.png]]
 
@@ -1770,7 +1759,7 @@ cells.
   \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%	 %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d} 
 \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
       %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined}%
-    \caption{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (Image reproduced from \cite{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
+    \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (Image reproduced from \cite{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
     \label{fig:DSVerificationRA}
   \end{figure}
 #+END_LaTeX
@@ -1983,7 +1972,7 @@ narrowband source, especially at sharp spectral peaks close to their \BF.
 
 # \citet{ArleKim:1991a} were the first to show Type II \EIRA units with
 #   simple McCullock-Pitts point neuron models of the \DCN.
-#  - (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
+#   (From Hancock Davis Voigt 97) Blum et al. (1995) used a wideband
 #   inhibitory mechanism to create Type II unit responses in a model of
 #   the DCN.  In that model, each cell population was described by a
 #   mathematical formula for its steady-state rate-level function. This
@@ -1992,8 +1981,8 @@ narrowband source, especially at sharp spectral peaks close to their \BF.
 #   DCNunits. The level of abstraction employed in our model allows for
 #   examination of temporal response properties including PST histograms
 #   and cross-correlation analysis.
-#  - \citep{DunnVetterEtAl:1996} performed some modelling.
-#  - Most recent models from \citep{LomakinDavis:2008} and \citep{ReissYoung:2005}
+#   \citep{DunnVetterEtAl:1996} performed some modelling.
+#   Most recent models from \citep{LomakinDavis:2008} and \citep{ReissYoung:2005}
 
 Modelling of Type II units in the \DCN has been thoroughly investigated by Davis
 and colleagues
@@ -3319,7 +3308,7 @@ the
 network parameters that regulate the major output of the \CN stellate
 microcircuit.
 
-** Limitations of the CN stellate microcircuit model
+** Limitations of the CNSM Model
 
 All \BNN models are limited by a number of factors.  Firstly, the level of
 detail in the neural models set the underlying complexity and dynamics that are
@@ -3348,7 +3337,7 @@ phenomenologically-realistic \AN model.
 \citet{ZilanyBruce:2006} model, and it was superseded by the addition
 of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
-** Implications of sequential microcircuit optimisation
+** Implications of Sequential Microcircuit Optimisation
 
 
 \yellownote{TODO: Probability distribution of delay (within cell-to-cell
@@ -3381,13 +3370,13 @@ connection) not included.}
 \yellownote{TODO: More editing in chapter conclusion}
 
 The purpose of the optimisation experiments was to develop a
-biophysically-realistic model of the stellate microcircuit in the
-cochlear nucleus.  The methods used in this section are a practical and
-realistic means for constructing microcircuits with sensory or feature-based
-topography. They exploit extensive experimental evidence that describes the
-behaviour of each interneuron in the network.  The tabular reporting format for
-neural network modelling, as suggested by \citet{NordlieGewaltigEtAl:2009}, was
-followed so that other researchers can easily reproduce this work.
+biophysically-realistic model of the stellate microcircuit in the cochlear
+nucleus.  The methods used in this section are a practical and realistic means
+for constructing microcircuits with sensory or feature-based topography. They
+exploit extensive experimental evidence that describes the behaviour of each
+interneuron in the network.  The tabular reporting format for neural network
+modelling, as suggested by \citet{NordlieGewaltigEtAl:2009}, was followed so
+that other researchers can easily reproduce this work.
 
 
 The next chapter investigates the optimised \CNSM model with more the complex,
@@ -3398,9 +3387,4 @@ biologically-realistic stimuli involved in amplitude modulation.
 #+END_LaTeX
 
 
-### Local Variables:
-### mode: org
-### mode: visual-line
-### fill-column: 72
-### End:
 
