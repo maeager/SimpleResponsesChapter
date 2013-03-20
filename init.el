@@ -162,8 +162,8 @@
 
 	    ;; Force \@ between acronyms and period.
 	    (goto-char (mark))
-	    (while (re-search-forward  "\\([A-Zu][A-Z]\\)[\\.] " nil t)
-	      (replace-match "\\1\\\\@. " nil nil))
+;	    (while (re-search-forward  "\\([A-Zu][A-Z]\\)[\\\\.] " nil t)
+;	      (replace-match "\\1\\\\@. " nil nil))
 
 
 	    ;; Acronyms or Capitals at the end of a sentence cause poor spacing.
