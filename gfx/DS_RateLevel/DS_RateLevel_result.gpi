@@ -88,7 +88,7 @@ plot [10:100][0:300] '../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fi
       '' i 1 u 1:4  title "GLG (Model)" with linespoints ls 4
 
 set title "{/Sans-Bold=32 C} Noise Rate Level (Inputs) " offset 0,+1 font "Helvetica,24"
-plot [30:100][0:300] '../../cnstellate/DS_RateLevel/DS_RateLevel.Fit.dat' i 0  using 1:4  notitle  with linespoints ls 4, \
+plot [30:100][0:300] '../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat' i 0  using 1:4  notitle  with linespoints ls 4, \
       '' i 0 u 1:5 notitle  w lp ls 5, \
       '' i 0 u 1:6 notitle  w lp ls 6
 
