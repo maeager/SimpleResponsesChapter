@@ -678,11 +678,11 @@ elicit electrical activity in the electrodes
 
 #+ATTR_LATEX: width=\textwidth,keepaspectratio=true
 #+CAPTION:    [Rate level response of marginal shell units]{Marginal shell neuron (Unit S03-07, CF 22.7 kHz, \citealt{GhoshalKim:1997}) with monotonic rate-level response to pure BF tones and broad-band noise. This unit was chosen as the exemplar GLG cell for optimisation purposes. (Figure reproduced from \citealt{GhoshalKim:1997})}
-#+LABEL:      fig:GhoshalKim97_Fig2
+#+LABEL:      fig:GhoshalKim97Fig2
 [[../SimpleResponsesChapter/gfx/GhoshalKim_Fig2_S03_07.png]]
 
 
-Figure \ref{fig:GhoshalKim97_Fig2} shows an example of the acoustically-driven
+Figure \ref{fig:GhoshalKim97Fig2} shows an example of the acoustically-driven
 marginal shell units in the \VCN.  Strongly driven units in the anterior \VCN
 shell exhibit non-saturating rate-level functions to pure tones, noise or both
 with dynamic ranges as wide as 89 dB \citep{GhoshalKim:1997}.  The majority of
@@ -952,7 +952,7 @@ Microcircuits]]).
 
 
 The experimental data used to optimise the \GLG cell model was the rate level
-response of the marginal shell unit shown in Figure \ref{fig:GhoshalKim97_Fig2}.
+response of the marginal shell unit shown in Figure \ref{fig:GhoshalKim97Fig2}.
 This unit was chosen due to its monotonic response to pure \BF tones and its
 moderate maximal firing rate (100 spikes per second). The closest frequency
 channel to the experimental unit's \CF (21 kHz) was used for the \GLG cell model
@@ -1294,12 +1294,12 @@ glycinergic labeled neurons and physiologically classified \OnC and \OnL units
 # Fast Linear (Paolini and Clark 1999)
 # 40M ohm (Oertel et al. 1990); 96.2 ± 27.8 MΩ mouse slice prep (Ferragamo et al. 1998b)
 
-Figure \ref{fig:DS_OertelFujino} shows the depolarising and hyperpolarising
+Figure \ref{fig:DSOertelFujino} shows the depolarising and hyperpolarising
 responses of DS cells /in vitro/ in mice
 \citep{OertelWuEtAl:1990,FujinoOertel:2001}.  Depolarising currents produce
 regular \APs with double-exponential undershoots. Weak depolarisation produces
 an action potential at the onset of the stimulus (Figure
-\ref{fig:DS_OertelFujino}A).  Hyperpolarising current responses show strong
+\ref{fig:DSOertelFujino}A).  Hyperpolarising current responses show strong
 inward rectification with rapid return to stable levels (time constants under 15
 ms). In this way, \DS cells are different from the slowly integrating TS cells
 which are Type I current clamp units with single exponential undershoot \APs and
@@ -1320,7 +1320,7 @@ less prominent hyperpolarising sag.
   B. Current clamp response of a DS cell in an \textit{in vitro} slice preparation to 0.1 nA and 0.6 nA current injections. This cell shows a prominent hyperpolarising sag and double exponential AP   \citep[reproduced~from~Figure~1~E][]{FujinoOertel:2001}. %
   C. One VCN DS cell's response to different levels of current injection \citep[reproduced~from][]{OertelWuEtAl:1990}. %
   }
-  \label{fig:DS_OertelFujino}
+  \label{fig:DSOertelFujino}
   \end{figure}
 #+END_LaTeX
 
@@ -2187,7 +2187,7 @@ The optimised parameters of the \TV cell model in Table
           C. Response area equivalent using all DS units in the network.
           D. Tone response maps with masking noise in optimised TV cell model at the centre of the CNSM network.  Frequencies range from one octave above and below its CF\@.
   }
-        \label{fig:TV_masked_response}
+        \label{fig:TVmaskedresponse}
       \end{figure}
 #+END_LaTeX
 
