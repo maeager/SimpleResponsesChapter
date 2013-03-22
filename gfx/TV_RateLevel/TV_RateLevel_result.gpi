@@ -12,7 +12,7 @@ set terminal postscript eps enhanced size 7,5 \
     "Helvetica" 18 
 # set term postscript enhanced color solid "Helvetica" 16
 # set output "../SimpleResponseChapter/gfx/TV_RateLevel/TV_RateLevel_result.eps"
-load '../SImpleResponsesChapter/gfx/default.gpi'
+load '../SimpleResponsesChapter/gfx/default.gpi'
 set border 3 linewidth 1.5
 set key ins vert top left
 set ytics nomirror
