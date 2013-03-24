@@ -17,12 +17,10 @@
 
 #+BIBLIOGRAPHY: ../org-manuscript/bib/MyBib alphanat
 
-
 #+LaTeX: \setcounter{chapter}{2} 
 #+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential Parameter Fitting of Synaptic Variables Using Simple Acoustic Responses}\label{sec:Chapter3} 
 
 #  +  LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
-
 
 * Prelude 							   :noexport:
   
@@ -69,25 +67,23 @@
 
 
 
-
 * Introduction  
 
-#+BEGIN_QUOTE
-  \small
-  To understand brain function, the focus of investigations
-  must expand from detailed responses and structure of single cells to
-  include unit responses to the activity of other cells, and how these
-  responses are distributed over a population of similar cells as
-  wells as across populations of different cell types. \\
-#+END_QUOTE
-#+LaTeX:\vspace{-4ex}{\hfill \textit{S.~\citet[~p.~411]{Shamma:1998}}}\\ \vspace{4ex}
+# #+BEGIN_QUOTE
+#   \small
+#   To understand brain function, the focus of investigations
+#   must expand from detailed responses and structure of single cells to
+#   include unit responses to the activity of other cells, and how these
+#   responses are distributed over a population of similar cells as
+#   wells as across populations of different cell types. \\
+# #+END_QUOTE
+# #+LaTeX:\vspace{-4ex}{\hfill \textit{S.~\citet[~p.~411]{Shamma:1998}}}\\ \vspace{4ex}
 
 
-\citet{Shamma:1998} calls upon the neuroscience community to investigate the
-role of populations of neurons in neurophysiology.  To do so, this chapter draws
-on the wealth of experimental data accumulated in auditory neuroscience to
-create a detailed \BNN model of the \TS microcircuit in the \CN (hereafter
-referred to as the \CNSM model, as described in Chapter
+# \citet{Shamma:1998} calls upon the neuroscience community to investigate the role of populations of neurons in neurophysiology.  To do so, 
+This chapter draws on the wealth of experimental data accumulated in auditory
+neuroscience to create a detailed \BNN model of the \TS microcircuit in the \CN
+(the \CNSM model, as described in Chapter
 \ref{sec:MethodsChapter}).  The design and methods used for the construction of
 the model provide insights relevant to other neural network models of the brain,
 especially those that use sensory pathways.
@@ -122,17 +118,17 @@ Chapter \ref{sec:MethodsChapter}).
 # show a consistent and recognisable format for presenting various
 # neural network models and their constituents.
 In order to create a realistic microcircuit, the parameter optimisation routine
-needs to be developed in sequential stages.  The connections within the \CNSM
+was developed in sequential stages.  The connections within the \CNSM
 model (Figure \ref{fig:microcircuit}) were developed using such a sequential
 method of optimisation steps.  Parameters in the microcircuit can be separated
 into two classes: cell-based and connectivity-based.  The cell-based parameters
 for each cell model in the \CNSM model, discussed in Section
-\ref{sec:Methods:cell-models}, remain relatively fixed. The connectivity-based
+\ref{sec:Methods:CellModels}, remain relatively fixed. The connectivity-based
 parameters, introduced in Section \ref{sec:Methods:Parameters}, are the main
 focus of this chapter.  The parameters in the sequential optimisation stages
 were chosen so that they did not influence the properties of previously fitted
-parameters.  The parameters of each cell type were determined based on
-experimental data or were optimised based solely on responses to simple
+parameters.  The parameters of each cell type were based on
+experimental data or optimised on the basis of responses to simple
 stimuli. Each cell type was typified with its characteristic \PSTH in response
 to short tone bursts
 \citep{Pfeiffer:1966,BlackburnSachs:1989,YoungRobertEtAl:1988}, and the \EIRA to
@@ -157,12 +153,12 @@ tones across the frequency spectrum \citep{Evans:1992}.
 \glsunset{GABA}
 
 The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following cells:
-1. The \HSR and \LSR \ANFs : A phenomenological auditory model provides spiking
+1. The \HSR and \LSR\space \ANFs : A phenomenological auditory model provides spiking
    input to \CN neurons across frequencies and spontaneous rate types of the
    \ANFs from an arbitrary input stimulus \citep{ZilanyBruceEtAl:2009}.  The
    baseline in Figure \ref{fig:microcircuit} is a simplification of \ANFs from
    low \CF to high \CF (left to right). The model reproduces responses for high
-   and low \SR \ANFs at 100 channels across the frequency range 200 Hz to 48
+   and \LSR\space \ANFs at 100 channels across the frequency range 200 Hz to 48
    kHz.
 2. The \GLG cell: A \GABA-ergic \VCN marginal shell unit that is presumed to
    regulate excitability in the \GCD and core \VCN units
@@ -171,7 +167,7 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
    \citep{GhoshalKim:1997}.  The presumed characteristics of \GLG cells are
    taken from that study and are defined by a monotonic response to tones and
    noise, a Type I\slash III \EIRA, and an unusual or chopper \PSTH.
-3. The \DS cell: A large, glycinergic, multipolar neuron with \OnC \space \PSTH
+3. The \DS cell: A large, glycinergic, multipolar neuron with \OnC\space \PSTH
    response that acts as a coincidence detector.  Its large dendritic area
    increases its response to noise, allowing it to behave as a wide-band
    inhibitor in the \VCN, \DCN, and contralateral \CN
@@ -182,22 +178,20 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
    cells in the \VCN
    \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
 5. The \TS cell: One of the major output projection cells of the \CN to the
-   inferior colliculus and the primary output of the \CNSM model.  This
+   \IC and the primary output of the \CNSM model.  This
    multipolar neuron has been shown to have robust spectral representation and
    enhanced synchronisation to modulation in speech sounds
    \citep{BlackburnSachs:1990,KeilsonRichardsEtAl:1997}.
 
-# #+BEGIN_LaTeX
+# # + BEGIN_LaTeX
 #   \begin{figure}[ht]
 #     \centering
 #     \input{../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf_tex}  
 # %\includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/CNcircuit-detailed.svg}
-#     \caption[Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (CNSM) in each iso-frequency laminae.}
+#     \caption[Cochlear nucleus stellate microcircuit]{Cochlear nucleus stellate microcircuit (CNSM) in each isofrequency laminae.}
 #     \label{fig:microcircuit}
 #   \end{figure}
 # #+END_LaTeX
-
-
 
 
 #+ATTR_LATEX: width=0.9\linewidth
@@ -206,14 +200,13 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
 [[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
 
 Optimisation of a detailed \BNN model requires a realistic input model with
-which to mimic the behaviour observed in live neural networks.  In examining the
-properties of a detailed neural model of the \CN, a realistic and
-phenomenologically sound auditory periphery model is needed to represent sounds
-and transformations that occur in the central auditory system.  The input to the
-\CNSM model, the \ANFs, is discussed in the next section. To further fit the
-parameters of the \CNSM model, a simple and sequential method was applied to
-each of the cell types using experimental data.
-
+which to mimic the behaviour observed in live neural networks.  For a detailed
+neural model of the \CN, a realistic and phenomenologically sound auditory
+periphery model is needed to represent sounds and transformations that occur in
+the central auditory system.  The input to the \CNSM model, the \ANFs, is
+discussed in the next section. To further fit the parameters of the \CNSM model,
+a simple and sequential method was applied to each of the cell types using
+experimental data.
 
 The order of the optimisation routines was important because of the
 inter-dependencies in the isofrequency microcircuit and across the whole
@@ -223,19 +216,21 @@ modeled next because they received inputs from \ANFs and \GABA-ergic Golgi
 cells. The \TV cells' input network parameters were optimised next as they were
 strongly inhibited by \DS cells and received excitation from \ANFs. Input
 parameters to \TS cells, which received inputs from all other cell types in the
-\CNSM model, were optimised last.  Due to the variety of possible inputs to \TS
-cells (and the observed physiological classification sub-types in chopper
-units), three \TS cell model sub-types were optimised.  Glycinergic input to \DS
-cells from \TV cells and other \DS cells was not included due to their weak
-effects /in vitro/ \cite{FerragamoGoldingEtAl:1998a} and the added complexity of
-a negative feedback loop in the microcircuit.  Recurrent synaptic connection
-between \TS cells have been the focus of recent neural models
+\CNSM model, were optimised last.
+
+Due to the variety of possible inputs to \TS cells (and the observed
+physiological classification sub-types in chopper units), three \TS cell model
+sub-types were optimised.  Glycinergic input to \DS cells from \TV cells and
+other \DS cells was not included due to their weak effects /in vitro/
+\cite{FerragamoGoldingEtAl:1998a} and the added complexity of a negative
+feedback loop in the microcircuit.  Recurrent synaptic connection between \TS
+cells have been the focus of recent neural models
 \citep{BahmerLangner:2006,BahmerLangner:2006a,WiegrebeMeddis:2004}.  They were
 not included in the \CNSM model because of the rarity of small round vesicles on
 \ChS units \citep{SmithRhode:1989}. Additionally,
 \citet{FerragamoGoldingEtAl:1998a} reported that \EPSPs in one \TS cell were
-likely to come from only one input. Consequently, because of the weak influence
-of \TS cell recurrent connections they were not included in the \CNSM model.
+likely to come from only one input. Given the weak influence
+of \TS cell recurrent connections, they were not included in the \CNSM model.
 
 # TODO: This para is about pushing the reader towards the
 # following sections.  Needs to expand on reasons for wanting to create
@@ -248,19 +243,17 @@ of \TS cell recurrent connections they were not included in the \CNSM model.
 
 * Methods
 
-This section describes the specific methods used in this
-chapter. 
+This section describes the specific methods used in this chapter. 
 # Chapter \ref{sec:MethodsChapter} describes the common methods in more detail.
 # Org-mode link [[file:../MethodsChapter/Chapter02.org::* Methods]]
 # Cochlear Nucleus Stellate Microcircuit 
 
 ** Auditory Nerve Fibre Model 
 
-
-The \ANF inputs to the \CNSM model neurons were drawn from the Carney model, a
-phenomenological auditory periphery model first presented in
-\citet{Carney:1993}.  This chapter also uses more recent derivations of the
-Carney model: the Bruce model
+As discussed in Section \ref{sec:Methods:HSRLSR}, the \ANF inputs to the \CNSM
+model neurons were drawn from the Carney model, a phenomenological auditory
+periphery model first presented in \citet{Carney:1993}.  This chapter uses
+more recent derivations of the Carney model: the Bruce model
 \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007} and the Zilany
 model \citep{ZilanyBruceEtAl:2009}.
 # Three \ANF  the ARLO model \citep{HeinzZhangEtAl:2001}, the
@@ -291,7 +284,6 @@ model \citep{ZilanyBruceEtAl:2009}.
 #   default species is the cat and will be used in the data presented in
 #   this chapter.
 
- 
 # ** Spiking in Poisson Neural Models 
 
 The neural models used in the \ANFs and Golgi cell model were inhomogeneous
@@ -299,8 +291,8 @@ Poisson processes.  The instantaneous rate produced the input \AN model (chosen
 from the Bruce or Zilany model) and was passed through the Jackson spiking model
 \citep{Jackson:2003,JacksonCarney:2005}, which includes refractory effects
 typical of the \ANFs.  Spike trains for each neuron in the \AN model were
-created at the start of each repetition of the stimulus.  Further detail on \HSR
-and \LSR \ANF models are in Section \ref{sec:Methods:HSRLSR}.
+created at the start of each repetition of the stimulus.  
+# Further detail on \HSR and \LSR\space \ANF models were in Section \ref{sec:Methods:HSRLSR}.
 
 # Analysis of the frequency
 # response area of ANF generates known parameters for each fibre, these are:
@@ -314,11 +306,11 @@ and \LSR \ANF models are in Section \ref{sec:Methods:HSRLSR}.
 
 ** Neural Models
 
-Single-compartment Hodgkin-Huxley-like neural models were used for the \DS, \TV
+Single-compartment \HH-like neural models were used for the \DS, \TV
 and \TS cells in the \CNSM model.  The \RM neural model is a conductance based
 neural model with membrane current models developed by
 \citet{RothmanManis:2003b}. The \CNSM model makes extensive use of the \RM
-neural model, which is discussed in detail in Section
+neural model, which was discussed in detail in Section
 \ref{sec:Methods:cell-models}.
 # in Chapter \ref{sec:MethodsChapter}.
 
@@ -342,11 +334,11 @@ neural model, which is discussed in detail in Section
    :END:
 
 Tonotopic connectivity in the \CNSM model was defined by the regular
-organisation of afferent \ANFs into distinct iso-frequency channels.  The
+organisation of afferent \ANFs into distinct isofrequency channels.  The
 channels were separated using even spatial distance (based on the basilar
 membrane frequency sensitivity) with centre frequency calculated by the
 Greenwood function for the cat
-\citep[see~Chapter~\ref{sec:MethodsChapter},][]{Greenwood:1990}.  The \HSR \ANF
+\citep[see~Chapter~\ref{sec:MethodsChapter},][]{Greenwood:1990}.  The \HSR\space \ANF
 terminals of individual fibres generally cover 70 \um and \LSR fibres cover 100
 \um in mice \citep{OertelWuEtAl:1988,OertelWu:1989}.
 
@@ -376,9 +368,8 @@ same Greenwood function used for the filterbank of \AN frequency channels.
 
 \glsunset{AMPA}\glsunset{GlyR}\glsunset{NMDA}
 
-
 The synaptic models for \AMPA, \GlyR and \GABAA receptors were described in
-Section [[sec:Methods:SynapseModels]].  The synapses act by changing the
+Section \ref{sec:Methods:SynapseModels}.  The synapses act by changing the
 conductivity at a single point in the neural compartment with either single or
 double exponential dynamics.  All weight variables (in microsiemens) and delay
 parameters (in milliseconds) are the same for each synapse in a connectivity
@@ -392,7 +383,7 @@ group.
    :CUSTOM_ID: sec:Ch3:Jitter
    :END:
 
-Precise onset cues are a critical feature of the auditory pathway especially in
+Precise onset cues are a critical feature of the auditory pathway, especially for
 the localisation of sounds.  In modeling the \CN, onset precision is essential
 for enhancing periodic stimuli in \TS cells \citep{KeilsonRichardsEtAl:1997} and
 echo-suppression in \TV cells \citep{BurckHemmen:2007,WickesbergOertel:1990}.
@@ -400,10 +391,8 @@ Stochastic behaviour at the \IHC-\AN synapse limits the onset encoding
 performance in the \AN.  Jitter of the \FSL is commonly measured by the standard
 deviation; jitter in \ANFs is 0.73 ms \citep{RhodeOertelEtAl:1983}.  Most units
 in the \VCN exhibit reduced onset jitter through sampling multiple \ANFs, but
-onset units like \DS cell have additional morphological and intrinsic
+onset units like \DS cells have additional morphological and intrinsic
 specialisations for greater onset precision.
-
-
 
 # Units that encode the precise time of arrival
 # would be of utility for such a system in deter-
@@ -426,26 +415,22 @@ specialisations for greater onset precision.
 # had a much smaller fluctuation in latency than
 # auditory fibres. 
 
-
 A random jitter was introduced to the \AN synaptic delay to account for \ANF
 variation and synapses placed at various distances along the dendrites of \TS,
 \DS and \TV cells.  Figure \ref{fig:CSjitter} shows the effects of jitter on the
 intracellular responses of a Type I-t \RM neural model
 \citep{RothmanManis:2003b}, averaged over 25 repetitions. Jitter was added
 separately to each \ANF synapse using an absolute Gaussian distribution random
-number with standard deviation of 0.1 ms and mean dependant on the cell type
+number with standard deviation of 0.1 ms and mean dependent on the cell type
 (e.g. \dANFTS). The effect of adding jitter to individual \ANF synapses in the
 \CNSM model was to increase the mean and standard deviation of \FSL in \CN
 neurons. These effects replicated dendritic delays without the added
 computational cost of a passive neural compartment in the model.  The models did
 not account for dendritic attenuation of the \EPSP.
 
-
-#+caption: [Response of TS cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a TS cell model (Type I-t RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.	 Jitter responses (averaged over 25 repetitions) are shown as a thick line and responses without jitter are shown as thin lines. All weights were set to 0.5~nS. Twenty HSR and 30 LSR ANFs connected with the recorded TS cell model. A. No jitter in ANF synapses on TS cell without the sodium channel. B. No ANF jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
+#+caption: [Response of TS cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a TS cell model (Type I-t RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.	 Jitter responses were averaged over 25 repetitions. All weights were set to 0.5 nS. Twenty HSR and 30 LSR ANFs connected with the recorded TS cell model. A. No jitter in ANF synapses on TS cell without the sodium channel. B. No ANF jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
 #+label: fig:CSjitter
 [[../SimpleResponsesChapter/gfx/TStellate/baseline_jitter.pdf]]
-
-
 
 ** Synaptic Delay Additional Parameter
    :PROPERTIES:
@@ -466,7 +451,7 @@ delay.  The first spike latency measured in high \CF units in the ARLO \AN model
 
 Table \ref{tab:Methods:AddDelay} shows the additional delay component for each
 cell type, calculated from population statistics, to ensure the first spike
-latency in the models matched the experimental data.  The models were designed
+latency in the models matched the experimental data.  The models were derived
 from the basic \RM neural models \citep{RothmanManis:2003b}.  The relative
 difference between the \DS cell model's mean \FSL and the other Type I cell
 types can be attributed to the additional \IKLT channels in the Type I-II \RM
@@ -484,15 +469,14 @@ significantly different from the classic Type I \RM models in \TV cell models.
   \caption{Additional delay component of ANF to CN cell types}\label{tab:Methods:AddDelay}
   \begin{tabularx}{0.9\textwidth}{p{1.9in}XXXXX}
   \toprule
-				  & \HSR \ANF &	    \TS	     &	   \DS	    &	  \TV	   & Golgi \\\otoprule
-	  \RM cell type		 &	     &	   I-t	    &	  I-II	   &	 I-c	  & I-c\\ 
-  Experimental FSL \hfill(ms)&	  $2.4\pm0.73^{ 1}$	    & $3.6\pm0.36 ^{ 1}$ & $2.8\pm0.09 ^{1,2}$ & 4.0$^{3}$ & 4.3$^{4}$\\ 
-    Default model FSL  (ms)   &	  1.5	 &     2.0	&     1.6      &     2.0      & 2.0\\ \midrule
-   Additional delay \hfill (ms)	  &	-     &	    1.6	     &	   1.2	    &	  2.0	   & 2.3\\\bottomrule
+                                  & \ANF &          \TS      &     \DS      &     \TV      & Golgi \\\otoprule
+          \RM cell type          &           &     I-t      &     I-II     &     I-c      & I-c\\ 
+  Experimental FSL(ms)&   $2.4\pm0.73^{ 1}$         & $3.6\pm0.36 ^{ 1}$ & $2.8\pm0.09 ^{1,2}$ & 4.0$^{3}$ & 4.3$^{4}$\\ 
+    Default model FSL  (ms)   &   1.5    &     2.0      &     1.6      &     2.0      & 2.0\\ \midrule
+   Additional delay(ms)   &     -     &     1.6      &     1.2      &     2.0      & 2.3\\\bottomrule
   \end{tabularx}\\
-    {\small $^1$\citet{RhodeSmith:1986}, $^2$\citet{RhodeOertelEtAl:1983}, $^3$\citet{SpirouDavisEtAl:1999}, $^4$\citet{GhoshalKim:1997}%\citet{FerragamoGoldingEtAl:1998a}
-}
-	\end{table}
+    {\small $^1$\citet{RhodeSmith:1986}, $^2$\citet{RhodeOertelEtAl:1983}, $^3$\citet{SpirouDavisEtAl:1999}, $^4$\citet{GhoshalKim:1997}}
+  \end{table}
 #+END_LaTeX
 
 ** Simulation Specifications
@@ -515,18 +499,18 @@ PRAXIS method returns the minimum of the fitness function of /n/ variables using
 the principal axis method without using the function's gradient.  The fitness
 function converts the parameters to a single measure by simulating the \CNSM
 model using the parameters, then comparing selected neural outputs to
-experimental data.  \Gls{RMS} error is generally used as the comparison measure
+experimental data.  \Gls{RMS} error was used as the comparison measure
 of similar data points, e.g.\space mean firing rate at different sound levels in
 a rate-level simulation.  Mean error relative to the expected or target values
-is also used to ensure there is no bias between data points with large variation
+was also used to ensure there is no bias between data points with large variation
 in differences.
 
 ** Verification of Cell Model Responses to Simple Tones and Noise
 
 To verify the optimisation processes, a suite of tests was run across the whole
 \CNSM model. The purpose of these simulations was to ensure the optimised
-parameters could be used across all frequency channels.  These simulations aimed
-to show the response of a \CNSM model neuron at the centre of the network to
+parameters could be used across all frequency channels.  These simulations
+show the response of a \CNSM model neuron at the centre of the network to
 tones corresponding to its \CF, broad-band noise and a combination of tones and
 noise. Responses of all model neurons across the network (one cell type for each
 frequency channel) were recorded during the verification procedure.  The stimuli
@@ -560,12 +544,12 @@ presented to the \CNSM model included:
 
 * Golgi Cell Model 
   :PROPERTIES:
-  :CUSTOM_ID:	sec:GolgiModelOpt
+  :CUSTOM_ID:	sec:Ch3:GolgiModel
   :END:
 # : Optimisation Using Rate Level Responses in Marginal Shell Units 
 The next part of this chapter introduces the specific attributes of the \GLG
-cell model in the \CNSM model then optimises the model parameters based on rate
-level information.
+cell model used in the \CNSM model. It then reports on the optimisation of the
+model parameters based on rate level information.
   
 ** Background
 
@@ -587,8 +571,8 @@ from the soma in all directions
 # In layer 2 of the DCN Alibardi rat (9–15 \um) GABA-ergic cells round cell body
 # surrounded by small granule cells immuno-negative to Glycine and GABA.
 
-The dendrites of \VCN \GLG cells are mitochondria-rich and make glomeruli
-complexes with long synaptic junctions with mossy fibre boutons
+The dendrites of \VCN\space \GLG cells are mitochondria-rich and make glomeruli
+complexes with long synaptic junctions, with mossy fibre boutons
 \citep{MugnainiOsenEtAl:1980}. The somata generally have few boutons of the flat
 or pleomorphic vesicle type, that are characteristic of glycinergic and
 GABAergic terminals. Along with inhibitory boutons, the dendrites also receive
@@ -598,7 +582,7 @@ cell) vesicles
 
 #  \citep{Alibardi:2003} In non-tonotopic circuits integration between acoustic
 # and non-acoustic inputs occurs \citep{RyugoWrigthEtAl:1993}.
-The contribution of the circuits of granule cell areas of the cochlear nucleus
+The contribution of the circuits of granule cell areas of the \CN
 to the processing of the acoustic signal is poorly understood
 \citep[for~a~review~of~non-auditory~inputs~to~\GCD~see~][]{OhlroggeDoucetEtAl:2001}.
 \citet{FerragamoGoldingEtAl:1998} confirmed the excitation of Golgi cells from
@@ -677,7 +661,7 @@ elicit electrical activity in the electrodes
 
 
 #+ATTR_LATEX: width=\textwidth,keepaspectratio=true
-#+CAPTION:    [Rate level response of marginal shell units]{Marginal shell neuron (Unit S03-07, CF 22.7 kHz, \citealt{GhoshalKim:1997}) with monotonic rate-level response to pure BF tones and broad-band noise. This unit was chosen as the exemplar GLG cell for optimisation purposes. (Figure reproduced from \citealt{GhoshalKim:1997})}
+#+CAPTION:    [Rate level response of marginal shell units]{Marginal shell neuron (Unit S03-07, CF 22.7 kHz, \citealt{GhoshalKim:1997}) with monotonic rate-level response to pure BF tones and broad-band noise. This unit was chosen as the exemplar GLG cell for optimisation purposes. Figure reproduced from \citealt{GhoshalKim:1997}.}
 #+LABEL:      fig:GhoshalKim97Fig2
 [[../SimpleResponsesChapter/gfx/GhoshalKim_Fig2_S03_07.png]]
 
@@ -693,7 +677,7 @@ IV \EIRA properties. One unit was classified as Type II due to its poor response
 to noise but it did not show a reduction of response to tones at high \SPL,
 typical of \DCN Type II units \citep{GhoshalKim:1997}. Two units with low \CF
 (\lt 1.5 kHz) were classified as Type II \citep{GhoshalKim:1997}. The \PSTH of
-the units included wide chopper, onset-chopper (\OnC), and pause-build; however,
+the units included wide chopper, \OnC, and pause-build; however,
 nearly one third of units did not fit into the known classifications and were
 called "unusual" \citep{GhoshalKim:1997}.
 
@@ -809,15 +793,15 @@ receptors in \GLG cells \citep{FerragamoGoldingEtAl:1998a}.
 # The \GLG cell model is implemented as an instantaneous-rate Poisson
 # rate model.  The primary inputs are from the auditory model's
 # instantaneous rate outputs with connections across frequency channels.
-# \HSR and \LSR \ANF inputs to \GLG cells were specified by a Gaussian
+# \HSR and \LSR\space \ANF inputs to \GLG cells were specified by a Gaussian
 # distribution in fibres across the network.  The weighted sum of \HSR and
 # \LSR instantaneous-rate vectors were smoothed out by an alpha function
 # mimicking a synaptic and dendritic smoothing filter.
 
 ** Implementation
 
-The key attributes of the \GLG cell that informed the creation of the
-\GLG cell model were as follows:
+The key cell attributes that informed the creation of the
+\GLG cell model for use in the \CNSM model were as follows:
  1. \GLG cells are classic integrator neurons, as shown by their Type I current
     clamp response \citep{FerragamoGoldingEtAl:1998}.
  2. The minimum \EPSP in \GLG cells to an electric shock of the \AN
@@ -860,9 +844,9 @@ The key attributes of the \GLG cell that informed the creation of the
 
 The\space \GLG cell model was implemented as an instantaneous-rate Poisson rate
 model, as shown in Table \ref{tab:GolgiCellModelSummary}D and in Figure
-\ref{fig:GolgiDiagram}. The primary inputs were from the \HSR and \LSR \ANF
-models instantaneous rate outputs with connections across frequency channels.
-The strength of \HSR and \LSR \ANF inputs to \GLG cells was determined by a
+\ref{fig:GolgiDiagram}. The primary inputs were from the \HSR and \LSR\space \ANF
+models' instantaneous rate outputs with connections across frequency channels.
+The strength of \HSR and \LSR\space \ANF inputs to \GLG cells was determined by a
 Gaussian distribution in units of channel separation in the network.  The weight
 vectors, $\mathbf{w}_{\HSRGLG}$ and $\mathbf{w}_{\LSRGLG}$, span the \CNSM
 model's channels with size \Nchannels, with a normal curve centred on the
@@ -871,10 +855,10 @@ to \GLG cells, at position /i/ in the frequency channels, the weight vector was
 modified by the weight parameter \wLSRGLG, and the spread parameter \sLSRGLG,
 which is the variance in a standard Gaussian function
 #+BEGIN_LaTeX
-  \begin{equation}
-\label{eq:GolgiWeights}
-\mathbf{w}_{\LSRGLG} (i,x)= \wLSRGLG \frac{1}{\sqrt(2\,\pi\,\sLSRGLG))} \exp\left(\frac{-(x-i)^2}{2 \sLSRGLG}\right),
-  \end{equation} 
+    \begin{equation}
+  \label{eq:GolgiWeights}
+  \mathbf{w}_{\LSRGLG} (i,x)= \wLSRGLG \frac{1}{\sqrt(2\,\pi\,\sLSRGLG))} \exp\left(\frac{-(x-i)^2}{2 \sLSRGLG}\right),
+    \end{equation} 
 #+END_LaTeX
 \noindent where $x=1,\ldots,\Nchannels$.
 
@@ -906,9 +890,9 @@ by
 The smoothing kernel was normalised by setting the area under the function
 to 1. For a large enough filter length, the alpha function integral
 #+BEGIN_LaTeX
-  \begin{equation}
-\int \alpha(t) dt = (-\Gtau^2 - t\,\Gtau) \exp\left(-\frac{t}{\Gtau}\right)
-  \end{equation}
+    \begin{equation}
+  \int \alpha(t) dt = (-\Gtau^2 - t\,\Gtau) \exp\left(-\frac{t}{\Gtau}\right)
+    \end{equation}
 #+END_LaTeX
 \noindent equals $\Gtau^2$ as /t/ approaches infinity.
 # In this case $10 \times \Gtau$ is used for the filter duration.
@@ -947,8 +931,7 @@ with 100 evenly-spaced frequency channels.  As Table
 the instantaneous profile of each \AN frequency channel was used in the \GLG
 cell model.  In the \CNSM model, the connectivity between \ANFs and \GLG cells
 (Table \ref{tab:GolgiCellModelSummary}C) was a simple place-based Gaussian
-spread (as explained in Section [[Connectivity%20and%20Topology%20in%20Neural%20Microcircuits][Connectivity and Topology in Neural
-Microcircuits]]).
+spread (as explained in Section \ref{sec:Methods:ConnectivityandTopology}).
 
 
 The experimental data used to optimise the \GLG cell model was the rate level
@@ -1035,47 +1018,47 @@ that takes into account the different firing rate magnitudes at each sound level
 relative to the target response shows a mean absolute difference of 21.5%.
 
 #+BEGIN_LaTeX
-  % {
-  % \small 
-  % \noindent% 
-  % \begin{table}[t!]
-  %   \centering 
-  %   \caption{Best-fit parameters oft the Golgi cell model optimisation}  \label{tab:GolgiCellResults} 
-  %   \begin{tabularx}{\textwidth}{X c c D{,}{.}{2.4}}
-  %	\toprule 
-  %	\textbf{Parameters}		    & \textbf{Name (Units)} & \textbf{Range} &	\multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-  %	Spatial spread \LSRGLG	       &   \sANFGLG \hfill (channel)   &     [0,10]	& 2,48	 \\
-  %	Alpha function time constant	     &	   \Gtau  \hfill (ms)	&     [0,20]	 & 5,01	  \\ 
-  %	Weighted sum of LSR input	    &	\wLSRGLG \hfill ()    &	    [0,5]      & 0,517	\\ 
-  %	Weighted sum of HSR input	    &	\wHSRGLG \hfill ()   &	   [0,5]      & 0,0487 \\
-  %	Spontaneous rate in the Golgi cell model  &    \Gspon  \hfill
-  %	(spikes / sec)	 &     [0,50]	  & 3,73   \\ \bottomrule
-  %   \end{tabularx} 
-  % \end{table}
-  % }
-  {
-  \small\noindent% 
-  \begin{table}[t!]
-      \centering 
-      \caption{Best-fit parameters oft the Golgi cell model optimisation}  \label{tab:GolgiCellResults} 
-      \begin{tabularx}{0.6\textwidth}{l c D{,}{.}{2.4}}
-  \toprule 
-   \textbf{Parameters (Units)}	&		   \textbf{Range}		    & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-    \sANFGLG \hfill (channel)	 &			[0,10]			     & 2,48   \\
-       \Gtau  \hfill (ms)	  &			 [0,20]			      & 5,01   \\ 
-	 \wLSRGLG\hfill(\uS)	  &			  [0,5]			      & 0,517  \\ 
-	 \wHSRGLG \hfill(\uS)	  &			  [0,5]			      & 0,0487 \\
-  \Gspon  (spikes/s) &			    [0,50]			 & 3,73	  \\ %\midrule
-  %\multicolumn{2}{c}{$\sqrt{\langle(\mathbf{t}-\mathbf{r})^2\rangle}$ \quad (sp/s)}
-%  Fitness Error & & 4.48 \\
-  % \multicolumn{2}{c}{$\langle(\mathbf{t}-\mathbf{r})/\mathbf{t}\rangle$ \quad ()} 
-%  Relative Error & 0.2145 \\
-  \bottomrule
-  \end{tabularx} 
-%\\
-%  {\small MSE mean squared error, RE error relative to the target}
-  \end{table}
-  }
+    % {
+    % \small 
+    % \noindent% 
+    % \begin{table}[t!]
+    %   \centering 
+    %   \caption{Best-fit parameters oft the Golgi cell model optimisation}  \label{tab:GolgiCellResults} 
+    %   \begin{tabularx}{\textwidth}{X c c D{,}{.}{2.4}}
+    %     \toprule 
+    %     \textbf{Parameters}                 & \textbf{Name (Units)} & \textbf{Range} &  \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
+    %     Spatial spread \LSRGLG         &   \sANFGLG \hfill (channel)   &     [0,10]     & 2,48   \\
+    %     Alpha function time constant         &     \Gtau  \hfill (ms)   &     [0,20]     & 5,01   \\ 
+    %     Weighted sum of LSR input           &   \wLSRGLG \hfill ()    &     [0,5]      & 0,517  \\ 
+    %     Weighted sum of HSR input           &   \wHSRGLG \hfill ()   &     [0,5]      & 0,0487 \\
+    %     Spontaneous rate in the Golgi cell model  &    \Gspon  \hfill
+    %     (spikes / sec)   &     [0,50]     & 3,73   \\ \bottomrule
+    %   \end{tabularx} 
+    % \end{table}
+    % }
+    {
+    \small\noindent% 
+    \begin{table}[t!]
+        \centering 
+        \caption{Best-fit parameters oft the Golgi cell model optimisation}  \label{tab:GolgiCellResults} 
+        \begin{tabularx}{0.6\textwidth}{l c D{,}{.}{2.4}}
+    \toprule 
+     \textbf{Parameters (Units)}  &                  \textbf{Range}                   & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
+      \sANFGLG \hfill (channel)    &                      [0,10]                       & 2,48   \\
+         \Gtau  \hfill (ms)         &                      [0,20]                       & 5,01   \\ 
+           \wLSRGLG\hfill(\uS)      &                       [0,5]                       & 0,517  \\ 
+           \wHSRGLG \hfill(\uS)     &                       [0,5]                       & 0,0487 \\
+    \Gspon  (spikes/s) &                      [0,50]                       & 3,73   \\ %\midrule
+    %\multicolumn{2}{c}{$\sqrt{\langle(\mathbf{t}-\mathbf{r})^2\rangle}$ \quad (sp/s)}
+  %  Fitness Error & & 4.48 \\
+    % \multicolumn{2}{c}{$\langle(\mathbf{t}-\mathbf{r})/\mathbf{t}\rangle$ \quad ()} 
+  %  Relative Error & 0.2145 \\
+    \bottomrule
+    \end{tabularx} 
+  %\\
+  %  {\small MSE mean squared error, RE error relative to the target}
+    \end{table}
+    }
 #+END_LaTeX
 
 
@@ -1144,69 +1127,72 @@ monotonic response to tones and noise similar to other experimental units
 # Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
 # units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
 
-
 #+BEGIN_LaTeX
-  % \begin{figure}[t!]
-  %   % \centering
-  %   {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-  %   % \resizebox{0.95\textwidth}{!}{
-  %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/G_ratelevel_combined}%
-  %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle90-3}\\
-  %   % }\\
-  %   {\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
-  %   % \resizebox{0.95\textwidth}{!}{
-  %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-3}%
-  %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
-  %   % }\\
-  %   % }}
-  %   %	  \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90-3}}\\
-  %   %	  \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50-3}}\\
-  
-  %   \caption[Optimised \GLG cell model responses]{Response of optimised \GLG cell model at the centre of the network (CF=5.8 kHz).
-  %  A. Rate level responses to tone, noise and tone plus noise.
-  %  B. PSTH at 90 dB SPL\.
-  %  C. Response area equivalent using all GLG units in the network.
-  %  D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF.} \label{fig:GolgiVerification}
-  % \end{figure}
-  \begin{figure}[t!]
-    % \centering
-  %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
-  %   \hfill\resizebox{0.95\textwidth}{!}{%
-  %   \includegraphics{ResponsesNoComp/G_ratelevel_combined}%
-  % \includegraphics{}\hfill}\\
+    % \begin{figure}[t!]
+    %   % \centering
+    %   {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    %   % \resizebox{0.95\textwidth}{!}{
+    %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/G_ratelevel_combined}%
+    %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle90-3}\\
+    %   % }\\
+    %   {\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
+    %   % \resizebox{0.95\textwidth}{!}{
+    %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-3}%
+    %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
+    %   % }\\
+    %   % }}
+    %   %   \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90-3}}\\
+    %   %   \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50-3}}\\
+    
+    %   \caption[Optimised \GLG cell model responses]{Response of optimised \GLG cell model at the centre of the network (CF=5.8 kHz).
+    %  A. Rate level responses to tone, noise and tone plus noise.
+    %  B. PSTH at 90 dB SPL\.
+    %  C. Response area equivalent using all GLG units in the network.
+    %  D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF.} \label{fig:GolgiVerification}
+    % \end{figure}
+    \begin{figure}[t!]
+      % \centering
+    %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
+    %   \hfill\resizebox{0.95\textwidth}{!}{%
+    %   \includegraphics{ResponsesNoComp/G_ratelevel_combined}%
+    % \includegraphics{}\hfill}\\
+      {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+      {\hfill\resizebox{0.95\textwidth}{!}{%
+      \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-3.pdf}%
+      \includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
+    %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+      %\hfill\resizebox{0.95\textwidth}{!}{%
+     % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
+     %\includegraphics{}\hfill}\\
+      \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF=5.8 kHz).
+     A. PSTH of the \GLG cell model at 50 and 90 dB SPL. B. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}. 
+    
+    } \label{fig:GolgiVerificationPSTH}
+    \end{figure}
+    %
+    \begin{figure}[t!]
+    %\centering
     {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    {\hfill\resizebox{0.95\textwidth}{!}{%
-    \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-3.pdf}%
-    \includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
-  %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
-    %\hfill\resizebox{0.95\textwidth}{!}{%
-   % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
-   %\includegraphics{}\hfill}\\
-    \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF=5.8 kHz).
-   A. PSTH of the \GLG cell model at 50 and 90 dB SPL. B. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}. 
-  
-  } \label{fig:GolgiVerificationPSTH}
-  \end{figure}
-  %
-  \begin{figure}[t!]
-  %\centering
-  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-  \resizebox{0.95\textwidth}{!}{\hfill%
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-3.pdf}\hfill%
-\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/response_area-3.pdf}\hfill}%	  
-     \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
-       whole network (CF=5.8 kHz) to pure tones and noise.
-    A. Rate response of all GLG units in the network to pure tone at centre of
-    network (5.8 kHz).
-    B. Rate response of all GLG units to broad-band noise.}
-  \label{fig:GolgiVerificationWhole}
-   \end{figure}
+    \resizebox{0.95\textwidth}{!}{\hfill%
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-3.pdf}\hfill%
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/response_area-3.pdf}\hfill}%   
+       \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
+         whole network (CF=5.8 kHz) to pure tones and noise.
+      A. Rate response of all GLG units in the network to pure tone at centre of
+      network (5.8 kHz).
+      B. Rate response of all GLG units to broad-band noise.}
+    \label{fig:GolgiVerificationWhole}
+     \end{figure}
 #+END_LaTeX
 
 
 \clearpage\newpage
  
 * D Stellate Cell Model
+:PROPERTIES:
+:CUSTOM_ID: sec:Ch3:DSCell
+:END:
+
 # Optimisation Using Click Recovery and Rate Level Responses 
 
 The next section introduces the major wide-band onset inhibitor of the \CNSM
@@ -1280,7 +1266,7 @@ glycinergic labeled neurons and physiologically classified \OnC and \OnL units
 
 *** Cellular Mechanisms of D Stellate Cells
 
-# DS -56±3.2 mV RMP see fig 15 
+# DS -56 pm 3.2 mV RMP see fig 15 
 # Double expon. Undershoot (Paolini and Clark 1999; Wu and Oertel 1984)
 #
 # Type I-II have high thresholds probably mediated by small ILT (Rothman
@@ -1292,7 +1278,7 @@ glycinergic labeled neurons and physiologically classified \OnC and \OnL units
 # is not present in Oc neurons (White et al. 1994)
 #
 # Fast Linear (Paolini and Clark 1999)
-# 40M ohm (Oertel et al. 1990); 96.2 ± 27.8 MΩ mouse slice prep (Ferragamo et al. 1998b)
+# 40M ohm (Oertel et al. 1990); 96.2 pm 27.8 Mohm mouse slice prep (Ferragamo et al. 1998b)
 
 Figure \ref{fig:DSOertelFujino} shows the depolarising and hyperpolarising
 responses of DS cells /in vitro/ in mice
@@ -1305,22 +1291,28 @@ ms). In this way, \DS cells are different from the slowly integrating TS cells
 which are Type I current clamp units with single exponential undershoot \APs and
 less prominent hyperpolarising sag.
 
-
 #+BEGIN_LaTeX
-  \begin{figure}[tp!]
-  \centering
-  {\figfont{A}\hspace{0.45\textwidth}\figfont{B}\hspace{0.45\textwidth}}\\ 
-  \hfill\includegraphics[width=0.35\textwidth]{../SimpleResponsesChapter/gfx/RothmanManisFig2D.png}%
-  \hfill\resizebox{0.45\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png}}\\
-%\includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png}}
-  %\includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1F.png}}\\
-  \figfont{C}\hspace{0.95\textwidth}\hfill\\    
-  \includegraphics[width=0.8\textwidth]{../SimpleResponsesChapter/gfx/Oertel90DS_bottom.png}
-  \caption[Intracellular membrane voltage response of DS cells to depolarising and hyperpolarising current]{Intracellular membrane voltage response of DS cells to depolarising and hyperpolarising current. A. Simulated current clamp response in a Type I-II RM model \citep[reproduced~from][]{RothmanManis:2003b}. %
-  B. Current clamp response of a DS cell in an \textit{in vitro} slice preparation to 0.1 nA and 0.6 nA current injections. This cell shows a prominent hyperpolarising sag and double exponential AP   \citep[reproduced~from~Figure~1~E][]{FujinoOertel:2001}. %
-  C. One VCN DS cell's response to different levels of current injection \citep[reproduced~from][]{OertelWuEtAl:1990}. %
-  }
-  \label{fig:DSOertelFujino}
+  \begin{figure}[tp!] 
+    \centering
+    {\figfont{A}\hspace{0.45\textwidth}\figfont{B}\hspace{0.45\textwidth}}\\ 
+    \resizebox{0.9\textwidth}{!}{\includegraphics[width=0.35\textwidth]{../SimpleResponsesChapter/gfx/RothmanManisFig2D.png}\hfill%
+    \includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png}}\\
+    % \includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png}}
+    % \includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1F.png}}\\
+    \figfont{C}\hspace{0.95\textwidth}\hfill\\    
+    \includegraphics[width=0.8\textwidth]{../SimpleResponsesChapter/gfx/Oertel90DS_bottom.png}
+    \caption[Intracellular membrane voltage response of DS cells to depolarising
+    and hyperpolarising current]{Intracellular membrane voltage response of DS
+      cells to depolarising and hyperpolarising current. A. Simulated current
+      clamp response in a Type I-II RM model
+      \citep[reproduced~from][]{RothmanManis:2003b}.  B. Current clamp response of
+      a DS cell in an \textit{in vitro} slice preparation to 0.1 nA and 0.6 nA
+      current injections. This cell shows a prominent hyperpolarising sag and
+      double exponential AP
+      \citep[reproduced~from~Figure~1~E][]{FujinoOertel:2001}.  C. One VCN DS
+      cell's response to different levels of current injection
+      \citep[reproduced~from][]{OertelWuEtAl:1990}.}
+      \label{fig:DSOertelFujino}
   \end{figure}
 #+END_LaTeX
 
@@ -1566,9 +1558,10 @@ demonstrate a clear favouritism toward the \LSR \ANF input rather than the \HSR
 input to \DS cells.  The large number of \HSR synapses compensates for the small
 weight that was obtained in the optimisation.
 
+#+ATTR_LATEX: width=0.8\textwidth
 #+CAPTION: [Click recovery optimisation results in DS cell model]{Optimisation results for click recovery behaviour in the DS cell model (CF 5.8 kHz). The optimal response (blue circle) was obtained from Figure 3 in \citet{BackoffPalombiEtAl:1997}. The red squares represent the best-fit parameter results for the DS cell model.}
 #+LABEL: fig:DSClickRecoveryResult
-[[../SimpleResponsesChapter/gfx/DS_ClickRecovery/DS_ClickRecovery_result.pdf]]
+[[../SimpleResponsesChapter/gfx/DS_ClickRecovery_result.pdf]]
 
 #+BEGIN_LaTeX
   {
@@ -1657,53 +1650,53 @@ was 89\%.
 # obtained in the optimisation.
 
 #+BEGIN_LaTeX
-  {%
-  \small\noindent
-    % \begin{center}%table} 
-    % %	   \begin{minipage}{0.48\linewidth} 
-    %	  \begin{tabularx}{\textwidth}{|X|c|} \label{tab:DSRateLevel}
-    %	\hdr{2}{}{DS Cell Optimisation: Best Fit Parameters } \\ 
-    %	\textbf{Parameters}  & Final Value \\ \midrule
-    %	% \wGLGDS  \quad (uS)  & 0.0025316   \\
-    %	% \wHSRDS   \quad (uS) & 0.00086722  \\
-    %	% \wLSRDS  \quad (nS)  & 0.0137469   \\
-    %	%	\nLSRDS	       & 52	     \\
-    %	%	\nHSRDS	       & 125	     \\ \midrule
-    %	%  Tone Error (sp/s)   & 121.075 \\
-    %	%  Noise Error (sp/s)  & 63.01 \\
-    %	%  Total Error (sp/s)  & 184.085 \\ \bottomrule
-    % \wGLGDS  \quad (uS)  &  0.0101869	  \\	     
-    % \wHSRDS	\quad (uS) &  0.000167221 \\	     
-    % \wLSRDS  \quad (nS)  &  0.00483773  \\	     
-    %	    \nLSRDS	   &  56.6  (57)   \\		  
-    %	    \nHSRDS	   &  157.8  (158)   \\
-    % \nGLGDS	   &   8.9  (9)	  \\ \midrule
-    %	 Tone RL Error (sp/s)	&    25.62 \\	
-    %	 Noise RL Error (sp/s)	&    36.27 \\ 
-    %	 Total Error (sp/s)  &	  61.89 \\ \bottomrule
-    %	\end{tabularx}% 
-    % %	   \end{minipage}\hfill 
-    %	  \end{center} }
-  \vspace{2ex} 
-  \begin{table}[t!]
-    \centering\small
-    \caption{Best-fit parameters for \DS cell model using the rate-level optimisation}
-    \label{tab:DSRateLevelResults}
-	\begin{tabularx}{0.6\textwidth}{X X D{,}{.}{3.4}} \toprule %	\hdr{2}{}{DS\ Cell Optimisation: Best Fit Parameters } \\ 
-   \textbf{Parameters (Units)}	 & \textbf{Range}& \multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
-   \wGLGDS \hfill (nS)	&   [0.01,50]	&  4,8377   \\	       
-   \wHSRDS \hfill (nS)	&   [0.01,50]	& 0,1672 \\	    
-   \wLSRDS \hfill (nS)	&   [0.01,50]	& 10,1869  \\	      
-   \nLSRDS \hfill     &	   [1,500]    & 57    \\	     
-   \nHSRDS \hfill     &	   [1,500]    & 158    \\
-   \nGLGDS \hfill    &	   [1,50]    & 9   \\ %\midrule
- % \multicolumn{2}{c}{Tone RMS error \hfill (spikes/s)}  &	 25,62	    \\	 
- % \multicolumn{2}{c}{Noise RMS error \hfill (spikes/s)} &	 36,27	    \\ 
- %   \multicolumn{2}{c}{Total error \hfill (spikes/s)}   &	 61,89	    \\ \bottomrule
-  \end{tabularx}
-  \end{table}
-  \vspace{2ex} 
-  }
+   {%
+   \small\noindent
+     % \begin{center}%table} 
+     % %    \begin{minipage}{0.48\linewidth} 
+     %     \begin{tabularx}{\textwidth}{|X|c|} \label{tab:DSRateLevel}
+     %   \hdr{2}{}{DS Cell Optimisation: Best Fit Parameters } \\ 
+     %   \textbf{Parameters}  & Final Value \\ \midrule
+     %   % \wGLGDS  \quad (uS)  & 0.0025316   \\
+     %   % \wHSRDS   \quad (uS) & 0.00086722  \\
+     %   % \wLSRDS  \quad (nS)  & 0.0137469   \\
+     %   %       \nLSRDS        & 52          \\
+     %   %       \nHSRDS        & 125         \\ \midrule
+     %   %  Tone Error (sp/s)   & 121.075 \\
+     %   %  Noise Error (sp/s)  & 63.01 \\
+     %   %  Total Error (sp/s)  & 184.085 \\ \bottomrule
+     % \wGLGDS  \quad (uS)  &  0.0101869   \\         
+     % \wHSRDS   \quad (uS) &  0.000167221 \\         
+     % \wLSRDS  \quad (nS)  &  0.00483773  \\         
+     %       \nLSRDS        &  56.6  (57)   \\             
+     %       \nHSRDS        &  157.8  (158)   \\
+     % \nGLGDS      &   8.9  (9)   \\ \midrule
+     %    Tone RL Error (sp/s)   &    25.62 \\   
+     %    Noise RL Error (sp/s)  &    36.27 \\ 
+     %    Total Error (sp/s)  &    61.89 \\ \bottomrule
+     %   \end{tabularx}% 
+     % %    \end{minipage}\hfill 
+     %     \end{center} }
+   \vspace{2ex} 
+   \begin{table}[t!]
+     \centering\small
+     \caption{Best-fit parameters for DS cell model using the rate-level optimisation}
+     \label{tab:DSRateLevelResults}
+         \begin{tabularx}{0.6\textwidth}{X X D{,}{.}{3.4}} \toprule %    \hdr{2}{}{DS\ Cell Optimisation: Best Fit Parameters } \\ 
+    \textbf{Parameters (Units)}   & \textbf{Range}& \multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
+    \wGLGDS \hfill (nS)  &   [0.01,50]   &  4,8377   \\         
+    \wHSRDS \hfill (nS)  &   [0.01,50]   & 0,1672 \\         
+    \wLSRDS \hfill (nS)  &   [0.01,50]   & 10,1869  \\         
+    \nLSRDS \hfill     &    [1,500]    & 57    \\             
+    \nHSRDS \hfill     &    [1,500]    & 158    \\
+    \nGLGDS \hfill    &     [1,50]    & 9   \\ %\midrule
+  % \multicolumn{2}{c}{Tone RMS error \hfill (spikes/s)}  &       25,62      \\   
+  % \multicolumn{2}{c}{Noise RMS error \hfill (spikes/s)} &       36,27      \\ 
+  %   \multicolumn{2}{c}{Total error \hfill (spikes/s)}   &       61,89      \\ \bottomrule
+   \end{tabularx}
+   \end{table}
+   \vspace{2ex} 
+   }
 #+END_LaTeX
 
 # #+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 6.3 kHz, channel 55, red circles) was optimised to experimental data, an OnC unit \citep[CF~6.3~kHz,~][]{ArnottWallaceEtAl:2004}. (A) Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 6.3 kHz (HSR, LSR and GLG units). (B) Tone RL of DS cell optimised model and target unit. (C) Noise RL of HSR, LSR and GLG units at same CF. (D) Noise RL of optimised DS cell model and target unit. }
@@ -1753,15 +1746,15 @@ cells.
 
 
 #+BEGIN_LaTeX
-  \begin{figure}[t!]
-%    \centering
-      {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-  \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%	 %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d} 
-\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
-      %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined}%
-    \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (Image reproduced from \cite{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
-    \label{fig:DSVerificationRA}
-  \end{figure}
+    \begin{figure}[t!]
+  %    \centering
+        {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%         %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d} 
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
+        %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined}%
+      \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (Image reproduced from \cite{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
+      \label{fig:DSVerificationRA}
+    \end{figure}
 #+END_LaTeX
 
 
@@ -1911,12 +1904,12 @@ narrow tuning and weak response to noise \citep{SpirouDavisEtAl:1999}.
 
 
 #+ATTR_LATEX: height=0.5\textheight,keepaspectratio
-#+CAPTION: [Response area and rate-level responses of a typical	 Type II DCN unit]{Response area and rate-level responses to tones and noise of a single Type-II DCN unit. Reproduced from Figure 1 in \citet{SpirouDavisEtAl:1999}.}
+#+CAPTION: [Response area and rate-level responses of a typical	 Type II DCN unit]{Response area and rate-level responses to tones and noise of a single Type II DCN unit. Reproduced from Figure 1 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig1
 [[../SimpleResponsesChapter/gfx/Spirou-Fig1-type2.pdf]]
 
 # #+ATTR_LATEX: width=0.45\textwidth,keepaspectratio
-# #+CAPTION: [Rate-level responses of a single Type II DCN unit]{Pharmaceutical effects on tone and noise rate-level responses of a single Type-II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
+# #+CAPTION: [Rate-level responses of a single Type II DCN unit]{Pharmaceutical effects on tone and noise rate-level responses of a single Type II DCN unit \citep{SpirouDavisEtAl:1999}. Reproduced from figure 1 in \citet{SpirouDavisEtAl:1999}.}
 # #+LABEL:  fig:SpirouFig8
 # [[../SimpleResponsesChapter/gfx/Spirou-Fig8.png]]
 
@@ -2059,7 +2052,7 @@ potential from the default Type I \RM neural model.
 # TODO: Give details about the TV model implementation
 
 #+ATTR_LATEX: width=0.95\textwidth
-#+CAPTION: [Experimental data of Type-II~DCN~unit]{Physiological effects of neurotransmitter blockers strychnine and bicuculine on the rate level response  \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
+#+CAPTION: [Experimental data of Type II~DCN~unit]{Physiological effects of neurotransmitter blockers strychnine and bicuculine on the rate level response  \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL: fig:SpirouFig8
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8.pdf]]
 # TV_RateLevel/TV_RateLevel_Fig8.pdf
@@ -2076,13 +2069,12 @@ relative to \BF tones and no change in threshold when strychnine was applied.
 The optimised TV cell model was able to emulate this response in tones but not
 in noise (Figure \ref{fig:TVRateLevelResult}D).
 
-
 #+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) were optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}).  Glycinergic blocker strynchnine used in the target unit was emulated in the TV cell model by removing DS cell synaptic inputs. A. Tone RL of HSR, LSR, GLG and DS cell unit inputs at CF 5.8 kHz. B. Tone RL of  optimised TV cell model and target unit data with and without inhibition. C. Noise RL of HSR, LSR and GLG units at same CF. D. Noise RL of optimised DS cell model and target unit data with and without inhibition. }
 #+LABEL: fig:TVRateLevelResult
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel_result.pdf]]
 
 # #  50 dB Run
-# #+BEGIN_LaTeX
+# # + BEGIN_LaTeX
 #   {\small
 #   \noindent\begin{center}%table} 
 #   \begin{minipage}{0.48\linewidth} 
@@ -2096,57 +2088,54 @@ in noise (Figure \ref{fig:TVRateLevelResult}D).
 #   \end{tabularx}% 
 #   \end{minipage}\hfill 
 #   \end{center} }
-# #+END_LaTeX=
-
+# # + END_LaTeX=
 
 #+BEGIN_LaTeX
-    {%
-    \small\noindent
-    \begin{table}[t!p]
-      \centering
-      \caption{Best-fit parameters of the TV cell model using the rate-level optimisation}
-      \label{tab:TVRateLevelFig8B}
-      \begin{tabularx}{0.7\textwidth}{X X D{,}{.}{3.4}} 
-  \toprule
-  \textbf{Parameters (Units)}& \textbf{Ranges}&\multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
-	    \wLSRTV  \hfill (nS)    &  [0.01,50]   & 4,765  \\ 
-	    \wHSRTV  \hfill (nS)    &  [0.01,50]   & 0,983 \\ 
-	    \wDSTV  \hfill (nS)	     & [0.01,50]   & 1,152 \\ 
-		  \nDSTV  \hfill   & [1,500]	      & 29 \\
-	 \TV \Erev     \hfill (mV)     &  [-80,-50]& -68,25 \\ 
-%\midrule
-%	     \multicolumn{2}{c}{Tone RL error  \hfill (spikes/s)}	& 36,75 \\
-%       \multicolumn{2}{c}{ Without DS tone RL error  \hfill (spikes/s) } & 11,33 \\
-%	    \multicolumn{2}{c}{ Noise RL error	\hfill (spikes/s)      } & 13,87 \\
-%       \multicolumn{2}{c}{ Without DS noise RL error  \hfill (spikes/s)} & 67,42 \\
-%	   \multicolumn{2}{c}{ Total error  \hfill (spikes/s)	  } & 129,37 \\ 
-\bottomrule 
-    \end{tabularx}
-    \end{table}
-    % \begin{minipage}{0.48\linewidth} 
-    % \label{tab:TVRateLevelFig8B}
-    % \begin{tabularx}{\textwidth}{|X|c|} 
-    % \hdr{2}{}{TV Model Parameters } \\ \hline 
-    %	      \wLSRTV  \quad (nS)	  & 4.765  \\ 
-    %	      \wHSRTV  \quad (nS)	  & 0.983 \\ 
-    %	      \wDSTV  \quad (nS)	  & 1.152 \\ 
-    %		    \nDSTV		  & 29.4917 \\
-    %	   \TV \Erev	 \quad (mV)	  & -68.25 \\ \hline
-    %	    RL error  \hfill (spikes/s)	      & 36.7552 \\
-    % Without DS RL error  \hfill (spikes/s)  & 11.3262 \\
-    %	   NRL error  \hfill (spikes/s)	      & 13.8671 \\
-    % Without DS NRL error  \hfill (spikes/s) & 67.4216 \\
-    %	  Total error  \hfill (spikes/s)      & 129.37 \\ \hline 
-    % \end{tabularx}\end{minipage}\hfill 
-    }
+      {%
+      \small\noindent
+      \begin{table}[t!p]
+        \centering
+        \caption{Best-fit parameters of the TV cell model using the rate-level optimisation}
+        \label{tab:TVRateLevelFig8B}
+        \begin{tabularx}{0.7\textwidth}{X X D{,}{.}{3.4}} 
+    \toprule
+    \textbf{Parameters (Units)}& \textbf{Ranges}&\multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
+              \wLSRTV  \hfill (nS)    &  [0.01,50]   & 4,765  \\ 
+              \wHSRTV  \hfill (nS)    &  [0.01,50]   & 0,983 \\ 
+              \wDSTV  \hfill (nS)      & [0.01,50]   & 1,152 \\ 
+                    \nDSTV  \hfill   & [1,500]          & 29 \\
+           \TV \Erev     \hfill (mV)     &  [-80,-50]& -68,25 \\ 
+  %\midrule
+  %            \multicolumn{2}{c}{Tone RL error  \hfill (spikes/s)}       & 36,75 \\
+  %       \multicolumn{2}{c}{ Without DS tone RL error  \hfill (spikes/s) } & 11,33 \\
+  %           \multicolumn{2}{c}{ Noise RL error  \hfill (spikes/s)      } & 13,87 \\
+  %       \multicolumn{2}{c}{ Without DS noise RL error  \hfill (spikes/s)} & 67,42 \\
+  %          \multicolumn{2}{c}{ Total error  \hfill (spikes/s)     } & 129,37 \\ 
+  \bottomrule 
+      \end{tabularx}
+      \end{table}
+      % \begin{minipage}{0.48\linewidth} 
+      % \label{tab:TVRateLevelFig8B}
+      % \begin{tabularx}{\textwidth}{|X|c|} 
+      % \hdr{2}{}{TV Model Parameters } \\ \hline 
+      %         \wLSRTV  \quad (nS)         & 4.765  \\ 
+      %         \wHSRTV  \quad (nS)         & 0.983 \\ 
+      %         \wDSTV  \quad (nS)          & 1.152 \\ 
+      %               \nDSTV                & 29.4917 \\
+      %      \TV \Erev     \quad (mV)       & -68.25 \\ \hline
+      %       RL error  \hfill (spikes/s)       & 36.7552 \\
+      % Without DS RL error  \hfill (spikes/s)  & 11.3262 \\
+      %      NRL error  \hfill (spikes/s)       & 13.8671 \\
+      % Without DS NRL error  \hfill (spikes/s) & 67.4216 \\
+      %     Total error  \hfill (spikes/s)      & 129.37 \\ \hline 
+      % \end{tabularx}\end{minipage}\hfill 
+      }
 #+END_LaTeX
 
 \yellownote{discuss the TV results table}
 
 The optimised parameters of the \TV cell model in Table
 \ref{tab:TVRateLevelFig8B} are indicative of a strongly-inhibited neuron.
-
-
 
 ** Verification of the TV Cell Model
 
@@ -2163,32 +2152,31 @@ The optimised parameters of the \TV cell model in Table
 
 
 #+BEGIN_LaTeX
-      \begin{figure}[pt!]
-        %\centering%\hspace{0.5cm}
-    %    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-        % \resizebox{0.95\textwidth}{!}{
-    %  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/TV_ratelevel_combined}%
-    %     \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle50-1}\\
-    %    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/psthsingle90-1}\\ 
-        % }\\\hspace{0.5cm}
-%  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-Strych-Bic.png}}
-\resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-StrychAB.png}}
-    %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
-    \resizebox{0.95\textwidth}{!}{%
-    %  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-1}%
-        \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}%
-        \includegraphics{ResponsesNoComp/MaskedResponseCurve3/30/TV_masked}}
-    \resizebox{0.95\textwidth}{!}{%
-        \includegraphics{ResponsesNoComp/MaskedResponseCurve3/45/TV_masked}%
-        \includegraphics{ResponsesNoComp/MaskedResponseCurve3/60/TV_masked}}
-        \caption[Tone and noise masking response area in TV cells]{Tone and noise masking response area in TV cells. A-B Tone and noise response map of a cat TV cell (Type II DCN unit \citep{SpirouDavisEtAl:1999}) with and without ionotopopheretic application of strynchnine.
-          A. Rate level responses to tone, noise and tone plus noise.
-          B. PSTH at 90 dB SPL to noise.
-          C. Response area equivalent using all DS units in the network.
-          D. Tone response maps with masking noise in optimised TV cell model at the centre of the CNSM network.  Frequencies range from one octave above and below its CF\@.
-  }
-        \label{fig:TVmaskedresponse}
-      \end{figure}
+  \begin{figure}[tp!]
+  %\centering%\hspace{0.5cm}
+  %    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+      % \resizebox{0.95\textwidth}{!}{
+  %  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/TV_ratelevel_combined}%
+  %     \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle50-1}\\
+  %    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/psthsingle90-1}\\ 
+      % }\\\hspace{0.5cm}
+  %  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-Strych-Bic.png}}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-StrychAB.png}}
+  %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+  \resizebox{0.95\textwidth}{!}{%
+  %  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-1}%
+  \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}%
+  \includegraphics{ResponsesNoComp/MaskedResponseCurve3/30/TV_masked}}\\
+  \resizebox{0.95\textwidth}{!}{%
+  \includegraphics{ResponsesNoComp/MaskedResponseCurve3/45/TV_masked}%
+  \includegraphics{ResponsesNoComp/MaskedResponseCurve3/60/TV_masked}}
+  \caption[Tone and noise masking response area in TV cells]{Tone and noise masking response area in TV cells. A-B Tone and noise response map of a cat TV cell (Type II DCN unit \citep{SpirouDavisEtAl:1999}) with and without ionotopopheretic application of strynchnine.
+        A. Rate level responses to tone, noise and tone plus noise.
+        B. PSTH at 90 dB SPL to noise.
+        C. Response area equivalent using all DS units in the network.
+        D. Tone response maps with masking noise in optimised TV cell model at the centre of the CNSM model.  Frequencies range from one octave above and below its CF\@.}
+      \label{fig:TVmaskedresponse}
+    \end{figure}
 #+END_LaTeX
 
 \yellownote{Fix PSTH figure and discuss plots in text.}
@@ -2225,7 +2213,7 @@ The optimised parameters of the \TV cell model in Table
   {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
   \resizebox{0.95\textwidth}{!}{\hfill%
   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-1}\hfill%
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/response_area-1}\hfill}%	  
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/response_area-1}\hfill}%     
      \caption[Whole network response of TV cell model]{Response of TV cell models across the
        whole network (CF=5.8 kHz) to pure tones and noise.
     A. Rate response of all TV units in the network to pure tone at centre of
@@ -2298,7 +2286,7 @@ combination of the Type II \DCN unit notch data for 1 octave.
 #+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
 
 #+ATTR_LATEX: width=0.9\textwidth
-#+CAPTION: [Experimental notch-noise data of a single Type-II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from Figure 9 \citet{ReissYoung:2005}.}
+#+CAPTION: [Experimental notch-noise data of a single Type II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from Figure 9 \citet{ReissYoung:2005}.}
 #+LABEL: fig:TVReissFig9
 [[../SimpleResponsesChapter/gfx/TV_Notch/Reiss_Fig9_E+F.png]]
 
@@ -2366,7 +2354,7 @@ not been proven to preference the deep layers of the \DCN
   \small\noindent% 
   \begin{table}[t!]
   \centering
-  \caption{Best fit parameters of \DS to \TV cell connections using the notch optimisation.}
+  \caption{Best fit parameters of DS to TV cell connections using the notch optimisation.}
   \label{tab:TVNotchresult} 
   \begin{tabularx}{0.6\linewidth}{X c D{,}{.}{2.4}} 
   \toprule 
@@ -2450,6 +2438,9 @@ with similar \CF (\TV unit 70, \CF = 12.76 kHz) to notch and band-pass noise.
 \clearpage\newpage
 
 * T Stellate Cell Model: Three Chopper Subtypes
+:PROPERTIES:
+:CUSTOM_ID: sec:Ch3:TSCellModel
+:END:
 
 This section reports on the major output neurons in the \CNSM model, \TS cells,
 which are classified into three sub-types based on their regular firing or
@@ -2529,8 +2520,7 @@ in the first 10 ms period, but rises to 0.3 or higher throughout the stimulus.
     \begin{figure}[thp]
       \centering
     \includegraphics[width=0.6\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniCV.pdf}
-    \caption[Categorisation in chopper units]{A. Regularity in chopper units measured using 10 ms interval CV at 30 dB relative to acoustic threshold. Data represents mean and standard deviation in units in each category. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}. 
-  }
+    \caption[Categorisation in chopper units]{A. Regularity in chopper units measured using 10 ms interval CV at 30 dB relative to acoustic threshold. Data represents mean and standard deviation in units in each category. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}.}
     \label{fig:PaoliniCVdata}    
     \end{figure}
 #+END_LaTeX
@@ -2642,24 +2632,24 @@ to load tones and broadband noise and provide fast inhibition that can reach the
 further delay to inhibiting \TS cells \citep{WickesbergOertel:1990}.
 
 #+BEGIN_LaTeX
- %    \yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
-     \begin{figure}[t!]
-       \centering%
-   %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_exc.pdf}\\
-   %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_inh.pdf}
-   \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_excinh.pdf}
-       \caption[Intracellular membrane voltage response of a TS cell model to isolated synaptic inputs]{Intracellular membrane voltage response of a TS cell model  to isolated synaptic inputs.
-         A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CN network. The CF of the recorded \TS unit was 8.267 kHz.
-         Single stimulus responses are shown as a thin line and average response over 25 repetitions is shown as the thick line.
-         A default Type I-t \RM neural model was used and the sodium conductance (\gNa) was set
-         to zero to inhibit spike generation.
-         All synaptic weights were set to $0.5\,{\rm nS}$.
-         A. 30 LSR ANFs onto AMPA synapses ($\tau = 0.36$ ms).
-         B. 20 HSR ANFs (mean rate 250 spikes per second) onto AMPA synapses.
-         C. 20 DS cell model glycinergic synapses ($\tau_1=0.4$ and $\tau_2=2.5$ ms).
-         D. 15 GLG cell model \GABAa synapses ($\tau_{1}=0.7$ and $\tau_{1}=9$ ms).  
-  \label{fig:TSinputs}}
-     \end{figure}
+  %\yellownote{Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$ S cm$^{-2}$, $\gleak=0.000473539$ S cm$^{-2}$, $\gh=$6.20392e-05 S/cm$^{2}$, $\gKA=0.01539$ S/cm$^{2}$, $\Eleak=-65$ mV, $\ENa=50$ mV, $\EK=-70$ mV.}
+      \begin{figure}[t!]
+        \centering%
+    %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_exc.pdf}\\
+    %    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_inh.pdf}
+    \includegraphics[keepaspectratio,width=0.9\textwidth]{../SimpleResponsesChapter/gfx/TStellate/baseline_excinh.pdf}
+        \caption[Intracellular membrane voltage response of a TS cell model to isolated synaptic inputs]{Intracellular membrane voltage response of a TS cell model  to isolated synaptic inputs.
+          A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CN network. The CF of the recorded \TS unit was 8.267 kHz.
+          Single stimulus responses are shown as a thin line and average response over 25 repetitions is shown as the thick line.
+          A default Type I-t \RM neural model was used and the sodium conductance (\gNa) was set
+          to zero to inhibit spike generation.
+          All synaptic weights were set to $0.5\,{\rm nS}$.
+          A. 30 LSR ANFs onto AMPA synapses ($\tau = 0.36$ ms).
+          B. 20 HSR ANFs (mean rate 250 spikes per second) onto AMPA synapses.
+          C. 20 DS cell model glycinergic synapses ($\tau_1=0.4$ and $\tau_2=2.5$ ms).
+          D. 15 GLG cell model \GABAa synapses ($\tau_{1}=0.7$ and $\tau_{1}=9$ ms).  
+   \label{fig:TSinputs}}
+      \end{figure}
 #+END_LaTeX  
 
 # \yellownote{Improve this paragraph to describe influence of \Ih and \IKA in the \TS cell model}
@@ -2705,7 +2695,7 @@ between 20 to 25 ms).
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:IVstats-Onset} \textrm{Onset Ratio} = \bar{\mathbf{v}}|_{t=0}^{t=5}\quad/\quad \bar{\mathbf{v}}|_{t=20}^{t=25}.
-\end{equation}
+  \end{equation}
 #+END_LaTeX
 
 
@@ -2714,7 +2704,7 @@ end of the stimulus compared to the stable point 20 ms after the onset
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:IVstats-Adap} \textrm{Adaptation} = \bar{\mathbf{v}}|_{t=20}^{t=21}\quad - \quad\bar{\mathbf{v}}|_{t=50}^{t=51}. 
-\end{equation}
+  \end{equation}
 #+END_LaTeX
 Greater adaptation to a sustained stimulus is represented by a larger drop in
 depolarisation. Adaptation shift is caused by a combination of factors, but is
@@ -2734,11 +2724,11 @@ reduced excitation or the presence of inhibition.
 
 # The eventual fitness value 
 
-# #+BEGIN_LaTeX
+# # + BEGIN_LaTeX
 #   \begin{multline} 
 #   F =  \sqrt{MSE\left(\textrm{CV}_{0-10} + \textrm{CV}_{10-20} + \textrm{CV}_{20-30} + \textrm{CV}_{30-40}  + \textrm{IV}_\textrm{Onset Ratio} + \textrm{IV}_\textrm{Adaptation} + \textrm{IV}_\textrm{Offset} \right)} + \textrm{SR Penalty} +  \textrm{CV Penalty} 
 #   \end{multline}
-# #+END_LaTeX
+# # + END_LaTeX
 
 #+BEGIN_LaTeX
     \begin{figure}[thp]
@@ -2777,8 +2767,6 @@ for all \SPL above threshold.
 
 ** Optimisation Results
 
-
-
 # The target data for each of the chopper sub-types were comprised of
 # average population CV data and individual IV data based on rat data by#
 # \citep{PaoliniClareyEtAl:2005}. 
@@ -2793,7 +2781,6 @@ for all \SPL above threshold.
 #  \begin{figure}[t!] \centering\resizebox{0.95\textwidth}{!}{%
 #  \includegraphics{RateLevel/psthsingle90.0}% %
 #  \includegraphics{RateLevel/TS_ratelevel}} \end{figure}
-
 
 ****  Source blocks :noexport:
 
@@ -2845,7 +2832,6 @@ for all \SPL above threshold.
 #+BEGIN_SRC sh :exports none
    grep -A33 'at spl '$SPLreTh'' ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f \\pm %.2f$\n",$4,$7)}'
 #+END_SRC
-
 
 
 *** Sustained Chopper
@@ -3114,7 +3100,7 @@ three \TS cell subtypes. Further details on each subtype are provided below.
 
 # \yellownote{TODO: Fix the figure \ref{fig:TSverification}.  and add text.  repeat for ChT1 and ChT2}
 
-# #+BEGIN_LaTeX
+# # + BEGIN_LaTeX
 #   \begin{figure}[t!]
 #    \centering
 #   \hspace{0.5cm}\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill\\
@@ -3132,7 +3118,7 @@ three \TS cell subtypes. Further details on each subtype are provided below.
 #     CF of the central unit (15 dB masking noise).} 
 #   \label{fig:TSverification}
 #   \end{figure}
-# #+END_LaTeX
+# # + END_LaTeX
 
 # # *** Effect of DS: time frequency enhancement}
 
@@ -3141,6 +3127,9 @@ three \TS cell subtypes. Further details on each subtype are provided below.
 # # *** Effect of TV: comb filter and echo suppression}
 
 * Discussion 
+:PROPERTIES:
+:CUSTOM_ID: sec:Ch3:Discussion
+:END:
 
 \yellownote{TODO: Discuss the relevance of creating the CN stellate
   model, especially the methods.}
@@ -3198,7 +3187,6 @@ spread of ANF inputs to DS cells optimised based on your methods?  How does the
 optimisation routine replicate DS responses to other stimuli, when there are
 already plenty?}
 
-
 # ArnottWalacePalmer A wealth of circumstantial evidence suggests that onset
 # responding stellate cells in the ventral cochlear nucleus may give rise to the
 # wideband inhibition of DCN principal cells. These onset cells integrate in-
@@ -3228,11 +3216,9 @@ already plenty?}
 # predominates above CF. The interplay between excitatory and inhibitory
 # influences may underlie the processing by these OC neurons.
 
-
 *** Tuberculoventral Cell Model
 
 Discuss Sections [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell Model]] 
-
 
 \yellownote{TODO: Discuss the TV cell optimisation. Is the goal of replicating
 wide-band inhibition offset necessary, or is rate ratio between TS/DS/TV the
@@ -3257,7 +3243,6 @@ cells, but not in rats}
 # responses of principal neurones both directly, through glycin- ergic
 # innervation of these cells, and indirectly, through glycinergic innervation of
 # type II DCN interneurones.
-
 
 # Spirou Abstract
 # Young. Spectral integration by type II interneurons in dorsal cochlear
@@ -3290,11 +3275,6 @@ cells, but not in rats}
 # system. Consistent with these properties, iontophoresis of inhibitory
 # antagonists produces a large increase in discharge rate to broadband
 # noise, making tone and noise responses nearly equal.
-
-
-
-
-
 
 *** Chopper Subtypes: T Stellate Cell Models
 
