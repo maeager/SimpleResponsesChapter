@@ -29,14 +29,14 @@ set label 3 '{/Helvetica=18 10 mV}' at 0,-55 right rotate
 set label 4 '{/Helvetica=18 50 msec}' at 20,-73
 
 plot [10:110][-75:50] "../SimpleResponsesChapter/gfx/TStellate/hsrlsr_jitter0_0.1.dat" u ($1+20):2 w l lw 2, \
-  "../SimpleResponsesChapter/gfx/TStellate/hsr_average_noNa.dat" u ($1+20):($2+70) w l lw 2 #0.5
+  "../SimpleResponsesChapter/gfx/TStellate/hsr_average_noNa.dat" u ($1+20):($2+70) w l lw 0.5
 unset arrow 1
 set label 1 '{/Sans-Bold=30 B}' at 10,50
 set label 2 '{/Sans-Bold=30 D}' at 10,-20
 unset label 3
 unset label 4
 plot [10:110][-75:50] "../SimpleResponsesChapter/gfx/TStellate/hsrlsr_jitter0_0.1_wspikes.dat" u ($1+20):2 w l lw 2, \
-"../SimpleResponsesChapter/gfx/TStellate/hsr_average.dat" u ($1+20):($2+70) w l lw 2 #0.5
+  "../SimpleResponsesChapter/gfx/TStellate/hsr_average.dat" u ($1+20):($2+70) w l lw 0.5
 
 
 unset multiplot
