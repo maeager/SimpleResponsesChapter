@@ -1,8 +1,8 @@
 #+TITLE: Chapter 3
 #+DATE:
 #+AUTHOR: Michael A Eager
-#+OPTIONS: toc:nil  H:5  <:t >:t tasks:nil 
-#   author:nil
+#+OPTIONS:   H:5 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t >:t 
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc tasks:nil 
 #+STARTUP: oddeven inlineimages hideblocks fold align hidestars
 #   C-c C-x C-v     (org-toggle-inline-images)
 #+SEQ_TODO:    TODO(t) INPROGRESS(i) WAITING(w@) | DONE(d) CANCELED(c@)
@@ -10,17 +10,17 @@
 #+TODO: TODO(t) STARTED(s) | DONE(d) DEFERRED(f) REFTEX
 #+LANGUAGE: en_GB-ise-wo_accents 
 #+LaTeX_CLASS: UoM-draft-org-article
+#  +  LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
 #+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+LATEX_HEADER:  %\usepackage[notcite]{showkeys} 
-
 #+BIBLIOGRAPHY: ../org-manuscript/bib/MyBib alphanat
+
 
 #+LaTeX: \setcounter{chapter}{2} 
 #+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential Parameter Fitting of Synaptic Variables Using Simple Acoustic Responses}\label{sec:Chapter3} 
 
-#  +  LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
 
 * Prelude 							   :noexport:
   
@@ -526,7 +526,6 @@ presented to the \CNSM model included:
 \newpage
 
 * Figures							   :noexport:
-
 ** fig:Compression
 
 #+BEGIN_SRC sh :export none
