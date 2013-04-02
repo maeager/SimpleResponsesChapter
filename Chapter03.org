@@ -19,7 +19,7 @@
 
 
 #+LaTeX: \setcounter{chapter}{2} 
-#+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential Parameter Fitting of Synaptic Variables Using Simple Acoustic Responses}\label{sec:Chapter3} 
+#+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential Parameter Fitting of Synaptic Variables Using Simple Acoustic Responses}\label{sec:ModelChapter} 
 
 
 * Prelude 							   :noexport:
@@ -222,15 +222,15 @@ Due to the variety of possible inputs to \TS cells (and the observed
 physiological classification sub-types in chopper units), three \TS cell model
 sub-types were optimised.  Glycinergic input to \DS cells from \TV cells and
 other \DS cells was not included due to their weak effects /in vitro/
-\cite{FerragamoGoldingEtAl:1998a} and the added complexity of a negative
+\citep{FerragamoGoldingEtAl:1998a} and the added complexity of a negative
 feedback loop in the microcircuit.  Recurrent synaptic connection between \TS
 cells have been the focus of recent neural models
 \citep{BahmerLangner:2006,BahmerLangner:2006a,WiegrebeMeddis:2004}.  They were
 not included in the \CNSM model because of the rarity of small round vesicles on
 \ChS units \citep{SmithRhode:1989}. Additionally,
 \citet{FerragamoGoldingEtAl:1998a} reported that \EPSPs in one \TS cell were
-likely to come from only one input. Given the weak influence
-of \TS cell recurrent connections, they were not included in the \CNSM model.
+likely to come from only one input. Given the weak influence of \TS cell
+recurrent connections, they were not included in the \CNSM model.
 
 # TODO: This para is about pushing the reader towards the
 # following sections.  Needs to expand on reasons for wanting to create
@@ -1751,7 +1751,7 @@ cells.
     \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%         %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d} 
   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
         %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined}%
-      \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (Image reproduced from \cite{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
+      \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (Image reproduced from \citet{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
       \label{fig:DSVerificationRA}
     \end{figure}
 #+END_LaTeX
