@@ -124,7 +124,7 @@ method of optimisation steps.  Parameters in the microcircuit can be separated
 into two classes: cell-based and connectivity-based.  The cell-based parameters
 for each cell model in the \CNSM model, discussed in Section
 \ref{sec:Methods:CellModels}, remain relatively fixed. The connectivity-based
-parameters, introduced in Section \ref{sec:Methods:Parameters}, are the main
+parameters, introduced in Section \ref{sec:Methods:ConnParameters}, are the main
 focus of this chapter.  The parameters in the sequential optimisation stages
 were chosen so that they did not influence the properties of previously fitted
 parameters.  The parameters of each cell type were based on
@@ -311,7 +311,7 @@ and \TS cells in the \CNSM model.  The \RM neural model is a conductance based
 neural model with membrane current models developed by
 \citet{RothmanManis:2003b}. The \CNSM model makes extensive use of the \RM
 neural model, which was discussed in detail in Section
-\ref{sec:Methods:cell-models}.
+\ref{sec:Methods:CellModels}.
 # in Chapter \ref{sec:MethodsChapter}.
 
 # Type I-c classic regular firing contains a voltage-activated
@@ -376,7 +376,7 @@ parameters (in milliseconds) are the same for each synapse in a connectivity
 group.
 
 # Chapter \ref{sec:MethodsChapter}
-# \ref{sec:Methods:Synapse}
+# \ref{sec:Methods:SynapseModels}
 
 ** Synaptic Jitter
    :PROPERTIES:
@@ -1467,7 +1467,7 @@ frequency channels.
 
 
 The additional delay parameter for \ANF terminals on the \DS cell model,
-\dANFDS, was shown in Section [[Synaptic Delays]]. The first spike latency in high
+\dANFDS, was shown in Section \ref{sec:Ch3:Delays}. The first spike latency in high
 \CF \DS cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate
 neurons in the \VCN \citep{RhodeSmith:1986}.  The additional delay of 1.2 ms
 from \ANF to \DS input connections is a product of axonal conductance and
@@ -1486,7 +1486,7 @@ dendritic delay.
 
 In order to specify how \GLG cells regulate the click recovery response in DS
 cells, a parameter optimisation routine was performed using data from
-\citet{BackoffPalombiEtAl:1997}.  Table \ref{tab:DScellModelSummay}E describes
+\citet{BackoffPalombiEtAl:1997}.  Table \ref{tab:DScellModelSummary}E describes
 the fitness function stimulus as six pairs of masker-probe clicks separated by
 50 ms.  Spike outputs of the \DS cell model were recorded in 2 ms windows
 following the clicks accounting for the effective minimum \FSL in \DS cells
@@ -1729,8 +1729,9 @@ much higher thresholds and wider dynamic ranges.
 The optimised parameters for inputs to the \DS cell model were applied to \DS
 cells across the whole network using tones, noise and tones plus noise stimuli.
 The behaviour of an individual \DS cell model output is shown in Figure
-\ref{fig:DSverificationPSTH}, similar to the \GLG cell model (Figure
-\ref{fig:GolgiVerification}).  Figure \ref{fig:DSverificationPSTH}A and B shows
+\ref{fig:DSverificationPSTH}.  
+
+Figure \ref{fig:DSverificationPSTH}A and B shows
 the response of the central \DS cell model (CF=5.8 kHz).
 # The onset PSTH
 # monotonic responses to tones and noise were similar to other Ghoshal and Kim
