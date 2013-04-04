@@ -1,0 +1,271 @@
+
+%===================================
+% \smallskip{}
+%\subsubsection{Optimisation routine}
+\subsection{Optimisation Results}    \label{sec:DS:results}
+
+Optimisation parameters for \GLGDS~are optimised based on experimental click recovery data from \citep{BackoffPalombiEtAl:1997}, as shown in Figure~\ref{fig:BackoffPalombi}.
+The input stimulus presented a series of masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms, separated by 50 ms.
+Although the experimental stimuli was presented every 250 ms, the optimisation stimulus needs to be computationally efficient so the separation was shortened and the sequence reordered to obtain the best click recovery response in the \DS~and Golgi cells.
+The stimulus was repeated 25 times and a PSTH was produced from the DS cells' spikes.
+Spike counts for 2 ms after the probe and masker click were selected (accounting for the the minimum first spike latency for the unit) to calculate a recovery ratio.
+The \DS~cell optimisation function calculates the mean squared error between the test model and the experimental data recovery ratios to 5 click pairs.
+
+
+The six parameters to be fit by the routine are the weights of \GLG\@, \HSR\@, and \LSR~synapses on \DS, the \GABAa synapse rise constant, the \GABAa synapse decay constant, and the \DS cell maximum leak conductance (\gleak).
+Initial optimisation procedures were not successful at constraining the short delay recovery responses (2,3,4 ms), hence the \DS~cell leak %and \KLT~conductance parameters  parameter were included in the optimised parameters to allow cell's input resistance behaviour to fit fast acting behaviour in the cell.
+
+The unit used in the optimisation has a \CF~of 5.8~kHz (equivalent to channel no. 50 in the CN network with 100 channels from 0.2 to 30~kHz).
+
+\begin{figure}[htb]
+\centering
+%\resizebox{0.6\textwidth}{!}{}
+\includegraphics[keepaspectratio,width=0.6\textwidth]{DS_ClickRecovery/ANinput}
+%   \subfloat[D~stellate cell]{
+%\includegraphics[width=0.4\textwidth]{DS_ClickRecovery_DSpsth}% \label{fig:DSClickRecoveryPSTH}
+%}\quad%   \subfloat[Golgi cell]{
+  %\includegraphics[width=0.4\textwidth]{DS_ClickRecovery_Gpsth}%\label{fig:GClickRecoveryPSTH}%}
+\caption[Click recovery stimulus]{Click stimulus and PSTH responses of an HSR fibre, a GLG unit, and a DS unit from the click recovery stimulus used in the optimisation. 
+\label{fig:ClickExamples}}
+\end{figure}
+
+
+% \smallskip{}
+
+% \noindent\begin{tabularx}{\textwidth}{|l|X|}\hline %{\textwidth}
+% \hdr{2}{D}{Results} \\\hline
+% \end{minipage}}\\\hline
+% \textbf{Error} & 0.006671    unweighted (MSE of recovery spike rate / mask rate)\\\hline
+% & 0.01447    final result (MSE of recovery spike rate / mask rate)\\\hline
+% \end{tabularx}
+
+{\small% - E ------------------------------------------------------------------------------
+\noindent
+\begin{tabularx}{\textwidth}{|X|c|c|c|}\hline %{\textwidth}
+\hdr{4}{E}{Optimisation} \\ \hline
+        \textbf{Parameters}          &   \textbf{Name}  & \textbf{Range} & \textbf{Best Values} \\\hline
+      Weight of \GLG~on \DS~(nS)       &     \wGLGDS      & [0.01,50] & 0.532 \\	\hline
+    Weight of \HSR~syn on \DS~(nS)     &     \wHSRDS      & [0.01,50] & 0.16 \\ \hline
+   Weight of \LSR~syn on \DS~(nS)     &     \wLSRDS      &   [0.01,50] & 13.1 \\	    \hline
+ \GABAa synapse rise constant  (ms)  &  $\tau_{GABA1}$  & [0.01,10.0] & 5.432\\	     \hline
+ \GABAa synapse decay constant (ms)  &  $\tau_{GABA2}$  & [0.1,50.0] & 0.262\\	    \hline
+DS cell leak conductance (mS cm$^{-2}$) & \gleak &  [1e-5,0.05]   & 0.0163 \\ \hline
+\end{tabularx}
+\vspace{2ex}
+}
+
+
+The optimisation parameters show a clear favouritism toward the \LSR~input rather than the \HSR~input to \DS~units.
+While this may not seem ideal for fast coincidence detection, the large number of \HSR~synapses makes up for the small weight that was obtained in the optimisation.
+
+\begin{figure}[htb]
+\centering
+%\resizebox{0.9\textwidth}{!}{\includegraphics{NoFigure}}
+%\resizebox{0.8\textwidth}{!}{}
+\includegraphics{DS_ClickRecovery_result} %[height=0.8\textwidth,keepaspectratio,angle=-90]
+\caption[Click recovery optimisation results in DS cell model]{%
+Optimisation results of click recovery behaviour in DS cell model (CF 5.8~kHz).
+The optimal response (blue circle) is obtained from Fig.~3 in \citet{BackoffPalombiEtAl:1997}, representing the click recovery response of an OnC unit (CF 5.8~kHz).
+Best result (green triangles).} \label{fig:DS_ClickRecovery_result}
+\end{figure}
+
+
+
+% \begin{figure}
+% \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_OptVars.eps}\\
+% % \includegraphics[width=0.5\textwidth]{DS_ClickRecovery_Output.eps \label{Ch3:fig:DSClickRecoveryOutput}}
+%   \caption{Final Output Data of the D~stellate Click Recovery optimisation }
+% \end{figure}
+% \begin{figure}
+% \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example1.eps}\\
+% \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example10.eps}\\
+% \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example13.eps}\\
+% \includegraphics[keepaspectratio=true,width=0.8\textwidth]{DS_ClickRecovery_Example19.eps}\\
+%   \caption{Click Recovery optimisation functions}
+% \end{figure}
+
+
+% \begin{figure}
+% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result1.eps}\\
+% \end{figure}
+
+
+% \begin{figure}
+% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result2.eps}\\
+%   \caption{Click Recovery optimisation }
+% \end{figure}
+
+
+% \begin{figure}
+%   \begin{center}
+% \includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
+% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{DS_ClickRecovery_result_handtuned.eps}
+%     \caption{Handtuned}
+%     \label{hantuned}
+%   \end{center}
+% \end{figure}
+
+% \begin{figure}
+%   \begin{center}
+% % \includegraphics[keepaspectratio=true]{DS_ClickRecovery_handtuned.eps}\\
+% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_unweighted_8.eps}\\
+% \includegraphics[keepaspectratio=true,angle=-90,width=0.8\textwidth]{gfx/DS_ClickRecovery_result_weighted_0.eps}
+%     \caption{Handtuned}
+%     \label{hantuned}
+%   \end{center}
+% \end{figure}
+
+%\clearpage
+% \newpage
+%===================================
+\subsection{Verification Results of DS Cell Model}    \label{sec:DS:verification}
+
+%\yellownote{Small presentation of PSTH, RL, NRL, MRC and RA. Leave AM responses till next chapter}
+
+The optimised parameters for inputs to the D~stellate cell model were applied to \DS units across the whole network using tones, noise and tones plus noise stimuli. 
+The \DS model outputs' behaviour is shown in Figure~\ref{fig:DS_verification}, similar to the Golgi cell model Figure~\ref{fig:Golgi_verification}. 
+Figure~\ref{fig:DS_verification}A and B show the response of the central \DS model (CF=5.8 kHz). The onset PSTH 
+%monotonic responses to tones and noise similar to other Ghoshal and Kim units (Figure~\ref{fig:GolgiKimFig2}).  
+Figure~\ref{fig:DS_verification}C shows the wide response of all \DS units in the network to a 5.8~kHz tone for increasing sound level. 
+Adding masking noise increases the width of the activity across the CF of the central unit (Figure~\ref{fig:DS_verification}D) highlighting the broad inputs of \ANFs onto \DS units.
+ %\smallskip{}
+
+
+\begin{figure}[htb]
+%\centering\hspace{0.5cm}
+{\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+%\resizebox{0.95\textwidth}{!}{
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/DS_ratelevel_combined.eps}%
+%\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle90-2.eps}\\
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/psthsingle120-2.eps}\\ 
+%}\\\hspace{0.5cm}
+\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+%  \resizebox{0.95\textwidth}{!}{%
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-2.eps}%
+\includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/DS_masked.eps}\\
+%}\\
+% }}
+%\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90-3.eps}}\\
+%\resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50-3.eps}}\\
+\caption[Optimised DS cell model responses]{Response of optimised Golgi cell model at the centre of the network (CF=5.8~kHz). 
+A. Rate level responses to tone, noise and tone plus noise. 
+B. PSTH at 120 dB~SPL to noise.  
+C. Response area equivalent using all DS units in the network. 
+D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF\@.} 
+\label{fig:DS_verification}
+\end{figure}
+
+
+% \subsection{Tone Responses}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{RateLevel/psthsingle90-2.eps}%
+%   \includegraphics{RateLevel/DS_ratelevel.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{RateLevel/response_area-2.eps}%
+%   \includegraphics{RateLevel/response_area_log2.2.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+% %   \includegraphics{RateLevel/response_area-2.eps}
+%   \includegraphics{RateLevel/psthall90.2.eps}%
+%   \includegraphics{RateLevel/psthVlevel.2.eps}}
+% \end{figure}
+
+
+% \clearpage
+% \subsection{Noise Responses}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{NoiseRateLevel/psthsingle120-2.eps}%
+%   \includegraphics{NoiseRateLevel/DS_ratelevel.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{NoiseRateLevel/response_area-2.eps}%
+%   \includegraphics{NoiseRateLevel/response_area_log2.2.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+% %   \includegraphics{RateLevel/response_area-2.eps}
+%   \includegraphics{NoiseRateLevel/psthall90.2.eps}%
+%   \includegraphics{NoiseRateLevel/psthVlevel.2.eps}}
+% \end{figure}
+
+
+% \clearpage
+% \subsection{Masked Noise and Tone Responses}
+% \begin{figure}[h!]
+% \centering\resizebox{\textwidth}{!}{\includegraphics{MaskedRateLevel/psthsingle90-2.eps}\includegraphics{MaskedRateLevel/DS_ratelevel.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{MaskedRateLevel/response_area-2.eps}%
+%   \includegraphics{MaskedRateLevel/response_area_log2.2.eps}}
+% \end{figure}
+
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+% %   \includegraphics{RateLevel/response_area-2.eps}
+%   \includegraphics{MaskedRateLevel/psthall90.2.eps}%
+%   \includegraphics{MaskedRateLevel/psthVlevel.2.eps}}
+% \end{figure}
+% \clearpage
+% \subsection{Masked Response Area}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{MaskedResponseCurve/psthsingle5810.2.eps}%
+%   \includegraphics{MaskedResponseCurve/DS_masked.eps}}
+% \end{figure}
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+%   \includegraphics{MaskedResponseCurve/response_area-2.eps}%
+% \includegraphics{MaskedResponseCurve/response_area_log2log2.2.eps}}
+% \end{figure}
+
+% \begin{figure}[h!]
+%   \centering\resizebox{\textwidth}{!}{%
+% %   \includegraphics{RateLevel/response_area-2.eps}
+%   \includegraphics{MaskedResponseCurve/psthall5810.2.eps}%
+%   \includegraphics{MaskedResponseCurve/psthVmod.2.eps}}
+% \end{figure}
+% \clearpage
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Effects of $g_{leak}$ and $g_{KLT}$ on DS resting membrane potential}\label{sec:DS:effects-g_leak-g_lkt}
+
+% \yellownote{This section is optional}
+
+% The resting membrane potential of these large multipolar cells has  been shown to be in the range of 3--5 MOhms \yellownote{citation needed  here}.
+% A quick observation of the parameter space around the optimisation  results for $g_{leak}$ and $g_{KLT}$ is shown in  Figure~\ref{fig:leakVltk}.
+
+% \begin{figure}[htb]
+%   \centering
+% \resizebox{0.4\textwidth}{!}{\includegraphics{NoFigure}}
+% %\resizebox{0.4\textwidth}{!}{\includegraphics{leakvltk}}
+% \caption[DS RMP dynamics]{Resting Membrane potential calculated for  leak conductance and KLT conductance changes around the previously obtained best values for these parameters.}    \label{fig:leakVltk}
+% \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: tex-fold
+%%% mode: visual-line
+%%% TeX-master: "SimpleResponses"
+%%% TeX-PDF-mode: nil
+%%% End:
