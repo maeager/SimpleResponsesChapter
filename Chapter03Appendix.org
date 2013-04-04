@@ -19,7 +19,7 @@
 \chapter{ Chapter 3 Appendix } \label{sec:Ch3:Appendix}
   
 This section provides an overview of the pragmatic details of the
-[[latex:progname][cnstellate]] NEURON model used in Chapter 3.
+[[latex:progname][cnstellate]] NEURON model used in Chapter \ref{sec:ModelChapter}.
 
 
 
@@ -652,7 +652,7 @@ discharge rates.
 
 
 The procedures for modulation transfer functions and f_0 responses are
-also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:Chapter4}
+also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:AMChapter}
 [[file:../VowelProcessingChapter/Chapter04.org:*chapter]]. 
  
 
