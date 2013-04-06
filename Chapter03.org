@@ -3298,17 +3298,27 @@ background and driving inputs to the network set the environmental conditions
 for genuine realistic models to be compared with experimental animal network
 under the same conditions and inputs.
 
-The level of detail in the neural models of the \CNSM model includes the complex
-channel dynamics of a \HH conductance model.  Three potassium current channels
-(\IKHT, \IKLT, and \IKA) and the mixed cation hyperpolarisation current (\Ih)
-were fit precisely from \VCN neurons in mice
-\citep{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b}.  More complex
-multi-compartment conductance model could have been chosen to include dendritic
-filtering, especially in \GLG, \DS and \TV cells.  Ball-and-stick neural models
-already existing in stellate models \citep{WangSachs:1995,WiegrebeMeddis:2004}.
+The level of detail and complexity in the neural models of the \CNSM model was a
+limitation that was properly constrained.  The \RM neural models used in the DS,
+TV and TS cell mdoels included the complex channel dynamics of a \HH conductance
+model.  Three potassium current channels (\IKHT, \IKLT, and \IKA) and the mixed
+cation hyperpolarisation current (\Ih) were fit precisely from \VCN neurons in
+mice \citep{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b}.  More
+complex multi-compartment conductance model could have been chosen to include
+dendritic filtering, especially in \DS and \TS cells.  Ball-and-stick neural
+models already existing in stellate models
+\citep{WangSachs:1995,WiegrebeMeddis:2004}, however simple point neural models
+are quite cabable of demonstrating complex stellate behaviour
+\citep{KalluriDelgutte:2003}. The single compartment, conductance model with
+unique channels developed by \citep{RothmanManis:2003b} was a reasonable choice
+for a realistic CNSM model.  The novel filter-based neural model developed for
+the \GLG cell model was chosen due to the evidence regarding intracellular
+properties of Golgi cells were limited to just one study
+\citep{FerragamoGoldingEtAl:1998}. 
+
 
 The performance of the \CNSM model owes a large part to the input of a
-phenomenologically-realistic \AN model.
+phenomenologically-realistic \AN model. 
  
 
 \yellownote{TV inhibition of DS creates a negative feedback loop in the microcircuit}
