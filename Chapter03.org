@@ -18,6 +18,7 @@
 #+BIBLIOGRAPHY: ../org-manuscript/bib/MyBib alphanat
 
 
+#+LaTeX: \glsunsetall
 #+LaTeX: \setcounter{chapter}{2} 
 #+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential Parameter Fitting of Synaptic Variables Using Simple Acoustic Responses}\label{sec:ModelChapter} 
 
@@ -90,7 +91,7 @@ especially those that use sensory pathways.
 
 Despite advances in computational neuroscience, it remains a challenging task to
 develop an accurate representation of the complex behaviour of real neural
-networks.  Choices, guesses and assumptions continue to be integral parts of
+networks.  Choices, guesses and assumptions continue to be required in
 neuronal modelling \citep{SegevBurkeEtAl:1998}.  With the acceleration of
 computational power and enhanced experimental techniques in multi-unit
 recordings, it is possible to develop more detailed neural models. There is much
@@ -153,31 +154,31 @@ tones across the frequency spectrum \citep{Evans:1992}.
 \glsunset{GABA}
 
 The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following cells:
-1. The \HSR and \LSR\space \ANFs : A phenomenological auditory model provides spiking
+1. \HSR and \LSR\space \ANFs : A phenomenological auditory model provides spiking
    input to \CN neurons across frequencies and spontaneous rate types of the
    \ANFs from an arbitrary input stimulus \citep{ZilanyBruceEtAl:2009}.  The
-   baseline in Figure \ref{fig:microcircuit} is a simplification of \ANFs from
+   baseline in Figure \ref{fig:microcircuit} is a representation of \ANFs from
    low \CF to high \CF (left to right). The model reproduces responses for high
    and \LSR\space \ANFs at 100 channels across the frequency range 200 Hz to 48
    kHz.
-2. The \GLG cell: A \GABA-ergic \VCN marginal shell unit that is presumed to
+2. \GLG cell: A \GABA-ergic \VCN marginal shell unit that is presumed to
    regulate excitability in the \GCD and core \VCN units
    \citep{FerragamoGoldingEtAl:1998}.  Only one /in vivo/ study has recorded
    extracellular data in the marginal shell area of the \CN
    \citep{GhoshalKim:1997}.  The presumed characteristics of \GLG cells are
    taken from that study and are defined by a monotonic response to tones and
    noise, a Type I\slash III \EIRA, and an unusual or chopper \PSTH.
-3. The \DS cell: A large, glycinergic, multipolar neuron with \OnC\space \PSTH
+3. \DS cell: A large, glycinergic, multipolar neuron with \OnC\space \PSTH
    response that acts as a coincidence detector.  Its large dendritic area
    increases its response to noise, allowing it to behave as a wide-band
    inhibitor in the \VCN, \DCN, and contralateral \CN
    \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
-4. The \TV cell: A glycinergic, Type II \EIRA unit in the deep layer of the \DCN
+4. \TV cell: A glycinergic, Type II \EIRA unit in the deep layer of the \DCN
    \citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed echo-suppressor
    and narrow-band inhibitor, with recurrent connections between \DS and \TS
    cells in the \VCN
    \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
-5. The \TS cell: One of the major output projection cells of the \CN to the
+5. \TS cell: One of the major output projection cells of the \CN to the
    \IC and the primary output of the \CNSM model.  This
    multipolar neuron has been shown to have robust spectral representation and
    enhanced synchronisation to modulation in speech sounds
@@ -201,22 +202,26 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
 
 Optimisation of a detailed \BNN model requires a realistic input model with
 which to mimic the behaviour observed in live neural networks.  For a detailed
-neural model of the \CN, a realistic and phenomenologically sound auditory
+neural model of the \CN, a realistic and phenomenologically robust auditory
 periphery model is needed to represent sounds and transformations that occur in
 the central auditory system.  The input to the \CNSM model, the \ANFs, is
 discussed in the next section. To further fit the parameters of the \CNSM model,
 a simple and sequential method was applied to each of the cell types using
 experimental data.
 
-The order of the optimisation routines was important because of the
-inter-dependencies in the isofrequency microcircuit and across the whole
+\yellownote{Note: This paragraph has been converted to past tense based on
+assertion of facts about the physiology and processes, not necessarily about how
+the model was designed.}  
+
+The order of the optimisation routines is important because of the
+inter-dependencies within the isofrequency microcircuit and across the whole
 nucleus. In the \CNSM model, Golgi cells only received inputs from the \ANFs and
-were the first model and network parameters to be optimised. \DS cells were
-modeled next because they received inputs from \ANFs and \GABA-ergic Golgi
-cells. The \TV cells' input network parameters were optimised next as they were
-strongly inhibited by \DS cells and received excitation from \ANFs. Input
+are the first model and network parameters to be optimised. \DS cells are
+modeled next because they receive inputs from \ANFs and \GABA-ergic Golgi
+cells. The \TV cells' input network parameters are optimised next as they are
+strongly inhibited by \DS cells and receive excitation from \ANFs. Input
 parameters to \TS cells, which received inputs from all other cell types in the
-\CNSM model, were optimised last.
+\CNSM model, are optimised last.
 
 Due to the variety of possible inputs to \TS cells (and the observed
 physiological classification sub-types in chopper units), three \TS cell model
@@ -251,8 +256,8 @@ This section describes the specific methods used in this chapter.
 ** Auditory Nerve Fibre Model 
 
 As discussed in Section \ref{sec:Methods:HSRLSR}, the \ANF inputs to the \CNSM
-model neurons were drawn from the Carney model, a phenomenological auditory
-periphery model first presented in \citet{Carney:1993}.  This chapter uses
+model neurons were drawn from the Carney \AN model \citep{Carney:1993}, a phenomenological auditory
+periphery model.  This chapter uses
 more recent derivations of the Carney model: the Bruce model
 \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007} and the Zilany
 model \citep{ZilanyBruceEtAl:2009}.
@@ -290,7 +295,7 @@ The neural models used in the \ANFs and Golgi cell model were inhomogeneous
 Poisson processes.  The instantaneous rate produced the input \AN model (chosen
 from the Bruce or Zilany model) and was passed through the Jackson spiking model
 \citep{Jackson:2003,JacksonCarney:2005}, which includes refractory effects
-typical of the \ANFs.  Spike trains for each neuron in the \AN model were
+typical of \ANFs.  Spike trains for each neuron in the \AN model were
 created at the start of each repetition of the stimulus.  
 # Further detail on \HSR and \LSR\space \ANF models were in Section \ref{sec:Methods:HSRLSR}.
 
@@ -307,7 +312,7 @@ created at the start of each repetition of the stimulus.
 ** Neural Models
 
 Single-compartment \HH-like neural models were used for the \DS, \TV
-and \TS cells in the \CNSM model.  The \RM neural model is a conductance based
+and \TS cells in the \CNSM model.  The \RM neural model is a conductance-based
 neural model with membrane current models developed by
 \citet{RothmanManis:2003b}. The \CNSM model makes extensive use of the \RM
 neural model, which was discussed in detail in Section
@@ -444,7 +449,7 @@ synaptic connections in the \CNSM model involving \ANFs.  Mean \FSL to short \CF
 tones and click stimuli were used to set delay times between \ANFs and \CN cells
 \citep{RhodeSmith:1986,RhodeOertelEtAl:1983,SpirouDavisEtAl:1999,FerragamoGoldingEtAl:1998a}.
 The additional delay was defined using the \FSL of high frequency units as the
-sum of the \ANFs' \FSL, \ANF conduction delay, and the synaptic transmission
+sum of the \ANFs' \FSL, \ANF conduction delay and the synaptic transmission
 delay.  The first spike latency measured in high \CF units in the ARLO \AN model
 \citep{HeinzZhangEtAl:2001} for \HSR fibres was 1.5 ms.
 
@@ -856,7 +861,7 @@ which is the variance in a standard Gaussian function
 #+BEGIN_LaTeX
     \begin{equation}
   \label{eq:GolgiWeights}
-  \mathbf{w}_{\LSRGLG} (i,x)= \wLSRGLG \frac{1}{\sqrt(2\,\pi\,\sLSRGLG))} \exp\left(\frac{-(x-i)^2}{2 \sLSRGLG}\right),
+  \mathbf{w}_{\LSRGLG} (i,x)= \wLSRGLG \frac{1}{\sqrt{2\,\pi\,\sLSRGLG}} \exp\left(\frac{-(x-i)^2}{2 \sLSRGLG}\right),
     \end{equation} 
 #+END_LaTeX
 \noindent where $x=1,\ldots,\Nchannels$.
@@ -883,14 +888,14 @@ by
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:GolgiAlpha}
-  \alpha_{\rm GLG}(t) =	 t\, \exp\left(\frac{-t}{\Gtau}\right). 
+  \alpha_{\rm GLG}(t) =	 t\, \exp\left(\frac{-t}{\Gtau}\right),\quad t\ge 0. 
   \end{equation}
 #+END_LaTeX
 The smoothing kernel was normalised by setting the area under the function
 to 1. For a large enough filter length, the alpha function integral
 #+BEGIN_LaTeX
     \begin{equation}
-  \int \alpha(t) dt = (-\Gtau^2 - t\,\Gtau) \exp\left(-\frac{t}{\Gtau}\right)
+  \int_0^\inf \alpha(t) dt = (-\Gtau^2 - t\,\Gtau) \exp\left(-\frac{t}{\Gtau}\right)
     \end{equation}
 #+END_LaTeX
 \noindent equals $\Gtau^2$ as /t/ approaches infinity.
@@ -1603,6 +1608,7 @@ weight that was obtained in the optimisation.
   \vspace{2ex} 
   }
 #+END_LaTeX
+
 
 ** Results of Rate Level Optimisation
    :PROPERTIES:
@@ -3126,6 +3132,7 @@ three \TS cell subtypes. Further details on each subtype are provided below.
 
 # # *** Effect of TV: comb filter and echo suppression}
 
+
 * Discussion 
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:Discussion
@@ -3139,6 +3146,54 @@ The T stellate cells in the \CNSM model form one of the major ascending auditory
   be passed to higher order centres, by reproducing the spectrum in a robust
   fashion \citep{BlackburnSachs:1990,May:2003} and synchronisation to
   significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
+
+
+C, RA, \ENa, \EK, \Eh, \Qten
+
+| Cell type | Parameters                                     | Fixed | Opt |
+|-----------+------------------------------------------------+-------+-----|
+| GLG       | *\Gtau \Gspon*                                 |       | X   |
+|           | \sHSRGLG                                       | X     |     |
+|           | *\sLSRGLG \wLSRGLG \wHSRGLG*                   |       | X   |
+|-----------+------------------------------------------------+-------+-----|
+| DS        | \gNa,\gKHT,\gKLT,\gh, D                        | X     |     |
+|           | * \Erev \gleak *                               |       | X   |
+|           | \tAMPA                                         | X     |     |
+|           | \sANFDSh \sANFDSl \dANFDS                      | X     |     |
+|           | * \wLSRDS     \wHSRDS     \nLSRDS    \nHSRDS * |       | X   |
+|           | \dGLGDS \tGABAone \sGLGDS                      | X     |     |
+|           | * \wGLGDS     \nGLGDS     \tGABAtwo *          |       | X   |
+|-----------+------------------------------------------------+-------+-----|
+| TV        | \gNa,\gKHT,\gh, D                              | X     |     |
+|           | *\Erev \gleak*                                 |       | X   |
+|           | \tAMPA                                         | X     |     |
+|           | \sANFTV \dANFTV     \dDSTV                     | X     |     |
+|           | *\wLSRTV     \wHSRTV     \nLSRTV    \nHSRTV*   |       | X   |
+|           | *\sDSTV     \oDSTV  *                          |       | X   |
+|           | *\wDSTV      \nDSTV *                          |       | X   |
+|-----------+------------------------------------------------+-------+-----|
+| TS        | \gNa,\gKHT,\gKA,\gh, D_soma, L_dend            | X     |     |
+|           | *\Erev \gleak*                                 |       | X   |
+|           | \tAMPA                                         | X     |     |
+|           | \sANFTS \dANFTS     \dDSTS  \dTVTS             | X     |     |
+|           | *\wLSRTS     \wHSRTS     \nLSRTS    \nHSRTS *  |       | X   |
+|           | \sDSTS     \oDSTS                              | X     |     |
+|           | *\wDSTS      \nDSTS *                          |       | X   |
+|           | \sTVTS     \oTVTS                              | X     |     |
+|           | *\wTVTS      \nTVTS *                          |       | X   |
+|           | \dGLGDS \tGABAone \sGLGDS  \tGABAtwo           | X     |     |
+|           | *\wGLGDS     \nGLGDS *                         |       | X   |
+
+
+|     | LSR   | HSR   | GLG   | DS  | TV  | TS  |
+| GLG | (s,w) | (w)   | (-)   | (-) | (-) | (-) |
+| DS  | (swn) | (swn) | (swn) |     |     |     |
+| TV  |       |       |       |     |     |     |
+| TS  |       |       |       |     |     |     |
+
+
+
+
 
 ** CNSM Cell Models
 
