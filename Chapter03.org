@@ -1201,6 +1201,7 @@ as this was not relevant to a strong sensory-driven input and the role of the
 # OHC-MOC reflex circuit.
 
 \clearpage\newpage
+ 
 * D Stellate Cell Model
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:DSCell
