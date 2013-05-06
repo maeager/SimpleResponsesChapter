@@ -1066,9 +1066,14 @@ relative to the target response shows a mean absolute difference of 21.5%.
 
 
 #+ATTR_LaTeX: width=0.6\textwidth
-#+CAPTION: [GLG cell model optimisation results]{GLG cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996a}. A more detailed optimisation with 22 levels and including HSR inputs in the Golgi cell model generated a closer fit to the Ghoshal and Kim data. }
+#+CAPTION: [GLG cell model optimisation results]{GLG cell model optimisation  result trials against unit S03-07 (CF 21 kHz) from  \citet{GhoshalKim:1996a}. Root mean squared error over 22 sound levels between the target and fitted response curves was 4.48 spikes/s. }
 #+LABEL: fig:GolgiResult
 [[../SimpleResponsesChapter/gfx/golgi/GolgiRateLevel_result.pdf]]
+
+#+BEGIN_SRC octave :export none
+load gfx/golgi/GolgiRateLevel_Opt.dat
+sqrt(meansq(GolgiRateLevel_Opt(:,2) - GolgiRateLevel_Opt(:,3)))
+#+END_SRC
 
 The parameters in Table \ref{tab:GolgiCellResults} were within the range of
 expected values.  \LSR inputs to the \GLG cell model outweighed \HSR inputs by a
@@ -1131,54 +1136,26 @@ monotonic response to tones and noise similar to other experimental units
 # units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
 
 #+BEGIN_LaTeX
-    % \begin{figure}[t!]
-    %   % \centering
-    %   {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    %   % \resizebox{0.95\textwidth}{!}{
-    %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/G_ratelevel_combined}%
-    %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/psthsingle90-3}\\
-    %   % }\\
-    %   {\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
-    %   % \resizebox{0.95\textwidth}{!}{
-    %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-3}%
-    %   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
-    %   % }\\
-    %   % }}
-    %   %   \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle90-3}}\\
-    %   %   \resizebox{0.45\textwidth}{!}{\includegraphics{ResponsesNoComp/RateLevel/psthsingle50-3}}\\
-    
-    %   \caption[Optimised \GLG cell model responses]{Response of optimised \GLG cell model at the centre of the network (CF=5.8 kHz).
-    %  A. Rate level responses to tone, noise and tone plus noise.
-    %  B. PSTH at 90 dB SPL\.
-    %  C. Response area equivalent using all GLG units in the network.
-    %  D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF.} \label{fig:GolgiVerification}
-    % \end{figure}
     \begin{figure}[t!]
-      % \centering
-    %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
-    %   \hfill\resizebox{0.95\textwidth}{!}{%
-    %   \includegraphics{ResponsesNoComp/G_ratelevel_combined}%
-    % \includegraphics{}\hfill}\\
+       %\centering
       {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-      {\hfill\resizebox{0.95\textwidth}{!}{%
-      \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-3.pdf}%
-      \includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
-    %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
-      %\hfill\resizebox{0.95\textwidth}{!}{%
-     % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
-     %\includegraphics{}\hfill}\\
+      {\hfill\resizebox{0.33\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-3.pdf}%
+      \resizebox{0.66\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
       \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF=5.8 kHz).
      A. PSTH of the \GLG cell model at 50 and 90 dB SPL. B. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}. 
-    
     } \label{fig:GolgiVerificationPSTH}
     \end{figure}
+#+END_LaTeX
+
+#+BEGIN_LaTeX
     %
     \begin{figure}[t!]
-    %\centering
-    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+   %\centering
+    {  \figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    \vspace{0.3ex}%
     \resizebox{0.95\textwidth}{!}{\hfill%
     \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-3.pdf}\hfill%
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/response_area-3.pdf}\hfill}%   
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/response_area-3.pdf}\hfill}%   
        \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
          whole network (CF=5.8 kHz) to pure tones and noise.
       A. Rate response of all GLG units in the network to pure tone at centre of
@@ -1188,10 +1165,42 @@ monotonic response to tones and noise similar to other experimental units
      \end{figure}
 #+END_LaTeX
 
-
-\clearpage\newpage
  
 
+** Discussion of the Golgi Cell
+
+The \GLG cell model reproduces the monotonic rate-level response observed in
+experimental data of a single unit in the marginal shell of the VCN
+\citep{GhoshalKim:1997} to a high degree of accuracy.  Moderately-driven,
+monotonic behaviour was found in a majority of recorded units /in vivo/
+\citep{GhoshalKim:1997}. The lack of evidence surrounding the distribution of
+\ANFs, particularly \HSR fibres, in the region of the \GCD led to using a
+filter-based neural model for the \GLG cell.
+
+
+The evidence surrounding non-auditory inputs to the \GLG cell were not included
+as this was not relevant to a strong sensory-driven input and the role of the
+\CNSM model is to recreate acoustically-driven outputs.
+
+
+\yellownote{TODO: Discuss the Golgi cell optimisation. Is the filter-based
+  approach effective at meeting the goal of simulating data from
+  GhoshalKim:1997. The Golgi cell model reproduces the monotonic rate-level
+  response observed in experimental data of a single unit in the marginal shell
+  of the VCN \citep{GhoshalKim:1997}.}
+
+# GhosalKim97: Possible functions mediated by shell units Wide dynamic ranges
+# exhibited by AVCN shell units sug- gest that they may be better suited to the
+# encoding of intensity over a wide range than AVCN core units exhibiting
+# narrower dynamic ranges. The AVCN shell projects to the superior oli- vary
+# complex, including projections to MOC neurons (Kim et al. 1995). Considering
+# that MOC neurons would need accurate information about absolute stimulus
+# intensity to provide a proper negative feedback control signal to the cochlear
+# ampli- fier, the physiological and anatomic observations from the AVCN shell
+# support a hypothesis that the AVCN shell forms an important link in the
+# OHC-MOC reflex circuit.
+
+\clearpage\newpage
 * D Stellate Cell Model
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:DSCell
@@ -1801,6 +1810,47 @@ cells.
 
 
 \clearpage\newpage
+
+** Discussion of the DS Cell Model
+
+
+Discuss Section 
+[[*D%20Stellate%20Cell%20Model][D Stellate Cell Model]]
+
+\yellownote{TODO: Discuss the DS cell model optimisation.  What were the reasons
+for using cell-based parameters, and why is this necessary?  Why aren't the
+spread of ANF inputs to DS cells optimised based on your methods?  How does the
+optimisation routine replicate DS responses to other stimuli, when there are
+already plenty?}
+
+# ArnottWalacePalmer A wealth of circumstantial evidence suggests that onset
+# responding stellate cells in the ventral cochlear nucleus may give rise to the
+# wideband inhibition of DCN principal cells. These onset cells integrate in-
+# puts from auditory nerve fibres with a broad range of BFs (Jiang et al. 1996;
+# Palmer et al. 1996), acting as coincidence detectors with a relatively narrow
+# coin- cidence window (Palmer and Winter 1996); they re- spond better to
+# broadband signals than to pure tones; and they exhibit relatively wide dynamic
+# ranges Physiologically characterized, VCN onset cells have (Smith and Rhode
+# 1986; Winter and Palmer 1995).  been found to exhibit large multipolar
+# morphology (Smith and Rhode 1989), and VCN cells with this morphology have
+# been found to be glycinergic (Doucet et al. 1999) and are thought to provide
+# in- hibition of other neurones in the cochlear nucleus such as the T stellate
+# cells (Ferragamo et al. 1998).
+
+# ArnottWalacePalmer Either way, it seems likely the On-C cells are in- volved
+# in the first binaural interaction underlying absolute sound localization of
+# elevation and azimuth using spectral cues. They are apparently not involved in
+# the azimuthal discrimination between two sound sources as this has a different
+# mechanism (May 2000).
+
+# PaoliniClarke99 In conclusion, these neurons may not only be responsible for
+# detecting the onset of acoustic stimuli but may also be responsible for
+# processing frequency and intensity features contained within an acoustic
+# stimulus. The initial compo- nent is consistent with auditory nerve
+# excitation, whereas the drop to sustained levels seen after the initial
+# excitation may be a result of feedforward or shunting inhibition that
+# predominates above CF. The interplay between excitatory and inhibitory
+# influences may underlie the processing by these OC neurons.
 
 
 * Tuberculoventral Cell Model
@@ -2442,6 +2492,67 @@ with similar \CF (\TV unit 70, \CF = 12.76 kHz) to notch and band-pass noise.
 
 
 \clearpage\newpage
+
+** Discussion of the TV Cell Model
+
+
+Discuss Sections [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell Model]] 
+
+\yellownote{TODO: Discuss the TV cell optimisation. Is the goal of replicating
+wide-band inhibition offset necessary, or is rate ratio between TS/DS/TV the
+most important?  Mammalian studies show that the TV cells receive input from TS
+cells, but not in rats}
+
+# ArnottWalacePalmer The ‘‘V’’- shaped response area of the auditory nerve fibre
+# is transformed in the type II neurone by strong inhibi- tion that overlaps at
+# high sound levels to generate nonmonotonic responses as a function of sound
+# level.  This strong inhibition renders type II neurones in- sensitive to
+# broadband signals (Young and Brownell 1976; Young and Voigt 1982; Shofner and
+# Young 1985). Type II responses are associated with glycin- ergic ‘‘vertical
+# cells’’ located just beneath the fusi- form cell layer in DCN (Rhode 1999).
+# Type IV neurones have a response area that is even more restricted, often
+# consisting of only an island of excitation severely constrained by inhibitory
+# inputs.  Hence, type IV neurones are strongly nonmonotonic as a function of
+# tone sound level.  In addition to their type II innervation, which primarily
+# influences behavior near the BF, principal cells are also inhibited at
+# frequencies far from their BF (Nelken and Young 1994) and are thus subject to
+# wideband inhibition, which is antagonized by strych- nine (Davis and Young
+# 2000). This wideband inhibi- tion has been postulated to modulate the
+# responses of principal neurones both directly, through glycin- ergic
+# innervation of these cells, and indirectly, through glycinergic innervation of
+# type II DCN interneurones.
+
+# Spirou Abstract
+# Young. Spectral integration by type II interneurons in dorsal cochlear
+# nucleus. J. Neurophysiol. 82: 648 – 663, 1999. The type II unit is a
+# prominent inhibitory interneuron in the dorsal cochlear nucleus
+# (DCN), most likely recorded from vertical cells. Type II units are
+# characterized by low rates of spontaneous activity, weak responses to
+# broadband noise, and vigorous, narrowly tuned responses to tones.
+# The weak responses of type II units to broadband stimuli are unusual
+# for neurons in the lower auditory system and suggest that these units
+# receive strong inhibitory inputs, most likely from onset-C neurons of
+# the ventral cochlear nucleus. The question of the definition of type II
+# units is considered here; the characteristics listed in the preceding text
+# define a homogeneous type II group, but the boundary between this
+# group and other low spontaneous rate neurons in DCN (type I/III
+# units) is not yet clear. Type II units in decerebrate cats were studied
+# using a two-tone paradigm to map inhibitory responses to tones and
+# using noisebands of varying width to study the inhibitory processes
+# evoked by broadband stimuli. Iontophoresis of bicuculline and strych-
+# nine and comparisons of two-tone responses between type II units and
+# auditory nerve fibres were used to differentiate inhibitory processes
+# occurring near the cell from two-tone suppression in the cochlea. For
+# type II units, a significant inhibitory region is always seen with
+# two-tone stimuli; the bandwidth of this region corresponds roughly to
+# the previously reported excitatory bandwidth of onset-C neurons.
+# Bandwidth widening experiments with noisebands show a monotonic
+# decline in response as the bandwidth increases; these data are inter-
+# preted as revealing strong inhibitory inputs with properties more like
+# onset-C neurons than any other response type in the lower auditory
+# system. Consistent with these properties, iontophoresis of inhibitory
+# antagonists produces a large increase in discharge rate to broadband
+# noise, making tone and noise responses nearly equal.
 
 
 * T Stellate Cell Model: Three Chopper Subtypes
@@ -3133,6 +3244,18 @@ three \TS cell subtypes. Further details on each subtype are provided below.
 # # *** Effect of TV: comb filter and echo suppression}
 
 
+
+\yellownote{TODO two-three more paragraphs}
+The primary purpose of this optimisation study was to translate intricate intracellular and spiking statistics
+
+average intracellular membrane voltage and 
+spiking statistics
+the
+
+network parameters that regulate the major output of the \CN stellate
+microcircuit.
+
+
 * Discussion 
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:Discussion
@@ -3195,151 +3318,6 @@ C, RA, \ENa, \EK, \Eh, \Qten
 
 ** CNSM Cell Models
 
-*** Golgi Cell Model
-
-The \GLG cell model reproduces the monotonic rate-level response observed in
-experimental data of a single unit in the marginal shell of the VCN
-\citep{GhoshalKim:1997} to a high degree of accuracy.  Moderately-driven,
-monotonic behaviour was found in a majority of recorded units /in vivo/
-\citep{GhoshalKim:1997} The lack of evidence surrounding the distribution of
-\ANFs, particularly \HSR fibres, in the region of the \GCD led to using a
-filter-based neural model for the \GLG cell.
-# The weighted Gaussian function.
-
-The evidence surrounding non-auditory inputs to the \GLG cell were not included
-as this was not relevant to a strong sensory-driven input and the role of the
-\CNSM model is to recreate acoustically-driven outputs.
-
-# Section Golgi Cell Model
-
-\yellownote{TODO: Discuss the Golgi cell optimisation. Is the filter-based
-  approach effective at meeting the goal of simulating data from
-  GhoshalKim:1997. The Golgi cell model reproduces the monotonic rate-level
-  response observed in experimental data of a single unit in the marginal shell
-  of the VCN \citep{GhoshalKim:1997}.}
-
-# GhosalKim97: Possible functions mediated by shell units Wide dynamic ranges
-# exhibited by AVCN shell units sug- gest that they may be better suited to the
-# encoding of intensity over a wide range than AVCN core units exhibiting
-# narrower dynamic ranges. The AVCN shell projects to the superior oli- vary
-# complex, including projections to MOC neurons (Kim et al. 1995). Considering
-# that MOC neurons would need accurate information about absolute stimulus
-# intensity to provide a proper negative feedback control signal to the cochlear
-# ampli- fier, the physiological and anatomic observations from the AVCN shell
-# support a hypothesis that the AVCN shell forms an important link in the
-# OHC-MOC reflex circuit.
-
-*** D Stellate Cell Model
-
-Discuss Section 
-[[*D%20Stellate%20Cell%20Model][D Stellate Cell Model]]
-
-\yellownote{TODO: Discuss the DS cell model optimisation.  What were the reasons
-for using cell-based parameters, and why is this necessary?  Why aren't the
-spread of ANF inputs to DS cells optimised based on your methods?  How does the
-optimisation routine replicate DS responses to other stimuli, when there are
-already plenty?}
-
-# ArnottWalacePalmer A wealth of circumstantial evidence suggests that onset
-# responding stellate cells in the ventral cochlear nucleus may give rise to the
-# wideband inhibition of DCN principal cells. These onset cells integrate in-
-# puts from auditory nerve fibres with a broad range of BFs (Jiang et al. 1996;
-# Palmer et al. 1996), acting as coincidence detectors with a relatively narrow
-# coin- cidence window (Palmer and Winter 1996); they re- spond better to
-# broadband signals than to pure tones; and they exhibit relatively wide dynamic
-# ranges Physiologically characterized, VCN onset cells have (Smith and Rhode
-# 1986; Winter and Palmer 1995).  been found to exhibit large multipolar
-# morphology (Smith and Rhode 1989), and VCN cells with this morphology have
-# been found to be glycinergic (Doucet et al. 1999) and are thought to provide
-# in- hibition of other neurones in the cochlear nucleus such as the T stellate
-# cells (Ferragamo et al. 1998).
-
-# ArnottWalacePalmer Either way, it seems likely the On-C cells are in- volved
-# in the first binaural interaction underlying absolute sound localization of
-# elevation and azimuth using spectral cues. They are apparently not involved in
-# the azimuthal discrimination between two sound sources as this has a different
-# mechanism (May 2000).
-
-# PaoliniClarke99 In conclusion, these neurons may not only be responsible for
-# detecting the onset of acoustic stimuli but may also be responsible for
-# processing frequency and intensity features contained within an acoustic
-# stimulus. The initial compo- nent is consistent with auditory nerve
-# excitation, whereas the drop to sustained levels seen after the initial
-# excitation may be a result of feedforward or shunting inhibition that
-# predominates above CF. The interplay between excitatory and inhibitory
-# influences may underlie the processing by these OC neurons.
-
-*** Tuberculoventral Cell Model
-
-Discuss Sections [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell Model]] 
-
-\yellownote{TODO: Discuss the TV cell optimisation. Is the goal of replicating
-wide-band inhibition offset necessary, or is rate ratio between TS/DS/TV the
-most important?  Mammalian studies show that the TV cells receive input from TS
-cells, but not in rats}
-
-# ArnottWalacePalmer The ‘‘V’’- shaped response area of the auditory nerve fibre
-# is transformed in the type II neurone by strong inhibi- tion that overlaps at
-# high sound levels to generate nonmonotonic responses as a function of sound
-# level.  This strong inhibition renders type II neurones in- sensitive to
-# broadband signals (Young and Brownell 1976; Young and Voigt 1982; Shofner and
-# Young 1985). Type II responses are associated with glycin- ergic ‘‘vertical
-# cells’’ located just beneath the fusi- form cell layer in DCN (Rhode 1999).
-# Type IV neurones have a response area that is even more restricted, often
-# consisting of only an island of excitation severely constrained by inhibitory
-# inputs.  Hence, type IV neurones are strongly nonmonotonic as a function of
-# tone sound level.  In addition to their type II innervation, which primarily
-# influences behavior near the BF, principal cells are also inhibited at
-# frequencies far from their BF (Nelken and Young 1994) and are thus subject to
-# wideband inhibition, which is antagonized by strych- nine (Davis and Young
-# 2000). This wideband inhibi- tion has been postulated to modulate the
-# responses of principal neurones both directly, through glycin- ergic
-# innervation of these cells, and indirectly, through glycinergic innervation of
-# type II DCN interneurones.
-
-# Spirou Abstract
-# Young. Spectral integration by type II interneurons in dorsal cochlear
-# nucleus. J. Neurophysiol. 82: 648 – 663, 1999. The type II unit is a
-# prominent inhibitory interneuron in the dorsal cochlear nucleus
-# (DCN), most likely recorded from vertical cells. Type II units are
-# characterized by low rates of spontaneous activity, weak responses to
-# broadband noise, and vigorous, narrowly tuned responses to tones.
-# The weak responses of type II units to broadband stimuli are unusual
-# for neurons in the lower auditory system and suggest that these units
-# receive strong inhibitory inputs, most likely from onset-C neurons of
-# the ventral cochlear nucleus. The question of the definition of type II
-# units is considered here; the characteristics listed in the preceding text
-# define a homogeneous type II group, but the boundary between this
-# group and other low spontaneous rate neurons in DCN (type I/III
-# units) is not yet clear. Type II units in decerebrate cats were studied
-# using a two-tone paradigm to map inhibitory responses to tones and
-# using noisebands of varying width to study the inhibitory processes
-# evoked by broadband stimuli. Iontophoresis of bicuculline and strych-
-# nine and comparisons of two-tone responses between type II units and
-# auditory nerve fibres were used to differentiate inhibitory processes
-# occurring near the cell from two-tone suppression in the cochlea. For
-# type II units, a significant inhibitory region is always seen with
-# two-tone stimuli; the bandwidth of this region corresponds roughly to
-# the previously reported excitatory bandwidth of onset-C neurons.
-# Bandwidth widening experiments with noisebands show a monotonic
-# decline in response as the bandwidth increases; these data are inter-
-# preted as revealing strong inhibitory inputs with properties more like
-# onset-C neurons than any other response type in the lower auditory
-# system. Consistent with these properties, iontophoresis of inhibitory
-# antagonists produces a large increase in discharge rate to broadband
-# noise, making tone and noise responses nearly equal.
-
-*** Chopper Subtypes: T Stellate Cell Models
-
-\yellownote{TODO two-three more paragraphs}
-The primary purpose of this optimisation study was to translate intricate intracellular and spiking statistics
-
-average intracellular membrane voltage and 
-spiking statistics
-the
-
-network parameters that regulate the major output of the \CN stellate
-microcircuit.
 
 ** Limitations of the CNSM Model
 
