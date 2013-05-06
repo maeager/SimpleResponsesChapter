@@ -209,9 +209,7 @@ discussed in the next section. To further fit the parameters of the \CNSM model,
 a simple and sequential method was applied to each of the cell types using
 experimental data.
 
-\yellownote{Note: This paragraph has been converted to past tense based on
-assertion of facts about the physiology and processes, not necessarily about how
-the model was designed.}  
+# \yellownote{Note Final draft: This paragraph has been converted to past tense based on assertion of facts about the physiology and processes, not necessarily about how the model was designed.}  
 
 The order of the optimisation routines is important because of the
 inter-dependencies within the isofrequency microcircuit and across the whole
@@ -545,6 +543,7 @@ presented to the \CNSM model included:
    dia -n -t pgf-tex -e gfx/GolgiPointProcessDiagram.tex gfx/GolgiPointProcessDiagram.dia
    sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
 #+END_SRC
+
 
 * Golgi Cell Model 
   :PROPERTIES:
@@ -1192,6 +1191,7 @@ monotonic response to tones and noise similar to other experimental units
 
 \clearpage\newpage
  
+
 * D Stellate Cell Model
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:DSCell
@@ -1609,7 +1609,6 @@ weight that was obtained in the optimisation.
   }
 #+END_LaTeX
 
-
 ** Results of Rate Level Optimisation
    :PROPERTIES:
    :CUSTOM_ID:    sec:Ch3:DSRateLevel
@@ -1802,6 +1801,7 @@ cells.
 
 
 \clearpage\newpage
+
 
 * Tuberculoventral Cell Model
   :PROPERTIES:
@@ -2443,6 +2443,7 @@ with similar \CF (\TV unit 70, \CF = 12.76 kHz) to notch and band-pass noise.
 
 \clearpage\newpage
 
+
 * T Stellate Cell Model: Three Chopper Subtypes
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:TSCellModel
@@ -2839,7 +2840,6 @@ for all \SPL above threshold.
    grep -A33 'at spl '$SPLreTh'' ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f \\pm %.2f$\n",$4,$7)}'
 #+END_SRC
 
-
 *** Sustained Chopper
 
 \glsreset{ChS} 
@@ -3193,8 +3193,6 @@ C, RA, \ENa, \EK, \Eh, \Qten
 
 
 
-
-
 ** CNSM Cell Models
 
 *** Golgi Cell Model
@@ -3374,12 +3372,18 @@ of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
 ** Implications of Sequential Microcircuit Optimisation
 
+\yellownote{Overfitting parameters to exemplar units.  mapping parameters to whole network.}
+
+\yellownote{Fitting dependant on fixed HSR and LSR inputs.  thresholds to tone and noise fixed .  Within CF behaviour is fixed. }
+
+\yellownote{Animal species. assumptions and specifications.}
 
 \yellownote{TODO: Probability distribution of delay (within cell-to-cell
 connection) not included.}
 
 \yellownote{TODO: Probability of AP-to-synaptic release ratio not included
 (Liley assumption of 1\% vesicle release in cortical buttons.) }
+
 
 * Conclusion 
 
