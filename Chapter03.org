@@ -1,4 +1,4 @@
-#+TITLE: Chapter 3
+#+TITLE: Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential Parameter Fitting of Synaptic Variables Using Simple Acoustic Responses
 #+DATE:
 #+AUTHOR: Michael A Eager
 #+OPTIONS:   H:5 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t >:t 
@@ -23,49 +23,46 @@
 
 
 * Prelude 							   :noexport:
-  
 
 #+begin_src emacs-lisp :export none
-     (setq TeX-master t)
-       ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
-       ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
-       ;;                                  "pdflatex -interaction nonstopmode %f" )) 
-        (setq org-latex-to-pdf-process '("pdfquick Chapter03")) 
-       ;;(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
-       ;;                                 "makeglossaries %b" 
-       ;;                                 "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
-       (setq org-export-latex-title-command "") 
-       (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
+  (setq TeX-master t)
+  ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f" 
+  ;;                                  "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f" 
+  ;;                                  "pdflatex -interaction nonstopmode %f" )) 
+   (setq org-latex-to-pdf-process '("pdfquick Chapter03")) 
+  ;;(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
+  ;;                                 "makeglossaries %b" 
+  ;;                                 "make BUILD_STRATEGY=pdflatex Chapter03.pdf"))
+  (setq org-export-latex-title-command "") 
+  (setq org-entities-user '(("space" "\\ " nil " " " " " " " "))) 
   ;; my-latex-export
-       (add-to-list 'org-export-latex-classes 
-                    '("UoM-draftA-org-article"
-   "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
-     \\documentclass[11pt,a4paper,twoside,openright]{book}
-       \\usepackage{../org-manuscript/style/uomthesis} 
-       \\input{../org-manuscript/misc/user-defined}
-       \\usepackage[nonumberlist,acronym]{glossaries}
-       \\input{../org-manuscript/misc/glossary} 
-       \\makeglossaries
-       \\pretolerance=150 \\tolerance=100
-       \\setlength{\\emergencystretch}{3em} 
-       \\overfullrule=1mm 
-       %\\usepackage[notcite]{showkeys} 
-       \\lfoot{\\footnotesize\\today\\ at \\thistime} 
-       [NO-DEFAULT-PACKAGES]
-       [NO-PACKAGES]" 
-       ("\\newpage\n\\section{%s}" . "\n\\section{%s}")
-       ("\\subsection{%s}"         . "\n\\subsection{%s}") 
-       ("\\subsubsection{%s}"      . "\n\\subsubsection{%s}") 
-       ("\\paragraph{%s}"          . "\n\\paragraph{%s}"))) 
-       (setq org-export-latex-title-command
-             "{\n\\singlespacing\n\\tableofcontents\n}\n") 
-     (setq org-export-latex-hyperref-format "\\ref{%s}")
+  (add-to-list 'org-export-latex-classes 
+               '("UoM-draftA-org-article"
+  "\% -*- mode: latex; mode: visual-line; TeX-master: t; TeX-PDF-mode: t -*-
+  \\documentclass[11pt,a4paper,twoside,openright]{book}
+  \\usepackage{../org-manuscript/style/uomthesis} 
+  \\input{../org-manuscript/misc/user-defined}
+  \\usepackage[nonumberlist,acronym]{glossaries}
+  \\input{../org-manuscript/misc/glossary} 
+  \\makeglossaries
+  \\pretolerance=150 \\tolerance=100
+  \\setlength{\\emergencystretch}{3em} 
+  \\overfullrule=1mm 
+  %\\usepackage[notcite]{showkeys} 
+  \\lfoot{\\footnotesize\\today\\ at \\thistime} 
+  [NO-DEFAULT-PACKAGES]
+  [NO-PACKAGES]" 
+  ("\\newpage\n\\section{%s}" . "\n\\section{%s}")
+  ("\\subsection{%s}"             . "\n\\subsection{%s}") 
+  ("\\subsubsection{%s}"  . "\n\\subsubsection{%s}") 
+  ("\\paragraph{%s}"              . "\n\\paragraph{%s}"))) 
+  (setq org-export-latex-title-command
+        "{\n\\singlespacing\n\\tableofcontents\n}\n") 
+  (setq org-export-latex-hyperref-format "\\ref{%s}")
 #+end_src
 
 #+RESULTS:
 : \ref{%s}
-
-
 
 * Introduction  
 
@@ -522,25 +519,6 @@ presented to the \CNSM model included:
 3. Masked rate-level response with pure tones varied in level from 0 to 100 dB
    SPL and simultaneous withe noise at 50 dB SPL.
   
-
-\newpage
-
-* Figures							   :noexport:
-** fig:Compression
-
-#+BEGIN_SRC sh :export none
- # make gfx/CatAudiogram.pdf gfx/RatAudiogram.pdf
- gnuplot -p gfx/AudiogramCompression.gpi
-#+END_SRC
-
-** GolgiDiagram
-
-#+BEGIN_SRC sh :export none
-   echo 'Exporting GolgiPointProcessDiagram.dia to Tikz latex'
-   dia -n -t pgf-tex -e gfx/GolgiPointProcessDiagram.tex gfx/GolgiPointProcessDiagram.dia
-   sed -i -e 's/\\{/{/g' -e 's/\\_/_/g' -e 's/\\}/}/g' -e 's/\\ensuremath{\\backslash}/\\/g' -e 's/\\\^{}/^/g' -e 's/\\\$/$/g' ./gfx/GolgiPointProcessDiagram.tex
-#+END_SRC
-
 * Golgi Cell Model 
   :PROPERTIES:
   :CUSTOM_ID:	sec:Ch3:GolgiModel
@@ -1156,9 +1134,11 @@ monotonic response to tones and noise similar to other experimental units
     %   \includegraphics{ResponsesNoComp/G_ratelevel_combined}%
     % \includegraphics{}\hfill}\\
       {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-      {\hfill\resizebox{0.95\textwidth}{!}{%
-      \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-3.pdf}%
-      \includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
+      {\hfill%
+        \resizebox{0.25\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-3.pdf}}%
+        \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}%
+        \hfill%
+      }\\
     %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
       %\hfill\resizebox{0.95\textwidth}{!}{%
      % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/G_masked}\\
@@ -1184,8 +1164,43 @@ monotonic response to tones and noise similar to other experimental units
      \end{figure}
 #+END_LaTeX
 
+** Discussion and Limitations of the GLG cell model
 
-\clearpage\newpage
+The GLG cell model is an important cell type the \CNSM model 
+due to being the only GABAergic interneuron.
+
+
+The neural model and AN inputs  
+
+The decision to use a filter-based point-process neural model rather than a
+\HH-like neural model was based on the limited intracellular evidence for the latter in the
+literature \citep[see for example][]{FerragamoGoldingEtAl:1998}.
+# While we didn't use the \RM neural model in this chapter, 
+# Chapter \ref{sec:GAChapter} uses a classic type 1 \RM neural model to model the \GLG cells.
+Computational speed and efficiency was another contributing factor for using the
+filter model.  The GLG cell model's instantaneous rate responses to stimuli were
+saved, similarly to ANF responses, so that they could be reloaded at simulation
+time then spikes can easily be generated at initialisation.
+ 
+Synaptic inputs to GLG cells, other than HSR and LSR ANFs, were not included in the GLG cell model 
+due to limited histological and electro-physiological evidence.
+
+Monotonic rate level responses of the GLG cell model are accurate enough to
+proceed with the remainder of the CNSM model without including more detail to
+the cell model or adding new cell types and connections to the model.
+
+
+\yellownote{Limitations: 
+1. Point neuron model rather than HH model, 
+2. inhibitory inputs (other Golgi, glycinergic from DS)
+3. Mossy fibres (type 2 ANFs, granule cells) NMDA synapses, insufficient reuptake of glutamate in GCD
+4. Efferent feedback from higher centres and non-auditory inputs to the GCD.
+} 
+
+# Justification: its model and connections are good enough to proceed.  
+
+
+\clearpage
  
 * D Stellate Cell Model
 :PROPERTIES:
@@ -2025,7 +2040,6 @@ circuit \citep{ReissYoung:2005,LomakinDavis:2008}.
 
 ** Implementation
 
-
 The implementation of the \TV cell model used in the \CNSM model and its
 optimisation routines are described in Table \ref{tab:TVModelSummary}.  The \TV
 cell model was implemented with a single-compartment conductance neural model of
@@ -2044,10 +2058,6 @@ chapter, Section \ref{sec:Ch3:DSTV}.  The reversal potential of TV cells (\Erev)
 was also optimised to allow modulation of the level of the resting membrane
 potential from the default Type I \RM neural model.
 
-
-
-
-
 # \citet{ReissYoung:2005} performed their experiments on adult cats.
 # TODO: Give details about the TV model implementation
 
@@ -2057,7 +2067,7 @@ potential from the default Type I \RM neural model.
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8.pdf]]
 # TV_RateLevel/TV_RateLevel_Fig8.pdf
 
-\clearpage
+# \clearpage
 
 ** Results of Tone and Noise Rate Level Optimisation
 
@@ -2832,7 +2842,6 @@ for all \SPL above threshold.
 #+BEGIN_SRC sh :exports none
    grep -A33 'at spl '$SPLreTh'' ~/Work/cnstellate/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f \\pm %.2f$\n",$4,$7)}'
 #+END_SRC
-
 
 *** Sustained Chopper
 
