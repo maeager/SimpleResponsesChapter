@@ -894,7 +894,7 @@ The smoothing kernel was normalised by setting the area under the function
 to 1. For a large enough filter length, the alpha function integral
 #+BEGIN_LaTeX
     \begin{equation}
-  \int_0^\inf \alpha(t) dt = (-\Gtau^2 - t\,\Gtau) \exp\left(-\frac{t}{\Gtau}\right)
+  \int_0^\infty \alpha(t) dt = (-\Gtau^2 - t\,\Gtau) \exp\left(-\frac{t}{\Gtau}\right)
     \end{equation}
 #+END_LaTeX
 \noindent equals $\Gtau^2$ as /t/ approaches infinity.
@@ -1070,10 +1070,10 @@ relative to the target response shows a mean absolute difference of 21.5%.
 #+LABEL: fig:GolgiResult
 [[../SimpleResponsesChapter/gfx/golgi/GolgiRateLevel_result.pdf]]
 
-#+BEGIN_SRC octave :export none
-load gfx/golgi/GolgiRateLevel_Opt.dat
-sqrt(meansq(GolgiRateLevel_Opt(:,2) - GolgiRateLevel_Opt(:,3)))
-#+END_SRC
+# + BEGIN_SRC octave :export none
+# load gfx/golgi/GolgiRateLevel_Opt.dat
+# sqrt(meansq(GolgiRateLevel_Opt(:,2) - GolgiRateLevel_Opt(:,3)))
+# + END_SRC
 
 The parameters in Table \ref{tab:GolgiCellResults} were within the range of
 expected values.  \LSR inputs to the \GLG cell model outweighed \HSR inputs by a
@@ -1125,69 +1125,108 @@ at different \CFs and the convolution of the smoothing filter contributed to the
 reduction of the onset response to tones.
 
 
-Figure \ref{fig:GolgiVerificationWhole} shows the response of optimised \GLG
-cell models at each frequency channel in the \CNSM model to a 5.8 kHz tone and
-broadband noise over a wide range of sound levels. The \GLG cell model had a
-monotonic response to tones and noise similar to other experimental units
-\citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.
-
 
 # Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
 # units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
 
 #+BEGIN_LaTeX
-    \begin{figure}[t!]
-       %\centering
-      {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-      {\hfill\resizebox{0.33\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-3.pdf}%
-      \resizebox{0.66\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
-      \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF=5.8 kHz).
-     A. PSTH of the \GLG cell model at 50 and 90 dB SPL. B. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}. 
-    } \label{fig:GolgiVerificationPSTH}
-    \end{figure}
+  \begin{figure}[t!]
+     %\centering
+    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-3.pdf}}%
+    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
+    \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF=5.8 kHz).
+   A. Four simulated PSTHs of the \GLG cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).  
+  B. Four experimental PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}. 
+  } \label{fig:GolgiVerificationPSTH}
+  \end{figure}
 #+END_LaTeX
 
 #+BEGIN_LaTeX
-    %
-    \begin{figure}[t!]
-   %\centering
-    {  \figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    \vspace{0.3ex}%
-    \resizebox{0.95\textwidth}{!}{\hfill%
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-3.pdf}\hfill%
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/response_area-3.pdf}\hfill}%   
-       \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
-         whole network (CF=5.8 kHz) to pure tones and noise.
-      A. Rate response of all GLG units in the network to pure tone at centre of
-      network (5.8 kHz).
-      B. Rate response of all GLG units to broad-band noise.}
-    \label{fig:GolgiVerificationWhole}
-     \end{figure}
+ %
+ \begin{figure}[t!]
+ %   \centering
+ {    \figfont{A}\hspace{0.46\textwidth}\figfont{B}\hspace{0.46\textwidth}}\\
+ {\hfill%
+\hspace{2cm}\includegraphics[width=0.4\textwidth,keepaspectratio]{ResponsesNoComp/RateLevel/G_ratelevel.pdf}\hspace{1cm}%
+ \includegraphics[width=0.4\textwidth,keepaspectratio]{ResponsesNoComp/NoiseRateLevel/G_ratelevel.pdf}\hfill}\\   
+ {    \figfont{C}\hspace{0.46\textwidth}\figfont{D}\hspace{0.46\textwidth}}\\
+ %\vspace{-12pt}%    
+ \resizebox{0.95\textwidth}{!}{\hfill%
+ \includegraphics{ResponsesNoComp/RateLevel/response_area-3.pdf}\hfill%
+ \includegraphics{ResponsesNoComp/NoiseRateLevel/response_area-3.pdf}\hfill}%   
+ \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
+ whole network (CF=5.8 kHz) to pure tones and noise.
+ A. Rate level response of the central GLG unit to a pure CF tone (5.81 kHz, 50 ms, 20 repetitions). Sigmoidal function fit to data, $44.18 \mathrm{atan}((x-52.92)/22.75)+51.4$. 
+ B. Noise rate level response of the central GLG unit to broad-band noise (50 ms, 20 repetitions). The curve is monotonic, with a threshold at 60 dB}
+ C. Rate level responses of all GLG units to a pure tone (5.81 kHz, 50 ms, 20 repetitions).   
+\label{fig:GolgiVerificationWhole}
+ \end{figure}
+ % RL
+ % a               = 44.185           +/- 2.876        (6.51%)
+ % b               = 22.7539          +/- 2.674        (11.75%)
+ % c               = 52.9203          +/- 1.211        (2.289%)
+ % d               = 51.4084          +/- 1.509        (2.936%)
 #+END_LaTeX
 
- 
 
-** Discussion of the Golgi Cell
+Figure \ref{fig:GolgiVerificationWhole} shows the response of optimised \GLG
+cell models at each frequency channel in the \CNSM model to a 5.8 kHz tone and
+broadband noise over a wide range of sound levels. The \GLG cell model had a
+monotonic response to tones and noise similar to other experimental units
+\citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.  In Figure
+\ref{fig:GolgiVerificationWhole}A, the rate level response of the central \GLG
+unit was generated using the optimised parameters.  Using a sigmoidal function,
+the rate level curve had a theoretical spontaneous rate of 0 spikes/s (3.77
+spikes/s calculated from 0 to 15 dB SPL), a threshold at 19 dB SPL, and a
+dynamic range of 68 dB.  The theoretical maximal rate for the curve was 120.8
+spikes/s and the reaches half maximum rate at 53 dB SPL.  The noise rate-level
+curve for the central \GLG unit in Figure \ref{fig:GolgiVerificationWhole}B was
+monotonic.  The average gradient of the noise rate level curve between 70 and
+120 dB SPL was 2.02 spikes/s/dB.  Figure \ref{fig:GolgiVerificationWhole}C shows
+the response of all \GLG cell units in the \CNSM model to a 5.8 kHz tone.  At 10
+dB above the threshold (30 dB SPL) units with CFs from 4.98 kHz to 7.48 kHz were
+above threshold, which equates to a receptive field of 2.5 kHz or \Qten of 0.41.
+The GLG unit with CF 6.43 kHz had the highest rate at 30 dB SPL and was closest
+to the middle of activated units in the network.  The range of activated units
+was 4.6 kHz at 50 dB SPL (~30 dB thresh) and 10 kHz for 80 dB SPL.  Figure
+\ref{fig:GolgiVerificationWhole}D shows the noise rate level response of all GLG
+units. The non-uniform response to a linear broadband input reflects the species
+specific audiogram compression in the AN model.
+
+** Discussion of the Golgi Cell Model
 
 The \GLG cell model reproduces the monotonic rate-level response observed in
 experimental data of a single unit in the marginal shell of the VCN
 \citep{GhoshalKim:1997} to a high degree of accuracy.  Moderately-driven,
 monotonic behaviour was found in a majority of recorded units /in vivo/
-\citep{GhoshalKim:1997}. The lack of evidence surrounding the distribution of
-\ANFs, particularly \HSR fibres, in the region of the \GCD led to using a
-filter-based neural model for the \GLG cell.
+\citep{GhoshalKim:1997}. A simple classic type 1 current clamp neural model
+(Type 1c \RM model), similar to the /in vitro/ recordings by
+\citet{FerragamoGoldingEtAl:1998}, was the first choice for the GLG cell model.
+The lack of evidence surrounding the distribution of \ANFs, particularly \HSR
+fibres, in the region of the \GCD and the limited physiological data led to
+using a filter-based neural model for the \GLG cell. This model is
+computationally faster without minimising the physiological output of the model.
+
+The evidence surrounding non-auditory excitatory inputs to the \GLG cell were
+not included as this was not relevant to a strong sensory-driven input and the
+role of the \CNSM model is to recreate acoustically-driven outputs.  Inhibitory
+synapses are known contact Golgi cells is a number of mammalian species
+\citep{MugnainiOsenEtAl:1980,Cant:1993}.  Inhibitory inputs to the GLG cell
+model, such as other \GLG cells or \DS cells, were excluded due to limited
+experimental data and the additional problems this would add to the sequential
+optimisation process.  
+
+Given these limitations and the results of the optimisation, the GLG cell model using the novel
+filter-based neural model is sufficient to proceed with the optimisation of the
+\DS cell network parameters.
 
 
-The evidence surrounding non-auditory inputs to the \GLG cell were not included
-as this was not relevant to a strong sensory-driven input and the role of the
-\CNSM model is to recreate acoustically-driven outputs.
-
-
-\yellownote{TODO: Discuss the Golgi cell optimisation. Is the filter-based
-  approach effective at meeting the goal of simulating data from
-  GhoshalKim:1997. The Golgi cell model reproduces the monotonic rate-level
-  response observed in experimental data of a single unit in the marginal shell
-  of the VCN \citep{GhoshalKim:1997}.}
+# \yellownote{TODO: Discuss the Golgi cell optimisation. Is the filter-based
+#   approach effective at meeting the goal of simulating data from
+#   GhoshalKim:1997. The Golgi cell model reproduces the monotonic rate-level
+#   response observed in experimental data of a single unit in the marginal shell
+#   of the VCN \citep{GhoshalKim:1997}.}
 
 # GhosalKim97: Possible functions mediated by shell units Wide dynamic ranges
 # exhibited by AVCN shell units sug- gest that they may be better suited to the
@@ -3296,14 +3335,14 @@ C, RA, \ENa, \EK, \Eh, \Qten
 |           | *\sDSTV     \oDSTV  *                          |       | X   |
 |           | *\wDSTV      \nDSTV *                          |       | X   |
 |-----------+------------------------------------------------+-------+-----|
-| TS        | \gNa,\gKHT,\gKA,\gh, D_soma, L_dend            | X     |     |
+| TS        | \gNa,\gKHT,\gKA,\gh, D(soma), L(dend)          | X     |     |
 |           | *\Erev \gleak*                                 |       | X   |
 |           | \tAMPA                                         | X     |     |
 |           | \sANFTS \dANFTS     \dDSTS  \dTVTS             | X     |     |
 |           | *\wLSRTS     \wHSRTS     \nLSRTS    \nHSRTS *  |       | X   |
-|           | \sDSTS     \oDSTS                              | X     |     |
+|           | \sDSTS                                         | X     |     |
 |           | *\wDSTS      \nDSTS *                          |       | X   |
-|           | \sTVTS     \oTVTS                              | X     |     |
+|           | \sTVTS                                         | X     |     |
 |           | *\wTVTS      \nTVTS *                          |       | X   |
 |           | \dGLGDS \tGABAone \sGLGDS  \tGABAtwo           | X     |     |
 |           | *\wGLGDS     \nGLGDS *                         |       | X   |
