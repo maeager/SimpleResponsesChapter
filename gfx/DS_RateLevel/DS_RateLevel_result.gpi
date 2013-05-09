@@ -18,7 +18,7 @@ set terminal postscript eps size 7,5 enhanced defaultplex \
    palfuncparam 2000,0.003 \
    "Helvetica" 18 
 # set output 'gfx/DS_RateLevel_result.eps'
-#load '../../thesis/SimpleResponsesChapter/gfx/default.gpi'
+#load '..//SimpleResponsesChapter/gfx/default.gpi'
 set border 3 linewidth 1.5
 set ytics nomirror
 set xtics nomirror
@@ -36,12 +36,12 @@ set key inside left top vertical Left noreverse enhanced autotitles nobox
 # set ytics border in scale 1,0.5 nomirror norotate  offset character 0, 0, 0
 # set ytics autofreq  norangelimit
 set xlabel "Sound Level (dB SPL)" 
-set xlabel  offset character 0, 0, 0 font "Helvetica,18" textcolor lt -1 norotate
+set xlabel  offset character 0, 0, 0 font "Helvetica,24" textcolor lt -1 norotate
 set x2label  offset character 0, 0, 0 font "" textcolor lt -1 norotate
 set xrange [ * : * ] noreverse nowriteback  # (currently [0.00000:100.000] )
 set x2range [ * : * ] noreverse nowriteback  # (currently [0.00000:97.0000] )
 set ylabel "Discharge Rate (sp/s)" 
-set ylabel  offset character +1, 0, 0 font "Helvetica,18" textcolor lt -1 rotate by -270
+set ylabel  offset character +1, 0, 0 font "Helvetica,24" textcolor lt -1 rotate by -270
 #set locale "en_AU.UTF-8"
 
 set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 5 ps 2   # blue
@@ -95,14 +95,14 @@ set key inside left center vertical Left noreverse enhanced autotitles nobox
 set title "{/Sans-Bold=32 A}     Tone Rate Level      "  font "Helvetica,24"
 set key inside left top vertical Left noreverse enhanced autotitles nobox
 
- plot [10:100][0:250]  '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig12_CF10.9kHz.Tone.png.dat' using ($1+100):($2/0.05) title "Target Data" with linespoints ls 1 ps 1, \
-  '../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat' i 1 using 1:2 notitle with points ls 1, \
+ plot [10:100][0:250]  '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig12_CF10.9kHz.Tone.png.dat' using ($1+100):($2/0.05) notitle with linespoints ls 1 ps 1, \
+  '../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat' i 1 using 1:2 title "Target Data" with linespoints ls 1, \
  '' i 1 using 1:3 with linespoints title "Optimised DS Cell Model" ls 2
 
 set title "{/Sans-Bold=32 B}     Noise Rate Level    "  font "Helvetica,24"
  
- plot [30:100][0:250] '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig12_CF10.9kHz.Noise.png.dat'  using ($1+100):($2/0.05) notitle  with linespoints ls 1 ps 1, \
- '../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat' i 0 using 1:2 notitle  with points ls 1, \
+ plot [30:100][0:250] '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig12_CF10.9kHz.Noise.png.dat'  using ($1+100):($2/0.05) notitle  with points ls 1 ps 1, \
+ '../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat' i 0 using 1:2 notitle  with linespoints ls 1, \
   '' i 0 using 1:3 with linespoints notitle  ls 2
  
 
