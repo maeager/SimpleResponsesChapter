@@ -1532,7 +1532,7 @@ dendritic delay.
    :CUSTOM_ID:    sec:Ch3:DSClickRecovery
    :END:
 
-#+ATTR_LaTeX: width=0.7\textwidth
+#+ATTR_LaTeX: width=0.9\textwidth
 #+caption: [Click recovery stimulus and recording procedure]{Sample of the fitness function stimulus and recording procedure for the DS cell model click recovery optimisation. A. Two pairs of clicks (0.3 ms width) with delays of 16 ms and 2 ms. B. PSTH response of a default DS cell unit (high CF, Type 1-2 RM neural model, soma diameter 21 \um) with 2 ms boxes indicating the window of response for the mask and probe periods. Windows began 3 ms after the stimulus click to account for the FSL in DS units.}
 #+label: fig:ClickExample
 [[../SimpleResponsesChapter/gfx/DS_ClickRecovery/ClickRecoveryDiagram.pdf]]
@@ -1778,7 +1778,7 @@ much higher thresholds and wider dynamic ranges.
 
 \yellownote{fix this: state output error value and discuss, then discuss best parameters }
 
-\clearpage
+
 
 ** Verification of the DS Cell Model
 
@@ -1801,6 +1801,18 @@ increased the width of the activity across the CF of the central unit (Figure
 \ref{fig:DSverification}D), highlighting the broad inputs of \ANFs onto \DS
 cells.
 
+#+BEGIN_LaTeX
+  \begin{figure}[t!]
+     %\centering
+    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-2.pdf}}%
+    \resizebox{0.5\textwidth}{!}{\includegraphics{../LiteratureReview/gfx/NoFigure.pdf}}\hfill}\\
+    \caption[Optimised DS cell model responses to tones and noise]{Response of optimised DS cell model at the centre of the network (CF 5.8 kHz).
+   A. Four simulated PSTHs of the \DS cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).  
+  B. %Four experimental PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}. 
+  } \label{fig:GolgiVerificationPSTH}
+  \end{figure}
+#+END_LaTeX
 
 
 #+BEGIN_LaTeX
@@ -1853,7 +1865,7 @@ cells.
 
 
 
-\clearpage\newpage
+
 
 ** Discussion of the DS Cell Model
 
@@ -1896,7 +1908,7 @@ already plenty?}
 # predominates above CF. The interplay between excitatory and inhibitory
 # influences may underlie the processing by these OC neurons.
 
-
+\clearpage\newpage
 * Tuberculoventral Cell Model
   :PROPERTIES:
   :CUSTOM_ID: sec:Ch3:TVModel
@@ -2157,7 +2169,7 @@ potential from the default Type I \RM neural model.
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8.pdf]]
 # TV_RateLevel/TV_RateLevel_Fig8.pdf
 
-\clearpage
+
 
 ** Results of Tone and Noise Rate Level Optimisation
 
@@ -2169,7 +2181,8 @@ relative to \BF tones and no change in threshold when strychnine was applied.
 The optimised TV cell model was able to emulate this response in tones but not
 in noise (Figure \ref{fig:TVRateLevelResult}D).
 
-#+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) were optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}).  Glycinergic blocker strynchnine used in the target unit was emulated in the TV cell model by removing DS cell synaptic inputs. A. Tone RL of HSR, LSR, GLG and DS cell unit inputs at CF 5.8 kHz. B. Tone RL of  optimised TV cell model and target unit data with and without inhibition. C. Noise RL of HSR, LSR and GLG units at same CF. D. Noise RL of optimised DS cell model and target unit data with and without inhibition. }
+\yellownote{TV RL data has been updated using new DS parameters. Text also needs an update. }
+#+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) were optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}).  Glycinergic blocker strynchnine used in the target unit was emulated in the TV cell model by removing DS cell synaptic inputs.  A. Tone RL of  optimised TV cell model and target unit data with and without inhibition. B. Noise RL of optimised TV cell model and target unit data with and without inhibition. }
 #+LABEL: fig:TVRateLevelResult
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel_result.pdf]]
 
@@ -2197,13 +2210,13 @@ in noise (Figure \ref{fig:TVRateLevelResult}D).
         \centering
         \caption{Best-fit parameters of the TV cell model using the rate-level optimisation}
         \label{tab:TVRateLevelFig8B}
-        \begin{tabularx}{0.7\textwidth}{X X D{,}{.}{3.4}} 
+        \begin{tabularx}{0.7\textwidth}{X X c} 
     \toprule
     \textbf{Parameters (Units)}& \textbf{Ranges}&\multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
-              \wLSRTV  \hfill (nS)    &  [0.01,50]   & 4,765  \\ 
-              \wHSRTV  \hfill (nS)    &  [0.01,50]   & 0,983 \\ 
-              \wDSTV  \hfill (nS)      & [0.01,50]   & 1,152 \\ 
-                    \nDSTV  \hfill   & [1,500]          & 29 \\
+              \wLSRTV  \hfill (nS)    &  [0.01,50]   & 3.89  \\ 
+              \wHSRTV  \hfill (nS)    &  [0.01,50]   & 0.928 \\ 
+              \wDSTV  \hfill (nS)      & [0.01,50]   & 1,04 \\ 
+                    \nDSTV  \hfill   & [1,500]          & 34 \\
            \TV \Erev     \hfill (mV)     &  [-80,-50]& -68,25 \\ 
   %\midrule
   %            \multicolumn{2}{c}{Tone RL error  \hfill (spikes/s)}       & 36,75 \\
@@ -2287,26 +2300,35 @@ The optimised parameters of the \TV cell model in Table
    %   \hfill\resizebox{0.95\textwidth}{!}{%
    %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
    % \includegraphics{}\hfill}\\
-     {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+   %  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
      {\hfill\resizebox{0.95\textwidth}{!}{%
-     \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle5090-1.pdf}%
+     \includegraphics{../../cnstellate/ResponsesNoComp/psthblock-1.pdf}%
      %\includegraphics{gfx/GhoshalKim_PSTHs.png}%
    }\hfill}\\
-     {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+   %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
      %\hfill\resizebox{0.95\textwidth}{!}{%
     % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
     %\includegraphics{}\hfill}\\
-     \caption[Optimised TV cell model responses]{Response of optimised TV cell model at the centre of the network (CF 5.8 kHz).
-    A. Rate level responses to tone, noise and tone plus noise.
-    B. PSTH at 90 dB SPL\@.
-    C. Response area equivalent using all TV units in the network.
-    D. Masked noise-tone response of the central unit to 15 dB masking noise and
-    frequencies one octave above and below its CF.
+      \caption[Optimised TV cell model PSTH responses]{Response of optimised TV cell model at the centre of the network (CF 5.8\ kHz) to CF tones and noise.
+     %A. Rate level responses to tone, noise and tone plus noise.
+      PSTH responses to CF tones at 50 and 90\ dB SPL\@, and broad-band noise (BBN) at 60 and 100\ dB\ SPL\@.
+     %C. Response area equivalent using all TV units in the network.
+     %D. Masked noise-tone response of the central unit to 15\ dB masking noise and
+     %frequencies one octave above and below its CF.
+
+    %  \caption[Optimised TV cell model responses]{Response of optimised TV cell model at the centre of the network (CF 5.8 kHz).
+    % A. Rate level responses to tone, noise and tone plus noise.
+    % B. PSTH at 90 dB SPL\@.
+    % C. Response area equivalent using all TV units in the network.
+    % D. Masked noise-tone response of the central unit to 15 dB masking noise and
+    % frequencies one octave above and below its CF.
   % E. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996}. 
    } \label{fig:TVVerificationPSTH}
    \end{figure}
 #+END_LaTeX
 
+
+\yellownote{Verification RL plots have not been updated with new TV parameters}
 #+BEGIN_LaTeX
   \begin{figure}[t!]
   \centering
@@ -2353,7 +2375,7 @@ units to pure tones replicate the single channel excitatory inputs from \ANFs
 and wide-band inhibition from \DS units (Figure \ref{fig:TVverification}C and
 D).
 
-\clearpage
+
 
 ** Results of Notch Noise Optimisation 
   :PROPERTIES:
@@ -2535,7 +2557,7 @@ with similar \CF (\TV unit 70, \CF 12.76 kHz) to notch and band-pass noise.
 # \end{figure}
 
 
-\clearpage\newpage
+
 
 ** Discussion of the TV Cell Model
 
@@ -2598,6 +2620,7 @@ cells, but not in rats}
 # antagonists produces a large increase in discharge rate to broadband
 # noise, making tone and noise responses nearly equal.
 
+\clearpage\newpage
 
 * T Stellate Cell Model: Three Chopper Subtypes
 :PROPERTIES:
@@ -3056,7 +3079,7 @@ still included in the \CV calculation.
     reference unit and best parameter model was -45.1 and -64.22 mV, respectively.}
     \label{fig:CSresults}
   \end{figure} 
-  \clearpage
+  
 #+END_LaTeX 
 
 
@@ -3188,7 +3211,7 @@ optimised \ChTtwo unit was call_opt_error(type="CT2")[:results replace raw].
 
 
 #+BEGIN_LaTeX
-   \clearpage
+   
    \begin{figure}[t!]
     \centering %\resizebox{0.95\textwidth}{!}{}
   % \includegraphics{TStellate_CT2/multiplotIVCV}
@@ -3315,53 +3338,56 @@ The T stellate cells in the \CNSM model form one of the major ascending auditory
   significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 
 
-C, RA, \ENa, \EK, \Eh, \Qten
+# C, RA, \ENa, \EK, \Eh, \Qten
 
-| Cell type | Parameters                                     | Fixed | Opt |
-|-----------+------------------------------------------------+-------+-----|
-| GLG       | *\Gtau \Gspon*                                 |       | X   |
-|           | \sHSRGLG                                       | X     |     |
-|           | *\sLSRGLG \wLSRGLG \wHSRGLG*                   |       | X   |
-|-----------+------------------------------------------------+-------+-----|
-| DS        | \gNa,\gKHT,\gKLT,\gh, D                        | X     |     |
-|           | * \Erev \gleak *                               |       | X   |
-|           | \tAMPA                                         | X     |     |
-|           | \sANFDSh \sANFDSl \dANFDS                      | X     |     |
-|           | * \wLSRDS     \wHSRDS     \nLSRDS    \nHSRDS * |       | X   |
-|           | \dGLGDS \tGABAone \sGLGDS                      | X     |     |
-|           | * \wGLGDS     \nGLGDS     \tGABAtwo *          |       | X   |
-|-----------+------------------------------------------------+-------+-----|
-| TV        | \gNa,\gKHT,\gh, D                              | X     |     |
-|           | *\Erev \gleak*                                 |       | X   |
-|           | \tAMPA                                         | X     |     |
-|           | \sANFTV \dANFTV     \dDSTV                     | X     |     |
-|           | *\wLSRTV     \wHSRTV     \nLSRTV    \nHSRTV*   |       | X   |
-|           | *\sDSTV     \oDSTV  *                          |       | X   |
-|           | *\wDSTV      \nDSTV *                          |       | X   |
-|-----------+------------------------------------------------+-------+-----|
-| TS        | \gNa,\gKHT,\gKA,\gh, D(soma), L(dend)          | X     |     |
-|           | *\Erev \gleak*                                 |       | X   |
-|           | \tAMPA                                         | X     |     |
-|           | \sANFTS \dANFTS     \dDSTS  \dTVTS             | X     |     |
-|           | *\wLSRTS     \wHSRTS     \nLSRTS    \nHSRTS *  |       | X   |
-|           | \sDSTS                                         | X     |     |
-|           | *\wDSTS      \nDSTS *                          |       | X   |
-|           | \sTVTS                                         | X     |     |
-|           | *\wTVTS      \nTVTS *                          |       | X   |
-|           | \dGLGDS \tGABAone \sGLGDS  \tGABAtwo           | X     |     |
-|           | *\wGLGDS     \nGLGDS *                         |       | X   |
-
-
-|     | LSR   | HSR   | GLG   | DS  | TV  | TS  |
-| GLG | (s,w) | (w)   | (-)   | (-) | (-) | (-) |
-| DS  | (swn) | (swn) | (swn) |     |     |     |
-| TV  |       |       |       |     |     |     |
-| TS  |       |       |       |     |     |     |
+# | Cell type | Parameters                                     | Fixed | Opt |
+# |-----------+------------------------------------------------+-------+-----|
+# | GLG       | *\Gtau \Gspon*                                 |       | X   |
+# |           | \sHSRGLG                                       | X     |     |
+# |           | *\sLSRGLG \wLSRGLG \wHSRGLG*                   |       | X   |
+# |-----------+------------------------------------------------+-------+-----|
+# | DS        | \gNa,\gKHT,\gKLT,\gh, D                        | X     |     |
+# |           | * \Erev \gleak *                               |       | X   |
+# |           | \tAMPA                                         | X     |     |
+# |           | \sANFDSh \sANFDSl \dANFDS                      | X     |     |
+# |           | * \wLSRDS     \wHSRDS     \nLSRDS    \nHSRDS * |       | X   |
+# |           | \dGLGDS \tGABAone \sGLGDS                      | X     |     |
+# |           | * \wGLGDS     \nGLGDS     \tGABAtwo *          |       | X   |
+# |-----------+------------------------------------------------+-------+-----|
+# | TV        | \gNa,\gKHT,\gh, D                              | X     |     |
+# |           | *\Erev \gleak*                                 |       | X   |
+# |           | \tAMPA                                         | X     |     |
+# |           | \sANFTV \dANFTV     \dDSTV                     | X     |     |
+# |           | *\wLSRTV     \wHSRTV     \nLSRTV    \nHSRTV*   |       | X   |
+# |           | *\sDSTV     \oDSTV  *                          |       | X   |
+# |           | *\wDSTV      \nDSTV *                          |       | X   |
+# |-----------+------------------------------------------------+-------+-----|
+# | TS        | \gNa,\gKHT,\gKA,\gh, D(soma), L(dend)          | X     |     |
+# |           | *\Erev \gleak*                                 |       | X   |
+# |           | \tAMPA                                         | X     |     |
+# |           | \sANFTS \dANFTS     \dDSTS  \dTVTS             | X     |     |
+# |           | *\wLSRTS     \wHSRTS     \nLSRTS    \nHSRTS *  |       | X   |
+# |           | \sDSTS                                         | X     |     |
+# |           | *\wDSTS      \nDSTS *                          |       | X   |
+# |           | \sTVTS                                         | X     |     |
+# |           | *\wTVTS      \nTVTS *                          |       | X   |
+# |           | \dGLGDS \tGABAone \sGLGDS  \tGABAtwo           | X     |     |
+# |           | *\wGLGDS     \nGLGDS *                         |       | X   |
 
 
+#+CAPTION: Mockup for possible parameter table with fixed or optimised parameters
+#+NAME:   fig:Mockup
+|     | LSR        | HSR        | GLG          | DS           | TV         | TS  |
+|-----+------------+------------+--------------+--------------+------------+-----|
+| GLG | [d](s,w)   | [s,d](w)   | (-)          | (-)          | (-)        | (-) |
+| DS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n,$\tau$)  | (-)          | (-)        | (-) |
+| TV  | [s,d](w,n) | [s,d](w,n) | (-)          | [s,d](w,n,o) | (-)        | (-) |
+| TS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n)   | [s,d](w,n)   | [s,d](w,n) | (?) |
 
-** CNSM Cell Models
 
+
+** CNSM Cell Models and Connectivity
+\yellownote{General discussion about the CNSM model }
 
 ** Limitations of the CNSM Model
 

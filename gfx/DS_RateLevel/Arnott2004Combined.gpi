@@ -38,5 +38,5 @@ plot [0:100] '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig12_CF10.9
      
 unset multiplot
 
-!fixbb ../SimpleResponsesChapter//gfx/DS_RateLevel/Arnott2004Combined.eps
+!fixbb ../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004Combined.eps
 # !epstopdf ./gfx/DS_RateLevel/Arnott2004Combined.eps
