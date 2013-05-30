@@ -209,7 +209,9 @@ discussed in the next section. To further fit the parameters of the \CNSM model,
 a simple and sequential method was applied to each of the cell types using
 experimental data.
 
-# \yellownote{Note Final draft: This paragraph has been converted to past tense based on assertion of facts about the physiology and processes, not necessarily about how the model was designed.}  
+# Note Final draft: This paragraph has been converted to past tense based on
+# assertion of facts about the physiology and processes, not necessarily about
+# how the model was designed.
 
 The order of the optimisation routines is important because of the
 inter-dependencies within the isofrequency microcircuit and across the whole
@@ -1217,9 +1219,9 @@ model, such as other \GLG cells or \DS cells, were excluded due to limited
 experimental data and the additional problems this would add to the sequential
 optimisation process.  
 
-Given these limitations and the results of the optimisation, the GLG cell model using the novel
-filter-based neural model is sufficient to proceed with the optimisation of the
-\DS cell network parameters.
+Given these limitations and the results of the optimisation, the GLG cell model
+using the novel filter-based neural model is sufficient to proceed with the
+optimisation of the \DS cell network parameters.
 
 
 # \yellownote{TODO: Discuss the Golgi cell optimisation. Is the filter-based
@@ -1559,7 +1561,7 @@ conductance parameter was included in the optimised parameters to allow the \DS
 cell model's input resistance to fit fast-acting behaviour in the cell.
 
 Figure \ref{fig:BackoffPalombi} shows the click recovery response of unit
-G61.U6, an AVCN \OnC unit (CF 5.69, Th 30 dB SPL), and the effects of the \GABAa
+G61.U6, an AVCN \OnC unit (CF 5.69, threshold 30 dB SPL), and the effects of the \GABAa
 blocker bicuculine \citep{BackoffPalombiEtAl:1997}.  The normal probe click
 response of this unit only reached 100\% of the mask click response until 16 ms
 separation. With ionotopopheretic application of bicuculine, the \OnC unit had
@@ -1708,48 +1710,26 @@ was 89\%.
 #+BEGIN_LaTeX
    {%
    \small\noindent
-     % \begin{center}%table} 
-     % %    \begin{minipage}{0.48\linewidth} 
-     %     \begin{tabularx}{\textwidth}{|X|c|} \label{tab:DSRateLevel}
-     %   \hdr{2}{}{DS Cell Optimisation: Best Fit Parameters } \\ 
-     %   \textbf{Parameters}  & Final Value \\ \midrule
-     %   % \wGLGDS  \quad (uS)  & 0.0025316   \\
-     %   % \wHSRDS   \quad (uS) & 0.00086722  \\
-     %   % \wLSRDS  \quad (nS)  & 0.0137469   \\
-     %   %       \nLSRDS        & 52          \\
-     %   %       \nHSRDS        & 125         \\ \midrule
-     %   %  Tone Error (sp/s)   & 121.075 \\
-     %   %  Noise Error (sp/s)  & 63.01 \\
-     %   %  Total Error (sp/s)  & 184.085 \\ \bottomrule
-     % \wGLGDS  \quad (uS)  &  0.0101869   \\         
-     % \wHSRDS   \quad (uS) &  0.000167221 \\         
-     % \wLSRDS  \quad (nS)  &  0.00483773  \\         
-     %       \nLSRDS        &  56.6  (57)   \\             
-     %       \nHSRDS        &  157.8  (158)   \\
-     % \nGLGDS      &   8.9  (9)   \\ \midrule
-     %    Tone RL Error (sp/s)   &    25.62 \\   
-     %    Noise RL Error (sp/s)  &    36.27 \\ 
-     %    Total Error (sp/s)  &    61.89 \\ \bottomrule
-     %   \end{tabularx}% 
-     % %    \end{minipage}\hfill 
-     %     \end{center} }
    \vspace{2ex} 
-   \yellownote{Update DS Ratelevel result table!!}
    \begin{table}[t!]
      \centering\small
      \caption{Best-fit parameters for DS cell model using the rate-level optimisation}
      \label{tab:DSRateLevelResults}
          \begin{tabularx}{0.6\textwidth}{X X c} \toprule %    \hdr{2}{}{DS\ Cell Optimisation: Best Fit Parameters } \\ 
     \textbf{Parameters (Units)}   & \textbf{Range}& \multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
-    \wGLGDS \hfill (nS)  &   [0.01,50]   &  4.83   \\         
+    \wLSRDS \hfill (nS)  &   [0.01,50]   & 11.03  \\         
+    \nLSRDS \hfill     &    [1,500]    & 84    \\ \midrule            
+
+    \wGLGDS \hfill (nS)  &   [0.01,50]   &  0.531   \\         
+    \nGLGDS \hfill    &     [1,50]    & 5   \\ \midrule
+
     \wHSRDS \hfill (nS)  &   [0.01,50]   & 0.167 \\         
-    \wLSRDS \hfill (nS)  &   [0.01,50]   & 10.19  \\         
-    \nLSRDS \hfill     &    [1,500]    & 57    \\             
-    \nHSRDS \hfill     &    [1,500]    & 158    \\
-    \nGLGDS \hfill    &     [1,50]    & 9   \\ %\midrule
+    \nHSRDS \hfill     &    [1,500]    & 125    \\
+
   % \multicolumn{2}{c}{Tone RMS error \hfill (spikes/s)}  &       25,62      \\   
   % \multicolumn{2}{c}{Noise RMS error \hfill (spikes/s)} &       36,27      \\ 
-  %   \multicolumn{2}{c}{Total error \hfill (spikes/s)}   &       61,89      \\ \bottomrule
+  %   \multicolumn{2}{c}{Total error \hfill (spikes/s)}   &       61,89      \\ 
+   \bottomrule
    \end{tabularx}
    \end{table}
    \vspace{2ex} 
@@ -2174,14 +2154,14 @@ potential from the default Type I \RM neural model.
 ** Results of Tone and Noise Rate Level Optimisation
 
 Figure \ref{fig:TVRateLevelResult} shows the best fitted output behaviour of the
-optimised TV cell model (Table \ref{tab:TVRateLevelFig8B}) and its inputs to
-target data from the unit in Figure 8A in \citet{SpirouDavisEtAl:1999} (see
+optimised TV cell model (Table \ref{tab:TVRateLevelFig8B}) and the
+target data from the unit in Figure 8B in \citet{SpirouDavisEtAl:1999} (see
 Figure \ref{fig:SpirouFig8}). The target unit had an elevated threshold to noise
 relative to \BF tones and no change in threshold when strychnine was applied.
-The optimised TV cell model was able to emulate this response in tones but not
-in noise (Figure \ref{fig:TVRateLevelResult}D).
+The \TV cell model was able to emulate this response in tones but not optimal
+in noise (Figure \ref{fig:TVRateLevelResult}B).
 
-\yellownote{TV RL data has been updated using new DS parameters. Text also needs an update. }
+\yellownote{TV RL data has been updated using new DS parameters. Results are much better than before. Text also needs an update and expansion. }
 #+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) were optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}).  Glycinergic blocker strynchnine used in the target unit was emulated in the TV cell model by removing DS cell synaptic inputs.  A. Tone RL of  optimised TV cell model and target unit data with and without inhibition. B. Noise RL of optimised TV cell model and target unit data with and without inhibition. }
 #+LABEL: fig:TVRateLevelResult
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel_result.pdf]]
@@ -3313,14 +3293,14 @@ three \TS cell subtypes. Further details on each subtype are provided below.
 
 
 \yellownote{TODO two-three more paragraphs}
-The primary purpose of this optimisation study was to translate intricate intracellular and spiking statistics
+# The primary purpose of this optimisation study was to translate intricate intracellular and spiking statistics
 
-average intracellular membrane voltage and 
-spiking statistics
-the
+# average intracellular membrane voltage and 
+# spiking statistics
+# the
 
-network parameters that regulate the major output of the \CN stellate
-microcircuit.
+# network parameters that regulate the major output of the \CN stellate
+# microcircuit.
 
 
 * Discussion 
@@ -3377,12 +3357,12 @@ The T stellate cells in the \CNSM model form one of the major ascending auditory
 
 #+CAPTION: Mockup for possible parameter table with fixed or optimised parameters
 #+NAME:   fig:Mockup
-|     | LSR        | HSR        | GLG          | DS           | TV         | TS  |
-|-----+------------+------------+--------------+--------------+------------+-----|
-| GLG | [d](s,w)   | [s,d](w)   | (-)          | (-)          | (-)        | (-) |
-| DS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n,$\tau$)  | (-)          | (-)        | (-) |
-| TV  | [s,d](w,n) | [s,d](w,n) | (-)          | [s,d](w,n,o) | (-)        | (-) |
-| TS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n)   | [s,d](w,n)   | [s,d](w,n) | (?) |
+|     | LSR        | HSR        | GLG               | DS           | TV         | TS  |
+|-----+------------+------------+-------------------+--------------+------------+-----|
+| GLG | [d](s,w)   | [s,d](w)   | (-)               | (-)          | (-)        | (-) |
+| DS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n,$\tau$) | (-)          | (-)        | (-) |
+| TV  | [s,d](w,n) | [s,d](w,n) | (-)               | [s,d](w,n,o) | (-)        | (-) |
+| TS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n)        | [s,d](w,n)   | [s,d](w,n) | (?) |
 
 
 
@@ -3420,16 +3400,12 @@ of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
 ** Implications of Sequential Microcircuit Optimisation
 
-\yellownote{Overfitting parameters to exemplar units.  mapping parameters to whole network.}
-
-\yellownote{Fitting dependant on fixed HSR and LSR inputs.  thresholds to tone and noise fixed .  Within CF behaviour is fixed. }
-
-\yellownote{Animal species. assumptions and specifications.}
-
-\yellownote{TODO: Probability distribution of delay (within cell-to-cell
-connection) not included.}
-
-\yellownote{TODO: Probability of AP-to-synaptic release ratio not included
+\yellownote{Overfitting parameters to exemplar units.  mapping parameters to whole network.
+Fitting dependant on fixed HSR and LSR inputs.  Thresholds to tone and noise fixed .  Within CF behaviour is fixed. 
+Animal species. assumptions and specifications.
+TODO: Probability distribution of delay (within cell-to-cell
+connection) not included.
+TODO: Probability of AP-to-synaptic release ratio not included
 (Liley assumption of 1\% vesicle release in cortical buttons.) }
 
 
