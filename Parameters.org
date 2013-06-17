@@ -1,0 +1,36 @@
+
+
+| Membrane          |                 |                                      |                                                             |
+| Currents          |                 |                                      |                                                             |
+|                   | leak            | \bar{g},E_{rev}                      |                                                             |
+|                   | Na              | \bar{g}                              | E_{rev},\tau_\alpha,\tau_\beta                              |
+|                   | K_{HT}          | \bar{g}                              | ''                                                          |
+|                   | K_{LT}          | \bar{g}                              | ''                                                          |
+|                   | K_{A}           | \bar{g}                              | ''                                                          |
+|                   | Ih              | \bar{g}                              | E_{rev},\tau                                                |
+| Synapse Receptors |                 |                                      |                                                             |
+|                   | Excitatory      |                                      | \tau_{decay}                                                |
+|                   | Inhibitory      |                                      | \tau_{rise},\tau_{decay}                                    |
+| Cell Morphology   |                 |                                      |                                                             |
+|                   | Default Section | width,length,C_m, [add Currents]     |                                                             |
+|                   | Dendrites       | number,length,width,tapering         | possible active currents                                    |
+|                   | Axon Hillock    | length,width,tapering                |                                                             |
+|                   | Initial segment | [add Currents],length,width          |                                                             |
+| Synaptophysiology |                 |                                      |                                                             |
+| Location          |                 |                                      |                                                             |
+|                   | Point           |                                      |                                                             |
+|                   | Multisection    | on which section, distance from soma | distribution on section (single point, uniform along dend.) |
+| Connection        |                 |                                      |                                                             |
+|                   | Single          | *weight*, delay                      | threshold                                                   |
+|                   | Group           | *weight*,*number*,*spread*,*offset*  | distribution (gaussian), delay                              |
+|                   |                 |                                      |                                                             |
+
+
+
+|   |   |   |   |   |
+|---+---+---+---+---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+
+
