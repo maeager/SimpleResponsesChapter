@@ -1020,7 +1020,7 @@ fitness function to produce a square root of the mean squared difference between
 the model response and the target response.  The optimal parameters of the \GLG
 cell model had a fitness score of 4.48 spikes per second.  A normalised metric
 that takes into account the different firing rate magnitudes at each sound level
-relative to the target response shows a mean absolute difference of 21.5%.
+relative to the target response shows a mean absolute difference of 0.215.
 
 #+BEGIN_LaTeX
     % {
@@ -1694,12 +1694,30 @@ and \DS cell model using the best fit parameters in Table
 the rate level responses of inputs \HSR and \LSR \ANFs and \GLG cells, used
 during the optimisation.
 
-\yellownote{TODO: Update optimisation results!!! More discussion about parameters. Ratelevel results reaffirm click recovery optimisation}
-The \ANF weight parameters show a clear favouritism toward the \LSR input over
-\HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio of
-2:1.  The best parameters produced a combined RMS error of 61.89 spikes per
-second; for non-zero target data elements the mean error relative to the target
-was 89\%.
+\yellownote{TODO: Update optimisation results!!! More discussion about
+parameters. Ratelevel results reaffirm click recovery optimisation} The \ANF
+weight parameters show a clear favouritism toward the \LSR input over \HSR
+fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio of 2:1.  At
+50 repetitions per stimulus, the best parameters produced an \RMS error of 38.65
+spikes per second (individual \RMS error components: tone 44.14 sp/s, noise
+30.42 sp/s). For non-zero target data elements the mean error relative to the
+target was 0.546.
+
+#+name: DSRL_RMS
+#+BEGIN_SRC octave
+ pkg load nan
+ dat = load('../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat');
+ % Relative error 
+ RE= mean(abs((dat(1:end,2) - dat(1:end,3))./(dat(1:end,3))));
+ % root mean squared error
+ RMS1= sqrt(meansq((dat(1:12,2) - dat(1:12,3))));
+ RMS2= sqrt(meansq((dat(13:end,2) - dat(13:end,3))));
+
+ RMS= sqrt(meansq((dat(1:end,2) - dat(1:end,3))));
+ sprintf("%.1f%%     %.2f (%.2f + %.2f = %.2f)",RE*100,RMS, RMS1, RMS2, RMS1+RMS2)
+#+END_SRC
+
+
 
 # While this may not seem ideal for fast coincidence detection, the
 # large number of \HSR synapses makes up for the small weight that was
