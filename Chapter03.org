@@ -1105,8 +1105,8 @@ spread from \LSR fibres in the \CNSM model.
 Figure \ref{fig:GolgiKimFig2} shows the tone and noise rate level responses of
 six marginal shell units observed by \citet{GhoshalKim:1996a}.  The unit at the
 top of Figure \ref{fig:GolgiKimFig2}, S03-07 (CF 22.7 kHz), was chosen to
-optimise the \GLG cell model as it is monotonic, and has the median maximum rate
-of all the units shown.
+optimise the \GLG cell model as it is monotonic and has the median maximum rate
+of all the units shown (101 sp/s for tones and 96 sp/s for BBN).
 
 
 #+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
@@ -1788,7 +1788,7 @@ cells.
     \caption[Optimised DS cell model responses to tones and noise]{Response of optimised DS cell model at the centre of the network (CF 5.8 kHz).
    A. Four simulated PSTHs of the \DS cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).  
   B. %Four experimental PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}. 
-  } \label{fig:GolgiVerificationPSTH}
+  } \label{fig:DSVerificationPSTH}
   \end{figure}
 #+END_LaTeX
 
