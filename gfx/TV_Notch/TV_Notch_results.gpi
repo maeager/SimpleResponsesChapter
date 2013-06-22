@@ -4,7 +4,7 @@
 ## SIZE 3.5,2.125
 #
 # set terminal pdfcairo size 7,5.25 mono solid font "Helvetica,18" dashlength 1.0 linewidth 2.0 
-# set output 'TV_Notch_result.pdf'
+set output '../SimpleResponsesChapter/gfx/TV_Notch/TV_Notch_results.eps'
 # unset clip points
 # set clip one
 # unset clip two
@@ -131,8 +131,8 @@ set key noinvert samplen 4 spacing 1.25 width 0 height 0
 # set loadpath 
 # set fontpath 
 
-#    EOF
-
+# #    EOF
+load '../SimpleResponsesChapter/gfx/default.gpi'
 ymax=250
 xplace=8000
 
