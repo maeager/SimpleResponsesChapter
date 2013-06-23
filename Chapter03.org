@@ -198,7 +198,7 @@ The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following c
 #+ATTR_LATEX: width=0.9\linewidth
 #+CAPTION: [Cochlear nucleus stellate microcircuit model]{Cochlear nucleus stellate microcircuit (CNSM) model.}
 #+LABEL: fig:microcircuit
-[[../SimpleResponsesChapter/gfx/CNcircuit-detailed.png]]
+[[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
 
 Optimisation of a detailed \BNN model requires a realistic input model with
 which to mimic the behaviour observed in live neural networks.  For a detailed
@@ -256,9 +256,9 @@ This section describes the specific methods used in this chapter.
 ** Auditory Nerve Fibre Model 
 
 As discussed in Section \ref{sec:Methods:HSRLSR}, the \ANF inputs to the \CNSM
-model neurons were drawn from the Carney \AN model \citep{Carney:1993}, a phenomenological auditory
-periphery model.  This chapter uses
-more recent derivations of the Carney model: the Bruce model
+model neurons were drawn from the Carney \AN model \citep{Carney:1993}, a
+phenomenological auditory periphery model.  This chapter uses more recent
+derivations of the Carney model: the Bruce model
 \citep{BruceSachsEtAl:2003,ZilanyBruce:2006,ZilanyBruce:2007} and the Zilany
 model \citep{ZilanyBruceEtAl:2009}.
 # Three \ANF  the ARLO model \citep{HeinzZhangEtAl:2001}, the
@@ -311,12 +311,11 @@ created at the start of each repetition of the stimulus.
 
 ** Neural Models
 
-Single-compartment \HH-like neural models were used for the \DS, \TV
-and \TS cells in the \CNSM model.  The \RM neural model is a conductance-based
-neural model with membrane current models developed by
-\citet{RothmanManis:2003b}. The \CNSM model makes extensive use of the \RM
-neural model, which was discussed in detail in Section
-\ref{sec:Methods:CellModels}.
+Single-compartment \HH-like neural models were used for the \DS, \TV and \TS
+cells in the \CNSM model.  The \RM neural model is a conductance-based neural
+model with membrane current models developed by \citet{RothmanManis:2003b}. The
+\CNSM model makes extensive use of the \RM neural model, which was discussed in
+detail in Section \ref{sec:Methods:CellModels}.
 # in Chapter \ref{sec:MethodsChapter}.
 
 # Type I-c classic regular firing contains a voltage-activated
@@ -343,9 +342,9 @@ organisation of afferent \ANFs into distinct isofrequency channels.  The
 channels were separated using even spatial distance (based on the basilar
 membrane frequency sensitivity) with centre frequency calculated by the
 Greenwood function for the cat
-\citep[see~Chapter~\ref{sec:MethodsChapter},][]{Greenwood:1990}.  The \HSR\space \ANF
-terminals of individual fibres generally cover 70 \um and \LSR fibres cover 100
-\um in mice \citep{OertelWuEtAl:1988,OertelWu:1989}.
+\citep[see~Chapter~\ref{sec:MethodsChapter},][]{Greenwood:1990}.  The \HSR\space
+\ANF terminals of individual fibres generally cover 70 \um and \LSR fibres cover
+100 \um in mice \citep{OertelWuEtAl:1988,OertelWu:1989}.
 
 Figure \ref{fig:CNconn} shows the Gaussian distribution of connections between
 cell types in the \CN. The \CFs of the \CN channels were separated using the
@@ -388,16 +387,17 @@ group.
    :CUSTOM_ID: sec:Ch3:Jitter
    :END:
 
-Precise onset cues are a critical feature of the auditory pathway, especially for
-the localisation of sounds.  In modeling the \CN, onset precision is essential
-for enhancing periodic stimuli in \TS cells \citep{KeilsonRichardsEtAl:1997} and
-echo-suppression in \TV cells \citep{BurckHemmen:2007,WickesbergOertel:1990}.
-Stochastic behaviour at the \IHC-\AN synapse limits the onset encoding
-performance in the \AN.  Jitter of the \FSL is commonly measured by the standard
-deviation; jitter in \ANFs is 0.73 ms \citep{RhodeOertelEtAl:1983}.  Most units
-in the \VCN exhibit reduced onset jitter through sampling multiple \ANFs, but
-onset units like \DS cells have additional morphological and intrinsic
-specialisations for greater onset precision.
+Precise onset cues are a critical feature of the auditory pathway, especially
+for the localisation of sounds.  In modeling the \CN, onset precision is
+essential for enhancing periodic stimuli in \TS cells
+\citep{KeilsonRichardsEtAl:1997} and echo-suppression in \TV cells
+\citep{BurckHemmen:2007,WickesbergOertel:1990}.  Stochastic behaviour at the
+\IHC-\AN synapse limits the onset encoding performance in the \AN.  Jitter of
+the \FSL is commonly measured by the standard deviation; jitter in \ANFs is 0.73
+ms \citep{RhodeOertelEtAl:1983}.  Most units in the \VCN exhibit reduced onset
+jitter through sampling multiple \ANFs, but onset units like \DS cells have
+additional morphological and intrinsic specialisations for greater onset
+precision.
 
 # Units that encode the precise time of arrival
 # would be of utility for such a system in deter-
@@ -504,19 +504,19 @@ PRAXIS method returns the minimum of the fitness function of /n/ variables using
 the principal axis method without using the function's gradient.  The fitness
 function converts the parameters to a single measure by simulating the \CNSM
 model using the parameters, then comparing selected neural outputs to
-experimental data.  \Gls{RMS} error was used as the comparison measure
-of similar data points, e.g.\space mean firing rate at different sound levels in
-a rate-level simulation.  Mean error relative to the expected or target values
-was also used to ensure there is no bias between data points with large variation
-in differences.
+experimental data.  \Gls{RMS} error was used as the comparison measure of
+similar data points, e.g.\space mean firing rate at different sound levels in a
+rate-level simulation.  Mean error relative to the expected or target values was
+also used to ensure there is no bias between data points with large variation in
+differences.
 
 ** Verification of Cell Model Responses to Simple Tones and Noise
 
 To verify the optimisation processes, a suite of tests was run across the whole
 \CNSM model. The purpose of these simulations was to ensure the optimised
-parameters could be used across all frequency channels.  These simulations
-show the response of a \CNSM model neuron at the centre of the network to
-tones corresponding to its \CF, broad-band noise and a combination of tones and
+parameters could be used across all frequency channels.  These simulations show
+the response of a \CNSM model neuron at the centre of the network to tones
+corresponding to its \CF, broad-band noise and a combination of tones and
 noise. Responses of all model neurons across the network (one cell type for each
 frequency channel) were recorded during the verification procedure.  The stimuli
 presented to the \CNSM model included:
@@ -527,8 +527,7 @@ presented to the \CNSM model included:
 3. Masked rate-level response with pure tones varied in level from 0 to 100 dB
    SPL and simultaneous withe noise at 50 dB SPL.
   
-
-\newpage
+# \newpage
 
 * Figures							   :noexport:
 ** fig:Compression
@@ -1240,9 +1239,9 @@ single unit in the marginal shell of the \VCN \citep{GhoshalKim:1997}.
 # support a hypothesis that the AVCN shell forms an important link in the
 # OHC-MOC reflex circuit.
 
-\clearpage\newpage
+# \clearpage
+# \newpage
  
-
 * D Stellate Cell Model
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:DSCell
@@ -1924,7 +1923,8 @@ already plenty?}
 # predominates above CF. The interplay between excitatory and inhibitory
 # influences may underlie the processing by these OC neurons.
 
-\clearpage\newpage
+# \clearpage
+# \newpage
 * Tuberculoventral Cell Model
   :PROPERTIES:
   :CUSTOM_ID: sec:Ch3:TVModel
@@ -2203,10 +2203,14 @@ much better than before. Text also needs an update and expansion. }
 #+LABEL: fig:TVRateLevelResult
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel_result.pdf]]
 
-For the control tone rate-level output (blue lines in Figure \ref{fig:TVRateLevelResult}A) the RMS of the reference and optimised TV cell model reponse was 16.36 sp/s. 
-The RMS error for the TV cell model without DS cell input was 47.65 sp/s, which had a similar threshold to the reference data but was affected by the greater saturation rate.
-The results for the noise rate level responses was an RMS error of 51.84 and  67.28 sp/s, control and no \DS cell input respectively.
-
+The blue lines in Figure \ref{fig:TVRateLevelResult}A) show a good fit for the
+control tone rate-level output. The RMS of the reference and optimised TV cell
+model reponse was 16.36 sp/s. The RMS error for the TV cell model without DS
+cell input was 47.65 sp/s, which had a similar threshold to the reference data
+but was affected by the greater saturation rate.  The results for the noise rate
+level responses were a poorer fit to the experimental reference data due to the
+stronger \DS cell activation. The RMS error for control and no \DS cell input
+results for noise was 51.84 and 67.28 sp/s, respectively. 
 # #  50 dB Run
 # # + BEGIN_LaTeX
 #   {\small
@@ -2248,7 +2252,11 @@ The results for the noise rate level responses was an RMS error of 51.84 and  67
 \yellownote{discuss the TV results table}
 
 The optimised parameters of the \TV cell model in Table
-\ref{tab:TVRateLevelFig8B} are indicative of a strongly-inhibited neuron.
+\ref{tab:TVRateLevelFig8B} are indicative of a strongly-inhibited neuron.  The
+excitation from \ANF inputs was moderate, with stronger weighting toward \LSR
+fibres (\wLSRTV \wHSRTS = call_TVopt_param(param="w.x[lsr][tv]",factor="1000")
+nS, \wHSRTV \wHSRTS = call_TVopt_param(param="w.x[hsr][tv]",factor="1000") nS).
+
 
 
 **** RL RMS code :noexport:
@@ -2260,10 +2268,12 @@ The optimised parameters of the \TV cell model in Table
  % Relative error 
  RE= mean(abs((dat(1:end,2) - dat(1:end,3))./(dat(1:end,3))));
  % root mean squared error
- RMS_tone_control= sqrt(meansq((dat(1:10,2).*3 - dat(1:10,4))));
- RMS_tone_nods= sqrt(meansq((dat(11:end,2) - dat(11:end,4))));
- RMS_noise_control= sqrt(meansq((dat(1:10,3)./1.5 - dat(1:10,5))));
- RMS_noise_nods= sqrt(meansq((dat(11:end,3)*1.3 - dat(11:end,5)))); 
+ RMS_tone_control= sqrt(meansq((dat(16:end,2) - dat(16:end,4))));
+ RMS_tone_nods= sqrt(meansq((dat(16:end,3) - dat(16:end,5))));
+
+ RMS_noise_control= sqrt(meansq((dat(1:15,3) - dat(1:15,5))));
+ RMS_noise_nods= sqrt(meansq((dat(1:15,3) - dat(1:15,5)))); 
+
  sprintf("%.1f%%     %.2f (%.2f + %.2f +%.2f + %.2f)",RE*100,RMS_tone_control+ RMS_tone_nods+RMS_noise_control+RMS_noise_nods, RMS_tone_control, RMS_tone_nods, RMS_noise_control,RMS_noise_nods)
 #+END_SRC
 
@@ -2595,13 +2605,22 @@ with similar \CF (\TV unit 70, \CF 12.76 kHz) to notch and band-pass noise.
 
 ** Discussion of the TV Cell Model
 
+The reduced excitation of TV cell to noise (Figure \ref{fig:TVRateLevelResult}B)
+whilst still being activated by \CF tones (Figure \ref{fig:TVRateLevelResult}A)
+is characteristic of Type II\space \EIRA units in the deep \DCN.  The noise rate
+level output of the optimised \TV cell model was a closer fit to the
+experimental unit's response in Figure \ref{fig:SpirouFig8}A rather than the
+response used for the optimisation in Figure \ref{fig:SpirouFig8}B.  The strong
+level of wide band inhibition from \DS cells in the \VCN limits the role \TV
+cells in the \CNSM. \TV cells provide delayed, narrow-band inhibition to \TS cells
+
 
 Discuss Sections [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell Model]] 
 
 \yellownote{TODO: Discuss the TV cell optimisation. Is the goal of replicating
 wide-band inhibition offset necessary, or is rate ratio between TS/DS/TV the
-most important?  Mammalian studies show that the TV cells receive input from TS
-cells, but not in rats}
+most important?  Mammalian studies show that the TV cells receive excitatory input from TS
+cells, but not in rats.}
 
 # ArnottWalacePalmer The ‘‘V’’- shaped response area of the auditory nerve fibre
 # is transformed in the type II neurone by strong inhibi- tion that overlaps at
@@ -2654,7 +2673,7 @@ cells, but not in rats}
 # antagonists produces a large increase in discharge rate to broadband
 # noise, making tone and noise responses nearly equal.
 
-\clearpage\newpage
+# \clearpage\newpage
 
 * T Stellate Cell Model: Three Chopper Subtypes
 :PROPERTIES:
