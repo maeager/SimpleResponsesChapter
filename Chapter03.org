@@ -527,7 +527,7 @@ presented to the \CNSM model included:
 3. Masked rate-level response with pure tones varied in level from 0 to 100 dB
    SPL and simultaneous withe noise at 50 dB SPL.
   
-# \newpage
+
 
 * Figures							   :noexport:
 ** fig:Compression
@@ -1240,7 +1240,7 @@ single unit in the marginal shell of the \VCN \citep{GhoshalKim:1997}.
 # OHC-MOC reflex circuit.
 
 # \clearpage
-# \newpage
+
  
 * D Stellate Cell Model
 :PROPERTIES:
@@ -1705,47 +1705,36 @@ fit the \DS cell model.
 
 Table \ref{tab:DScellModelSummary}F describes the DS cell model rate-level
 optimisation routine. Weight and number parameters for the three input
-connections to \DS cells were modified in the procedure.  Figure
-\ref{fig:DSRateLevelResult} shows the output rate level responses of the input
-and \DS cell model using the best fit parameters in Table
-\ref{tab:DSRateLevelResults}.  Figures \ref{fig:DSRateLevelResult}A and C show
-the rate level responses of inputs \HSR and \LSR \ANFs and \GLG cells, used
-during the optimisation.
+connections to \DS cells were optimised in the procedure.  The \ANF weight
+parameters show a clear favouritism toward the \LSR input over \HSR fibres, but
+the \HSR synapses outnumber the \LSR synapses by a ratio of 2:1.  A small number
+of \GLG cell synapses (5), each with a strong GABAergic weight (0.5315 nS), are
+the only inhibitory input to the \DS cell model in the \CNSM model.
 
-\yellownote{TODO: Update optimisation results! More discussion about parameters. Ratelevel results reaffirm click recovery optimisation} 
-
-
-The \ANF weight parameters show a clear favouritism toward the \LSR input over
-\HSR fibres, but the \HSR synapses outnumber the \LSR synapses by a ratio of
-2:1.  At 50 repetitions per stimulus, the best parameters produced an \RMS error
-of 38.65 spikes per second (individual \RMS error components: tone 44.14 sp/s,
-noise 30.42 sp/s). For non-zero target data elements the mean error relative to
-the target was 0.546.
-
+# \wGLGDS 0.531549
+# \wHSRDS 0.167221
+# \wLSRDS 8.82545 
 
 # While this may not seem ideal for fast coincidence detection, the
 # large number of \HSR synapses makes up for the small weight that was
 # obtained in the optimisation.
 
 #+BEGIN_LaTeX
-   {%
-   \small\noindent
-   \vspace{2ex} 
-   \begin{table}[t!]
-     \centering\small
-     \caption{Best-fit parameters for DS cell model using the rate-level optimisation}
-     \label{tab:DSRateLevelResults}
-         \begin{tabularx}{0.6\textwidth}{X X c} \toprule %    \hdr{2}{}{DS\ Cell Optimisation: Best Fit Parameters } \\ 
-    \textbf{Parameters (Units)}   & \textbf{Range}& \multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
-    \wLSRDS \hfill (nS)  &   [0.01,50]   & 11.03  \\         
-    \nLSRDS \hfill     &    [1,500]    & 84    \\ \midrule            
-
+   {% 
+   \small\noindent \vspace{2ex} 
+   \begin{table}[t!]  \centering\small
+   \caption{Best-fit parameters for DS cell model using the rate-level optimisation}
+   \label{tab:DSRateLevelResults} 
+   \begin{tabularx}{0.6\textwidth}{X X c}
+   \toprule % \hdr{2}{}{DS\ Cell Optimisation: Best Fit Parameters }
+    \textbf{Parameters (Units)} & \textbf{Range}& \multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule 
+  \wLSRDS \hfill (nS) & [0.01,50] & 8.25 \\ 
+  \nLSRDS \hfill & [1,500] & 84 \\ \midrule
     \wGLGDS \hfill (nS)  &   [0.01,50]   &  0.531   \\         
     \nGLGDS \hfill    &     [1,50]    & 5   \\ \midrule
-
     \wHSRDS \hfill (nS)  &   [0.01,50]   & 0.167 \\         
     \nHSRDS \hfill     &    [1,500]    & 125    \\
-
+  
   % \multicolumn{2}{c}{Tone RMS error \hfill (spikes/s)}  &       25,62      \\   
   % \multicolumn{2}{c}{Noise RMS error \hfill (spikes/s)} &       36,27      \\ 
   %   \multicolumn{2}{c}{Total error \hfill (spikes/s)}   &       61,89      \\ 
@@ -1767,40 +1756,63 @@ the target was 0.546.
 
 
 The output of the \DS cell model in the optimisation was strongly determined by
-its input responses, as shown in Figure \ref{fig:DSRateLevelResult} A and C.
+its input responses, as shown in Figure \ref{fig:DSRateLevelResult}A and B.
 \HSR fibres (all with \SR=50 spikes/s ) have low threshold to sounds and
 saturate at moderate sound levels, as shown by the stable rate level responses
-to tones and noise (orange circles in Figure \ref{fig:DSRateLevelResult}). These
-flat responses at a high rate (approximately 250 spikes/s) were not able to
-manipulate the DS cell model in the optimisation other than to set a threshold
-for tone and noise sounds.  \LSR fibres (SR=0.1 spikes/s) and \GLG units have
-much higher thresholds and wider dynamic ranges.
+to tones and noise (orange circles in Figure \ref{fig:DSRateLevelResult}).
+These flat responses at a high rate (approximately 250 spikes/s) were not able
+to manipulate the DS cell model in the optimisation other than to set an
+excitation threshold for tone and noise sounds.  \LSR fibres (SR=0.1 spikes/s)
+and \GLG units have much higher thresholds and wider dynamic ranges, which are
+contributors to the output response of the \DS cell model.
 
-\yellownote{TODO: state output error value and discuss, then discuss best parameters }
+Figure \ref{fig:DSRateLevelResult}C shows the output \CF tone rate level
+responses of the optimised \DS cell model (using the best fit parameters in
+Table \ref{tab:DSRateLevelResults}) and the reference target's rate level
+response.  Figures \ref{fig:DSRateLevelResult}B shows the noise rate level
+responses of the optimised and reference units.  At 50 repetitions per stimulus,
+the best parameters produced an \RMS error of 38.65 spikes per second
+(individual \RMS error components: tone 44.14 sp/s, noise 30.42 sp/s). The
+optimisation routine used the mean absolute error (between the reference and
+model response) divided by the reference \DS cell's response.  The combined
+relative mean absolute error of the tone and noise rate level response of the
+optimised \DS cell model in Figure \ref was 54.6\% (tone 57.49%, noise 52.09%).
 
 
-**** RL RMS code :noexport:
+**** RL RMS code 						   :noexport:
 
 #+name: DSRL_RMS
 #+BEGIN_SRC octave  :export none
  pkg load nan
  dat = load('../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat');
  % Relative error 
- RE= mean(abs((dat(1:end,2) - dat(1:end,3))./(dat(1:end,3))));
+ RE_tone= mean(abs((dat(1:12,2) - dat(1:12,3))./(dat(1:12,3))));
+ RE_noise= mean(abs((dat(13:end,2) - dat(13:end,3))./(dat(13:end,3))));
+
  % root mean squared error
  RMS1= sqrt(meansq((dat(1:12,2) - dat(1:12,3))));
  RMS2= sqrt(meansq((dat(13:end,2) - dat(13:end,3))));
 
  RMS= sqrt(meansq((dat(1:end,2) - dat(1:end,3))));
- sprintf("%.1f%%     %.2f (%.2f + %.2f = %.2f)",RE*100,RMS, RMS1, RMS2, RMS1+RMS2)
+ sprintf("RE tone %.2f%%  noise %.2f%%   RMS tone %.2f noise %.2f total %.2f",RE_tone*100, RE_noise*100,RMS, RMS1, RMS2, RMS1+RMS2)
 #+END_SRC
 
 #+RESULTS: DSRL_RMS
-: 54.6%     38.65 (30.42 + 44.14 = 74.56)
+: RE tone 57.49%  noise 52.09%   RMS tone 38.65 noise 30.42 total 44.14)RE tone 74.56%  noise
+
+
+#+BEGIN_SRC sh
+  grep -e '[Ee]rror' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat 
+  # | awk -F'=' '{print $2}'
+#+END_SRC
+
+#+RESULTS:
+| # | RL    | Error | = | 55.6281 |
+| # | NRL   | Error | = | 40.7872 |
+| # | Final | error | = | 96.4153 |
 
 
 ** Verification of the DS Cell Model
-
 
 
 The optimised parameters for inputs to the \DS cell model were applied to \DS
@@ -1888,6 +1900,9 @@ cells.
 
 ** Discussion of the DS Cell Model
 
+The \DS cell model of the \CNSM model has been optimised to have the
+characteristics of a typical \OnC unit of the \VCN.  
+
 \yellownote{TODO: Discuss the DS cell model optimisation.  What were the reasons
 for using cell-based parameters, and why is this necessary?  Why aren't the
 spread of ANF inputs to DS cells optimised based on your methods?  How does the
@@ -1924,7 +1939,7 @@ already plenty?}
 # influences may underlie the processing by these OC neurons.
 
 # \clearpage
-# \newpage
+
 * Tuberculoventral Cell Model
   :PROPERTIES:
   :CUSTOM_ID: sec:Ch3:TVModel
@@ -2196,8 +2211,6 @@ relative to \BF tones and no change in threshold when strychnine was applied.
 The \TV cell model was able to emulate this response in tones but not optimal in
 noise (Figure \ref{fig:TVRateLevelResult}B).
 
-\yellownote{TV RL data has been updated using new DS parameters. Results are
-much better than before. Text also needs an update and expansion. }
 
 #+CAPTION: [Rate level optimisation results in the TV cell model  with and without inhibition]{Tone and noise rate level responses in the TV cell model (CF 5.8 kHz, channel 49, red circles) were optimised to experimental data, a Type II DCN unit (CF unknown, in figure 8B of \citet{SpirouDavisEtAl:1999}).  Glycinergic blocker strynchnine used in the target unit was emulated in the TV cell model by removing DS cell synaptic inputs.  A. Tone RL of  optimised TV cell model and target unit data with and without inhibition. B. Noise RL of optimised TV cell model and target unit data with and without inhibition. }
 #+LABEL: fig:TVRateLevelResult
@@ -2249,15 +2262,20 @@ results for noise was 51.84 and 67.28 sp/s, respectively.
   }
 #+END_LaTeX
 
-\yellownote{discuss the TV results table}
 
 The optimised parameters of the \TV cell model in Table
 \ref{tab:TVRateLevelFig8B} are indicative of a strongly-inhibited neuron.  The
 excitation from \ANF inputs was moderate, with stronger weighting toward \LSR
-fibres (\wLSRTV \wHSRTS = call_TVopt_param(param="w.x[lsr][tv]",factor="1000")
-nS, \wHSRTV \wHSRTS = call_TVopt_param(param="w.x[hsr][tv]",factor="1000") nS).
-
-
+fibres (\wLSRTV = call_TVopt_param(param="w.x[lsr][tv]",factor="1000") nS,
+\wHSRTV = call_TVopt_param(param="w.x[hsr][tv]",factor="1000") nS).  Each of the
+input cell types to the \TV cell model had 30 synaptic inputs. All \ANF inputs
+were on \CF and chosen from different \HSR and \LSR fibres in the same frequency
+channel.  The \DS cell inputs were selected from frequency channels on and
+around the \CF of the \TV cell (Gaussian distribution, spread parameter
+\sDSTV=30).  The inhibitory weight from \DS cells was 50 times greater than the
+\ANF weights ( \wDSTV = call_TVopt_param(param="w.x[ds][tv]",factor="1000") nS),
+however, due to the response properties of DS cells the inhibition is most
+effective in noise and at the onset of sounds.
 
 **** RL RMS code :noexport:
 
@@ -2376,7 +2394,6 @@ nS, \wHSRTV \wHSRTS = call_TVopt_param(param="w.x[hsr][tv]",factor="1000") nS).
 #+END_LaTeX
 
 
-\yellownote{Verification RL plots have not been updated with new TV parameters}
 #+BEGIN_LaTeX
   \begin{figure}[t!]
   \centering
@@ -2605,22 +2622,25 @@ with similar \CF (\TV unit 70, \CF 12.76 kHz) to notch and band-pass noise.
 
 ** Discussion of the TV Cell Model
 
-The reduced excitation of TV cell to noise (Figure \ref{fig:TVRateLevelResult}B)
-whilst still being activated by \CF tones (Figure \ref{fig:TVRateLevelResult}A)
-is characteristic of Type II\space \EIRA units in the deep \DCN.  The noise rate
-level output of the optimised \TV cell model was a closer fit to the
-experimental unit's response in Figure \ref{fig:SpirouFig8}A rather than the
-response used for the optimisation in Figure \ref{fig:SpirouFig8}B.  The strong
-level of wide band inhibition from \DS cells in the \VCN limits the role \TV
-cells in the \CNSM. \TV cells provide delayed, narrow-band inhibition to \TS cells
+\TV cells' role in the \CNSM model is to provide delayed, narrow-band inhibition
+to \TS cells.  The limited activation to noise (Figure
+\ref{fig:TVRateLevelResult}B) but strongly activated by \CF tones (Figure
+\ref{fig:TVRateLevelResult}A) is characteristic of Type II\space \EIRA units in
+the deep \DCN \cite{SpirouDavisEtAl:1999}.  The noise rate level output of the
+optimised \TV cell model was a closer fit to the experimental unit's response in
+Figure \ref{fig:SpirouFig8}A rather than the response used for the optimisation
+in Figure \ref{fig:SpirouFig8}B.  The strong level of wide band inhibition from
+\DS cells in the \VCN limits the role \TV cells to stimuli with a broad
+spectrum, but are functional for stimuli with a narrow spectrum.
 
 
-Discuss Sections [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell Model]] 
+\yellownote{TODO: Discuss the TV cell Notch optimisation. Is the goal of
+replicating wide-band inhibition offset necessary?  LSR spectrum already shows a
+bias at the falling edge. The notch procedure is another verification of the \TV
+cell model to known experimental data.}
 
-\yellownote{TODO: Discuss the TV cell optimisation. Is the goal of replicating
-wide-band inhibition offset necessary, or is rate ratio between TS/DS/TV the
-most important?  Mammalian studies show that the TV cells receive excitatory input from TS
-cells, but not in rats.}
+# \note{  Mammalian studies show that the TV cells receive excitatory input from TS
+# cells, but not in rats.}
 
 # ArnottWalacePalmer The ‘‘V’’- shaped response area of the auditory nerve fibre
 # is transformed in the type II neurone by strong inhibi- tion that overlaps at
@@ -2673,7 +2693,7 @@ cells, but not in rats.}
 # antagonists produces a large increase in discharge rate to broadband
 # noise, making tone and noise responses nearly equal.
 
-# \clearpage\newpage
+# \clearpage
 
 * T Stellate Cell Model: Three Chopper Subtypes
 :PROPERTIES:
@@ -3178,6 +3198,7 @@ The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re threshold was
 call_CS_rate(SPLreTh=30)[:results replace raw],
 call_CS_rate(SPLreTh=40)[:results replace raw] and
 call_CS_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
+\yellownote{TODO: explain the results and differences in the model and experimental data}
 
 *** Transient Chopper 1
 
@@ -3189,16 +3210,15 @@ the exemplar unit was 55 dB \SPL, close to the average 47.2 dB \SPL for all
 \ChTone units.  The acoustic for the optimisation routine was a 40 dB SPL and
 had the reversal potential of $-63.9 mV$.
 
+
 Excitatory synaptic weights (\wLSRTS
-call_opt_paramf(param="w.x[lsr][ts]",type="CT1",factor="1000")[:results replace raw] nS,
-\wHSRTS call_opt_paramf(param="w.x[hsr][ts]",type="CT1",factor="1000")[:results replace raw]
-nS) were balanced with moderate to low glycinergic synaptic input (\wDSTS
-call_opt_paramf(param="w.x[ds][ts]",type="CT1",factor="1000")[:results replace raw] nS,
-\wTVTS call_opt_paramf(param="w.x[tv][ts]",type="CT1",factor="1000")[:results replace raw]
-nS).  The GABAergic input weight was very low (\wGLGTS
-call_opt_paramf(param="w.x[glg][ts]",type="CT1",factor="1000")[:results replace raw] nS), but
-the loud input stimulus (70 dB SPL = 30 dB re threshold) would cause reasonable
-inhibition to the \TS cell throughout the stimulus.
+call_opt_paramf(param="w.x[lsr][ts]",type="CT1",factor="1000")[:results replace raw] nS, \wHSRTS
+call_opt_paramf(param="w.x[hsr][ts]",type="CT1",factor="1000")[:results replace raw] nS) were balanced with moderate to low glycinergic synaptic input (\wDSTS
+call_opt_paramf(param="w.x[ds][ts]",type="CT1",factor="1000")[:results replace raw] nS, \wTVTS
+call_opt_paramf(param="w.x[tv][ts]",type="CT1",factor="1000")[:results replace raw] nS).  The GABAergic input weight was very low (\wGLGTS
+call_opt_paramf(param="w.x[glg][ts]",type="CT1",factor="1000")[:results replace raw] nS), but the loud input stimulus (70 dB SPL = 30 dB re threshold) would
+cause reasonable inhibition to the \TS cell throughout the stimulus.
+
 
 
 # The leak conductance had a slight decrease (\gleak 4.098e-4 S/cm).
@@ -3218,19 +3238,37 @@ inhibition to the \TS cell throughout the stimulus.
   \end{figure}
 #+END_LaTeX
 
-#     [[../SimpleResponsesChapter/gfx/TStellate_CT1/multiplotIVCV4.pdf]]
-
-
+#     [[../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf]]
+Figure \ref{fig:CT1results} shows the spike and \AIV statistical measures of the
+optimised \ChTone model.  The PSTH of the model at 30 dB re threshold (70 dB
+SPL) is shown in Figure \ref{fig:CT1results}A.  The mean rate for the optimised
+\ChT1 unit at 20, 30 and 40 dB re threshold was
+call_CT1_rate(SPLreTh=30)[:results replace raw],
+call_CT1_rate(SPLreTh=40)[:results replace raw] and
+call_CT1_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
+The characteristic CV response of the \ChTone is highly regular in the first 10
+ms (less than 0.2), then transiently adapts to regularity below 0.3 for the
+remainder of the stimulus.  The CV at 30 dB re threshold was closest fit to the
+reference data (RMS 0.034). The RMS error of the 20 and 40 dB re threshold CV
+profiles were 0.038 and 0.098, respectively.  The \AIV traces in Figure
+\ref{fig:CT1results}C show the differences in the exemplar unit and the
+simulated \TS cell model. The repetitive firing in the first 20 ms of the
+\ChTone \AIV trace results in consistent membrane voltage fluctuation which is
+not present in the exemplar unit.  The onset ratio statistic of the exemplar and
+optimised \ChTone unit was 0.983 and 1.01, respectively, at 30 db re threshold.
+The optimised \ChTone unit was consistently below the adaptation statistic of
+the exemplar unit at each of the stimulus levels.  The post-offset results of
+the exemplar \ChTone unit were not consistent with the inhibitory behaviour of
+\TS cells, especially \ChTone units, hence this statistic was ignored in the
+optimisation procedure.
  
-The mean rate for the optimised \ChT1 unit at 20, 30 and 40 dB re threshold was
-call_CT1_rate(SPLreTh=60)[:results replace raw],
-call_CT1_rate(SPLreTh=70)[:results replace raw] and
-call_CT1_rate(SPLreTh=80)[:results replace raw] spikes per second, respectively.
-The CV responses of the optimised model were not sufficient at 30 dB re
-threshold with the mean over the whole stimulus of 0.308 but the final 10 ms
-period of the being outside the 0.3 CV threshold for regularity
-(CV$_{30-40}=0.42$).
+
+
+
+
+
   
+\clearpage
 *** Transient Chopper 2
 
 The \ChTtwo unit optimisation used average population data for CV data and unit
@@ -3259,25 +3297,34 @@ post-tone inhibition is greater (+8.82 mV at 30 dB re threshold)
 # IVAdaptation	8.82784	7.8878
 # IVOffset	3.24212	2.18856
 
-Figure \ref{fig:CT2results} shows the results of the \ChTtwo model unit
-optimisation.  The resting membrane potential for the experimental and model
-\ChTtwo units was $-60.63$ and $-64.96$ mV, respectively.  The experimental
-\ChTtwo unit has a higher reduction in onset depolarisation (90.2\%) compared to
-\ChTone units, and are comparable with \OnC units
-\citep{PaoliniClareyEtAl:2005}.
-# The post-tone inhibition of the experimental \ChTtwo unit is the
-# greatest of all the chopper subtypes (-8.82 mV).
+Figure \ref{fig:CT2results} shows the results of the optimised \ChTtwo model
+unit optimisation.  The characteristic CV response of the \ChTtwo unit was
+closely matched at 30 and 40 dB re threshold (Figure \ref{fig:CT2results}B). The
+low firing rate of the model at 20 dB re threshold (55 dB SPL) reduced the
+regularity of the spike intervals, hence increased CV throughout the stimulus.
+The resting membrane potential for the experimental and model \ChTtwo units was
+$-60.63$ and $-64.96$ mV, respectively.  The experimental \ChTtwo unit had a
+higher reduction in onset depolarisation (90.2\%) compared to \ChTone units at 30 dB re threshold
+\citep{PaoliniClareyEtAl:2005}.  The adaptation statistic results of the optimised
+\ChTtwo model did not have the significant drop (around 6 mV in the reference
+data Figure \ref{fig:CT2results}D), despite reduction in firing rate and strong changes in CV.  
+The post-tone inhibitory offset of the
+experimental \ChTtwo unit is the greatest of all the chopper subtypes (8.82 mV
+at 40 dB re threshold). The optimised \ChTtwo unit had a stable post-offset
+inhibition around 4 mV at the three stimulus levels.  
+
 Excitatory synaptic weights (\wLSRTS
-call_opt_paramf(param="w.x[lsr][ts]",type="CT2",factor="1000")[:results replace raw] nS,
-\wHSRTS call_opt_paramf(param="w.x[hsr][ts]",type="CT2",factor="1000")[:results replace raw]
-nS) were balanced with moderate to low glycinergic synaptic input (\wDSTS
-call_opt_paramf(param="w.x[ds][ts]",type="CT2",factor="1000")[:results replace raw] nS, \wTVTS
-call_opt_param(param="w.x[tv][ts]",type="CT2",factor="1000")[:results replace raw] nS).  The
-GABAergic input weight was very low (\wGLGTS
-call_opt_param(param="w.x[glg][ts]",type="CT2",factor="1000")[:results replace raw] nS), but
-the loud input stimulus (70 dB SPL = 30 dB re threshold) would cause reasonable
-inhibition to the \TS cell throughout the stimulus.  The final error of the
-optimised \ChTtwo unit was call_opt_error(type="CT2")[:results replace raw].
+call_opt_paramf(param="w.x[lsr][ts]",type="CT2",factor="1000")[:results replace raw] 
+nS, \wHSRTS
+call_opt_paramf(param="w.x[hsr][ts]",type="CT2",factor="1000")[:results replace raw] 
+nS) were balanced with moderate to low glycinergic synaptic input 
+(\wDSTS 
+call_opt_paramf(param="w.x[ds][ts]",type="CT2",factor="1000")[:results replace raw] nS, 
+\wTVTS
+call_opt_param(param="w.x[tv][ts]",type="CT2",factor="1000")[:results replace raw] nS).  The GABAergic input weight was very low (\wGLGTS
+call_opt_param(param="w.x[glg][ts]",type="CT2",factor="1000")[:results replace raw] nS), but the loud input stimulus (70 dB SPL = 30 dB re threshold) would
+cause reasonable inhibition to the \TS cell throughout the stimulus.  The final
+error of the optimised \ChTtwo unit was call_opt_error(type="CT2")[:results replace raw], with the greatest weighting from the CV data.
 
 
 #+BEGIN_LaTeX
@@ -3305,9 +3352,7 @@ The mean rate for the optimised \ChTtwo unit at the three \SPL tones was
 call_CT2_rate(SPLreTh=30)[:results replace raw],
 call_CT2_rate(SPLreTh=40)[:results replace raw] and
 call_CT2_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
-The \FSL at 30 dB re threshold (call_CT2_fsl(SPLreTh=40)[:results replace raw]
-ms) showed a precise first spike but the following spikes were too irregular for
-this unit to be classified as a chopper (CV$_{0-10} > 0.3$).
+# The \FSL at 30 dB re threshold (call_CT2_fsl(SPLreTh=40)[:results replace raw] ms) showed a precise first spike.
 # At 40 dB re threshold the 
 
 ** Overview of TS cell model results
@@ -3330,15 +3375,15 @@ three \TS cell subtypes. Further details on each subtype are provided below.
     \textbf{Parameters}       & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
                               &                & \multicolumn{1}{c}{\ChS} & \multicolumn{1}{c}{\ChTone} & \multicolumn{1}{c}{\ChTtwo} \\ \otoprule
        \wHSRTS \hfill (mS)          &   [0.01,30]    &          3,928           &            3,16             & 5,67 \\
-          \nHSRTS \hfill            &                &            8             &             20              & 8   \\
+  %        \nHSRTS \hfill            &                &            8             &             20              & 8   \\
    \wLSRTS   \hfill (mS)      &   [0.01,30]    &          6,011           &            4,91             & 6,56\\
-          \nLSRTS   \hfill          &                &            15            &             15              & 15  \\
+ %         \nLSRTS   \hfill          &                &            15            &             15              & 15  \\
    \wDSTS  \hfill  (mS)       &   [0.01,30]    &          0,0361          &           0,1094            & 0,106\\
-          \nDSTS   \hfill           &                &            4             &                             & 4   \\
+ %         \nDSTS   \hfill           &                &            4             &                             & 4   \\
    \wTVTS  \hfill  (mS)       &   [0.01,30]    &          0,0247          &           0,0146            & 0,0206\\
-          \nTVTS    \hfill          &                &            7             &              7              & 7   \\
+ %         \nTVTS    \hfill          &                &            7             &              7              & 7   \\
    \wGLGTS  \hfill  (mS)      &   [0.01,30]    &          0,0313          &           0,3073            & 1,1868\\
-          \nGLGTS    \hfill         &                &            5             &              5              & 5   \\ \bottomrule
+  %        \nGLGTS    \hfill         &                &            5             &              5              & 5   \\ \bottomrule
   %\midrule
   %  \gleak \hfill (mS cm$^{-2}$) &    [1e-3,3]    &          0,657           &            0,494            & 0,724\\
   %  \gKHT  \hfill (S cm$^{-2}$)  &  [1e-6,0.003]  &          0,0189          &           0,0189            & 0,023\\
@@ -3347,8 +3392,6 @@ three \TS cell subtypes. Further details on each subtype are provided below.
   \end{table}\vspace{2ex}%
   }
 #+END_LaTeX
-
-
 
 # ** Verification of the TS Cell Model Subtypes
 
@@ -3490,12 +3533,14 @@ already existing in stellate models \citep{WangSachs:1995,WiegrebeMeddis:2004}.
 The performance of the \CNSM model owes a large part to the input of a
 phenomenologically-realistic \AN model.
  
+\yellownote{Possible connections that would add non-linear characteristics to
+the \CNSM model include \TS excitation of TV cells, TV inhibition of DS cells,
+and recurrent exciation of \TS cells.  the \TVDS connection creates a negative
+feedback loop in the microcircuit, that dis-inhibits TS cells. }
 
-\yellownote{TV inhibition of DS creates a negative feedback loop in the microcircuit}
-
-\yellownote{TODO: AM coding in model is not verified by
-\citet{ZilanyBruce:2006} model, and it was superseded by the addition
-of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
+# \note{TODO: AM coding in model is not verified by
+# \citet{ZilanyBruce:2006} model, and it was superseded by the addition
+# of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
 ** Implications of Sequential Microcircuit Optimisation
 
