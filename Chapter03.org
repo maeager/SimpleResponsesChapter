@@ -23,7 +23,7 @@
 #+LaTeX: \chapter[Sequential Optimisation]{Optimisation of the Cochlear Nucleus Stellate Network Model: Sequential Parameter Fitting of Synaptic Variables Using Simple Acoustic Responses}\label{sec:ModelChapter}
 
 
-* Prelude 							   :noexport:
+* Prelude                                                          :noexport:
 
 
 #+begin_src emacs-lisp :export none
@@ -529,7 +529,7 @@ presented to the \CNSM model included:
 
 
 
-* Figures							   :noexport:
+* Figures                                                          :noexport:
 ** fig:Compression
 
 #+BEGIN_SRC sh :export none
@@ -1099,6 +1099,25 @@ spread from \LSR fibres in the \CNSM model.
 # Table \ref{tab:GolgiCellResults} result table.
 
 # \clearpage
+
+**** Source blocks: GLG RL RMS                                     :noexport:
+
+#+name: GLGRL_RMS
+#+BEGIN_SRC octave
+ pkg load nan
+ dat = load('../SimpleResponsesChapter/gfx/golgi/GolgiRateLevel_Opt.dat');
+ % Relative error
+ RE_tone= mean(abs((dat(:,2) - dat(:,3))./(dat(:,2))));
+
+ % root mean squared error
+ RMS= sqrt(meansq((dat(1:end,2) - dat(1:end,3))));
+ sprintf("RE tone %.2f%%   RMS total %.2f",RE_tone*100, RMS)
+#+END_SRC
+
+#+RESULTS: GLGRL_RMS
+: RE tone 21.45%   RMS total 4.48
+
+
 ** Verification of the Golgi Cell Model
 
 Figure \ref{fig:GolgiKimFig2} shows the tone and noise rate level responses of
@@ -1798,7 +1817,7 @@ optimised \DS cell model in Figure \ref was 54.6\% (tone 57.49%, noise 52.09%).
 #+END_SRC
 
 #+RESULTS: DSRL_RMS
-: RE tone 57.49%  noise 52.09%   RMS tone 38.65 noise 30.42 total 44.14)RE tone 74.56%  noise
+: RE tone 28.18%   RMS total 4.48
 
 
 #+BEGIN_SRC sh
@@ -2282,7 +2301,9 @@ effective in noise and at the onset of sounds.
 #+name: TVRL_RMS
 #+BEGIN_SRC octave  :export none
  pkg load nan
- dat = load('../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat');
+ dat = load('~/mnt/m2home/Code/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
+ %dat = load('~/Work/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
+ %dat = load('../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat');
  % Relative error
  RE= mean(abs((dat(1:end,2) - dat(1:end,3))./(dat(1:end,3))));
  % root mean squared error
@@ -2296,6 +2317,11 @@ effective in noise and at the onset of sounds.
 #+END_SRC
 
 #+RESULTS: TVRL_RMS
+: 44.5%     503.71 (74.04 + 58.43 +185.62 + 185.62)
+
+
+: 47.1%     295.51 (46.48 + 108.51 +70.26 + 70.26)
+
 : 51.1%     183.13 (16.36 + 47.65 +51.84 + 67.28)
 
 
@@ -3052,7 +3078,7 @@ for all \SPL above threshold.
 #  \includegraphics{RateLevel/psthsingle90.0}% %
 #  \includegraphics{RateLevel/TS_ratelevel}} \end{figure}
 
-****  Source blocks 						   :noexport:
+****  Source blocks                                                :noexport:
 
 # Get optimisation parameter: default
 #+name: opt_param
