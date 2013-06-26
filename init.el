@@ -41,7 +41,8 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((R . t)
+ '(
+   ;;(R . t)
    (C . t)
    (awk . t)
    ;;     (ditaa . t)

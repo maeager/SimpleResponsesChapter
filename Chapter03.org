@@ -1311,7 +1311,6 @@ optimise the parameters controlling level of \ANF excitation in the \DS model.
 [[../SimpleResponsesChapter/gfx/DoucetRyugo1997_C_DSinGCD.png]]
 
 
-
 *** Morphology of D Stellate Cells
 
 # \DS cells are large multipolar neurons in the \VCN and have an \OnC \PSTH to
@@ -1919,8 +1918,48 @@ cells.
 
 ** Discussion of the DS Cell Model
 
-The \DS cell model of the \CNSM model has been optimised to have the
-characteristics of a typical \OnC unit of the \VCN.
+The \DS cell model of the \CNSM model was optimised to have the rate level
+and click recovery characteristics of a typical \OnC unit of the \VCN.
+
+The network topology and synapto-physiology of inputs to \DS cells play a
+complementary role to the intrinsic characteristics of the neuron.
+
+The
+intracellular behaviour of the \DS cell model was implemented using a
+single-compartment Type I-II \RM neural model.
+
+The cell's intrinsic behaviour contributes to the rapid response at onset and transient
+phasic response.  The phasic response to low current injections is due primarily
+to the small number of \KLT channels. which are present in strongly phasic
+spherical and globular bushy cells of the \VCN \cite{RothmanManis:2003}.  At
+higher current injections, \DS cells respond with regularly spaced \APs
+\cite{FujinoOertel:2001,FerragamoGoldingEtAl:1998a,OertelWuEtAl:1990,OertelWuEtAl:1988},
+similar to \TS cells.
+
+The intracellular characteristics of \DS cells only plays a s
+physiological behaviour of \DS cells to acoustic stimuli
+
+
+contributes to the ability of \DS
+
+Synaptic inputs and t
+
+The distribution of the \ANF receptive fields contacting \DS cells contribute to
+their ability to respond to auditory inputs 1 octave above and 2
+octave below its \CF.
+
+The \CNSM model uses a Gaussian distribution of \ANF inputs onto \DS cells
+centred on CF with spread parameter, \sANFDS = 40 (equivalent to a standard
+deviation of 4.47).  The logarithmic topology of the auditory filterbank and
+channels in the \CN network mean the 95\% percentile range
+octaves.
+
+
+\DS cell model
+
+
+
+
 
 \yellownote{TODO: Discuss the DS cell model optimisation.  What were the reasons
 for using cell-based parameters, and why is this necessary?  Why aren't the
