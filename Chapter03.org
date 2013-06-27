@@ -1650,33 +1650,33 @@ weight that was obtained in the optimisation.
   \label{tab:DSClickRecoveryResults}
   % \begin{tabularx}{\textwidth}{X c c D{,}{.}{1.4}}
   % \toprule
-  %	     \textbf{Parameters}	  &	    \textbf{Name}	   & \textbf{Range} & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-  % Weight of GLG synapses on \DS cells &	 \wGLGDS \hfill (nS)	   &   [0.01,50]    & 0,532 \\
-  % Weight of \HSR synapses on \DS cells  &	 \wHSRDS \hfill (nS)	   &   [0.01,50]    & 0,16\\
-  % Weight of \LSR synapses on \DS cells  &	 \wLSRDS  \hfill (nS)	   &   [0.01,50]    & 13,1 \\
-  %  \GABAa synapse fast decay constant	  & $\tau_{\rm GABA-1}$ \hfill (ms)&	[0.01,10.0]   & 5,432 \\
-  %  \GABAa synapse slow decay constant	  & $\tau_{\rm GABA-2}$ \hfill (ms)&	 [0.1,50.0]   & 0,262 \\
-  %	  DS cell leak conductance	  & \gleak   \hfill (mS cm$^{-2}$) &  [1e-5,0.05]	 & 0,0163 \\ \bottomrule
+  %          \textbf{Parameters}          &         \textbf{Name}          & \textbf{Range} & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
+  % Weight of GLG synapses on \DS cells &        \wGLGDS \hfill (nS)       &   [0.01,50]    & 0,532 \\
+  % Weight of \HSR synapses on \DS cells  &      \wHSRDS \hfill (nS)       &   [0.01,50]    & 0,16\\
+  % Weight of \LSR synapses on \DS cells  &      \wLSRDS  \hfill (nS)      &   [0.01,50]    & 13,1 \\
+  %  \GABAa synapse fast decay constant   & $\tau_{\rm GABA-1}$ \hfill (ms)&    [0.01,10.0]   & 5,432 \\
+  %  \GABAa synapse slow decay constant   & $\tau_{\rm GABA-2}$ \hfill (ms)&     [0.1,50.0]   & 0,262 \\
+  %       DS cell leak conductance        & \gleak   \hfill (mS cm$^{-2}$) &  [1e-5,0.05]        & 0,0163 \\ \bottomrule
   % \end{tabularx}
   \begin{tabularx}{0.65\textwidth}{c c c}
   \toprule
-	   \textbf{Parameters (Units)}		& \textbf{Range} & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-	\wGLGDS \hfill (nS)	  &   [0.01,50]	   & 0.532 \\
-	\wHSRDS \hfill (nS)	  &   [0.01,50]	   & 0.167\\
-	\wLSRDS	 \hfill (nS)	  &   [0.01,50]	   & 13.1 \\
+           \textbf{Parameters (Units)}          & \textbf{Range} & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
+        \wGLGDS \hfill (nS)       &   [0.01,50]    & 0.532 \\
+        \wHSRDS \hfill (nS)       &   [0.01,50]    & 0.167\\
+        \wLSRDS  \hfill (nS)      &   [0.01,50]    & 13.1 \\
    $\tau_{\rm GABA-1}$ \hfill (ms)&  [0.01,10.0]   & 5.43 \\
-   $\tau_{\rm GABA-2}$ \hfill (ms)&	[0.1,50.0]   & 0.262 \\
-   \gleak  \hfill (m\Scmsq) &	 [1e-5,0.05]   & 0.0163 \\ \bottomrule
+   $\tau_{\rm GABA-2}$ \hfill (ms)&     [0.1,50.0]   & 0.262 \\
+   \gleak  \hfill (m\Scmsq) &    [1e-5,0.05]   & 0.0163 \\ \bottomrule
   \end{tabularx}\end{table}
     % \begin{tabularx}{\textwidth}{|X|c|c|c|}\hline %{\textwidth}
     % \hdr{4}{}{Optimisation} \\ \hline
-    %		\textbf{Parameters}	      &	   \textbf{Name}    & \textbf{Range} & \textbf{Best Values} \\\hline
-    %	    Weight of GLG on \DS \hfill(nS)	     &	     \wGLGDS	   &   [0.01,50]    & 0.532 \\ \hline
-    %	  Weight of \HSR syn on \DS \hfill(nS)	    &	    \wHSRDS	  &   [0.01,50]	   & 0.16\\ \hline
-    %	  Weight of \LSR syn on \DS \hfill(nS)	    &	    \wLSRDS	  &   [0.01,50]	   & 13.1 \\ \hline
-    % \GABAa synapse fast decay constant (ms) & $\tau_{\rm GABA-1}$ &	 [0.01,10.0]   & 5.432 \\ \hline
-    % \GABAa synapse slow decay constant (ms) & $\tau_{\rm GABA-2}$ &	  [0.1,50.0]   & 0.262 \\ \hline
-    % DS cell leak conductance (m\Scmsq) &	   \gleak	 &  [1e-5,0.05]	  & 0.0163 \\ \hline
+    %           \textbf{Parameters}           &    \textbf{Name}    & \textbf{Range} & \textbf{Best Values} \\\hline
+    %       Weight of GLG on \DS \hfill(nS)          &       \wGLGDS       &   [0.01,50]    & 0.532 \\ \hline
+    %     Weight of \HSR syn on \DS \hfill(nS)      &       \wHSRDS       &   [0.01,50]    & 0.16\\ \hline
+    %     Weight of \LSR syn on \DS \hfill(nS)      &       \wLSRDS       &   [0.01,50]    & 13.1 \\ \hline
+    % \GABAa synapse fast decay constant (ms) & $\tau_{\rm GABA-1}$ &    [0.01,10.0]   & 5.432 \\ \hline
+    % \GABAa synapse slow decay constant (ms) & $\tau_{\rm GABA-2}$ &     [0.1,50.0]   & 0.262 \\ \hline
+    % DS cell leak conductance (m\Scmsq) &         \gleak        &  [1e-5,0.05]   & 0.0163 \\ \hline
     % \end{tabularx}
   \vspace{2ex}
   }
@@ -1768,7 +1768,7 @@ the only inhibitory input to the \DS cell model in the \CNSM model.
 # [[../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel_result.6.3kHz.pdf]]
 
 
-#+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) were optimised to an OnC unit (CF 10.9 kHz, in figure 12 of \citet{ArnottWallaceEtAl:2004}). A. Tone RL of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at CF 11.1 kHz. B. Tone RL of DS cell optimised model and target unit data. C. Noise RL of HSR, LSR and GLG units at same CF. D. Noise RL of optimised DS cell model and target unit data. }
+#+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) were optimised to an OnC unit (CF 10.9 kHz, in figure 12 of \citet{ArnottWallaceEtAl:2004}). A. Tone rate level responses of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at frequency channel with CF 11.1 kHz.  B. Noise rate level responses of HSR, LSR and GLG units at same CF as in A. B. Tone rate level responses of DS cell optimised model (CF 11.12 kHz) and target unit (CF 10.9 kHz). D. Noise rate level responses of optimised DS cell model and target unit. }
 #+LABEL: fig:DSRateLevelResult
 [[../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel_result.pdf]]
 
@@ -1802,7 +1802,9 @@ optimised \DS cell model in Figure \ref was 54.6\% (tone 57.49%, noise 52.09%).
 #+name: DSRL_RMS
 #+BEGIN_SRC octave  :export none
  pkg load nan
- dat = load('../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat');
+ dat = load('../../cnstellate/DS_RateLevel/DS_RateLevel.Fit.dat');
+
+ %dat = load('../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat');
  % Relative error
  RE_tone= mean(abs((dat(1:12,2) - dat(1:12,3))./(dat(1:12,3))));
  RE_noise= mean(abs((dat(13:end,2) - dat(13:end,3))./(dat(13:end,3))));
@@ -1812,11 +1814,32 @@ optimised \DS cell model in Figure \ref was 54.6\% (tone 57.49%, noise 52.09%).
  RMS2= sqrt(meansq((dat(13:end,2) - dat(13:end,3))));
 
  RMS= sqrt(meansq((dat(1:end,2) - dat(1:end,3))));
- sprintf("RE tone %.2f%%  noise %.2f%%   RMS tone %.2f noise %.2f total %.2f",RE_tone*100, RE_noise*100,RMS, RMS1, RMS2, RMS1+RMS2)
+ sprintf("RE tone %.2f%%  noise %.2f%%   RMS tone %.2f noise %.2f sum %.2f", RE_tone*100, RE_noise*100, RMS1, RMS2, RMS1+RMS2)
 #+END_SRC
 
 #+RESULTS: DSRL_RMS
-: RE tone 28.18%   RMS total 4.48
+: RE tone 52.39%  noise 117.02%   RMS tone 24.32 noise 49.69 sum 74.01
+
+
+#+name: DS_final_error
+#+BEGIN_SRC sh :results replace raw
+ grep -e '^# Weighted Final error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
+#+END_SRC
+
+#+RESULTS: DSopt_error
+96.4
+
+#+name: DS_tone_error
+#+BEGIN_SRC sh :results replace raw
+ grep -e '^# RL RMS error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
+#+END_SRC
+
+#+name: DS_noise_error
+#+BEGIN_SRC sh :results replace raw
+ grep -e '^# NRL RMS error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
+#+END_SRC
+
+
 
 
 #+BEGIN_SRC sh
@@ -1918,45 +1941,80 @@ cells.
 
 ** Discussion of the DS Cell Model
 
-The \DS cell model of the \CNSM model was optimised to have the rate level
-and click recovery characteristics of a typical \OnC unit of the \VCN.
+The \DS cell model within the \CNSM model adopted the rate level and click
+recovery characteristics of a typical \OnC unit of the \VCN.  The network
+topology and synapto-physiology of inputs to \DS cells complement the intrinsic
+characteristics of the neuron.  Assumptions and optimisation design choices were
+made to generate a biophysically-realistic neuron with physiological behaviour
+to tones, noise and click pairs that closely matched the experimental data.
 
-The network topology and synapto-physiology of inputs to \DS cells play a
-complementary role to the intrinsic characteristics of the neuron.
-
-The
-intracellular behaviour of the \DS cell model was implemented using a
-single-compartment Type I-II \RM neural model.
-
-The cell's intrinsic behaviour contributes to the rapid response at onset and transient
-phasic response.  The phasic response to low current injections is due primarily
-to the small number of \KLT channels. which are present in strongly phasic
-spherical and globular bushy cells of the \VCN \cite{RothmanManis:2003}.  At
-higher current injections, \DS cells respond with regularly spaced \APs
-\cite{FujinoOertel:2001,FerragamoGoldingEtAl:1998a,OertelWuEtAl:1990,OertelWuEtAl:1988},
-similar to \TS cells.
-
-The intracellular characteristics of \DS cells only plays a s
-physiological behaviour of \DS cells to acoustic stimuli
-
-
-contributes to the ability of \DS
-
-Synaptic inputs and t
-
-The distribution of the \ANF receptive fields contacting \DS cells contribute to
-their ability to respond to auditory inputs 1 octave above and 2
-octave below its \CF.
-
+Some cell and network parameters were fixed based on solid assumptions.
+To accurately reflect the neural properties, the DS cell model used a modified
+Type I-II \RM neural model.  The cell's intrinsic behaviour contributed to its
+rapid response at onset and transient phasic response as shown /in vitro/
+\citep{RothmanManis:2003,FujinoOertel:2001,FerragamoGoldingEtAl:1998a,OertelWuEtAl:1990,OertelWuEtAl:1988}.
+# The phasic response to low current injections is due
+# primarily to the small number of \KLT channels. which are present in strongly
+# phasic spherical and globular bushy cells of the \VCN \citep{RothmanManis:2003}.
+# At higher current injections, \DS cells respond with regularly spaced \APs
+# \citep{FujinoOertel:2001,FerragamoGoldingEtAl:1998a,OertelWuEtAl:1990,OertelWuEtAl:1988},
+# similar to \TS cells.
+Similarly, the synaptic inputs to the DS cell model reflected the network
+properties of the DS cell.  The morphology of \DS cells allows them to integrate
+a wide \BF range of excitatory \ANF inputs, with physiological response to
+sounds 1 octave above and 2 octave below its \BF
+\citep{PalmerJiangEtAl:1996,PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004}.
+# The receptive field distribution of the \ANFs contacting \DS cells contributes to
+# their ability to respond to auditory inputs 1 octave above and 2
+# octave below its \CF \citep{PalmerJiangEtAl:1996,PaoliniClark:1999}.
 The \CNSM model uses a Gaussian distribution of \ANF inputs onto \DS cells
-centred on CF with spread parameter, \sANFDS = 40 (equivalent to a standard
-deviation of 4.47).  The logarithmic topology of the auditory filterbank and
-channels in the \CN network mean the 95\% percentile range
-octaves.
+centred on CF with a fixed spread parameter, \sANFDS = 40 channels (equivalent to a
+standard deviation of 4.47 channels in the 100 channel network).
 
 
-\DS cell model
+The click recovery optimisation was used to modify the physiological dynamics of
+the \GLG cells' \GABAa synapse with \DS cells, particularly the \GABAa decay constant.
+GABAergic inputs to \DS cells are well documented in the literature, in synaptic
+contacts and intracellular pharmacological studies, however, their distribution
+and network properties are unknown.
+Electrophysiological evidence shows that \GABA
+influence on DS cells is mediated by a neuron within the local vicinity of DS
+cells. \citet{FerragamoGoldingEtAl:1998a} found that \DS cells were sensitive to
+the \GABAa blocker bicuculine and that their IPSPs were not visible at the soma.
+# Hence, the \GLG neuron of the \GCD are a good candidate for GABAergic distal
+# input to \DS cells.
+\GLG cells in the \GCD are the likely candidates for \GABAa synapses on the distal
+dendrites of DS cells.
 
+Two important results came out of the click recovery optimisation.
+Firstly, the \GABAa synapse onto \DS cells needs to have a fast onset.
+The initial response of the \DS cell model to click pairs separated by 2 ms had to have a probe response 20\% less than the masker response.
+The onset of inhibition is limited by the delay from GLG cells and the rise time of the \GABAa synapse.
+and a decay constant under 6 ms is necessary to
+
+
+Slower components of the \GABAa synapse were ignored.
+
+were used in the \CNSM model because of the strong
+
+are not the correct sources for GABAergic synapses on the
+soma of DS cells they are the only local GABA neurons
+
+# This distribution
+# The logarithmic Greenwood function, which defines the \CFs of the frequency channels in the auditory filterbank and
+# channels in the \CN network, mean the 95\% percentile range of the \HSR input to \DS cells
+# octaves.
+
+The rate level optimisation used tone and noise responses from an exemplar \OnC
+unit to fit the weights and number of inputs of \HSR, \LSR and \GLG cells.
+
+The case for remaining with the optimised parameters was the success of the
+acoustic threshold and  for both the tone and noise responses.
+The importance of acoustic threshold accuracy becomes important in later simulations of TV and TS cells.
+
+Threshold of rate-level important
+
+The prominent results of the rate level optimisation
 
 
 
@@ -1969,19 +2027,19 @@ already plenty?}
 
 # ArnottWalacePalmer A wealth of circumstantial evidence suggests that onset
 # responding stellate cells in the ventral cochlear nucleus may give rise to the
-# wideband inhibition of DCN principal cells. These onset cells integrate in-
-# puts from auditory nerve fibres with a broad range of BFs (Jiang et al. 1996;
+# wideband inhibition of DCN principal cells. These onset cells integrate inputs
+# from auditory nerve fibres with a broad range of BFs (Jiang et al. 1996;
 # Palmer et al. 1996), acting as coincidence detectors with a relatively narrow
 # coin- cidence window (Palmer and Winter 1996); they re- spond better to
 # broadband signals than to pure tones; and they exhibit relatively wide dynamic
-# ranges Physiologically characterized, VCN onset cells have (Smith and Rhode
+# ranges. Physiologically characterized, VCN onset cells have (Smith and Rhode
 # 1986; Winter and Palmer 1995).  been found to exhibit large multipolar
 # morphology (Smith and Rhode 1989), and VCN cells with this morphology have
 # been found to be glycinergic (Doucet et al. 1999) and are thought to provide
-# in- hibition of other neurones in the cochlear nucleus such as the T stellate
+# inhibition of other neurones in the cochlear nucleus such as the T stellate
 # cells (Ferragamo et al. 1998).
 
-# ArnottWalacePalmer Either way, it seems likely the On-C cells are in- volved
+# ArnottWalacePalmer Either way, it seems likely the On-C cells are involved
 # in the first binaural interaction underlying absolute sound localization of
 # elevation and azimuth using spectral cues. They are apparently not involved in
 # the azimuthal discrimination between two sound sources as this has a different
@@ -2687,16 +2745,20 @@ with similar \CF (\TV unit 70, \CF 12.76 kHz) to notch and band-pass noise.
 
 ** Discussion of the TV Cell Model
 
+\TV cells are an important inhibitory inter-neuron in the \DCN and \VCN.
 \TV cells' role in the \CNSM model is to provide delayed, narrow-band inhibition
-to \TS cells.  The limited activation to noise (Figure
-\ref{fig:TVRateLevelResult}B) but strongly activated by \CF tones (Figure
+to \TS cells.  Its limited activation to broad-band noise (Figure
+\ref{fig:TVRateLevelResult}B) and  strong activation to \CF tones (Figure
 \ref{fig:TVRateLevelResult}A) is characteristic of Type II\space \EIRA units in
-the deep \DCN \cite{SpirouDavisEtAl:1999}.  The noise rate level output of the
+the deep \DCN \citep{SpirouDavisEtAl:1999}.  The noise rate level output of the
 optimised \TV cell model was a closer fit to the experimental unit's response in
 Figure \ref{fig:SpirouFig8}A rather than the response used for the optimisation
 in Figure \ref{fig:SpirouFig8}B.  The strong level of wide band inhibition from
 \DS cells in the \VCN limits the role \TV cells to stimuli with a broad
 spectrum, but are functional for stimuli with a narrow spectrum.
+
+
+
 
 
 \yellownote{TODO: Discuss the TV cell Notch optimisation. Is the goal of
@@ -2708,9 +2770,9 @@ cell model to known experimental data.}
 # cells, but not in rats.}
 
 # ArnottWalacePalmer The ‘‘V’’- shaped response area of the auditory nerve fibre
-# is transformed in the type II neurone by strong inhibi- tion that overlaps at
+# is transformed in the type II neurone by strong inhibition that overlaps at
 # high sound levels to generate nonmonotonic responses as a function of sound
-# level.  This strong inhibition renders type II neurones in- sensitive to
+# level.  This strong inhibition renders type II neurones insensitive to
 # broadband signals (Young and Brownell 1976; Young and Voigt 1982; Shofner and
 # Young 1985). Type II responses are associated with glycin- ergic ‘‘vertical
 # cells’’ located just beneath the fusi- form cell layer in DCN (Rhode 1999).
@@ -2722,7 +2784,7 @@ cell model to known experimental data.}
 # frequencies far from their BF (Nelken and Young 1994) and are thus subject to
 # wideband inhibition, which is antagonized by strych- nine (Davis and Young
 # 2000). This wideband inhibi- tion has been postulated to modulate the
-# responses of principal neurones both directly, through glycin- ergic
+# responses of principal neurones both directly, through glycinergic
 # innervation of these cells, and indirectly, through glycinergic innervation of
 # type II DCN interneurones.
 
