@@ -1789,36 +1789,40 @@ responses of the optimised \DS cell model (using the best fit parameters in
 Table \ref{tab:DSRateLevelResults}) and the reference target's rate level
 response.  Figures \ref{fig:DSRateLevelResult}B shows the noise rate level
 responses of the optimised and reference units.  At 50 repetitions per stimulus,
-the best parameters produced an \RMS error of 38.65 spikes per second
-(individual \RMS error components: tone 44.14 sp/s, noise 30.42 sp/s). The
-optimisation routine used the mean absolute error (between the reference and
-model response) divided by the reference \DS cell's response.  The combined
-relative mean absolute error of the tone and noise rate level response of the
-optimised \DS cell model in Figure \ref was 54.6\% (tone 57.49%, noise 52.09%).
-
+the best parameters produced a combined \RMS error of 48.88 spikes per second
+(tone 61.6 sp/s, noise 25.14 sp/s).
+# tone 44.14 sp/s, noise 30.42 sp/s).
+The poor fit of the tone rate level response at higher sound levels is
+compensated for by the good fit to the experimental target response at low
+levels of tones and generally for broadband noise.  The optimisation routine
+used the mean absolute error (between the reference and model response) divided
+by the reference \DS cell's response.  The combined relative mean absolute error
+of the tone and noise rate level response of the optimised \DS cell model in
+Figure \ref was
+# 54.6\% (tone 57.49%, noise 52.09%).
+53.43\% (tone 53.61\%,  noise 53.20\%).
 
 **** Source blocks: DS RL RMS                                      :noexport:
 
 #+name: DSRL_RMS
 #+BEGIN_SRC octave  :export none
  pkg load nan
- dat = load('../../cnstellate/DS_RateLevel/DS_RateLevel.Fit.dat');
-
- %dat = load('../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat');
+ dat = load('../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat');
  % Relative error
- RE_tone= mean(abs((dat(1:12,2) - dat(1:12,3))./(dat(1:12,3))));
- RE_noise= mean(abs((dat(13:end,2) - dat(13:end,3))./(dat(13:end,3))));
+ RE_all= mean(abs((dat(:,2) - dat(:,3))./(dat(:,3))));
+ RE_noise= mean(abs((dat(1:12,2) - dat(1:12,3))./(dat(1:12,3))));
+ RE_tone= mean(abs((dat(13:end,2) - dat(13:end,3))./(dat(13:end,3))));
 
  % root mean squared error
- RMS1= sqrt(meansq((dat(1:12,2) - dat(1:12,3))));
- RMS2= sqrt(meansq((dat(13:end,2) - dat(13:end,3))));
+ RMS_noise= sqrt(meansq((dat(1:12,2) - dat(1:12,3))));
+ RMS_tone= sqrt(meansq((dat(13:end,2) - dat(13:end,3))));
 
- RMS= sqrt(meansq((dat(1:end,2) - dat(1:end,3))));
- sprintf("RE tone %.2f%%  noise %.2f%%   RMS tone %.2f noise %.2f sum %.2f", RE_tone*100, RE_noise*100, RMS1, RMS2, RMS1+RMS2)
+ RMS= sqrt(meansq((dat(:,2) - dat(:,3))));
+ sprintf("RE tone %.2f%%  noise %.2f%% all %.2f%%  RMS tone %.2f noise %.2f sum %.2f", RE_tone*100, RE_noise*100,RE_all*100, RMS_tone, RMS_noise, RMS)
 #+END_SRC
 
 #+RESULTS: DSRL_RMS
-: RE tone 52.39%  noise 117.02%   RMS tone 24.32 noise 49.69 sum 74.01
+: RE tone 53.61%  noise 53.20% all 53.43%  RMS tone 61.61 noise 25.14 sum 48.88
 
 
 #+name: DS_final_error
@@ -1826,13 +1830,12 @@ optimised \DS cell model in Figure \ref was 54.6\% (tone 57.49%, noise 52.09%).
  grep -e '^# Weighted Final error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
 #+END_SRC
 
-#+RESULTS: DSopt_error
-96.4
-
 #+name: DS_tone_error
 #+BEGIN_SRC sh :results replace raw
  grep -e '^# RL RMS error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
 #+END_SRC
+
+#+RESULTS: DS_tone_error
 
 #+name: DS_noise_error
 #+BEGIN_SRC sh :results replace raw
@@ -1985,7 +1988,6 @@ the \GABAa blocker bicuculine and that their IPSPs were not visible at the soma.
 # input to \DS cells.
 \GLG cells in the \GCD are the likely candidates for \GABAa synapses on the distal
 dendrites of DS cells.
-
 Two important results came out of the click recovery optimisation.
 Firstly, the \GABAa synapse onto \DS cells needs to have a fast onset.
 The initial response of the \DS cell model to click pairs separated by 2 ms had to have a probe response 20\% less than the masker response.
@@ -2007,10 +2009,11 @@ soma of DS cells they are the only local GABA neurons
 
 The rate level optimisation used tone and noise responses from an exemplar \OnC
 unit to fit the weights and number of inputs of \HSR, \LSR and \GLG cells.
-
+Of note in the optimised parameters was the
 The case for remaining with the optimised parameters was the success of the
-acoustic threshold and  for both the tone and noise responses.
-The importance of acoustic threshold accuracy becomes important in later simulations of TV and TS cells.
+acoustic threshold and for both the tone and noise responses.  The importance of
+acoustic threshold accuracy becomes important in later simulations of TV and TS
+cells.
 
 Threshold of rate-level important
 
@@ -2018,12 +2021,10 @@ The prominent results of the rate level optimisation
 
 
 
-
 \yellownote{TODO: Discuss the DS cell model optimisation.  What were the reasons
 for using cell-based parameters, and why is this necessary?  Why aren't the
 spread of ANF inputs to DS cells optimised based on your methods?  How does the
-optimisation routine replicate DS responses to other stimuli, when there are
-already plenty?}
+optimisation routine replicate DS responses to other stimuli, when there are already plenty?}
 
 # ArnottWalacePalmer A wealth of circumstantial evidence suggests that onset
 # responding stellate cells in the ventral cochlear nucleus may give rise to the
@@ -2048,7 +2049,7 @@ already plenty?}
 # PaoliniClarke99 In conclusion, these neurons may not only be responsible for
 # detecting the onset of acoustic stimuli but may also be responsible for
 # processing frequency and intensity features contained within an acoustic
-# stimulus. The initial compo- nent is consistent with auditory nerve
+# stimulus. The initial component is consistent with auditory nerve
 # excitation, whereas the drop to sustained levels seen after the initial
 # excitation may be a result of feedforward or shunting inhibition that
 # predominates above CF. The interplay between excitatory and inhibitory
