@@ -66,7 +66,6 @@
 #+RESULTS:
 : \ref{%s}
 
-y
 
 * Introduction
 
@@ -1813,16 +1812,22 @@ Figure \ref was
  RE_noise= mean(abs((dat(1:12,2) - dat(1:12,3))./(dat(1:12,3))));
  RE_tone= mean(abs((dat(13:end,2) - dat(13:end,3))./(dat(13:end,3))));
 
+ % Non zero elements
+  nz=find (dat(:,2)~=0);
+  RZ_noise= mean(abs((dat(nz(1:9),2) - dat(nz(1:9),3))./(dat(nz(1:9),3))));
+  RZ_tone= mean(abs((dat(nz(10:end),2) - dat(nz(10:end),3))./(dat(nz(10:end),3))));
+  RZ_all= mean(abs((dat(nz,2) - dat(nz,3))./(dat(nz,3))));
+
  % root mean squared error
  RMS_noise= sqrt(meansq((dat(1:12,2) - dat(1:12,3))));
  RMS_tone= sqrt(meansq((dat(13:end,2) - dat(13:end,3))));
 
  RMS= sqrt(meansq((dat(:,2) - dat(:,3))));
- sprintf("RE tone %.2f%%  noise %.2f%% all %.2f%%  RMS tone %.2f noise %.2f sum %.2f", RE_tone*100, RE_noise*100,RE_all*100, RMS_tone, RMS_noise, RMS)
+ sprintf("RE tone %.2f%%  noise %.2f%% all %.2f%%  RZ tone %.2f%% noise %.2f%% all %.2f%% RMS tone %.2f noise %.2f sum %.2f", RE_tone*100, RE_noise*100,RE_all*100,RZ_tone*100, RZ_noise*100,RZ_all*100, RMS_tone, RMS_noise, RMS)
 #+END_SRC
 
 #+RESULTS: DSRL_RMS
-: RE tone 53.61%  noise 53.20% all 53.43%  RMS tone 61.61 noise 25.14 sum 48.88
+: RE tone 53.61%  noise 53.20% all 53.43%  RZ tone 46.47% noise 37.61% all 42.84% RMS tone 61.61 noise 25.14 sum 48.88
 
 
 #+name: DS_final_error
@@ -1880,11 +1885,14 @@ cells.
   \begin{figure}[t!]
      %\centering
     {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-2.pdf}}%
-    \resizebox{0.5\textwidth}{!}{\includegraphics{../LiteratureReview/gfx/NoFigure.pdf}}\hfill}\\
-    \caption[Optimised DS cell model responses to tones and noise]{Response of optimised DS cell model at the centre of the network (CF 5.8 kHz).
-   A. Four simulated PSTHs of the \DS cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
-  B. %Four experimental PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}.
+    {\hfill%
+    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Paolini99_Fig9.png}}%
+    \resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-2.pdf}}%
+    %\resizebox{0.5\textwidth}{!}{\includegraphics{../LiteratureReview/gfx/NoFigure.pdf}}\hfill}\\
+    \hfill}\\
+    \caption[Optimised DS cell model responses to tones and noise]{%
+   A-C. PSTHs in 3 rat OnC neurons to 50 ms tones on CF and below CF \citep[Figures~reproduced~from~][]{PaoliniClark:1999}
+   D. Response of optimised DS cell model at the centre of the network (CF 5.8 kHz). Four simulated PSTHs of the \DS cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
   } \label{fig:DSVerificationPSTH}
   \end{figure}
 #+END_LaTeX
@@ -1986,13 +1994,16 @@ cells. \citet{FerragamoGoldingEtAl:1998a} found that \DS cells were sensitive to
 the \GABAa blocker bicuculine and that their IPSPs were not visible at the soma.
 # Hence, the \GLG neuron of the \GCD are a good candidate for GABAergic distal
 # input to \DS cells.
-\GLG cells in the \GCD are the likely candidates for \GABAa synapses on the distal
-dendrites of DS cells.
-Two important results came out of the click recovery optimisation.
-Firstly, the \GABAa synapse onto \DS cells needs to have a fast onset.
-The initial response of the \DS cell model to click pairs separated by 2 ms had to have a probe response 20\% less than the masker response.
-The onset of inhibition is limited by the delay from GLG cells and the rise time of the \GABAa synapse.
-and a decay constant under 6 ms is necessary to
+\GLG cells in the \GCD are the likely candidates for \GABAa synapses on the
+distal dendrites of DS cells.  Two important results came out of the click
+recovery optimisation.  Firstly, the \GABAa synapse onto \DS cells needs to have
+a fast onset.  The initial response of the \DS cell model to click pairs
+separated by 2 ms had to have a probe response 20\% less than the masker
+response.  The onset of inhibition is limited by the delay from GLG cells and
+the rise time of the \GABAa synapse.  and a decay constant under 6 ms is
+necessary to
+
+
 
 
 Slower components of the \GABAa synapse were ignored.
@@ -2007,6 +2018,7 @@ soma of DS cells they are the only local GABA neurons
 # channels in the \CN network, mean the 95\% percentile range of the \HSR input to \DS cells
 # octaves.
 
+\yellownote{TODO: Discuss the DS cell model optimisation.}
 The rate level optimisation used tone and noise responses from an exemplar \OnC
 unit to fit the weights and number of inputs of \HSR, \LSR and \GLG cells.
 Of note in the optimised parameters was the
@@ -2021,10 +2033,7 @@ The prominent results of the rate level optimisation
 
 
 
-\yellownote{TODO: Discuss the DS cell model optimisation.  What were the reasons
-for using cell-based parameters, and why is this necessary?  Why aren't the
-spread of ANF inputs to DS cells optimised based on your methods?  How does the
-optimisation routine replicate DS responses to other stimuli, when there are already plenty?}
+
 
 # ArnottWalacePalmer A wealth of circumstantial evidence suggests that onset
 # responding stellate cells in the ventral cochlear nucleus may give rise to the
