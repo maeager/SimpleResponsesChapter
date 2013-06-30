@@ -1,0 +1,111 @@
+#!/usr/bin/env gnuplot
+# Compression in AN model from audiogram data
+#
+# gnuplot is available from http://www.gnuplot.info
+## FONTSIZE 18
+## SIZE 7,2.5
+# reset
+set terminal postscript eps enhanced size 7,2.5 defaultplex \
+   leveldefault color  \
+   dashed dashlength 1.0 linewidth 2.0 butt noclip \
+   palfuncparam 2000,0.003 \
+   "Helvetica" 18 
+# set term postscript enhanced color solid "Helvetica" 16
+set output "../SimpleResponsesChapter/gfx/AudiogramCompression.eps"
+
+load '../SimpleResponsesChapter/gfx/cf.gpi'
+load '../SimpleResponsesChapter/gfx/default.gpi'
+
+set border 11 linewidth 1.5
+set ytics nomirror
+set xtics nomirror
+set tics nomirror out #  scale 0.75
+set key inside left top vertical Left noreverse nobox
+
+# Axis ranges
+set logscale x 
+unset logscale y 
+unset logscale z 
+set yrange[-10:100]
+set y2range[0:1]
+set xrange [10:100000]
+set mxtics 5
+set xtics nomirror out scale 2.5,5 ("0.1" 100,"1" 1000, "10" 10000, "100" 100000) 
+
+# Axes labels
+
+set xlabel "Sound Level (dB SPL)" 
+set xlabel  offset character 0, 0, 0 font "Helvetica,18" textcolor lt -1 norotate
+set x2label  offset character 0, 0, 0 font "" textcolor lt -1 norotate
+set xrange [ * : * ] noreverse nowriteback  # (currently [0.00000:100.000] )
+set x2range [ * : * ] noreverse nowriteback  # (currently [0.00000:97.0000] )
+set ylabel "Discharge Rate (sp/s)" 
+
+# Gray square
+set style rect fc lt -1 fs solid 0.15 noborder
+set obj rect from 200, graph 0 to 48000, graph 1
+
+# Filterbank Markers
+
+set arrow 1 from cf(0),-10  to cf(0),0 nohead
+set arrow 2 from cf(4),-10  to cf(4),-5 nohead
+set arrow 3 from cf(9),-10  to cf(9),-5 nohead
+set arrow 4 from cf(14),-10  to cf(14),-5 nohead
+set arrow 5 from cf(19),-10  to cf(19),-5 nohead
+set arrow 6 from cf(24),-10 to cf(24),0 nohead
+set arrow 7 from cf(29),-10  to cf(29),-5 nohead
+set arrow 8 from cf(34),-10  to cf(34),-5 nohead
+set arrow 9 from cf(39),-10  to cf(39),-5 nohead
+set arrow 10 from cf(44),-10  to cf(44),-5 nohead
+set arrow 11 from cf(49),-10 to cf(49),0 nohead
+set arrow 12 from cf(54),-10  to cf(54),-5 nohead
+set arrow 13 from cf(59),-10  to cf(59),-5 nohead
+set arrow 14 from cf(64),-10  to cf(64),-5 nohead
+set arrow 15 from cf(69),-10  to cf(69),-5 nohead
+set arrow 16 from cf(74),-10 to cf(74),0 nohead
+set arrow 17 from cf(79),-10  to cf(79),-5 nohead
+set arrow 18 from cf(84),-10  to cf(84),-5 nohead
+set arrow 19 from cf(89),-10  to cf(89),-5 nohead
+set arrow 20 from cf(94),-10  to cf(94),-5 nohead
+set arrow 21 from cf(99),-10 to cf(99),0 nohead
+
+# Axes labels
+set ylabel "Threshold (dB SPL)" font 'Helvetica,18'
+set ylabel  offset character +2, 0, 0 font "Helvetica,18" textcolor lt -1 rotate by -270
+
+set xlabel "Frequency (kHz)" font 'Helvetica,18'
+set xlabel  offset character +1, 0, 0 font "Helvetica,18" textcolor lt -1 norotate
+
+set y2label "AN Model Compression"  font 'Helvetica,18'
+set y2label  offset character -1, 0, 0 font "" textcolor lt -1 rotate by -270
+
+set y2tics nomirror out ("0.0" 0,"0.5" 0.5, "1.0" 1)
+set xrange [0.001:100]
+set xrange [10:100000]
+
+#set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 5 ps 2   # blue
+#set style line 2 lc rgb '#dd181f' lt 1 lw 2 pt 7 ps 2   # red
+#set style line 3 lc rgb '#00ad06' lt 1 lw 2 pt 9 ps 2   # green
+
+set style line 1 lc rgb "black" lt 1 lw 3 
+set style line 2 lc rgb "black" lt 2 lw 2 
+set style line 3 lc rgb "black" lt 3 lw 2 
+
+
+set multiplot layout 1,2
+#set title "Cat " font 'Helvetica,18'
+plot '../SimpleResponsesChapter/gfx/cat_audiogram.txt' using 1:2  title "Audiogram" with lines axes x1y1 ls 1, \
+     '' using 1:3 axes x1y2  title "COHC"  with lines ls 2, \
+     '' using 1:4 axes x1y2   title "CIHC" with lines ls 3
+     
+unset key
+set xrange [80:100000]
+#set title "Rat" font 'Helvetica,18'
+plot '../SimpleResponsesChapter/gfx/rat_bruce_audiogram.dat' using 1:2  title "Audiogram" with lines axes x1y1 ls 1, \
+     '' using 1:3 axes x1y2  title "cOHC"  with lines ls 2, \
+     '' using 1:4 axes x1y2   title "cIHC" with lines ls 3
+
+
+unset multiplot
+
+!fixbb ../SimpleResponsesChapter/gfx/AudiogramCompression.eps
