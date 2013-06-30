@@ -1899,15 +1899,15 @@ cells.
 
 
 #+BEGIN_LaTeX
-    \begin{figure}[t!]
-  %    \centering
-        {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%         %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d}
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
-        %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/DS_ratelevel_combined}%
-      \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (Image reproduced from \citet{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
-      \label{fig:DSVerificationRA}
-    \end{figure}
+  \begin{figure}[t!]
+    % \centering
+    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%         
+   %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d}
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
+    \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (Image reproduced from \citet{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
+    \label{fig:DSVerificationRA}
+  \end{figure}
 #+END_LaTeX
 
 
@@ -1918,7 +1918,7 @@ cells.
     \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/DS_ratelevel_combined}%
     % \resizebox{0.95\textwidth}{!}{
     % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle90-2}\\
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/NoiseRateLevel/psthsingle120-2}\\
+    %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/NoiseRateLevel/psthsingle120-2}\\
     % }\\\hspace{0.5cm}
     \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
     % \resizebox{0.95\textwidth}{!}{%
