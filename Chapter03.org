@@ -1063,21 +1063,7 @@ spread from \LSR fibres in the \CNSM model.
 #+RESULTS: GLGRL_RMS
 : RE tone 21.45%   RMS total 4.48
 
-
 ** Verification of the Golgi Cell Model
-
-Figure \ref{fig:GolgiKimFig2} shows the tone and noise rate level responses of
-six marginal shell units observed by \citet{GhoshalKim:1996a}.  The unit at the
-top of Figure \ref{fig:GolgiKimFig2}, S03-07 (CF 22.7 kHz), was chosen to
-optimise the \GLG cell model as it is monotonic and has the median maximum rate
-of all the units shown (101 sp/s for tones and 96 sp/s for BBN).
-
-
-#+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
-#+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 AVCN marginal shell units (Figure reproduced from \citealt{GhoshalKim:1996a}).}
-#+LABEL:  fig:GolgiKimFig2
-[[../SimpleResponsesChapter/gfx/GhoshalKim96_Fig2.pdf]]
-
 
 After setting the optimised parameters in Table \ref{tab:GolgiCellResults}, the
 \GLG cell model was run with tone and noise inputs to determine its behaviour.
@@ -1089,8 +1075,6 @@ between the optimised \GLG cell model and recorded marginal shell units.  The
 prominent onset responses of the recorded units.  The merging of \LSR profiles
 at different \CFs and the convolution of the smoothing filter contributed to the
 reduction of the onset response to tones.
-
-
 
 # Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
 # units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
@@ -1137,6 +1121,20 @@ reduction of the onset response to tones.
    % d               = 51.4084          +/- 1.509        (2.936%)
 #+END_LaTeX
 
+Figure \ref{fig:GolgiKimFig2} shows the tone and noise rate level responses of
+six marginal shell units observed by \citet{GhoshalKim:1996a}.  The unit at the
+top of Figure \ref{fig:GolgiKimFig2}, S03-07 (CF 22.7 kHz), was chosen to
+optimise the \GLG cell model as it is monotonic and has the median maximum rate
+of all the units shown (101 sp/s for tones and 96 sp/s for BBN).  The typical
+properties of \GLG units were derived from the marginal shell units recorded in
+the \citet{GhoshalKim:1996a} study. 
+
+
+#+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
+#+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 AVCN marginal shell units (Figure reproduced from \citealt{GhoshalKim:1996a}).}
+#+LABEL:  fig:GolgiKimFig2
+[[../SimpleResponsesChapter/gfx/GhoshalKim96_Fig2.pdf]]
+
 
 Figure \ref{fig:GolgiVerificationWhole} shows the response of optimised \GLG
 cell models at each frequency channel in the \CNSM model to a 5.8 kHz tone and
@@ -1151,7 +1149,7 @@ dynamic range of 68 dB.  The theoretical maximal rate for the curve was 120.8
 spikes/s and the reaches half maximum rate at 53 dB SPL.  The noise rate-level
 curve for the central \GLG unit in Figure \ref{fig:GolgiVerificationWhole}B was
 monotonic.  The average gradient of the noise rate level curve between 70 and
-120 dB SPL was 2.02 spikes/s/dB.  Figure \ref{fig:GolgiVerificationWhole}C shows
+120 dB SPL was 2.02 spikes per second per dB.  Figure \ref{fig:GolgiVerificationWhole}C shows
 the response of all \GLG cell units in the \CNSM model to a 5.8 kHz tone.  At 10
 dB above the threshold (30 dB SPL) units with CFs from 4.98 kHz to 7.48 kHz were
 above threshold, which equates to a receptive field of 2.5 kHz or \Qten of 0.41.
@@ -1276,12 +1274,7 @@ fast inhibition between the nuclei
 to suggest that radiate neurons in rats, large Type II multipolar neurons in
 cats and guinea pigs, and DS neurons in mice have the closest resemblance to
 glycinergic labeled neurons and physiologically classified \OnC and \OnL units
-\citep[see~also~][]{DoucetRossEtAl:1999,DoucetRyugo:1997,CantGaston:1982,Wenthold:1987,KolstonOsenEtAl:1992,AltschulerJuizEtAl:1993,ShoreGodfreyEtAl:1992,SchofieldCant:1996,Alibardi:2000a,NeedhamPaolini:2003,PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004,PaoliniClark:1999}.
-# Hereafter they will be termed \DS cells in the \CNSM model.
-# Intracellular responses to sounds indicate the bandwidth of inputs to
-# \DS neurons typically ranges from two octaves below \CF to one octave
-# above \CF
-# \citep{PalmerJiangEtAl:1996,JiangPalmerEtAl:1996,PaoliniClark:1999}.
+\citep{DoucetRossEtAl:1999,DoucetRyugo:1997,CantGaston:1982,Wenthold:1987,KolstonOsenEtAl:1992,AltschulerJuizEtAl:1993,ShoreGodfreyEtAl:1992,SchofieldCant:1996,Alibardi:2000a,NeedhamPaolini:2003,PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004,PaoliniClark:1999}.
 
 *** Cellular Mechanisms of D Stellate Cells
 
@@ -2634,7 +2627,6 @@ with similar \CF (\TV unit 70, \CF 12.76 kHz) to notch and band-pass noise.
   \end{figure}
 #+END_LaTeX
 
-
 ** Discussion of the TV Cell Model
 
 \TV cells are an important inhibitory inter-neuron in the \DCN and \VCN.
@@ -2726,6 +2718,7 @@ cell model to known experimental data.}
 This section reports on the major output neurons in the \CNSM model, \TS cells,
 which are classified into three sub-types based on their regular firing or
 chopper characteristics.
+
 
 ** Background
 
@@ -3026,9 +3019,9 @@ simulations.
     \begin{figure}[thp]
       \centering
     \includegraphics[width=0.95\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.pdf}
-    \caption[IV categorisation in chopper units]{A.  Adaptation shift (Equation \ref{eq:IVstats-Adap}) at different sound levels (relative to threshold). Transient chopper data, representing average within ChT$_{1}$ and ChT$_{2}$ groups \citep[reproduced~from~Figure~6A~in~][]{PaoliniClareyEtAl:2005}.
-  B. Average membrane voltage hyperpolarisation after stimulus offset (Equation \ref{eq:IVstats-Offset}) at different sound levels relative to threshold. Transient chopper data uses group averages from Figure 6B in \citet{PaoliniClareyEtAl:2005}.
-  The offset shift in ChS units (green triangles) uses the group average at 30 dB re threshold (1.6 mV, filled triangle) and measurements from ChS unit 01-859-013  (CF 3.9 kHz, Th 25 dB, see Figure~3 \citet{PaoliniClareyEtAl:2005})  at 20 and 40 dB re threshold (unfilled triangle).
+    \caption[IV categorisation in chopper units]{A.  Adaptation shift (Equation \ref{eq:IVstats-Adap}) at different sound levels (relative to acoustic threshold, re $\theta$). Transient chopper data, representing average within ChT$_{1}$ and ChT$_{2}$ groups \citep[reproduced~from~Figure~6A~in~][]{PaoliniClareyEtAl:2005}.
+  B. Average membrane voltage hyperpolarisation after stimulus offset (Equation \ref{eq:IVstats-Offset}) at different sound levels re $\theta$. Transient chopper data uses group averages from Figure 6B in \citet{PaoliniClareyEtAl:2005}.
+  The offset shift in ChS units (green triangles) uses the group average at 30 dB re $\theta$ (1.6 mV, filled triangle) and measurements from ChS unit 01-859-013  (CF 3.9 kHz, Th 25 dB, see Figure~3 \citet{PaoliniClareyEtAl:2005})  at 20 and 40 dB re $\theta$ (unfilled triangle).
   }
     \label{fig:PaoliniIVdata}
     \end{figure}
@@ -3036,24 +3029,25 @@ simulations.
 #  [[../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.pdf]]
 
 
-Three \CF tone bursts at different \SPL above threshold (20, 30 and 40 dB) were
-used in all three \TS cell model optimisations.  The threshold was assumed to be
-10 dB SPL and the CF of the unit was 9.1 kHz.  Figure \ref{fig:PaoliniIVdata}
+Three \CF tone bursts at different \SPL above the exemplar units' acoustic threshold (20, 30 and 40 dB re $\theta$) were
+used in all three \TS cell model optimisations.  
+# The threshold was assumed to be 10 dB SPL and the CF of the unit was 9.1 kHz.  
+Figure \ref{fig:PaoliniIVdata}
 shows the results of the chopper sub-groups for adaptation shift (see Equation
 \ref{eq:IVstats-Adap}) and average post-tone hyperpolarisation (see offset shift
 Equation \ref{eq:IVstats-Offset}). These data points, along with the CV data
-points in Figure \ref{fig:PaoliniCVdata} at 30 db re threshold, were used in the
+points in Figure \ref{fig:PaoliniCVdata} at 30 db re $\theta$, were used in the
 fitness function as a root mean squared comparison against the \TS cell model.
 Population data given by \citet{PaoliniClareyEtAl:2005} was used where
 appropriate, otherwise an exemplar unit was chosen to fill remaining data
 points.  \ChS unit population data for \AIV results was limited to one data
-point at offset shift at 30 dB re threshold ($1.6\pm1.0$ mV).
+point at offset shift at 30 dB re $\theta$ ($1.6\pm1.0$ mV).
 # significant from membrane variations at rest.
 The unfilled triangles in Figure \ref{fig:PaoliniIVdata} were measured from the
 average membrane voltage trace of unit 01-859-013
 \citep[Figure~3~in][]{PaoliniClareyEtAl:2005}.  Adaptation shift in \ChT1 and
 \ChT2 units increased with increasing \SPL (Figure \ref{fig:PaoliniIVdata}A),
-reaching a peak at 30 dB above threshold.  \ChTtwo units consistently had a
+reaching a peak at 30 dB re $\theta$.  \ChTtwo units consistently had a
 stronger inhibitory influence (adaptation and offset shifts) compared to \ChTone
 for all \SPL above threshold.
 
@@ -3125,38 +3119,49 @@ for all \SPL above threshold.
    grep -A33 'at spl '$SPLreTh'' ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f \\pm %.2f$\n",$4,$7)}'
 #+END_SRC
 
+#+name: CV_RMS
+#+BEGIN_SRC octave :var CH="CS"  :export none :results replace raw
+ system(sprintf("grep -A4 -e 'CV reference' ../SimpleResponsesChapter/gfx/TStellate2_%s/TStellate.Fit.dat | tr '#' ' ' | tr '-' '\n'| grep -v -e 'CV' > /tmp/CV_RMS.txt",CH)) 
+ dat = load('/tmp/CV_RMS.txt');
+ sprintf ("%.3f",sqrt(meansq (dat(:,2)-dat(:,3))))
+ % Relative error
+ % RE= mean(abs((dat(1:end,2) - dat(1:end,3))./(dat(1:end,3))));
+#+END_SRC
+
+#+RESULTS: CV_RMS
+
 
 *** Sustained Chopper
 
 \glsreset{ChS}
 
 Figure \ref{fig:CSresults} shows the optimisation results for the \ChS subtype
-of the \TS cell model.  The exemplar \ChS unit had a depolarisation threshold at
-10 dB and a firing rate saturation at 75 dB \SPL.  The stimulus for the
-optimisation routine was a pure tone 30 dB above acoustic threshold at \CF (3.9
-kHz 40 dB \SPL), 5 ms on\slash off cosine squared ramp.  A 20 ms delay was
-included to allow the model to reach a sustained \RMP. The ChS model unit had CF
-of 3.872 kHz due to the separation of frequency channels in the model.  The best
-parameters found by the optimisation and shown in Figure \ref{fig:CSresults},
-were very high excitatory input (\wLSRTS =
+of the \TS cell model.  The exemplar \ChS unit (\CF 3.9 kHz) had an intracellular depolarisation threshold, $\theta$, at
+10 dB \SPL and a firing rate saturation at 75 dB \SPL.  The stimuli for the
+optimisation routine were three pure \CF tones at  20, 30 and 40 dB re $\theta$ (above the acoustic threshold) of the exemplar unit 
+(30, 40 and 50 dB SPL, respectively).  A 20 ms delay was
+included to allow the model to reach a sustained \RMP. The \TS cell model used in the \ChS optimisation had CF
+of 3.872 kHz, hereafter called the \ChS model.  The output spiking and intracellular responses of the best
+parameters found by the optimisation are  shown in Figure \ref{fig:CSresults}.
+The optimised \ChD model has very high excitatory input (\wLSRTS =
 call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000")[:results replace raw] nS,
 \wHSRTS = call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000")[:results replace raw]
-nS) and moderate to high inhibition ( \wDSTS =
+nS) and very low inhibitory strength from all three interneurons ( \wDSTS =
 call_opt_paramf(param="w.x[ds][ts]",type="CS",factor="1000")[:results replace raw] nS, \wTVTS
 = call_opt_paramf(param="w.x[tv][ts]",type="CS",factor="1000")[:results replace raw] nS,
 \wGLGTS = call_opt_paramf(param="w.x[glg][ts]",type="CS",factor="1000")[:results replace raw]
 nS). The low input stimulus level meant that the majority of synaptic input came
 from \HSR fibres.  There was a one-third increase in the leak conductance
-(\gleak = call_param_ts_gleak(type="CS")[:results replace raw] 4.735e-04  \Scmsq ) from the
-initial value (4.907e-04 \Scmsq), causing a decrease in the input resistance to
-120 M$\Omega$ from 163 M$\Omega$.  The final error, calculated with more weight
-on the CV variables, was call_opt_error(type="CS")[:results replace raw].
-Post-tone hyperpolarisation (exemplar +1.30 mV, best \ChS model -0.03 mV) and
-the first \CV value (exemplar 0.154, best \ChS model 0.497) had the greatest
-difference.  The poor initial \CV response was due to the irregular first spike.
-The large excitatory \HSR input causes spikes to occur after tone onset, just
-before the stimulus-invoked spike arrival at the \TS cell 3 ms later, but was
-still included in the \CV calculation.
+(\gleak = call_param_ts_gleak(type="CS")[:results replace raw]  \Scmsq ) from the
+initial value (4.907e-04 \Scmsq), causing a decrease in the input resistance from 163 M$\Omega$ to
+120 M$\Omega$ .  
+
+
+The final error, used within the optimisation routine, was call_opt_error(type="CS")[:results replace raw]. 
+Due to scales of the CV and AIV measures this error has no physical units or references. Weighting was used to equalise the magnitudes of the CV and AIV error metrics.     
+The RMS difference between the CV data of the optmised \ChS model and the exemplar \ChS unit (Figure \ref{fig:CSresults}B) was 0.051. The closest stimulus was the 30 dB \SPL, which had a RMS difference of 0.034. In relative terms the mean CV at 30 dB re $\theta$ was 0.202 and 0.172 for the modelled and exemplar \ChS units, respectively.
+Figure \ref{fig:CSresults}D shows the AIV measures used in the optimisation.  The onset ratio and the adaptation MP difference were only measured for the 30 dB re $\theta$. 
+The post-stimulus offset results in   are grossly different.  
 
 # \note{TODO: The peaks for the IV are 3.66,
 # 6.77, and 10.99 ms. The AN model input is affected by the rat audiogram,
@@ -3182,8 +3187,8 @@ still included in the \CV calculation.
     The stimulus (pure tone 3.9 kHz stimulus, 40dB SPL) was repeated 50 times for
     this figure but during the optimisation routine the repetition was 25.
     A. PSTH of the \TS cell model (CF 3.872 kHz) to a pure tone at CF at 30 dB re
-    threshold. B. Coefficient of variation averaged over 10 ms periods.
-    C. Reference (blue) and ChS cell model AIVs at 30 dB re threshold. Note: shaded areas indicate areas used in the
+    $\theta$. B. Coefficient of variation averaged over 10 ms periods.
+    C. Reference (blue) and ChS cell model AIVs at 30 dB re $\theta$. Note: shaded areas indicate areas used in the
     measures in D.  D. AIV measures including a) onset ratio
     (30 dB re Thr, Equation~\ref{eq:IVstats-Onset}), b) adaptation of sustained depolarisation
     (20,30,40 dB re Thr, Equation~\ref{eq:IVstats-Adap}), and c) post-tone hyperpolarisation
@@ -3216,7 +3221,7 @@ still included in the \CV calculation.
 #  [[../SimpleResponsesChapter/gfx/TStellate_CS/multiplotIVCV4.pdf]]
 
 
-The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re threshold was
+The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re $\theta$ was
 call_CS_rate(SPLreTh=30)[:results replace raw],
 call_CS_rate(SPLreTh=40)[:results replace raw] and
 call_CS_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
@@ -3238,7 +3243,7 @@ call_opt_paramf(param="w.x[lsr][ts]",type="CT1",factor="1000")[:results replace 
 call_opt_paramf(param="w.x[hsr][ts]",type="CT1",factor="1000")[:results replace raw] nS) were balanced with moderate to low glycinergic synaptic input from \DS and \TV cells (\wDSTS
 call_opt_paramf(param="w.x[ds][ts]",type="CT1",factor="1000")[:results replace raw] nS, \wTVTS
 call_opt_paramf(param="w.x[tv][ts]",type="CT1",factor="1000")[:results replace raw] nS).  The GABAergic input weight was very low (\wGLGTS
-call_opt_paramf(param="w.x[glg][ts]",type="CT1",factor="1000")[:results replace raw] nS), but the loud input stimulus (70 dB SPL = 30 dB re threshold) would
+call_opt_paramf(param="w.x[glg][ts]",type="CT1",factor="1000")[:results replace raw] nS), but the loud input stimulus (70 dB SPL = 30 dB re $\theta$) would
 cause reasonable inhibition to the \TS cell throughout the stimulus.
 
 # The leak conductance had a slight decrease (\gleak 4.098e-4 S/cm).
@@ -3262,22 +3267,22 @@ cause reasonable inhibition to the \TS cell throughout the stimulus.
 
 #     [[../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf]]
 Figure \ref{fig:CT1results} shows the spike and \AIV statistical measures of the
-optimised \ChTone model.  The PSTH of the model at 30 dB re threshold (70 dB
+optimised \ChTone model.  The PSTH of the model at 30 dB re $\theta$ (70 dB
 SPL) is shown in Figure \ref{fig:CT1results}A.  The mean rate for the optimised
-\ChT1 unit at 20, 30 and 40 dB re threshold was
+\ChT1 unit at 20, 30 and 40 dB re $\theta$ was
 call_CT1_rate(SPLreTh=30)[:results replace raw],
 call_CT1_rate(SPLreTh=40)[:results replace raw] and
 call_CT1_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
 The characteristic CV response of the \ChTone is highly regular in the first 10
 ms (less than 0.2), then transiently adapts to regularity below 0.3 for the
-remainder of the stimulus.  The CV at 30 dB re threshold was closest fit to the
-reference data (RMS 0.034). The RMS error of the 20 and 40 dB re threshold CV
+remainder of the stimulus.  The CV at 30 dB re $\theta$ was closest fit to the
+reference data (RMS 0.034). The RMS error of the 20 and 40 dB re $\theta$ CV
 profiles were 0.038 and 0.098, respectively.  The \AIV traces in Figure
 \ref{fig:CT1results}C show the differences in the exemplar unit and the
 simulated \TS cell model. The repetitive firing in the first 20 ms of the
 \ChTone \AIV trace results in consistent membrane voltage fluctuation which is
 not present in the exemplar unit.  The onset ratio statistic of the exemplar and
-optimised \ChTone unit was 0.983 and 1.01, respectively, at 30 db re threshold.
+optimised \ChTone unit was 0.983 and 1.01, respectively, at 30 db re $\theta$.
 The optimised \ChTone unit was consistently below the adaptation statistic of
 the exemplar unit at each of the stimulus levels.  The post-offset results of
 the exemplar \ChTone unit were not consistent with the inhibitory behaviour of
@@ -3302,7 +3307,7 @@ difference between the transient chopper types is reflected in their \CV values
 after 10 ms, with the \ChT2 type becoming irregular (i.e. having a CV value over
 0.3) and maintaining that regularity for the remainder of the stimulus.  \ChT2
 has a higher reduction in onset depolarization (90.2\%) compared to ChT1, and
-post-tone inhibition is greater (+8.82 mV at 30 dB re threshold)
+post-tone inhibition is greater (+8.82 mV at 30 dB re $\theta$)
 \citep*{PaoliniClareyEtAl:2005}.
 
 # The second transiently adapting chopper unit responses are different to typical \ChTone unit responses are reflected
@@ -3321,19 +3326,19 @@ post-tone inhibition is greater (+8.82 mV at 30 dB re threshold)
 
 Figure \ref{fig:CT2results} shows the results of the optimised \ChTtwo model
 unit optimisation.  The characteristic CV response of the \ChTtwo unit was
-closely matched at 30 and 40 dB re threshold (Figure \ref{fig:CT2results}B). The
-low firing rate of the model at 20 dB re threshold (55 dB SPL) reduced the
-regularity of the spike intervals, hence increased CV throughout the stimulus.
-The resting membrane potential for the experimental and model \ChTtwo units was
-$-60.63$ and $-64.96$ mV, respectively.  The experimental \ChTtwo unit had a
-higher reduction in onset depolarisation (90.2\%) compared to \ChTone units at 30 dB re threshold
-\citep{PaoliniClareyEtAl:2005}.  The adaptation statistic results of the optimised
-\ChTtwo model did not have the significant drop (around 6 mV in the reference
-data Figure \ref{fig:CT2results}D), despite reduction in firing rate and strong changes in CV.
-The post-tone inhibitory offset of the
-experimental \ChTtwo unit is the greatest of all the chopper subtypes (8.82 mV
-at 40 dB re threshold). The optimised \ChTtwo unit had a stable post-offset
-inhibition around 4 mV at the three stimulus levels.
+closely matched at 30 and 40 dB re $\theta$ (Figure \ref{fig:CT2results}B). The low
+firing rate of the model at 20 dB re $\theta$ (55 dB SPL) reduced the regularity of
+the spike intervals, hence increased CV throughout the stimulus.  The resting
+membrane potential for the experimental and model \ChTtwo units was $-60.63$ and
+$-64.96$ mV, respectively.  The experimental \ChTtwo unit had a higher reduction
+in onset depolarisation (90.2\%) compared to \ChTone units at 30 dB re $\theta$
+\citep{PaoliniClareyEtAl:2005}.  The adaptation statistic results of the
+optimised \ChTtwo model did not have the significant drop (around 6 mV in the
+reference data Figure \ref{fig:CT2results}D), despite reduction in firing rate
+and strong changes in CV.  The post-tone inhibitory offset of the experimental
+\ChTtwo unit is the greatest of all the chopper subtypes (8.82 mV at 40 dB re
+$\theta$). The optimised \ChTtwo unit had a stable post-offset inhibition around 4 mV
+at the three stimulus levels.
 
 Excitatory synaptic weights (\wLSRTS
 call_opt_paramf(param="w.x[lsr][ts]",type="CT2",factor="1000")[:results replace raw]
@@ -3344,7 +3349,7 @@ nS) were balanced with moderate to low glycinergic synaptic input
 call_opt_paramf(param="w.x[ds][ts]",type="CT2",factor="1000")[:results replace raw] nS,
 \wTVTS
 call_opt_param(param="w.x[tv][ts]",type="CT2",factor="1000")[:results replace raw] nS).  The GABAergic input weight was very low (\wGLGTS
-call_opt_param(param="w.x[glg][ts]",type="CT2",factor="1000")[:results replace raw] nS), but the loud input stimulus (70 dB SPL = 30 dB re threshold) would
+call_opt_param(param="w.x[glg][ts]",type="CT2",factor="1000")[:results replace raw] nS), but the loud input stimulus (70 dB SPL = 30 dB re $\theta$) would
 cause reasonable inhibition to the \TS cell throughout the stimulus.  The final
 error of the optimised \ChTtwo unit was call_opt_error(type="CT2")[:results replace raw], with the greatest weighting from the CV data.
 
@@ -3374,10 +3379,12 @@ The mean rate for the optimised \ChTtwo unit at the three \SPL tones was
 call_CT2_rate(SPLreTh=30)[:results replace raw],
 call_CT2_rate(SPLreTh=40)[:results replace raw] and
 call_CT2_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
-# The \FSL at 30 dB re threshold (call_CT2_fsl(SPLreTh=40)[:results replace raw] ms) showed a precise first spike.
-# At 40 dB re threshold the
+# The \FSL at 30 dB re $\theta$ (call_CT2_fsl(SPLreTh=40)[:results replace raw] ms) showed a precise first spike.
+# At 40 dB re $\theta$ the
 
 ** Overview of TS cell model results
+
+
 
 \yellownote{TODO: Two-Three paragraphs on TS models}
 
