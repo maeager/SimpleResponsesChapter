@@ -3100,22 +3100,22 @@ for all \SPL above threshold.
 
 
 #+name: CS_rate
-#+BEGIN_SRC sh :exports none
+#+BEGIN_SRC sh :results replace raw :exports none
   grep -A 14 'at spl '$SPLreTh''  ../SimpleResponsesChapter/gfx/TStellate2_CS/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
 #+END_SRC
 
 #+name: CT1_rate
-#+BEGIN_SRC sh  :exports none
+#+BEGIN_SRC sh  :results replace raw :exports none
   grep -A 14 'at spl '$SPLreTh''  ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat |  tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
 #+END_SRC
 
 #+name: CT2_rate
-#+BEGIN_SRC sh :exports none
+#+BEGIN_SRC sh :results replace raw :exports none
   grep -A 14 'at spl '$SPLreTh''  ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | tail -6  | awk 'BEGIN{sum=0;} {sum+=$3;} END{printf("$%.1f$",sum/5.0)}'
 #+END_SRC
 
 #+name: CT2_fsl
-#+BEGIN_SRC sh :exports none
+#+BEGIN_SRC sh :results replace raw :exports none
    grep -A33 'at spl '$SPLreTh'' ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f \\pm %.2f$\n",$4,$7)}'
 #+END_SRC
 
@@ -3136,32 +3136,69 @@ for all \SPL above threshold.
 \glsreset{ChS}
 
 Figure \ref{fig:CSresults} shows the optimisation results for the \ChS subtype
-of the \TS cell model.  The exemplar \ChS unit (\CF 3.9 kHz) had an intracellular depolarisation threshold, $\theta$, at
-10 dB \SPL and a firing rate saturation at 75 dB \SPL.  The stimuli for the
-optimisation routine were three pure \CF tones at  20, 30 and 40 dB re $\theta$ (above the acoustic threshold) of the exemplar unit 
-(30, 40 and 50 dB SPL, respectively).  A 20 ms delay was
-included to allow the model to reach a sustained \RMP. The \TS cell model used in the \ChS optimisation had CF
-of 3.872 kHz, hereafter called the \ChS model.  The output spiking and intracellular responses of the best
-parameters found by the optimisation are  shown in Figure \ref{fig:CSresults}.
-The optimised \ChD model has very high excitatory input (\wLSRTS =
-call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000")[:results replace raw] nS,
-\wHSRTS = call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000")[:results replace raw]
-nS) and very low inhibitory strength from all three interneurons ( \wDSTS =
-call_opt_paramf(param="w.x[ds][ts]",type="CS",factor="1000")[:results replace raw] nS, \wTVTS
-= call_opt_paramf(param="w.x[tv][ts]",type="CS",factor="1000")[:results replace raw] nS,
-\wGLGTS = call_opt_paramf(param="w.x[glg][ts]",type="CS",factor="1000")[:results replace raw]
-nS). The low input stimulus level meant that the majority of synaptic input came
-from \HSR fibres.  There was a one-third increase in the leak conductance
-(\gleak = call_param_ts_gleak(type="CS")[:results replace raw]  \Scmsq ) from the
-initial value (4.907e-04 \Scmsq), causing a decrease in the input resistance from 163 M$\Omega$ to
-120 M$\Omega$ .  
+of the \TS cell model.  The exemplar \ChS unit (\CF 3.9 kHz) had an
+intracellular depolarisation threshold, $\theta$, at 10 dB \SPL and a firing rate
+saturation at 75 dB \SPL.  The stimuli for the optimisation routine were three
+pure \CF tones at 20, 30 and 40 dB re $\theta$ (above the acoustic threshold) of the
+exemplar unit (30, 40 and 50 dB SPL, respectively).  A 20 ms delay was included
+to allow the model to reach a sustained \RMP. The \TS cell model used in the
+\ChS optimisation had CF of 3.872 kHz, hereafter called the \ChS model.  The
+output spiking and intracellular responses of the best parameters found by the
+optimisation are shown in Figure \ref{fig:CSresults}.  The optimised \ChS model
+has very high excitatory input (\wLSRTS =
+call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000") nS, \wHSRTS =
+call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000") nS) and very low
+inhibitory strength from all three interneurons ( \wDSTS =
+call_opt_paramf(param="w.x[ds][ts]",type="CS",factor="1000") nS, \wTVTS =
+call_opt_paramf(param="w.x[tv][ts]",type="CS",factor="1000") nS, \wGLGTS =
+call_opt_paramf(param="w.x[glg][ts]",type="CS",factor="1000") nS). The low input
+stimulus level meant that the majority of synaptic input came from \HSR fibres.
+There was a one-third increase in the leak conductance (\gleak =
+call_param_ts_gleak(type="CS") \Scmsq ) from the initial value (4.907e-04 \Scmsq),
+causing a decrease in the input resistance from 163 M$\Omega$ to 120 M$\Omega$.
 
 
-The final error, used within the optimisation routine, was call_opt_error(type="CS")[:results replace raw]. 
-Due to scales of the CV and AIV measures this error has no physical units or references. Weighting was used to equalise the magnitudes of the CV and AIV error metrics.     
-The RMS difference between the CV data of the optmised \ChS model and the exemplar \ChS unit (Figure \ref{fig:CSresults}B) was 0.051. The closest stimulus was the 30 dB \SPL, which had a RMS difference of 0.034. In relative terms the mean CV at 30 dB re $\theta$ was 0.202 and 0.172 for the modelled and exemplar \ChS units, respectively.
-Figure \ref{fig:CSresults}D shows the AIV measures used in the optimisation.  The onset ratio and the adaptation MP difference were only measured for the 30 dB re $\theta$. 
-The post-stimulus offset results in   are grossly different.  
+The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re $\theta$ was
+call_CS_rate(SPLreTh=30), call_CS_rate(SPLreTh=40) and call_CS_rate(SPLreTh=50)
+spikes per second, respectively.  These results show the \ChS model had a high
+firing rate that was still increasing, which indicates the model was highly
+active and the stimuli range was in the upper DR region of the rate level
+response.
+
+
+The final error, used within the optimisation routine, was
+call_opt_error(type="CS")[:results replace raw].  Due to different magnitudes of
+the CV and AIV measures this error has no physical units or
+references. Weighting was used to equalise the magnitudes of the CV and AIV
+error metrics.  The RMS difference between the CV data of the optimised \ChS
+model and the exemplar \ChS unit (Figure \ref{fig:CSresults}B) was 0.051. The
+closest stimulus was the 30 dB \SPL, which had a RMS difference of 0.034. In
+relative terms the mean CV at 30 dB re $\theta$ was 0.202 and 0.172 for the modelled
+and exemplar \ChS units, respectively.  Figure \ref{fig:CSresults}D shows the
+AIV measures used in the optimisation.  Early attempts to use the AIV measures,
+which used 1 ms windows, were unable to fit the model to the experimental data.
+The fluctuations in the \TS cell model's AIV traces, mainly due to \AP
+artifacts, were smoothed out by increasing the sampling window to 5 ms.  The
+latency of the depolarisation peak was used to temporally shift the model's AIV
+trace for a stronger comparison with the exemplar unit.  The onset ratio and the
+adaptation MP difference were only measured for the 30 dB re $\theta$ due to
+availability of experimental data.  The \ChS model's onset ratio, 1.0125, was
+smaller than the exemplar unit's, 1.0417.  The adaptation MR difference was 1.67
+mV for the model and 0.94 mV for the exemplar unit.  For both measures, the
+differences are within the bounds for noise.  The results of the post-stimulus
+MP offset difference show the limitations of comparing real and simulated
+intracellular recordings.  In the single-compartment neural model, the
+depression and recovery at the end of a stimulus is due to the recovery
+properties of the \ANF model and inhibition from \IPSPs with longer time
+constants than the \EPSPs of \ANFs. The experimental recordings in the exemplar
+\TS cell have a high \RMP and minimal post-tone offset.  \TS cells of mammals
+are known to have very few somatic contacts
+\citep{Cant:1992,Cant:1981,JosephsonMorest:1998,SmithRhode:1989}.  Inhibitory
+inputs on the dendrites act by shunting excitatory current and may not be
+visible at recording sites in the soma. Increasing the morphology complexity of
+the neural model (i.e. using a passive dendrite segment) would help to improve
+the \ChS model.
+
 
 # \note{TODO: The peaks for the IV are 3.66,
 # 6.77, and 10.99 ms. The AN model input is affected by the rat audiogram,
@@ -3221,11 +3258,6 @@ The post-stimulus offset results in   are grossly different.
 #  [[../SimpleResponsesChapter/gfx/TStellate_CS/multiplotIVCV4.pdf]]
 
 
-The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re $\theta$ was
-call_CS_rate(SPLreTh=30)[:results replace raw],
-call_CS_rate(SPLreTh=40)[:results replace raw] and
-call_CS_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
-\yellownote{TODO: explain the results and differences in the model and experimental data}
 
 *** Transient Chopper 1
 
@@ -3239,12 +3271,15 @@ the exemplar unit was 55 dB \SPL, close to the average 47.2 dB \SPL for all
 # had the reversal potential of $-63.9 mV$.
 
 Excitatory synaptic weights (\wLSRTS
-call_opt_paramf(param="w.x[lsr][ts]",type="CT1",factor="1000")[:results replace raw] nS, \wHSRTS
-call_opt_paramf(param="w.x[hsr][ts]",type="CT1",factor="1000")[:results replace raw] nS) were balanced with moderate to low glycinergic synaptic input from \DS and \TV cells (\wDSTS
-call_opt_paramf(param="w.x[ds][ts]",type="CT1",factor="1000")[:results replace raw] nS, \wTVTS
-call_opt_paramf(param="w.x[tv][ts]",type="CT1",factor="1000")[:results replace raw] nS).  The GABAergic input weight was very low (\wGLGTS
-call_opt_paramf(param="w.x[glg][ts]",type="CT1",factor="1000")[:results replace raw] nS), but the loud input stimulus (70 dB SPL = 30 dB re $\theta$) would
-cause reasonable inhibition to the \TS cell throughout the stimulus.
+call_opt_paramf(param="w.x[lsr][ts]",type="CT1",factor="1000") nS, \wHSRTS
+call_opt_paramf(param="w.x[hsr][ts]",type="CT1",factor="1000") nS) were balanced
+with moderate to low glycinergic synaptic input from \DS and \TV cells (\wDSTS
+call_opt_paramf(param="w.x[ds][ts]",type="CT1",factor="1000") nS, \wTVTS
+call_opt_paramf(param="w.x[tv][ts]",type="CT1",factor="1000") nS).  The GABAergic
+input weight was very low (\wGLGTS
+call_opt_paramf(param="w.x[glg][ts]",type="CT1",factor="1000") nS), but the loud
+input stimulus (70 dB SPL = 30 dB re $\theta$) would cause reasonable inhibition to
+the \TS cell throughout the stimulus.
 
 # The leak conductance had a slight decrease (\gleak 4.098e-4 S/cm).
 
@@ -3269,13 +3304,15 @@ cause reasonable inhibition to the \TS cell throughout the stimulus.
 Figure \ref{fig:CT1results} shows the spike and \AIV statistical measures of the
 optimised \ChTone model.  The PSTH of the model at 30 dB re $\theta$ (70 dB
 SPL) is shown in Figure \ref{fig:CT1results}A.  The mean rate for the optimised
-\ChT1 unit at 20, 30 and 40 dB re $\theta$ was
-call_CT1_rate(SPLreTh=30)[:results replace raw],
-call_CT1_rate(SPLreTh=40)[:results replace raw] and
-call_CT1_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
+\ChT1 model at 20, 30 and 40 dB re $\theta$ was
+call_CT1_rate(SPLreTh=30),
+call_CT1_rate(SPLreTh=40) and
+call_CT1_rate(SPLreTh=50) spikes per second, respectively.
+This means the optimisation stimulus levels range are in the saturation region of the cell's rate level curve and not in the expected DR region.
+
 The characteristic CV response of the \ChTone is highly regular in the first 10
 ms (less than 0.2), then transiently adapts to regularity below 0.3 for the
-remainder of the stimulus.  The CV at 30 dB re $\theta$ was closest fit to the
+remainder of the stimulus.  The combined RMS error of the CV data was 0.064.  The CV at 30 dB re $\theta$ was closest fit to the
 reference data (RMS 0.034). The RMS error of the 20 and 40 dB re $\theta$ CV
 profiles were 0.038 and 0.098, respectively.  The \AIV traces in Figure
 \ref{fig:CT1results}C show the differences in the exemplar unit and the
