@@ -107,7 +107,7 @@ investigated \CN of mammals, bats and birds.
 
 To develop and optimise detailed neural models and neural network models,
 reproducible research methods are required.  In this chapter, the table method
-introduced by \citet{NordlieGewaltigEtAl:2009} is used to summarise the neural
+introduced by \citet{NordlieGewaltigEtAl:2009} is adaopted to summarise the neural
 models used in each optimisation step (as described in Chapter
 \ref{sec:MethodsChapter}).
 # The Nordlie tables shown in
@@ -117,9 +117,8 @@ models used in each optimisation step (as described in Chapter
 # This method aims to
 # show a consistent and recognisable format for presenting various
 # neural network models and their constituents.
-In order to create a realistic microcircuit, the parameter optimisation routine
-was developed in sequential stages.  The connections within the \CNSM model
-(Figure \ref{fig:microcircuit}) were developed using such a sequential method of
+In order to create a realistic microcircuit, the connections within the \CNSM model
+(Figure \ref{fig:microcircuit}) were developed using a sequential method of
 optimisation steps.  Parameters in the microcircuit can be separated into two
 classes: cell-based and connectivity-based.  The cell-based parameters for each
 cell model in the \CNSM model, discussed in Section
@@ -214,27 +213,27 @@ experimental data.
 
 The order of the optimisation routines is important because of the
 inter-dependencies within the isofrequency microcircuit and across the whole
-nucleus. In the \CNSM model, Golgi cells only received inputs from the \ANFs and
+nucleus. In the \CNSM model, Golgi cells only receive inputs from the \ANFs and
 are the first model and network parameters to be optimised. \DS cells are
 modeled next because they receive inputs from \ANFs and \GABA-ergic Golgi
 cells. The \TV cells' input network parameters are optimised next as they are
 strongly inhibited by \DS cells and receive excitation from \ANFs. Input
-parameters to \TS cells, which received inputs from all other cell types in the
+parameters to \TS cells, which receive inputs from all other cell types in the
 \CNSM model, are optimised last.
 
 Due to the variety of possible inputs to \TS cells (and the observed
 physiological classification sub-types in chopper units), three \TS cell model
 sub-types were optimised.  Glycinergic input to \DS cells from \TV cells and
-other \DS cells was not included due to their weak effects /in vitro/
+other \DS cells was not included due to its weak effects /in vitro/
 \citep{FerragamoGoldingEtAl:1998a} and the added complexity of a negative
-feedback loop in the microcircuit.  Recurrent synaptic connection between \TS
-cells have been the focus of recent neural models
+feedback loop in the microcircuit.  Recurrent synaptic connections between \TS
+cells have been the focus of other \CN models
 \citep{BahmerLangner:2006,BahmerLangner:2006a,WiegrebeMeddis:2004}.  They were
 not included in the \CNSM model because of the rarity of small round vesicles on
 \ChS units \citep{SmithRhode:1989}. Additionally,
 \citet{FerragamoGoldingEtAl:1998a} reported that \EPSPs in one \TS cell were
 likely to come from only one input. Given the weak influence of \TS cell
-recurrent connections, they were not included in the \CNSM model.
+recurrent connections, they were also not included in the \CNSM model.
 
 # TODO: This para is about pushing the reader towards the
 # following sections.  Needs to expand on reasons for wanting to create
@@ -312,7 +311,7 @@ the start of each repetition of the stimulus.
 ** Neural Models
 
 Single-compartment \HH-like neural models were used for the \DS, \TV and \TS
-cells in the \CNSM model.  The \RM neural model is a conductance-based neural
+cells in the \CNSM model. The \RM neural model is a conductance-based neural
 model with membrane current models developed by \citet{RothmanManis:2003b}. The
 \CNSM model makes extensive use of the \RM neural model, which was discussed in
 detail in Section \ref{sec:Methods:CellModels}.
@@ -424,7 +423,7 @@ The effective delay of the \AN model does not take into account the conduction
 and synaptic transmission delay in reaching post-synaptic neurons in the \CNSM
 model. Accordingly, an additional delay component was required in each of the
 synaptic connections in the \CNSM model involving \ANFs.  Mean \FSL to short \CF
-tones and click stimuli were used to set delay times between \ANFs and \CN cells
+tones and click stimuli was used to set delay times between \ANFs and \CN cells
 \citep{RhodeSmith:1986,RhodeOertelEtAl:1983,SpirouDavisEtAl:1999,FerragamoGoldingEtAl:1998a}.
 The additional delay was defined using the \FSL of high frequency units as the
 sum of the \ANFs' \FSL, \ANF conduction delay and the synaptic transmission
@@ -442,9 +441,7 @@ neural model.  \IKLT is active at \RMP and decreases the overall input
 resistance and membrane time constant, reducing the time to fire an action
 potential.  \TS cells were designed with the Type I-t \RM model, which contains
 an additional \IKA channel current over the Type I-c \RM model, but were not
-significantly different from the classic Type I \RM models in \TV cell models.
-
-
+significantly different from the classic Type I \RM models in the \TV cell model.
 
 #+BEGIN_LaTeX
   \begin{table}[tp]
@@ -454,9 +451,9 @@ significantly different from the classic Type I \RM models in \TV cell models.
   \toprule
                           &       \ANF        &        \TS         &         \DS         &    \TV    & Golgi \\\otoprule
        \RM cell type      &                   &        I-t         &        I-II         &    I-c    & I-c\\
-    Experimental FSL(ms)  & $2.4\pm0.73^{ 1}$ & $3.6\pm0.36 ^{ 1}$ & $2.8\pm0.09 ^{1,2}$ & 4.0$^{3}$ & 4.3$^{4}$\\
+    Experimental FSL (ms)  & $2.4\pm0.73^{ 1}$ & $3.6\pm0.36 ^{ 1}$ & $2.8\pm0.09 ^{1,2}$ & 4.0$^{3}$ & 4.3$^{4}$\\
   Default model FSL  (ms) &        1.5        &        2.0         &         1.6         &    2.0    & 2.0\\ \midrule
-   Additional delay(ms)   &         -         &        1.6         &         1.2         &    2.0    & 2.3\\\bottomrule
+   Additional delay (ms)   &         -         &        1.6         &         1.2         &    2.0    & 2.3\\\bottomrule
   \end{tabularx}\\
   {\small $^1$\citet{RhodeSmith:1986}, $^2$\citet{RhodeOertelEtAl:1983}, $^3$\citet{SpirouDavisEtAl:1999}, $^4$\citet{GhoshalKim:1997}}
   \end{table}
@@ -468,8 +465,8 @@ significantly different from the classic Type I \RM models in \TV cell models.
 All simulations were performed in the neural simulation package [[latex:progname][NEURON]].
 # For further specifications see Section [[Simulation%20and%20Implementation%20of%20the%20CNSM%20Model][Simulation and Implementation of the CNSM Model]].
 The time step of the numerical integration performed in each of the simulations
-in the chapter was 0.05 ms.  Input spikes for Poisson neural models (\HSR, \LSR
-and Golgi cell models) were calculated at the start of repetitions.
+in this chapter was 0.05 ms.  Input spikes for Poisson neural models (\HSR, \LSR
+and \GLG cell models) were calculated at the start of repetitions.
 
 # The parallel is based on the [[latex:progname][NEURON]] network model [[latex:progname][netmod]]
 # \citet{MiglioreCanniaEtAl:2006} (see SenseLab's ModelDB models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]],
@@ -486,8 +483,7 @@ model using the parameters, then comparing selected neural outputs to
 experimental data.  \Gls{RMS} error was used as the comparison measure of
 similar data points, e.g.\space mean firing rate at different sound levels in a
 rate-level simulation.  Mean error relative to the expected or target values was
-also used to ensure there is no bias between data points with large variation in
-differences.
+also used to ensure there was no bias between data points with large variation in magnitude.
 
 ** Verification of Cell Model Responses to Simple Tones and Noise
 
@@ -504,7 +500,7 @@ presented to the \CNSM model included:
    90 dB SPL.
 2. Rate-level response to white noise at levels 0 to 100 dB SPL.
 3. Masked rate-level response with pure tones varied in level from 0 to 100 dB
-   SPL and simultaneous withe noise at 50 dB SPL.
+   SPL and simultaneous with noise at 50 dB \SPL.
 
 * Figures                                                          :noexport:
 ** fig:Compression
@@ -554,7 +550,7 @@ from the soma in all directions
 The dendrites of \VCN\space \GLG cells are mitochondria-rich and make glomeruli
 complexes with long synaptic junctions, with mossy fibre boutons
 \citep{MugnainiOsenEtAl:1980}. The somata generally have few boutons of the flat
-or pleomorphic vesicle type, that are characteristic of glycinergic and
+or pleomorphic vesicle type that are characteristic of glycinergic and
 GABAergic terminals. Along with inhibitory boutons, the dendrites also receive
 excitatory input with large (Type I \ANF) and small (Type II \ANF and granule
 cell) vesicles
@@ -610,7 +606,7 @@ response to voltage clamp \citep{FerragamoGoldingEtAl:1998}. \GLG cells are
 classified as Type I current-clamp neurons and act as simple integrators of
 synaptic input \citep{FerragamoGoldingEtAl:1998}.
 # Their intrinsic properties suggests \GLG cells are simple integrators.
-Response to \AN shocks in \GLG cells were found to be delayed by approximately
+Responses to \AN shocks in \GLG cells were found to be delayed by approximately
 0.7 ms relative to the core \VCN units, with minimum delay in most cells around
 1.3 ms \citep{FerragamoGoldingEtAl:1998}.
 
@@ -649,13 +645,15 @@ elicit electrical activity in the electrodes
 Figure \ref{fig:GhoshalKim97Fig2} shows an example of the acoustically-driven
 marginal shell units in the \VCN.  Strongly driven units in the anterior \VCN
 shell exhibit non-saturating rate-level functions to pure tones, noise or both
-with dynamic ranges as wide as 89 dB \citep{GhoshalKim:1997}.  The majority of
-increasing sound intensity to tones and noise. Some units showed Type II or Type
+with dynamic ranges as wide as 89 dB \citep{GhoshalKim:1997}.  
+
+The majority of
 \GCD units recorded by \citet{GhoshalKim:1997} were classified as Type I\slash
-III or III \EIRA units, showing a monotonic increase in firing rate with IV
-\EIRA properties. One unit was classified as Type II due to its poor response to
+III or III \EIRA units, showing a monotonic increase in firing rate to tones and noise. 
+One unit was classified as Type II due to its poor response to
 noise but it did not show a reduction of response to tones at high \SPL, typical
-of \DCN Type II units \citep{GhoshalKim:1997}. Two units with low \CF (\lt 1.5
+of \DCN Type II units \citep{GhoshalKim:1997}. 
+Two units with low \CF (\lt 1.5
 kHz) were classified as Type II \citep{GhoshalKim:1997}. The \PSTH of the units
 included wide chopper, \OnC, and pause-build; however, nearly one third of units
 did not fit into the known classifications and were called "unusual"
@@ -794,7 +792,7 @@ The key cell attributes that informed the creation of the
     provide weak inputs to \GLG cells.  The lack of extensive experimental data
     regarding Type II \ANF units and granule cell response to acoustic input,
     reward an inhomogeneous Poisson rate neural model over the Hodgkin-Huxley
-    type neural model in the \GLG cell used in the \CNSM model. Although \HSR
+    type neural model in the \GLG cell used in the \CNSM model. Although \HSR\space 
     \ANF terminals do not generally project into the \GCD, they were included in
     the \CNSM model to provide some low level spontaneous activity.
 
@@ -842,7 +840,7 @@ desired spontaneous activity, \Gspon, and is given by
   \end{equation}
 #+END_LaTeX
 The length of the instantaneous rate profiles of \HSR and \LSR models (and
-consequently \GLG models) were determined by the stimulus duration and sampling
+consequently \GLG models) was determined by the stimulus duration and sampling
 rate ($N_{\rm stim}$ = stimulus duration / sampling rate). Profiles were
 calculated for each channel in the network (size=\Nchannels) and stored for use
 during repeated simulations.
@@ -980,21 +978,21 @@ fitness function to produce a square root of the mean squared difference between
 the model response and the target response.  The optimal parameters of the \GLG
 cell model had a fitness score of 4.48 spikes per second.  A normalised metric
 that takes into account the different firing rate magnitudes at each sound level
-relative to the target response shows a mean absolute difference of 21.5\%.
+relative to the target response showed a mean absolute difference of 21.5\%.
 
 #+BEGIN_LaTeX
   {%
   \small\noindent%
   \begin{table}[t!]
     \centering
-    \caption{Best-fit parameters oft the Golgi cell model optimisation}  \label{tab:GolgiCellResults}
+    \caption{Best-fit parameters of the Golgi cell model optimisation}  \label{tab:GolgiCellResults}
     \begin{tabularx}{0.55\textwidth}{l c c}
   \toprule
   \textbf{Parameters (Units)} & \textbf{Range} & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
    \sANFGLG \hfill (channel)  &     [0,10]     & 2.48   \\
-      \Gtau  \hfill (ms)      &     [0,20]     & 5.01   \\
-      \wLSRGLG\hfill(\uS)     &     [0,5]      & 0.517  \\
-     \wHSRGLG \hfill(\uS)     &     [0,5]      & 0.0487 \\
+      \Gtau  (ms)      &     [0,20]     & 5.01   \\
+      \wLSRGLG (\uS)     &     [0,5]      & 0.517  \\
+     \wHSRGLG (\uS)     &     [0,5]      & 0.0487 \\
       \Gspon  (spikes/s)      &     [0,50]     & 3.73   \\ %\midrule
   %\multicolumn{2}{c}{$\sqrt{\langle(\mathbf{t}-\mathbf{r})^2\rangle}$ \quad (sp/s)}
        %  Fitness Error       &                & 4.48 \\
@@ -1075,20 +1073,6 @@ reduction of the onset response to tones.
 
 # Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
 # units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
-
-#+BEGIN_LaTeX
-  \begin{figure}[t!]
-     %\centering
-    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-3.pdf}}%
-    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
-    \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF 5.8 kHz).
-   A. Four simulated PSTHs of the \GLG cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
-  B. Four experimental PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}.
-  } \label{fig:GolgiVerificationPSTH}
-  \end{figure}
-#+END_LaTeX
-
 #+BEGIN_LaTeX
   {%
   \begin{figure}[t!]
@@ -1133,6 +1117,22 @@ the \citet{GhoshalKim:1996a} study.
 [[../SimpleResponsesChapter/gfx/GhoshalKim96_Fig2.pdf]]
 
 
+
+#+BEGIN_LaTeX
+  \begin{figure}[t!]
+     %\centering
+    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-3.pdf}}%
+    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
+    \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF 5.8 kHz).
+   A. Four simulated PSTHs of the \GLG cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
+  B. Four experimental PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}.
+  } \label{fig:GolgiVerificationPSTH}
+  \end{figure}
+#+END_LaTeX
+
+
+
 Figure \ref{fig:GolgiVerificationWhole} shows the response of optimised \GLG
 cell models at each frequency channel in the \CNSM model to a 5.8 kHz tone and
 broadband noise over a wide range of sound levels. The \GLG cell model had a
@@ -1141,9 +1141,9 @@ monotonic response to tones and noise similar to other experimental units
 \ref{fig:GolgiVerificationWhole}A, the rate level response of the central \GLG
 unit was generated using the optimised parameters.  Using a sigmoidal function,
 the rate level curve had a theoretical spontaneous rate of 0 spikes/s (3.77
-spikes/s calculated from 0 to 15 dB SPL), a threshold at 19 dB SPL, and a
+spikes/s calculated from 0 to 15 dB \SPL), a threshold at 19 dB \SPL, and a
 dynamic range of 68 dB.  The theoretical maximal rate for the curve was 120.8
-spikes/s and the reaches half maximum rate at 53 dB SPL.  The noise rate-level
+spikes/s and reached half maximum rate at 53 dB \SPL.  The noise rate-level
 curve for the central \GLG unit in Figure \ref{fig:GolgiVerificationWhole}B was
 monotonic.  The average gradient of the noise rate level curve between 70 and
 120 dB \SPL was 2.02 spikes per second per dB.  Figure \ref{fig:GolgiVerificationWhole}C shows
@@ -1152,15 +1152,14 @@ dB above the threshold (30 dB \SPL) units with CFs from 4.98 kHz to 7.48 kHz wer
 above threshold, which equates to a receptive field of 2.5 kHz or \Qten of 0.41.
 The \GLG unit with CF 6.43 kHz had the highest rate at 30 dB SPL and was closest
 to the middle of activated units in the network.  The range of activated units
-was 4.6 kHz at 50 dB SPL (30 dB re thresh) and 10 kHz for 80 dB SPL.  Figure
+was 4.6 kHz at 50 dB SPL (30 dB relative to the acoustic threshold) and 10 kHz for 80 dB \SPL.  Figure
 \ref{fig:GolgiVerificationWhole}D shows the noise rate level response of all \GLG
-units. The non-uniform response to a linear broadband input reflects the species
-specific audiogram compression in the AN model.
+units. The non-uniform response to a linear broadband input reflects the species-specific audiogram compression in the AN model.
 
 ** Discussion of the Golgi Cell Model
 
 The \GLG cell model reproduces the monotonic rate-level response observed in
-experimental data of a single unit in the marginal shell of the VCN
+experimental data of a single unit in the marginal shell of the \VCN\space 
 \citep{GhoshalKim:1997} to a high degree of accuracy.  Moderately-driven,
 monotonic behaviour was found in a majority of recorded units /in vivo/
 \citep{GhoshalKim:1997}. A simple classic type 1 current clamp neural model
@@ -1168,20 +1167,20 @@ monotonic behaviour was found in a majority of recorded units /in vivo/
 \citet{FerragamoGoldingEtAl:1998}, was the first choice for the GLG cell model.
 The lack of evidence surrounding the distribution of \ANFs, particularly \HSR
 fibres, in the region of the \GCD and the limited physiological data led to
-using a filter-based neural model for the \GLG cell. This model is
+the use of a filter-based neural model for the \GLG cell. This model is
 computationally faster without minimising the physiological output of the model.
 
-The evidence surrounding non-auditory excitatory inputs to the \GLG cell were
+Non-auditory excitatory inputs to the \GLG cell were
 not included as this was not relevant to a strong sensory-driven input and the
-role of the \CNSM model is to recreate acoustically-driven outputs.  Inhibitory
-synapses are known contact Golgi cells is a number of mammalian species
+purpose of the \CNSM model (namely to recreate acoustically-driven outputs).  Inhibitory
+synapses are known contact Golgi cells in a number of mammalian species
 \citep{MugnainiOsenEtAl:1980,Cant:1993}.  Inhibitory inputs to the GLG cell
-model, such as other \GLG cells or \DS cells, were excluded due to limited
-experimental data and the additional problems this would add to the sequential
+model, such as other \GLG cells or \DS cells, were excluded due to the limited
+experimental evidence and the additional problems this would add to the sequential
 optimisation process.
 
 Given these limitations and the results of the optimisation, the \GLG cell model
-using the novel filter-based neural model is sufficient to proceed with the
+using the novel filter-based neural model was deemed sufficient to proceed with the
 optimisation of the \DS cell network parameters.  The filter-based neural model,
 with no inhibitory component, still produces an efficient and accurate
 rate-level responses in the \GLG cell as observed in experimental data of a
@@ -1213,10 +1212,10 @@ model, the \DS cell.
 
 ** Background
 
-In the mammalian \CN, \DS cells have a wide ranging influence on almost all
-primary cells of the \CN.  Glycinergic terminals of the \DS cell contact \TS and
+\DS cells have a wide ranging influence on almost all
+primary cells in the mammalian \CN.  Glycinergic terminals of the \DS cell contact \TS and
 bushy neurons in the \VCN \citep{RhodeSmithEtAl:1983}, and fusiform and \TV
-neurons in the ipsilateral \DCN (Type II and Type IV \EIRA units). Some \DS
+neurons in the ipsilateral \DCN (Type II and Type IV \EIRA units)\citep{SpirouDavisEtAl:1999}. Some \DS
 cells exit the \CN, forming commissural connections with the contralateral \CN
 \citep{NeedhamPaolini:2007}.  /In vitro/ studies have shown that \DS cells are
 strongly inhibited by the neurotransmitter GABA, predominantly at \GABAa
@@ -1255,15 +1254,15 @@ optimise the parameters controlling level of \ANF excitation in the \DS model.
 # \DS cells are large multipolar neurons in the \VCN and have an \OnC \PSTH to
 # tones and noise \citep{SmithRhode:1989,NeedhamPaolini:2006}.
 
-Morphologically, DS cells typically have 3--4 long dendrites stretching one
+Morphologically, \DS cells typically have 3--4 long dendrites stretching one
 third of the \VCN and receiving \ANF inputs over a wide frequency range.  \DS
 cell axon terminals contain the inhibitory neurotransmitter glycine and synapse
-with a fast acting receptor \GlyR with other cells in the \CN
+with a fast acting receptor (\GlyR) with other cells in the \CN
 \citep{MahendrasingamWallamEtAl:2004,RubioJuiz:2004,Alibardi:2003a,BabalianJacommeEtAl:2002,PiechottaWethEtAl:2001,MahendrasingamWallamEtAl:2000,DoucetRossEtAl:1999,HartyManis:1998,HartyManis:1996}.
 Their axonal collaterals cover the same region in the \VCN, and almost one half
 of the \DCN
 \citep{Cant:1992,Cant:1981,SchofieldCant:1996,CantBenson:2003,NeedhamPaolini:2007,PaoliniClark:1999}.
-They also send a commissural projection to the contralateral \CN that mediates
+Some \DS cells also send a commissural projection to the contralateral \CN that mediates
 fast inhibition between the nuclei
 \citep{NeedhamPaolini:2003,NeedhamPaolini:2006,Oertel:1997}.
 \citet{SmithMassieEtAl:2005} combined evidence from studies in different animals
@@ -1329,7 +1328,7 @@ less prominent hyperpolarising sag.
 \DS cells have been classified as having an \OnC\space \PSTH to \CF tones across
 many species
 \citep{RhodeSmithEtAl:1983,BlackburnSachs:1989,FengKuwadaEtAl:1994,PalmerWallaceEtAl:2003,Pfeiffer:1966,SmithRhode:1989,ArnottWallaceEtAl:2004,PaoliniClark:1999,SmithMassieEtAl:2005}.
-Their high threshold to \CF tones and increased response to noise show \DS cells
+Their high threshold to \CF tones and increased response to noise show that \DS cells
 receive inputs from many weak \ANFs across a wide frequency range
 \citep{RhodeSmith:1986,PalmerWallaceEtAl:2003}.  Electrophysiological
 intracellular responses /in vivo/ to sounds indicate that the bandwidth of \ANF
@@ -1373,30 +1372,7 @@ and mask clicks.
 
 ** Implementation
 
-
-# 2.5. Data analysis Data were collected as spike times with a
-# resolution of 10 μs and analyzed off-line on a micro-VAX 3100
-# (Digital). Response histograms were plotted and analyzed using a
-# windowing technique in which spike counts were taken over brief time
-# windows of identical duration for the masker and probe components
-# (Fig. 1B). Using the control conditions, counting windows were
-# determined individually for each unit but ranged between 1 and 4 ms
-# based on the control response to the masker alone and the probe
-# alone. To assess response variability over time, repeated unmasked
-# controls for both the masker (masker alone, Ma) and probe (probe
-# alone, Pa) were obtained during the pre-drug, drug, and post-drug
-# recovery conditions. Drug doses were determined empirically as the
-# lowest dose that elicited a reproducible and reversible effect. To
-# allow normalization of the masked probe response obtained in the
-# paired-click paradigm to the unmasked response obtained when the probe
-# was presented alone, identical measurement windows were used in the
-# control and drug conditions for a given unit. The suppression recovery
-# functions for each unit were normalized by taking the ratio Pm/Pa
-# where Pm is the masked probe spike count and Pa is the unmasked
-# response to the probe (Fig. 1C).
-
-
-The \DS neural model was implemented with a single-compartment, Type I-II \RM
+The \DS cell model was implemented with a single-compartment, Type I-II \RM
 model \citep{RothmanManis:2003b}. The Type I-II \RM model is unique to \DS cells
 due to the presence of low-threshold potassium currents. The Type I-II model was
 chosen so that at high levels of intracellular current injection the model
@@ -1413,9 +1389,9 @@ inputs to \DS cells are ignored in the \CNSM model.
 
 In order to specify how \ANF and \GABA-ergic inputs regulate the rate and
 temporal behaviour of \DS cells, two optimisation routines were performed.  The
-temporal response of \GLG cells to \AM is unknown, therefore clicks, as used in
+temporal response of \GLG cells to \AM is unknown; therefore clicks, as used in
 \citet{BackoffPalombiEtAl:1997}, were deemed the most suitable for optimisation.
-The first optimisation, Section [[Results%20of%20Click%20Recovery%20Optimisation][Results of Click Recovery Optimisation]], used the
+The first optimisation, described in Section [[Results%20of%20Click%20Recovery%20Optimisation][Results of Click Recovery Optimisation]], used the
 mask recovery response to click pairs observed in \OnC units
 \citep{BackoffPalombiEtAl:1997}.  The click pair optimisation tested the \DS
 cell model's response with and without GABA-ergic inputs, simulating the
@@ -1473,13 +1449,12 @@ of 2 channels (i.e.\space SD= $\sqrt{2}$) with zero offset, which corresponds to
 a \DS cell receiving synapses from \GLG cell models in a narrow range of
 frequency channels.
 
-
-The additional delay parameter for \ANF terminals on the \DS cell model, \CF \DS
-cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate
-\protect{\dANFDS}, was shown in Section \ref{sec:Ch3:Delays}. The first spike
-latency in high neurons in the \VCN \citep{RhodeSmith:1986}.  The additional
-delay of 1.2 ms from \ANF to \DS input connections is a product of axonal
-conductance and dendritic delay.
+The first spike latency in high \CF \DS cells ($2.8 \pm 0.09$ ms) is precise and
+faster than other stellate neurons in the \VCN \citep{RhodeSmith:1986}.  The
+additional delay parameter for \ANF terminals on the \DS cell model (\dANFDS)
+was shown in Section \ref{sec:Ch3:Delays}.  The additional delay of 1.2 ms from
+\ANF to \DS input connections is a product of axonal conductance and dendritic
+delay.
 
 ** Results of Click Recovery Optimisation
    :PROPERTIES:
@@ -1502,15 +1477,19 @@ click pairs of the fitness function stimulus (16 ms and 2 ms separation between
 50 ms.  Spike outputs of the \DS cell model were recorded in 2 ms windows mask
 and probe clicks).  Two millisecond windows immediately after the mask and probe
 clicks were used to record the \DS cell model's output.
+\yellownote{TODO fix paragraph}
+
 
 The six parameters to be fit by the routine were the weights of the \HSR\space
 \ANFs, \LSR\space \ANFs and \GLG cell model synapses on \DS cells (\wHSRDS,
-\wLSRDS, \wGLGDS); the \GABAa synapse fast and slow decay constants ($\tau_{\rm
+\wLSRDS, \wGLGDS); the \GABAa synapse for fast and slow decay constants ($\tau_{\rm
 GABA-1}$, $\tau_{\rm GABA-2}$); and the \DS cell maximum leak conductance (\gleak).
 Initial optimisation procedures were not successful at constraining the short
 delay recovery responses (2, 3, 4 ms), so the \DS cells' \Ileak conductance
 parameter was included in the optimised parameters to allow the \DS cell model's
 input resistance to fit fast-acting behaviour in the cell.
+
+
 
 Figure \ref{fig:BackoffPalombi} shows the click recovery response of unit
 G61.U6, an AVCN \OnC unit (CF 5.69, threshold 30 dB SPL), and the effects of the
@@ -1519,10 +1498,12 @@ click response of this unit only reached 100\% of the mask click response until
 16 ms separation. With ionotopopheretic application of bicuculine, the \OnC unit
 had full response to the probe click at 1 ms separation. From these results,
 \citet{BackoffPalombiEtAl:1997} showed the strong effects of \GABA on \OnC units
-on the \VCN, effectively \DS cells.  The \DS cell model used in the optimisation
+in the \VCN, effectively \DS cells.  The \DS cell model used in the optimisation
 had a CF of 5.8 kHz, the closest CF channel to the exemplar \OnC unit.
 Spontaneous activity in idle periods was used for additional weighted penalty
 measures of spontaneous activity and to restrict over-excitation by \ANFs.
+
+
 
 # \PSTHs of the spiking output of \DS units were generated from 25 stimulus
 # repetitions. Each response to a click was measured for a period of 2 ms.  The
@@ -1679,14 +1660,14 @@ the only inhibitory input to the \DS cell model in the \CNSM model.
 # [[../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel_result.6.3kHz.pdf]]
 
 
-#+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) were optimised to an OnC unit (CF 10.9 kHz, in figure 12 of \citet{ArnottWallaceEtAl:2004}). A. Tone rate level responses of HSR, LSR and GLG unit inputs (inputs to the DS cell model) at frequency channel with CF 11.1 kHz.  B. Noise rate level responses of HSR, LSR and GLG units at same CF as in A. B. Tone rate level responses of DS cell optimised model (CF 11.12 kHz) and target unit (CF 10.9 kHz). D. Noise rate level responses of optimised DS cell model and target unit. }
+#+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) were optimised to an OnC unit (CF 10.9 kHz, in figure 12 of \citet{ArnottWallaceEtAl:2004}). A. Tone rate level responses of HSR, LSR and GLG unit inputs to the DS cell model at frequency channel with CF 11.1 kHz.  B. Noise rate level responses of HSR, LSR and GLG units at same CF as in A. B. Tone rate level responses of DS cell optimised model (CF 11.12 kHz) and target unit (CF 10.9 kHz). D. Noise rate level responses of optimised DS cell model and target unit. }
 #+LABEL: fig:DSRateLevelResult
 [[../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel_result.pdf]]
 
 
 The output of the \DS cell model in the optimisation was strongly determined by
 its input responses, as shown in Figure \ref{fig:DSRateLevelResult}A and B.
-\HSR fibres (all with \SR=50 spikes/s ) have low threshold to sounds and
+\HSR fibres (all with \SR=50 spikes/s) have low threshold to sounds and
 saturate at moderate sound levels, as shown by the stable rate level responses
 to tones and noise (orange circles in Figure \ref{fig:DSRateLevelResult}).
 These flat responses at a high rate (approximately 250 spikes/s) were not able
@@ -1698,7 +1679,7 @@ contributors to the output response of the \DS cell model.
 Figure \ref{fig:DSRateLevelResult}C shows the output \CF tone rate level
 responses of the optimised \DS cell model (using the best fit parameters in
 Table \ref{tab:DSRateLevelResults}) and the reference target's rate level
-response.  Figures \ref{fig:DSRateLevelResult}B shows the noise rate level
+response.  Figure \ref{fig:DSRateLevelResult}B shows the noise rate level
 responses of the optimised and reference units.  At 50 repetitions per stimulus,
 the best parameters produced a combined \RMS error of 48.88 spikes per second
 (tone 61.6 sp/s, noise 25.14 sp/s).
@@ -1709,7 +1690,7 @@ levels of tones and generally for broadband noise.  The optimisation routine
 used the mean absolute error (between the reference and model response) divided
 by the reference \DS cell's response.  The combined relative mean absolute error
 of the tone and noise rate level response of the optimised \DS cell model in
-Figure \ref was
+Figure \ref{fig:DSRateLevelResult} was
 # 54.6\% (tone 57.49%, noise 52.09%).
 53.43\% (tone 53.61\%,  noise 53.20\%). 
 
@@ -1774,7 +1755,8 @@ cells across the whole network using tones, noise and tones plus noise stimuli.
 The behaviour of an individual \DS cell model output is shown in Figure
 \ref{fig:DSverificationPSTH}.
 
-Figure \ref{fig:DSverificationPSTH}A and B shows
+\yellownote{TODO Explain DS verification}
+Figure \ref{fig:DSverificationPSTH}A and B show
 the response of the central \DS cell model (CF 5.8 kHz).
 # The onset PSTH
 # monotonic responses to tones and noise were similar to other Ghoshal and Kim
@@ -1789,14 +1771,15 @@ cells.
 #+BEGIN_LaTeX
   \begin{figure}[t!]
      %\centering
-    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    %{\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
     {\hfill%
     \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Paolini99_Fig9.png}}%
-    \resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-2.pdf}}%
+    \resizebox{0.5\textwidth}{!}{\figfont{D}\hfill\\
+    \includegraphics{../../cnstellate/ResponsesNoComp/psthblock-2.pdf}}%
     %\resizebox{0.5\textwidth}{!}{\includegraphics{../LiteratureReview/gfx/NoFigure.pdf}}\hfill}\\
     \hfill}\\
     \caption[Optimised DS cell model responses to tones and noise]{%
-   A-C. PSTHs in 3 rat OnC neurons to 50 ms tones on CF and below CF \citep[Figures~reproduced~from~][]{PaoliniClark:1999}
+   A-C. PSTHs in 3 rat OnC neurons to 50 ms tones on CF and below CF \citep[Figures~reproduced~from][]{PaoliniClark:1999}.
    D. Response of optimised DS cell model at the centre of the network (CF 5.8 kHz). Four simulated PSTHs of the \DS cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
   } \label{fig:DSVerificationPSTH}
   \end{figure}
@@ -1810,7 +1793,7 @@ cells.
     \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%         
    %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d}
     \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
-    \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (Image reproduced from \citet{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
+    \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (image reproduced from \citet{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
     \label{fig:DSVerificationRA}
   \end{figure}
 #+END_LaTeX
@@ -1873,8 +1856,8 @@ rapid response at onset and transient phasic response as shown /in vitro/
 # similar to \TS cells.
 Similarly, the synaptic inputs to the DS cell model reflected the network
 properties of the DS cell.  The morphology of \DS cells allows them to integrate
-a wide \BF range of excitatory \ANF inputs, with physiological response to
-sounds 1 octave above and 2 octave below its \BF
+a wide \BF range of excitatory \ANF inputs, with physiological responses to
+sounds 1 octave above and 2 octave below their \BF
 \citep{PalmerJiangEtAl:1996,PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004}.
 # The receptive field distribution of the \ANFs contacting \DS cells contributes to
 # their ability to respond to auditory inputs 1 octave above and 2
@@ -1888,7 +1871,7 @@ above \CF.
 
 The click recovery optimisation was used to modify the physiological dynamics of
 the \GLG cells' \GABAa synapse with \DS cells, particularly the \GABAa decay constant.
-GABAergic inputs to \DS cells are well documented in the literature, in synaptic
+GABAergic inputs to \DS cells are well documented in the literature; in synaptic
 contacts and intracellular pharmacological studies, however, their distribution
 and network properties are unknown. 
 Electrophysiological evidence shows that \GABA
@@ -1898,7 +1881,9 @@ the \GABAa blocker bicuculine and that their IPSPs were not visible at the soma.
 # Hence, the \GLG neuron of the \GCD are a good candidate for GABAergic distal
 # input to \DS cells.
 \GLG cells in the \GCD are the likely candidates for \GABAa synapses on the
-distal dendrites of DS cells.  Two important results came out of the click
+distal dendrites of DS cells.  
+
+Two important results came out of the click
 recovery optimisation.  Firstly, the \GABAa synapse onto \DS cells needs to have
 a fast onset.  The initial response of the \DS cell model to click pairs
 separated by 2 ms had to have a probe response 20\% less than the masker
@@ -1934,19 +1919,20 @@ note in the optimised parameters was the difference between synaptic strengths
 of \LSR and \HSR \ANF inputs by an order of 66 (\HSR 0.167 nS, \LSR 11.03 nS).
 For this differential to occur in an actual \DS cell or in a morphologically
 detailed neural model, LSR fibres would have to contact the \DS cell on the soma
-or near to the site of activation and the \HSR fibres wold be on distal
-dendrites. The \DS cell model is a single compartment neural model The optimal
-\DS cell model also received five \GLG cell synapses with a synaptic weight of
-0.532 nS.  The acoustic threshold and for both the tone and noise responses was
-well fit however the responses of the optimised model were unable to match the
-target at higher sound levels. At higher levels, HSR fibres are saturated,
-therefore the balance of \LSR and \GLG cell inputs are important for maintaining
-the monotonic rate level response for both tones and noise.  The importance of
-acoustic threshold accuracy becomes critical in later simulations of TV and TS
-cells.  While it is acknowledged that the discrepancy in the rate-level response
-occurs at high sound levels, of the optimised \DS cell model's accuracy at low sound levels was regarded as
-# acceptable and 
-satisfactory.
+or near to the site of activation and the \HSR fibres would be on distal
+dendrites. 
+# The \DS cell model is a single compartment neural model.
+ The optimal \DS cell model also received five \GLG cell synapses with a
+synaptic weight of 0.532 nS.  The acoustic threshold for both the tone and noise
+responses was well fitted however the responses of the optimised model were
+unable to match the target at higher sound levels. At higher levels, HSR fibres
+are saturated, therefore the balance of \LSR and \GLG cell inputs is important
+for maintaining the monotonic rate level response for both tones and noise.  The
+importance of acoustic threshold accuracy becomes critical in later simulations
+of TV and TS cells.  While it is acknowledged that a large discrepancy in the
+rate-level response occurs at high sound levels, the optimised \DS cell model's
+accuracy at low sound levels was regarded as satisfactory to provide a basis for
+progression to optimising the \TV cell model.
 
 
 # ArnottWalacePalmer A wealth of circumstantial evidence suggests that onset
