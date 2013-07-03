@@ -153,7 +153,7 @@ tones across the frequency spectrum \citep{Evans:1992}.
 
 The \CNSM model shown in Figure \ref{fig:microcircuit} comprises the following
 cells:
-1. \HSR and \LSR\space \ANFs : A phenomenological auditory model provides
+1. \Gls{HSR} and \LSR\space \ANFs : A phenomenological auditory model provides
    spiking input to \CN neurons across frequencies and spontaneous rate types of
    the \ANFs from an arbitrary input stimulus \citep{ZilanyBruceEtAl:2009}.  The
    baseline in Figure \ref{fig:microcircuit} is a representation of \ANFs from
@@ -564,7 +564,7 @@ cell) vesicles
 # and non-acoustic inputs occurs \citep{RyugoWrigthEtAl:1993}.
 The contribution of the circuits of granule cell areas of the \CN to the
 processing of the acoustic signal is poorly understood
-\citep[for~a~review~of~non-auditory~inputs~to~\GCD~see~][]{OhlroggeDoucetEtAl:2001}.
+\citep[for a review of non-auditory inputs to the GCD see ][]{OhlroggeDoucetEtAl:2001}.
 \citet{FerragamoGoldingEtAl:1998} confirmed the excitation of Golgi cells from
 granule cells with \NMDA glutamatergic synapses.
 
@@ -1104,10 +1104,10 @@ reduction of the onset response to tones.
    \includegraphics{../../cnstellate/ResponsesNoComp/NoiseRateLevel/response_area-3.pdf}\hfill}%
    \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
    whole network (CF 5.8 kHz) to pure tones and noise.
-   A. Rate level response of the central GLG unit to a pure CF tone (5.81 kHz, 50 ms, 20 repetitions). Sigmoidal function fit to data, $44.18 \mathrm{atan}((x-52.92)/22.75)+51.4$.
+   A. Rate level response of the central GLG unit to a pure CF tone (5.81 kHz, 50 ms, 20 repetitions). Sigmoidal function fit to data, $44.18 \mathrm{arctan}((x-52.92)/22.75)+51.4$.
    B. Noise rate level response of the central GLG unit to broad-band noise (50 ms, 20 repetitions). The curve is monotonic, with a threshold at 60 dB.
    C. Rate level responses of all GLG units to a pure tone (5.81 kHz, 50 ms, 20 repetitions).
-   D. Noise rate level response of all GLG units to BNN stimuli (50 ms, 20 repetitions).}
+   D. Noise rate level response of all GLG units to BNN stimuli (50 ms, 20 repetitions). A sigmoidal best fit line is shown (the function values are not necessary due to no saturation in the data points). }
   \label{fig:GolgiVerificationWhole}
   \end{figure}
   }
@@ -1146,14 +1146,14 @@ dynamic range of 68 dB.  The theoretical maximal rate for the curve was 120.8
 spikes/s and the reaches half maximum rate at 53 dB SPL.  The noise rate-level
 curve for the central \GLG unit in Figure \ref{fig:GolgiVerificationWhole}B was
 monotonic.  The average gradient of the noise rate level curve between 70 and
-120 dB SPL was 2.02 spikes per second per dB.  Figure \ref{fig:GolgiVerificationWhole}C shows
+120 dB \SPL was 2.02 spikes per second per dB.  Figure \ref{fig:GolgiVerificationWhole}C shows
 the response of all \GLG cell units in the \CNSM model to a 5.8 kHz tone.  At 10
-dB above the threshold (30 dB SPL) units with CFs from 4.98 kHz to 7.48 kHz were
+dB above the threshold (30 dB \SPL) units with CFs from 4.98 kHz to 7.48 kHz were
 above threshold, which equates to a receptive field of 2.5 kHz or \Qten of 0.41.
-The GLG unit with CF 6.43 kHz had the highest rate at 30 dB SPL and was closest
+The \GLG unit with CF 6.43 kHz had the highest rate at 30 dB SPL and was closest
 to the middle of activated units in the network.  The range of activated units
 was 4.6 kHz at 50 dB SPL (30 dB re thresh) and 10 kHz for 80 dB SPL.  Figure
-\ref{fig:GolgiVerificationWhole}D shows the noise rate level response of all GLG
+\ref{fig:GolgiVerificationWhole}D shows the noise rate level response of all \GLG
 units. The non-uniform response to a linear broadband input reflects the species
 specific audiogram compression in the AN model.
 
@@ -1200,6 +1200,7 @@ single unit in the marginal shell of the \VCN \citep{GhoshalKim:1997}.
 # support a hypothesis that the AVCN shell forms an important link in the
 # OHC-MOC reflex circuit.
 
+
 * D Stellate Cell Model
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:DSCell
@@ -1245,7 +1246,7 @@ optimise the parameters controlling level of \ANF excitation in the \DS model.
 
 
 #+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
-#+CAPTION: [DS cell retrogradely labeled from the DCN]{(Left) TS cells that were retrogradely stained with BDA injections in the DCN lie in the narrow frequency band corresponding to the presumed frequency band of the injection site in the DCN. (Right) Reconstructed DS cell with dendritic processes in the granule cell domain (GCD). Image reproduced from Figure 3C in \citet{DoucetRyugo:1997}.}
+#+CAPTION: [DS cell retrogradely labeled from the DCN]{(Left) VCN stellate cells that were retrogradely stained with BDA injections in the DCN.  \TS cells (arrowhead) lie in the narrow frequency band corresponding to the presumed frequency band of the injection site in the DCN. The larger DS cell (arrow) lies outside the frequency band in a region with lower CF. The visibly stained dendrites of the DS cell are directed toward the GCD.  (Right) Reconstructed DS cell with dendritic processes in the GCD. Images reproduced from Figure 3C in \citet{DoucetRyugo:1997}.}
 #+LABEL: fig:DSinGCD
 [[../SimpleResponsesChapter/gfx/DoucetRyugo1997_C_DSinGCD.png]]
 
@@ -1710,7 +1711,7 @@ by the reference \DS cell's response.  The combined relative mean absolute error
 of the tone and noise rate level response of the optimised \DS cell model in
 Figure \ref was
 # 54.6\% (tone 57.49%, noise 52.09%).
-53.43\% (tone 53.61\%,  noise 53.20\%).
+53.43\% (tone 53.61\%,  noise 53.20\%). 
 
 **** Source blocks: DS RL RMS                                      :noexport:
 
@@ -1984,7 +1985,8 @@ satisfactory.
   :CUSTOM_ID: sec:Ch3:TVModel
   :END:
 # :  Optimisation Using Tone and Noise Rate Level Responses
-The following section introduces, defines and optimises the neural model of \TV cells of the \DCN.
+The following section introduces, defines and optimises the neural model of \TV
+cells of the \DCN.
 
 ** Background
 
