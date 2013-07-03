@@ -12,7 +12,7 @@
    viewBox="-61 27 884.90076 543.32603"
    id="svg3547"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="CNConn.svg"
    inkscape:export-filename="/media/data/Work/thesis/SimpleResponsesChapter/gfx/CNConn.png"
    inkscape:export-xdpi="600"
@@ -69,15 +69,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1680"
-     inkscape:window-height="1000"
+     inkscape:window-width="1440"
+     inkscape:window-height="850"
      id="namedview4065"
      showgrid="false"
      inkscape:zoom="0.6356579"
      inkscape:cx="521.00212"
      inkscape:cy="494.74289"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="25"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg3547"
      fit-margin-top="0"
@@ -1433,24 +1433,24 @@
   </text>
   <text
      style="font-size:13.26957512px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Verdana;-inkscape-font-specification:Verdana"
-     x="26.154997"
+     x="-19.074907"
      y="134.952"
      id="text4033"
      sodipodi:linespacing="125%">
     <tspan
-       x="26.154997"
+       x="-19.074907"
        y="134.952"
        id="tspan4035"
        style="font-size:19.90436363px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Verdana;-inkscape-font-specification:Verdana">Post Synaptic Cell Group, Y</tspan>
   </text>
   <text
      style="font-size:13.26957512px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Verdana;-inkscape-font-specification:Verdana"
-     x="19.520193"
+     x="-18.076935"
      y="309.42303"
      id="text4037"
      sodipodi:linespacing="125%">
     <tspan
-       x="19.520193"
+       x="-18.076935"
        y="309.42303"
        id="tspan4039"
        style="font-size:19.90436363px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;font-family:Verdana;-inkscape-font-specification:Verdana">Pre Synaptic Cell Group, X</tspan>
