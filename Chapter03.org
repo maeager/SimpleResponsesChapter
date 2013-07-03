@@ -2014,7 +2014,7 @@ collaterals to the \VCN. The dendrites of \TV cells are aligned with \ANFs;
 consequently, they are also known as `vertical' cells, and are tuned similarly
 to \ANFs \citep{Rhode:1999}.  \TV cells are characterised as having unique cell
 bodies and synaptic characteristics that distinguish them from other cells in
-the deep layer, namely Giant cells and Golgi-stellate cells
+the deep layer, namely giant cells and Golgi-stellate cells
 \citep{SaintBensonEtAl:1991,WickesbergOertel:1993,Alibardi:2000b,Alibardi:1999}.
 
 \TV cells receive weak mono-synaptic excitatory input, mainly on their
@@ -2044,9 +2044,8 @@ are inhibited by glycinergic \DS cells and from sources in the \DCN
 \citep{Rubio:2005}.  Intracellular responses from labeled \TV cells in the mouse
 show clear diffuse inhibitory input from \DS cells
 \citep{ZhangOertel:1993b,WickesbergOertel:1993}.  Evidence in the mouse suggests
-also \TV cells also receive excitation from \TS cells
-\citep{WickesbergOertel:1993}; however, \citet{Rubio:2005} found no \TS
-terminals on rat \TV cells.
+\TV cells also receive excitation from \TS cells \citep{WickesbergOertel:1993};
+however, \citet{Rubio:2005} found no \TS terminals on rat \TV cells.
 
 *** Acoustic Response of Tuberculoventral Cells
 
