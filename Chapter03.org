@@ -1470,14 +1470,13 @@ In order to specify how \GLG cells regulate the click recovery response in DS
 cells, a parameter optimisation routine was performed using data from
 \citet{BackoffPalombiEtAl:1997}.  Table \ref{tab:DScellModelSummary}E describes
 the fitness function stimulus as six pairs of masker-probe clicks separated by
+50 ms.  Spike outputs of the \DS cell model were recorded in 2 ms windows
 following the clicks, accounting for the effective minimum \FSL in \DS cells
 (consistent with the experimental design of \citet{BackoffPalombiEtAl:1997}).
 Figure \ref{fig:ClickExample} shows the stimulus and output of the first two
 click pairs of the fitness function stimulus (16 ms and 2 ms separation between
-50 ms.  Spike outputs of the \DS cell model were recorded in 2 ms windows mask
-and probe clicks).  Two millisecond windows immediately after the mask and probe
-clicks were used to record the \DS cell model's output.
-\yellownote{TODO fix paragraph}
+mask and probe clicks).  Two millisecond windows immediately after the mask and
+probe clicks were used to record the \DS cell model's output.
 
 
 The six parameters to be fit by the routine were the weights of the \HSR\space
