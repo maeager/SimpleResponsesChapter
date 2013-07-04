@@ -2241,13 +2241,13 @@ optimal in noise (Figure \ref{fig:TVRateLevelResult}B).
 #+LABEL: fig:TVRateLevelResult
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel_result.pdf]]
 
-The blue lines in Figure \ref{fig:TVRateLevelResult}A) show a good fit for the
-control tone rate-level output. The RMS of the reference and optimised \TV cell
-model reponse was 16.36 sp/s. The RMS error for the \TV cell model without \DS
+The blue lines in Figure \ref{fig:TVRateLevelResult}A show a good fit for the
+control tone rate-level output. The \RMS of the reference and optimised \TV cell
+model reponse was 16.36 sp/s. The \RMS error for the \TV cell model without \DS
 cell input was 47.65 sp/s, which had a similar threshold to the reference data
-but was affected by the greater saturation rate.  The results for the noise rate
+but was negatively affected by the greater saturation rate.  The results for the noise rate
 level responses were a poorer fit to the experimental reference data due to the
-stronger \DS cell activation. The RMS error for control and no \DS cell input
+stronger \DS cell activation. The \RMS error for control and no \DS cell input
 results for noise was 51.84 and 67.28 sp/s, respectively.
 # #  50 dB Run
 # # + BEGIN_LaTeX
@@ -2291,14 +2291,14 @@ results for noise was 51.84 and 67.28 sp/s, respectively.
 The optimised parameters of the \TV cell model in Table
 \ref{tab:TVRateLevelFig8B} are indicative of a strongly-inhibited neuron.  The
 excitation from \ANF inputs was moderate, with stronger weighting toward \LSR
-fibres (\wLSRTV = call_TVopt_param(param="w.x[lsr][tv]",factor="1000") nS,
-\wHSRTV = call_TVopt_param(param="w.x[hsr][tv]",factor="1000") nS).  Each of the
+fibres (\wLSRTV = call_TVopt_param(param="w.x[lsr][tv]",factor="1000")[:results replace raw] nS,
+\wHSRTV = call_TVopt_param(param="w.x[hsr][tv]",factor="1000")[:results replace raw] nS).  Each of the
 input cell types to the \TV cell model had 30 synaptic inputs. All \ANF inputs
-were on \CF and chosen from different \HSR and \LSR fibres in the same frequency
+were on \CF and were chosen from different \HSR and \LSR fibres in the same frequency
 channel.  The \DS cell inputs were selected from frequency channels on and
 around the \CF of the \TV cell (Gaussian distribution, spread parameter
 \sDSTV=30).  The inhibitory weight from \DS cells was 50 times greater than the
-\ANF weights ( \wDSTV = call_TVopt_param(param="w.x[ds][tv]",factor="1000") nS),
+\ANF weights (\wDSTV = call_TVopt_param(param="w.x[ds][tv]",factor="1000")[:results replace raw] nS),
 however, due to the response properties of \DS cells the inhibition is most
 effective in noise and at the onset of sounds.
 
@@ -2372,7 +2372,7 @@ effective in noise and at the onset of sounds.
    A. Rate level responses to tone, noise and tone plus noise.
    B. PSTH at 90 dB SPL to noise.
    C. Response area equivalent using all DS units in the network.
-   D. Tone response maps with masking noise in optimised TV cell model at the centre of the CNSM model.  Frequencies range from one octave above and below its CF\@.}
+   D. Tone response maps with masking noise in optimised TV cell model at the centre of the CNSM model.  Frequencies range from one octave above and below the cell's CF\@.}
   \label{fig:TVmaskedresponse}
   \end{figure}
 #+END_LaTeX
@@ -2386,7 +2386,7 @@ effective in noise and at the onset of sounds.
    %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
    % \includegraphics{}\hfill}\\
    %  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-     {\hfill\resizebox{0.95\textwidth}{!}{%
+     {\hfill\resizebox{0.5\textwidth}{!}{%
      \includegraphics{../../cnstellate/ResponsesNoComp/psthblock-1.pdf}%
      %\includegraphics{gfx/GhoshalKim_PSTHs.png}%
    }\hfill}\\
@@ -2438,13 +2438,13 @@ typical of the Type II \EIRA units in the deep layer of the \DCN
 unit (\CF 5.8 kHz) at 90 dB \SPL is a simple chopping response, characteristic of
 the Type I-c \RM neural model (Figure \ref{fig:TVverification}A)
 \citep{RothmanManis:2003b}. The minimum first spikes occur at 4.3 ms after the
-stimulus onset (similar to the un-optimised \TV model's mean \FSL in Section
+stimulus onset (similar to the un-optimised \TV cell model's mean \FSL in Section
 [[Synaptic Delays]]).
 
 Due to the strong \DS inhibition, the peak \FSL of the optimised \TV cell model
 was delayed to 6.5 ms for a 50 dB \SPL tone (Figure
 \ref{fig:TVverification}A). In response to loud noise, the onset spike and the
-chopping behaviour is suppressed (Figure \ref{fig:TVverification}B).
+chopping behaviour was suppressed (Figure \ref{fig:TVverification}B).
 # The \TV model outputs' behaviour is shown in Figure \ref{fig:TVverification},
 # similar to the \GLG cell model Figure \ref{fig:Golgiverification}.
 Figure \ref{fig:TVverification}A and B show the response of the central \TV
@@ -2462,28 +2462,26 @@ D).
   :PROPERTIES:
   :CUSTOM_ID: sec:Ch3:DSTV
   :END:
+
 # of Wide-band Inhibition onto TV Cells Using Notch Noise Responses
-
-
-\TV cell model notch noise optimisation.  The main purpose of this optimisation
-Table \ref{tab:TVNotchModelSummary} shows the implementation methods used in the
-was to test whether \DS cell connection distribution variables (i.e.\space
-spread and offset) play a role in modifying the output of \TV cells (as
-suggested by \citet{ReissYoung:2005}).
+Table \ref{tab:TVNotchModelSummary} shows the implementation methods
+used in the \TV cell model notch noise optimisation.  The main purpose
+of this optimisation was to test whether \DS cell connection distribution
+variables (i.e.\space spread and offset) play a role in modifying the output
+of \TV cells (as suggested by \citet{ReissYoung:2005}).
 # The experimental data used in the fitness function, from
 # \citet{ReissYoung:2005} recorded from individual \TV neurons, is
 # adapted for a range of \TV cell models using a single notch stimulus.
 The experimental data in Figure \ref{fig:TVReissFig9} shows the average
-responses of Type II \DCN units to notch sweeps \citep{ReissYoung:2005}.  The
-optimisation routine would be prohibitive if it used multiple notch sweeps
-simulated using a single neuron.  To avoid this outcome, the optimisation used a
-single notch presented across the whole network of \TV cells.  Accordingly, the
-fitness function took the relative position of cells in the network into account
-when comparing the experimental data.  For example, when presented with a notch
-noise filtered between 5 kHz and 10 kHz, a unit with \CF of 5 kHz will see a
-falling edge of a 1 octave notch, whereas a unit with \CF of 10 kHz will see a
-rising edge of a half octave notch.  Figure \ref{fig:TVNotchDiagram} shows the
-combination of the Type II \DCN unit notch data for 1 octave.
+responses of Type II \DCN units to notch sweeps \citep{ReissYoung:2005}.  single
+notch presented across the whole network of \TV cells to avoid multiple notch
+sweeps.  Accordingly, the fitness function took the relative position of cells
+in the network into account when comparing the experimental data.  For example,
+when presented with a notch noise filtered between 5 kHz and 10 kHz, a unit with
+\CF of 5 kHz will see a falling edge of a 1 octave notch, whereas a unit with
+\CF of 10 kHz will see a rising edge of a half octave notch.  Figure
+\ref{fig:TVNotchDiagram} shows the combination of the Type II \DCN unit notch
+data for 1 octave.
 
 
 #+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
