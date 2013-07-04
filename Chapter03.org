@@ -2223,6 +2223,9 @@ potential from the default Type I \RM neural model.
 # TV_RateLevel/TV_RateLevel_Fig8.pdf
 
 ** Results of Tone and Noise Rate Level Optimisation
+  :PROPERTIES:
+  :CUSTOM_ID: sec:Ch3:TVRL
+  :END:
 
 Figure \ref{fig:TVRateLevelResult} shows the best fitted output behaviour of the
 optimised \TV cell model (Table \ref{tab:TVRateLevelFig8B}) and the target data
@@ -2458,6 +2461,8 @@ units to pure tones replicate the single channel excitatory inputs from \ANFs
 and wide-band inhibition from \DS units (Figure \ref{fig:TVverification}C and
 D).
 
+\clearpage
+
 ** Results of Notch Noise Optimisation
   :PROPERTIES:
   :CUSTOM_ID: sec:Ch3:DSTV
@@ -2510,9 +2515,9 @@ sound level in the \citet{ReissYoung:2005} data added further complexity. The
 power spectrum was maintained at a constant level per frequency band (dB per
 Hz$^{1/2}$) and this was scaled at each point in the notch sweep. For the single
 presentation used in this experiment the sound level plays an important part in
-stimulating the \ANFs and contributing interneurons. From the previous
-optimisation (Section [[Tuberculoventral%20Cell%20Model][Tuberculoventral Cell
-Model]]), the preliminary response to noise in \TV cell models was linear
+stimulating the \ANFs and contributing interneurons. From the previous TV cell model
+optimisation, Section \ref{sec:Ch3:TVRL}, the 
+preliminary response to noise in \TV cell models was linear
 between 40 to 80 dB \SPL.
 
 
@@ -2520,7 +2525,7 @@ Higher thresholds in Type II \DCN units \citep{SpirouDavisEtAl:1999} and the
 presence of multiple inhibitory synapses \citep{Alibardi:2006} suggest \TV cells
 either receive a strong inhibitory influence or they have a lower \RMP due to a
 lower leak current reversal potential. A reduced resting membrane potential may
-increase the threshold for excitatory inputs to generate action potentials. To
+increase the \AP threshold for excitatory inputs to generate action potentials. To
 allow for this, the reversal potential of the \TV cell model (\Erev) was used as
 a parameter in the optimisation routine with a range from -80 to -50 mV.
 
@@ -2540,11 +2545,11 @@ parameter and the overall error value of the fitness function.  The offset of
 octaves at the lowest channel and 0.13 at the highest channel), was closer to
 the offset predicted by \citet{ReissYoung:2005}.
 
-The results in the \TV cell model notch optimisation show the dominance of \LSR
-over \HSR fibres in the number of synapses (29 to 1) and the increased need for
-\DS cell inhibition with a high number of synapses, \nDSTV.  \LSR fibres have
-not been proven to preference the deep layers of the \DCN
-\citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
+# The results in the \TV cell model notch optimisation show the dominance of \LSR
+# over \HSR fibres in the number of synapses (29 to 1) and the increased need for
+# \DS cell inhibition with a high number of synapses, \nDSTV.  \LSR fibres have
+# not been proven to preference the deep layers of the \DCN
+# \citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
 
 
 #+BEGIN_LaTeX
@@ -2556,16 +2561,16 @@ not been proven to preference the deep layers of the \DCN
   \label{tab:TVNotchresult}
   \begin{tabularx}{0.6\linewidth}{X c D{,}{.}{2.4}}
   \toprule
-   \textbf{Parameters (Units)}  &       \textbf{Range}      & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-          \nDSTV \hfill         &          [0,100]          & 17 \\
-       \wDSTV  \hfill (nS)      &         [0.01,5]          & 2,9 \\
-         \nLSRTV \hfill         &          [0,100]          & 29\\
-         \nHSRTV \hfill         &          [0,100]          & 1 \\
-       \wLSRTV \hfill (nS)      &         [1e-2,5]          & 0,17 \\
-       \wHSRTV \hfill (nS)      &         [1e-2,5]          & 0,17 \\
-     \sDSTV \hfill (channel)    &          [0,100]          & 13 \\
-     \oDSTV \hfill (channel)    &         [-10,30]          & 2,1 \\
-  \Eleak$_{\rm TV}$\hfill (mV) &         [-80,-50]         & -65,89 \\
+   \textbf{Parameters (Units)}   &      \textbf{Range}      & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
+     \oDSTV  (channel)     &         [-10,30]         & 2,1    \\
+     \sDSTV  (channel)     &         [0,100]          & 13     \\
+      %       \nDSTV       &         [0,100]          & 17     \\
+     %    \wDSTV   (nS)    &         [0.01,5]         & 2,9    \\
+      %      \nLSRTV \hfill      &         [0,100]          & 29     \\
+      %      \nHSRTV \hfill      &         [0,100]          & 1      \\
+     %    \wLSRTV  (nS)    &         [1e-2,5]         & 0,17   \\
+     %    \wHSRTV  (nS)    &         [1e-2,5]         & 0,17   \\
+   \Eleak$_{\rm TV}$\hfill (mV) &        [-80,-50]         & -68,9 \\
   % \midrule
   %          \multicolumn{2}{l}{RMS error \quad (spikes/s)} & \\
   \bottomrule
@@ -2606,17 +2611,18 @@ with similar \CF (\TV unit 70, \CF 12.76 kHz) to notch and band-pass noise.
 
 ** Discussion of the TV Cell Model
 
-\TV cells are an important inhibitory inter-neuron in the \DCN and \VCN.
-\TV cells' role in the \CNSM model is to provide delayed, narrow-band inhibition
-to \TS cells.  Its limited activation to broad-band noise (Figure
-\ref{fig:TVRateLevelResult}B) and  strong activation to \CF tones (Figure
+\TV cells are an important inhibitory inter-neuron in the \DCN and \VCN.  \TV
+cells' role in the \CNSM model is to provide delayed, narrow-band inhibition to
+\TS cells.  Their limited activation to broad-band noise (Figure
+\ref{fig:TVRateLevelResult}B) and strong activation to \CF tones (Figure
 \ref{fig:TVRateLevelResult}A) is characteristic of Type II\space \EIRA units in
 the deep \DCN \citep{SpirouDavisEtAl:1999}.  The noise rate level output of the
 optimised \TV cell model was a closer fit to the experimental unit's response in
-Figure \ref{fig:SpirouFig8}A rather than the response used for the optimisation
-in Figure \ref{fig:SpirouFig8}B.  The strong level of wide band inhibition from
-\DS cells in the \VCN limits the role \TV cells to stimuli with a broad
-spectrum, but are functional for stimuli with a narrow spectrum.
+Figure \ref{fig:SpirouFig8}A than the response used for the optimisation in
+Figure \ref{fig:SpirouFig8}B.  The strong level of wide band inhibition from \DS
+cells diminishes the rate \TV cells to stimuli with a broad spectrum. The
+functional role of \TV cells in the \CNSM model is the enhancement of peaks in
+the \TS cell rate spectrum but only for stimuli with a narrow spectrum.
 
 The results of the notch noise optimisation do not exclusively confirm or deny
 the hypothesis presented by \citet{ReissYoung:2005} whether wide-band inhibitory
@@ -2626,10 +2632,10 @@ closely resembles in the experimental \TV cell responses, as shown in Figure
 \ref{fig:TVReissFig9}. The design of the experimental target data used to fit
 the responses of the network of \TV cells also needs further investigation.
 
-\yellownote{TODO: Discuss the \TV cell Notch optimisation. Is the goal of
-replicating wide-band inhibition offset necessary?  LSR spectrum already shows a
-bias at the falling edge. The notch procedure is another verification of the \TV
-cell model to known experimental data.}
+# \yellownote{TODO: Discuss the \TV cell Notch optimisation. Is the goal of
+# replicating wide-band inhibition offset necessary?  LSR spectrum already shows a
+# bias at the falling edge. The notch procedure is another verification of the \TV
+# cell model to known experimental data.}
 
 # \note{  Mammalian studies show that the TV cells receive excitatory input from \TS
 # cells, but not in rats.}
@@ -2698,33 +2704,57 @@ chopper characteristics.
 
 ** Background
 
+\glsunset{ChT}
+
 A considerable literature exists on the \TS cells of the \VCN
-\citep[see~review][]{OertelWrightEtAl:2011}.  The first extracellular physiology
+\citep[see][]{OertelWrightEtAl:2011}.  The first extracellular physiology
 studies classified supposed \TS cells as regular-firing choppers
 \citep{Bourk:1976,Pfeiffer:1966}.  With further developments in analysis and
-classification techniques, \TS cells were segregated into \ChT and \ChS
-sub-types % slowly or transiently adapting and sustained chopper sub-types
-\citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.  In cats,
-\citet{SmithRhode:1989} were the first to perform simultaneous labelling of \TS
-cells. They confirmed the physiological response of Type I multipolar neurons as
-units classified as choppers.  This simultaneous classification and labelling
-was followed by others in gerbils
+classification techniques, \TS cells were segregated into transiently adapting
+(\ChT) and \ChS sub-types \citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.  In
+cats, \citet{SmithRhode:1989} were the first to perform simultaneous labelling
+of \TS cells. They confirmed the physiological response of Type I multipolar
+neurons as units classified as choppers.  This simultaneous classification and
+labelling was followed by others in gerbils
 \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}, guinea pigs
 \citep{PalmerWallaceEtAl:2003,ArnottWallaceEtAl:2004}, and rats
 \citep{PaoliniClarkEtAl:1997,PaoliniClark:1999,PaoliniClareyEtAl:2004}. In each
 of these studies, there were no morphological properties that segregated
-transient and sustained choppers, which indicates that synaptic inputs play a
-strong role in determining the output of \TS cells.
+transient and sustained choppers, which indicates that synaptic inputs play an
+important in determining the output of \TS cells.
 
-The technique of averaging intracellular membrane responses to acoustic stimuli
-to determine stochastic excitatory and inhibitory inputs was first used in the
-chopper units of gerbils \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}.
+
+The spike-based \CV categorisation of \TS cells is shown in Figure
+\ref{fig:PaoliniCVdata}.  \CV is unitless and measures the regularity of
+interspike-intervals (by dividing the mean by the standard deviation).  By
+accumulating intervals relative to the first spike, a time course of the
+neuron's regularity (mean, standard deviation and CV) throughout a stimulus
+\citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.  Sustained choppers maintain a
+stable \CV below 0.2, throughout the entire stimulus. The transient chopper
+optimisation had two types defined by \citet{PaoliniClareyEtAl:2005}.  The first
+transient chopper type, \ChTone, is categorised with \CV starting below 0.2 then
+rising, hence the name transient, but stays below 0.3.  The second transient
+type, \ChTtwo, is regular in the first 10 ms period, but rises to 0.3 or higher
+throughout the stimulus.  \OnC units can also be misclassified as \ChTtwo due
+to two to three regular onset spikes followed by irregularly spaced spikes.
+
+#+BEGIN_LaTeX
+  \begin{figure}[thp]
+    \centering
+  \includegraphics[width=0.6\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniCV.pdf}
+  \caption[Regularity categorisation in chopper units]{A. Regularity in chopper units measured using 10 ms interval CV at 30 dB relative to acoustic threshold. Data represents mean and standard deviation in units in each category. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}.}
+  \label{fig:PaoliniCVdata}
+  \end{figure}
+#+END_LaTeX
+
+Figure \ref{fig:PaoliniAIV} shows the \AIV classification of chopper units in
+the rat into three types \citep{PaoliniClareyEtAl:2005}.  The technique of
+averaging intracellular membrane responses to acoustic stimuli to determine
+stochastic excitatory and inhibitory inputs was first used in the chopper units
+of gerbils \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}.
 \citet{PaoliniClareyEtAl:2005} used similar averaging of \TS and \DS cell
 intracellular responses in rats as the basis for a thorough statistical analysis
-to separate chopper units into three distinct subtypes.  Figure
-\ref{fig:PaoliniAIV} shows the intracellular acoustic classification of chopper
-units in the rat into three types \citep{PaoliniClareyEtAl:2005}: \ChS chopper
-sustained, and two transient choppers, \ChTone and \ChTtwo.  The intracellular
+to separate chopper units into three distinct subtypes.  The intracellular
 traces in Figure \ref{fig:PaoliniAIV} along with the \CV statistics in Figure
 \ref{fig:PaoliniCVdata} formed the basis for the optimisation routine of the \TS
 cell model of each chopper type in the \CNSM model.
@@ -2755,24 +2785,8 @@ cell model of each chopper type in the \CNSM model.
 
 # In the optimisation of \TS cells
 
-The categorisation of \TS cells via \CV is shown in Figure
-\ref{fig:PaoliniCVdata}.  Sustained choppers maintain a stable CV below 0.2
-throughout the entire stimulus. The transient chopper optimisation had two types
-defined by \citep{PaoliniClareyEtAl:2005}.  The first transient chopper type,
-\ChTone, is categorised with \CV starting below 0.2 then rising, hence the name
-transient, but stays below 0.3.  The second transient type, \ChTtwo, is regular
-in the first 10 ms period, but rises to 0.3 or higher throughout the stimulus.
-
 # Figure \ref{fig:PaoliniCVdata}B shows the
 
-#+BEGIN_LaTeX
-  \begin{figure}[thp]
-    \centering
-  \includegraphics[width=0.6\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniCV.pdf}
-  \caption[Regularity categorisation in chopper units]{A. Regularity in chopper units measured using 10 ms interval CV at 30 dB relative to acoustic threshold. Data represents mean and standard deviation in units in each category. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}.}
-  \label{fig:PaoliniCVdata}
-  \end{figure}
-#+END_LaTeX
 
 
 # \DS cell axon terminals contain the inhibitory neurotransmitter glycine
