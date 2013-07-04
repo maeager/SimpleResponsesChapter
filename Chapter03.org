@@ -2727,16 +2727,17 @@ important in determining the output of \TS cells.
 The spike-based \CV categorisation of \TS cells is shown in Figure
 \ref{fig:PaoliniCVdata}.  \CV is unitless and measures the regularity of
 interspike-intervals (by dividing the mean by the standard deviation).  By
-accumulating intervals relative to the first spike, a time course of the
-neuron's regularity (mean, standard deviation and CV) throughout a stimulus
-\citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.  Sustained choppers maintain a
-stable \CV below 0.2, throughout the entire stimulus. The transient chopper
-optimisation had two types defined by \citet{PaoliniClareyEtAl:2005}.  The first
-transient chopper type, \ChTone, is categorised with \CV starting below 0.2 then
-rising, hence the name transient, but stays below 0.3.  The second transient
-type, \ChTtwo, is regular in the first 10 ms period, but rises to 0.3 or higher
-throughout the stimulus.  \OnC units can also be misclassified as \ChTtwo due
-to two to three regular onset spikes followed by irregularly spaced spikes.
+accumulating intervals in time bins relative to the first spike, a time course
+of the neuron's regularity (mean, standard deviation and CV) throughout a
+stimulus is generated \citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.
+Sustained choppers maintain a stable \CV below 0.2, throughout the entire
+stimulus. The transient chopper optimisation had two types defined by
+\citet{PaoliniClareyEtAl:2005}.  The first transient chopper type, \ChTone, is
+categorised with \CV starting below 0.2 then rising, hence the name transient,
+but staying below 0.3.  The second transient type, \ChTtwo, is regular in the
+first 10 ms period, but rises to 0.3 or higher throughout the stimulus.  \OnC
+units can also be misclassified as \ChTtwo due to two to three regular onset
+spikes followed by irregularly spaced spikes.
 
 #+BEGIN_LaTeX
   \begin{figure}[thp]
@@ -2783,21 +2784,50 @@ cell model of each chopper type in the \CNSM model.
 #+END_LaTeX
 
 
-# In the optimisation of \TS cells
-
-# Figure \ref{fig:PaoliniCVdata}B shows the
-
-
-
-# \DS cell axon terminals contain the inhibitory neurotransmitter glycine
-# and synapse widely in the \VCN and \DCN.
-
 # *** Synaptic connections
 
 
 #+LaTeX: \input{../SimpleResponsesChapter/TStellateTable}
 
 ** Implementation
+
+*** Morphology of T Stellate Cells
+
+
+# TS
+# 262.3\pm 62 (rat [\citenum{DoucetRyugoEtAl:1999}])
+# 249 \pm 95  (rat [\citep{DoucetRyugo:1997}])
+# 266 \pm 156 (rat [\citep{DoucetRyugo:2006}])
+# 648 (cat [\citep{SmithRhode:1989}])
+# 366 \pm 100  (cat [\citep{ReddCahillEtAl:2002}])
+# 200 (CS), 240 (CT) (guinea pig [\citep{PalmerWallaceEtAl:2003}])
+# 192 \pm 47 (high \CF), 253 \pm 63 (low \CF) (chinchilla [\citep{JosephsonMorest:1998}])
+
+Three to four primary dendrites eminate from the \TS cell body, characteristic
+of stellate or multipolar neurons \citep{Cant:1981,Cant:1982}.  The dendrites
+and local axonal collaterals are restricted to the isofrequency lamina
+(75-100\um perpendicular to \ANFs) and extend between 150-300 \um parallel to
+\ANFs \citep{SmithRhode:1989,PalmerWallaceEtAl:2003}.  The cell body diameter of
+\TS cells is typically 16--20\um in rat
+\citep{DoucetRyugo:1997,DoucetRyugoEtAl:1999,DoucetRyugo:2006},
+# 28.7{$^\ast$} (cat [\citenum{SmithRhode:1989}])
+and {$21.6\pm11.3$} \um in cats \citep{ReddCahillEtAl:2002}.
+The variation is somata sizes based on chopper categorisation has been suggested in guinea pigs
+(15.9 \um (\ChS), 17.5 \um (\ChT) \citet{PalmerWallaceEtAl:2003}).
+Variation across the frequency regions of the \VCN has also been shown in chinchilla \TS cells; 
+cell body sizes in low \CF regions were 20\% larger than cells in high \CF regions
+(high \CF {$14.5 \pm 2.0$} \um,  low \CF {$17.6 \pm 2.7$} \um \citep{JosephsonMorest:1998}).
+The diameter of the \TS cell model's cell body was 21 \um.
+
+# Three to four primary dendrites eminate from the cell body
+# 2-3 main dend, total dend length $\sim$ 2000\um (guinea pig [\citep{PalmerWallaceEtAl:2003}])
+# 75-100\um and 150-300\um parallel, 3--4 primary dendrites (cat [\citep{SmithRhode:1989}])
+# 200 \um parallel, 2--5 \um in diam  (chinchilla [\citep{JosephsonMorest:1998}])
+# axon width 0.5--1.1 \um [\citep{OertelWuEtAl:1990}]
+# hillock initial segment averaged 2.5 \pm 0.96 \um,
+# proximal diam and up to 13 \um long, distal initial segment 0.7 \pm 0.2 \um,
+# myelination began about 20 \um from the soma (chinchilla [\citep{JosephsonMorest:1998}])
+
 
 *** Cell-based Properties of T Stellate Cells
 
@@ -2814,31 +2844,10 @@ cell model of each chopper type in the \CNSM model.
 
 
 
-# TS
-# 262.3\pm 62 (rat [\citenum{DoucetRyugoEtAl:1999}])
-# 249 \pm 95  (rat [\citep{DoucetRyugo:1997}])
-# 266 \pm 156 (rat [\citep{DoucetRyugo:2006}])
-# 648 (cat [\citep{SmithRhode:1989}])
-# 366 \pm 100  (cat [\citep{ReddCahillEtAl:2002}])
-# 200 (CS), 240 (CT) (guinea pig [\citep{PalmerWallaceEtAl:2003}])
-# 192 \pm 47 (high \CF), 253 \pm 63 (low \CF) (chinchilla [\citep{JosephsonMorest:1998}])
-
-# 16--20\um  (rat [\citep{DoucetRyugo:1997,DoucetRyugoEtAl:1999,DoucetRyugo:2006}])
-# 14.5 \pm 2.0 (high \CF)  17.6 \pm 2.7 (low \CF) (chinchilla [\citep{JosephsonMorest:1998}])
-
-# Three to four primary dendrites eminate from the cell body
-# 2-3 main dend, total dend length $\sim$ 2000\um (guinea pig [\citep{PalmerWallaceEtAl:2003}])
-# 75-100\um and 150-300\um parallel, 3--4 primary dendrites (cat [\citep{SmithRhode:1989}])
-# 200 \um parallel, 2--5 \um in diam  (chinchilla [\citep{JosephsonMorest:1998}])
-# axon width 0.5--1.1 \um [\citep{OertelWuEtAl:1990}]
-# hillock initial segment averaged 2.5 \pm 0.96 \um,
-# proximal diam and up to 13 \um long, distal initial segment 0.7 \pm 0.2 \um,
-# myelination began about 20 \um from the soma (chinchilla [\citep{JosephsonMorest:1998}])
-
-# - Effective somatic membrane time constant 6.5 \pm 5.7 msec
-#   \citep{ManisMarx:1991} Type I 9.1 \pm 4.5 \citep{ManisMarx:1991} 6.2 to
-#   18.0 msec \citep{FengKuwadaEtAl:1994} 6.9\pm 3 msec, 10--90\% rise time was
-#   1.05\pm 0.4 msec \citep{IsaacsonWalmsley:1995}
+# - Effective somatic membrane time constant 
+#   - 6.5 \pm 5.7 msec \citep{ManisMarx:1991} Type I 9.1 \pm 4.5 \citep{ManisMarx:1991} 
+#   - 6.2 to 18.0 msec \citep{FengKuwadaEtAl:1994} 
+#   - 6.9\pm 3 msec, 10--90\% rise time was 1.05\pm 0.4 msec \citep{IsaacsonWalmsley:1995}
 # - Linear I-V \citep{ManisMarx:1991}
 # - cross sectional area of somata 447 \pm 265 Mohm
 # - isolated guinea pig stellate cell type 1 current clamp \citep{ManisMarx:1991}
@@ -2847,6 +2856,7 @@ cell model of each chopper type in the \CNSM model.
 # - stellate 231 \pm 113\,\mathrm{M}\Omega, 14.9 \pm 9 pF primary membrane
 #   capacitance, room temp rat \citep{IsaacsonWalmsley:1995} dog
 #   \citep{BalBaydasEtAl:2009} 176 \pm 35.9 Mohm membrane time constant 8.8 \pm 1.4 (n=21)
+
 
 *** Synaptic Properties
 
@@ -2864,19 +2874,34 @@ stimulus.  \HSR fibres have a spontaneous rate of 50 Hz and recover to the same
 rate around 15 ms after the stimulus offset.
 
 
+#  - only 5 or 6 (mice \citenum{FerragamoGoldingEtAl:1998a,CaoOertel:2010})
+#  - 0--6 per soma depending on subtypes, mostly dendritic contacts (mice: [\citenum{FerragamoGoldingEtAl:1998a,CaoOertel:2010}])
+#  - Dendrites more coverage of ANF contacts [\citenum{Cant:1981,FayPopper:1994,ReddCahillEtAl:2002,RyugoWrigthEtAl:1993,Ryugo:1992,RyugoParks:2003,FerragamoGoldingEtAl:1998a,SmithRhode:1989,JosephsonMorest:1998}].
+# %  Position
+# % Mainly dendritic, $\sim$30\% soma coverage (Cat [\citenum{Cant:1981,Cant:1982,RyugoWrightEtAl:1993,TolbertMorest:1982a}]). 
+# % (cat RL vesicles [\citenum{SmithRhode:1989}]
+# % Soma: 36\% of terminals (10.5\% actual area coverage), 
+# % Prox: 43\% of terminals (29\% actual area cov.), 
+# % Dist: 40\% of terminals (12\%  actual area cov.))
+# (cat: [\citenum{SmithRhode:1989,Cant:1981,FayPopper:1994,ReddCahillEtAl:2002,RyugoWrigthEtAl:1993,Ryugo:1992,RyugoParks:2003}], mice [\citenum{FerragamoGoldingEtAl:1998a,CaoOertel:2010}], chinchilla: [\citenum{JosephsonMorest:1998}])
+# %Some cells had synapses surrounding the axon initial segment (chinchilla [\citenum{JosephsonMorest:1998}]). 
+# %Type II ANFs diffuse synapses on distal dendrites (mice [\citenum{BensonBrown:2004}]).
+
+
+
 Auditory nerve input to \TS cells is on-\CF. This is due to the arrangement of
-their dendrites along the same direction. \ANF terminals rarely contact \TS
-cells on their soma and are mainly on proximal dendrites
-# cats and rodents
-\citep{SmithRhode:1989}.  Terminals closer to the site of \AP activation have a
-greater influence and are less likely to be shunted by inhibitory terminals
-along the dendrite. \citet{JosephsonMorest:1998} found some \ANF terminals at
-the axon hillock of \TS cells in chincillas. This would remove the contribution
-of the neuron's intrinsic cell membrane properties and other synaptic inputs on
-the output of the neuron.  The number of \ANF terminals on \TS cells is small
-relative to their multipolar cousin, \DS cells.  An /in vivo/ study in mice
-suggested \TS cells receive as few as 5 excitatory inputs
-\citep{FerragamoGoldingEtAl:1998a}.
+their dendrites along the same direction. The number of \ANF terminals on \TS
+cells is small relative to their multipolar cousin, \DS cells.  An /in vivo/
+study in mice suggested \TS cells receive as few as 5 excitatory inputs
+\citep{FerragamoGoldingEtAl:1998a}. \ANF terminals rarely contact \TS cells on
+their soma and are mainly on proximal dendrites
+\citep{Cant:1981,FayPopper:1994,ReddCahillEtAl:2002,RyugoWrigthEtAl:1993,Ryugo:1992,RyugoParks:2003,SmithRhode:1989,JosephsonMorest:1998,TolbertMorest:1982a}.
+Terminals closer to the site of \AP activation have a greater influence and are
+less likely to be shunted by inhibitory terminals along the
+dendrite. \citet{JosephsonMorest:1998} found some \ANF terminals at the axon
+hillock of \TS cells in chincillas. This would remove the integrative
+contribution of the neuron's intrinsic cell membrane properties and other
+synaptic inputs on the output of the neuron.
 
 The \CNSM model in Figure \ref{fig:microcircuit} shows the \TS cell model
 receives synaptic inputs from all other neurons in the microcircuit.
@@ -2938,6 +2963,16 @@ are not evident.  \Ih influences the recovery from \AP and modulates the
 regularity of the chopping behaviour \citep{RothmanManis:2003b}.  \IKA is active
 at rest and is important in enhancing the first spike response across \TS cells
 to an oncoming stimulus \citep{PaoliniClareyEtAl:2004,KanoldManis:2005}.
+
+
+
+*** Physiological properties of TS cells
+
+\Qten 0.23-0.39 oct (anesthetized guinea pig [\citenum{PalmerJiangEtAl:1996}])
+# Q\textsubscript{10} 5.52$pm$1.4  (guinea pig [\citenum{JiangPalmerEtAl:1996}]) compared to \Qten of 6.3 in AN;
+# CS Q\textsubscript{10} 4,CT Q\textsubscript{10} 2 (low cf), 3.67 (high CF)  ( guinea pig [\citenum{PalmerWallaceEtAl:2003}])
+# Q\textsubscript{10} 5.3  [\citenum{RhodeSmith:1986}].
+# Q\textsubscript{10} 7.4 (unanesthetised) 5.3 (barbiturate) (cat [\citenum{RhodeKettner:1987}]).              
 
 *** Fitness Function
 
