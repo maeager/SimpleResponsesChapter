@@ -1449,12 +1449,13 @@ of 2 channels (i.e.\space SD= $\sqrt{2}$) with zero offset, which corresponds to
 a \DS cell receiving synapses from \GLG cell models in a narrow range of
 frequency channels.
 
-The first spike latency in high \CF \DS cells ($2.8 \pm 0.09$ ms) is precise and
-faster than other stellate neurons in the \VCN \citep{RhodeSmith:1986}.  The
-additional delay parameter for \ANF terminals on the \DS cell model (\dANFDS)
-was shown in Section \ref{sec:Ch3:Delays}.  The additional delay of 1.2 ms from
-\ANF to \DS input connections is a product of axonal conductance and dendritic
-delay.
+The additional delay parameter for \ANF terminals on the \DS cell model
+(\dANFDS) was shown in Section \ref{sec:Ch3:Delays}. The first spike latency in
+high \CF \DS cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate
+neurons in the \VCN \citep{RhodeSmith:1986}.  The additional delay of 1.2 ms
+from \ANF to \DS input connections is a product of axonal conductance and
+dendritic delay.
+
 
 ** Results of Click Recovery Optimisation
    :PROPERTIES:
