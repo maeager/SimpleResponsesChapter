@@ -775,6 +775,9 @@ receptors in \GLG cells \citep{FerragamoGoldingEtAl:1998a}.
 # mimicking a synaptic and dendritic smoothing filter.
 
 ** Implementation
+  :PROPERTIES:
+  :CUSTOM_ID:	sec:Ch3:GolgiModelImpl
+  :END:
 
 The key cell attributes that informed the creation of the
 \GLG cell model for use in the \CNSM model were as follows:
@@ -1202,7 +1205,7 @@ single unit in the marginal shell of the \VCN \citep{GhoshalKim:1997}.
 
 * D Stellate Cell Model
 :PROPERTIES:
-:CUSTOM_ID: sec:Ch3:DSCell
+:CUSTOM_ID: sec:Ch3:DSCellModel
 :END:
 
 # Optimisation Using Click Recovery and Rate Level Responses
@@ -1968,7 +1971,7 @@ progression to optimising the \TV cell model.
 
 * Tuberculoventral Cell Model
   :PROPERTIES:
-  :CUSTOM_ID: sec:Ch3:TVModel
+  :CUSTOM_ID: sec:Ch3:TVCellModel
   :END:
 # :  Optimisation Using Tone and Noise Rate Level Responses
 The following section introduces, defines and optimises the neural model of \TV
@@ -2733,7 +2736,7 @@ stimulus is generated \citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.
 Sustained choppers maintain a stable \CV below 0.2, throughout the entire
 stimulus. The transient chopper optimisation had two types defined by
 \citet{PaoliniClareyEtAl:2005}.  The first transient chopper type, \ChTone, is
-categorised with \CV starting below 0.2 then rising, hence the name transient,
+categorised with \CV starting below 0.2 then rising
 but staying below 0.3.  The second transient type, \ChTtwo, is regular in the
 first 10 ms period, but rises to 0.3 or higher throughout the stimulus.  \OnC
 units can also be misclassified as \ChTtwo due to two to three regular onset
@@ -2828,7 +2831,6 @@ The diameter of the \TS cell model's cell body was 21 \um.
 # proximal diam and up to 13 \um long, distal initial segment 0.7 \pm 0.2 \um,
 # myelination began about 20 \um from the soma (chinchilla [\citep{JosephsonMorest:1998}])
 
-
 *** Cell-based Properties of T Stellate Cells
 
 \yellownote{TODO: Two paragraphs detailing the cell based properties of TS cells}
@@ -2858,7 +2860,14 @@ The diameter of the \TS cell model's cell body was 21 \um.
 #   \citep{BalBaydasEtAl:2009} 176 \pm 35.9 Mohm membrane time constant 8.8 \pm 1.4 (n=21)
 
 
-*** Synaptic Properties
+*** Synapto-physiological properties of TS cells
+
+\Qten 0.23-0.39 oct (anesthetized guinea pig [\citenum{PalmerJiangEtAl:1996}])
+# Q\textsubscript{10} 5.52$pm$1.4  (guinea pig [\citenum{JiangPalmerEtAl:1996}]) compared to \Qten of 6.3 in AN;
+# CS Q\textsubscript{10} 4,CT Q\textsubscript{10} 2 (low cf), 3.67 (high CF)  ( guinea pig [\citenum{PalmerWallaceEtAl:2003}])
+# Q\textsubscript{10} 5.3  [\citenum{RhodeSmith:1986}].
+# Q\textsubscript{10} 7.4 (unanesthetised) 5.3 (barbiturate) (cat [\citenum{RhodeKettner:1987}]).              
+
 
 The synaptic inputs to the \TS cell model (as shown in Figure
 \ref{fig:microcircuit}) include excitatory inputs from \LSR and \HSR \ANFs;
@@ -2888,8 +2897,7 @@ rate around 15 ms after the stimulus offset.
 # %Type II ANFs diffuse synapses on distal dendrites (mice [\citenum{BensonBrown:2004}]).
 
 
-
-Auditory nerve input to \TS cells is on-\CF. This is due to the arrangement of
+\ANF input to \TS cells is on-\CF. This is due to the arrangement of
 their dendrites along the same direction. The number of \ANF terminals on \TS
 cells is small relative to their multipolar cousin, \DS cells.  An /in vivo/
 study in mice suggested \TS cells receive as few as 5 excitatory inputs
@@ -2965,14 +2973,6 @@ at rest and is important in enhancing the first spike response across \TS cells
 to an oncoming stimulus \citep{PaoliniClareyEtAl:2004,KanoldManis:2005}.
 
 
-
-*** Physiological properties of TS cells
-
-\Qten 0.23-0.39 oct (anesthetized guinea pig [\citenum{PalmerJiangEtAl:1996}])
-# Q\textsubscript{10} 5.52$pm$1.4  (guinea pig [\citenum{JiangPalmerEtAl:1996}]) compared to \Qten of 6.3 in AN;
-# CS Q\textsubscript{10} 4,CT Q\textsubscript{10} 2 (low cf), 3.67 (high CF)  ( guinea pig [\citenum{PalmerWallaceEtAl:2003}])
-# Q\textsubscript{10} 5.3  [\citenum{RhodeSmith:1986}].
-# Q\textsubscript{10} 7.4 (unanesthetised) 5.3 (barbiturate) (cat [\citenum{RhodeKettner:1987}]).              
 
 *** Fitness Function
 
