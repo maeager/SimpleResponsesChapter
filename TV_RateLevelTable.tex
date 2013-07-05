@@ -11,9 +11,9 @@
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
         \textbf{Connectivity}          & ANF$\to$\{GLG, DS, TV\}, GLG$\to$DS, DS$\to$TV  \\\hline
          \textbf{Input model}          & ANF~model: Instantaneous-rate Poisson neural model \citep{ZilanyBruceEtAl:2009} \\ \hline
-\multirow{3}{*}{\textbf{Neuron model}} & GLG: Instantaneous-rate Poisson neural model\\
-                                       & DS: HH-like single-compartment model (Type I-II \RM model)\\ 
-                                       & TV: HH-like single-compartment model (Type I \RM model) \\\hline
+\multirow{3}{*}{\textbf{Neuron model}} & \GLG cell: \GLG neural model (see Section \ref{sec:Ch3:GolgiModel}).\\
+                                       & \DS cell: Type I-II \RM model (see Section \ref{sec:Ch3:DSCellModel}).\\ 
+                                       & TV: HH-like single-compartment model (classic Type I \RM model) \\\hline
        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
 \multirow{2}{*}{\textbf{Synapse model}} & Excitatory: \AMPA glutamatergic receptor (single-exponential)\\
 &  Inhibitory: \GABAa GABAergic receptor (double-exponential), \GlyR glycinergic receptor (double-exponential) \\\hline
@@ -98,7 +98,7 @@ Gaussian convergence, centered on CF, spread \protect{$\sigma^2=\sGLGDS$}, weigh
 %Table~\ref{tab:TVModelSummary}: Tuberculoventral cell model summary - continued
 \begin{tabularx}{\textwidth}{|l|X|} %
 \hdr{2}{E}{Optimisation}\\
-\textbf{Input Stimulus} & Tone Rate Level: 4.9~kHz tone at SPL 20 to 47 dB SPL in 3 dB steps (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
+\multirow{2}{*}{\textbf{Input Stimulus}} & Tone Rate Level: 4.9~kHz tone at SPL 20 to 47 dB SPL in 3 dB steps (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
 & Noise Rate Level: BBN at 50 to 95 dB SPL in 5 dB steps (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
 %\textbf{Input Stimulus} & Notch-noise stimulus based on \citet{ReissYoung:2005}. Stop-band filtered white noise (60 dB SPL, 50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay), 30 dB half-octave stop-band width, centered on the middle of the network (5.8 kHz)\\\hline
 %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth} \includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps} \end{minipage}}\\\hline
