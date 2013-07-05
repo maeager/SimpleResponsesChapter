@@ -28,7 +28,7 @@
      HSR      & Auditory nerve fibre \citep{ZilanyBruceEtAl:2009}  & $N_{\text{HSR}} = 50$ per channel \\\hline
      LSR      & Auditory nerve fibre \citep{ZilanyBruceEtAl:2009}                       & $N_{\text{LSR}} = 20$ per channel \\\hline
      GLG      & Instantaneous-rate Poisson neuron        & $N_{\text{GLG}} = 1$ per channel \\\hline
-    \multirow{2}{*}{DS}       & \multirow{2}{*}{Type I-II \RM model} &  Click Recovery: 1 unit at channel 50, CF$ = 5.6$ kHz \\ 
+    \multirow{2}{*}{DS}       & \multirow{2}{*}{Type I-II \RM model} &  Click Recovery: 1 unit at channel 50, CF$ = 5.6$ kHz \\
 && Rate Level: 1 unit at channel 76, CF = 11.1 KHz \\\hline
 \end{tabularx}
 \vspace{1ex}
@@ -37,13 +37,13 @@
 \begin{tabularx}{\textwidth}{|l|l|l|X|}\hline
 \hdr{4}{C}{Connectivity}\\\hline
      \textbf{Name}      & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\ANFDS & 
+\ANFDS &
 %{\begin{minipage}\begin{center}
- \HSR,\,\LSR  
+ \HSR,\,\LSR
 %\end{center} \end{minipage}}
-&       \DS       & 
+&       \DS       &
 Skewed Gaussian convergence, centred on CF, spread below  CF $\sigma^2 = \sANFDSl$, spread above CF $\sigma^2 = \sANFDSh$, delay  \dANFDS.  Weight and number differ for HSR and  LSR connections ( \wHSRDS,  \nHSRDS, \wLSRDS, \nLSRDS) \\\hline
-       $\GLGDS$         &       \GLG       &       \DS        & 
+       $\GLGDS$         &       \GLG       &       \DS        &
 Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
 \multicolumn{4}{|X|}{\ANFGLG from previous section, see Table~\ref{tab:GolgiCellModelSummary}C.}\\\hline
 \end{tabularx}
@@ -65,12 +65,12 @@ Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{E}{Optimisation - Click Recovery}\\\hline
 \textbf{Input Stimulus}  & Mask and recovery click pairs, with delay 16, 2, 8, 4, and 3 ms (in this order), separated by 50 ms   \\\hline
-     \textbf{Parameters}      & 
-      \wGLGDS,    
-      \wHSRDS,    
-      \wLSRDS,    
-$\tau_{\rm GABA-1}$, 
-$\tau_{\rm GABA-2}$, 
+     \textbf{Parameters}      &
+      \wGLGDS,
+      \wHSRDS,
+      \wLSRDS,
+$\tau_{\rm GABA-1}$,
+$\tau_{\rm GABA-2}$,
       \DS \gleak    \\\hline
 % \textbf{Measurements}   &  Spiking output of DS unit, in channel 50, from 25 repetitions and collected in a PSTH.  The PSTH was sampled at each click for 2 ms to measure click recovery. Idle times were recorded for spontaneous activity and level of ANF excitation.\\\hline
 % PSTHs were generated from 25 stimulus repetitions. Each response to a click is measured for a period of 2 ms.  The sample period was delayed by 4 ms, an estimate of the auditory delay and minimum first spike latency for the DS unit.  The unit used   in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
@@ -84,18 +84,18 @@ $\tau_{\rm GABA-2}$,
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{F}{Optimisation - Rate Level}\\\hline
 \textbf{Input Stimulus}  & 1. Tone rate Level function, 11.1~kHz tone at 30 to 100 dB SPL in 5 dB intervals (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay). 2. Noise rate level, broad-band noise at 40 to 95 db SPL in 5 dB intervals   (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay). \\\hline
-\textbf{Parameters}      & 
-      \wGLGDS, \nGLGDS,    
-      \wHSRDS, \nHSRDS,   
-      \wLSRDS, \nLSRDS   
+\textbf{Parameters}      &
+      \wGLGDS, \nGLGDS,
+      \wHSRDS, \nHSRDS,
+      \wLSRDS, \nLSRDS
           \\\hline
-\textbf{Fitness Function} & RMS error between \DS cell model (CF 11.1 kHz) and experimental \OnC unit \citep[CF~10.9~kHz, ][]{ArnottWallaceEtAl:2004} at each input stimulus in tone and noise rate levels. \\\hline
+\textbf{Fitness Function} & RMS error between \DS cell model (CF 11.1 kHz) and experimental \OnC unit \citep[CF~10.9~kHz,][]{ArnottWallaceEtAl:2004} at each input stimulus in tone and noise rate levels. \\\hline
 \end{tabularx}
 \end{table}
 }
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "SimpleResponses"
 %%% TeX-PDF-mode: nil
-%%% End: 
+%%% End:

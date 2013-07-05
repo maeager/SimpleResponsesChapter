@@ -646,7 +646,6 @@ Figure \ref{fig:GhoshalKim97Fig2} shows an example of the acoustically-driven
 marginal shell units in the \VCN.  Strongly driven units in the anterior \VCN
 shell exhibit non-saturating rate-level functions to pure tones, noise or both
 with dynamic ranges as wide as 89 dB \citep{GhoshalKim:1997}.  
-
 The majority of
 \GCD units recorded by \citet{GhoshalKim:1997} were classified as Type I\slash
 III or III \EIRA units, showing a monotonic increase in firing rate to tones and noise. 
@@ -675,7 +674,7 @@ be due to Type II \ANFs, which have an estimated theoretical latency of 10 ms
 
 The assumed functional role of \GLG cells is to regulate granule cells.  They
 may also provide automatic gain control to the principal \VCN units, primarily
-DS and \TS cells \citep{GhoshalKim:1997,FerragamoGoldingEtAl:1998a}.  The
+\DS and \TS cells \citep{GhoshalKim:1997,FerragamoGoldingEtAl:1998a}.  The
 presence of GABAergic inputs to \VCN and \DCN neurons has been verified by
 labeled terminals adjacent to the soma and dendrites
 \citep{SmithRhode:1989,AwatramaniTurecekEtAl:2005,BabalianRyugoEtAl:2003} and
@@ -792,8 +791,8 @@ The key cell attributes that informed the creation of the
     provide weak inputs to \GLG cells.  The lack of extensive experimental data
     regarding Type II \ANF units and granule cell response to acoustic input,
     reward an inhomogeneous Poisson rate neural model over the Hodgkin-Huxley
-    type neural model in the \GLG cell used in the \CNSM model. Although \HSR\space 
-    \ANF terminals do not generally project into the \GCD, they were included in
+    type neural model in the \GLG cell used in the \CNSM model. Although 
+    \HSR\space \ANF terminals do not generally project into the \GCD, they were included in
     the \CNSM model to provide some low level spontaneous activity.
 
 #+BEGIN_LaTeX
@@ -962,7 +961,7 @@ optimisation are shown in Table \ref{tab:GolgiCellModelSummary}E.
 # for some \HSR input into the \GLG cell model.
 
 # #+ATTR_LaTeX: width=0.8\textwidth
-# #+CAPTION: [Initial results of \GLG cell model]{Initial trial results of the	 \GLG cell model optimisation.	 Responses of the \GLG cell model (blue  triangles) compared five sound levels (0,15, 55, 75 and 85 dB SPL) against five points in the target response (red squares).	The eventual best optimisation	response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  \GLG cell model using the final parameters.}
+# #+CAPTION: [Initial results of \GLG cell model]{Initial trial results of the	 \GLG cell model optimisation.	 Responses of the \GLG cell model (blue  triangles) compared five sound levels (0,15, 55, 75 and 85 dB \SPL) against five points in the target response (red squares).	The eventual best optimisation	response obtained a minimum error of 11.63 spikes/s (root mean squared).  A  spike response (green circles) was generated from the spiking output of the  \GLG cell model using the final parameters.}
 # #+LABEL: fig:GolgiTestResult
 # [[ ../SimpleResponsesChapter/gfx/GolgiRateLevel_result2.pdf]]
 
