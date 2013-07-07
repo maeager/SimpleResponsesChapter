@@ -774,6 +774,9 @@ receptors in \GLG cells \citep{FerragamoGoldingEtAl:1998a}.
 # mimicking a synaptic and dendritic smoothing filter.
 
 ** Implementation
+  :PROPERTIES:
+  :CUSTOM_ID:	sec:Ch3:GolgiModelImpl
+  :END:
 
 The key cell attributes that informed the creation of the
 \GLG cell model for use in the \CNSM model were as follows:
@@ -1198,10 +1201,9 @@ single unit in the marginal shell of the \VCN \citep{GhoshalKim:1997}.
 # support a hypothesis that the AVCN shell forms an important link in the
 # OHC-MOC reflex circuit.
 
-
 * D Stellate Cell Model
 :PROPERTIES:
-:CUSTOM_ID: sec:Ch3:DSCell
+:CUSTOM_ID: sec:Ch3:DSCellModel
 :END:
 
 # Optimisation Using Click Recovery and Rate Level Responses
@@ -1454,7 +1456,6 @@ high \CF \DS cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate
 neurons in the \VCN \citep{RhodeSmith:1986}.  The additional delay of 1.2 ms
 from \ANF to \DS input connections is a product of axonal conductance and
 dendritic delay.
-
 
 ** Results of Click Recovery Optimisation
    :PROPERTIES:
@@ -1967,7 +1968,7 @@ progression to optimising the \TV cell model.
 
 * Tuberculoventral Cell Model
   :PROPERTIES:
-  :CUSTOM_ID: sec:Ch3:TVModel
+  :CUSTOM_ID: sec:Ch3:TVCellModel
   :END:
 # :  Optimisation Using Tone and Noise Rate Level Responses
 The following section introduces, defines and optimises the neural model of \TV
@@ -2732,7 +2733,7 @@ stimulus is generated \citep{BlackburnSachs:1989,YoungRobertEtAl:1988}.
 Sustained choppers maintain a stable \CV below 0.2, throughout the entire
 stimulus. The transient chopper optimisation had two types defined by
 \citet{PaoliniClareyEtAl:2005}.  The first transient chopper type, \ChTone, is
-categorised with \CV starting below 0.2 then rising, hence the name transient,
+categorised with \CV starting below 0.2 then rising
 but staying below 0.3.  The second transient type, \ChTtwo, is regular in the
 first 10 ms period, but rises to 0.3 or higher throughout the stimulus.  \OnC
 units can also be misclassified as \ChTtwo due to two to three regular onset
@@ -2810,13 +2811,14 @@ and local axonal collaterals are restricted to the isofrequency lamina
 \TS cells is typically 16--20\um in rat
 \citep{DoucetRyugo:1997,DoucetRyugoEtAl:1999,DoucetRyugo:2006},
 # 28.7{$^\ast$} (cat [\citenum{SmithRhode:1989}])
-and {$21.6\pm11.3$} \um in cats \citep{ReddCahillEtAl:2002}.
-The variation is somata sizes based on chopper categorisation has been suggested in guinea pigs
-(15.9 \um (\ChS), 17.5 \um (\ChT) \citet{PalmerWallaceEtAl:2003}).
-Variation across the frequency regions of the \VCN has also been shown in chinchilla \TS cells; 
-cell body sizes in low \CF regions were 20\% larger than cells in high \CF regions
-(high \CF {$14.5 \pm 2.0$} \um,  low \CF {$17.6 \pm 2.7$} \um \citep{JosephsonMorest:1998}).
-The diameter of the \TS cell model's cell body was 21 \um.
+and {21.6 \pm 11.3} \um in cats \citep{ReddCahillEtAl:2002}.  The variation is
+somata sizes based on chopper categorisation has been suggested in guinea pigs
+(15.9 \um (\ChS), 17.5 \um (\ChT) \citet{PalmerWallaceEtAl:2003}).  Variation
+across the frequency regions of the \VCN has also been shown in chinchilla \TS
+cells; cell body sizes in low \CF regions were 20\% larger than cells in high
+\CF regions (high \CF {14.5 \pm 2.0} \um, low \CF {17.6 \pm 2.7} \um
+\citep{JosephsonMorest:1998}).  The diameter of the \TS cell model's cell body
+was 21 \um, representative of the average cat \citep{ReddCahillEtAl:2002}.
 
 # Three to four primary dendrites eminate from the cell body
 # 2-3 main dend, total dend length $\sim$ 2000\um (guinea pig [\citep{PalmerWallaceEtAl:2003}])
@@ -2826,7 +2828,6 @@ The diameter of the \TS cell model's cell body was 21 \um.
 # hillock initial segment averaged 2.5 \pm 0.96 \um,
 # proximal diam and up to 13 \um long, distal initial segment 0.7 \pm 0.2 \um,
 # myelination began about 20 \um from the soma (chinchilla [\citep{JosephsonMorest:1998}])
-
 
 *** Cell-based Properties of T Stellate Cells
 
@@ -2856,8 +2857,14 @@ The diameter of the \TS cell model's cell body was 21 \um.
 #   capacitance, room temp rat \citep{IsaacsonWalmsley:1995} dog
 #   \citep{BalBaydasEtAl:2009} 176 \pm 35.9 Mohm membrane time constant 8.8 \pm 1.4 (n=21)
 
+*** Synapto-physiological properties of TS cells
 
-*** Synaptic Properties
+# \Qten 0.23-0.39 oct (anesthetized guinea pig [\citenum{PalmerJiangEtAl:1996}])
+# Q\textsubscript{10} 5.52$pm$1.4  (guinea pig [\citenum{JiangPalmerEtAl:1996}]) compared to \Qten of 6.3 in AN;
+# CS Q\textsubscript{10} 4,CT Q\textsubscript{10} 2 (low cf), 3.67 (high CF)  ( guinea pig [\citenum{PalmerWallaceEtAl:2003}])
+# Q\textsubscript{10} 5.3  [\citenum{RhodeSmith:1986}].
+# Q\textsubscript{10} 7.4 (unanesthetised) 5.3 (barbiturate) (cat [\citenum{RhodeKettner:1987}]).              
+
 
 The synaptic inputs to the \TS cell model (as shown in Figure
 \ref{fig:microcircuit}) include excitatory inputs from \LSR and \HSR \ANFs;
@@ -2887,8 +2894,7 @@ rate around 15 ms after the stimulus offset.
 # %Type II ANFs diffuse synapses on distal dendrites (mice [\citenum{BensonBrown:2004}]).
 
 
-
-Auditory nerve input to \TS cells is on-\CF. This is due to the arrangement of
+\ANF input to \TS cells is on-\CF. This is due to the arrangement of
 their dendrites along the same direction. The number of \ANF terminals on \TS
 cells is small relative to their multipolar cousin, \DS cells.  An /in vivo/
 study in mice suggested \TS cells receive as few as 5 excitatory inputs
@@ -2901,6 +2907,7 @@ dendrite. \citet{JosephsonMorest:1998} found some \ANF terminals at the axon
 hillock of \TS cells in chincillas. This would remove the integrative
 contribution of the neuron's intrinsic cell membrane properties and other
 synaptic inputs on the output of the neuron.
+
 
 The \CNSM model in Figure \ref{fig:microcircuit} shows the \TS cell model
 receives synaptic inputs from all other neurons in the microcircuit.
@@ -2920,6 +2927,13 @@ to load tones and broadband noise and provide fast inhibition that can reach the
 \TV cells do not have consistent PSTH responses to tones
 \citep{Rhode:1999,SpirouDavisEtAl:1999} and their location in the \DCN adds
 further delay to inhibiting \TS cells \citep{WickesbergOertel:1990}.
+
+
+# GABA inputs to TS cells
+# $\downarrow$FSL, $\downarrow$FSvar, $\uparrow$RL slope and max \citep{PalombiCaspary:1992} 
+# change in TAP, contrast adjustment  \citep{EbertOstwald:1995} 
+# on CF, clicks etc   \citep{CasparyHaveyEtAl:1979,PalombiCaspary:1992,CasparyPalombiEtAl:1993,CasparyBackoffEtAl:1994,BackoffPalombiEtAl:1997,BackoffShadduckEtAl:1999}
+
 
 #+BEGIN_LaTeX
   % {Actual parameters: diameter =19.5\um, $\gNa=0$, $\gKHT=0.0189416$
@@ -2963,15 +2977,6 @@ regularity of the chopping behaviour \citep{RothmanManis:2003b}.  \IKA is active
 at rest and is important in enhancing the first spike response across \TS cells
 to an oncoming stimulus \citep{PaoliniClareyEtAl:2004,KanoldManis:2005}.
 
-
-
-*** Physiological properties of TS cells
-
-\Qten 0.23-0.39 oct (anesthetized guinea pig [\citenum{PalmerJiangEtAl:1996}])
-# Q\textsubscript{10} 5.52$pm$1.4  (guinea pig [\citenum{JiangPalmerEtAl:1996}]) compared to \Qten of 6.3 in AN;
-# CS Q\textsubscript{10} 4,CT Q\textsubscript{10} 2 (low cf), 3.67 (high CF)  ( guinea pig [\citenum{PalmerWallaceEtAl:2003}])
-# Q\textsubscript{10} 5.3  [\citenum{RhodeSmith:1986}].
-# Q\textsubscript{10} 7.4 (unanesthetised) 5.3 (barbiturate) (cat [\citenum{RhodeKettner:1987}]).              
 
 *** Fitness Function
 
@@ -3535,6 +3540,7 @@ three \TS cell subtypes. Further details on each subtype are provided below.
 # network parameters that regulate the major output of the \CN stellate
 # microcircuit.
 
+
 * Discussion
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:Discussion
@@ -3544,10 +3550,10 @@ three \TS cell subtypes. Further details on each subtype are provided below.
   model, especially the methods.}
 
 The T stellate cells in the \CNSM model form one of the major ascending auditory
-  pathways through the brainstem.  It enables a high fidelity sensory input to
-  be passed to higher order centres, by reproducing the spectrum in a robust
-  fashion \citep{BlackburnSachs:1990,May:2003} and synchronisation to
-  significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
+pathways through the brainstem.  It enables a high fidelity sensory input to
+be passed to higher order centres, by reproducing the spectrum in a robust
+fashion \citep{BlackburnSachs:1990,May:2003} and synchronisation to
+significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 
 
 # C, RA, \ENa, \EK, \Eh, \Qten
@@ -3601,19 +3607,22 @@ The T stellate cells in the \CNSM model form one of the major ascending auditory
 
 #+CAPTION: Mockup for possible parameter table with fixed or optimised parameters
 #+NAME:   fig:Mockup
-|     | \LSR       | \HSR       | \GLG               | \DS          | \TV        | \TS |
-|-----+------------+------------+-------------------+--------------+------------+-----|
+|      | \LSR       | \HSR       | \GLG              | \DS          | \TV        | \TS |
+|------+------------+------------+-------------------+--------------+------------+-----|
 | \GLG | [d](s,w)   | [s,d](w)   | (-)               | (-)          | (-)        | (-) |
-| \DS | [s,d](w,n) | [s,d](w,n) | [s,d](w,n,$\tau$) | (-)          | (-)        | (-) |
-| \TV | [s,d](w,n) | [s,d](w,n) | (-)               | [s,d](w,n,o) | (-)        | (-) |
-| \TS | [s,d](w,n) | [s,d](w,n) | [s,d](w,n)        | [s,d](w,n)   | [s,d](w,n) | (?) |
+| \DS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n,$\tau$) | (-)          | (-)        | (-) |
+| \TV  | [s,d](w,n) | [s,d](w,n) | (-)               | [s,d](w,n,o) | (-)        | (-) |
+| \TS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n)        | [s,d](w,n)   | [s,d](w,n) | (?) |
 
 ** CNSM Cell Models and Connectivity
+
 \yellownote{General discussion about the CNSM model }
+
+
 
 ** Limitations of the CNSM Model
 
-All \BNN models are limited by a number of factors.  Firstly, the level of
+A number of limitations are common to \BNN models.  Firstly, the level of
 detail in the neural models set the underlying complexity and dynamics that are
 possible within the \BNN.  Secondly, the connectivity and synaptic parameters,
 which set the network dynamics, are often hand-tuned or guessed. Finally, the
@@ -3621,17 +3630,81 @@ background and driving inputs to the network set the environmental conditions
 for genuine realistic models to be compared with experimental animal network
 under the same conditions and inputs.
 
-The level of detail in the neural models of the \CNSM model includes the complex
-channel dynamics of a \HH conductance model.  Three potassium current channels
-(\IKHT, \IKLT, and \IKA) and the mixed cation hyperpolarisation current (\Ih)
-were fit precisely from \VCN neurons in mice
-\citep{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b}.  More complex
-multi-compartment conductance model could have been chosen to include dendritic
-filtering, especially in \GLG, \DS and \TV cells.  Ball-and-stick neural models
-already existing in stellate models \citep{WangSachs:1995,WiegrebeMeddis:2004}.
+An additional series of limitations are specifically relevant to the \CNSM
+model, and the data upon which it is based.  The level of detail in the neural
+models of the \CNSM model includes the complex channel dynamics of a \HH
+conductance model.  Three potassium current channels (\IKHT, \IKLT, and \IKA)
+and the mixed cation hyperpolarisation current (\Ih) were fit precisely from
+\VCN neurons in mice
+\citep{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b}. Ball-and-stick
+neural models already existing in stellate models to include dendritic filtering
+\citep{WangSachs:1995,WiegrebeMeddis:2004}, and used to investigate selective
+filtering of \ANFs \cite{LaiWinslowEtAl:1994a}.  More complex multi-compartment
+conductance model could have been chosen, especially in \TS, \DS and \TV cells,
+but this is beyond the scope of this thesis.
+
+
+The \CNSM model does not include neurons and synaptic connections that have direct influence
+on the microcircuit.  
+
+Excitatory \TS cell connections to \TV cell have been shown in histological
+\citep{Alibardi:2006,Alibardi:2003a,Alibardi:2001}.  and electro-physiological
+studies \citep{OertelWickesberg:1993,WickesbergOertel:1993}.  \citet{Rubio:2005}
+found no \TS cell terminals on \TV cells in rats.  This connection was not
+included due to the dominance of \ANF excitation added complexity in the
+sequential optimisation stages since \TS cell inputs were not yet optimised.
+
+Ultra-structural labelling of synapses in the \DCN shows \TV cells
+are not just inhibited by \DS cells but also from \GABA, glycine and mixed sources
+within the \DCN \citep{RubioJuiz:2004,Rubio:2005,Alibardi:2003a,Alibardi:2001}. 
+
+
+Recurrent connections between \TS cells have been proposed \cite{FerragamoGoldingEtAl:1998a}
+
+
+Glycinergic inputs to DS cells (from \DS and \TV cells) were excluded from the \CNSM model due to  
+less effective than GABA.    
+
+Application of strychnine on guinea pigs \DS cells has little or no effect on their response area \citep{EvansZhao:1998}.
+
+
+\TV cells receive known inputs from local GABA and mixed GABA/Glycine neurons .
+
+Key examples of these are the \DCN cells connecting with TV cells
+\citep{SpirouDavisEtAl:1999,YoungDavis:2002}; 
+
+\DS cells from the contralateral \CN form fast, weak inhibitory connections with
+many \VCN and \DCN neurons, including \TS cells
+\citep{NeedhamPaolini:2007,NeedhamPaolini:2006,NeedhamPaolini:2003}. This
+pathway is the first commissural connection in the auditory nervous system that
+merges information from each ear.
+
+
+GABAergic collaterals of the periolivary region
+
+\citep{EvansZhao:1998,EvansZhao:1993a,BackoffShadduckEtAl:1999,CasparyBackoffEtAl:1994,PalombiCaspary:1992};
+
+and cholinergic \MOC collaterals interacting with neurons in the \VCN
+\citep{MuldersPaoliniEtAl:2003}.  
+
+The inclusion of these interactions was beyond
+the scope of this thesis, and could be addressed in further research in the
+field.
+
+
 
 The performance of the \CNSM model owes a large part to the input of a
 phenomenologically-realistic \AN model.
+
+Constraints of experimental data sets used in optimisation routines
+
+THe results are limited in their generalisability to other animal species, other networks
+
+
+Other studies have used more stringent methods of cell type classifications 
+
+THe basis of the \CNSM model 
+Experimental data 
 
 \yellownote{Possible connections that would add non-linear characteristics to
 the \CNSM model include \TS excitation of \TV cells, \TV inhibition of \DS cells,
@@ -3643,6 +3716,8 @@ feedback loop in the microcircuit, that dis-inhibits \TS cells. }
 # of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
 ** Implications of Sequential Microcircuit Optimisation
+
+
 
 \yellownote{Overfitting parameters to exemplar units.  mapping parameters to whole network.
 Fitting dependant on fixed HSR and LSR inputs.  Thresholds to tone and noise fixed .  Within \CF behaviour is fixed.

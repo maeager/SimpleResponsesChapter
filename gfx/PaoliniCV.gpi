@@ -15,7 +15,7 @@ set xtics nomirror out ("0-10" 0,"10-20" 1,"20-30" 2,"30-40" 3,"40-50" 4)
 set xrange [-0.5:4.5]
 set yrange [0.1:0.5]
 #set border 3
-set xlabel "Time Window" font "Helvetica,20"
+set xlabel "Time Window (ms re onset)" font "Helvetica,20"
 set ytics nomirror out 0.1,0.1,0.5
 set ylabel "Average CV (±S.E.)" font "Helvetica,20"
 set style line 1 lc rgb "#0060ad" lt 1 lw 2 pt 7 ps 3 # 1.5 # --beautiful blue line and filled circle
