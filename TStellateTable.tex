@@ -7,14 +7,14 @@
 %\noindent%
 \begin{tabularx}{\textwidth}{|l|X|} %
 \hdr{2}{A}{Model Summary}\\
-         \textbf{Populations}          & Six: \HSR \& \LSR ANFs, \GLG, \DS, \TV and \TS cells \\\hline
+         \textbf{Populations}          & Six: \HSR and \LSR ANFs, \GLG, \DS, \TV and \TS cells \\\hline
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
-        \textbf{Connectivity}          & \ANF$\to$\{\GLG,\DS,\TV,\TS\}, Golgi$\to$\{\DS,\TS\}, \DS$\to$\{\TV,\TS\}, and \TVTS  \\\hline
+        \textbf{Connectivity}          & \ANF$\to$\{\GLG,\DS,\TV,\TS\}, GLG$\to$\{\DS,\TS\}, \DS$\to$\{\TV,\TS\}, and \TVTS  \\\hline
          \textbf{Input model}          & ANF~model: Instantaneous-rate Poisson neural model \citep{ZilanyBruce:2007} \\\hline
-\multirow{4}{*}{\textbf{Neuron model}} & Golgi cell: \GLG neural model\\
-                                       & D~stellate cell: HH-like single-compartment type I-II \RM model\\ 
-                                       & Tuberculo-ventral cell:  HH-like single-compartment type I-c \RM model \\
-                                       & T~stellate cell: HH-like single-compartment type I-t \RM model\\ \hline
+\multirow{4}{*}{\textbf{Neuron model}} & \GLG cell: \GLG neural model (see Section \ref{sec:Ch3:GolgiModel}).\\
+                                       & \DS cell: Type I-II \RM model (see Section \ref{sec:Ch3:DSCellModel}).\\ 
+                                       & \TV cell: Type I-c \RM model (see Section \ref{sec:Ch3:TVCellModel}).\\
+                                       & T~stellate cell: HH-like single-compartment Type I-t \RM model\\ \hline
        \textbf{Channel models}         & \INa, \Ileak, \IKHT, \IKLT, \IKA, and \Ih \citep{RothmanManis:2003b}\\\hline
         \textbf{Synapse model}         & \AMPA (single exponential), \GABAa and \GlyR (double exponential) \\\hline
 %            \textbf{Input}             & Pure tones at CF of designated exemplar neuron.\\\hline
@@ -41,21 +41,21 @@
 \begin{tabularx}{\textwidth}{|l|l|l|X|}
 \hdr{4}{C}{Connectivity}\\
 \textbf{Name} & \textbf{Source} & \textbf{Target}  & \textbf{Pattern} \\\hline
- %   \ANFDS   &       ANF       &    D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
+ %   \ANFDS   &       ANF       &    D~Stellate    & Skewed Gaussian, centred at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
  %   \ANFTV   &       ANF       & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
    \ANFTS     &       ANF       &        TS        & 
 Narrowband connection at CF, zero spread, weight \wLSRTS and \wHSRTS, number \nLSRTS and \nHSRTS, delay \dANFTS \\\hline
- %   \GLGDS   &      Golgi      &    D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
- %    \DSTV   &   D~Stellate    & Tuberculoventral & Gaussian, centered at CF with spread \sDSTV \\\hline
+ %   \GLGDS   &      Golgi      &    D~Stellate    & Gaussian, centred at CF with spread \sGLGDS \\\hline
+ %    \DSTV   &   D~Stellate    & Tuberculoventral & Gaussian, centred at CF with spread \sDSTV \\\hline
    \GLGTS     &       GLG       &        TS        & 
-Gaussian convergence, centered on CF, spread $\sigma^2 = \sGLGTS$, weight \wGLGTS, number \nGLGTS, delay $\dGLGTS=0.5$ ms \\\hline
+Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGTS$, weight \wGLGTS, number \nGLGTS, delay $\dGLGTS=0.5$ ms \\\hline
     \DSTS     &       DS        &        TS        & 
-Gaussian convergence, centered on CF, spread $\sigma^2 = \sDSTS$, weight \wDSTS, number \nDSTS, delay $\dDSTS=0.5$ ms \\\hline
+Gaussian convergence, centred on CF, spread $\sigma^2 = \sDSTS$, weight \wDSTS, number \nDSTS, delay $\dDSTS=0.5$ ms \\\hline
     \TVTS     &       TV        &        TS        & 
-Gaussian convergence, centered on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, number \nTVTS, delay $\dTVTS=1.0$ ms \\\hline
+Gaussian convergence, centred on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, number \nTVTS, delay $\dTVTS=1.0$ ms \\\hline
 \multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model in Table~\ref{tab:TVNotchModelSummary}C. }\\\hline
 \end{tabularx}
-% , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
+% , uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS
 \vspace{1ex}
 
 % - D ------------------------------------------------------------------------------
