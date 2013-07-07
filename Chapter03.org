@@ -25,7 +25,6 @@
 
 * Prelude                                                          :noexport:
 
-
 #+begin_src emacs-lisp :export none
      (setq TeX-master t)
        ;; (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
@@ -65,7 +64,6 @@
 
 #+RESULTS:
 : \ref{%s}
-
 
 * Introduction
 
@@ -2977,7 +2975,6 @@ regularity of the chopping behaviour \citep{RothmanManis:2003b}.  \IKA is active
 at rest and is important in enhancing the first spike response across \TS cells
 to an oncoming stimulus \citep{PaoliniClareyEtAl:2004,KanoldManis:2005}.
 
-
 *** Fitness Function
 
 The optimisation fitness function, $F$, of the \TS cell model calculated the
@@ -3481,34 +3478,34 @@ Table \ref{tab:TSCellResults} reports the best-fit parameter values for the
 three \TS cell subtypes. Further details on each subtype are provided below.
 
 #+BEGIN_LaTeX
-  {
-  \vspace{2ex}%
-  \small\noindent%
-  \begin{table}[t!]
-  \centering
-  \caption{Best fit parameters of three TS cell subtypes using the intracellular and CV statistics optimisation}
-  \label{tab:TSCellResults}
-  \begin{tabularx}{\textwidth}{l c D{,}{.}{2.6} D{,}{.}{2.6} D{,}{.}{2.6}}
+   {
+   \vspace{2ex}%
+   \small\noindent%
+   \begin{table}[t!]
+   \centering
+   \caption{Best fit parameters of three TS cell subtypes using the intracellular and CV statistics optimisation}
+   \label{tab:TSCellResults}
+   \begin{tabularx}{\textwidth}{l c D{,}{.}{2.6} D{,}{.}{2.6} D{,}{.}{2.6}}
   \toprule
-    \textbf{Parameters}       & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
-                              &                & \multicolumn{1}{c}{\ChS} & \multicolumn{1}{c}{\ChTone} & \multicolumn{1}{c}{\ChTtwo} \\ \otoprule
-       \wHSRTS \hfill (mS)          &   [0.01,30]    &          3,928           &            3,16             & 5,67 \\
-  %        \nHSRTS \hfill            &                &            8             &             20              & 8   \\
-   \wLSRTS   \hfill (mS)      &   [0.01,30]    &          6,011           &            4,91             & 6,56\\
- %         \nLSRTS   \hfill          &                &            15            &             15              & 15  \\
-   \wDSTS  \hfill  (mS)       &   [0.01,30]    &          0,0361          &           0,1094            & 0,106\\
- %         \nDSTS   \hfill           &                &            4             &                             & 4   \\
-   \wTVTS  \hfill  (mS)       &   [0.01,30]    &          0,0247          &           0,0146            & 0,0206\\
- %         \nTVTS    \hfill          &                &            7             &              7              & 7   \\
-   \wGLGTS  \hfill  (mS)      &   [0.01,30]    &          0,0313          &           0,3073            & 1,1868\\
-  %        \nGLGTS    \hfill         &                &            5             &              5              & 5   \\ \bottomrule
+        \textbf{Parameters}       & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
+                                  &                & \multicolumn{1}{c}{\ChS} & \multicolumn{1}{c}{\ChTone} & \multicolumn{1}{c}{\ChTtwo} \\ \otoprule
+           \wHSRTS  (mS)          &   [0.01,30]    &          3,928           &            3,16             & 5,67 \\
+      %        \nHSRTS \hfill     &                &            8             &             20              & 8   \\
+          \wLSRTS    (mS)         &   [0.01,30]    &          6,011           &            4,91             & 6,56\\
+    %         \nLSRTS   \hfill    &                &            15            &             15              & 15  \\
+            \wDSTS (mS)           &   [0.01,30]    &          0,0361          &           0,1094            & 0,106\\
+     %         \nDSTS   \hfill    &                &            4             &                             & 4   \\
+           \wTVTS  (mS)           &   [0.01,30]    &          0,0247          &           0,0146            & 0,0206\\
+    %         \nTVTS    \hfill    &                &            7             &              7              & 7   \\
+           \wGLGTS  (mS)          &   [0.01,30]    &          0,0313          &           0,3073            & 1,1868\\
+    %        \nGLGTS    \hfill    &                &            5             &              5              & 5   \\ \bottomrule
   %\midrule
   %  \gleak \hfill (mS cm$^{-2}$) &    [1e-3,3]    &          0,657           &            0,494            & 0,724\\
   %  \gKHT  \hfill (S cm$^{-2}$)  &  [1e-6,0.003]  &          0,0189          &           0,0189            & 0,023\\
-       %     \Eleak \hfill  (mV)    & [$-45$,$-70$]  &          -65,15          &           -54,26            & -63,50\\
+     %     \Eleak \hfill  (mV)    & [$-45$,$-70$]  &          -65,15          &           -54,26            & -63,50\\
   \end{tabularx}
-  \end{table}\vspace{2ex}%
-  }
+   \end{table}\vspace{2ex}%
+   }
 #+END_LaTeX
 
 # ** Verification of the TS Cell Model Subtypes
@@ -3544,7 +3541,6 @@ three \TS cell subtypes. Further details on each subtype are provided below.
 # network parameters that regulate the major output of the \CN stellate
 # microcircuit.
 
-
 * Discussion
 :PROPERTIES:
 :CUSTOM_ID: sec:Ch3:Discussion
@@ -3566,7 +3562,7 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 # |           | \sHSRGLG                                       | X     |     |
 # |           | *\sLSRGLG \wLSRGLG \wHSRGLG*                   |       | X   |
 # |-----------+------------------------------------------------+-------+-----|
-# | \DS        | \gNa,\gKHT,\gKLT,\gh, D                        | X     |     |
+# | \DS        | \gNa,\gKHT,\gKLT,\gh, soma diameter                        | X     |     |
 # |           | * \Erev \gleak *                               |       | X   |
 # |           | \tAMPA                                         | X     |     |
 # |           | \sANFDSh \sANFDSl \dANFDS                      | X     |     |
@@ -3574,7 +3570,7 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 # |           | \dGLGDS \tGABAone \sGLGDS                      | X     |     |
 # |           | * \wGLGDS     \nGLGDS     \tGABAtwo *          |       | X   |
 # |-----------+------------------------------------------------+-------+-----|
-# | \TV        | \gNa,\gKHT,\gh, D                              | X     |     |
+# | \TV        | \gNa,\gKHT,\gh, soma diameter                              | X     |     |
 # |           | *\Erev \gleak*                                 |       | X   |
 # |           | \tAMPA                                         | X     |     |
 # |           | \sANFTV \dANFTV     \dDSTV                     | X     |     |
@@ -3582,7 +3578,7 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 # |           | *\sDSTV     \oDSTV  *                          |       | X   |
 # |           | *\wDSTV      \nDSTV *                          |       | X   |
 # |-----------+------------------------------------------------+-------+-----|
-# | \TS        | \gNa,\gKHT,\gKA,\gh, D(soma), L(dend)          | X     |     |
+# | \TS        | \gNa,\gKHT,\gKA,\gh, soma diameter          | X     |     |
 # |           | *\Erev \gleak*                                 |       | X   |
 # |           | \tAMPA                                         | X     |     |
 # |           | \sANFTS \dANFTS     \dDSTS  \dTVTS             | X     |     |
@@ -3622,7 +3618,6 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 
 \yellownote{TODO: Discuss the relevance of creating the CN stellate
   model, especially the methods.}
-
 
 ** Limitations of the CNSM Model
 
@@ -3715,7 +3710,6 @@ feedback loop in the microcircuit, that dis-inhibits \TS cells. }
 # of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
 
-
 ** Implications for \BNN Optimisation
 
 # Bring it back to BNNs
@@ -3759,7 +3753,7 @@ pigs][]{ArnottWallaceEtAl:2004},\citet[chinchilla][]{BackoffShadduckEtAl:1999}
 exception of the TS cell optimisation (\citet[rat][]{PaoliniClareyEtAl:2005}).
 
 
-
+Sources of noise in a \BNN model have critical implications for 
 
 Optimisation of feedback synaptic connections were 
 
