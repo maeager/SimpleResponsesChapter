@@ -3446,7 +3446,7 @@ constrain the many network parameters using intricate intracellular and spiking
 statistics.
 # translatating intricate intracellular and spiking statistics into a single objective value.
 
-
+\yellownote{CV statistics results in TS cells}
 [Spiking measures intro]
 The regularity of inter-spike intervals in \TS cells create its typical chopper \PSTH and is best measured using the coefficient of variation statistic.
 
@@ -3792,6 +3792,7 @@ in a singular species, or generalised across different species.
 
 # Bring it back to BNNs
 # -------
+\yellownote{implication paragraph}
 Experimental data used for optimisation routines:
 
  Understanding the limitations of experimental data facilitates setting out constraints in fitness functions.
@@ -3823,8 +3824,6 @@ in BNN optimisation.
 # \citep{ChenGodfrey:2000,GdowskiVoigt:1998,WangRyanEtAl:1987,GdowskiVoigt:1997}.
 # Early electrophysiological recordings of \CN neurons in mammals /in vivo/ required the ablation of the section of the cerebellum \citep{HumphreyBuchwald:1972,BuchwaldHumphrey:1972,RitzBrownell:1982}
 # and understanding the effects of the procedure \citep{Ramachandran:2000,DingBensonEtAl:1999,RamachandranDavisEtAl:2000,ParhamZhaoEtAl:1998,DavisDingEtAl:1996}.
-
-
 
 # ------
 Sources of noise in a \BNN model have critical implications for the network in
@@ -3873,7 +3872,7 @@ parameterising the sources of noise is therefore essential in the development of
 # hyperpolarized voltage levels, are features consistent with mechanisms
 # designed to detect low-intensity stimuli.
 
-\yellownote{TODO: More editing in chapter conclusion}
+\yellownote{TODO: More editing in chapter conclusion.  Is one paragraph enough?}
 
 The purpose of the optimisation experiments was to develop a
 biophysically-realistic model of the stellate microcircuit in the cochlear
