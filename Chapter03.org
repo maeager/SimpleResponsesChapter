@@ -3805,15 +3805,15 @@ Design and planning of sequential optimisation stages, ensures each stage does n
 
 Feed-forward
 
-population versus single unit responses
+population versus single unit responses  exemplar units
 
 Weighting of different modalities : ensuring each optimisation cost function
 incorporates information from each metric equally.
 
 # ----------
-The development and optimisation of the CNSM model demonstrates the importance
-of close attention to the specifics properties of data used in BNN models.
-Experimental methods differ across laboratories, across different species and
+The development and optimisation of the \CNSM model demonstrates the importance
+of close attention to the specifics properties of data used in \BNN models.
+Experimental devices and methods differ across laboratories, across different species and
 technologies change over time.  Cochlear frequency mapping and acoustic
 thresholds differ between species \citep{HeffnerKoayEtAl:2001,Greenwood:1990}.
 Additionally, choice of anaesthesia can change the response properties of
@@ -3827,27 +3827,30 @@ in BNN optimisation.
 
 
 # ------
-Sources of noise in a \BNN model have critical implications for
+Sources of noise in a \BNN model have critical implications for the network in
+its output and in the optimisation of the model's parameters.  Noise is present
+in \BNNs at the level of ion channels, in synaptic jitter, in local variation of
+synaptic strengths, and in variation of synaptic properties across nuclei.  The
+sources of noise in the CNSM model are the spike generators of the ANF and GLG
+cell models and in the allocation scheme of number of connections between cell
+types (generally a Gaussian distribution except for ANF inputs to DS cells).
+Also, output responses of neurons need to be averaged over multiple repetitions
+of the same stimuli to encompass stochasticity of the neuron's inputs.
+Optimisation of synaptic parameters also requires a gradient in the search
+space, otherwise it risks overfitting parameters to noise.  Limiting or
+parameterising the sources of noise is therefore essential in the development of
+\BNN models and their optimisation.
 
-Optimisation of feedback synaptic connections were
-
-Stochasticity
+# ------
 
 
-Overfitting parameters to noise
-exemplar units
-------
-
-
-
-
-\yellownote{Overfitting parameters to exemplar units.  mapping parameters to whole network.
-Fitting dependant on fixed HSR and LSR inputs.  Thresholds to tone and noise fixed .  Within \CF behaviour is fixed.
-Animal species. assumptions and specifications.
-TODO: Probability distribution of delay (within cell-to-cell
-connection) not included.
-TODO: Probability of AP-to-synaptic release ratio not included
-(Liley assumption of 1\% vesicle release in cortical buttons.) }
+# \yellownote{Overfitting parameters to exemplar units.  mapping parameters to whole network.
+# Fitting dependant on fixed HSR and LSR inputs.  Thresholds to tone and noise fixed .  Within \CF behaviour is fixed.
+# Animal species. assumptions and specifications.
+# TODO: Probability distribution of delay (within cell-to-cell
+# connection) not included.
+# TODO: Probability of AP-to-synaptic release ratio not included
+# (Liley assumption of 1\% vesicle release in cortical buttons.) }
 
 * Conclusion
 
