@@ -2832,7 +2832,23 @@ was 21 \um, representative of the average cat \citep{ReddCahillEtAl:2002}.
 
 *** Cell-based Properties of T Stellate Cells
 
-\yellownote{TODO: Two paragraphs detailing the cell based properties of TS cells}
+\TS cells were first thought of as basic integrators with linear current-voltage
+relationship (type 1 current clamp) and a single exponential undershoot \AP
+\citep{ManisMarx:1991,FengKuwadaEtAl:1994,Oertel:1983,OertelWuEtAl:1988}.
+Effective cell membrane time constant /in vitro/ for different species was:
+(mice at room temperature) 9.1 \pm 4.5 \citep{ManisMarx:1991}; (rat at room
+temperature) 6.9 \pm 3 msec \citep{IsaacsonWalmsley:1995}; and 8.8 \pm 1.4 in dogs
+\citep{BalBaydasEtAl:2009}.  \TS cells do not have any \KLT current channels
+\citep{ManisMarx:1991,RothmanManis:2003} but do contain a specialised transient
+deactivating potassium current \KA and hyperpolarisation-activated mixed cation
+current \Ih \citep{RothmanManis:2003}. \IKA is active at RMP and has a role in
+modulating repetitive \APs and resetting when inhibition preceeds excitation
+\cite{RothmanManis:2003b,KanoldManis:2001,KanoldManis:2005}. The Type 1-t \RM
+neural model was used in \TS cells due to its type 1 current-clamp property and
+the inclusion of \IKA.
+
+
+
 # Cells Current Clamp Membrane Currents Time Constant (msec) I-V Input R Papers
 # \\ TS Type 1, single exponential undershoot (Feng et al. 1994; Manis and Marx
 # 1991; Wu and Oertel 1984) \\ No Low threshold K (Manis and Marx 1991); IA has
@@ -2848,7 +2864,7 @@ was 21 \um, representative of the average cat \citep{ReddCahillEtAl:2002}.
 # - Effective somatic membrane time constant
 #   - 6.5 \pm 5.7 msec \citep{ManisMarx:1991} Type I 9.1 \pm 4.5 \citep{ManisMarx:1991}
 #   - 6.2 to 18.0 msec \citep{FengKuwadaEtAl:1994}
-#   - 6.9\pm 3 msec, 10--90\% rise time was 1.05\pm 0.4 msec \citep{IsaacsonWalmsley:1995}
+#   - 6.9 \pm 3 msec, 10--90\% rise time was 1.05\pm 0.4 msec \citep{IsaacsonWalmsley:1995}
 # - Linear I-V \citep{ManisMarx:1991}
 # - cross sectional area of somata 447 \pm 265 Mohm
 # - isolated guinea pig stellate cell type 1 current clamp \citep{ManisMarx:1991}
@@ -3457,9 +3473,9 @@ The regularity of inter-spike intervals in \TS cells create its typical chopper 
 
 The \SPL of the three \CF tones used in each optimisation was set by the exemplar units' acoustic
 
-[AIV introductory sentence] Average intracellular voltage contains more
+Average intracellular voltage contains more
 information regarding synaptic inputs and sub-threshold membrane dynamics than
-mere spikes alone.  The AIV statistics of \citep{PaoliniClareyEtAl:2005} were
+mere spikes alone.  The \AIV statistics of \citep{PaoliniClareyEtAl:2005} were
 modified to 5 ms sampling to allow for less repetitions in the optimisation
 routines.  For both the offset ratio and adaptation MP difference measures, the
 optimal neurons' responses were within the bounds for noise.  The results of the
@@ -3793,23 +3809,24 @@ in a singular species, or generalised across different species.
 # Bring it back to BNNs
 # -------
 \yellownote{implication paragraph}
-Experimental data used for optimisation routines:
 
- Understanding the limitations of experimental data facilitates setting out constraints in fitness functions.
-
+The development and optimisation of the CNSM model in this chapter has wider
+implications for \BNN models and their optimisation procedures.
+# Experimental data used for optimisation routines:
+Understanding the limitations of experimental data facilitates setting out
+constraints in fitness functions.
 Optimisation methods can provide valuable evidence in developing valid and
 reproducible BNN models.
-
-Constraints of experimental data sets used in optimisation routines
-
+# Constraints of experimental data sets used in optimisation routines
 Design and planning of sequential optimisation stages, ensures each stage does not affect previous optimisation results.
+# Feed-forward
+One issue is whether to optimise cell types based on
+population responses or exemplar unit responses.
+Fitness functions should be targeted toward equalisation of all available information.
+This was done in this chapter simple stimuli (tones, noise and clicks) over the full range of sound levels as observed in experiments.
+Another issue is ensuring equal weighting of information gathered from different modalities (e.g. AIV and CV statistics in the \TS cell
+optimsiation) so that each metric contributes equally to the fitness function.
 
-Feed-forward
-
-population versus single unit responses  exemplar units
-
-Weighting of different modalities : ensuring each optimisation cost function
-incorporates information from each metric equally.
 
 # ----------
 The development and optimisation of the \CNSM model demonstrates the importance
@@ -3843,13 +3860,16 @@ parameterising the sources of noise is therefore essential in the development of
 # ------
 
 
-# \yellownote{Overfitting parameters to exemplar units.  mapping parameters to whole network.
-# Fitting dependant on fixed HSR and LSR inputs.  Thresholds to tone and noise fixed .  Within \CF behaviour is fixed.
-# Animal species. assumptions and specifications.
+# \note{Overfitting parameters to exemplar units.  mapping parameters to whole
+# network.  Fitting dependant on fixed HSR and LSR inputs.  Thresholds to tone
+# and noise fixed .  Within \CF behaviour is fixed.  Animal species. assumptions
+# and specifications.}
+
+
 # TODO: Probability distribution of delay (within cell-to-cell
 # connection) not included.
 # TODO: Probability of AP-to-synaptic release ratio not included
-# (Liley assumption of 1\% vesicle release in cortical buttons.) }
+# (Liley assumption of 1\% vesicle release in cortical buttons.)
 
 * Conclusion
 
