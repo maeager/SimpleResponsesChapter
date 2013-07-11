@@ -1074,6 +1074,64 @@ prominent onset responses of the recorded units.  The merging of \LSR profiles
 at different \CFs and the convolution of the smoothing filter contributed to the
 reduction of the onset response to tones.
 
+
+#+BEGIN_LaTeX
+  \begin{figure}[t!]
+     %\centering
+    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-3.pdf}}%
+    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
+    \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF 5.8 kHz).
+   A. Four simulated PSTHs of the \GLG cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
+  B. Four experimental PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}.
+  } \label{fig:GolgiVerificationPSTH}
+  \end{figure}
+#+END_LaTeX
+
+
+
+Figure \ref{fig:GolgiKimFig2} shows the tone and noise rate level responses of
+six marginal shell units observed by \citet{GhoshalKim:1996a}.  The unit at the
+top of Figure \ref{fig:GolgiKimFig2}, S03-07 (\CF 22.7 kHz), was chosen to
+optimise the \GLG cell model as it is monotonic and has the median maximum rate
+of all the units shown (101 sp/s for tones and 96 sp/s for BBN).  The typical
+properties of \GLG units were derived from the marginal shell units recorded in
+the \citet{GhoshalKim:1996a} study.
+
+
+#+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
+#+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 AVCN marginal shell units (Figure reproduced from \citealt{GhoshalKim:1996a}).}
+#+LABEL:  fig:GolgiKimFig2
+[[../SimpleResponsesChapter/gfx/GhoshalKim96_Fig2.pdf]]
+
+
+
+Figure \ref{fig:GolgiVerificationWhole} shows the response of optimised \GLG
+cell models at each frequency channel in the \CNSM model to a 5.8 kHz tone and
+broadband noise over a wide range of sound levels. The \GLG cell model had a
+monotonic response to tones and noise similar to other experimental units
+\citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.  In Figure
+\ref{fig:GolgiVerificationWhole}A, the rate level response of the central \GLG
+unit was generated using the optimised parameters.  Using a sigmoidal function,
+the rate level curve had a theoretical spontaneous rate of 0 spikes/s (3.77
+spikes/s calculated from 0 to 15 dB \SPL), a threshold at 19 dB \SPL, and a
+dynamic range of 68 dB.  The theoretical maximal rate for the curve was 120.8
+spikes/s and reached half maximum rate at 53 dB \SPL.  The noise rate-level
+curve for the central \GLG unit in Figure \ref{fig:GolgiVerificationWhole}B was
+monotonic.  The average gradient of the noise rate level curve between 70 and
+120 dB \SPL was 2.02 spikes per second per dB.  Figure
+\ref{fig:GolgiVerificationWhole}C shows the response of all \GLG cell units in
+the \CNSM model to a 5.8 kHz tone.  At 10 dB above the threshold (30 dB \SPL)
+units with \CFs from 4.98 kHz to 7.48 kHz were above threshold, which equates to
+a receptive field of 2.5 kHz or \Qten of 0.41.  The \GLG unit with \CF 6.43 kHz
+had the highest rate at 30 dB \SPL and was closest to the middle of activated
+units in the network.  The range of activated units was 4.6 kHz at 50 dB \SPL
+(30 dB relative to the acoustic threshold) and 10 kHz for 80 dB \SPL.  Figure
+\ref{fig:GolgiVerificationWhole}D shows the noise rate level response of all
+\GLG units. The non-uniform response to a linear broadband input reflects the
+species-specific audiogram compression in the \AN model.
+
+
 # Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
 # units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
 #+BEGIN_LaTeX
@@ -1105,59 +1163,6 @@ reduction of the onset response to tones.
    % d               = 51.4084          +/- 1.509        (2.936%)
 #+END_LaTeX
 
-Figure \ref{fig:GolgiKimFig2} shows the tone and noise rate level responses of
-six marginal shell units observed by \citet{GhoshalKim:1996a}.  The unit at the
-top of Figure \ref{fig:GolgiKimFig2}, S03-07 (\CF 22.7 kHz), was chosen to
-optimise the \GLG cell model as it is monotonic and has the median maximum rate
-of all the units shown (101 sp/s for tones and 96 sp/s for BBN).  The typical
-properties of \GLG units were derived from the marginal shell units recorded in
-the \citet{GhoshalKim:1996a} study.
-
-
-#+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
-#+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 AVCN marginal shell units (Figure reproduced from \citealt{GhoshalKim:1996a}).}
-#+LABEL:  fig:GolgiKimFig2
-[[../SimpleResponsesChapter/gfx/GhoshalKim96_Fig2.pdf]]
-
-
-
-#+BEGIN_LaTeX
-  \begin{figure}[t!]
-     %\centering
-    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-3.pdf}}%
-    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
-    \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF 5.8 kHz).
-   A. Four simulated PSTHs of the \GLG cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
-  B. Four experimental PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}.
-  } \label{fig:GolgiVerificationPSTH}
-  \end{figure}
-#+END_LaTeX
-
-
-
-Figure \ref{fig:GolgiVerificationWhole} shows the response of optimised \GLG
-cell models at each frequency channel in the \CNSM model to a 5.8 kHz tone and
-broadband noise over a wide range of sound levels. The \GLG cell model had a
-monotonic response to tones and noise similar to other experimental units
-\citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.  In Figure
-\ref{fig:GolgiVerificationWhole}A, the rate level response of the central \GLG
-unit was generated using the optimised parameters.  Using a sigmoidal function,
-the rate level curve had a theoretical spontaneous rate of 0 spikes/s (3.77
-spikes/s calculated from 0 to 15 dB \SPL), a threshold at 19 dB \SPL, and a
-dynamic range of 68 dB.  The theoretical maximal rate for the curve was 120.8
-spikes/s and reached half maximum rate at 53 dB \SPL.  The noise rate-level
-curve for the central \GLG unit in Figure \ref{fig:GolgiVerificationWhole}B was
-monotonic.  The average gradient of the noise rate level curve between 70 and
-120 dB \SPL was 2.02 spikes per second per dB.  Figure \ref{fig:GolgiVerificationWhole}C shows
-the response of all \GLG cell units in the \CNSM model to a 5.8 kHz tone.  At 10
-dB above the threshold (30 dB \SPL) units with \CFs from 4.98 kHz to 7.48 kHz were
-above threshold, which equates to a receptive field of 2.5 kHz or \Qten of 0.41.
-The \GLG unit with \CF 6.43 kHz had the highest rate at 30 dB \SPL and was closest
-to the middle of activated units in the network.  The range of activated units
-was 4.6 kHz at 50 dB \SPL (30 dB relative to the acoustic threshold) and 10 kHz for 80 dB \SPL.  Figure
-\ref{fig:GolgiVerificationWhole}D shows the noise rate level response of all \GLG
-units. The non-uniform response to a linear broadband input reflects the species-specific audiogram compression in the \AN model.
 
 ** Discussion of the Golgi Cell Model
 
@@ -3573,15 +3578,16 @@ fashion \citep{BlackburnSachs:1990,May:2003} and synchronisation to
 significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 
 
-# C, RA, \ENa, \EK, \Eh, \Qten
+# # C, RA, \ENa, \EK, \Eh, \Qten
 
 # | Cell type | Parameters                                     | Fixed | Opt |
 # |-----------+------------------------------------------------+-------+-----|
-# | \GLG       | *\Gtau \Gspon*                                 |       | X   |
+# | \GLG      | \Gtau \Gspon                                   |       | X   |
 # |           | \sHSRGLG                                       | X     |     |
-# |           | *\sLSRGLG \wLSRGLG \wHSRGLG*                   |       | X   |
+# |           | \sLSRGLG \wLSRGLG \wHSRGLG                     |       | X   |
+# |           |                                                |       |     |
 # |-----------+------------------------------------------------+-------+-----|
-# | \DS        | \gNa,\gKHT,\gKLT,\gh, soma diameter                        | X     |     |
+# | \DS       | \gNa,\gKHT,\gKLT,\gh, soma diameter            | X     |     |
 # |           | * \Erev \gleak *                               |       | X   |
 # |           | \tAMPA                                         | X     |     |
 # |           | \sANFDSh \sANFDSl \dANFDS                      | X     |     |
@@ -3589,7 +3595,7 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 # |           | \dGLGDS \tGABAone \sGLGDS                      | X     |     |
 # |           | * \wGLGDS     \nGLGDS     \tGABAtwo *          |       | X   |
 # |-----------+------------------------------------------------+-------+-----|
-# | \TV        | \gNa,\gKHT,\gh, soma diameter                              | X     |     |
+# | \TV       | \gNa,\gKHT,\gh, soma diameter                  | X     |     |
 # |           | *\Erev \gleak*                                 |       | X   |
 # |           | \tAMPA                                         | X     |     |
 # |           | \sANFTV \dANFTV     \dDSTV                     | X     |     |
@@ -3597,7 +3603,7 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 # |           | *\sDSTV     \oDSTV  *                          |       | X   |
 # |           | *\wDSTV      \nDSTV *                          |       | X   |
 # |-----------+------------------------------------------------+-------+-----|
-# | \TS        | \gNa,\gKHT,\gKA,\gh, soma diameter          | X     |     |
+# | \TS       | \gNa,\gKHT,\gKA,\gh, soma diameter             | X     |     |
 # |           | *\Erev \gleak*                                 |       | X   |
 # |           | \tAMPA                                         | X     |     |
 # |           | \sANFTS \dANFTS     \dDSTS  \dTVTS             | X     |     |
@@ -3609,7 +3615,15 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 # |           | \dGLGDS \tGABAone \sGLGDS  \tGABAtwo           | X     |     |
 # |           | *\wGLGDS     \nGLGDS *                         |       | X   |
 
+# call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000")[:results replace raw]
 
+|     | GLG | DS | TV | \ChS | \ChTone | \ChTtwo |
+|-----+-----+----+----+------+---------+---------|
+| HSR |     |    |    |      |         |         |
+| LSR |     |    |    |      |         |         |
+| GLG |     |    |    |      |         |         |
+| DS  |     |    |    |      |         |         |
+| TV  |     |    |    |      |         |         |
 
 # # + CAPTION: TS cell model optimised parameters
 # # + NAME:   fig:TSoptparams
@@ -3636,6 +3650,8 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 
 \yellownote{TODO: Discuss the relevance of creating the CN stellate
   model, especially the methods.}
+
+
 
 ** Limitations of the CNSM Model
 
