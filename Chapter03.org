@@ -11,7 +11,8 @@
 #+LANGUAGE: en_GB-ise-wo_accents
 #+LaTeX_CLASS: UoM-draft-org-article
 #  +  LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
-#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{/media/data/Work/cnstellate/}{../../cnstellate/ResponsesNoComp/ModulationTransferFunction/}{../../cnstellate/golgi/}{../../cnstellate/TV_RateLevel/}}
+#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../../cnstellate/Responses_CS}}
+# {/media/data/Work/cnstellate/}{../../cnstellate/ResponsesNoComp/ModulationTransferFunction/}{../../cnstellate/golgi/}{../../cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+LATEX_HEADER:  %\usepackage[notcite]{showkeys}
@@ -445,19 +446,22 @@ an additional \IKA channel current over the Type I-c \RM model, but were not
 significantly different from the classic Type I \RM models in the \TV cell model.
 
 #+BEGIN_LaTeX
-  \begin{table}[tp]
-  \centering
-  \caption{Additional delay component of ANF to CN cell types}\label{tab:Methods:AddDelay}
-  \begin{tabularx}{0.9\textwidth}{p{1.9in}XXXXX}
-  \toprule
+  {
+    \vspace{2ex}%
+    \small\noindent%
+    \begin{table}[tp]
+      \centering
+      \caption{Additional delay component of ANF to CN cell types}\label{tab:Methods:AddDelay}
+      \begin{tabularx}{0.8\textwidth}{p{1.9in}XXXXX} \toprule
                           &       \ANF        &        \TS         &         \DS         &    \TV    & Golgi \\\otoprule
        \RM cell type      &                   &        I-t         &        I-II         &    I-c    & I-c\\
-    Experimental FSL (ms)  & $2.4\pm0.73^{ 1}$ & $3.6\pm0.36 ^{ 1}$ & $2.8\pm0.09 ^{1,2}$ & 4.0$^{3}$ & 4.3$^{4}$\\
+   Experimental FSL (ms)  & $2.4\pm0.73^{ 1}$ & $3.6\pm0.36 ^{ 1}$ & $2.8\pm0.09 ^{1,2}$ & 4.0$^{3}$ & 4.3$^{4}$\\
   Default model FSL  (ms) &        1.5        &        2.0         &         1.6         &    2.0    & 2.0\\ \midrule
-   Additional delay (ms)   &         -         &        1.6         &         1.2         &    2.0    & 2.3\\\bottomrule
+   Additional delay (ms)  &         -         &        1.6         &         1.2         &    2.0    & 2.3\\\bottomrule
   \end{tabularx}\\
-  {\small $^1$\citet{RhodeSmith:1986}, $^2$\citet{RhodeOertelEtAl:1983}, $^3$\citet{SpirouDavisEtAl:1999}, $^4$\citet{GhoshalKim:1997}}
-  \end{table}
+    {\small $^1$\citet{RhodeSmith:1986}, $^2$\citet{RhodeOertelEtAl:1983}, $^3$\citet{SpirouDavisEtAl:1999}, $^4$\citet{GhoshalKim:1997}}
+    \end{table}
+  }
 #+END_LaTeX
 
 ** Simulation Specifications
@@ -482,7 +486,7 @@ the principal axis method without using the function's gradient.  The fitness
 function converts the parameters to a single measure by simulating the \CNSM
 model using the parameters, then comparing selected neural outputs to
 experimental data.  \Gls{RMS} error was used as the comparison measure of
-similar data points, e.g.\space mean firing rate at different sound levels in a
+similar data points, e.g.\\space mean firing rate at different sound levels in a
 rate-level simulation.  Mean error relative to the expected or target values was
 also used to ensure there was no bias between data points with large variation in magnitude.
 
@@ -1079,7 +1083,7 @@ reduction of the onset response to tones.
   \begin{figure}[t!]
      %\centering
     {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/psthblock-3.pdf}}%
+    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{psthblock-3.pdf}}%
     \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
     \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF 5.8 kHz).
    A. Four simulated PSTHs of the \GLG cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
@@ -1458,7 +1462,7 @@ frequency channels.
 
 The additional delay parameter for \ANF terminals on the \DS cell model
 (\dANFDS) was shown in Section \ref{sec:Ch3:Delays}. The first spike latency in
-high \CF \DS cells ($2.8 \pm 0.09$ ms) is precise and faster than other stellate
+high \CF \DS cells ($2.8\pm0.09$ ms) is precise and faster than other stellate
 neurons in the \VCN \citep{RhodeSmith:1986}.  The additional delay of 1.2 ms
 from \ANF to \DS input connections is a product of axonal conductance and
 dendritic delay.
@@ -1781,7 +1785,7 @@ cells.
     {\hfill%
     \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Paolini99_Fig9.png}}%
     \resizebox{0.5\textwidth}{!}{\figfont{D}\hfill\\
-    \includegraphics{../../cnstellate/ResponsesNoComp/psthblock-2.pdf}}%
+    \includegraphics{psthblock-2.pdf}}%
     %\resizebox{0.5\textwidth}{!}{\includegraphics{../LiteratureReview/gfx/NoFigure.pdf}}\hfill}\\
     \hfill}\\
     \caption[Optimised DS cell model responses to tones and noise]{%
@@ -2396,8 +2400,8 @@ effective in noise and at the onset of sounds.
    % \includegraphics{}\hfill}\\
    %  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
      {\hfill\resizebox{0.5\textwidth}{!}{%
-     \includegraphics{../../cnstellate/ResponsesNoComp/psthblock-1.pdf}%
-     %\includegraphics{gfx/GhoshalKim_PSTHs.png}%
+     \includegraphics{psthblock-1.pdf}%
+     %\includegraphics{}%
    }\hfill}\\
    %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
      %\hfill\resizebox{0.95\textwidth}{!}{%
@@ -2427,8 +2431,8 @@ effective in noise and at the onset of sounds.
   \centering
   {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
   \resizebox{0.95\textwidth}{!}{\hfill%
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/RateLevel/response_area-1}\hfill%
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{ResponsesNoComp/NoiseRateLevel/response_area-1}\hfill}%
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/response_area-1.pdf}\hfill%
+  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{NoiseRateLevel/response_area-1.pdf}\hfill}%
   \caption[Whole network response of TV cell model]{Response of TV cell models
     across the whole network (CF 5.8 kHz) to pure tones and noise.  A. Rate
     response of all TV units in the network to pure tone at centre of network (5.8
@@ -2817,12 +2821,12 @@ and local axonal collaterals are restricted to the isofrequency lamina
 \TS cells is typically 16--20\um in rat
 \citep{DoucetRyugo:1997,DoucetRyugoEtAl:1999,DoucetRyugo:2006},
 # 28.7{$^\ast$} (cat [\citenum{SmithRhode:1989}])
-and {21.6 \pm 11.3} \um in cats \citep{ReddCahillEtAl:2002}.  The variation is
+and $21.6\pm11.3\,\um$ in cats \citep{ReddCahillEtAl:2002}.  The variation is
 somata sizes based on chopper categorisation has been suggested in guinea pigs
 (15.9 \um (\ChS), 17.5 \um (\ChT) \citet{PalmerWallaceEtAl:2003}).  Variation
 across the frequency regions of the \VCN has also been shown in chinchilla \TS
 cells; cell body sizes in low \CF regions were 20\% larger than cells in high
-\CF regions (high \CF {14.5 \pm 2.0} \um, low \CF {17.6 \pm 2.7} \um
+\CF regions (high \CF $14.5\pm2.0\,\um$, low \CF $17.6\pm2.7\,\um$
 \citep{JosephsonMorest:1998}).  The diameter of the \TS cell model's cell body
 was 21 \um, representative of the average cat \citep{ReddCahillEtAl:2002}.
 
@@ -2841,11 +2845,11 @@ was 21 \um, representative of the average cat \citep{ReddCahillEtAl:2002}.
 relationship (type 1 current clamp) and a single exponential undershoot \AP
 \citep{ManisMarx:1991,FengKuwadaEtAl:1994,Oertel:1983,OertelWuEtAl:1988}.
 Effective cell membrane time constant /in vitro/ for different species was:
-(mice at room temperature) 9.1 \pm 4.5 \citep{ManisMarx:1991}; (rat at room
-temperature) 6.9 \pm 3 msec \citep{IsaacsonWalmsley:1995}; and 8.8 \pm 1.4 in dogs
+(mice at room temperature) $9.1\pm4.5$ ms \citep{ManisMarx:1991}; (rat at room
+temperature) $6.9\pm3$ ms \citep{IsaacsonWalmsley:1995}; and $8.8\pm1.4$ in dogs
 \citep{BalBaydasEtAl:2009}.  \TS cells do not have any \KLT current channels
 \citep{ManisMarx:1991,RothmanManis:2003} but do contain a specialised transient
-deactivating potassium current \KA and hyperpolarisation-activated mixed cation
+deactivating potassium current \I                                                                                             KA and hyperpolarisation-activated mixed cation
 current \Ih \citep{RothmanManis:2003}. \IKA is active at RMP and has a role in
 modulating repetitive \APs and resetting when inhibition preceeds excitation
 \cite{RothmanManis:2003b,KanoldManis:2001,KanoldManis:2005}. The Type 1-t \RM
@@ -3173,7 +3177,7 @@ for all \SPL above threshold.
 
 #+name: CT2_fsl
 #+BEGIN_SRC sh :results replace raw :exports none
-   grep -A33 'at spl '$SPLreTh'' ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f \\pm %.2f$\n",$4,$7)}'
+   grep -A33 'at spl '$SPLreTh'' ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | tail -1 | tr ',' ' '  | awk '{printf("$%.2f\\pm%.2f$\n",$4,$7)}'
 #+END_SRC
 
 #+name: CV_RMS
@@ -3225,7 +3229,7 @@ response.
 
 
 The final error, used within the optimisation routine, was
-call_opt_error(type="CS")[:results replace raw].  Due to different magnitudes of
+call_opt_error(type="CS")[:results replace raw]. Due to different magnitudes of
 the CV and AIV measures this error has no physical units or
 references. Weighting was used to equalise the magnitudes of the CV and AIV
 error metrics.  The RMS difference between the CV data of the optimised \ChS
@@ -3342,8 +3346,9 @@ the \TS cell throughout the stimulus.
 Figure \ref{fig:CT1results} shows the spike and \AIV statistical measures of the
 optimised \ChTone model.  The PSTH of the model at 30 dB re $\theta$ (70 dB \SPL) is
 shown in Figure \ref{fig:CT1results}A.  The mean rate for the optimised \ChT1
-model at 20, 30 and 40 dB re $\theta$ was call_CT1_rate(SPLreTh=30)[:results replace
-raw], call_CT1_rate(SPLreTh=40)[:results replace raw] and
+model at 20, 30 and 40 dB re $\theta$ was
+call_CT1_rate(SPLreTh=30)[:results replace raw],
+call_CT1_rate(SPLreTh=40)[:results replace raw] and
 call_CT1_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
 This means the optimisation stimulus levels range are in the saturation region
 of the cell's rate level curve and not in the expected DR region.
@@ -3462,14 +3467,18 @@ call_CT2_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
 ** Overview of TS cell model results
 
 The primary purpose of the \CNSM model is to regulate the output behaviour of
-the \TS cells, its major output.  The \TS cell optimisation study attempted to
-constrain the many network parameters using intricate intracellular and spiking
-statistics.
+the \TS cells, its major output. The diversification of the physiological
+responses of TS cells into three different chopper response categories required
+three optimisation procedures to fit unique synaptic parameters to their
+corresponding target responses.  The \TS cell optimisation study attempted to
+constrain the many network parameters using different modalities: intricate
+intracellular voltage statistics and regularity of spike interval statistics.
 # translatating intricate intracellular and spiking statistics into a single objective value.
 
-\yellownote{CV statistics results in TS cells}
-[Spiking measures intro]
-The regularity of inter-spike intervals in \TS cells create its typical chopper \PSTH and is best measured using the coefficient of variation statistic.
+\yellownote{CV statistics results in TS cells} [Spiking measures intro]
+The
+regularity of inter-spike intervals in \TS cells create its typical chopper
+\PSTH and is best measured using the coefficient of variation statistic.
 
 [Spiking stats like CV used to categorise choppers]
 [CV in the chopper optimisation was successful]
@@ -3478,24 +3487,25 @@ The regularity of inter-spike intervals in \TS cells create its typical chopper 
 
 The \SPL of the three \CF tones used in each optimisation was set by the exemplar units' acoustic
 
-Average intracellular voltage contains more
-information regarding synaptic inputs and sub-threshold membrane dynamics than
-mere spikes alone.  The \AIV statistics of \citep{PaoliniClareyEtAl:2005} were
-modified to 5 ms sampling to allow for less repetitions in the optimisation
-routines.  For both the offset ratio and adaptation MP difference measures, the
-optimal neurons' responses were within the bounds for noise.  The results of the
-post-stimulus MP offset difference show the limitations of comparing real and
-simulated intracellular recordings.  In the single-compartment neural model, the
-depression and recovery at the end of a stimulus is due to the recovery
-properties of the \ANF model and inhibition from \IPSPs with longer time
-constants than the \EPSPs of \ANFs. The experimental recordings in the exemplar
-\TS cell have a high \RMP and minimal post-tone offset.  \TS cells of mammals
-are known to have very few somatic contacts
-\citep{Cant:1992,Cant:1981,JosephsonMorest:1998,SmithRhode:1989}.  Inhibitory
-inputs on the dendrites act by shunting excitatory current and may not be
-visible at recording sites in the soma. Increasing the morphology complexity of
-the neural model (i.e. using a passive dendrite segment) would help to improve
-the \TS model and improve the optimisation match for the chopper subtypes.
+Average intracellular voltage contains more information regarding synaptic
+inputs and sub-threshold membrane dynamics than mere spikes alone.  The \AIV
+statistics of \citep{PaoliniClareyEtAl:2005} were modified to 5 ms sampling to
+allow for less repetitions in the optimisation routines.  For both the offset
+ratio and adaptation MP difference measures, the optimal neurons' responses were
+within the bounds for noise.  The results of the post-stimulus MP offset
+difference show the limitations of comparing real and simulated intracellular
+recordings.  In the single-compartment neural model, the depression and recovery
+at the end of a stimulus is due to the recovery properties of the \ANF model and
+inhibition from \IPSPs with longer time constants than the \EPSPs of \ANFs. The
+experimental recordings in the exemplar \TS cell have a high \RMP and minimal
+post-tone offset.  \TS cells of mammals are known to have very few somatic
+contacts \citep{Cant:1992,Cant:1981,JosephsonMorest:1998,SmithRhode:1989}.
+Inhibitory inputs on the dendrites act by shunting excitatory current and may
+not be visible at recording sites in the soma. This may be the cause of weaker
+optimisation results for adaptation and post-stimulus offset membrane difference
+measures. Increasing the morphology complexity of the neural model (i.e. using a
+passive dendrite segment) would help to improve the \TS model and improve the
+optimisation match for the chopper subtypes.
 
 
 Table \ref{tab:TSCellResults} reports the best-fit parameter values for the
@@ -3650,6 +3660,7 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 
 \yellownote{TODO: Discuss the relevance of creating the CN stellate
   model, especially the methods.}
+
 
 
 
@@ -3824,7 +3835,7 @@ in a singular species, or generalised across different species.
 
 # Bring it back to BNNs
 # -------
-\yellownote{implication paragraph}
+
 
 The development and optimisation of the CNSM model in this chapter has wider
 implications for \BNN models and their optimisation procedures.
@@ -3908,7 +3919,6 @@ parameterising the sources of noise is therefore essential in the development of
 # hyperpolarized voltage levels, are features consistent with mechanisms
 # designed to detect low-intensity stimuli.
 
-\yellownote{TODO: More editing in chapter conclusion.  Is one paragraph enough?}
 
 The purpose of the optimisation experiments was to develop a
 biophysically-realistic model of the stellate microcircuit in the cochlear
