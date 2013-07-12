@@ -3135,7 +3135,7 @@ for all \SPL above threshold.
 #+name: opt_param
 #+BEGIN_SRC sh :results replace raw
  par=`echo "$param" | sed -e 's/\([^\\]\)\[/\1\\\\[/g' -e 's/\([^\\]\)\]/\1\\\\]/g'`
- grep ${par} ../SimpleResponsesChapter/gfx/TStellate2_${type}/TStellate.Fit.dat | awk -F' ' '{print $3}'
+ grep ${par} ../SimpleResponsesChapter/gfx/TStellate2_${type}/TStellate.Fit.dat | awk -F' ' '{$3=sprintf("%.4g",$3);print $3}'
 #+END_SRC
 
 
@@ -3144,7 +3144,7 @@ for all \SPL above threshold.
 #+name: opt_paramf
 #+BEGIN_SRC sh :results replace raw :var factor=1.0
  par=`echo "$param" | sed -e 's/\([^\\]\)\[/\1\\\\[/g' -e 's/\([^\\]\)\]/\1\\\\]/g'`
- grep ${par} ../SimpleResponsesChapter/gfx/TStellate2_${type}/TStellate.Fit.dat | awk -F' ' '{printf("%.3g",$3*'${factor}')}'
+ grep ${par} ../SimpleResponsesChapter/gfx/TStellate2_${type}/TStellate.Fit.dat | awk -F' ' '{$3=sprintf("%.3g",$3*'${factor}');printf("%.4g",$3)}'
 #+END_SRC
 
 
@@ -3420,17 +3420,17 @@ $\theta$). The optimised \ChTtwo unit had a stable post-offset inhibition around
 at the three stimulus levels.
 
 Excitatory synaptic weights (\wLSRTS
-call_opt_paramf(param="w.x[lsr][ts]",type="CT2",factor="1000")[:results replace raw]
-nS, \wHSRTS
-call_opt_paramf(param="w.x[hsr][ts]",type="CT2",factor="1000")[:results replace raw]
-nS) were balanced with moderate to low glycinergic synaptic input
-(\wDSTS
-call_opt_paramf(param="w.x[ds][ts]",type="CT2",factor="1000")[:results replace raw] nS,
-\wTVTS
-call_opt_paramf(param="w.x[tv][ts]",type="CT2",factor="1000")[:results replace raw] nS).  The GABAergic input weight was very low (\wGLGTS
-call_opt_paramf(param="w.x[glg][ts]",type="CT2",factor="1000")[:results replace raw] nS), but the loud input stimulus (70 dB \SPL = 30 dB re $\theta$) would
-cause reasonable inhibition to the \TS cell throughout the stimulus.  The final
-error of the optimised \ChTtwo unit was call_opt_error(type="CT2")[:results replace raw], with the greatest weighting from the CV data.
+call_opt_paramf(param="w.x[lsr][ts]",type="CT2",factor="1000")[:results replace raw] nS, \wHSRTS
+call_opt_paramf(param="w.x[hsr][ts]",type="CT2",factor="1000")[:results replace raw] nS)
+were balanced with moderate to low glycinergic synaptic input (\wDSTS
+call_opt_paramf(param="w.x[ds][ts]",type="CT2",factor="1000")[:results replace raw] nS, \wTVTS
+call_opt_paramf(param="w.x[tv][ts]",type="CT2",factor="1000")[:results replace raw] nS).
+The GABAergic input weight was very low (\wGLGTS
+call_opt_paramf(param="w.x[glg][ts]",type="CT2",factor="1000")[:results replace raw] nS),
+but the loud input stimulus (70 dB \SPL = 30 dB re $\theta$) would cause
+reasonable inhibition to the \TS cell throughout the stimulus.  The final error
+of the optimised \ChTtwo unit was call_opt_error(type="CT2")[:results replace raw],
+with the greatest weighting from the CV data.
 
 
 #+BEGIN_LaTeX
@@ -3474,8 +3474,8 @@ The CV statistics used in the chopper optimisations was the dominant modality in
 fitting the cell model and network parameters.
 The regularity of inter-spike intervals in \TS cells create its typical chopper
 \PSTH and is best highlighted by the time varying CV.
-The \ChS model matched the sustained regular firing of the exemplar unit, performing best at 30 dB re $\theta$.
-
+The \ChS model matched the sustained regular firing of the exemplar unit, performing best at 30 dB re $\theta$ with RMS of 0.034.
+The \ChTone model achieved the exact same RMS difference
 The \SPL of the three \CF tones used in each optimisation was set by the exemplar units' acoustic
 
 
