@@ -4,11 +4,12 @@
    dashlength 1.0 linewidth 2.0 butt noclip \
    palfuncparam 2000,0.003 \
    "Helvetica" 18 
-
 #color solid 
 # set output "PaoliniIV.eps"
-## FONTSIZE 18
-## SIZE 7,2.5
+## FONTSIZE=18
+## SIZE=7,3.5
+load '../SimpleResponsesChapter/gfx/default.gpi'
+set encoding utf8
 
 unset key
 set multiplot layout 1,2
