@@ -64,12 +64,19 @@ set label 3 "{/Helvetica=36 A}" at graph 0.05, graph 1.15
 set multiplot layout 1,2
 
 
-plot [*:*][0:600] '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-Control-BFTone.png.dat' u 1:2 t "Control" w l ls 1, \
-   '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withStrych-BFTone.png.dat' u 1:2 t "with Str" w l ls 2, \
-   '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withBic-BFTone.png.dat' u 1:2 t "with Bic" w l ls 3, \
-   '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-Control-Noise.png.dat' u 1:2 not "Control-Noise" w l ls 1, \
-   '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withStrych-Noise.png.dat' u 1:2 not "withStrych-Noise" w l ls 2, \
-   '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withBic-Noise.png.dat' u 1:2 not "withBic-Noise" w l ls 3
+# plot [*:*][0:600] '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-Control-BFTone.png.dat' u 1:2 t "Control" w l ls 1, \
+#    '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withStrych-BFTone.png.dat' u 1:2 t "with Str" w l ls 2, \
+#    '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withBic-BFTone.png.dat' u 1:2 t "with Bic" w l ls 3, \
+#    '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-Control-Noise.png.dat' u 1:2 not "Control-Noise" w l ls 1, \
+#    '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withStrych-Noise.png.dat' u 1:2 not "withStrych-Noise" w l ls 2, \
+#    '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withBic-Noise.png.dat' u 1:2 not "withBic-Noise" w l ls 3
+
+   plot [*:*][0:600] '../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8A-RL-withStry-Control-Tone-Noise.png.dat' i 1 u ($1+100):2 t "Control" w l ls 1, \
+   '' i 0 u ($1+100):2 t "with Str" w l ls 2, \
+   '' i 4 u ($1+100):2 t "with Bic" w l ls 3, \
+   '' i 3 u ($1+100):2 not "Control-Noise" w l ls 1, \
+   '' i 2 u ($1+100):2 not "withStrych-Noise" w l ls 2, \
+   '' i 5 u ($1+100):2 not "withBic-Noise" w l ls 3
 
 set label 1 at -85,250 "BF Tone"
 set label 2 "Noise" at -40,50 
