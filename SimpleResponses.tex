@@ -1,0 +1,104 @@
+\documentclass[10pt,a4paper,twoside,openright]{book}
+\usepackage{nag}  
+\usepackage{style/uomthesis}
+\input{user-defined}
+\usepackage[acronym]{glossaries}
+\input{./misc/glossary} 
+\makeglossaries
+\usepackage{appendix}
+\graphicspath{{./gfx/}{../figures/}{/media/data/Work/cnstellate/golgi/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/TV_RateLevel/}}
+\usepackage[displaymath,floats,graphics,textmath,sections,footnotes,showlabels,psfixbb]{preview}
+\ifPreview
+\PreviewEnvironment[{*[][]{}}]{tabularx}
+\PreviewMacro[{*[][]{}}]{\yellownote}
+\fi 
+\lfoot{\footnotesize\today\ at \thistime}
+\pretolerance=150
+\tolerance=100
+\setlength{\emergencystretch}{3em}
+\overfullrule=1mm
+% \usepackage[notcite]{showkeys}
+
+\hypersetup{
+pdftitle = Simple Responses Chapter,
+pdfauthor = Michael Eager
+%pdfsubject= , 
+%pdfkeywords = keyword1 keyword2 keyword3
+}
+
+
+\begin{document}
+		% TOC, LOF, LOT
+		{%
+			\singlespacing%
+			\tableofcontents%
+			\listoffigures%
+			% Do not include a list of tables if you have less
+			% than 10 tables, as per SGS suggestion.
+			\listoftables%
+                        \printglossaries%
+		   \clearpage%
+		}%
+\setcounter{chapter}{2}
+\chapter[Simple Responses]{The Cochlear Nucleus Stellate Network Model: Parameter fitting of synaptic variables using simple acoustic responses \label{sec:SimpleResponsesChapter}}
+
+\medskip{}
+\centerline{\today\\ Draft Version:  \input{.hg/tags.cache}}
+
+
+% \begin{synopsis}
+%   Modelling large biophysically-based neural network models is
+% 	 comlicated by the large parameter space, various sources of
+% 	 experimental data and the existence of stochasticity in
+% 	 neural networks.
+%\end{synopsis}
+
+ \include{Intro}
+ \newpage
+ \include{GolgiIntro}
+ \include{GolgiRateLevelTable}
+ \include{GolgiRateLevel}
+ \newpage
+ \include{DStellate}
+ \include{DSRecoveryTable}
+ \include{DSRecovery}
+ \newpage
+ \include{TubercIntro}
+ \include{TV_RateLevelTable}
+ \include{TV_RateLevel}
+  \newpage
+  \include{TV_Notch}
+  \include{TV_NotchTable}
+  \include{TV_NotchResults}
+ \newpage
+\include{TStellateIntro}
+ \include{TStellateTable}
+ \include{TStellate}
+
+\newpage
+\include{Discussion}
+\include{Conclusion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%\begin{appendicies}
+%\appendix
+\include{ChapterAppendix}
+%\end{appendicies}
+
+\newpage
+\listoftodos
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+ \bibliographystyle{abbrvnat}%plainnat}%bmc_article} % Style BST file
+ \bibliography{../hg/manuscript/bib/MyBib}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% mode: tex-fold
+%%% TeX-PDF-mode: nil
+%%% TeX-master t
+%%% End: 

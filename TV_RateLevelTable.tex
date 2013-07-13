@@ -1,0 +1,144 @@
+{%
+\small%\linespread{0.5}
+\begin{table}[p!]
+    \caption{Tuberculoventral cell model summary}
+    \label{tab:TVModelSummary}
+
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|} %
+\hdr{2}{A}{Model Summary}\\
+         \textbf{Populations}          & HSR and LSR ANFs, Golgi, DS, and TV cells \\\hline
+          \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
+        \textbf{Connectivity}          & ANF$\to$\{GLG, DS, TV\}, GLG$\to$DS, DS$\to$TV  \\\hline
+         \textbf{Input model}          & ANF~model: Instantaneous-rate Poisson neural model \citep{ZilanyBruceEtAl:2009} \\ \hline
+\multirow{3}{*}{\textbf{Neuron model}} & \GLG cell: \GLG neural model (see Section \ref{sec:Ch3:GolgiModel}).\\
+                                       & \DS cell: Type I-II \RM model (see Section \ref{sec:Ch3:DSCellModel}).\\ 
+                                       & TV: HH-like single-compartment model (classic Type I \RM model) \\\hline
+       \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
+\multirow{2}{*}{\textbf{Synapse model}} & Excitatory: \AMPA glutamatergic receptor (single-exponential)\\
+&  Inhibitory: \GABAa GABAergic receptor (double-exponential), \GlyR glycinergic receptor (double-exponential) \\\hline
+%            \textbf{Input}             & CF tone and broad-band noise stimuli over different sound levels \\\hline
+%\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
+%\textbf{Measurements}    &  Spikes of TV units recorded and PSTH generated. Mean rate of TV units calculated. Fitting data was compared with experimental data from a Type II~\DCN~unit~\citep[Fig.~8]{SpirouDavisEtAl:1999}.\\\hline
+\end{tabularx}
+%\vspace{1ex}
+
+% - B -----------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hdr{3}{B}{Populations}\\
+\textbf{Name} &    \textbf{Elements}    & \textbf{Size} \\\hline
+     HSR      &    Poisson generator    & $N_{\text{HSR}} = 50$ per freq.\ channel \\\hline
+     LSR      &    Poisson generator    & $N_{\text{LSR}}= 30$  per freq.\ channel \\\hline
+     GLG      &    Poisson generator    & $N_{\text{GLG}}= 1$  per freq.\ channel  \\\hline
+     DS       &   Type I-II \RM model    & $N_{\text{DS}}= 1$ per freq.\ channel \\\hline
+     TV       & Type I-classic \RM model & $N_{\text{TV}}= 2$ at centre channel \\\hline
+\end{tabularx}
+%\vspace{1ex}
+
+% - C ------------------------------------------------------------------------------
+\noindent%
+\begin{tabularx}{\textwidth}{|l|l|l|X|}
+\hdr{4}{C}{Connectivity}\\
+\textbf{Name}  & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
+%   ANF$\to$DS &       ANF       &   D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
+    \ANFTV     &    LSR, HSR     &       TV        & 
+Narrowband connection on CF, zero spread, weight \wLSRTV and \wHSRTV, number \nLSRTV and \nHSRTV, delay \dANFTV \\\hline
+%   GLG$\to$DS &      Golgi      &   D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
+    \DSTV      &       DS        &       TV        & 
+Gaussian convergence, centered on CF, spread \protect{$\sigma^2=\sGLGDS$}, weight \wGLGDS, number \nGLGDS, delay $\dGLGDS=0.5$ ms \\\hline
+\multicolumn{4}{|>{\raggedleft}c|}{\ANFGLG, \ANFDS, and \GLGDS from Table~\ref{tab:DScellModelSummary}.}\\\hline
+\end{tabularx}
+% , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
+%\vspace{1ex}
+
+% - D ------------------------------------------------------------------------------
+\end{table}
+\begin{table}[p!]
+{Table~\ref{tab:TVModelSummary}: Tuberculoventral cell model summary - continued} \\
+\noindent%
+\begin{tabularx}{\textwidth}{|l|X|}
+\hdr{2}{D}{Neuron and Synapse Model}\\
+        \textbf{Name}          & TV cell model \\\hline
+        \textbf{Type}          & Type I-classic \RM model \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+\textbf{Subthreshold dynamics} & Na, KHT, Ih, and leak currents \\\hline
+       \textbf{Spiking}        & Emit spike when $v(t) \geq \theta$  \\\hline
+\end{tabularx}
+%    \label{tab:TVModelSummary}
+
+%\vspace{1ex}
+% \noindent\begin{tabularx}{\textwidth}{|p{0.150.95\textwidth}|X|}\hline
+% \hdr{2}{D}{Neuron and Synapse Model}\\\hline
+% \textbf{Name} &  \\\hline
+% \textbf{Type} & \\\hline
+% \raisebox{-4.5ex}{\parbox{0.95\textwidth}{\textbf{Subthreshold dynamics}}} &
+% \rule{1em}{0em}\vspace*{-3.5ex}
+%     \begin{equation*}
+%       \begin{array}{r@{\;=\;}lll}
+%       \tau \dot{V}(t) & -V(t) + R I(t) &\text{if} & t > t^*+\tau_{\text{rp}} \\
+%       V(t) & V_{\text{r}} & \text{else} \\[2ex]
+%       I(t) & \multicolumn{3}{l}{\frac{\tau}{R} \sum_{\tilde{t}} w
+%         \delta(t-(\tilde{t}+\Delta))}
+%       \end{array}
+%     \end{equation*}
+% \vspace*{-2.5ex}\rule{1em}{0em}
+%  \\\hline
+% \multirow{3}{*}{\textbf{Spiking}} &
+%    If $V(t-)<\theta \wedge V(t+)\geq \theta$
+% \vspace*{-1ex}
+% \begin{enumerate}\setlength{\itemsep}{-0.5ex}
+% \item set $t^* = t$
+% \item emit spike with time-stamp $t^*$
+% \end{enumerate}
+% \vspace*{-4ex}\rule{1em}{0em}
+% \\\hline
+% \end{tabularx}
+%\vspace{2ex}
+\noindent%
+%Table~\ref{tab:TVModelSummary}: Tuberculoventral cell model summary - continued
+\begin{tabularx}{\textwidth}{|l|X|} %
+\hdr{2}{E}{Optimisation}\\
+\multirow{2}{*}{\textbf{Input Stimulus}} & Tone Rate Level: 4.9~kHz tone at SPL 20 to 47 dB SPL in 3 dB steps (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
+& Noise Rate Level: BBN at 50 to 95 dB SPL in 5 dB steps (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
+%\textbf{Input Stimulus} & Notch-noise stimulus based on \citet{ReissYoung:2005}. Stop-band filtered white noise (60 dB SPL, 50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay), 30 dB half-octave stop-band width, centered on the middle of the network (5.8 kHz)\\\hline
+%\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth} \includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps} \end{minipage}}\\\hline
+    \textbf{Parameters}      &
+  \wLSRTV, 
+  \wHSRTV, 
+  \wDSTV, \nDSTV, 
+\TV E$_{{rev}}$ \\\hline
+\textbf{Fitness Function} & 
+%Mean squared error of rate-level responses between \TV model (channel 50, CF=5.8 kHz), with and without \DS inhibition, and target \TV cell in \citet{SpirouDavisEtAl:1999}, with and without strychnine.  Spiking output of 2 TV units at the centre channel (CF=4.9 kHz) recorded over 25 repetitions, one unit had no DS cell inhibitory inputs. \\
+% %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth} \includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}\end{minipage}}\\\hline
+%\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
+% %\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
+     Mean squared error of noise rate-level responses between \TV model (channel 50, CF=5.8 kHz) and target \TV cell in \citet{SpirouDavisEtAl:1999}.
+ PSTH of TV units calculated for mean firing rate at different sound levels for tones and BBN stimuli. Fitting data was compared against experimental data of a Type II \DCN unit \citep[See~Figure~\ref{fig:SpirouFig8}]{SpirouDavisEtAl:1999} \\\hline 
+
+\end{tabularx}
+%\vspace{1ex}
+
+%  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
+%   \textbf{Function}     & Weighted mean squared error see listing below  \\ \hline
+
+
+% % D~----------------------------------
+% \begin{tabularx}{\linewidth}{|X|c|c|c|}
+% \hdr{4}{F}{Optimisation} \\ \hline
+%               \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
+%         Weight of DS syn on TV  ($\mu$S)         &    \wDSTV     &  [1e-5,0.005]  & 0.0029 \\
+%        Weight of ANF syn on TV  ($\mu$S)         &    \wANFTV    &  [1e-5,0.005]  & 0.00017 \\
+%          Number of synapses, LSR to TV           &    \nLSRTV    &     [0,64]     & 8           \\
+%          Number of synapses, HSR to TV           &    \nHSRTV    &     [0,64]     & 14          \\
+% Spread of DS connections onto TV (channel units) &    \sDSTV     &     [0,10]     & 2.1         \\
+% Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,10]     & 0.24        \\ \hline
+% \end{tabularx}
+\end{table}
+}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Chapter03"
+%%% TeX-PDF-mode: nil
+%%% End: 

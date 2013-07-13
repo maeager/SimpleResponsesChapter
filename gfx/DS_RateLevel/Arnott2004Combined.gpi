@@ -1,0 +1,42 @@
+set terminal postscript eps enhanced size 7,2.5 defaultplex \
+   leveldefault color solid\
+   dashlength 1.0 linewidth 2.0 butt noclip \
+   palfuncparam 2000,0.003 \
+   "Helvetica" 18 
+# color solid 
+# set output "./gfx/Arnott2004Combined.eps"
+## FONTSIZE 18
+## SIZE 7,2.5
+
+load '../SimpleResponsesChapter/gfx/default.gpi'
+set xtics nomirror out # ("0-10" 0,"10-20" 1,"20-30" 2,"30-40" 3,"40-50" 4)
+set xrange [*:*]
+set yrange [*:*]
+#set border 3
+set xlabel "Sound Level (dB SPL)" font "Helvetica,20"
+set ytics nomirror out #0.1,0.1,0.5
+set ylabel "Spike Count" font "Helvetica,20"
+set style line 1 lc rgb "#0060ad" lt 1 lw 2 pt 7 ps 3 # 1.5 # --beautiful blue line and filled circle
+set style line 2 lc rgb '#dd181f' lt 1 lw 2 pt 5 ps 3 # 1.5 # --beautiful red line and square
+set style line 3 lc rgb '#00ad06' lt 1 lw 2 pt 9 ps 3 # 1.5 # --green line and triangle
+
+set multiplot layout 1,2
+
+
+set label 1 "{/Helvetica=36 A}" at graph 0.025, graph 1.15
+set key on inside left top Left spacing 5 title "Unit 284" font "Helvetica,22" nobox 
+
+plot '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig3_CF6.3kHz.Tone.dat'  u ($1+100):2 t "Tone" w l ls 1, \
+     '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig3_CF6.3kHz.Noise.dat'  u ($1+100):2 t "Noise"  w l ls 2
+
+set label 1 "{/Helvetica=36 B}" at graph 0.025, graph 1.15
+set key on inside left top Left spacing 5 title "Unit 212" enhanced font "Helvetica,22" nobox
+plot [0:100] '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig12_CF10.9kHz.Tone.png.dat'  u 1:2 not w l ls 1, \
+     '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig12_CF10.9kHz.Noise.png.dat'  u ($1+100):2 not  w l ls 2
+
+
+     
+unset multiplot
+
+!fixbb ../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004Combined.eps
+# !epstopdf ./gfx/DS_RateLevel/Arnott2004Combined.eps
