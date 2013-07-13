@@ -3210,23 +3210,24 @@ saturation at 75 dB \SPL.  The stimuli for the optimisation routine were three
 pure \CF tones at 20, 30 and 40 dB re $\theta$ (above the acoustic threshold) of the
 exemplar unit (30, 40 and 50 dB \SPL, respectively).  A 20 ms delay was included
 to allow the model to reach a sustained \RMP. The \TS cell model used in the
-\ChS optimisation had \CF of 3.872 kHz, hereafter called the \ChS model.  The
+\ChS optimisation, hereafter called the \ChS model, had \CF of 3.872 kHz.  The
 output spiking and intracellular responses of the best parameters found by the
 optimisation are shown in Figure \ref{fig:CSresults}.  The optimised \ChS model
-has very high excitatory input (\wLSRTS =
+had very high excitatory input (\wLSRTS =
 call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000")[:results replace raw] nS, \wHSRTS =
 call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000")[:results replace raw] nS) and very low
 inhibitory strength from all three interneurons ( \wDSTS =
 call_opt_paramf(param="w.x[ds][ts]",type="CS",factor="1000")[:results replace raw] nS, \wTVTS =
 call_opt_paramf(param="w.x[tv][ts]",type="CS",factor="1000")[:results replace raw] nS, \wGLGTS =
-call_opt_paramf(param="w.x[glg][ts]",type="CS",factor="1000")[:results replace raw] nS). The low input
-stimulus level meant that the majority of synaptic input came from \HSR fibres.
+call_opt_paramf(param="w.x[glg][ts]",type="CS",factor="1000")[:results replace raw] nS).
+As a consequence of the low input
+stimulus level, the majority of synaptic input came from \HSR fibres.
 There was a one-third increase in the leak conductance (\gleak =
 call_param_ts_gleak(type="CS")[:results replace raw] \Scmsq ) from the initial value (4.907e-04 \Scmsq),
 causing a decrease in the input resistance from 163 M$\Omega$ to 120 M$\Omega$.
 
 
-The mean rate for the optimised \ChS unit at 20, 30 and 40 dB re $\theta$ was
+The mean rates for the optimised \ChS unit at 20, 30 and 40 dB re $\theta$ were
 call_CS_rate(SPLreTh=30)[:results replace raw], call_CS_rate(SPLreTh=40)[:results replace raw]
  and call_CS_rate(SPLreTh=50)[:results replace raw]
 spikes per second, respectively.  These results show the \ChS model had a high
@@ -3235,17 +3236,17 @@ active and the stimuli range was in the upper DR region of the rate level
 response.
 
 
-The final error, used within the optimisation routine, was
-call_TSopt_error(type="CS")[:results replace raw]. Due to different magnitudes of
-the CV and AIV measures this error has no physical units or
+The final error used in the \ChS model optimisation routine was
+call_TSopt_error(type="CS")[:results replace raw]. Due to the different magnitudes of
+the CV and AIV measures, this error has no physical units or
 references. Weighting was used to equalise the magnitudes of the CV and AIV
 error metrics.  The RMS difference between the CV data of the optimised \ChS
 model and the exemplar \ChS unit (Figure \ref{fig:CSresults}B) was 0.051. The
 closest stimulus was the 30 dB \SPL, which had a RMS difference of 0.034. In
 relative terms the mean CV at 30 dB re $\theta$ was 0.202 and 0.172 for the modelled
 and exemplar \ChS units, respectively.  Figure \ref{fig:CSresults}D shows the
-AIV measures used in the optimisation.  The onset ratio and the adaptation MP
-difference were only measured for the 30 dB re $\theta$ due to availability of
+AIV measures used in the optimisation.  The onset ratio and the adaptation \MP
+difference were only measured for the 30 dB re $\theta$ due to the limited availability of
 experimental data. The \ChS model's onset ratio, 1.0125, was
 smaller than the exemplar unit's, 1.0417.  The adaptation MR difference was 1.67
 mV for the model and 0.94 mV for the exemplar unit.
@@ -3273,14 +3274,14 @@ mV for the model and 0.94 mV for the exemplar unit.
     for ChS unit 01-864-004 from \citet{PaoliniClareyEtAl:2005}, with CF 3.9 kHz,
     is shown in blue and the optimised model is shown in black (CF 3.872 kHz).
     The stimulus (pure tone 3.9 kHz stimulus, 40dB SPL) was repeated 50 times for
-    this figure but during the optimisation routine the repetition was 25.
+    this analysis but during the optimisation routine the repetition was 25.
     A. PSTH of the \TS cell model (CF 3.872 kHz) to a pure tone at CF at 30 dB re
     $\theta$. B. Coefficient of variation averaged over 10 ms periods.
     C. Reference (blue) and ChS cell model AIVs at 30 dB re $\theta$. Note: shaded areas indicate areas used in the
-    measures in D.  D. AIV measures including a) onset ratio
-    (30 dB re Thr, Equation~\ref{eq:IVstats-Onset}), b) adaptation of sustained depolarisation
-    (20,30,40 dB re Thr, Equation~\ref{eq:IVstats-Adap}), and c) post-tone hyperpolarisation
-    (20,30,40 dB re Thr, Equation~\ref{eq:IVstats-Offset}).  The RMP, calculated from -10 to 0 ms, for
+    measures in D.  D. AIV measures including (a) onset ratio
+    (30 dB re $\theta$, Equation~\ref{eq:IVstats-Onset}), (b) adaptation of sustained depolarisation
+    (20,30,40 dB re $\theta$, Equation~\ref{eq:IVstats-Adap}), and (c) post-tone hyperpolarisation
+    (20,30,40 dB re $\theta$, Equation~\ref{eq:IVstats-Offset}).  The RMP, calculated from -10 to 0 ms, for
     the reference unit and best parameter model was -45.1 and -64.22 mV,
     respectively.}
     \label{fig:CSresults}
@@ -3315,7 +3316,7 @@ with best parameters as shown in Table \ref{tab:TSCellResults}.  The \ChTone
 unit chosen as the exemplar for the optimisation was unit 01-857-007
 \citep[\CF 8.2~kHz][]{PaoliniClareyEtAl:2005}.  The depolarisation threshold for
 the exemplar unit was 55 dB \SPL, close to the average 47.2 dB \SPL for all
-\ChTone units their study \citep{PaoliniClareyEtAl:2005}.
+\ChTone units the relevant experimental study \citep{PaoliniClareyEtAl:2005}.
 
 # The acoustic threso for the optimisation routine was a 40 dB \SPL and
 # had the reversal potential of $-63.9 mV$.
@@ -3353,28 +3354,28 @@ the \TS cell throughout the stimulus.
 #     [[../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf]]
 Figure \ref{fig:CT1results} shows the spike and \AIV statistical measures of the
 optimised \ChTone model.  The PSTH of the model at 30 dB re $\theta$ (70 dB \SPL) is
-shown in Figure \ref{fig:CT1results}A.  The mean rate for the optimised \ChT1
-model at 20, 30 and 40 dB re $\theta$ was
+shown in Figure \ref{fig:CT1results}A.  The mean rates for the optimised \ChT1
+model at 20, 30 and 40 dB re $\theta$ were
 call_CT1_rate(SPLreTh=30)[:results replace raw],
 call_CT1_rate(SPLreTh=40)[:results replace raw] and
 call_CT1_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
-This means the optimisation stimulus levels range are in the saturation region
-of the cell's rate level curve and not in the expected DR region.
+Consequently, the optimisation stimulus levels were in the saturation region
+of the cell's rate level curve and not in the expected \DR region.
 
 The final error
 of the optimised \ChTone unit at 25 repetitions was
 call_TSopt_error(type="CT1")[:results replace raw], an arbitrary value that is a combination of
-weighted CV and AIV differences that needs some greater context.
-The characteristic CV response of the \ChTone is highly regular in the first 10
-ms (less than 0.2), then transiently adapts to regularity below 0.3 for the
-remainder of the stimulus.  The combined RMS error of the CV data was 0.064.
+weighted CV and AIV differences.
+The characteristic CV response of the \ChTone was highly regular in the first 10
+ms (less than 0.2), then transiently adapted to regularity below 0.3 for the
+remainder of the stimulus.  The combined \RMS errors of the CV data was 0.064.
 The CV at 30 dB re $\theta$ was closest fit to the reference data (RMS 0.034). The
 RMS error of the 20 and 40 dB re $\theta$ CV profiles were 0.038 and 0.098,
 respectively.  The \AIV traces in Figure \ref{fig:CT1results}C show the
 differences in the exemplar unit and the simulated \TS cell model. The
-repetitive firing in the first 20 ms of the \ChTone \AIV trace results in
-consistent membrane voltage fluctuation which is not present in the exemplar
-unit.  The onset ratio statistic of the exemplar and optimised \ChTone unit was
+repetitive firing in the first 20 ms of the \ChTone \AIV trace resulted in
+consistent membrane voltage fluctuation that was not present in the exemplar
+unit.  The onset ratio statistics of the exemplar and optimised \ChTone units were
 0.983 and 1.01, respectively, at 30 db re $\theta$.  The optimised \ChTone unit was
 consistently below the adaptation statistic of the exemplar unit at each of the
 stimulus levels.  The post-offset results of the exemplar \ChTone unit were not
@@ -3385,15 +3386,15 @@ hence this statistic was ignored in the optimisation procedure.
 \clearpage
 *** Transient Chopper 2
 
-The \ChTtwo unit optimisation used average population data for CV data and unit
+The \ChTtwo model optimisation used average population data for CV data and unit
 01-305-014 (\CF 12.4 kHz \citep*{PaoliniClareyEtAl:2005}) for IV measure
 data. The reference unit had a low depolarising threshold (5 dB \SPL) so the
-stimulus was set to 35 dB \SPL; a significant difference from the \ChT1
-optimisation unit that was optimised using an 85 dB \SPL tone. The main
-difference between the transient chopper types is reflected in their \CV values
+stimuli were set to 25, 35 and 45 dB \SPL (low levels relative to those used in the \ChT1
+model). The main
+difference between the transient chopper types is their \CV values
 after 10 ms, with the \ChT2 type becoming irregular (i.e. having a CV value over
-0.3) and maintaining that regularity for the remainder of the stimulus.  \ChT2
-has a higher reduction in onset depolarization (90.2\%) compared to ChT1, and
+0.3) and maintaining that irregularity for the remainder of the stimulus.  \ChT2
+has a higher reduction in onset depolarisation (90.2\%) compared to ChT1, and
 post-tone inhibition is greater (+8.82 mV at 30 dB re $\theta$)
 \citep*{PaoliniClareyEtAl:2005}.
 
@@ -3411,25 +3412,25 @@ post-tone inhibition is greater (+8.82 mV at 30 dB re $\theta$)
 # IVAdaptation	8.82784	7.8878
 # IVOffset	3.24212	2.18856
 
-Figure \ref{fig:CT2results} shows the results of the optimised \ChTtwo model
-unit optimisation.  The characteristic CV response of the \ChTtwo unit was
+Figure \ref{fig:CT2results} shows the results for the optimised \ChTtwo model.
+The characteristic CV response of the \ChTtwo unit was
 closely matched at 30 and 40 dB re $\theta$ (Figure \ref{fig:CT2results}B).
-The mean rate for the optimised \ChTtwo unit at the three \SPL tones was
+The mean rates for the optimised \ChTtwo unit at the three \SPL tones were
 call_CT2_rate(SPLreTh=30)[:results replace raw],
 call_CT2_rate(SPLreTh=40)[:results replace raw] and
 call_CT2_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
-Elevated activity from inputs GLG, TV and DS cell model at 20 dB re $\theta$ (55 dB \SPL) reduced the regularity of
-the spike intervals, hence increased CV throughout the stimulus.  The resting
-membrane potential for the experimental and model \ChTtwo units was $-60.63$ and
-$-64.96$ mV, respectively.  The experimental \ChTtwo unit had a higher reduction
-in onset depolarisation (90.2\%) compared to \ChTone units at 30 dB re $\theta$
-\citep{PaoliniClareyEtAl:2005}.  The adaptation statistic results of the
-optimised \ChTtwo model did not have the significant drop (around 6 mV in the
-reference data Figure \ref{fig:CT2results}D), despite reduction in firing rate
-and strong changes in CV.  The post-tone inhibitory offset of the experimental
-\ChTtwo unit is the greatest of all the chopper subtypes (8.82 mV at 40 dB re
-$\theta$). The optimised \ChTtwo unit had a stable post-offset inhibition around 4 mV
-at the three stimulus levels.
+Elevated activity from inputs GLG, TV and DS cell model at 20 dB re $\theta$ (55 dB
+\SPL) reduced the regularity of the spike intervals, and increased CV throughout
+the stimulus.  The resting membrane potential for the experimental and model
+\ChTtwo units was $-60.63$ and $-64.96$ mV, respectively.  The experimental
+\ChTtwo unit had a higher reduction in onset depolarisation (90.2\%) compared to
+\ChTone units at 30 dB re $\theta$ \citep{PaoliniClareyEtAl:2005}.  The adaptation
+statistic results of the optimised \ChTtwo model did not demonstrate a similar
+drop (around 6 mV) shown in the reference data Figure \ref{fig:CT2results}D, despite
+reduction in firing rate and strong changes in CV.  The post-tone inhibitory
+offset of the experimental \ChTtwo unit was the greatest of all the chopper
+subtypes (8.82 mV at 40 dB re $\theta$). The optimised \ChTtwo unit had a stable
+post-offset inhibition around 4 mV at the three stimulus levels.
 
 Excitatory synaptic weights (\wLSRTS
 call_opt_paramf(param="w.x[lsr][ts]",type="CT2",factor="1000")[:results replace raw] nS, \wHSRTS
@@ -3482,25 +3483,27 @@ constrain the many network parameters using different modalities: intricate
 intracellular voltage statistics and regularity of spike interval statistics.
 # translatating intricate intracellular and spiking statistics into a single objective value.
 
-The CV statistics used in the chopper optimisations was the dominant modality in
-fitting the cell model and network parameters.
-The regularity of inter-spike intervals in \TS cells create its typical chopper
-\PSTH and is best highlighted by the time varying CV.
-The \ChS model matched the sustained regular firing of the exemplar unit, performing best at 30 dB re $\theta$ with RMS of 0.034.
-The \ChTone model achieved the exact same RMS difference
-The \SPL of the three \CF tones used in each optimisation was set by the exemplar units' acoustic
+The CV statistics used in the chopper optimisations were the dominant modality in
+fitting the cell model and network parameters.  The regularity of inter-spike
+intervals in \TS cells creates its typical chopper \PSTH and is best highlighted
+by the time varying CV.  The \ChS model matched the sustained regular firing of
+the exemplar unit, performing best at 30 dB re $\theta$ with \RMS error of 0.034.  The
+\ChTone model achieved the exact same RMS difference at 30 dB re $\theta$, which was
+stimulated at a louder level (85 dB SPL) and with more active inputs from the other
+cells in the \CNSM model.  The CV data of the \ChTtwo model satisfied the
+expected responses at 20 and 30 dB re $\theta$, but failed to generate
+regular onset spikes at 40 dB re $\theta$.
+# The \SPL of the three \CF tones used in each optimisation was set by the exemplar units' acoustic
 
 
 # The limitation using the exemplar units response is the with the
 
-
-
-Average intracellular voltage contains more information regarding synaptic
+Intracellular voltage data contains more information regarding synaptic
 inputs and sub-threshold membrane dynamics than mere spikes alone.  The \AIV
 statistics of \citep{PaoliniClareyEtAl:2005} were modified to 5 ms sampling to
 allow for less repetitions in the optimisation routines.  For both the offset
 ratio and adaptation MP difference measures, the optimal neurons' responses were
-within the bounds for noise.  The results of the post-stimulus MP offset
+within the accepted bounds for noise.  The results of the post-stimulus MP offset
 difference show the limitations of comparing real and simulated intracellular
 recordings.  In the single-compartment neural model, the depression and recovery
 at the end of a stimulus is due to the recovery properties of the \ANF model and
@@ -3509,46 +3512,46 @@ experimental recordings in the exemplar \TS cell have a high \RMP and minimal
 post-tone offset.  \TS cells of mammals are known to have very few somatic
 contacts \citep{Cant:1992,Cant:1981,JosephsonMorest:1998,SmithRhode:1989}.
 Inhibitory inputs on the dendrites act by shunting excitatory current and may
-not be visible at recording sites in the soma. This may be the cause of weaker
+not be visible at recording sites in the soma. This may be the cause of the weaker
 optimisation results for adaptation and post-stimulus offset membrane difference
-measures. Increasing the morphology complexity of the neural model (i.e. using a
-passive dendrite segment) would help to improve the \TS model and improve the
+measures. Increasing the morphological complexity of the neural model (i.e. using a
+passive dendrite segment) could help to improve the \TS model and improve the
 optimisation match for the chopper subtypes.
 
 
-Table \ref{tab:TSCellResults} reports the best-fit parameter values for the
-three \TS cell subtypes. Further details on each subtype are provided below.
+# Table \ref{tab:TSCellResults} reports the best-fit parameter values for the
+# three \TS cell subtypes. Further details on each subtype are provided below.
 
-#+BEGIN_LaTeX
-   {
-   \vspace{2ex}%
-   \small\noindent%
-   \begin{table}[t!]
-   \centering
-   \caption{Best fit parameters of three TS cell subtypes using the intracellular and CV statistics optimisation}
-   \label{tab:TSCellResults}
-   \begin{tabularx}{\textwidth}{l c D{,}{.}{2.6} D{,}{.}{2.6} D{,}{.}{2.6}}
-  \toprule
-        \textbf{Parameters}       & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
-                                  &                & \multicolumn{1}{c}{\ChS} & \multicolumn{1}{c}{\ChTone} & \multicolumn{1}{c}{\ChTtwo} \\ \otoprule
-           \wHSRTS  (mS)          &   [0.01,30]    &          3,928           &            3,16             & 5,67 \\
-      %        \nHSRTS \hfill     &                &            8             &             20              & 8   \\
-          \wLSRTS    (mS)         &   [0.01,30]    &          6,011           &            4,91             & 6,56\\
-    %         \nLSRTS   \hfill    &                &            15            &             15              & 15  \\
-            \wDSTS (mS)           &   [0.01,30]    &          0,0361          &           0,1094            & 0,106\\
-     %         \nDSTS   \hfill    &                &            4             &                             & 4   \\
-           \wTVTS  (mS)           &   [0.01,30]    &          0,0247          &           0,0146            & 0,0206\\
-    %         \nTVTS    \hfill    &                &            7             &              7              & 7   \\
-           \wGLGTS  (mS)          &   [0.01,30]    &          0,0313          &           0,3073            & 1,1868\\
-    %        \nGLGTS    \hfill    &                &            5             &              5              & 5   \\ \bottomrule
-  %\midrule
-  %  \gleak \hfill (mS cm$^{-2}$) &    [1e-3,3]    &          0,657           &            0,494            & 0,724\\
-  %  \gKHT  \hfill (S cm$^{-2}$)  &  [1e-6,0.003]  &          0,0189          &           0,0189            & 0,023\\
-     %     \Eleak \hfill  (mV)    & [$-45$,$-70$]  &          -65,15          &           -54,26            & -63,50\\
-  \end{tabularx}
-   \end{table}\vspace{2ex}%
-   }
-#+END_LaTeX
+# # + BEGIN_LaTeX
+#    {
+#    \vspace{2ex}%
+#    \small\noindent%
+#    \begin{table}[t!]
+#    \centering
+#    \caption{Best fit parameters of three TS cell subtypes using the intracellular and CV statistics}
+#    \label{tab:TSCellResults}
+#    \begin{tabularx}{0.75\textwidth}{l c D{,}{.}{2.6} D{,}{.}{2.6} D{,}{.}{2.6}}
+#   \toprule
+#         \textbf{Parameters}       & \textbf{Range} & \multicolumn{3}{c}{\textbf{Best Values}}\\
+#                                   &                & \multicolumn{1}{c}{\ChS} & \multicolumn{1}{c}{\ChTone} & \multicolumn{1}{c}{\ChTtwo} \\ \otoprule
+#            \wHSRTS  (mS)          &   [0.01,30]    &          3,928           &            3,16             & 5,67 \\
+#       %        \nHSRTS \hfill     &                &            8             &             20              & 8   \\
+#           \wLSRTS    (mS)         &   [0.01,30]    &          6,011           &            4,91             & 6,56\\
+#     %         \nLSRTS   \hfill    &                &            15            &             15              & 15  \\
+#             \wDSTS (mS)           &   [0.01,30]    &          0,0361          &           0,1094            & 0,106\\
+#      %         \nDSTS   \hfill    &                &            4             &                             & 4   \\
+#            \wTVTS  (mS)           &   [0.01,30]    &          0,0247          &           0,0146            & 0,0206\\
+#     %         \nTVTS    \hfill    &                &            7             &              7              & 7   \\
+#            \wGLGTS  (mS)          &   [0.01,30]    &          0,0313          &           0,3073            & 1,1868\\
+#     %        \nGLGTS    \hfill    &                &            5             &              5              & 5   \\ \bottomrule
+#   %\midrule
+#   %  \gleak \hfill (mS cm$^{-2}$) &    [1e-3,3]    &          0,657           &            0,494            & 0,724\\
+#   %  \gKHT  \hfill (S cm$^{-2}$)  &  [1e-6,0.003]  &          0,0189          &           0,0189            & 0,023\\
+#      %     \Eleak \hfill  (mV)    & [$-45$,$-70$]  &          -65,15          &           -54,26            & -63,50\\
+#   \end{tabularx}
+#    \end{table}\vspace{2ex}%
+#    }
+# # + END_LaTeX
 
 # ** Verification of the TS Cell Model Subtypes
 
@@ -3589,11 +3592,26 @@ three \TS cell subtypes. Further details on each subtype are provided below.
 :END:
 
 
-The T stellate cells in the \CNSM model form one of the major ascending auditory
-pathways through the brainstem.  It enables a high fidelity sensory input to
-be passed to higher order centres, by reproducing the spectrum in a robust
-fashion \citep{BlackburnSachs:1990,May:2003} and synchronisation to
-significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
+The T stellate cells featured in the \CNSM model form one of the major ascending
+auditory pathways through the brainstem.  They enable a high fidelity sensory
+input to be passed to higher order centres, by reproducing the spectrum in a
+robust fashion \citep{BlackburnSachs:1990,May:2003} and synchronisation to
+significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.  The \CNSM
+model facilitates the investigation of the neural network processing properties
+and capabilities of the stellate microcircuit.  This section sets out the
+limitations of the CNSM model and its implications for optimisation methods in
+other BNN models.
+
+
+
+# ** CNSM Cell Models and Connectivity
+
+# \yellownote{General discussion about the CNSM model }
+
+# \yellownote{TODO: Discuss the relevance of creating the CN stellate
+#   model, especially the methods.}
+
+
 
 
 **** Tmp tables :noexport:
@@ -3664,15 +3682,6 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 # | \TV  | [s,d](w,n) | [s,d](w,n) | (-)               | [s,d](w,n,o) | (-)        | (-) |
 # | \TS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n)        | [s,d](w,n)   | [s,d](w,n) | (?) |
 
-** CNSM Cell Models and Connectivity
-
-\yellownote{General discussion about the CNSM model }
-
-\yellownote{TODO: Discuss the relevance of creating the CN stellate
-  model, especially the methods.}
-
-
-
 
 ** Limitations of the CNSM Model
 
@@ -3682,32 +3691,37 @@ significant periodic frequencies \citep{KeilsonRichardsEtAl:1997}.
 # exclusion of synaptic connections without solid empirical foundations.
 
 A number of limitations need to be considered when evaluating the \CNSM model
-and optimisation results.  Accurate replication of realistic responses to
-acoustic stimuli in the CNSM model is dependent on the capabilities of the input
-AN model. The background and driving inputs to the network set the environmental
-conditions for genuine realistic models to be compared with experimental animal
-data under the same conditions and inputs. This limitation was overcome by using
-a phenomenologically-realistic \AN model, the most detailed available at the
-time of the model's development.
+and optimisation results. Most fundamentally, accurate replication of realistic
+responses to acoustic stimuli in the CNSM model is dependent on the capabilities
+of the input AN model.
+# The background and driving inputs to the network set the
+# environmental conditions for genuine realistic models to be compared with
+# experimental animal data under the same conditions and inputs.
+The \CNSM model
+used the most detailed phenomenologically-realistic \AN model available at the
+time of the model's development. Future work in this field may benefit from even
+more detailed \AN models.
 
 
-In the CNSM model we elected to use 100 frequency channels, which established an
+In the \CNSM model we elected to use 100 frequency channels, which established an
 average separation of 0.4 octaves in the middle of the network. This approach is
-suitable for on-CF connections, but may limit the realistic responses from
+suitable for on-\CF connections, but may limit the realistic responses from
 connections in adjacent frequency channels. While an increase in the number of
 channels would have improved the accuracy of the model's output behaviour, it
 would have been computationally expensive.
-# All optimisation    procedures used experimental units that were positioned near the middle of the CNSM model.
+# All optimisation procedures used experimental units that were positioned near
+# the middle of the CNSM model.
 
 
 The connectivity properties (number, weight, spread and delay) were uniform
-across frequency channels in the CNSM model. This uniformity excludes natural
+across frequency channels in the
+CNSM model. This uniformity excluded natural
 variations in synaptic connections in order to minimise the number of network
-parameters, and reduces the variation of output responses within cell types.
-This approach is justifiable for synaptic connections to the GLG, DS and TV
-cells in the CNSM model because of their homogeneity. In light of the three
+parameters, and reduced the variation of output responses within cell types.
+This approach is justifiable for synaptic connections to the \GLG, \DS and \TV
+cells in the CNSM model because of their within-type homogeneity. In light of the three
 different physiological output responses of \TS cells, unique parameters were
-used to separate each type.
+used to separate each \TS cell type.
 
 
 The microcircuit described in Figure \ref{fig:microcircuit} is incomplete (see
@@ -3715,9 +3729,10 @@ Section \ref{sec:Ch1:FunctionCNSM} and background sections of each cell in this
 chapter).  Some feed-back connections within the \CNSM model (for example \TV
 cells to \DS cells, \TS cells to \TV cells, and \TS cells to \TS cell
 connections) create nonlinear pathways that would unduly complicate the
-sequential optimisation process.  This problem was addressed in the CNSM model
+sequential optimisation process.  This problem was addressed in the \CNSM model
 by excluding connections based on weak experimental support. The alternative,
-namely the addition of new cell types was beyond the scope of the model.
+namely the addition of new cell types, was beyond the scope of the model, and
+needs to be pursued in future research.
 
 
 The CNSM model is constrained by the level of detail in its constituent neural
@@ -3729,13 +3744,13 @@ dendritic filtering \citep{WangSachs:1995,WiegrebeMeddis:2004}, and to
 investigate selective filtering of \ANFs \citep{LaiWinslowEtAl:1994a}. The \RM
 conductance neural model was chosen because it contains three potassium current
 channels (\IKHT, \IKLT, and \IKA) and the mixed cation hyperpolarisation current
-(\Ih) that were fitted precisely from intracellular recordings in mice \VCN
+(\Ih) that were fitted precisely from intracellular recordings in mouse \VCN
 neurons \citep{RothmanManis:2003,RothmanManis:2003a,RothmanManis:2003b}. The use
 of more complex multi-compartment conductance models was beyond the scope of the
-thesis, and requires investigation in future research.
+thesis, and also requires investigation in future research.
 
 
-Finally, the generalisability of the CNSM model and the optimisation results is
+Finally, the direct generalisability of the \CNSM model and the optimisation results is
 limited to small mammal or rodent species. This is a product of the data drawn
 upon in the development of the model.  Data from a range of small mammals and
 rodents was chosen to overcome the challenge of data scarcity. Further analyses
@@ -3846,53 +3861,63 @@ in a singular species, or generalised across different species.
 # Bring it back to BNNs
 # -------
 
-
-The development and optimisation of the CNSM model in this chapter has wider
+The development and optimisation of the \CNSM model in this chapter has wider
 implications for \BNN models and their optimisation procedures.
 # Experimental data used for optimisation routines:
-Understanding the limitations of experimental data facilitates setting out
-constraints in fitness functions.
-Optimisation methods can provide valuable evidence in developing valid and
-reproducible BNN models.
+Through the development and optimisation of the \CNSM model, this chapter
+demonstrated that understanding the limitations of experimental data facilitates
+better fitness function design.  It also showed that optimisation methods can
+provide valuable evidence in developing valid and reproducible \BNN models; and that
 # Constraints of experimental data sets used in optimisation routines
-Design and planning of sequential optimisation stages, ensures each stage does not affect previous optimisation results.
+the design and execution of sequential optimisation stages can prevent parameters negatively influencing previous results.
 # Feed-forward
-One issue is whether to optimise cell types based on
-population responses or exemplar unit responses.
-Fitness functions should be targeted toward equalisation of all available information.
-This was done in this chapter simple stimuli (tones, noise and clicks) over the full range of sound levels as observed in experiments.
-Another issue is ensuring equal weighting of information gathered from different modalities (e.g. AIV and CV statistics in the \TS cell
-optimsiation) so that each metric contributes equally to the fitness function.
+Whether it best to optimise cell types based on population responses or
+exemplar unit responses is an open question in BNN modelling.
+In the development and optimisation of the CNSM model, exemplar unit responses where preferred and generated sound results.
+
+
+# Fitness functions should be targeted toward
+# equalisation of all available information.
+
+# In this chapter simple
+
+# equal weighting of
+# information gathered from different modalities (e.g. \AIV and \CV statistics in
+# the \TS cell optimsiation) so that each metric contributes equally to the
+# fitness function.
 
 
 # ----------
 The development and optimisation of the \CNSM model demonstrates the importance
-of close attention to the specifics properties of data used in \BNN models.
-Experimental devices and methods differ across laboratories, across different species and
+of close attention to the specific properties of data used in \BNN models.
+Experimental devices and methods differ across laboratories and species, and
 technologies change over time.  Cochlear frequency mapping and acoustic
 thresholds differ between species \citep{HeffnerKoayEtAl:2001,Greenwood:1990}.
 Additionally, choice of anaesthesia can change the response properties of
 neurons, especially in \CN units \citep{RhodeKettner:1987,AndersonYoung:2004}.
 Understanding these difference is important when deciding upon which data to use
-in BNN optimisation.
+in \BNN optimisation. The \CNSM model provides a valuable example of good practice
+in having due regard for the potential impact of these data inconsistencies on
+model performance.
 # \citep{ChenGodfrey:2000,GdowskiVoigt:1998,WangRyanEtAl:1987,GdowskiVoigt:1997}.
 # Early electrophysiological recordings of \CN neurons in mammals /in vivo/ required the ablation of the section of the cerebellum \citep{HumphreyBuchwald:1972,BuchwaldHumphrey:1972,RitzBrownell:1982}
 # and understanding the effects of the procedure \citep{Ramachandran:2000,DingBensonEtAl:1999,RamachandranDavisEtAl:2000,ParhamZhaoEtAl:1998,DavisDingEtAl:1996}.
 
 # ------
-Sources of noise in a \BNN model have critical implications for the network in
-its output and in the optimisation of the model's parameters.  Noise is present
-in \BNNs at the level of ion channels, in synaptic jitter, in local variation of
+Finally, the CNSM model illustrates an appropriate treatment of noise in BNNs.
+Sources of noise in a \BNN model have critical implications for the network
+output and the optimisation of the model's parameters.  Noise is present in
+\BNNs at the level of ion channels, in synaptic jitter, in local variation of
 synaptic strengths, and in variation of synaptic properties across nuclei.  The
-sources of noise in the CNSM model are the spike generators of the ANF and GLG
-cell models and in the allocation scheme of number of connections between cell
-types (generally a Gaussian distribution except for ANF inputs to DS cells).
-Also, output responses of neurons need to be averaged over multiple repetitions
+sources of noise in the \CNSM model were the spike generators of the \ANF and \GLG
+cell models and the connectivity allocation scheme between cell
+types.
+Also, output responses of neurons were averaged over multiple repetitions
 of the same stimuli to encompass stochasticity of the neuron's inputs.
-Optimisation of synaptic parameters also requires a gradient in the search
+As seen in the CNSM model, optimisation of synaptic parameters also requires a gradient in the search
 space, otherwise it risks overfitting parameters to noise.  Limiting or
 parameterising the sources of noise is therefore essential in the development of
-\BNN models and their optimisation.
+\BNN models and their optimisation routines.
 
 # ------
 
@@ -3932,15 +3957,15 @@ parameterising the sources of noise is therefore essential in the development of
 
 The purpose of the optimisation experiments was to develop a
 biophysically-realistic model of the stellate microcircuit in the cochlear
-nucleus.  The methods used in this section are a practical and realistic means
+nucleus.  The methods used in this chapter are a practical and realistic means
 for constructing microcircuits with sensory or feature-based topography. They
 exploit extensive experimental evidence that describes the behaviour of each
 interneuron in the network.  The tabular reporting format for neural network
 modelling, as suggested by \citet{NordlieGewaltigEtAl:2009}, was followed so
-that other researchers can easily reproduce this work.
+that other researchers can easily reproduce and improve upon this work.
 
 
-The next chapter investigates the optimised \CNSM model with more the complex,
+The next chapter investigates the optimised \CNSM model with the more complex,
 biologically-realistic stimuli involved in amplitude modulation.
 
 #+BEGIN_LaTeX
