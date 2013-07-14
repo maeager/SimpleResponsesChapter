@@ -11,7 +11,7 @@
 #+LANGUAGE: en_GB-ise-wo_accents
 #+LaTeX_CLASS: UoM-draft-org-article
 #  +  LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
-#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../../cnstellate/Responses_CS}}
+#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../../cnstellate/Responses_CT1}{../../cnstellate/Responses_CS}{../../cnstellate/Responses_CT2}}
 # {/media/data/Work/cnstellate/}{../../cnstellate/ResponsesNoComp/ModulationTransferFunction/}{../../cnstellate/golgi/}{../../cnstellate/TV_RateLevel/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
@@ -1141,23 +1141,23 @@ species-specific audiogram compression in the \AN model.
 #+BEGIN_LaTeX
   {%
   \begin{figure}[t!]
-   %   \centering
-   {    \figfont{A}\hspace{0.46\textwidth}\figfont{B}\hspace{0.46\textwidth}}\\
-   {\hfill%
-  \hspace{2cm}\includegraphics[width=0.4\textwidth,keepaspectratio]{../../cnstellate/ResponsesNoComp/RateLevel/G_ratelevel.pdf}\hspace{1cm}%
-   \includegraphics[width=0.4\textwidth,keepaspectratio]{../../cnstellate/ResponsesNoComp/NoiseRateLevel/G_ratelevel.pdf}\hfill}\\
-   {    \figfont{C}\hspace{0.46\textwidth}\figfont{D}\hspace{0.46\textwidth}}\\
-   \vspace{-0.6ex}%
-   \resizebox{0.95\textwidth}{!}{\hfill%
-   \includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/response_area-3.pdf}\hfill%
-   \includegraphics{../../cnstellate/ResponsesNoComp/NoiseRateLevel/response_area-3.pdf}\hfill}%
-   \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
-   whole network (CF 5.8 kHz) to pure tones and noise.
-   A. Rate level response of the central GLG unit to a pure CF tone (5.81 kHz, 50 ms, 20 repetitions). Sigmoidal function fit to data, $44.18 \mathrm{arctan}((x-52.92)/22.75)+51.4$.
-   B. Noise rate level response of the central GLG unit to broad-band noise (50 ms, 20 repetitions). The curve is monotonic, with a threshold at 60 dB.
-   C. Rate level responses of all GLG units to a pure tone (5.81 kHz, 50 ms, 20 repetitions).
-   D. Noise rate level response of all GLG units to BNN stimuli (50 ms, 20 repetitions). A sigmoidal best fit line is shown (the function values are not necessary due to no saturation in the data points). }
-  \label{fig:GolgiVerificationWhole}
+    % \centering
+    {    \figfont{A}\hspace{0.46\textwidth}\figfont{B}\hspace{0.46\textwidth}}\\
+    {\hfill%
+      \hspace{2cm}\includegraphics[width=0.4\textwidth,keepaspectratio]{RateLevel/G_ratelevel.pdf}\hspace{1cm}%
+      \includegraphics[width=0.4\textwidth,keepaspectratio]{NoiseRateLevel/G_ratelevel.pdf}\hfill}\\
+    {    \figfont{C}\hspace{0.46\textwidth}\figfont{D}\hspace{0.46\textwidth}}\\
+    \vspace{-0.6ex}%
+    \resizebox{0.95\textwidth}{!}{\hfill%
+      \includegraphics{RateLevel/response_area-3.pdf}\hfill%
+      \includegraphics{NoiseRateLevel/response_area-3.pdf}\hfill}%
+    \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
+      whole network (CF 5.8 kHz) to pure tones and noise.
+      A. Rate level response of the central GLG unit to a pure CF tone (5.81 kHz, 50 ms, 20 repetitions). Sigmoidal function fit to data, $44.18 \mathrm{arctan}((x-52.92)/22.75)+51.4$.
+      B. Noise rate level response of the central GLG unit to broad-band noise (50 ms, 20 repetitions). The curve is monotonic, with a threshold at 60 dB.
+      C. Rate level responses of all GLG units to a pure tone (5.81 kHz, 50 ms, 20 repetitions).
+      D. Noise rate level response of all GLG units to BNN stimuli (50 ms, 20 repetitions). A sigmoidal best fit line is shown (the function values are not necessary due to no saturation in the data points). }
+    \label{fig:GolgiVerificationWhole}
   \end{figure}
   }
    % RL
@@ -1802,7 +1802,7 @@ cells.
     {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
     \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%
    %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d}
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{MaskedResponseCurve/DS_masked}\\
     \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (image reproduced from \citet{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
     \label{fig:DSVerificationRA}
   \end{figure}
@@ -1813,15 +1813,15 @@ cells.
   \begin{figure}[t!]
     \centering%\hspace{0.5cm}
     {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/DS_ratelevel_combined}%
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{DS_ratelevel_combined.pdf}%
     % \resizebox{0.95\textwidth}{!}{
-    % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle90-2}\\
-    %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/NoiseRateLevel/psthsingle120-2}\\
+    % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/psthsingle90-2}\\
+    %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{NoiseRateLevel/psthsingle120-2}\\
     % }\\\hspace{0.5cm}
     \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
     % \resizebox{0.95\textwidth}{!}{%
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/RateLevel/response_area-2}%
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/15/DS_masked}\\
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/response_area-2.pdf}%
+    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{MaskedResponseCurve/DS_masked}\\
     \caption[Optimised DS cell model responses]{Response of optimised DS cell model at the centre of the network (CF 5.8 kHz).
       A. Rate level responses to tone, noise and tone plus noise.
       B. PSTH at 120 dB SPL to noise.
@@ -2376,12 +2376,14 @@ effective in noise and at the onset of sounds.
   \begin{figure}[tp!]
   \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-StrychAB.png}}
   %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+
   \resizebox{0.95\textwidth}{!}{%
-  \includegraphics{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}%
-  \includegraphics{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/30/TV_masked}}\\
+  \includegraphics{MaskedResponseCurve/15/TV_masked.pdf}%
+  \includegraphics{MaskedResponseCurve/30/TV_masked}}\\
+
   \resizebox{0.95\textwidth}{!}{%
-  \includegraphics{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/45/TV_masked}%
-  \includegraphics{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/60/TV_masked}}
+  \includegraphics{MaskedResponseCurve/45/TV_masked}%
+  \includegraphics{MaskedResponseCurve/60/TV_masked}}
   \caption[Tone and noise masking response area in TV cells]{Tone and noise masking response area in TV cells. A-B Tone and noise response map of a cat TV cell (Type II DCN unit \citep{SpirouDavisEtAl:1999}) with and without ionotopopheretic application of strynchnine.
    A. Rate level responses to tone, noise and tone plus noise.
    B. PSTH at 90 dB SPL to noise.
@@ -2405,9 +2407,6 @@ effective in noise and at the onset of sounds.
      %\includegraphics{}%
    }\hfill}\\
    %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
-     %\hfill\resizebox{0.95\textwidth}{!}{%
-    % \includegraphics{ResponsesNoComp/MaskedResponseCurve3/15/TV_masked}\\
-    %\includegraphics{}\hfill}\\
       \caption[Optimised TV cell model PSTH responses]{Response of optimised TV cell model at the centre of the network (CF 5.8\ kHz) to CF tones and noise.
      %A. Rate level responses to tone, noise and tone plus noise.
       PSTH responses to CF tones at 50 and 90\ dB SPL\@, and broad-band noise (BBN) at 60 and 100\ dB\ SPL\@.
@@ -2850,7 +2849,7 @@ Effective cell membrane time constant /in vitro/ for different species was:
 temperature) $6.9\pm3$ ms \citep{IsaacsonWalmsley:1995}; and $8.8\pm1.4$ in dogs
 \citep{BalBaydasEtAl:2009}.  \TS cells do not have any \KLT current channels
 \citep{ManisMarx:1991,RothmanManis:2003} but do contain a specialised transient
-deactivating potassium current \I                                                                                             KA and hyperpolarisation-activated mixed cation
+deactivating potassium current \IKA and hyperpolarisation-activated mixed cation
 current \Ih \citep{RothmanManis:2003}. \IKA is active at RMP and has a role in
 modulating repetitive \APs and resetting when inhibition preceeds excitation
 \cite{RothmanManis:2003b,KanoldManis:2001,KanoldManis:2005}. The Type 1-t \RM
@@ -3025,15 +3024,15 @@ determined to be 2.5 ms prior to the peak in the reference \AIV trace.  A shift
 in onset peak between the reference trace and the test \TS cell model's \AIV
 trace was used to compensate for differences in \ANF onset delay.
 
-Early attempts to use the original AIV measures, which used 1 ms windows, were
+Early attempts to use the original \AIV measures, which used 1 ms windows, were
 unable to fit the model to the experimental data.  The fluctuations in the \TS
-cell model's AIV traces were mainly due to \AP artifacts and only 25 stimulus
+cell model's \AIV traces were mainly due to \AP artifacts and only 25 stimulus
 repetitions.  Increasing the number of repetitions would be computationally
 expensive, so the sampling window was set to 5 ms.  The latency of the depolarisation
 peak was used to temporally shift the model's AIV trace for a stronger
 comparison with the exemplar unit.
 
-The onset ratio measure was calculated as the ratio in peak onset depolarisation
+The onset ratio measure was calculated as the ratio in peak onset \MP depolarisation
 (sum over the first 5 ms) relative to the sustained depolarisation (sum measured
 between 20 to 25 ms).
 #+BEGIN_LaTeX
@@ -3043,7 +3042,7 @@ between 20 to 25 ms).
 #+END_LaTeX
 
 
-The adaptation shift measurement calculates the drop in depolarisation at the
+The adaptation shift measurement calculates the drop in \MP depolarisation at the
 end of the stimulus compared to the stable point around 20 ms after the onset
 #+BEGIN_LaTeX
   \begin{equation}
@@ -3065,9 +3064,9 @@ excitation 10 ms after the stimulus offset
   \label{eq:IVstats-Offset} \textrm{Offset} = \bar{\mathbf{v}}|_{t=-10}^{t=0}\quad - \quad\bar{\mathbf{v}}|_{t=60}^{t=65}.
   \end{equation}
 #+END_LaTeX
-Negative values indicate post-stimulus hyperpolarisation which is caused by
-reduced excitation or the presence of inhibition.  The post-stimulus membrane
-voltage was averaged over 5 ms from 60 ms to avoid errors in optimisation
+Negative values indicate post-stimulus \MP hyperpolarisation which is caused by
+reduced excitation or the presence of inhibition.  The post-stimulus \MP
+ was averaged over 5 ms from 60 ms to avoid errors in optimisation
 simulations.
 
 
@@ -3091,8 +3090,9 @@ simulations.
 #  [[../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.pdf]]
 
 
-Three \CF tone bursts at different \SPL above the exemplar units' acoustic threshold (20, 30 and 40 dB re $\theta$) were
-used in all three \TS cell model optimisations.
+Three \CF tone bursts at different \SPL above the exemplar units' acoustic
+threshold (20, 30 and 40 dB re $\theta$) were used in all three \TS cell model
+optimisations.
 # The threshold was assumed to be 10 dB \SPL and the \CF of the unit was 9.1 kHz.
 Figure \ref{fig:PaoliniIVdata}
 shows the results of the chopper sub-groups for adaptation shift (see Equation
@@ -3561,13 +3561,13 @@ optimisation match for the chopper subtypes.
 #   \begin{figure}[t!]
 #    \centering
 #   \hspace{0.5cm}\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill\\
-#   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/TS_ratelevel_combined}\hfill%
-#   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle90-0}\\
+#   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{TS_ratelevel_combined.pdf}\hfill%
+#   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/psthsingle90-0}\\
 #   \hspace{0.5cm}\figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
-#   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/RateLevel/response_area-0}\hfill%
-#   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../../cnstellate/ResponsesNoComp/MaskedResponseCurve3/15/TS_masked}\\
-#   %\resizebox{0.45\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle90-3}}\\
-#   %\resizebox{0.45\textwidth}{!}{\includegraphics{../../cnstellate/ResponsesNoComp/RateLevel/psthsingle50-3}}\\
+#   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/response_area-0.pdf}\hfill%
+#   \includegraphics[keepaspectratio=true,width=0.48\textwidth]{MaskedResponseCurve/15/TS_masked.pdf}\\
+#   %\resizebox{0.45\textwidth}{!}{\includegraphics{RateLevel/psthsingle90-0}}\\
+#   %\resizebox{0.45\textwidth}{!}{\includegraphics{RateLevel/psthsingle50-0}}\\
 #   \caption[Optimised TS cell model responses]{Response of optimised TS cell model
 #     at the centre of the network (CF 5.8 kHz). A. Rate level responses to tone,
 #     noise and tone plus noise.  B. PSTH at 90 dB SPL\@.  C. Response area
