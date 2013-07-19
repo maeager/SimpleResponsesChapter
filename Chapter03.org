@@ -2760,15 +2760,17 @@ spikes followed by irregularly spaced spikes.
 
 Figure \ref{fig:PaoliniAIV} shows the \AIV classification of chopper units in
 the rat into three types \citep{PaoliniClareyEtAl:2005}.  The technique of
-averaging intracellular membrane responses to acoustic stimuli to determine
-stochastic excitatory and inhibitory inputs was first used in the chopper units
-of gerbils \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}.
+averaging intracellular membrane potential responses to acoustic stimuli to
+determine stochastic excitatory and inhibitory inputs was first used in the
+chopper units of gerbils \citep{OstapoffFengEtAl:1994,FengKuwadaEtAl:1994}.
 \citet{PaoliniClareyEtAl:2005} used similar averaging of \TS and \DS cell
 intracellular responses in rats as the basis for a thorough statistical analysis
 to separate chopper units into three distinct subtypes.  The intracellular
 traces in Figure \ref{fig:PaoliniAIV} along with the \CV statistics in Figure
 \ref{fig:PaoliniCVdata} formed the basis for the optimisation routine of the \TS
-cell model of each chopper type in the \CNSM model.
+cell model of each chopper type in the \CNSM model.  Intracellular responses
+provide greater details regarding the sub-threshold dynamics in neural models
+and the signal-to-noise ratio of synaptic inputs \citep{SvirskisRinzel:2003}.
 
 #  The work by Karina Needham, Tony Paolini, Janine Clarey,
 # and others at the Royal Victorian Eye and Ear Hospital were pivotal in
