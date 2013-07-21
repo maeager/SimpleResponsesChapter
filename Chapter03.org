@@ -2317,6 +2317,20 @@ effective in noise and at the onset of sounds.
 
 **** Source block: TV RL RMS code                                  :noexport:
 
+# Get optimisation parameter: Floating point with optional exponent format
+
+#+name: TVopt_param
+#+BEGIN_SRC sh :results replace raw :var factor=1.0
+ par=`echo "$param" | sed -e 's/\([^\\]\)\[/\1\\\\[/g' -e 's/\([^\\]\)\]/\1\\\\]/g'`
+ grep ${par} ../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat | awk -F' ' '{$3=sprintf("%.3g",$3*'${factor}');printf("%.3g",$3)}'
+#+END_SRC
+
+#+name: TVopt_error
+#+BEGIN_SRC sh :results replace raw
+ grep -e '^# .inal error' ../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat | awk '{$5=sprintf("%g",$5);printf("%.2f",$5)}'
+#+END_SRC
+
+
 #+name: TVRL_RMS
 #+BEGIN_SRC octave  :export none
  pkg load nan
@@ -2341,22 +2355,6 @@ effective in noise and at the onset of sounds.
 : 47.1%     295.51 (46.48 + 108.51 +70.26 + 70.26)
 
 : 51.1%     183.13 (16.36 + 47.65 +51.84 + 67.28)
-
-
-# Get optimisation parameter: Floating point with optional exponent format
-
-#+name: TVopt_param
-#+BEGIN_SRC sh :results replace raw :var factor=1.0
- par=`echo "$param" | sed -e 's/\([^\\]\)\[/\1\\\\[/g' -e 's/\([^\\]\)\]/\1\\\\]/g'`
- grep ${par} ../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat | awk -F' ' '{$3=sprintf("%.3g",$3*'${factor}');printf("%.3g",$3)}'
-#+END_SRC
-
-#+name: TVopt_error
-#+BEGIN_SRC sh :results replace raw
- grep -e '^# .inal error' ../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat | awk '{$5=sprintf("%g",$5);printf("%.2f",$5)}'
-#+END_SRC
-
-
 
 ** Verification of the TV Cell Model
 
@@ -3034,7 +3032,7 @@ expensive, so the sampling window was set to 5 ms.  The latency of the depolaris
 peak was used to temporally shift the model's AIV trace for a stronger
 comparison with the exemplar unit.
 
-The onset ratio measure was calculated as the ratio in peak onset \MP depolarisation
+The onset ratio measure was calculated as the ratio in peak onset \AIV depolarisation
 (sum over the first 5 ms) relative to the sustained depolarisation (sum measured
 between 20 to 25 ms).
 #+BEGIN_LaTeX
@@ -3044,7 +3042,7 @@ between 20 to 25 ms).
 #+END_LaTeX
 
 
-The adaptation shift measurement calculates the drop in \MP depolarisation at the
+The adaptation shift measurement calculates the drop in \AIV depolarisation at the
 end of the stimulus compared to the stable point around 20 ms after the onset
 #+BEGIN_LaTeX
   \begin{equation}
@@ -3066,8 +3064,8 @@ excitation 10 ms after the stimulus offset
   \label{eq:IVstats-Offset} \textrm{Offset} = \bar{\mathbf{v}}|_{t=-10}^{t=0}\quad - \quad\bar{\mathbf{v}}|_{t=60}^{t=65}.
   \end{equation}
 #+END_LaTeX
-Negative values indicate post-stimulus \MP hyperpolarisation which is caused by
-reduced excitation or the presence of inhibition.  The post-stimulus \MP
+Negative values indicate post-stimulus \AIV hyperpolarisation which is caused by
+reduced excitation or the presence of inhibition.  The post-stimulus \AIV
  was averaged over 5 ms from 60 ms to avoid errors in optimisation
 simulations.
 
@@ -3247,7 +3245,7 @@ model and the exemplar \ChS unit (Figure \ref{fig:CSresults}B) was 0.051. The
 closest stimulus was the 30 dB \SPL, which had a RMS difference of 0.034. In
 relative terms the mean CV at 30 dB re $\theta$ was 0.202 and 0.172 for the modelled
 and exemplar \ChS units, respectively.  Figure \ref{fig:CSresults}D shows the
-AIV measures used in the optimisation.  The onset ratio and the adaptation \MP
+AIV measures used in the optimisation.  The onset ratio and the adaptation \AIV
 difference were only measured for the 30 dB re $\theta$ due to the limited availability of
 experimental data. The \ChS model's onset ratio, 1.0125, was
 smaller than the exemplar unit's, 1.0417.  The adaptation MR difference was 1.67
@@ -3362,7 +3360,7 @@ call_CT1_rate(SPLreTh=30)[:results replace raw],
 call_CT1_rate(SPLreTh=40)[:results replace raw] and
 call_CT1_rate(SPLreTh=50)[:results replace raw] spikes per second, respectively.
 Consequently, the optimisation stimulus levels were in the saturation region
-of the cell's rate level curve and not in the expected \DR region.
+of the cell's rate level curve and not in the expected dynamic range region.
 
 The final error
 of the optimised \ChTone unit at 25 repetitions was
