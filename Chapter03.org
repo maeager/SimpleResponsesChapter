@@ -3130,7 +3130,7 @@ for all \SPL above threshold.
 #  \includegraphics{RateLevel/psthsingle90.0}% %
 #  \includegraphics{RateLevel/TS_ratelevel}} \end{figure}
 
-****  Source blocks                                                :noexport:
+**** Source blocks 						   :noexport:
 
 # Get optimisation parameter: default
 #+name: opt_param
@@ -3139,15 +3139,12 @@ for all \SPL above threshold.
  grep ${par} ../SimpleResponsesChapter/gfx/TStellate2_${type}/TStellate.Fit.dat | awk -F' ' '{$3=sprintf("%.3g",$3);print $3}'
 #+END_SRC
 
-
-
 # Get optimisation parameter: Floating point with optional exponent format
 #+name: opt_paramf
 #+BEGIN_SRC sh :results replace raw :var factor=1.0
  par=`echo "$param" | sed -e 's/\([^\\]\)\[/\1\\\\[/g' -e 's/\([^\\]\)\]/\1\\\\]/g'`
  grep ${par} ../SimpleResponsesChapter/gfx/TStellate2_${type}/TStellate.Fit.dat | awk -F' ' '{$3=sprintf("%.3g",$3*'${factor}');printf("%.4g",$3)}'
 #+END_SRC
-
 
 # get the ts_gleak parameter : forced exponent format
 #+name: param_ts_gleak
