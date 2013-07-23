@@ -16,7 +16,7 @@ centred on channel\\\hline
 \textbf{Neuron model}  & GLG cell model: Instantaneous-rate Poisson
 neuron model \\\hline
 \textbf{Synapse model} & Synapto-dendritic smoothing filter (alpha function) \\\hline
-%    \textbf{Input}     & Pure tones (22.7 kHz, 50 ms, 5 ms on/off ramp, 20 ms delay), intensity range 0--100 dB~SPL   \\\hline
+%    \textbf{Input}     & Pure tones (22.7 kHz, 50 msec, 5 msec on/off ramp, 20 msec delay), intensity range 0--100 dB~SPL   \\\hline
 %\textbf{Measurements}  & Mean firing rate of Golgi cell instantaneous rate profile or PSTH sampled from Poisson spike-generator (25 repetitions) \\\hline
 \end{tabularx}
 \vspace{1ex}
@@ -96,7 +96,7 @@ Equations~\ref{eq:GolgiWeights}--\ref{eq:GolgiConvolution}.
 \noindent
 \begin{tabularx}{\linewidth}{|l|X|} %
 \hdr{2}{E}{Optimisation}\\
-\textbf{Input Stimulus} & Rate Level function, 22.7~kHz tone at SPL -15 to 90 dB (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay)\\\hline 
+\textbf{Input Stimulus} & Rate Level function, 22.7~kHz tone at SPL -15 to 90 dB (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay)\\\hline 
 \textbf{Parameters} & 
  \sANFGLG, 
    \Gtau,   
@@ -109,7 +109,7 @@ Equations~\ref{eq:GolgiWeights}--\ref{eq:GolgiConvolution}.
 % \begin{ntab}{4}{|X|c|c|c|}{E}{Optimisation NTAB}
 % \textbf{Parameters}             &    \textbf{Name}     & \textbf{Range} & \textbf{Best Values} \\\hline 
 %  Spatial spread $\ANFGLG$ (channel unit)   &      $\sANFGLG$      &     [0,10]     & 2.48  \\\hline 
-%  Synaptodendritic filter time constant (ms)     &   $\tau_{\ANFGLG}$     &     [0,20]       & 5.01  \\\hline 
+%  Synaptodendritic filter time constant (msec)     &   $\tau_{\ANFGLG}$     &     [0,20]       & 5.01  \\\hline 
 %       Weighted sum of HSR (unitless)       &      $\wHSRGLG$      &     [0,5]      & 0.517 \\\hline 
 %       Weighted sum of LSR (unitless)       &      $\wLSRGLG$      &     [0,5]      & 0.0487\\\hline 
 % Golgi spontaneous rate (spikes per second) & \texttt{golgi\_spon} &     [0,50]     & 3.73  \\\hline

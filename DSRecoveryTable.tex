@@ -16,8 +16,8 @@
 \multirow{2}{*}{\textbf{Synapse model}} & Excitatory: \AMPA glutamatergic receptor (single-exponential)\\
                                         & Inhibitory: \GABAA GABAergic receptor (double-exponential), \GlyR glycinergic receptor (double-exponential) \\\hline
        % \textbf{Synapse model}         & Conductance synapses: excitatory (single-exponential), GABAergic (double-exponential) \\\hline
-%        \textbf{Input Stimulus}         & Five mask and recovery click pairs separated by 50 ms\\\hline
-%         \textbf{Measurements}          & PSTH sampled at each click for 2 ms to measure recovery from masking clicks\\\hline
+%        \textbf{Input Stimulus}         & Five mask and recovery click pairs separated by 50 msec\\\hline
+%         \textbf{Measurements}          & PSTH sampled at each click for 2 msec to measure recovery from masking clicks\\\hline
 \end{tabularx}
 \vspace{1ex}
 % - B -----------------------------------------------------------------------------
@@ -64,7 +64,7 @@ Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{E}{Optimisation - Click Recovery}\\\hline
-\textbf{Input Stimulus}  & Mask and recovery click pairs, with delay 16, 2, 8, 4, and 3 ms (in this order), separated by 50 ms   \\\hline
+\textbf{Input Stimulus}  & Mask and recovery click pairs, with delay 16, 2, 8, 4, and 3 msec (in this order), separated by 50 msec   \\\hline
      \textbf{Parameters}      &
       \wGLGDS,
       \wHSRDS,
@@ -72,8 +72,8 @@ Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight
 $\tau_{\rm GABA-1}$,
 $\tau_{\rm GABA-2}$,
       \DS \gleak    \\\hline
-% \textbf{Measurements}   &  Spiking output of DS unit, in channel 50, from 25 repetitions and collected in a PSTH.  The PSTH was sampled at each click for 2 ms to measure click recovery. Idle times were recorded for spontaneous activity and level of ANF excitation.\\\hline
-% PSTHs were generated from 25 stimulus repetitions. Each response to a click is measured for a period of 2 ms.  The sample period was delayed by 4 ms, an estimate of the auditory delay and minimum first spike latency for the DS unit.  The unit used   in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
+% \textbf{Measurements}   &  Spiking output of DS unit, in channel 50, from 25 repetitions and collected in a PSTH.  The PSTH was sampled at each click for 2 msec to measure click recovery. Idle times were recorded for spontaneous activity and level of ANF excitation.\\\hline
+% PSTHs were generated from 25 stimulus repetitions. Each response to a click is measured for a period of 2 msec.  The sample period was delayed by 4 msec, an estimate of the auditory delay and minimum first spike latency for the DS unit.  The unit used   in the optimisation has a CF = 5.8~kHz (channel no. 50).\\ \hline
 % %\textbf{Optimisation} & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
  %\textbf{Measurements}  & First spikes and PSTH of TV cells, calculated for first spike latency, mean rate and variance. Fitting data was compared against experimental data of a Type-II~\DCN~unit~\citep{ReissYoung:2005}, Fig.~9. \\\hline
 
@@ -83,7 +83,7 @@ $\tau_{\rm GABA-2}$,
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{F}{Optimisation - Rate Level}\\\hline
-\textbf{Input Stimulus}  & 1. Tone rate Level function, 11.1~kHz tone at 30 to 100 dB SPL in 5 dB intervals (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay). 2. Noise rate level, broad-band noise at 40 to 95 db SPL in 5 dB intervals   (50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay). \\\hline
+\textbf{Input Stimulus}  & 1. Tone rate Level function, 11.1~kHz tone at 30 to 100 dB SPL in 5 dB intervals (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay). 2. Noise rate level, broad-band noise at 40 to 95 db SPL in 5 dB intervals   (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay). \\\hline
 \textbf{Parameters}      &
       \wGLGDS, \nGLGDS,
       \wHSRDS, \nHSRDS,

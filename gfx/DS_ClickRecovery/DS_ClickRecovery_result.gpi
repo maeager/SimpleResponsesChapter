@@ -21,7 +21,7 @@ unset x2tics
 #set tmargin 0
 #set rmargin 0
 #set size noratio
-set xlabel "Probe Delay (ms)"   font "Helvetica,20"
+set xlabel "Probe Delay (msec)"   font "Helvetica,20"
 set ylabel "Normalised Firing Rate"  font "Helvetica,20"
 set xrange [0:16]
 set yrange [0:1]

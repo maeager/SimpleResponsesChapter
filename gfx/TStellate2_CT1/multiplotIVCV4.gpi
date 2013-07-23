@@ -18,7 +18,7 @@ set style line 4 lc rgb '#00ad06' lt 1 lw 2 pt 72 ps 1.5 # --green line and unfi
 
 set style fill solid 1.0
 set ylabel "Rate (sp/s)" font "Helvetica,18"  #offset character 0, 0, 0
-set xlabel "Time (ms)" font "Helvetica,18"
+set xlabel "Time (msec)" font "Helvetica,18"
 set label 1 "{/Sans-Bold A}" at screen 0.075, screen 1 font "Arial,32"
 plot [-10:90] '../SimpleResponsesChapter/gfx/TStellate2_CT1/psth_0.25.dat' i 0 u 1:2 notitle w boxes lc "black"
 #plot [-10:90] 'psth_1.dat' i 0 u 1:2 not w boxes lc "black"

@@ -46,7 +46,7 @@
 % Narrowband connection on CF, zero spread, weight \wLSRTV and \wHSRTV, number \nLSRTV and \nHSRTV, delay \dANFTV \\\hline
 % %   GLG$\to$DS &      Golgi      &   D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
 %     \DSTV      &       DS        &       TV        & 
-% Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, weight \wGLGDS, number \nGLGDS, delay $\dGLGDS=0.5$ ms \\\hline
+% Gaussian convergence, centered on CF, spread \protect{$\sigma^2 = \sGLGDS$}, weight \wGLGDS, number \nGLGDS, delay $\dGLGDS=0.5$ msec \\\hline
 % \multicolumn{4}{|>{\centering}X|}{\ANFGLG, \ANFDS, and \GLGDS from Table~\ref{tab:TVModelSummary} }\\\hline
 % \end{tabularx}
 % % , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
@@ -93,7 +93,7 @@
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{A}{Optimisation}\\\hline
-\textbf{Input Stimulus} & Notch-noise stimulus based on \citet{ReissYoung:2005}. Stop-band filtered white noise (60 dB SPL, 50 ms duration, 2 ms cosine squared on\slash off ramp, 20 ms delay), 30 dB half-octave stop-band width, centred on the middle of the network (5.8 kHz).\\\hline
+\textbf{Input Stimulus} & Notch-noise stimulus based on \citet{ReissYoung:2005}. Stop-band filtered white noise (60 dB SPL, 50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay), 30 dB half-octave stop-band width, centred on the middle of the network (5.8 kHz).\\\hline
 %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth} \includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps} \end{minipage}}\\\hline
 \textbf{Parameters} &     
 \sDSTV, \oDSTV,
@@ -103,7 +103,7 @@
     \textbf{Input}      & Stimulus induced Poisson spike trains from \GLG units, \HSR and \LSR\ \ANFs, and natural synaptic input from \DS units.\\\hline
 \textbf{Fitness Function} & Spiking output of all 100 TV units across the network recorded over 25 repetitions.\\
 % %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth} \includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}\end{minipage}}\\\hline
-%\textbf{Measurements}    & PSTH sampled at each click for 2 ms to measure click recovery\\\hline
+%\textbf{Measurements}    & PSTH sampled at each click for 2 msec to measure click recovery\\\hline
 % %\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
     &  PSTH of TV cells, calculated for first spike latency and mean rate. Fitting data was compared against experimental data of a Type II \DCN unit \citep[Figure~9]{ReissYoung:2005}. \\\hline
 \end{tabularx}
