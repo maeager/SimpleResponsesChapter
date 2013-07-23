@@ -48,11 +48,11 @@ Narrowband connection at CF, zero spread, weight \wLSRTS and \wHSRTS, number \nL
  %   \GLGDS   &      Golgi      &    D~Stellate    & Gaussian, centred at CF with spread \sGLGDS \\\hline
  %    \DSTV   &   D~Stellate    & Tuberculoventral & Gaussian, centred at CF with spread \sDSTV \\\hline
    \GLGTS     &       GLG       &        TS        & 
-Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGTS$, weight \wGLGTS, number \nGLGTS, delay $\dGLGTS=0.5$ ms \\\hline
+Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGTS$, weight \wGLGTS, number \nGLGTS, delay $\dGLGTS=0.5$ msec \\\hline
     \DSTS     &       DS        &        TS        & 
-Gaussian convergence, centred on CF, spread $\sigma^2 = \sDSTS$, weight \wDSTS, number \nDSTS, delay $\dDSTS=0.5$ ms \\\hline
+Gaussian convergence, centred on CF, spread $\sigma^2 = \sDSTS$, weight \wDSTS, number \nDSTS, delay $\dDSTS=0.5$ msec \\\hline
     \TVTS     &       TV        &        TS        & 
-Gaussian convergence, centred on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, number \nTVTS, delay $\dTVTS=1.0$ ms \\\hline
+Gaussian convergence, centred on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, number \nTVTS, delay $\dTVTS=1.0$ msec \\\hline
 \multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model in Table~\ref{tab:TVNotchModelSummary}C. }\\\hline
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS
@@ -103,7 +103,7 @@ Gaussian convergence, centred on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, 
 \noindent
 \begin{tabularx}{\textwidth}{|l|X|}%
 \hdr{2}{E}{Optimisation}\\
-\textbf{Input Stimulus} & Pure tone stimuli with 50 ms duration, 2 ms cosine squared on\slash off ramp, and 20 ms delay. Optimisation of each chopper unit used the CF and 30 dB relative to the threshold sound level of the exemplar unit: CS (3.9~kHz 40 dB SPL), CT1 (8.2 kHz, 85 dB SPL), CT2 (12.4~kHz 35 dB SPL). \\\hline 
+\textbf{Input Stimulus} & Pure tone stimuli with 50 msec duration, 2 msec cosine squared on\slash off ramp, and 20 msec delay. Optimisation of each chopper unit used the CF and 30 dB relative to the threshold sound level of the exemplar unit: CS (3.9~kHz 40 dB SPL), CT1 (8.2 kHz, 85 dB SPL), CT2 (12.4~kHz 35 dB SPL). \\\hline 
      \textbf{Parameters}      & 
       \wHSRTS, \nHSRTS,    
       \wLSRTS, \nLSRTS,   
@@ -111,7 +111,7 @@ Gaussian convergence, centred on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, 
       \wTVTS,  \nTVTS, 
   \wGLGTS, \nGLGTS 
       \TS \gleak, \TS \gh    \\\hline
-\textbf{Fitness Function}    &  Input stimulus was presented to the CNSM model with intracellular voltage and spike timing output recorded from one \TS cell model. Special \AIV measures and spike statistics were calculated.  \CV statistics were measured in 10 ms windows from 2.5 ms after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
+\textbf{Fitness Function}    &  Input stimulus was presented to the CNSM model with intracellular voltage and spike timing output recorded from one \TS cell model. Special \AIV measures and spike statistics were calculated.  \CV statistics were measured in 10 msec windows from 2.5 msec after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
 \end{tabularx}
 \vspace{1ex}
 \end{table}

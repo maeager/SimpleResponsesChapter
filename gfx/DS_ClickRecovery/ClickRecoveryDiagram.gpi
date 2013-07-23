@@ -35,7 +35,7 @@ plot [0:100] '< xz --decompress --stdout ../SimpleResponsesChapter/gfx/DS_ClickR
 
 #set ytics in nomirror
 #set border 3
-set xlabel "Time (ms)" font "Helvetica,30"
+set xlabel "Time (msec)" font "Helvetica,30"
 set label 3 "{/Sans-Bold=32 B}" at screen -0.05,0.47 font "Helvetica,24"
 set label 1 '{/Helvetica=32 DS Cell}' at screen -0.05,0.4
 set label 2 '{/Helvetica=32   PSTH}' at screen -0.05, 0.35
