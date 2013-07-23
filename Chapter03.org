@@ -394,7 +394,7 @@ essential for enhancing periodic stimuli in \TS cells
 \citep{BurckHemmen:2007,WickesbergOertel:1990}.  Stochastic behaviour at the
 \IHC-\AN synapse limits the onset encoding performance in the \AN.  Jitter of
 the \FSL is commonly measured by the standard deviation; jitter in \ANFs is 0.73
-ms \citep{RhodeOertelEtAl:1983}.  Most units in the \VCN exhibit reduced onset
+msec \citep{RhodeOertelEtAl:1983}.  Most units in the \VCN exhibit reduced onset
 jitter through sampling multiple \ANFs, but onset units like \DS cells have
 additional morphological and intrinsic specialisations for greater onset
 precision.
@@ -405,14 +405,14 @@ variation and synapses placed at various distances along the dendrites of \TS,
 intracellular responses of a Type I-t \RM neural model
 \citep{RothmanManis:2003b}, averaged over 25 repetitions. Jitter was added
 separately to each \ANF synapse using an absolute Gaussian distribution random
-number with standard deviation of 0.1 ms and mean dependent on the cell type
+number with standard deviation of 0.1 msec and mean dependent on the cell type
 (e.g. \dANFTS). The effect of adding jitter to individual \ANF synapses in the
 \CNSM model was to increase the mean and standard deviation of \FSL in \CN
 neurons. These effects replicated dendritic delays without the added
 computational cost of a passive neural compartment in the model.  The models did
 not account for dendritic attenuation of the \EPSP.
 
-#+caption: [Response of TS cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a TS cell model (Type I-t RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 ms. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.	 Jitter responses were averaged over 25 repetitions. All weights were set to 0.5 nS. Twenty HSR and 30 LSR ANFs connected with the recorded TS cell model. A. No jitter in ANF synapses on TS cell without the sodium channel. B. No ANF jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
+#+caption: [Response of TS cells to isolated synaptic inputs with variable delays]{Intracellular membrane voltage response of a TS cell model (Type I-t RM model) to isolated synaptic inputs with variable delays. A jitter around a minimum delay \dANFTS was calculated as an absolute Gaussian distribution with zero mean and standard deviation of 0.1 msec. A pure tone stimulus of 8.2 kHz at 85 dB SPL was presented to the CNSM model.	 Jitter responses were averaged over 25 repetitions. All weights were set to 0.5 nS. Twenty HSR and 30 LSR ANFs connected with the recorded TS cell model. A. No jitter in ANF synapses on TS cell without the sodium channel. B. No ANF jitter on TS cell with sodium channel active.  C. TS cell with jitter and without the sodium channel.  D. TS cell with jitter and with the sodium channel.}
 #+label: fig:CSjitter
 [[../SimpleResponsesChapter/gfx/TStellate/baseline_jitter.pdf]]
 
@@ -430,7 +430,7 @@ tones and click stimuli was used to set delay times between \ANFs and \CN cells
 The additional delay was defined using the \FSL of high frequency units as the
 sum of the \ANFs' \FSL, \ANF conduction delay and the synaptic transmission
 delay.  The first spike latency measured in high \CF units in the ARLO \AN model
-\citep{HeinzZhangEtAl:2001} for \HSR fibres was 1.5 ms.
+\citep{HeinzZhangEtAl:2001} for \HSR fibres was 1.5 msec.
 
 
 Table \ref{tab:Methods:AddDelay} shows the additional delay component for each
@@ -455,9 +455,9 @@ significantly different from the classic Type I \RM models in the \TV cell model
       \begin{tabularx}{0.8\textwidth}{p{1.9in}XXXXX} \toprule
                           &       \ANF        &        \TS         &         \DS         &    \TV    & Golgi \\\otoprule
        \RM cell type      &                   &        I-t         &        I-II         &    I-c    & I-c\\
-   Experimental FSL (ms)  & $2.4\pm0.73^{ 1}$ & $3.6\pm0.36 ^{ 1}$ & $2.8\pm0.09 ^{1,2}$ & 4.0$^{3}$ & 4.3$^{4}$\\
-  Default model FSL  (ms) &        1.5        &        2.0         &         1.6         &    2.0    & 2.0\\ \midrule
-   Additional delay (ms)  &         -         &        1.6         &         1.2         &    2.0    & 2.3\\\bottomrule
+   Experimental FSL (msec)  & $2.4\pm0.73^{ 1}$ & $3.6\pm0.36 ^{ 1}$ & $2.8\pm0.09 ^{1,2}$ & 4.0$^{3}$ & 4.3$^{4}$\\
+  Default model FSL  (msec) &        1.5        &        2.0         &         1.6         &    2.0    & 2.0\\ \midrule
+   Additional delay (msec)  &         -         &        1.6         &         1.2         &    2.0    & 2.3\\\bottomrule
   \end{tabularx}\\
     {\small $^1$\citet{RhodeSmith:1986}, $^2$\citet{RhodeOertelEtAl:1983}, $^3$\citet{SpirouDavisEtAl:1999}, $^4$\citet{GhoshalKim:1997}}
     \end{table}
@@ -470,7 +470,7 @@ significantly different from the classic Type I \RM models in the \TV cell model
 All simulations were performed in the neural simulation package [[latex:progname][NEURON]].
 # For further specifications see Section [[Simulation%20and%20Implementation%20of%20the%20CNSM%20Model][Simulation and Implementation of the CNSM Model]].
 The time step of the numerical integration performed in each of the simulations
-in this chapter was 0.05 ms.  Input spikes for Poisson neural models (\HSR, \LSR
+in this chapter was 0.05 msec.  Input spikes for Poisson neural models (\HSR, \LSR
 and \GLG cell models) were calculated at the start of repetitions.
 
 # The parallel is based on the [[latex:progname][NEURON]] network model [[latex:progname][netmod]]
@@ -612,8 +612,8 @@ classified as Type I current-clamp neurons and act as simple integrators of
 synaptic input \citep{FerragamoGoldingEtAl:1998}.
 # Their intrinsic properties suggests \GLG cells are simple integrators.
 Responses to \AN shocks in \GLG cells were found to be delayed by approximately
-0.7 ms relative to the core \VCN units, with minimum delay in most cells around
-1.3 ms \citep{FerragamoGoldingEtAl:1998}.
+0.7 msec relative to the core \VCN units, with minimum delay in most cells around
+1.3 msec \citep{FerragamoGoldingEtAl:1998}.
 
 # #+ATTR_LaTeX: width=0.6\textwidth
 # #+Caption: Current clamp response of a \GLG cell in a mouse slice preparation. Figure reproduced from \citet{FerragamoGoldingEtAl:1998}.
@@ -663,11 +663,11 @@ included wide chopper, \OnC, and pause-build; however, nearly one third of units
 did not fit into the known classifications and were called "unusual"
 \citep{GhoshalKim:1997}.
 
-The latency of acoustically driven \GCD recorded units ranges from 2.4 ms to
-over 10 ms, with a mean of 3.75 ms.  The acoustic latency closely matches the
+The latency of acoustically driven \GCD recorded units ranges from 2.4 msec to
+over 10 msec, with a mean of 3.75 msec.  The acoustic latency closely matches the
 minimum latency of \EPSPs to \AN shocks recorded in mice /in vitro/ preparations
-\citep[1.3~ms,][]{FerragamoGoldingEtAl:1998}. \EPSPs with longer latencies may
-be due to Type II \ANFs, which have an estimated theoretical latency of 10 ms
+\citep[1.3~msec,][]{FerragamoGoldingEtAl:1998}. \EPSPs with longer latencies may
+be due to Type II \ANFs, which have an estimated theoretical latency of 10 msec
 \citep{Brown:1993}, or from polysynaptic excitation by granule cells.
 
 # Their monotonic responses to tones and noise over a wide dynamic range
@@ -732,7 +732,7 @@ receptors in \GLG cells \citep{FerragamoGoldingEtAl:1998a}.
 # studied.  Intracellular recordings of \GLG cells in one study by
 # \citet{FerragamoGoldingEtAl:1998} have shown a classic Type I current
 # response.  This suggests \GLG cells are simple integrators.	Their
-# response to auditory nerve shocks were delayed by approximately 0.7 ms
+# response to auditory nerve shocks were delayed by approximately 0.7 msec
 # relative to the core \VCN units \citep{FerragamoGoldingEtAl:1998}.
 #
 
@@ -997,7 +997,7 @@ relative to the target response showed a mean absolute difference of 21.5\%.
   \toprule
   \textbf{Parameters (Units)} & \textbf{Range} & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
    \sANFGLG \hfill (channel)  &     [0,10]     & 2.48   \\
-      \Gtau  (ms)      &     [0,20]     & 5.01   \\
+      \Gtau  (msec)      &     [0,20]     & 5.01   \\
       \wLSRGLG (\uS)     &     [0,5]      & 0.517  \\
      \wHSRGLG (\uS)     &     [0,5]      & 0.0487 \\
       \Gspon  (spikes/s)      &     [0,50]     & 3.73   \\ %\midrule
@@ -1031,7 +1031,7 @@ levels was necessary to create the large dynamic range in the \GLG cell
 model. Equally, the \HSR fibres were necessary to provide spontaneous rate
 activity at low \SPL.  The spontaneous rate parameter matches the base response
 of unit S03-07 in Figure \ref{fig:GolgiResult}. The smoothing filter time
-constant of 5 ms is a typical value in membrane time constants for neural models
+constant of 5 msec is a typical value in membrane time constants for neural models
 and fits with the input resistance in intracellular recordings of \GLG cells
 \citep{FerragamoGoldingEtAl:1998}.
 
@@ -1086,7 +1086,7 @@ reduction of the onset response to tones.
     {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{psthblock-3.pdf}}%
     \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
     \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF 5.8 kHz).
-   A. Four simulated PSTHs of the \GLG cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
+   A. Four simulated PSTHs of the \GLG cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 msec duration, 20 msec delay).
   B. Four experimental PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996a}.
   } \label{fig:GolgiVerificationPSTH}
   \end{figure}
@@ -1153,10 +1153,10 @@ species-specific audiogram compression in the \AN model.
       \includegraphics{NoiseRateLevel/response_area-3.pdf}\hfill}%
     \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
       whole network (CF 5.8 kHz) to pure tones and noise.
-      A. Rate level response of the central GLG unit to a pure CF tone (5.81 kHz, 50 ms, 20 repetitions). Sigmoidal function fit to data, $44.18 \mathrm{arctan}((x-52.92)/22.75)+51.4$.
-      B. Noise rate level response of the central GLG unit to broad-band noise (50 ms, 20 repetitions). The curve is monotonic, with a threshold at 60 dB.
-      C. Rate level responses of all GLG units to a pure tone (5.81 kHz, 50 ms, 20 repetitions).
-      D. Noise rate level response of all GLG units to BNN stimuli (50 ms, 20 repetitions). A sigmoidal best fit line is shown (the function values are not necessary due to no saturation in the data points). }
+      A. Rate level response of the central GLG unit to a pure CF tone (5.81 kHz, 50 msec, 20 repetitions). Sigmoidal function fit to data, $44.18 \mathrm{arctan}((x-52.92)/22.75)+51.4$.
+      B. Noise rate level response of the central GLG unit to broad-band noise (50 msec, 20 repetitions). The curve is monotonic, with a threshold at 60 dB.
+      C. Rate level responses of all GLG units to a pure tone (5.81 kHz, 50 msec, 20 repetitions).
+      D. Noise rate level response of all GLG units to BNN stimuli (50 msec, 20 repetitions). A sigmoidal best fit line is shown (the function values are not necessary due to no saturation in the data points). }
     \label{fig:GolgiVerificationWhole}
   \end{figure}
   }
@@ -1305,7 +1305,7 @@ regular \APs with double-exponential undershoots. Weak depolarisation produces
 an action potential at the onset of the stimulus (Figure
 \ref{fig:DSOertelFujino}A).  Hyperpolarising current responses show strong
 inward rectification with rapid return to stable levels (time constants under 15
-ms). In this way, \DS cells are different from the slowly integrating \TS cells
+msec). In this way, \DS cells are different from the slowly integrating \TS cells
 which are Type I current clamp units with single exponential undershoot \APs and
 less prominent hyperpolarising sag.
 
@@ -1361,7 +1361,7 @@ Application of bicuculine in the \VCN has the effect of changing the temporal
 behaviour in \DS cells \citep{EvansZhao:1998}, which also affects \AM responses
 in the \IC \citep{CasparyHelfertEtAl:1997,CasparyPalombiEtAl:2002}.  With click
 pairs, \citet{BackoffPalombiEtAl:1997} showed strong \GABA inhibition does not
-allow full click recovery in onset choppers until 16 ms separation of the probe
+allow full click recovery in onset choppers until 16 msec separation of the probe
 and mask clicks.
 
 
@@ -1462,8 +1462,8 @@ frequency channels.
 
 The additional delay parameter for \ANF terminals on the \DS cell model
 (\dANFDS) was shown in Section \ref{sec:Ch3:Delays}. The first spike latency in
-high \CF \DS cells ($2.8\pm0.09$ ms) is precise and faster than other stellate
-neurons in the \VCN \citep{RhodeSmith:1986}.  The additional delay of 1.2 ms
+high \CF \DS cells ($2.8\pm0.09$ msec) is precise and faster than other stellate
+neurons in the \VCN \citep{RhodeSmith:1986}.  The additional delay of 1.2 msec
 from \ANF to \DS input connections is a product of axonal conductance and
 dendritic delay.
 
@@ -1473,7 +1473,7 @@ dendritic delay.
    :END:
 
 #+ATTR_LaTeX: width=0.9\textwidth
-#+caption: [Click recovery stimulus and recording procedure]{Sample of the fitness function stimulus and recording procedure for the DS cell model click recovery optimisation. A. Two pairs of clicks (0.3 ms width) with delays of 16 ms and 2 ms. B. PSTH response of a default DS cell unit (high CF, Type 1-2 RM neural model, soma diameter 21 \um) with 2 ms boxes indicating the window of response for the mask and probe periods. Windows began 3 ms after the stimulus click to account for the FSL in DS units.}
+#+caption: [Click recovery stimulus and recording procedure]{Sample of the fitness function stimulus and recording procedure for the DS cell model click recovery optimisation. A. Two pairs of clicks (0.3 msec width) with delays of 16 msec and 2 msec. B. PSTH response of a default DS cell unit (high CF, Type 1-2 RM neural model, soma diameter 21 \um) with 2 msec boxes indicating the window of response for the mask and probe periods. Windows began 3 msec after the stimulus click to account for the FSL in DS units.}
 #+label: fig:ClickExample
 [[../SimpleResponsesChapter/gfx/DS_ClickRecovery/ClickRecoveryDiagram.pdf]]
 
@@ -1481,11 +1481,11 @@ In order to specify how \GLG cells regulate the click recovery response in \DS
 cells, a parameter optimisation routine was performed using data from
 \citet{BackoffPalombiEtAl:1997}.  Table \ref{tab:DScellModelSummary}E describes
 the fitness function stimulus as six pairs of masker-probe clicks separated by
-50 ms.  Spike outputs of the \DS cell model were recorded in 2 ms windows
+50 msec.  Spike outputs of the \DS cell model were recorded in 2 msec windows
 following the clicks, accounting for the effective minimum \FSL in \DS cells
 (consistent with the experimental design of \citet{BackoffPalombiEtAl:1997}).
 Figure \ref{fig:ClickExample} shows the stimulus and output of the first two
-click pairs of the fitness function stimulus (16 ms and 2 ms separation between
+click pairs of the fitness function stimulus (16 msec and 2 msec separation between
 mask and probe clicks).  Two millisecond windows immediately after the mask and
 probe clicks were used to record the \DS cell model's output.
 
@@ -1495,7 +1495,7 @@ The six parameters to be fit by the routine were the weights of the \HSR\space
 \wLSRDS, \wGLGDS); the \GABAa synapse for fast and slow decay constants ($\tau_{\rm
 GABA-1}$, $\tau_{\rm GABA-2}$); and the \DS cell maximum leak conductance (\gleak).
 Initial optimisation procedures were not successful at constraining the short
-delay recovery responses (2, 3, 4 ms), so the \DS cells' \Ileak conductance
+delay recovery responses (2, 3, 4 msec), so the \DS cells' \Ileak conductance
 parameter was included in the optimised parameters to allow the \DS cell model's
 input resistance to fit fast-acting behaviour in the cell.
 
@@ -1505,8 +1505,8 @@ Figure \ref{fig:BackoffPalombi} shows the click recovery response of unit
 G61.U6, an AVCN \OnC unit (\CF 5.69, threshold 30 dB \SPL), and the effects of the
 \GABAa blocker bicuculine \citep{BackoffPalombiEtAl:1997}.  The normal probe
 click response of this unit only reached 100\% of the mask click response until
-16 ms separation. With ionotopopheretic application of bicuculine, the \OnC unit
-had full response to the probe click at 1 ms separation. From these results,
+16 msec separation. With ionotopopheretic application of bicuculine, the \OnC unit
+had full response to the probe click at 1 msec separation. From these results,
 \citet{BackoffPalombiEtAl:1997} showed the strong effects of \GABA on \OnC units
 in the \VCN, effectively \DS cells.  The \DS cell model used in the optimisation
 had a \CF of 5.8 kHz, the closest \CF channel to the exemplar \OnC unit.
@@ -1516,8 +1516,8 @@ measures of spontaneous activity and to restrict over-excitation by \ANFs.
 
 
 # \PSTHs of the spiking output of \DS units were generated from 25 stimulus
-# repetitions. Each response to a click was measured for a period of 2 ms.  The
-# sample period was delayed by 4 ms, an estimate of the auditory delay and
+# repetitions. Each response to a click was measured for a period of 2 msec.  The
+# sample period was delayed by 4 msec, an estimate of the auditory delay and
 # minimum first spike latency for the \DS unit.  The unit used in the
 # optimisation had a \CF  5.8 kHz (channel no. 50).  Spontaneous activity in
 # idle periods was used for additional weighted penalty measures of spontaneous
@@ -1526,13 +1526,13 @@ measures of spontaneous activity and to restrict over-excitation by \ANFs.
 # Parameters for \GLG cell inputs to \DS cells were optimised based on
 # experimental click recovery data from \citet{BackoffPalombiEtAl:1997}, as
 # shown in Figure \ref{fig:BackoffPalombi}.  The input stimulus presented a
-# series of masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 ms,
-# separated by 50 ms.  Although the experimental stimuli was presented every 250
-# ms, the optimisation stimulus needed to be computationally efficient so the
+# series of masker-probe clicks, with intervals of 2, 3, 4, 8, and 16 msec,
+# separated by 50 msec.  Although the experimental stimuli was presented every 250
+# msec, the optimisation stimulus needed to be computationally efficient so the
 # separation was shortened and the sequence reordered to obtain the best click
 # recovery response in the \DS and \GLG cells.  The stimulus was repeated 25
 # times and a PSTH was produced from the \DS cells' spikes.  Spike counts for 2
-# ms after the probe and masker click were selected (accounting for the
+# msec after the probe and masker click were selected (accounting for the
 # minimum first spike latency for the unit) to calculate a recovery ratio.  The
 # \DS cell optimisation function calculated the mean squared error between the
 # test model and the experimental data recovery ratios to 5 click pairs.
@@ -1541,7 +1541,7 @@ measures of spontaneous activity and to restrict over-excitation by \ANFs.
 
 
 #+ATTR_LATEX: width=0.6\linewidth
-#+CAPTION: [Experimental data showing click recovery in onset choppers.]{Experimental data showing click recovery in onset choppers. Figure shows mask-probe response ratio using 1 ms window during GABA blocker experiments (reproduced from Figure 3 in \citet{BackoffPalombiEtAl:1997}).}
+#+CAPTION: [Experimental data showing click recovery in onset choppers.]{Experimental data showing click recovery in onset choppers. Figure shows mask-probe response ratio using 1 msec window during GABA blocker experiments (reproduced from Figure 3 in \citet{BackoffPalombiEtAl:1997}).}
 #+LABEL: fig:BackoffPalombi
 [[../SimpleResponsesChapter/gfx/Backoff+Palombi-Fig3.png]]
 
@@ -1579,8 +1579,8 @@ weight that was obtained in the optimisation.
        \wGLGDS \hfill (nS)       &   [0.01,50]    & 0.532 \\
        \wHSRDS \hfill (nS)       &   [0.01,50]    & 0.167\\
        \wLSRDS  \hfill (nS)      &   [0.01,50]    & 13.1 \\
-  $\tau_{\rm GABA-1}$ \hfill (ms)&  [0.01,10.0]   & 5.43 \\
-  $\tau_{\rm GABA-2}$ \hfill (ms)&   [0.1,50.0]   & 0.262 \\
+  $\tau_{\rm GABA-1}$ \hfill (msec)&  [0.01,10.0]   & 5.43 \\
+  $\tau_{\rm GABA-2}$ \hfill (msec)&   [0.1,50.0]   & 0.262 \\
      \gleak  \hfill (m\Scmsq)    &  [1e-5,0.05]   & 0.0163 \\ \bottomrule
   \end{tabularx}\end{table}
   \vspace{2ex}
@@ -1789,8 +1789,8 @@ cells.
     %\resizebox{0.5\textwidth}{!}{\includegraphics{../LiteratureReview/gfx/NoFigure.pdf}}\hfill}\\
     \hfill}\\
     \caption[Optimised DS cell model responses to tones and noise]{%
-   A-C. PSTHs in 3 rat OnC neurons to 50 ms tones on CF and below CF \citep[Figures~reproduced~from][]{PaoliniClark:1999}.
-   D. Response of optimised DS cell model at the centre of the network (CF 5.8 kHz). Four simulated PSTHs of the \DS cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 ms duration, 20 ms delay).
+   A-C. PSTHs in 3 rat OnC neurons to 50 msec tones on CF and below CF \citep[Figures~reproduced~from][]{PaoliniClark:1999}.
+   D. Response of optimised DS cell model at the centre of the network (CF 5.8 kHz). Four simulated PSTHs of the \DS cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 msec duration, 20 msec delay).
   } \label{fig:DSVerificationPSTH}
   \end{figure}
 #+END_LaTeX
@@ -1896,11 +1896,11 @@ distal dendrites of \DS cells.
 Two important results came out of the click
 recovery optimisation.  Firstly, the \GABAa synapse onto \DS cells needs to have
 a fast onset.  The initial response of the \DS cell model to click pairs
-separated by 2 ms had to have a probe response 20\% less than the masker
+separated by 2 msec had to have a probe response 20\% less than the masker
 response.  The onset of inhibition is limited by the delay from \GLG cells and
 the rise time of the \GABAa synapse.  The optimisation found decay constant of
-5.6 ms achieved the best results. In MNTB neurons of mature rats, the fast decay
-time constant of \GABAa \IPSPs had a mean of 7 ms standard deviation of 2 ms
+5.6 msec achieved the best results. In MNTB neurons of mature rats, the fast decay
+time constant of \GABAa \IPSPs had a mean of 7 msec standard deviation of 2 msec
 \cite{AwatramaniTurecekEtAl:2005}.  Slower components of the \GABAa synapse with
 slower decays and synapse depletion were ignored in the \CNSM model but may be
 important in more complex stimuli.
@@ -2448,12 +2448,12 @@ typical of the Type II \EIRA units in the deep layer of the \DCN
 \citep{SpirouDavisEtAl:1999,Rhode:1999}.  The PSTH response of the central \TV
 unit (\CF 5.8 kHz) at 90 dB \SPL is a simple chopping response, characteristic of
 the Type I-c \RM neural model (Figure \ref{fig:TVverification}A)
-\citep{RothmanManis:2003b}. The minimum first spikes occur at 4.3 ms after the
+\citep{RothmanManis:2003b}. The minimum first spikes occur at 4.3 msec after the
 stimulus onset (similar to the un-optimised \TV cell model's mean \FSL in Section
 [[Synaptic Delays]]).
 
 Due to the strong \DS inhibition, the peak \FSL of the optimised \TV cell model
-was delayed to 6.5 ms for a 50 dB \SPL tone (Figure
+was delayed to 6.5 msec for a 50 dB \SPL tone (Figure
 \ref{fig:TVverification}A). In response to loud noise, the onset spike and the
 chopping behaviour was suppressed (Figure \ref{fig:TVverification}B).
 # The \TV model outputs' behaviour is shown in Figure \ref{fig:TVverification},
@@ -2596,7 +2596,7 @@ replicate the response of a single unit to notch sweeps, notches were generated
 in [[latex:progname][MATLAB/GNU Octave]] using Chebychev II filters with a sampling rate of 100 kHz
 and an optimal filter number.  The half octave sweep was calculated from -2 to 2
 octaves away from 12.7 kHz at 1/32$^{nd}$ increments with logarithmically
-constant notch widths. A 50 ms stimulus at 50 dB \SPL was established in the \AN
+constant notch widths. A 50 msec stimulus at 50 dB \SPL was established in the \AN
 model for use by the \CNSM model.[fn:: Logarithmically constant means the notch
 width is calculated at the centre frequency of the notch and not the \CF of the
 unit of interest.]  Figure \ref{fig:TVSweepUnit70} shows the response of a unit
@@ -2743,7 +2743,7 @@ stimulus. The transient chopper optimisation had two types defined by
 \citet{PaoliniClareyEtAl:2005}.  The first transient chopper type, \ChTone, is
 categorised with \CV starting below 0.2 then rising
 but staying below 0.3.  The second transient type, \ChTtwo, is regular in the
-first 10 ms period, but rises to 0.3 or higher throughout the stimulus.  \OnC
+first 10 msec period, but rises to 0.3 or higher throughout the stimulus.  \OnC
 units can also be misclassified as \ChTtwo due to two to three regular onset
 spikes followed by irregularly spaced spikes.
 
@@ -2751,7 +2751,7 @@ spikes followed by irregularly spaced spikes.
   \begin{figure}[thp]
     \centering
   \includegraphics[width=0.6\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniCV.pdf}
-  \caption[Regularity categorisation in chopper units]{A. Regularity in chopper units measured using 10 ms interval CV at 30 dB relative to acoustic threshold. Data represents mean and standard deviation in units in each category. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}.}
+  \caption[Regularity categorisation in chopper units]{A. Regularity in chopper units measured using 10 msec interval CV at 30 dB relative to acoustic threshold. Data represents mean and standard deviation in units in each category. Data reproduced from Figure 2 in \citet{PaoliniClareyEtAl:2005}.}
   \label{fig:PaoliniCVdata}
   \end{figure}
 #+END_LaTeX
@@ -2845,8 +2845,8 @@ was 21 \um, representative of the average cat \citep{ReddCahillEtAl:2002}.
 relationship (type 1 current clamp) and a single exponential undershoot \AP
 \citep{ManisMarx:1991,FengKuwadaEtAl:1994,Oertel:1983,OertelWuEtAl:1988}.
 Effective cell membrane time constant /in vitro/ for different species was:
-(mice at room temperature) $9.1\pm4.5$ ms \citep{ManisMarx:1991}; (rat at room
-temperature) $6.9\pm3$ ms \citep{IsaacsonWalmsley:1995}; and $8.8\pm1.4$ in dogs
+(mice at room temperature) $9.1\pm4.5$ msec \citep{ManisMarx:1991}; (rat at room
+temperature) $6.9\pm3$ msec \citep{IsaacsonWalmsley:1995}; and $8.8\pm1.4$ in dogs
 \citep{BalBaydasEtAl:2009}.  \TS cells do not have any \KLT current channels
 \citep{ManisMarx:1991,RothmanManis:2003} but do contain a specialised transient
 deactivating potassium current \IKA and hyperpolarisation-activated mixed cation
@@ -2903,7 +2903,7 @@ afferent \ANF inputs (\LSR Figure \ref{fig:TSinputs}A and \HSR Figure
 \ref{fig:TSinputs}B) show a large depolarisation.  \HSR inputs show a rapid
 onset and a slowly adapting depolarisation throughout the remainder of the
 stimulus.  \HSR fibres have a spontaneous rate of 50 Hz and recover to the same
-rate around 15 ms after the stimulus offset.
+rate around 15 msec after the stimulus offset.
 
 
 #  - only 5 or 6 (mice \citenum{FerragamoGoldingEtAl:1998a,CaoOertel:2010})
@@ -2976,10 +2976,10 @@ further delay to inhibiting \TS cells \citep{WickesbergOertel:1990}.
    A default Type I-t \RM neural model was used and the sodium conductance (\gNa) was set
    to zero to inhibit spike generation.
    All synaptic weights were set to $0.5\,{\rm nS}$.
-   A. 30 LSR ANFs onto AMPA synapses ($\tau = 0.36$ ms).
+   A. 30 LSR ANFs onto AMPA synapses ($\tau = 0.36$ msec).
    B. 20 HSR ANFs (mean rate 250 spikes per second) onto AMPA synapses.
-   C. 20 DS cell model glycinergic synapses ($\tau_1=0.4$ and $\tau_2=2.5$ ms).
-   D. 15 GLG cell model \GABAa synapses ($\tau_{1}=0.7$ and $\tau_{1}=9$ ms).
+   C. 20 DS cell model glycinergic synapses ($\tau_1=0.4$ and $\tau_2=2.5$ msec).
+   D. 15 GLG cell model \GABAa synapses ($\tau_{1}=0.7$ and $\tau_{1}=9$ msec).
  \label{fig:TSinputs}}
  \end{figure}
 #+END_LaTeX
@@ -3009,9 +3009,9 @@ The optimisation fitness function, $F$, of the \TS cell model calculated the
 relative error between a combination of average intracellular membrane voltage
 measures and spike time statistics against the experimental data given by
 \citet{PaoliniClareyEtAl:2005}.  Spike trains were collected for 25 repetitions
-of a 50 ms \CF tone (5 ms ramp) and analysed for \PSTH and inter-spike interval
+of a 50 msec \CF tone (5 msec ramp) and analysed for \PSTH and inter-spike interval
 characteristics \citep{Pfeiffer:1966a,BlackburnSachs:1989,YoungRobertEtAl:1988}.
-\CV of the inter-spike intervals were calculated over a 10 ms window, beginning
+\CV of the inter-spike intervals were calculated over a 10 msec window, beginning
 at stimulus onset .  Chopper units were required to have three regular intervals
 at the start of the stimulus otherwise the stimulus repetition was excluded from
 the \CV calculations.
@@ -3020,21 +3020,21 @@ The \AIV statistics, first introduced by \citet{PaoliniClareyEtAl:2005},
 included the onset ratio, adaptation shift and offset shift.  The \AIV measures
 highlight the balance of excitation and inhibition in \TS cells and were
 designed to be independent of \RMP and \FSL. The effective stimulus onset was
-determined to be 2.5 ms prior to the peak in the reference \AIV trace.  A shift
+determined to be 2.5 msec prior to the peak in the reference \AIV trace.  A shift
 in onset peak between the reference trace and the test \TS cell model's \AIV
 trace was used to compensate for differences in \ANF onset delay.
 
-Early attempts to use the original \AIV measures, which used 1 ms windows, were
+Early attempts to use the original \AIV measures, which used 1 msec windows, were
 unable to fit the model to the experimental data.  The fluctuations in the \TS
 cell model's \AIV traces were mainly due to \AP artifacts and only 25 stimulus
 repetitions.  Increasing the number of repetitions would be computationally
-expensive, so the sampling window was set to 5 ms.  The latency of the depolarisation
+expensive, so the sampling window was set to 5 msec.  The latency of the depolarisation
 peak was used to temporally shift the model's AIV trace for a stronger
 comparison with the exemplar unit.
 
 The onset ratio measure was calculated as the ratio in peak onset \AIV depolarisation
-(sum over the first 5 ms) relative to the sustained depolarisation (sum measured
-between 20 to 25 ms).
+(sum over the first 5 msec) relative to the sustained depolarisation (sum measured
+between 20 to 25 msec).
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:IVstats-Onset} \textrm{Onset Ratio} = \bar{\mathbf{v}}|_{t=0}^{t=5}\quad/\quad \bar{\mathbf{v}}|_{t=20}^{t=25}.
@@ -3043,7 +3043,7 @@ between 20 to 25 ms).
 
 
 The adaptation shift measurement calculates the drop in \AIV depolarisation at the
-end of the stimulus compared to the stable point around 20 ms after the onset
+end of the stimulus compared to the stable point around 20 msec after the onset
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:IVstats-Adap} \textrm{Adaptation} = \bar{\mathbf{v}}|_{t=18}^{t=23}\quad - \quad\bar{\mathbf{v}}|_{t=48}^{t=53}.
@@ -3053,12 +3053,12 @@ Greater adaptation to a sustained stimulus is represented by a larger drop in
 depolarisation. Adaptation shift is caused by a combination of factors, but is
 mostly due to reduced excitation from \ANF inputs which is caused by adaptation
 at the IHC-AN synapse.  Due to simulation complications, adaptation measures
-were averaged over 5 ms rather than the 1 ms period used in the original paper
+were averaged over 5 msec rather than the 1 msec period used in the original paper
 \citep{PaoliniClareyEtAl:2005}.
 
 
 The offset shift measures the effects of sustained inhibition and recovery of
-excitation 10 ms after the stimulus offset
+excitation 10 msec after the stimulus offset
 #+BEGIN_LaTeX
   \begin{equation}
   \label{eq:IVstats-Offset} \textrm{Offset} = \bar{\mathbf{v}}|_{t=-10}^{t=0}\quad - \quad\bar{\mathbf{v}}|_{t=60}^{t=65}.
@@ -3066,7 +3066,7 @@ excitation 10 ms after the stimulus offset
 #+END_LaTeX
 Negative values indicate post-stimulus \AIV hyperpolarisation which is caused by
 reduced excitation or the presence of inhibition.  The post-stimulus \AIV
- was averaged over 5 ms from 60 ms to avoid errors in optimisation
+ was averaged over 5 msec from 60 msec to avoid errors in optimisation
 simulations.
 
 
@@ -3205,7 +3205,7 @@ of the \TS cell model.  The exemplar \ChS unit (\CF 3.9 kHz) had an
 intracellular depolarisation threshold, $\theta$, at 10 dB \SPL and a firing rate
 saturation at 75 dB \SPL.  The stimuli for the optimisation routine were three
 pure \CF tones at 20, 30 and 40 dB re $\theta$ (above the acoustic threshold) of the
-exemplar unit (30, 40 and 50 dB \SPL, respectively).  A 20 ms delay was included
+exemplar unit (30, 40 and 50 dB \SPL, respectively).  A 20 msec delay was included
 to allow the model to reach a sustained \RMP. The \TS cell model used in the
 \ChS optimisation, hereafter called the \ChS model, had \CF of 3.872 kHz.  The
 output spiking and intracellular responses of the best parameters found by the
@@ -3250,10 +3250,10 @@ mV for the model and 0.94 mV for the exemplar unit.
 
 
 # \note{TODO: The peaks for the IV are 3.66,
-# 6.77, and 10.99 ms. The \AN model input is affected by the rat audiogram,
+# 6.77, and 10.99 msec. The \AN model input is affected by the rat audiogram,
 # the low \CF and low level.  This shifts the arrival time of spikes to the
 # \TS model, and a raw IV comparison would need to be shifted by approx 2
-# ms. The onset ratio and the first CV value are effected by this.}
+# msec. The onset ratio and the first CV value are effected by this.}
 
 # \note{TODO: Synaptic weight in the model above 0.002 will initiate a
 # spike at each input spike, similar to the calyx synapse on bushy
@@ -3273,12 +3273,12 @@ mV for the model and 0.94 mV for the exemplar unit.
     The stimulus (pure tone 3.9 kHz stimulus, 40dB SPL) was repeated 50 times for
     this analysis but during the optimisation routine the repetition was 25.
     A. PSTH of the \TS cell model (CF 3.872 kHz) to a pure tone at CF at 30 dB re
-    $\theta$. B. Coefficient of variation averaged over 10 ms periods.
+    $\theta$. B. Coefficient of variation averaged over 10 msec periods.
     C. Reference (blue) and ChS cell model AIVs at 30 dB re $\theta$. Note: shaded areas indicate areas used in the
     measures in D.  D. AIV measures including (a) onset ratio
     (30 dB re $\theta$, Equation~\ref{eq:IVstats-Onset}), (b) adaptation of sustained depolarisation
     (20,30,40 dB re $\theta$, Equation~\ref{eq:IVstats-Adap}), and (c) post-tone hyperpolarisation
-    (20,30,40 dB re $\theta$, Equation~\ref{eq:IVstats-Offset}).  The RMP, calculated from -10 to 0 ms, for
+    (20,30,40 dB re $\theta$, Equation~\ref{eq:IVstats-Offset}).  The RMP, calculated from -10 to 0 msec, for
     the reference unit and best parameter model was -45.1 and -64.22 mV,
     respectively.}
     \label{fig:CSresults}
@@ -3364,13 +3364,13 @@ of the optimised \ChTone unit at 25 repetitions was
 call_TSopt_error(type="CT1")[:results replace raw], an arbitrary value that is a combination of
 weighted CV and AIV differences.
 The characteristic CV response of the \ChTone was highly regular in the first 10
-ms (less than 0.2), then transiently adapted to regularity below 0.3 for the
+msec (less than 0.2), then transiently adapted to regularity below 0.3 for the
 remainder of the stimulus.  The combined \RMS errors of the CV data was 0.064.
 The CV at 30 dB re $\theta$ was closest fit to the reference data (RMS 0.034). The
 RMS error of the 20 and 40 dB re $\theta$ CV profiles were 0.038 and 0.098,
 respectively.  The \AIV traces in Figure \ref{fig:CT1results}C show the
 differences in the exemplar unit and the simulated \TS cell model. The
-repetitive firing in the first 20 ms of the \ChTone \AIV trace resulted in
+repetitive firing in the first 20 msec of the \ChTone \AIV trace resulted in
 consistent membrane voltage fluctuation that was not present in the exemplar
 unit.  The onset ratio statistics of the exemplar and optimised \ChTone units were
 0.983 and 1.01, respectively, at 30 db re $\theta$.  The optimised \ChTone unit was
@@ -3389,7 +3389,7 @@ data. The reference unit had a low depolarising threshold (5 dB \SPL) so the
 stimuli were set to 25, 35 and 45 dB \SPL (low levels relative to those used in the \ChT1
 model). The main
 difference between the transient chopper types is their \CV values
-after 10 ms, with the \ChT2 type becoming irregular (i.e. having a CV value over
+after 10 msec, with the \ChT2 type becoming irregular (i.e. having a CV value over
 0.3) and maintaining that irregularity for the remainder of the stimulus.  \ChT2
 has a higher reduction in onset depolarisation (90.2\%) compared to ChT1, and
 post-tone inhibition is greater (+8.82 mV at 30 dB re $\theta$)
@@ -3400,7 +3400,7 @@ post-tone inhibition is greater (+8.82 mV at 30 dB re $\theta$)
 
 #    chopper transient type 2
 #    // unit 01-305-014 \citep{PaoliniClareyEtAl:2005}
-#    //CV (10ms segs) first 10m below 0.2, then rises above 0.3
+#    //CV (10msec segs) first 10m below 0.2, then rises above 0.3
 #    // rate saturation at 5 dB
 #    spl      = 35   //30 dB above depolarisation threshold
 #    tonefreq = 12400 //Hz
@@ -3466,7 +3466,7 @@ with the greatest weighting from the CV data.
 
 
 
-# The \FSL at 30 dB re $\theta$ (call_CT2_fsl(SPLreTh=40)[:results replace raw] ms) showed a precise first spike.
+# The \FSL at 30 dB re $\theta$ (call_CT2_fsl(SPLreTh=40)[:results replace raw] msec) showed a precise first spike.
 # At 40 dB re $\theta$ the
 
 ** Overview of TS cell model results
@@ -3497,7 +3497,7 @@ regular onset spikes at 40 dB re $\theta$.
 
 Intracellular voltage data contains more information regarding synaptic
 inputs and sub-threshold membrane dynamics than mere spikes alone.  The \AIV
-statistics of \citep{PaoliniClareyEtAl:2005} were modified to 5 ms sampling to
+statistics of \citep{PaoliniClareyEtAl:2005} were modified to 5 msec sampling to
 allow for less repetitions in the optimisation routines.  For both the offset
 ratio and adaptation MP difference measures, the optimal neurons' responses were
 within the accepted bounds for noise.  The results of the post-stimulus MP offset
