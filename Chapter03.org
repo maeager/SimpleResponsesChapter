@@ -470,7 +470,7 @@ All simulations were performed in the neural simulation package [[latex:progname
 # For further specifications see Section [[Simulation%20and%20Implementation%20of%20the%20CNSM%20Model][Simulation and Implementation of the CNSM Model]].
 The time step of the numerical integration performed in each of the simulations
 in this chapter was 0.05 msec.  Input spikes for Poisson neural models (\HSR and
-\LSR\space \ANFS, and \GLG cell models) were calculated at the start of
+\LSR\space \ANFs, and \GLG cell models) were calculated at the start of
 repetitions.
 
 # The parallel is based on the [[latex:progname][NEURON]] network model [[latex:progname][netmod]]
@@ -1069,22 +1069,23 @@ spread from \LSR fibres in the \CNSM model.
 ** Verification of the Golgi Cell Model
 
 After setting the optimised parameters in Table \ref{tab:GolgiCellResults}, the
-\GLG cell model was run with tone and noise inputs to determine its behaviour.
-The \GLG cell model was tested across the entire \CNSM model network, using
-tones, noise, and tones plus noise stimuli. Figure
+\GLG cell model was run with tone and noise inputs to determine its behaviour to
+a battery of tests.  The \GLG cell model was tested across the entire \CNSM
+model network, using tones, noise, and tones plus noise stimuli. Figure
 \ref{fig:GolgiVerificationPSTH} shows a comparison of \PSTHs to tone bursts
 between the optimised \GLG cell model and recorded marginal shell units.  The
-\PSTH of the \GLG cell model was classified as unusual and did not contain the
+\PSTH of the \GLG cell model was classified as unusual and did contain the
 prominent onset responses of the recorded units.  The merging of \LSR profiles
-at different \CFs and the convolution of the smoothing filter contributed to the
-reduction of the onset response to tones.
+at different \CFs and the convolution of the smoothing filter was thought to
+contribute to the reduction of the onset response to tones and noise, but the
+results show a prominent onset response in the \GLG cell model.
 
 
 #+BEGIN_LaTeX
   \begin{figure}[t!]
      %\centering
     {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{psthblock-3.pdf}}%
+    {\hfill\resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/psthblock-3.pdf}}%
     \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/GhoshalKim_PSTHs.png}}\hfill}\\
     \caption[Optimised GLG cell model responses to tones and noise]{Response of optimised GLG cell model at the centre of the network (CF 5.8 kHz).
    A. Four simulated PSTHs of the \GLG cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 msec duration, 20 msec delay).
@@ -1095,6 +1096,13 @@ reduction of the onset response to tones.
 
 
 
+#+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
+#+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 AVCN marginal shell units (Figure reproduced from \citealt{GhoshalKim:1996a}).}
+#+LABEL:  fig:GolgiKimFig2
+[[../SimpleResponsesChapter/gfx/GhoshalKim96_Fig2.pdf]]
+
+
+
 Figure \ref{fig:GolgiKimFig2} shows the tone and noise rate level responses of
 six marginal shell units observed by \citet{GhoshalKim:1996a}.  The unit at the
 top of Figure \ref{fig:GolgiKimFig2}, S03-07 (\CF 22.7 kHz), was chosen to
@@ -1102,13 +1110,6 @@ optimise the \GLG cell model as it is monotonic and has the median maximum rate
 of all the units shown (101 sp/s for tones and 96 sp/s for BBN).  The typical
 properties of \GLG units were derived from the marginal shell units recorded in
 the \citet{GhoshalKim:1996a} study.
-
-
-#+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
-#+CAPTION:  [Rate level response of marginal shell units]{Rate level response of 6 AVCN marginal shell units (Figure reproduced from \citealt{GhoshalKim:1996a}).}
-#+LABEL:  fig:GolgiKimFig2
-[[../SimpleResponsesChapter/gfx/GhoshalKim96_Fig2.pdf]]
-
 
 
 Figure \ref{fig:GolgiVerificationWhole} shows the response of optimised \GLG
@@ -1142,30 +1143,37 @@ species-specific audiogram compression in the \AN model.
 #+BEGIN_LaTeX
   {%
   \begin{figure}[t!]
-    % \centering
-    {    \figfont{A}\hspace{0.46\textwidth}\figfont{B}\hspace{0.46\textwidth}}\\
-    {\hfill%
-      \hspace{2cm}\includegraphics[width=0.4\textwidth,keepaspectratio]{RateLevel/G_ratelevel.pdf}\hspace{1cm}%
-      \includegraphics[width=0.4\textwidth,keepaspectratio]{NoiseRateLevel/G_ratelevel.pdf}\hfill}\\
-    {    \figfont{C}\hspace{0.46\textwidth}\figfont{D}\hspace{0.46\textwidth}}\\
-    \vspace{-0.6ex}%
-    \resizebox{0.95\textwidth}{!}{\hfill%
-      \includegraphics{RateLevel/response_area-3.pdf}\hfill%
-      \includegraphics{NoiseRateLevel/response_area-3.pdf}\hfill}%
+  % \centering
+  %     {    \figfont{A}\hspace{0.46\textwidth}\figfont{B}\hspace{0.46\textwidth}}\\
+  %     {\hfill%
+  %       \hspace{2cm}\includegraphics[width=0.4\textwidth,keepaspectratio]{RateLevel/G_ratelevel.pdf}\hspace{1cm}%
+  %       \includegraphics[width=0.4\textwidth,keepaspectratio]{NoiseRateLevel/G_ratelevel.pdf}\hfill}\\
+  %     {    \figfont{C}\hspace{0.46\textwidth}\figfont{D}\hspace{0.46\textwidth}}\\
+  %     \vspace{-0.6ex}%
+  %     \resizebox{0.95\textwidth}{!}{\hfill%
+  %       \includegraphics{RateLevel/response_area-3.pdf}\hfill%
+  %       \includegraphics{NoiseRateLevel/response_area-3.pdf}\hfill}%
+  % \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
+  %       whole network (CF 5.8 kHz) to pure tones and noise.
+  %       A. Rate level response of the central GLG unit to a pure CF tone (5.81 kHz, 50 msec, 20 repetitions). Sigmoidal function fit to data, $44.18 \mathrm{arctan}((x-52.92)/22.75)+51.4$.
+  %       B. Noise rate level response of the central GLG unit to broad-band noise (50 msec, 20 repetitions). The curve is monotonic, with a threshold at 60 dB.
+  %       C. Rate level responses of all GLG units to a pure tone (5.81 kHz, 50 msec, 20 repetitions).
+  %       D. Noise rate level response of all GLG units to BNN stimuli (50 msec, 20 repetitions). A sigmoidal best fit line is shown (the function values are not necessary due to no saturation in the data points). }
+    \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/ratelevel-3.pdf}}\\
     \caption[Whole network response of GLG cell model]{Response of GLG cell models across the
       whole network (CF 5.8 kHz) to pure tones and noise.
-      A. Rate level response of the central GLG unit to a pure CF tone (5.81 kHz, 50 msec, 20 repetitions). Sigmoidal function fit to data, $44.18 \mathrm{arctan}((x-52.92)/22.75)+51.4$.
-      B. Noise rate level response of the central GLG unit to broad-band noise (50 msec, 20 repetitions). The curve is monotonic, with a threshold at 60 dB.
-      C. Rate level responses of all GLG units to a pure tone (5.81 kHz, 50 msec, 20 repetitions).
-      D. Noise rate level response of all GLG units to BNN stimuli (50 msec, 20 repetitions). A sigmoidal best fit line is shown (the function values are not necessary due to no saturation in the data points). }
-    \label{fig:GolgiVerificationWhole}
-  \end{figure}
-  }
-   % RL
-   % a               = 44.185           +/- 2.876        (6.51%)
-   % b               = 22.7539          +/- 2.674        (11.75%)
-   % c               = 52.9203          +/- 1.211        (2.289%)
-   % d               = 51.4084          +/- 1.509        (2.936%)
+      A. Rate level response map of the GLG cells to a pure CF tone (5.81 kHz, 50 msec, 100 repetitions).
+      B. Noise rate level response map of the GLG cells to broad-band noise (frozen noise, 50 msec, 100 repetitions). 
+      C. Rate level responses of the central GLG unit to a pure CF tone (5.81 kHz, 50 msec, 100 repetitions).
+      D. Noise rate level response of all GLG units to BNN stimuli (50 msec, 100 repetitions). }    
+      \label{fig:GolgiVerificationRL}
+    \end{figure}
+    }
+     % RL
+     % a               = 44.185           +/- 2.876        (6.51%)
+     % b               = 22.7539          +/- 2.674        (11.75%)
+     % c               = 52.9203          +/- 1.211        (2.289%)
+     % d               = 51.4084          +/- 1.509        (2.936%)
 #+END_LaTeX
 
 
@@ -1761,81 +1769,114 @@ Figure \ref{fig:DSRateLevelResult} was
 
 ** Verification of the DS Cell Model
 
-\yellownote{TODO Explain DS verification}
+
 
 The optimised parameters for inputs to the \DS cell model were applied to \DS
 cells across the whole network using tones, noise and tones plus noise stimuli.
-The behaviour of an individual \DS cell model output is shown in Figure
-\ref{fig:DSverificationPSTH}.
+The PSTH responses of the \DS cell model in the centre frequency channel (\CF
+4.513 kHz) of the network is shown in Figure \ref{fig:DSverificationPSTH}.  
+The
+PSTH responses to a \CF tones is classified as \OnC (50 and 90 dB SPL Figure
+\ref{fig:DSverificationPSTH}A and B) with a precise first onset spike followed
+by one to two regularly spaced spikes and a smaller number of irregularly spaced
+spikes throughout the stimulus.  The mean first spike latency of the DS cell
+model reduced from 24.3 msec at 50 dB SPL to 23.40 msec at 90 dB SPL. The onset
+PSTH responses to frozen broadband noise did not have the second chopping spike
+but did have other peaks determined by the spectral peaks in the unit's receptive field.
+(Figure \ref{fig:DSverificationPSTH}C and D).
+For comparison, on and off-CF PSTH tones responses in three rat DS cells are shown in Figure \ref{fig:PaoliniDSPSTH} \citep{PaoliniClark:1999}.
+The on-CF tones were 30 dB above their acoustic threshold and each show two prominent spikes at onset with the unit's in A and B having few spikes in the remainder of the stimulus.
+# The off-CF tones, well below the CF of the unit's, show the \OnC PSTH response is still relevant  
+#  the unit in Figure \ref{fig:PaoliniDSPSTH}C.
 
-
-Figure \ref{fig:DSverificationPSTH}A and B show
-the response of the central \DS cell model (\CF 5.8 kHz).
-# The onset PSTH
-# monotonic responses to tones and noise were similar to other Ghoshal and Kim
-# units (Figure \ref{fig:GolgiKimFig2}).
-
-Figure \ref{fig:DSverification}C shows the wide response of all \DS units in the
-network to a 5.8 kHz tone for increasing sound level.  Adding masking noise
-increased the width of the activity across the \CF of the central unit (Figure
-\ref{fig:DSverification}D), highlighting the broad inputs of \ANFs onto \DS
-cells.
 
 #+BEGIN_LaTeX
+ 
   \begin{figure}[t!]
      %\centering
     %{\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
     {\hfill%
     \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Paolini99_Fig9.png}}%
-    \resizebox{0.5\textwidth}{!}{\figfont{D}\hfill\\
-    \includegraphics{psthblock-2.pdf}}%
-    %\resizebox{0.5\textwidth}{!}{\includegraphics{../LiteratureReview/gfx/NoFigure.pdf}}\hfill}\\
+    {\figfont{E}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/psthblock-2.pdf}}%
     \hfill}\\
     \caption[Optimised DS cell model responses to tones and noise]{%
-   A-C. PSTHs in 3 rat OnC neurons to 50 msec tones on CF and below CF \citep[Figures~reproduced~from][]{PaoliniClark:1999}.
-   D. Response of optimised DS cell model at the centre of the network (CF 5.8 kHz). Four simulated PSTHs of the \DS cell model to tones at 50 and 90 dB SPL and broadband noise (BBN) at 60 and 100 dB SPL (50 msec duration, 20 msec delay).
+   Response of optimised DS cell model at the centre of the network (CF 5.8 kHz). Four simulated PSTHs of the \DS cell model to CF tones at 50 (A) and 90 dB SPL (B) and broadband noise (BBN) at 60 (C) and 100 dB SPL (D). (Stimuli duration 50 msec, 20 msec delay, 100 repetitions, 2 msec cosine on-off ramp).
   } \label{fig:DSVerificationPSTH}
   \end{figure}
-#+END_LaTeX
-
-
-#+BEGIN_LaTeX
   \begin{figure}[t!]
-    % \centering
-    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%
-   %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d}
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{MaskedResponseCurve/DS_masked}\\
-    \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  A. Response areas of rat OnC units to pure tones (image reproduced from \citet{PaoliniClark:1999}).  B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
-    \label{fig:DSVerificationRA}
+    \centering
+    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Paolini99_Fig9.png}}\\
+    \caption[DS cell PSTHs to CF and off-CF tones]{%
+   A-C. PSTHs in 3 rat OnC neurons to 50 msec tones on CF and below CF \citep[Figures~reproduced~from][]{PaoliniClark:1999}.
+  } \label{fig:PaoliniDSPSTH}
   \end{figure}
+ 
 #+END_LaTeX
+
+Figure \ref{fig:DSverificationRL} shows the optimised DS cell model's response
+to tones and noise.  Figure \ref{fig:DSverificationRL}A shows the wide response
+of all \DS units in the network to a 4.5 kHz tone with increasing sound level.
+The on-CF unit (Figure \ref{fig:DSverificationRL}C) had monotonic increase in
+rate from an acoustic threshold of 30 dB SPL.  The response to noise was spread
+throughout all DS cells (Figure \ref{fig:DSverificationRL}B).  The variation in
+acoustic threshold at different frequency channels is due to the cat audiogram
+compression in the AN model.
+ 
+# increased the width of the activity across the \CF of the central unit (Figure
+# \ref{fig:DSverification}D), highlighting the broad inputs of \ANFs onto \DS
+# cells.
 
 
 #+BEGIN_LaTeX
   \begin{figure}[t!]
     \centering%\hspace{0.5cm}
-    {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{DS_ratelevel_combined.pdf}%
-    % \resizebox{0.95\textwidth}{!}{
-    % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/psthsingle90-2}\\
-    %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{NoiseRateLevel/psthsingle120-2}\\
-    % }\\\hspace{0.5cm}
-    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
-    % \resizebox{0.95\textwidth}{!}{%
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/response_area-2.pdf}%
-    \includegraphics[keepaspectratio=true,width=0.48\textwidth]{MaskedResponseCurve/DS_masked}\\
-    \caption[Optimised DS cell model responses]{Response of optimised DS cell model at the centre of the network (CF 5.8 kHz).
-      A. Rate level responses to tone, noise and tone plus noise.
-      B. PSTH at 120 dB SPL to noise.
-      C. Response area equivalent using all DS units in the network in response to pure tone at 5.8 kHz and varying sound level.
-      D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF\@.}
-    \label{fig:DSverification}
+    % {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+    % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{DS_ratelevel_combined.pdf}%
+    % % \resizebox{0.95\textwidth}{!}{
+    % % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/psthsingle90-2}\\
+    % %\includegraphics[keepaspectratio=true,width=0.48\textwidth]{NoiseRateLevel/psthsingle120-2}\\
+    % % }\\\hspace{0.5cm}
+    % \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+    % % \resizebox{0.95\textwidth}{!}{%
+    % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/response_area-2.pdf}%
+    % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{MaskedResponseCurve/DS_masked}\\
+    % \caption[Optimised DS cell model responses]{Response of optimised DS cell model at the centre of the network (CF 5.8 kHz).
+    %   A. Rate level responses to tone, noise and tone plus noise.
+    %   B. PSTH at 120 dB SPL to noise.
+    %   C. Response area equivalent using all DS units in the network in response to pure tone at 5.8 kHz and varying sound level.
+    %   D. Masked noise-tone response of the central unit to 15 dB masking noise and frequencies one octave above and below its CF\@.}
+  
+      \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/ratelevel-2.pdf}}\\
+      \caption[Whole network response of DS cell model]{Response of the DS cell model across the
+        whole network to a pure tone (on centre unit's CF, 4.513 kHz) and frozen broadband noise.
+        A. Rate level response map of the DS cells to a pure CF tone (4.513 kHz, 50 msec, 100 repetitions).
+        B. Noise rate level response map of the DS cells to broad-band noise (50 msec, 100 repetitions). 
+        C. Rate level responses of the central DS unit to a pure CF tone.
+        D. Noise rate level response of the central DS unit to BNN. }    
+    \label{fig:DSverificationRL}
   \end{figure}
 #+END_LaTeX
 
-# ** Effects of $g_{leak}$ and $g_{KLT}$ on DS resting membrane potential
 
+# Figure \ref{fig:DSVerificationRA} shows a comparison between 
+# # + BEGIN_LaTeX
+#   \begin{figure}[t!]
+#     % \centering
+#     {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+#     \includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/PaoliniClarke99_Fig8_2OcRLs.png}%
+#    %\includegraphics[width=0.48\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RhodeSmith86_Fig7a-d}
+#     \includegraphics[keepaspectratio=true,width=0.48\textwidth]{../SimpleResponsesChapter/gfx/Responses/MaskedResponseCurve/DS_masked}\\
+#     \caption[Response area of the optimised DS cell model]{Response area of \DS cells and the optimised \DS cell model.  
+#      A. Response areas of rat OnC units to pure tones (image reproduced from \citet{PaoliniClark:1999}).  
+#      B. Masked response area of the optimised \DS cell model with constant 15 dB SPL broadband noise plus pure tones around the CF of the unit (5.8~kHz).}
+#     \label{fig:DSVerificationRA}
+#   \end{figure}
+# # + END_LaTeX
+
+
+
+# ** Effects of $g_{leak}$ and $g_{KLT}$ on DS resting membrane potential
 # TODO: This section is optional
 # The resting membrane potential of these large multipolar cells has  been shown to be in the range of 3--5 MOhms
 # TODO: citation needed  here.
@@ -2375,71 +2416,79 @@ effective in noise and at the onset of sounds.
 
 
 #+BEGIN_LaTeX
-  \begin{figure}[tp!]
-  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-StrychAB.png}}
-  %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
-
-  \resizebox{0.95\textwidth}{!}{%
-  \includegraphics{MaskedResponseCurve/15/TV_masked.pdf}%
-  \includegraphics{MaskedResponseCurve/30/TV_masked}}\\
-
-  \resizebox{0.95\textwidth}{!}{%
-  \includegraphics{MaskedResponseCurve/45/TV_masked}%
-  \includegraphics{MaskedResponseCurve/60/TV_masked}}
-  \caption[Tone and noise masking response area in TV cells]{Tone and noise masking response area in TV cells. A-B Tone and noise response map of a cat TV cell (Type II DCN unit \citep{SpirouDavisEtAl:1999}) with and without ionotopopheretic application of strynchnine.
-   A. Rate level responses to tone, noise and tone plus noise.
-   B. PSTH at 90 dB SPL to noise.
-   C. Response area equivalent using all DS units in the network.
-   D. Tone response maps with masking noise in optimised TV cell model at the centre of the CNSM model.  Frequencies range from one octave above and below the cell's CF\@.}
-  \label{fig:TVmaskedresponse}
-  \end{figure}
+  % \begin{figure}[tp!]
+  % \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-StrychAB.png}}
+  % %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
+  
+  % \resizebox{0.95\textwidth}{!}{%
+  % \includegraphics{MaskedResponseCurve/15/TV_masked.pdf}%
+  % \includegraphics{MaskedResponseCurve/30/TV_masked}}\\
+  
+  % \resizebox{0.95\textwidth}{!}{%
+  % \includegraphics{MaskedResponseCurve/45/TV_masked}%
+  % \includegraphics{MaskedResponseCurve/60/TV_masked}}
+  % \caption[Tone and noise masking response area in TV cells]{Tone and noise masking response area in TV cells. A-B Tone and noise response map of a cat TV cell (Type II DCN unit \citep{SpirouDavisEtAl:1999}) with and without ionotopopheretic application of strynchnine.
+  %  A. Rate level responses to tone, noise and tone plus noise.
+  %  B. PSTH at 90 dB SPL to noise.
+  %  C. Response area equivalent using all DS units in the network.
+  %  D. Tone response maps with masking noise in optimised TV cell model at the centre of the CNSM model.  Frequencies range from one octave above and below the cell's CF\@.}
+  % \label{fig:TVmaskedresponse}
+  % \end{figure}
 #+END_LaTeX
 
-\yellownote{Fix PSTH figure and discuss plots in text.}
+\yellownote{Discuss plots in text. Needs editing to check any updates to the plots.}
 #+BEGIN_LaTeX
-   \begin{figure}[t!]
-     % \centering
-   %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
-   %   \hfill\resizebox{0.95\textwidth}{!}{%
-   %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
-   % \includegraphics{}\hfill}\\
-   %  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-     {\hfill\resizebox{0.5\textwidth}{!}{%
-     \includegraphics{psthblock-1.pdf}%
-     %\includegraphics{}%
-   }\hfill}\\
-   %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
-      \caption[Optimised TV cell model PSTH responses]{Response of optimised TV cell model at the centre of the network (CF 5.8\ kHz) to CF tones and noise.
-     %A. Rate level responses to tone, noise and tone plus noise.
-      PSTH responses to CF tones at 50 and 90\ dB SPL\@, and broad-band noise (BBN) at 60 and 100\ dB\ SPL\@.
-     %C. Response area equivalent using all TV units in the network.
-     %D. Masked noise-tone response of the central unit to 15\ dB masking noise and
-     %frequencies one octave above and below its CF.
-
-    %  \caption[Optimised TV cell model responses]{Response of optimised TV cell model at the centre of the network (CF 5.8 kHz).
-    % A. Rate level responses to tone, noise and tone plus noise.
-    % B. PSTH at 90 dB SPL\@.
-    % C. Response area equivalent using all TV units in the network.
-    % D. Masked noise-tone response of the central unit to 15 dB masking noise and
-    % frequencies one octave above and below its CF.
-  % E. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996}.
-   } \label{fig:TVVerificationPSTH}
-   \end{figure}
+  %  \begin{figure}[t!]
+  %    % \centering
+  %  %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
+  %  %   \hfill\resizebox{0.95\textwidth}{!}{%
+  %  %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
+  %  % \includegraphics{}\hfill}\\
+  %  %  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+  %    {\hfill\resizebox{0.5\textwidth}{!}{%
+  %    \includegraphics{../SimpleResponsesChapter/gfx/Responses/psthblock-1.pdf}%
+  %    %\includegraphics{}%
+  %  }\hfill}\\
+  %  %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+  %     \caption[Optimised TV cell model PSTH responses]{Response of optimised TV cell model at the centre of the network (CF 5.8\ kHz) to CF tones and noise.
+  %    %A. Rate level responses to tone, noise and tone plus noise.
+  %     PSTH responses to CF tones at 50 and 90\ dB SPL\@, and broad-band noise (BBN) at 60 and 100\ dB\ SPL\@.
+  %    %C. Response area equivalent using all TV units in the network.
+  %    %D. Masked noise-tone response of the central unit to 15\ dB masking noise and
+  %    %frequencies one octave above and below its CF.
+  
+  %   %  \caption[Optimised TV cell model responses]{Response of optimised TV cell model at the centre of the network (CF 5.8 kHz).
+  %   % A. Rate level responses to tone, noise and tone plus noise.
+  %   % B. PSTH at 90 dB SPL\@.
+  %   % C. Response area equivalent using all TV units in the network.
+  %   % D. Masked noise-tone response of the central unit to 15 dB masking noise and
+  %   % frequencies one octave above and below its CF.
+  % % E. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996}.
+  %  } \label{fig:TVVerificationPSTH}
+  %  \end{figure}
 #+END_LaTeX
 
 
 #+BEGIN_LaTeX
   \begin{figure}[t!]
   \centering
-  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-  \resizebox{0.95\textwidth}{!}{\hfill%
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/response_area-1.pdf}\hfill%
-  \includegraphics[keepaspectratio=true,width=0.48\textwidth]{NoiseRateLevel/response_area-1.pdf}\hfill}%
-  \caption[Whole network response of TV cell model]{Response of TV cell models
-    across the whole network (CF 5.8 kHz) to pure tones and noise.  A. Rate
-    response of all TV units in the network to pure tone at centre of network (5.8
-    kHz).  B. Rate response of all TV units to broad-band noise.}
-  \label{fig:TVVerificationWhole}
+  % {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
+  % \resizebox{0.95\textwidth}{!}{\hfill%
+  % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{RateLevel/response_area-1.pdf}\hfill%
+  % \includegraphics[keepaspectratio=true,width=0.48\textwidth]{NoiseRateLevel/response_area-1.pdf}\hfill}%
+  % \caption[Whole network response of TV cell model]{Response of TV cell models
+  %   across the whole network (CF 5.8 kHz) to pure tones and noise.  A. Rate
+  %   response of all TV units in the network to pure tone at centre of network (5.8
+  %   kHz).  B. Rate response of all TV units to broad-band noise.}
+  
+        \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/ratelevel-1.pdf}}\\
+        \caption[Whole network response of TV cell model]{Response of the TV cell model across the
+          whole network to a pure tone (on centre unit's CF, 4.513 kHz) and frozen broadband noise.
+          A. Rate level response map of the TV cells to a pure CF tone (4.5 kHz, 50 msec, 100 repetitions).
+          B. Noise rate level response map of the TV cells to broad-band noise (50 msec, 100 repetitions). 
+          C. Rate level responses of the central TV unit to a pure CF tone.
+          D. Noise rate level response of the central TV unit to BNN. }    
+  \label{fig:TVVerification}
   \end{figure}
 #+END_LaTeX
 
@@ -2450,8 +2499,8 @@ cell model, the rate-level response of \TV cells is non-linear and the noise
 rate-level is strongly inhibited (Figure \ref{fig:TVverification}A).  This is
 typical of the Type II \EIRA units in the deep layer of the \DCN
 \citep{SpirouDavisEtAl:1999,Rhode:1999}.  The PSTH response of the central \TV
-unit (\CF 5.8 kHz) at 90 dB \SPL is a simple chopping response, characteristic
-of the Type I-c \RM neural model (Figure \ref{fig:TVverification}A)
+unit (\CF 4.5 kHz) at 90 dB \SPL is a simple chopping response, characteristic
+of the Type I-c \RM neural model (Figure \ref{fig:TVVerificationPSTH}A)
 \citep{RothmanManis:2003b}. The minimum first spikes occur at 4.3 msec after the
 stimulus onset (similar to the un-optimised \TV cell model's mean \FSL in
 Section [[Synaptic Delays]]).
@@ -2463,7 +2512,7 @@ chopping behaviour was suppressed (Figure \ref{fig:TVverification}B).
 # The \TV model outputs' behaviour is shown in Figure \ref{fig:TVverification},
 # similar to the \GLG cell model Figure \ref{fig:Golgiverification}.
 Figure \ref{fig:TVverification}A and B show the response of the central \TV
-model (\CF 5.8 kHz). The PSTH in Figure \ref{fig:TVverification}B is a wide
+model (\CF 4.5 kHz). The PSTH in Figure \ref{fig:TVverification}B is a wide
 chopper, generated from regular firing Type I-c \RM neural model and the strong
 onset inhibition from \DS cells. Figure \ref{fig:TVverification}C shows the wide
 response of all \TV units in the network to a 5.8 kHz tone with increasing sound
