@@ -2871,7 +2871,7 @@ and local axonal collaterals are restricted to the isofrequency lamina
 (75-100\um perpendicular to \ANFs) and extend between 150-300 \um parallel to
 \ANFs \citep{SmithRhode:1989,PalmerWallaceEtAl:2003}.  The cell body diameter of
 \TS cells is typically 16--20\um in rat
-\citep{DoucetRyugo:1997,DoucetRyugoEtAl:1999,DoucetRyugo:2006},
+\citep{DoucetRyugo:1997,DoucetRossEtAl:1999,DoucetRyugo:2006},
 # 28.7{$^\ast$} (cat [\citenum{SmithRhode:1989}])
 and $21.6\pm11.3\,\um$ in cats \citep{ReddCahillEtAl:2002}.  The variation is
 somata sizes based on chopper categorisation has been suggested in guinea pigs
