@@ -89,7 +89,11 @@ export LC_ALL		?= C
 #
 # If you list files or wildcards here, they will *not* be cleaned - default is
 # to allow everything to be cleaned.
-neverclean		?= *.pdf
+#neverclean		?= *.pdf
+#
+# A space-separated list of extra files to clean - you can specify this in the
+# .ini files. Make sure you escape them properly, if that's needed!
+#cleanextra		?=
 #
 # Alternatively (recommended), you can add those lines to a Makefile.ini file
 # and it will get picked up automatically without your having to edit this
@@ -117,6 +121,8 @@ neverclean		?= *.pdf
 #
 #
 # CHANGES:
+# Chris Monson (2013-04-09):
+# * Fixed mess with _check_programs - works properly now.
 # Chris Monson (2012-11-23):
 # * Issue 166: Added clean-extra target and cleanextra user variable.
 # Chris Monson (2012-08-02):
@@ -3470,12 +3476,12 @@ _check_programs:
 	case $$p in \
 		=*) $(ECHO); $(ECHO) "$$p";; \
 		*) \
-			$(ECHO) -n "$$p:$$spaces" | $(SED) -e 's/^\(.\{0,20\}\).*$$/\1/'; \
-			loc=`$(WHICH) $$p`; \
+			n=`$(ECHO) "$$p:$$spaces" | $(SED) -e 's/^\(.\{0,20\}\).*$$/\1/'`; \
+			loc=`$(WHICH) $$p 2>/dev/null`; \
 			if [ x"$$?" = x"0" ]; then \
-				$(ECHO) "$(C_SUCCESS)Found:$(C_RESET) $$loc"; \
+				$(ECHO) "$$n$(C_SUCCESS)Found:$(C_RESET) $$loc"; \
 			else \
-				$(ECHO) "$(C_FAILURE)Not Found$(C_RESET)"; \
+				$(ECHO) "$$n$(C_FAILURE)Not Found$(C_RESET)"; \
 			fi; \
 			;; \
 	esac; \
