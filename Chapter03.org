@@ -2105,12 +2105,13 @@ however, \citet{Rubio:2005} found no \TS terminals on rat \TV cells.
 \TV cells have low spontaneous rates and variable \PSTHs (pauser, chopper,
 wide-chopper or onset/sustained) have been recorded
 \citep{ShofnerYoung:1985,SpirouDavisEtAl:1999,Rhode:1999}.  The complex
-physiological characteristics of \DCN neurons are categorised into \EIRA groups
-\citep{EvansNelson:1973,YoungBrownell:1976}.  Type I \EIRA units reflect the
-responses of single \ANFs. \TV cells have a non-monotonic response to tones with
+physiological characteristics of \DCN neurons are categorised into \EIRA types, first in cats
+\citep{EvansNelson:1973}  then refined \citep{YoungBrownell:1976,YoungVoigt:1981,YoungVoigt:1982,ShofnerYoung:1985,SpirouDavisEtAl:1999}.
+Type I \EIRA units reflect the excitatory 
+response area of single \ANFs. \TV cells have a non-monotonic response to tones with
 increasing sound level, respond poorly to broadband noise, and are categorised
 as Type II \EIRA units
-\citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005}. Units with Type
+\citep{SpirouDavisEtAl:1999,NelkenYoung:1997,ReissYoung:2005,DavisVoigt:1997,VoigtYoung:1980}. Units with Type
 II \EIRA responses are sharply tuned and have thresholds 10 dB higher than other
 units with which they are intermingled and do not respond to broad-band noise
 \citep{SpirouDavisEtAl:1999,YoungBrownell:1976,Young:1980,SachsYoung:1980,YoungVoigt:1982,ShofnerYoung:1985,VoigtYoung:1990,YoungSpirouEtAl:1992,Rhode:1999}.
@@ -2307,6 +2308,7 @@ but was negatively affected by the greater saturation rate.  The results for the
 noise rate level responses were a poorer fit to the experimental reference data
 due to the stronger \DS cell activation. The \RMS error for control and no \DS
 cell input results for noise was 51.84 and 67.28 sp/s, respectively.
+
 # #  50 dB Run
 # # + BEGIN_LaTeX
 #   {\small
@@ -2327,7 +2329,7 @@ cell input results for noise was 51.84 and 67.28 sp/s, respectively.
 #+BEGIN_LaTeX
   {%
   \small\noindent
-  \begin{table}[t!p]
+  \begin{table}[tp!]
     \centering
     \caption{Best-fit parameters of the TV cell model using the rate-level optimisation}
     \label{tab:TVRateLevelFig8B}
@@ -2338,7 +2340,7 @@ cell input results for noise was 51.84 and 67.28 sp/s, respectively.
      \wHSRTV  \hfill (nS)    &   [0.01,50]    & 0.637 \\
      \wDSTV  \hfill (nS)     &   [0.01,50]    & 54.3 \\
   %      \nDSTV  \hfill       &    [1,500]     & 34 \\
-  %\TV \Erev     \hfill (mV)  &    [-80,-50]   & -68.25 \\
+   \Erev     \hfill (mV)  &    [-80,-50]   & -68.25 \\
   \bottomrule
   \end{tabularx}
   \end{table}
@@ -2417,7 +2419,8 @@ effective in noise and at the onset of sounds.
 
 #+BEGIN_LaTeX
   % \begin{figure}[tp!]
-  % \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-StrychAB.png}}
+  % \resizebox{0.95\textwidth}{!}{
+  %\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-StrychAB.png}}
   % %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
   
   % \resizebox{0.95\textwidth}{!}{%
@@ -2436,38 +2439,25 @@ effective in noise and at the onset of sounds.
   % \end{figure}
 #+END_LaTeX
 
-\yellownote{Discuss plots in text. Needs editing to check any updates to the plots.}
+\yellownote{Discuss plots in text. Needs editing to check any updates to the
+plots.}
 #+BEGIN_LaTeX
-  %  \begin{figure}[t!]
-  %    % \centering
+  \begin{figure}[t!]
+    \centering
   %  %   {\figfont{A}\hspace{0.5\textwidth}\figfont{D}\hfill}\\
   %  %   \hfill\resizebox{0.95\textwidth}{!}{%
   %  %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
   %  % \includegraphics{}\hfill}\\
   %  %  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-  %    {\hfill\resizebox{0.5\textwidth}{!}{%
-  %    \includegraphics{../SimpleResponsesChapter/gfx/Responses/psthblock-1.pdf}%
-  %    %\includegraphics{}%
-  %  }\hfill}\\
+  {\hfill\resizebox{0.5\textwidth}{!}{%
+  \includegraphics{../SimpleResponsesChapter/gfx/Responses/psthblock-1.pdf}}%
+  \hfill}\\
   %  %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
-  %     \caption[Optimised TV cell model PSTH responses]{Response of optimised TV cell model at the centre of the network (CF 5.8\ kHz) to CF tones and noise.
-  %    %A. Rate level responses to tone, noise and tone plus noise.
-  %     PSTH responses to CF tones at 50 and 90\ dB SPL\@, and broad-band noise (BBN) at 60 and 100\ dB\ SPL\@.
-  %    %C. Response area equivalent using all TV units in the network.
-  %    %D. Masked noise-tone response of the central unit to 15\ dB masking noise and
-  %    %frequencies one octave above and below its CF.
-  
-  %   %  \caption[Optimised TV cell model responses]{Response of optimised TV cell model at the centre of the network (CF 5.8 kHz).
-  %   % A. Rate level responses to tone, noise and tone plus noise.
-  %   % B. PSTH at 90 dB SPL\@.
-  %   % C. Response area equivalent using all TV units in the network.
-  %   % D. Masked noise-tone response of the central unit to 15 dB masking noise and
-  %   % frequencies one octave above and below its CF.
-  % % E. Four PSTHs from marginal shell units \citep[from~Figure~12,][]{GhoshalKim:1996}.
-  %  } \label{fig:TVVerificationPSTH}
-  %  \end{figure}
+       \caption[Optimised TV cell model PSTH responses]{PSTH response of optimised TV cell model at the centre of the network (CF 5.8\ kHz) to CF tones and noise.
+      PSTH responses to CF tones at 50 (A) and 90\ dB SPL (B), and broad-band noise (BBN) at 60 (C) and 100\ dB\ SPL (D).
+  } \label{fig:TVVerificationPSTH}
+  \end{figure}
 #+END_LaTeX
-
 
 #+BEGIN_LaTeX
   \begin{figure}[t!]
@@ -2481,13 +2471,13 @@ effective in noise and at the onset of sounds.
   %   response of all TV units in the network to pure tone at centre of network (5.8
   %   kHz).  B. Rate response of all TV units to broad-band noise.}
   
-        \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/ratelevel-1.pdf}}\\
-        \caption[Whole network response of TV cell model]{Response of the TV cell model across the
-          whole network to a pure tone (on centre unit's CF, 4.513 kHz) and frozen broadband noise.
-          A. Rate level response map of the TV cells to a pure CF tone (4.5 kHz, 50 msec, 100 repetitions).
-          B. Noise rate level response map of the TV cells to broad-band noise (50 msec, 100 repetitions). 
-          C. Rate level responses of the central TV unit to a pure CF tone.
-          D. Noise rate level response of the central TV unit to BNN. }    
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/ratelevel-1.pdf}}\\
+  \caption[Whole network response of TV cell model]{Response of the TV cell model across the
+    whole network to a pure tone (on centre unit's CF, 4.513 kHz) and frozen broadband noise.
+    A. Rate level response map of the TV cells to a pure CF tone (4.5 kHz, 50 msec, 100 repetitions).
+    B. Noise rate level response map of the TV cells to broad-band noise (50 msec, 100 repetitions). 
+    C. Rate level responses of the central TV unit to a pure CF tone.
+    D. Noise rate level response of the central TV unit to BNN. }    
   \label{fig:TVVerification}
   \end{figure}
 #+END_LaTeX
@@ -2630,7 +2620,7 @@ the offset predicted by \citet{ReissYoung:2005}.
       %      \nHSRTV \hfill      &         [0,100]          & 1      \\
      %    \wLSRTV  (nS)    &         [1e-2,5]         & 0,17   \\
      %    \wHSRTV  (nS)    &         [1e-2,5]         & 0,17   \\
-   \Eleak$_{\rm TV}$\hfill (mV) &        [-80,-50]         & -68,9 \\
+   %\Eleak$_{\rm TV}$\hfill (mV) &        [-80,-50]         & -68,9 \\
   % \midrule
   %          \multicolumn{2}{l}{RMS error \quad (spikes/s)} & \\
   \bottomrule
@@ -2670,6 +2660,23 @@ similar \CF (\TV unit 70, \CF 12.76 kHz) to notch and band-pass noise.
 #+END_LaTeX
 
 ** Discussion of the TV Cell Model
+
+# {Disussion in Spirou 1999} The type II response type first was defined on the
+# basis of its low response to broadband noise (Young and Voigt 1982). Type IIs
+# are the only units in the cochlear nucleus that have this property. However, a
+# more important insight was the association of type II units with an inhibitory
+# interneuron in DCN. The first evidence for this relationship was the finding
+# of inhibitory-type cross-correlation between type II units and the response
+# types associated with DCN principal cells (Voigt and Young 1980). There are
+# several inhibitory interneurons in DCN (Osen et al. 1990), but the evidence
+# reviewed in the Introduction from antidromic stimulation, from recording in
+# the dorsal acoustic stria, from the locations of type II recording sites, and
+# from intracellular dye filling points to the vertical cell as the source of
+# type II recordings. Because response types are most useful when they can be
+# related to functional and anatomic entities, we suggest that type II should be
+# thought of as a response type given by vertical cells. That assumption will be
+# made in the remainder of this discussion.
+
 
 \TV cells are an important inhibitory inter-neuron in the \DCN and \VCN.  \TV
 cells' role in the \CNSM model is to provide delayed, narrow-band inhibition to
