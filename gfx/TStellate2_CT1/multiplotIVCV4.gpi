@@ -2,7 +2,7 @@
 
 ## FONTSIZE 18
 set terminal postscript eps enhanced defaultplex \
-   leveldefault mono solid\
+   leveldefault dashed\
    dashlength 1.0 linewidth 2.0 butt noclip \
    palfuncparam 2000,0.003 \
    "Helvetica" 18
@@ -16,7 +16,7 @@ set style line 2 lc rgb '#dd181f' lt 1 lw 2 pt 5 ps 1.5 # --beautiful red line a
 set style line 3 lc rgb '#00ad06' lt 1 lw 2 pt 9 ps 1.5 # --green line and triangle
 set style line 4 lc rgb '#00ad06' lt 1 lw 2 pt 72 ps 1.5 # --green line and unfilled triangle
 
-set style fill solid 1.0
+set style fill solid border # 1 lc rgb "black"
 set ylabel "Rate (sp/s)" font "Helvetica,18"  #offset character 0, 0, 0
 set xlabel "Time (msec)" font "Helvetica,18"
 set label 1 "{/Sans-Bold A}" at screen 0.075, screen 1 font "Arial,32"
@@ -38,7 +38,7 @@ set ytics nomirror out 0.1,0.1,0.5
 unset obj
 set label 1 "{/Sans-Bold B}" at screen 0.55, screen 1 font "Arial,32"
 # plot '< tail -4 TStellate.Fit.dat |  awk ''{print $3}'' ' u ($0):1 t "Test" w lp ls 1 lc 'black', \
-#     '../TStellate/PaoliniBalancedInh-Fig2.png.dat' i 2 u 1:2:3 notitle w yerr lc rgb '#0060ad', \
+#     '../SimpleResponsesChapter/gfx/TStellate/PaoliniBalancedInh-Fig2.png.dat' i 2 u 1:2:3 notitle w yerr lc rgb '#0060ad', \
 #     '' i 2 u 1:2 t "Ref" w lp lc rgb '#0060ad' lt 1 lw 2 pt 5 ps 1.5
 
 # plot [-0.5:3.5][0.1:0.5] '< grep -A4 -e ''CV reference'' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat | tr ''#'' '' '' | tr ''-'' ''\n''| grep -v -e ''CV'' ' \
@@ -46,13 +46,18 @@ set label 1 "{/Sans-Bold B}" at screen 0.55, screen 1 font "Arial,32"
 #      '' i 2 u 1:2 not w lp ls 1 lc rgb '#AAAAAA', \
 #      '' i 1 u 1:2 t "Model" w lp ls 1 lc 'black', \
 #      '' u 1:3 t "Ref" w lp lc rgb '#0060ad' lt 1 lw 2 pt 5 ps 1.5
+set style line 5  lt 2 lw 2 pt 7 ps 1.5 lc 'black' # dashed
+set style line 6  lt 3 lw 2 pt 7 ps 1.5 lc 'black' # dotted
+set style line 7  lt 2 lw 2 pt 5 ps 1.5 lc rgb '#0060ad' # dashed
+set style line 8  lt 3 lw 2 pt 5 ps 1.5 lc rgb '#0060ad' # dotted
 
-plot [-0.5:3.5][0.1:0.5] '< grep -A4 -e ''CV reference'' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat | tr ''#'' '' '' | tr ''-'' ''\n''| grep -v -e ''CV'' ' i 1 u 1:2 t "Model 30 dB" w lp ls 1 lc 'black', \
-     '' i 0 u 1:2 not "Model 20 dB" w lp lt 3 lc rgb '#090909', \
-     '' u 1:3 t "Reference" w lp lc rgb '#0060ad' lt 1 lw 2 pt 5 ps 1.5, \
-     '' i 2 u 1:2 not "Model 40 dB" w lp lt 2 lc rgb '#090909'
-
-     
+plot [-0.5:3.5] '< grep -A4 -e ''CV reference'' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat | tr ''#'' '' '' | tr ''-'' ''\n''| grep -v -e ''CV'' ' i 1 u 1:2 t "Model" w lp ls 1 lc 'black', \
+     '' i 1 u 1:3 t "Reference" w lp lc rgb '#0060ad' lt 1 lw 2 pt 5 ps 1.5, \
+     '' i 0 u 1:2 t " 20 dB" w lp ls 5 , \
+     '' i 2 u 1:2 t " 40 dB" w lp ls 6 , \
+     '' i 0 u 1:3 not " 20 dB" w lp ls 7 , \
+     '' i 2 u 1:3 not " 40 dB" w lp ls 8 
+          
 unset key
 #load '../Responses/default.gnu'
 set xlabel "Time (msec)"  font "Helvetica,18" 
@@ -63,11 +68,11 @@ unset x2tics
 unset y2tics
 set style rect fc lt -1 fs solid 0.15 noborder
 set obj rect from -10, graph 0 to 0 , graph 1
-set obj rect from 60 , graph 0 to 62, graph 1
+set obj rect from 58 , graph 0 to 62, graph 1
 set obj rect from 5  , graph 0 to 10, graph 1
-set obj rect from 20 , graph 0 to 30, graph 1
-set obj rect from 20 , graph 0 to 22, graph 1 fc lt -1 fs solid 0.25 noborder
-set obj rect from 50 , graph 0 to 52, graph 1 fc lt -1 fs solid 0.25 noborder
+set obj rect from 25 , graph 0 to 30, graph 1
+set obj rect from 18 , graph 0 to 22, graph 1 fc lt -1 fs solid 0.25 noborder
+set obj rect from 48 , graph 0 to 52, graph 1 fc lt -1 fs solid 0.25 noborder
 set xrange [-10:90]
 set yrange [-70:-25]
 set xtics 0,20,80
@@ -78,8 +83,8 @@ set tics nomirror out
 #set key center top title " " nobox
 set label 1 "{/Sans-Bold C}" at screen 0.075,screen 0.5 font "Arial,32"
 
-plot '../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat' u ($1):2 t "Test" w l lc "black", \
-     '< tail -137 ../SimpleResponsesChapter/gfx/TStellate/CT1-01-857-007.png.dat' u 1:2 t "Reference" w l lc rgb "#0060ad"
+plot '../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat' u ($1-2):2 t "Test" w l lt 1 lc "black", \
+     '< tail -137 ../SimpleResponsesChapter/gfx/TStellate/CT1-01-857-007.png.dat' u 1:2 t "Reference" w l lt 1 lc rgb "#0060ad"
 unset key
 
 #set key right Right noreverse nobox
@@ -87,7 +92,7 @@ unset key
 set border 11 #bottom,left+ right
 #set ytics nomirror out 0.1,0.1,0.5
 unset xlabel #"Time Window" font "Helvetica,18"
-set arrow 1 from 0.5, graph 0 to 0.5, graph 1 nohead lt 8 lw 1.5 
+set arrow 1 from 0.5, graph 0 to 0.5, graph 1 nohead lt 2 lw 1.5 lc 'black'
 unset ytics
 unset obj
 set ylabel "\n Ratio " font "Helvetica,18" offset character +2, 0, 0
@@ -104,12 +109,14 @@ set xrange [-0.5:6.5]
 set x2range [-0.5:6.5]
 set label 1 "{/Sans-Bold D}" at screen 0.55,screen 0.5 font "Arial,32"
 
-plot '< awk ''/IVOnset/ {if ($3!=0) print $3,$4; end}'' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat'  u 1 axes x1y1 t "Test" w lp lc "black" lt 1 lw 2 pt 7 ps 1.5, \
+plot '< awk ''/IVOnset/ {if ($3!=0) print $3,$4; end}'' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat'  u 1 axes x1y1 t "Model" w lp lc "black" lt 1 lw 2 pt 7 ps 1.5, \
      '' u 2 axes x1y1 t "Ref" w lp ls 1 pt 5 ps 1.5, \
-     '< awk ''/IVAdapt/ {if ($3!=0) print $3,$4; end}'' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat' u ($0+1):(abs($2)) axes x2y2 not  w lp lc "black" lt 1 lw 2 pt 7 ps 1.5, \
-     '' u ($0+1):(abs($1)) axes x2y2 not w lp ls 1 pt 5 ps 1.5, \
-     '< awk ''/IVOffset/ {print $3,$4}'' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat' u ($0+4):(abs($2)) axes x2y2 not w lp lc "black" lt 1 lw 2 pt 7 ps 1.5, \
-     '' u ($0+4):(abs($1)) axes x2y2 not w lp ls 1 pt 5 ps 1.5 
+     '< awk ''/IVAdapt/ {if ($3!=0) print $3,$4; end}'' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat' \
+        u ($0+1):2 axes x2y2 not  w lp lc "black" lt 1 lw 2 pt 7 ps 1.5, \
+     '' u ($0+1):1 axes x2y2 not w lp ls 1 pt 5 ps 1.5, \
+     '< awk ''/IVOffset/ {print $3,$4}'' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat' \
+        u ($0+4):2 axes x2y2 not w lp lc "black" lt 1 lw 2 pt 7 ps 1.5, \
+     '' u ($0+4):1 axes x2y2 not w lp ls 1 pt 5 ps 1.5 
 
 
 #     '../SimpleResponsesChapter/gfx/TStellate/Paolini2005_Fig6A.Adapt.dat' i 0 u ($0+1):2 axes x2y2 not w lp ls 1 pt 5 ps 1.5, \
