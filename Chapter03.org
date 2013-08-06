@@ -167,12 +167,13 @@ cells:
    noise, a Type I\slash III \EIRA, and an unusual or chopper \PSTH.
 3. \DS cell: A large, glycinergic, multipolar neuron with \OnC\space \PSTH
    response that acts as a coincidence detector.  Its large dendritic area
-   increases its response to noise, allowing it to behave as a wide-band
+   increases its response to noise, allowing it to behave as a wide-band lateral
    inhibitor in the \VCN, \DCN, and contralateral \CN
    \citep{SmithMassieEtAl:2005,ArnottWallaceEtAl:2004,NeedhamPaolini:2007}.
-4. \TV cell: A glycinergic, Type II \EIRA unit in the deep layer of the \DCN
-   \citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed echo-suppressor
-   and narrow-band inhibitor, with recurrent connections between \DS and \TS
+4. \TV cell: A glycinergic neuron in the deep layer of the \DCN categorised
+   typically as Type II \EIRA units due to their greatly reduced response to
+   noise \citep{SpirouDavisEtAl:1999}.  This cell acts as a delayed
+   echo-suppressor and narrow-band inhibitor, with connections to \DS and \TS
    cells in the \VCN
    \citep{Alibardi:2006,OertelWickesberg:1993,WickesbergWhitlonEtAl:1991}.
 5. \TS cell: One of the major output projection cells of the \CN to the \IC and
@@ -1701,19 +1702,20 @@ Figure \ref{fig:DSRateLevelResult}C shows the output \CF tone rate level
 responses of the optimised \DS cell model (using the best fit parameters in
 Table \ref{tab:DSRateLevelResults}) and the reference target's rate level
 response.  Figure \ref{fig:DSRateLevelResult}B shows the noise rate level
-responses of the optimised and reference units.  At 50 repetitions per stimulus,
+responses of the optimised DS cell model and the reference DS unit.  At 50 repetitions per stimulus,
 the best parameters produced a combined \RMS error of 48.88 spikes per second
-(tone 61.6 sp/s, noise 25.14 sp/s).
+(tone RMS 61.6 sp/s, noise RMS 25.14 sp/s).
 # tone 44.14 sp/s, noise 30.42 sp/s).
 The poor fit of the tone rate level response at higher sound levels is
 compensated for by the good fit to the experimental target response at low
-levels of tones and generally for broadband noise.  The optimisation routine
+levels, especially around the acoustic threshold.  The optimisation routine
 used the mean absolute error (between the reference and model response) divided
 by the reference \DS cell's response.  The combined relative mean absolute error
-of the tone and noise rate level response of the optimised \DS cell model in
-Figure \ref{fig:DSRateLevelResult} was
+(optimised \DS cell model relative to the reference DS cell) of the tone and
+noise rate level responses in Figure \ref{fig:DSRateLevelResult} was
 # 54.6\% (tone 57.49%, noise 52.09%).
 53.43\% (tone 53.61\%,  noise 53.20\%).
+
 
 **** Source blocks: DS RL RMS                                      :noexport:
 
@@ -1774,18 +1776,19 @@ Figure \ref{fig:DSRateLevelResult} was
 The optimised parameters for inputs to the \DS cell model were applied to \DS
 cells across the whole network using tones, noise and tones plus noise stimuli.
 The PSTH responses of the \DS cell model in the centre frequency channel (\CF
-4.513 kHz) of the network is shown in Figure \ref{fig:DSverificationPSTH}.  
-The
+4.513 kHz) of the network is shown in Figure \ref{fig:DSverificationPSTH}.  The
 PSTH responses to a \CF tones is classified as \OnC (50 and 90 dB SPL Figure
 \ref{fig:DSverificationPSTH}A and B) with a precise first onset spike followed
 by one to two regularly spaced spikes and a smaller number of irregularly spaced
 spikes throughout the stimulus.  The mean first spike latency of the DS cell
 model reduced from 24.3 msec at 50 dB SPL to 23.40 msec at 90 dB SPL. The onset
 PSTH responses to frozen broadband noise did not have the second chopping spike
-but did have other peaks determined by the spectral peaks in the unit's receptive field.
-(Figure \ref{fig:DSverificationPSTH}C and D).
-For comparison, on and off-CF PSTH tones responses in three rat DS cells are shown in Figure \ref{fig:PaoliniDSPSTH} \citep{PaoliniClark:1999}.
-The on-CF tones were 30 dB above their acoustic threshold and each show two prominent spikes at onset with the unit's in A and B having few spikes in the remainder of the stimulus.
+but did have other peaks determined by the spectral peaks in the unit's
+receptive field.  (Figure \ref{fig:DSverificationPSTH}C and D).  For comparison,
+on and off-CF PSTH tones responses in three rat DS cells are shown in Figure
+\ref{fig:PaoliniDSPSTH} \citep{PaoliniClark:1999}.  The on-CF tones were 30 dB
+above their acoustic threshold and each show two prominent spikes at onset with
+the unit's in A and B having few spikes in the remainder of the stimulus.
 # The off-CF tones, well below the CF of the unit's, show the \OnC PSTH response is still relevant  
 #  the unit in Figure \ref{fig:PaoliniDSPSTH}C.
 
@@ -1890,6 +1893,8 @@ compression in the AN model.
 
 ** Discussion of the DS Cell Model
 
+\yellownote{DG: D stellate cell fitting discrepancies in Figs 3.14 and 3.16 – have you discussed the results sufficiently?  See third paragraph down}
+
 The \DS cell model within the \CNSM model adopted the rate level and click
 recovery characteristics of a typical \OnC unit of the \VCN.  The network
 topology and synapto-physiology of inputs to \DS cells complement the intrinsic
@@ -1921,6 +1926,27 @@ cells centred on \CF with a fixed spread parameter, \sANFDSl=40 channels
 (equivalent to a standard deviation of 4.47 channels in the 100 channel
 network), for inputs below \CF and spread reduced by a factor of 2 for inputs
 above \CF.
+
+The discrepancy in the rate level optimisation show a limitation in the fitting
+a \DS cell model to an exact data set and has implications for the design of the
+\CNSM model.  These discrepancies can be explained by the homogeneity of inputs
+to the DS cell model.  The large number of ANFs (125 \HSR and 84 \LSR fibres)
+contact the \DS cell model with the same synaptic weight (HSR: 0.531 nS, LSR:
+8.25 nS) and narrow distributions of \SR (HSR: 50 sp/s, LSR: 0.1 sp/s).  The
+limitations in the ANF spontaneous rates has direct implications on the
+distribution of acoustic thresholds (CF tone HSR: approx.\space 0 dB SPL, LSR:
+approx.\space 30 dB SPL), which varies greatly in HSR units in cats and other
+mammals \citep{Schmiedt:1989,HeilNeubauerEtAl:2007,Liberman:1993,Liberman:1978}.
+Variation in acoustic thresholds and rate level responses is introduced to the
+\DS cell model through wide distribution (skewed Gaussian process) of ANFs
+across a wide section of the nucleus.  The same goes for GLG cell inputs to DS
+cells. The combination of ANFs and GLG cell inputs achieved a good match to
+acoustic threshold for CF tones and noise, however the DS cell model's responses
+at high sound levels diverged from the experimental unit's response.  The errors
+in the \DS cell model's rate level optimisation are a consequence of
+parameterisation in the CNSM model and, so long as the DS cell model
+characteristics are categorically similar to experimental \DS cell responses any
+further development of the model is unnecessary.
 
 
 The click recovery optimisation was used to modify the physiological dynamics of
@@ -2309,6 +2335,8 @@ noise rate level responses were a poorer fit to the experimental reference data
 due to the stronger \DS cell activation. The \RMS error for control and no \DS
 cell input results for noise was 51.84 and 67.28 sp/s, respectively.
 
+
+
 # #  50 dB Run
 # # + BEGIN_LaTeX
 #   {\small
@@ -2405,6 +2433,7 @@ effective in noise and at the onset of sounds.
 
 ** Verification of the TV Cell Model
 
+\yellownote{DG: Section 3.5.4 is incomplete }
 # Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
 
 # TODO: more work to be done here. Possibly need calculations on
@@ -2691,6 +2720,13 @@ cells diminishes the rate \TV cells to stimuli with a broad spectrum. The
 functional role of \TV cells in the \CNSM model is the enhancement of peaks in
 the \TS cell rate spectrum but only for stimuli with a narrow spectrum.
 
+\yellownote{DG:  TV cell fitting discrepancies in Fig 3.22 – have you discussed the results sufficiently? See next paragraph}
+Similarly to the rate-level optimisation in the DS cell model, the discrepancy
+between the TV cell model and the experimental reference data is a complication
+of fitting to exact responses in a noisy \BNN model. The complications were
+evident in having to adjust the rate-level responses to accommodate acoustic
+threshold alignment.
+
 The results of the notch noise optimisation do not exclusively confirm or deny
 the hypothesis presented by \citet{ReissYoung:2005} whether wide-band inhibitory
 offset of \TV cells causes asymmetric responses to notch noise.  The \LSR \ANF
@@ -2698,6 +2734,7 @@ spectrum in Figure \ref{fig:TVSweepUnit70} shows a bias at the falling edge that
 closely resembles in the experimental \TV cell responses, as shown in Figure
 \ref{fig:TVReissFig9}. The design of the experimental target data used to fit
 the responses of the network of \TV cells also needs further investigation.
+
 
 # \yellownote{TODO: Discuss the \TV cell Notch optimisation. Is the goal of
 # replicating wide-band inhibition offset necessary?  LSR spectrum already shows a
@@ -3530,6 +3567,9 @@ with the greatest weighting from the CV data.
 
 ** Overview of TS cell model results
 
+\yellownote{DG:T stellate cell fitting discrepancies in Figs. 3.32, 3.33, 3.34 - have you discussed the results sufficiently?}
+
+
 The primary purpose of the \CNSM model is to regulate the output behaviour of
 the \TS cells, its major output. The diversification of the physiological
 responses of TS cells into three different chopper response categories required
@@ -3666,8 +3706,6 @@ other BNN models.
 
 # \yellownote{TODO: Discuss the relevance of creating the CN stellate
 #   model, especially the methods.}
-
-
 
 
 **** Tmp tables :noexport:
