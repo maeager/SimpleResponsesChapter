@@ -488,9 +488,25 @@ function converts the parameters to a single measure by simulating the \CNSM
 model using the parameters, then comparing selected neural outputs to
 experimental data.  \Gls{RMS} error was used as the comparison measure of
 similar data points, e.g.\\space mean firing rate at different sound levels in a
-rate-level simulation.  Mean error relative to the expected or target values was
-also used to ensure there was no bias between data points with large variation
-in magnitude.
+rate-level simulation.  
+The equation for RMS error in a rate level response is 
+#+BEGIN_LaTeX
+\begin{equation} \label{eq:Ch3:RMS}
+\sqrt{\frac{1}{N} \sum_{n=1}^{N}(r(n)- r^{\ast}(n))^{2}},
+\end{equation}
+\noindent
+#+END_LaTeX
+where /N/ is the number of data points, $r(n)$ is the rate response of the model unit at a particular level, and $r^{\ast}(n)$ is the rate response of the target unit. 
+The units for \RMS error are dependant on the data points; for rate level cost functions, the RMS the unit is spikes per second.
+Mean relative error (MRE) was also
+ used to ensure there was no bias between data points with large variation
+in magnitude. The equation for MRE using rate level responses is
+#+BEGIN_LaTeX
+\begin{equation} \label{eq:Ch3:RMS}
+\frac{1}{N} \sum_{n=1}^{N}(\frac{\left|r(n)- r^{\ast}(n)\right|}{r^{\ast}(n)}.
+\end{equation}
+\noindent
+#+END_LaTeX
 
 ** Verification of Cell Model Responses to Simple Tones and Noise
 
@@ -502,12 +518,30 @@ corresponding to its \CF, broad-band noise and a combination of tones and
 noise. Responses of all model neurons across the network (one cell type for each
 frequency channel) were recorded during the verification procedure.  The stimuli
 presented to the \CNSM model included:
-1. Rate-level response to pure tones at the characteristic frequency of the
-   centre channel of the network, 5.81 kHz. The sound level was varied from 0 to
+1. Rate-level response to short pure tone bursts at the frequency matching the \CF at the
+   centre channel of the network, 4.31 kHz. The sound level was varied from 0 to
    90 dB \SPL.
 2. Rate-level response to white noise at levels 0 to 100 dB \SPL.
-3. Masked rate-level response with pure tones varied in level from 0 to 100 dB
-   \SPL and simultaneous with noise at 50 dB \SPL.
+# 3. Masked rate-level response with pure tones varied in level from 0 to 100 dB
+#   \SPL and simultaneous with noise at 50 dB \SPL.
+
+Figure \ref{fig:ANFVerificationRL} shows the output of the HSR and LSR ANFs in the \CNSM model to the verification stimuli.
+\yellownote{More text here}
+#+BEGIN_LaTeX
+  {%
+    \begin{figure}[tp!]
+      \centering
+      \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/ratelevel-AN.pdf}}\\
+      \caption[Whole network response of ANFs to tones and noise]{Response of ANF  models across the
+        whole network to pure tone at centre of network and broad-band noise (BBN).
+        A. Rate level response map of the HSR ANFs to a pure tone burst (4.31 kHz, 50 msec, 100 repetitions).
+        B. Noise rate level response map of the HSR ANFs to a short BBN burst (frozen noise, 50 msec, 100 repetitions). 
+        C. Rate level responses of the central HSR and LSR units to pure CF tone bursts (CF 4.31 kHz, 50 msec, 100 repetitions).
+        D. Noise rate level response of the central HSR and LSR units to BBN bursts (CF 4.31kHz, 50 msec, 100 repetitions). }    
+      \label{fig:ANFVerificationRL}
+    \end{figure}%
+  }
+#+END_LaTeX
 
 * Figures                                                          :noexport:
 ** fig:Compression
@@ -1081,7 +1115,6 @@ at different \CFs and the convolution of the smoothing filter was thought to
 contribute to the reduction of the onset response to tones and noise, but the
 results show a prominent onset response in the \GLG cell model.
 
-
 #+BEGIN_LaTeX
   \begin{figure}[t!]
      %\centering
@@ -1094,7 +1127,6 @@ results show a prominent onset response in the \GLG cell model.
   } \label{fig:GolgiVerificationPSTH}
   \end{figure}
 #+END_LaTeX
-
 
 
 #+ATTR_LATEX: width=0.7\textwidth,keepaspectratio=true
@@ -1113,31 +1145,30 @@ properties of \GLG units were derived from the marginal shell units recorded in
 the \citet{GhoshalKim:1996a} study.
 
 
-Figure \ref{fig:GolgiVerificationWhole} shows the response of optimised \GLG
-cell models at each frequency channel in the \CNSM model to a 5.8 kHz tone and
+Figure \ref{fig:GolgiVerificationRL} shows the response of optimised \GLG cell
+models at each frequency channel in the \CNSM model to a 4.31 kHz tone and
 broadband noise over a wide range of sound levels. The \GLG cell model had a
 monotonic response to tones and noise similar to other experimental units
-\citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.  In Figure
-\ref{fig:GolgiVerificationWhole}A, the rate level response of the central \GLG
-unit was generated using the optimised parameters.  Using a sigmoidal function,
-the rate level curve had a theoretical spontaneous rate of 0 spikes/s (3.77
-spikes/s calculated from 0 to 15 dB \SPL), a threshold at 19 dB \SPL, and a
-dynamic range of 68 dB.  The theoretical maximal rate for the curve was 120.8
-spikes/s and reached half maximum rate at 53 dB \SPL.  The noise rate-level
-curve for the central \GLG unit in Figure \ref{fig:GolgiVerificationWhole}B was
-monotonic.  The average gradient of the noise rate level curve between 70 and
-120 dB \SPL was 2.02 spikes per second per dB.  Figure
-\ref{fig:GolgiVerificationWhole}C shows the response of all \GLG cell units in
-the \CNSM model to a 5.8 kHz tone.  At 10 dB above the threshold (30 dB \SPL)
-units with \CFs from 4.98 kHz to 7.48 kHz were above threshold, which equates to
-a receptive field of 2.5 kHz or \Qten of 0.41.  The \GLG unit with \CF 6.43 kHz
+\citep{GhoshalKim:1996,GhoshalKim:1996a,GhoshalKim:1997}.  Figure
+\ref{fig:GolgiVerificationRL}A shows the response of all \GLG cell units in the
+\CNSM model to a 5.8 kHz tone.  At 10 dB above the threshold (30 dB \SPL) units
+with \CFs from 4.98 kHz to 7.48 kHz were above threshold, which equates to a
+receptive field of 2.5 kHz or \Qten of 0.41.  The \GLG unit with \CF 6.43 kHz
 had the highest rate at 30 dB \SPL and was closest to the middle of activated
 units in the network.  The range of activated units was 4.6 kHz at 50 dB \SPL
 (30 dB relative to the acoustic threshold) and 10 kHz for 80 dB \SPL.  Figure
-\ref{fig:GolgiVerificationWhole}D shows the noise rate level response of all
-\GLG units. The non-uniform response to a linear broadband input reflects the
-species-specific audiogram compression in the \AN model.
-
+\ref{fig:GolgiVerificationRL}C shows the rate level response of the central \GLG
+unit generated using the optimised parameters.  Using a sigmoidal function, the
+rate level curve had a theoretical spontaneous rate of 0 spikes/s (3.77 spikes/s
+calculated from 0 to 15 dB \SPL), a threshold at 19 dB \SPL, and a dynamic range
+of 68 dB.  The theoretical maximal rate for the curve was 120.8 spikes/s and
+reached half maximum rate at 53 dB \SPL.  Figure \ref{fig:GolgiVerificationRL}B
+shows the noise rate level response of all \GLG units. The non-uniform response
+to a linear broadband input reflects the species-specific audiogram compression
+in the \AN model.  The noise rate-level curve for the central \GLG unit in
+Figure \ref{fig:GolgiVerificationWhole}D was monotonic.  The average gradient of
+the noise rate level curve between 70 and 120 dB \SPL was 2.02 spikes per second
+per dB.
 
 # Figure \ref{fig:GolgiVerification}C shows the response of all Golgi
 # units in the network to a 5.8 kHz tone, over 0 to 90 dB \SPL.
@@ -1176,7 +1207,6 @@ species-specific audiogram compression in the \AN model.
      % c               = 52.9203          +/- 1.211        (2.289%)
      % d               = 51.4084          +/- 1.509        (2.936%)
 #+END_LaTeX
-
 
 ** Discussion of the Golgi Cell Model
 
@@ -1323,24 +1353,27 @@ cells which are Type I current clamp units with single exponential undershoot
 #+BEGIN_LaTeX
   \begin{figure}[tp!]
     \centering
-    {\figfont{A}\hspace{0.45\textwidth}\figfont{B}\hspace{0.45\textwidth}}\\
-    \resizebox{0.9\textwidth}{!}{\includegraphics[width=0.40\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/RothmanManisFig2D.png}\hfill%
-    \includegraphics[width=0.35\textwidth,keepaspectratio]{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png}}\\
-    % \includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png}}
-    % \includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1F.png}}\\
-    \figfont{C}\hspace{0.95\textwidth}\hfill\\
-    \includegraphics[width=0.8\textwidth]{../SimpleResponsesChapter/gfx/Oertel90DS_bottom.png}
-    \caption[Intracellular membrane voltage response of DS cells to depolarising
-    and hyperpolarising current]{Intracellular membrane voltage response of DS
-      cells to depolarising and hyperpolarising current. A. Simulated current
-      clamp response in a Type I-II RM model
-      \citep[reproduced~from][]{RothmanManis:2003b}.  B. Current clamp response of
-      a DS cell in an \textit{in vitro} slice preparation to 0.1 nA and 0.6 nA
-      current injections. This cell shows a prominent hyperpolarising sag and
-      double exponential AP
-      \citep[reproduced~from~Figure~1~E][]{FujinoOertel:2001}.  C. One VCN DS
-      cell's response to different levels of current injection
-      \citep[reproduced~from][]{OertelWuEtAl:1990}.}
+    {\figfont{A}        \hspace{0.95\textwidth}}\\
+    \includegraphics[width=0.8\textwidth]{../SimpleResponsesChapter/gfx/Oertel90DS_bottom.png}\\
+    {\figfont{B}\hspace{0.45\textwidth}                 \figfont{C}\hspace{0.45\textwidth}}\\
+    \raisebox{0.3\textwidth}{\resizebox{0.5\textwidth}{!}{\noindent\begin{minipage}[t]{\textwidth}
+  %\resizebox{0.5\textwidth}{!}{
+  \includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png} \\
+  %  \resizebox{0.5\textwidth}{!}{
+  \includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1F.png}%
+  \end{minipage}}}%
+  %\resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1E.png}\newline
+  %    \includegraphics{../SimpleResponsesChapter/gfx/Fujino_Fig1F.png}}\\
+  \resizebox{0.45\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/RothmanManisFig2D.png}}\hfill%
+      \caption[Intracellular membrane current clamp response of DS cells to depolarising
+      and hyperpolarising current]{Intracellular membrane current clamp response of DS
+        cells to depolarising and hyperpolarising current. A.  Intracellular current
+        clamp response of a mouse DS cell to different levels of current injection
+       \ \citep[reproduced~from][]{OertelWuEtAl:1990}.  B. Current clamp responses of
+        two DS cells in an \textit{in vitro} slice preparation to 0.1\ nA and 0.6\ nA
+        current injections. Both DS cells shows a prominent hyperpolarising sag and
+        double exponential AP\ \citep[reproduced from Figures~1E and 1F][]{FujinoOertel:2001}.  C. Simulated current clamp response in a Type
+        I-II\ RM model\ \citep[reproduced from][]{RothmanManis:2003b}. }
       \label{fig:DSOertelFujino}
   \end{figure}
 #+END_LaTeX
@@ -1702,20 +1735,23 @@ Figure \ref{fig:DSRateLevelResult}C shows the output \CF tone rate level
 responses of the optimised \DS cell model (using the best fit parameters in
 Table \ref{tab:DSRateLevelResults}) and the reference target's rate level
 response.  Figure \ref{fig:DSRateLevelResult}B shows the noise rate level
-responses of the optimised DS cell model and the reference DS unit.  At 50 repetitions per stimulus,
-the best parameters produced a combined \RMS error of 48.88 spikes per second
-(tone RMS 61.6 sp/s, noise RMS 25.14 sp/s).
-# tone 44.14 sp/s, noise 30.42 sp/s).
-The poor fit of the tone rate level response at higher sound levels is
-compensated for by the good fit to the experimental target response at low
-levels, especially around the acoustic threshold.  The optimisation routine
-used the mean absolute error (between the reference and model response) divided
-by the reference \DS cell's response.  The combined relative mean absolute error
-(optimised \DS cell model relative to the reference DS cell) of the tone and
-noise rate level responses in Figure \ref{fig:DSRateLevelResult} was
+responses of the optimised DS cell model and the reference DS unit.  At 50
+repetitions per stimulus, the best parameters produced a combined \RMS error of
+36.58 spikes per second (tone RMS 43.1 sp/s, noise RMS 26.1 sp/s).  The
+optimisation routine used the mean absolute error (between the reference and
+model response) divided by the reference \DS cell's response.  The combined
+relative mean relative error (optimised \DS cell model relative to the reference
+DS cell excluding non-zero elements) in Figure \ref{fig:DSRateLevelResult} was
+58.59\%.  The poor fit of the tone rate level response (73.36\% relative
+error)at higher sound levels is compensated for by the good fit to the
+experimental target response at low levels, especially around the acoustic
+threshold.  The noise rate level response had a lower RMS error (26.1 sp/s) and
+lower mean relative error (37.25\%) across the sound levels; however the DS cell
+model was active to noise at 40 dB (well below the threshold of the target DS
+unit, around 60 dB SPL).
 # 54.6\% (tone 57.49%, noise 52.09%).
-53.43\% (tone 53.61\%,  noise 53.20\%).
-
+# 53.43\% (tone 53.61\%,  noise 53.20\%).
+# 73.36% for the tones and 37.25% for noise. 
 
 **** Source blocks: DS RL RMS                                      :noexport:
 
@@ -1743,25 +1779,33 @@ noise rate level responses in Figure \ref{fig:DSRateLevelResult} was
 #+END_SRC
 
 #+RESULTS: DSRL_RMS
+: RE tone 75.27%  noise 52.94% all 64.96%  RZ tone 73.36% noise 37.25% all 58.59% RMS tone 43.15 noise 26.15 sum 36.58
+
+
 : RE tone 53.61%  noise 53.20% all 53.43%  RZ tone 46.47% noise 37.61% all 42.84% RMS tone 61.61 noise 25.14 sum 48.88
 
 
 #+name: DS_final_error
 #+BEGIN_SRC sh :results replace raw
- grep -e '^# Weighted Final error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
+ grep -e '^# Weighted Final error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{$2=sprintf("%.4g",$2); printf("%.4g",$2)}'
 #+END_SRC
+
 
 #+name: DS_tone_error
 #+BEGIN_SRC sh :results replace raw
- grep -e '^# RL RMS error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
+ grep -e '^# RL RMS Error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
 #+END_SRC
 
 #+RESULTS: DS_tone_error
+43.1
 
 #+name: DS_noise_error
 #+BEGIN_SRC sh :results replace raw
- grep -e '^# NRL RMS error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
+ grep -e '^# NRL RMS Error' ../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel.Fit.dat | awk -F'=' '{printf("%.3g",$2)}'
 #+END_SRC
+
+#+RESULTS: DS_noise_error
+26.1
 
 
 #+BEGIN_SRC sh
@@ -1776,15 +1820,15 @@ noise rate level responses in Figure \ref{fig:DSRateLevelResult} was
 The optimised parameters for inputs to the \DS cell model were applied to \DS
 cells across the whole network using tones, noise and tones plus noise stimuli.
 The PSTH responses of the \DS cell model in the centre frequency channel (\CF
-4.513 kHz) of the network is shown in Figure \ref{fig:DSverificationPSTH}.  The
+4.513 kHz) of the network is shown in Figure \ref{fig:DSVerificationPSTH}.  The
 PSTH responses to a \CF tones is classified as \OnC (50 and 90 dB SPL Figure
-\ref{fig:DSverificationPSTH}A and B) with a precise first onset spike followed
+\ref{fig:DSVerificationPSTH}A and B) with a precise first onset spike followed
 by one to two regularly spaced spikes and a smaller number of irregularly spaced
 spikes throughout the stimulus.  The mean first spike latency of the DS cell
 model reduced from 24.3 msec at 50 dB SPL to 23.40 msec at 90 dB SPL. The onset
 PSTH responses to frozen broadband noise did not have the second chopping spike
 but did have other peaks determined by the spectral peaks in the unit's
-receptive field.  (Figure \ref{fig:DSverificationPSTH}C and D).  For comparison,
+receptive field.  (Figure \ref{fig:DSVerificationPSTH}C and D).  For comparison,
 on and off-CF PSTH tones responses in three rat DS cells are shown in Figure
 \ref{fig:PaoliniDSPSTH} \citep{PaoliniClark:1999}.  The on-CF tones were 30 dB
 above their acoustic threshold and each show two prominent spikes at onset with
@@ -1796,13 +1840,13 @@ the unit's in A and B having few spikes in the remainder of the stimulus.
 #+BEGIN_LaTeX
  
   \begin{figure}[t!]
-     %\centering
+    \centering
     %{\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-    {\hfill%
-    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Paolini99_Fig9.png}}%
-    {\figfont{E}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
-    \resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/psthblock-2.pdf}}%
-    \hfill}\\
+    %{\hfill%
+    %\resizebox{0.5\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Paolini99_Fig9.png}}%
+    %{\figfont{E}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
+    \resizebox{0.8\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/psthblock-2.pdf}}%
+    %\hfill}\\
     \caption[Optimised DS cell model responses to tones and noise]{%
    Response of optimised DS cell model at the centre of the network (CF 5.8 kHz). Four simulated PSTHs of the \DS cell model to CF tones at 50 (A) and 90 dB SPL (B) and broadband noise (BBN) at 60 (C) and 100 dB SPL (D). (Stimuli duration 50 msec, 20 msec delay, 100 repetitions, 2 msec cosine on-off ramp).
   } \label{fig:DSVerificationPSTH}
@@ -1936,7 +1980,7 @@ contact the \DS cell model with the same synaptic weight (HSR: 0.531 nS, LSR:
 limitations in the ANF spontaneous rates has direct implications on the
 distribution of acoustic thresholds (CF tone HSR: approx.\space 0 dB SPL, LSR:
 approx.\space 30 dB SPL), which varies greatly in HSR units in cats and other
-mammals \citep{Schmiedt:1989,HeilNeubauerEtAl:2007,Liberman:1993,Liberman:1978}.
+mammals \citep{Schmiedt:1989,HeilNeubauerEtAl:2007,Liberman:1993,Liberman:1978,WangPowersEtAl:1997}.
 Variation in acoustic thresholds and rate level responses is introduced to the
 \DS cell model through wide distribution (skewed Gaussian process) of ANFs
 across a wide section of the nucleus.  The same goes for GLG cell inputs to DS
@@ -3651,7 +3695,7 @@ improve the optimisation match for the chopper subtypes.
 
 # ** Verification of the TS Cell Model Subtypes
 
-\yellownote{TODO: Fix the figure \ref{fig:TSverification}.  and add text.  repeat for ChT1 and ChT2}
+\yellownote{TODO: Fix the TS verification figure \ref{fig:TSverification}.  and add text.  repeat for ChT1 and ChT2}
 
 # # + BEGIN_LaTeX
 #   \begin{figure}[t!]
@@ -3706,7 +3750,6 @@ other BNN models.
 
 # \yellownote{TODO: Discuss the relevance of creating the CN stellate
 #   model, especially the methods.}
-
 
 **** Tmp tables :noexport:
 
@@ -3775,7 +3818,6 @@ other BNN models.
 # | \DS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n,$\tau$) | (-)          | (-)        | (-) |
 # | \TV  | [s,d](w,n) | [s,d](w,n) | (-)               | [s,d](w,n,o) | (-)        | (-) |
 # | \TS  | [s,d](w,n) | [s,d](w,n) | [s,d](w,n)        | [s,d](w,n)   | [s,d](w,n) | (?) |
-
 
 ** Limitations of the CNSM Model
 
