@@ -9,6 +9,8 @@ set terminal postscript eps enhanced defaultplex \
 #color solid leveldefault noclip
 set output "../SimpleResponsesChapter/gfx/TStellate2_CS/multiplotIVCV4.eps"
 
+TOFFSET=4.0
+
 #set size 0.49,0.5
 set multiplot layout 2,2 scale 1.1, 0.9
 set style line 1 lc rgb "#0060ad" lt 1 lw 2 pt 7 ps 1.5 # --beautiful blue line and filled circle
@@ -77,7 +79,7 @@ set tics nomirror out
 #set key center top title " " nobox
 set label 1 "{/Sans-Bold C}" at screen 0.075,screen 0.5 font "Arial,32"
 
-plot '../SimpleResponsesChapter/gfx/TStellate2_CS/TStellate.Fit.dat' u ($1-2):2 t "Test" w l lt 1 lc "black", \
+plot '../SimpleResponsesChapter/gfx/TStellate2_CS/TStellate.Fit.dat' u ($1-TOFFSET):2 t "Test" w l lt 1 lc "black", \
      '< tail -91 ../SimpleResponsesChapter/gfx/TStellate/CS-01-864-004.png.dat' u 1:2 t "Reference" w l lt 1 lc rgb "#0060ad"
 unset key
 
@@ -91,7 +93,11 @@ unset ytics
 unset obj
 set ylabel "\n Ratio " font "Helvetica,18" offset character +2, 0, 0
 set y2label "{/Symbol D}MP (mV)" font "Helvetica,18"
-set xtics nomirror out rotate by -20 offset -1,0 ("Onset" 0,"Adaptation" 1,"Offset" 3)
+set xtics nomirror out rotate by -20 offset -1,-1 ("Onset" 0,"Adaptation" 1,"Offset" 3)
+set label 2 "20dB" at 1.75,graph -0.1 font "Arial,14"
+set label 3 "30dB" at 2.75,graph -0.1 font "Arial,14"
+set label 4 "40dB" at 3.75,graph -0.1 font "Arial,14"
+
 set ytics nomirror 0,1,2
 set y2tics
 set tics out

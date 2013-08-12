@@ -1,14 +1,16 @@
-set terminal postscript eps enhanced size 7,2.5 defaultplex \
-   leveldefault color solid\
+ set terminal postscript eps enhanced size 7,2.5 defaultplex \
+   leveldefault color solid \
    dashlength 1.0 linewidth 2.0 butt noclip \
    palfuncparam 2000,0.003 \
    "Helvetica" 18 
 # color solid 
-# set output "./gfx/Arnott2004Combined.eps"
 ## FONTSIZE 18
 ## SIZE 7,2.5
 
 load '../SimpleResponsesChapter/gfx/default.gpi'
+
+# set output "../SimpleResponsesChapter/gfx/Arnott2004Combined.eps"
+
 set xtics nomirror out # ("0-10" 0,"10-20" 1,"20-30" 2,"30-40" 3,"40-50" 4)
 set xrange [*:*]
 set yrange [*:*]
@@ -34,9 +36,7 @@ set key on inside left top Left spacing 5 title "Unit 212" enhanced font "Helvet
 plot [0:100] '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig12_CF10.9kHz.Tone.png.dat'  u 1:2 not w l ls 1, \
      '../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004_Fig12_CF10.9kHz.Noise.png.dat'  u ($1+100):2 not  w l ls 2
 
-
-     
 unset multiplot
 
 !fixbb ../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004Combined.eps
-# !epstopdf ./gfx/DS_RateLevel/Arnott2004Combined.eps
+!epstopdf ../SimpleResponsesChapter/gfx/DS_RateLevel/Arnott2004Combined.eps
