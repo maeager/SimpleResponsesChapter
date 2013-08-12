@@ -489,7 +489,7 @@ model using the parameters, then comparing selected neural outputs to
 experimental data.  \Gls{RMS} error was used as the comparison measure of
 similar data points, e.g.\\space mean firing rate at different sound levels in a
 rate-level simulation.  
-The equation for RMS error in a rate level response is 
+The equation for \RMS error in a rate level response is 
 #+BEGIN_LaTeX
 \begin{equation} \label{eq:Ch3:RMS}
 \sqrt{\frac{1}{N} \sum_{n=1}^{N}(r(n)- r^{\ast}(n))^{2}},
@@ -498,9 +498,9 @@ The equation for RMS error in a rate level response is
 #+END_LaTeX
 where /N/ is the number of data points, $r(n)$ is the rate response of the model unit at a particular level, and $r^{\ast}(n)$ is the rate response of the target unit. 
 The units for \RMS error are dependant on the data points; for rate level cost functions, the RMS the unit is spikes per second.
-Mean relative error (MRE) was also
+\Gls{MAR} error was also
  used to ensure there was no bias between data points with large variation
-in magnitude. The equation for MRE using rate level responses is
+in magnitude. The equation for \MAR error using rate level responses is
 #+BEGIN_LaTeX
 \begin{equation} \label{eq:Ch3:RMS}
 \frac{1}{N} \sum_{n=1}^{N}(\frac{\left|r(n)- r^{\ast}(n)\right|}{r^{\ast}(n)}.
@@ -1019,9 +1019,9 @@ with its optimal combination of parameters as shown in Table
 mean firing rate, generated from 25 repetitions at each level, was used in the
 fitness function to produce a square root of the mean squared difference between
 the model response and the target response.  The optimal parameters of the \GLG
-cell model had a fitness score of 4.48 spikes per second.  A normalised metric
+cell model had a fitness score of 4.48 spikes per second using the \RMS error.  A normalised metric
 that takes into account the different firing rate magnitudes at each sound level
-relative to the target response showed a mean absolute difference of 21.5\%.
+relative to the target response showed a \MAR error of 21.5\%.
 
 #+BEGIN_LaTeX
   {%
@@ -1470,7 +1470,6 @@ height of excitatory \PSPs reaching the soma
 weights was sufficient for the \DS cell model.
 
 
-
 The synaptic connections onto the \DS cell model, shown in Table
 \ref{tab:DScellModelSummary}C, were simplified to excitatory \ANF inputs (\HSR
 and \LSR) and \GABA-ergic input from \GLG cells in the \GCD.  The \DS cell
@@ -1544,7 +1543,6 @@ parameter was included in the optimised parameters to allow the \DS cell model's
 input resistance to fit fast-acting behaviour in the cell.
 
 
-
 Figure \ref{fig:BackoffPalombi} shows the click recovery response of unit
 G61.U6, an AVCN \OnC unit (\CF 5.69, threshold 30 dB \SPL), and the effects of
 the \GABAa blocker bicuculine \citep{BackoffPalombiEtAl:1997}.  The normal probe
@@ -1557,7 +1555,6 @@ optimisation had a \CF of 5.8 kHz, the closest \CF channel to the exemplar \OnC
 unit.  Spontaneous activity in idle periods was used for additional weighted
 penalty measures of spontaneous activity and to restrict over-excitation by
 \ANFs.
-
 
 
 # \PSTHs of the spiking output of \DS units were generated from 25 stimulus
@@ -1694,7 +1691,7 @@ the only inhibitory input to the \DS cell model in the \CNSM model.
   \begin{tabularx}{0.6\textwidth}{X X c}
   \toprule % \hdr{2}{}{DS\ Cell Optimisation: Best Fit Parameters }
   \textbf{Parameters (Units)} &       \textbf{Range}      & \multicolumn{1}{c}{\textbf{Final Value}} \\\otoprule
-      \wLSRDS \hfill (nS)     &         [0.01,50]         & 8.25    \\
+      \wLSRDS \hfill (nS)     &         [0.01,50]         & 11.03    \\
         \nLSRDS \hfill        &          [1,500]          & 84      \\ \midrule
       \wGLGDS \hfill (nS)     &         [0.01,50]         & 0.531   \\
         \nGLGDS \hfill        &          [1,50]           & 5       \\ \midrule
@@ -1737,16 +1734,16 @@ Table \ref{tab:DSRateLevelResults}) and the reference target's rate level
 response.  Figure \ref{fig:DSRateLevelResult}B shows the noise rate level
 responses of the optimised DS cell model and the reference DS unit.  At 50
 repetitions per stimulus, the best parameters produced a combined \RMS error of
-36.58 spikes per second (tone RMS 43.1 sp/s, noise RMS 26.1 sp/s).  The
-optimisation routine used the mean absolute error (between the reference and
+36.58 spikes per second (tone \RMS 43.1 sp/s, noise RMS 26.1 sp/s).  The
+optimisation routine used the \MAR error (between the reference and
 model response) divided by the reference \DS cell's response.  The combined
 relative mean relative error (optimised \DS cell model relative to the reference
 DS cell excluding non-zero elements) in Figure \ref{fig:DSRateLevelResult} was
-58.59\%.  The poor fit of the tone rate level response (73.36\% relative
+58.59\%.  The poor fit of the tone rate level response (73.36\% \MAR
 error)at higher sound levels is compensated for by the good fit to the
 experimental target response at low levels, especially around the acoustic
 threshold.  The noise rate level response had a lower RMS error (26.1 sp/s) and
-lower mean relative error (37.25\%) across the sound levels; however the DS cell
+lower MAR error (37.25\%) across the sound levels; however the DS cell
 model was active to noise at 40 dB (well below the threshold of the target DS
 unit, around 60 dB SPL).
 # 54.6\% (tone 57.49%, noise 52.09%).
@@ -2343,7 +2340,7 @@ model.
 # TODO: Give details about the \TV model implementation
 
 #+ATTR_LATEX: width=0.95\textwidth
-#+CAPTION: [Experimental data of Type II~DCN~unit]{Physiological effects of neurotransmitter blockers strychnine and bicuculine on the rate level response  \citep{SpirouDavisEtAl:1999}. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}. Sound levels are attenuated from a reference acoustic calibration }
+#+CAPTION: [Experimental data of Type II~DCN~unit]{Physiological effects of neurotransmitter blockers strychnine and bicuculine on the rate level response of TV cells \citep{SpirouDavisEtAl:1999}. A. Type II EIRA unit. B. Type I/III EIRA unit. Data reproduced from Figure 8 in \citet{SpirouDavisEtAl:1999}. Sound levels are attenuated from a reference acoustic calibration }
 #+LABEL: fig:SpirouFig8
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/Spirou-Fig8.pdf]]
 # TV_RateLevel/TV_RateLevel_Fig8.pdf
@@ -2370,16 +2367,24 @@ optimal in noise (Figure \ref{fig:TVRateLevelResult}B).
 #+LABEL: fig:TVRateLevelResult
 [[../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel_result.pdf]]
 
-The blue lines in Figure \ref{fig:TVRateLevelResult}A show a good fit for the
+The optimised TV cell model response in Figure \ref{fig:TVRateLevelResult}A show a good fit for the
 control tone rate-level output. The \RMS of the reference and optimised \TV cell
 model reponse was 16.36 sp/s. The \RMS error for the \TV cell model without \DS
 cell input was 47.65 sp/s, which had a similar threshold to the reference data
 but was negatively affected by the greater saturation rate.  The results for the
-noise rate level responses were a poorer fit to the experimental reference data
+noise rate level responses (Figure \ref{fig:TVRateLevelResult}B) were a poorer fit to the experimental reference data
 due to the stronger \DS cell activation. The \RMS error for control and no \DS
 cell input results for noise was 51.84 and 67.28 sp/s, respectively.
 
-
+The discrepancies in the rate level optimisation present more limitations of the
+CNSM model and the optimisation process.  The TV cell receives more complex
+inputs in the deep layer of the DCN that are not accounted for in the model.
+The inclusion of \GLG cell inputs to the TV cell model were used as a
+replacement of GABA and mixed GABA-glycinergic neurons with complex EIRA
+responses. The rate level responses of the incoming inputs to the TV cell model 
+\yellownote{FIX tHis of acoustic threshold and the 
+gradient of firing rate with increasing sound level  in each of the
+TV cell inputs play a critical role in the output  
 
 # #  50 dB Run
 # # + BEGIN_LaTeX
@@ -2446,15 +2451,20 @@ effective in noise and at the onset of sounds.
 
 #+name: TVopt_error
 #+BEGIN_SRC sh :results replace raw
- grep -e '^# .inal error' ../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat | awk '{$5=sprintf("%g",$5);printf("%.2f",$5)}'
+ grep -e '^# .*rror' ../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat | awk '{$5=sprintf("%g",$5);printf("%.2f",$5)}'
 #+END_SRC
+
+#+RESULTS: TVopt_error
+28.44 0.00 54.330.00 251.82
+251.82
+
 
 
 #+name: TVRL_RMS
 #+BEGIN_SRC octave  :export none
  pkg load nan
- dat = load('~/mnt/m2home/Code/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
- %dat = load('~/Work/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
+ %dat = load('~/mnt/m2home/Code/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
+ dat = load('~/Work/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
  %dat = load('../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat');
  % Relative error
  RE= mean(abs((dat(1:end,2) - dat(1:end,3))./(dat(1:end,3))));
@@ -2469,7 +2479,7 @@ effective in noise and at the onset of sounds.
 #+END_SRC
 
 #+RESULTS: TVRL_RMS
-: 44.5%     503.71 (74.04 + 58.43 +185.62 + 185.62)
+: 47.1%     295.51 (46.48 + 108.51 +70.26 + 70.26)
 
 : 47.1%     295.51 (46.48 + 108.51 +70.26 + 70.26)
 
@@ -2557,8 +2567,8 @@ plots.}
 
 The optimised parameters for inputs to the \TV cell model were applied to \TV
 units across 100 frequency channels (the whole \CNSM model) and their responses
-to tones, noise and tones plus noise stimuli were recorded.  Unlike the \GLG
-cell model, the rate-level response of \TV cells is non-linear and the noise
+to tones and noise  stimuli were recorded.  Unlike the \GLG
+cell and \DS cell models, the rate-level response of \TV cells is non-linear and the noise
 rate-level is strongly inhibited (Figure \ref{fig:TVverification}A).  This is
 typical of the Type II \EIRA units in the deep layer of the \DCN
 \citep{SpirouDavisEtAl:1999,Rhode:1999}.  The PSTH response of the central \TV
