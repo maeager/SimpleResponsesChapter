@@ -2162,7 +2162,7 @@ and \DS cells, with the third in rats identified as small adendritic neurons.
 
 
 Ultra-structural labeling of synapses in the rat \DCN suggests that \TV cells
-are inhibited by glycinergic \DS cells and from sources in the \DCN
+are inhibited by glycinergic \DS cells and from GABA and mixed GABA-Gly sources in the \DCN
 \citep{Rubio:2005}.  Intracellular responses from labeled \TV cells in the mouse
 show clear diffuse inhibitory input from \DS cells
 \citep{ZhangOertel:1993b,WickesbergOertel:1993}.  Evidence in the mouse suggests
@@ -2227,7 +2227,7 @@ GABA-ergic inputs. \TV cells' zero spontaneous activity is still maintained on
 application of glycinergic or \GABAa blockers \citep{DavisYoung:2000}.
 # \citet{HancockDavisEtAl:1997} suggests their high input resistance
 In reponse to sounds, strychnine and bicuculine enable \TV cells to respond more
-vigorously to noise and lower the threshold for tones \citep{DavisYoung:2000}.
+vigorously to noise and lower the threshold for tones \citep{DavisYoung:2000,YoungDavis:2002}.
 
 
 Taken together with histological studies, the results suggest that \ANFs
@@ -2251,9 +2251,8 @@ the response thresholds of \VCN neurons.  \citet{SpirouDavisEtAl:1999} propose
 that the responses of \DCN principal cells are strongly inhibited by this
 narrowband source, especially at sharp spectral peaks close to their \BF.
 
+
 *** Modelling of Tuberculoventral cells
-
-
 
 
 # \citet{ArleKim:1991a} were the first to show Type II \EIRA units with
@@ -2381,6 +2380,7 @@ The results for the noise rate level responses (Figure
 \ref{fig:TVRateLevelResult}B) were a poorer fit to the experimental reference
 data due to the stronger \DS cell activation. The \RMS error for control and no
 \DS cell input results for noise was 51.84 and 67.28 sp/s, respectively.
+\yellownote{Add GABA results}
 
 The discrepancies in the rate level optimisation present more limitations of the
 CNSM model and the optimisation process.  The TV cell receives more complex
@@ -2391,7 +2391,7 @@ responses.
 
 The rate level responses of the incoming inputs to the TV cell model
 
-\yellownote{FIX tHis} of acoustic threshold and the gradient of firing rate with
+\yellownote{FIX tHis: discuss gaba} of acoustic threshold and the gradient of firing rate with
 increasing sound level in each of the TV cell inputs play a critical role in the
 output
 
@@ -2444,7 +2444,7 @@ input cell types to the \TV cell model had 30 synaptic inputs. All \ANF inputs
 were on \CF and were chosen from different \HSR and \LSR fibres in the same frequency
 channel.  The \DS cell inputs were selected from frequency channels on and
 around the \CF of the \TV cell (Gaussian distribution, spread parameter
-\sDSTV=30).  The inhibitory weight from \DS cells was 50 times greater than the
+\sDSTV=30).  The inhibitory weight from \DS cells was much greater than the
 \ANF weights (\wDSTV = call_TVopt_param(param="w.x[ds][tv]",factor="1000")[:results replace raw] nS),
 however, due to the response properties of \DS cells the inhibition is most
 effective in noise and at the onset of sounds.
@@ -2473,23 +2473,27 @@ effective in noise and at the onset of sounds.
 #+name: TVRL_RMS
 #+BEGIN_SRC octave  :export none
  pkg load nan
- %dat = load('~/mnt/m2home/Code/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
- dat = load('~/Work/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
+ dat = load('~/mnt/m2p38/eagerm/cnstellate/TV_RateLevel0/TV_RateLevel.Fit.dat');
+ %dat = load('~/Work/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
  %dat = load('../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat');
  % Relative error
- RE= mean(abs((dat(1:end,2) - dat(1:end,3))./(dat(1:end,3))));
+ RE_control= mean(abs((dat(1:end,2) - dat(1:end,4))./max(dat(1:end,[2 4]))));
+ RE_nods= mean(abs((dat(1:end,3) - dat(1:end,5))./max(dat(1:end,[3 5]))));
+ RE_noglg= mean(abs((dat(1:end,10) - dat(1:end,11))./max(dat(1:end,[10 11]))));
  % root mean squared error
  RMS_tone_control= sqrt(meansq((dat(16:end,2) - dat(16:end,4))));
  RMS_tone_nods= sqrt(meansq((dat(16:end,3) - dat(16:end,5))));
+ RMS_tone_noglg= sqrt(meansq((dat(16:end,10) - dat(16:end,11))));
 
  RMS_noise_control= sqrt(meansq((dat(1:15,3) - dat(1:15,5))));
  RMS_noise_nods= sqrt(meansq((dat(1:15,3) - dat(1:15,5))));
+ RMS_noise_noglg= sqrt(meansq((dat(1:15,10) - dat(1:15,11))));
 
- sprintf("%.1f%%     %.2f (%.2f + %.2f +%.2f + %.2f)",RE*100,RMS_tone_control+ RMS_tone_nods+RMS_noise_control+RMS_noise_nods, RMS_tone_control, RMS_tone_nods, RMS_noise_control,RMS_noise_nods)
+ sprintf("%.1f%% %.1f%% %.1f%%     %.2f (%.2f + %.2f +%.2f + %.2f)",RE_control*100,RE_nods*100,RE_noglg*100,RMS_tone_control+ RMS_tone_nods+RMS_noise_control+RMS_noise_nods, RMS_tone_control, RMS_tone_nods, RMS_noise_control,RMS_noise_nods)
 #+END_SRC
 
 #+RESULTS: TVRL_RMS
-: 47.1%     295.51 (46.48 + 108.51 +70.26 + 70.26)
+: 32.0% 19.8% 92.1%     41.67 (16.74 + 13.95 +815.53 + 108.30)251.3% 227.9% 227.9%
 
 : 47.1%     295.51 (46.48 + 108.51 +70.26 + 70.26)
 
@@ -2754,22 +2758,6 @@ similar \CF (\TV unit 70, \CF 12.76 kHz) to notch and band-pass noise.
 
 ** Discussion of the TV Cell Model
 
-# {Disussion in Spirou 1999} The type II response type first was defined on the
-# basis of its low response to broadband noise (Young and Voigt 1982). Type IIs
-# are the only units in the cochlear nucleus that have this property. However, a
-# more important insight was the association of type II units with an inhibitory
-# interneuron in DCN. The first evidence for this relationship was the finding
-# of inhibitory-type cross-correlation between type II units and the response
-# types associated with DCN principal cells (Voigt and Young 1980). There are
-# several inhibitory interneurons in DCN (Osen et al. 1990), but the evidence
-# reviewed in the Introduction from antidromic stimulation, from recording in
-# the dorsal acoustic stria, from the locations of type II recording sites, and
-# from intracellular dye filling points to the vertical cell as the source of
-# type II recordings. Because response types are most useful when they can be
-# related to functional and anatomic entities, we suggest that type II should be
-# thought of as a response type given by vertical cells. That assumption will be
-# made in the remainder of this discussion.
-
 
 \TV cells are an important inhibitory inter-neuron in the \DCN and \VCN.  \TV
 cells' role in the \CNSM model is to provide delayed, narrow-band inhibition to
@@ -2804,62 +2792,6 @@ the responses of the network of \TV cells also needs further investigation.
 # replicating wide-band inhibition offset necessary?  LSR spectrum already shows a
 # bias at the falling edge. The notch procedure is another verification of the \TV
 # cell model to known experimental data.}
-
-# \note{  Mammalian studies show that the TV cells receive excitatory input from \TS
-# cells, but not in rats.}
-
-# ArnottWalacePalmer The ‘‘V’’- shaped response area of the auditory nerve fibre
-# is transformed in the type II neurone by strong inhibition that overlaps at
-# high sound levels to generate nonmonotonic responses as a function of sound
-# level.  This strong inhibition renders type II neurones insensitive to
-# broadband signals (Young and Brownell 1976; Young and Voigt 1982; Shofner and
-# Young 1985). Type II responses are associated with glycin- ergic ‘‘vertical
-# cells’’ located just beneath the fusi- form cell layer in DCN (Rhode 1999).
-# Type IV neurones have a response area that is even more restricted, often
-# consisting of only an island of excitation severely constrained by inhibitory
-# inputs.  Hence, type IV neurones are strongly nonmonotonic as a function of
-# tone sound level.  In addition to their type II innervation, which primarily
-# influences behavior near the BF, principal cells are also inhibited at
-# frequencies far from their BF (Nelken and Young 1994) and are thus subject to
-# wideband inhibition, which is antagonized by strychnine (Davis and Young
-# 2000). This wideband inhibi- tion has been postulated to modulate the
-# responses of principal neurones both directly, through glycinergic
-# innervation of these cells, and indirectly, through glycinergic innervation of
-# type II DCN interneurones.
-
-# Spirou Abstract
-# Young. Spectral integration by type II interneurons in dorsal cochlear
-# nucleus. J. Neurophysiol. 82: 648 – 663, 1999. The type II unit is a
-# prominent inhibitory interneuron in the dorsal cochlear nucleus
-# (DCN), most likely recorded from vertical cells. Type II units are
-# characterized by low rates of spontaneous activity, weak responses to
-# broadband noise, and vigorous, narrowly tuned responses to tones.
-# The weak responses of type II units to broadband stimuli are unusual
-# for neurons in the lower auditory system and suggest that these units
-# receive strong inhibitory inputs, most likely from onset-C neurons of
-# the ventral cochlear nucleus. The question of the definition of type II
-# units is considered here; the characteristics listed in the preceding text
-# define a homogeneous type II group, but the boundary between this
-# group and other low spontaneous rate neurons in DCN (type I/III
-# units) is not yet clear. Type II units in decerebrate cats were studied
-# using a two-tone paradigm to map inhibitory responses to tones and
-# using noisebands of varying width to study the inhibitory processes
-# evoked by broadband stimuli. Iontophoresis of bicuculline and strych-
-# nine and comparisons of two-tone responses between type II units and
-# auditory nerve fibres were used to differentiate inhibitory processes
-# occurring near the cell from two-tone suppression in the cochlea. For
-# type II units, a significant inhibitory region is always seen with
-# two-tone stimuli; the bandwidth of this region corresponds roughly to
-# the previously reported excitatory bandwidth of onset-C neurons.
-# Bandwidth widening experiments with noisebands show a monotonic
-# decline in response as the bandwidth increases; these data are inter-
-# preted as revealing strong inhibitory inputs with properties more like
-# onset-C neurons than any other response type in the lower auditory
-# system. Consistent with these properties, iontophoresis of inhibitory
-# antagonists produces a large increase in discharge rate to broadband
-# noise, making tone and noise responses nearly equal.
-
-# \clearpage
 
 * T Stellate Cell Model: Three Chopper Subtypes
 :PROPERTIES:
@@ -3372,6 +3304,32 @@ improve comparison of optimised parameters.
 # [:results replace raw]
 \glsreset{ChS}
 
+#+BEGIN_LaTeX
+  \begin{figure}[thb]
+    \centering%
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate2_CS/multiplotIVCV4.pdf}}
+  \caption[Sustained chopper optimisation results]{Optimisation results for the
+    sustained chopper subtype of the TS cell model.  The reference data for ChS
+    unit 01-864-004 from \citet{PaoliniClareyEtAl:2005}, with CF 3.9 kHz, is shown
+    in blue and the optimised model is shown in black (CF 9.1 kHz).  The stimulus
+    (pure tone 9.1 kHz stimulus) was repeated 50 times for this analysis but
+    during the optimisation routine the repetition was 25.  A. PSTH of the \TS
+    cell model (CF 9.1 kHz) to a pure tone at CF at 30 dB re $\theta$ (50 dB
+    SPL). B. Coefficient of variation averaged over 10 msec periods at 20, 30 and
+    40 dB re $\theta$.  C. Reference (blue) and ChS cell model AIVs at 30 dB re
+    $\theta$. Note: shaded areas indicate AIV regions used in D. The temporal
+    adjustment to match the onset peaks was 2.5 msec.  D. AIV measures including
+    (a) onset ratio (30 dB re $\theta$, Equation~\ref{eq:IVstats-Onset}), (b)
+    adaptation of sustained depolarisation (20,30,40 dB re $\theta$,
+    see Equation~\ref{eq:IVstats-Adap}), and (c) post-tone hyperpolarisation (20,30,40
+    dB re $\theta$, see Equation~\ref{eq:IVstats-Offset}).  The RMP, calculated from
+    -10 to 0 msec, for the reference unit and best-fit \ChS model was -45.1 and
+    -64.22 mV, respectively.}
+    \label{fig:CSresults}
+  \end{figure}
+#+END_LaTeX
+
+
 Figure \ref{fig:CSresults} shows the optimisation results for the \ChS subtype
 of the \TS cell model.  The exemplar \ChS unit (\CF 3.9 kHz) had an
 intracellular depolarisation threshold, $\theta$, at 10 dB \SPL and a firing rate
@@ -3435,30 +3393,6 @@ mV for the model and 0.94 mV for the exemplar unit.
 # high synaptic weights do not seem like a realistic physiological option
 # for small bouton endings in the CN.}
 
-#+BEGIN_LaTeX
-  \begin{figure}[thb]
-    \centering%
-  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate2_CS/multiplotIVCV4.pdf}}
-  \caption[Sustained chopper optimisation results]{Optimisation results for the
-    sustained chopper subtype of the TS cell model.  The reference data for ChS
-    unit 01-864-004 from \citet{PaoliniClareyEtAl:2005}, with CF 3.9 kHz, is shown
-    in blue and the optimised model is shown in black (CF 9.1 kHz).  The stimulus
-    (pure tone 9.1 kHz stimulus) was repeated 50 times for this analysis but
-    during the optimisation routine the repetition was 25.  A. PSTH of the \TS
-    cell model (CF 9.1 kHz) to a pure tone at CF at 30 dB re $\theta$ (50 dB
-    SPL). B. Coefficient of variation averaged over 10 msec periods at 20, 30 and
-    40 dB re $\theta$.  C. Reference (blue) and ChS cell model AIVs at 30 dB re
-    $\theta$. Note: shaded areas indicate AIV regions used in D. The temporal
-    adjustment to match the onset peaks was 2.5 msec.  D. AIV measures including
-    (a) onset ratio (30 dB re $\theta$, Equation~\ref{eq:IVstats-Onset}), (b)
-    adaptation of sustained depolarisation \MP difference (20,30,40 dB re $\theta$,
-    see Equation~\ref{eq:IVstats-Adap}), and (c) post-tone hyperpolarisation \MP difference(20,30,40
-    dB re $\theta$, see Equation~\ref{eq:IVstats-Offset}).  The RMP, calculated from
-    -10 to 0 msec, for the reference unit and best-fit \ChS model was -45.1 and
-    -64.22 mV, respectively.}
-    \label{fig:CSresults}
-  \end{figure}
-#+END_LaTeX
 
 # \note{Increase gKA helps increase potassium conductance at rest}
 
@@ -3481,6 +3415,24 @@ mV for the model and 0.94 mV for the exemplar unit.
 #  [[../SimpleResponsesChapter/gfx/TStellate_CS/multiplotIVCV4.pdf]]
 
 *** Transient Chopper 1
+
+#+BEGIN_LaTeX
+  \begin{figure}[t!]
+    \centering
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf}}
+  \caption[Transient chopper type 1 optimisation results]{Transient chopper type 1
+    optimisation results of the TS cell model.  Pure tones at 9.1 kHz pure tone and at 40, 50, 60 dB SPL
+    sound levels were used in the optimisation procedure to reproduce intracellular and spiking
+    statistics of unit 01-857-007 \citep[CF 8.2~kHz, threshold 55 dB SPL][]{PaoliniClareyEtAl:2005}.
+    The RMP for the reference unit and best parameter model was -55.98 and -64.97
+    mV, respectively.  See Figure \ref{fig:CSresults} for figure configuration.
+    A. PSTH of the optimised \ChTone  model at 30 dB $\theta$ (50 reps, CF 9.1 kHz, 50 dB SPL).
+    B. CV statistics of spike times.
+    C. AIVs over 50 repetitions of the optimised \ChTone model and experimental unit at 30 dB $\theta$. The temporal adjustment of onset peaks was 2.2 msec.
+    adjustment to match the onset peaks was 2.5 msec.  D. AIV measures.}
+    \label{fig:CT1results}
+  \end{figure}
+#+END_LaTeX
 
 The optimisation results of \ChTone are shown in Figure \ref{fig:CT1results}
 with best parameters as shown in Table \ref{tab:TSCellResults}.  The \ChTone
@@ -3505,23 +3457,6 @@ the \TS cell throughout the stimulus.
 
 # The leak conductance had a slight decrease (\gleak 4.098e-4 S/cm).
 
-#+BEGIN_LaTeX
-  \begin{figure}[t!]
-    \centering
-  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf}}
-  \caption[Transient chopper type 1 optimisation results]{Transient chopper type 1
-    optimisation results of the TS cell model.  Pure tones at 9.1 kHz pure tone and at 40, 50, 60 dB SPL
-    sound levels were used in the optimisation procedure to reproduce intracellular and spiking
-    statistics of unit 01-857-007 \citep[CF 8.2~kHz, threshold 55 dB SPL][]{PaoliniClareyEtAl:2005}.
-    The RMP for the reference unit and best parameter model was -55.98 and -64.97
-    mV, respectively.  See Figure \ref{fig:CSresults} for figure configuration.
-    A. PSTH of the optimised \ChTone  model at 30 dB $\theta$ (50 reps, CF 9.1 kHz, 50 dB SPL).
-    B. CV statistics of spike times.
-    C. AIVs over 50 repetitions of the optimised \ChTone model and experimental unit at 30 dB $\theta$. The temporal adjustment of onset peaks was 2.2 msec.
-    adjustment to match the onset peaks was 2.5 msec.  D. AIV measures.}
-    \label{fig:CT1results}
-  \end{figure}
-#+END_LaTeX
 
 #     [[../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf]]
 Figure \ref{fig:CT1results} shows the spike and \AIV statistical measures of the
@@ -3556,6 +3491,22 @@ optimisation procedure.
 
 \clearpage
 *** Transient Chopper 2
+
+#+BEGIN_LaTeX
+   \begin{figure}[tp!]
+    \centering %\resizebox{0.95\textwidth}{!}{}
+  % \includegraphics{TStellate_CT2/multiplotIVCV}
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate2_CT2/multiplotIVCV4.pdf}}
+  \caption[Transient chopper type 2 optimisation results]{TS cell model optimisation
+    results for the second transient chopper subtype. The experimental data was reference unit 01-305-014 (CF 12.57 kHz, threshold 5 dB SPL) \citep{PaoliniClareyEtAl:2005}.
+    The RMP for the reference unit and best \ChTone model was -60.63 and -64.95
+    mV, respectively.  See Figure \ref{fig:CSresults} for figure configuration.
+    A. PSTH of the model unit in response to a 9.1 kHz tone at 30 dB re $\theta$ (50 dB SPL). B. CV
+    statistics of the model and reference units. C. AIVs over
+    50 repetitions at 30 dB re $\theta$ (50 dB SPL). D. AIV measures.}
+    \label{fig:CT2results}
+   \end{figure}
+#+END_LaTeX
 
 The \ChTtwo model optimisation used average population data for CV data and unit
 01-305-014 (\CF 12.4 kHz \citep*{PaoliniClareyEtAl:2005}) for IV measure
@@ -3616,21 +3567,6 @@ of the optimised \ChTtwo unit was call_TSopt_error(type="CT2")[:results replace 
 with the greatest weighting from the CV data.
 
 
-#+BEGIN_LaTeX
-   \begin{figure}[tp!]
-    \centering %\resizebox{0.95\textwidth}{!}{}
-  % \includegraphics{TStellate_CT2/multiplotIVCV}
-  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate2_CT2/multiplotIVCV4.pdf}}
-  \caption[Transient chopper type 2 optimisation results]{TS cell model optimisation
-    results for the second transient chopper subtype. The experimental data was reference unit 01-305-014 (CF 12.57 kHz, threshold 5 dB SPL) \citep{PaoliniClareyEtAl:2005}.
-    The RMP for the reference unit and best \ChTone model was -60.63 and -64.95
-    mV, respectively.  See Figure \ref{fig:CSresults} for figure configuration.
-    A. PSTH of the model unit in response to a 9.1 kHz tone at 30 dB re $\theta$ (50 dB SPL). B. CV
-    statistics of the model and reference units. C. AIVs over
-    50 repetitions at 30 dB re $\theta$ (50 dB SPL). D. AIV measures.}
-    \label{fig:CT2results}
-   \end{figure}
-#+END_LaTeX
 #
 #  [[../SimpleResponsesChapter/gfx/TStellate2_CT2/multiplotIVCV4.pdf]]
 
