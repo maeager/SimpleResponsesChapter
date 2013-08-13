@@ -2382,7 +2382,8 @@ inputs in the deep layer of the DCN that are not accounted for in the model.
 The inclusion of \GLG cell inputs to the TV cell model were used as a
 replacement of GABA and mixed GABA-glycinergic neurons with complex EIRA
 responses. The rate level responses of the incoming inputs to the TV cell model 
-\yellownote{FIX tHis of acoustic threshold and the 
+\yellownote{FIX tHis}
+ of acoustic threshold and the 
 gradient of firing rate with increasing sound level  in each of the
 TV cell inputs play a critical role in the output  
 
