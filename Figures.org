@@ -47,6 +47,75 @@
   ${CNSTELLATEPATH}/fullbattery &
 #+END_SRC
 
+# + header: :term pdfcairo enhanced color solid font "Helvetica,18" linewidth 2.0 butt dashlength 1.0 size 7,7.86
+# + header : :term pngcairo size 700,1200 enhanced font 'Verdana,10'
+#+name: ratelevel-AN
+#+header: :term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
+#+BEGIN_SRC gnuplot :export none
+      
+  set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
+  set output './gfx/Responses/ratelevel-AN.eps'
+  reset
+  set multiplot layout 2,2
+  
+  set label 1 "{/Helvetica-Bold=36 A}    " at screen 0.1, screen 0.965 font "Helvetica,30" left  front  #  {/Helvetica-Bold=28 A}
+  set label 2 "{/Helvetica-Bold=36 B}    " at screen 0.625, screen 0.965 font "Helvetica,30" center front
+  set label 3 "{/Helvetica-Bold=36 C}    " at screen 0.1, screen 0.525 font "Helvetica,30" left front
+  set label 4 "{/Helvetica-Bold=36 D}    " at screen 0.625, screen 0.525 font "Helvetica,30" center front
+
+  
+  set xlabel "CF (kHz)" font "Helvetica,24"
+  set pm3d map # interpolate 0,0
+  # set logscale x 10
+  set colorbox noborder
+  
+  set xtics nomirror out #("" 50, "" 60, "" 70, "" 80, "" 90, "0.1" 100, "" 200, "" 300, "" 400, "" 500, "" 600, "" 700, "" 800, "" 900, "1" 1000, "" 1100, "" 1200)
+  
+  #set contour;
+  #set cntrparam levels discrete THRESH
+  unset clabel #set clabel "1"
+  
+  set colorbox noborder
+  set ylabel "CF (kHz)" font "Helvetica,24"
+  
+  set ylabel "Sound Level (dB SPL)" font "Helvetica,24"
+  unset cblabel
+  unset key
+  set logscale x 10
+  set xrange [0.2:40] #2.805:27.017] #[40:90]
+  
+  set zrange [0:*]
+  set cbrange [0:*]
+  set yrange [-10:90]
+  set palette functions sqrt(gray),sqrt(gray),sqrt(gray) negative
+  # set palette gray negative
+  splot  datapath.'RateLevel/response_area.'.INDEX.'.dat' u ($3/1000):1:($4)
+  set cblabel "Firing Rate (sp/s)" font "Helvetica,24"
+  set yrange [0:110]
+  splot  datapath.'NoiseRateLevel/response_area.'.INDEX.'.dat' u ($3/1000):1:($4)
+  
+  unset pm3d
+  set border 3
+  set ytics nomirror
+  set yrange [0:*]
+  unset xrange
+  unset zrange
+  unset cbrange
+  set xlabel "Sound Level (dB SPL)" font "Helvetica,24"
+  set ylabel "Firing Rate (spikes/sec)" font "Helvetica,24"
+  unset logscale x
+  plot  '<grep -e ''\s50\s'' '.sprintf("%s/RateLevel/response_area.%d.dat",datapath,INDEX)  u 1:($4) w lp lc "black" lw 1.5 ps 2,\
+        '<grep -e ''\s50\s'' '.sprintf("%s/RateLevel/response_area.%d.dat",datapath,INDEX+1)  u 1:($4) w lp lc "black" lw 1.5 ps 2
+  plot  '<grep -e ''\s50\s'' '.sprintf("%s/NoiseRateLevel/response_area.%d.dat",datapath,INDEX) u 1:($4) w lp  lc "black" lw 1.5 ps 2,\
+        '<grep -e ''\s50\s'' '.sprintf("%s/NoiseRateLevel/response_area.%d.dat",datapath,INDEX+1) u 1:($4) w lp  lc "black" lw 1.5 ps 2
+  
+  unset multiplot
+  
+  !fixbb './gfx/Responses/ratelevel-AN.eps'
+  !epstopdf './gfx/Responses/ratelevel-AN.eps'
+  !rm -f './gfx/Responses/ratelevel-AN.eps'
+#+END_SRC
+
 
 # + header: :term pdfcairo enhanced color solid font "Helvetica,18" linewidth 2.0 butt dashlength 1.0 size 7,7.86
 # + header : :term pngcairo size 700,1200 enhanced font 'Verdana,10'
@@ -55,29 +124,12 @@
 #+BEGIN_SRC gnuplot :export none
   
   reset
-  # check input variables
-  # if (INDEX == "" ) { print "Index ", INDEX} else{ quit }
-  # if (FRATE == "" ) {print "FRATE ", FRATE; } else { FRATE=(1/0.13) }
-  # if (THRESH == "" ) {print "THRESH ", THRESH} else {THRESH=40}
-  
   set multiplot layout 2,2
   
   set label 1 "{/Helvetica-Bold=32 A}    " at screen 0.1, screen 0.965 font "Helvetica,30" left  front  #  {/Helvetica-Bold=28 A}
   set label 2 "{/Helvetica-Bold=32 B}    " at screen 0.6, screen 0.965 font "Helvetica,30" center front
   set label 3 "{/Helvetica-Bold=32 C}    " at screen 0.1, screen 0.53 font "Helvetica,30" left front
   set label 4 "{/Helvetica-Bold=32 D}    " at screen 0.6, screen 0.533 font "Helvetica,30" center front
-  # set label 5 "{/Helvetica-Bold=28 E}    40 dB SPL" at screen 0.1, screen 0.3 font "Helvetica,30" left front
-  # set label 6 "{/Helvetica-Bold=28 F}" at screen 0.6, screen 0.3 font ",30" center front
-  # set label 5 "E  40 dB SPL" at screen 0.1, screen 0.3 font ",30" center front
-  # set label 6 "F" at screen 0.6, screen 0.3 font ",30" center front
-  
-  # set label 7 "80 dB SPL" at screen 0.25, screen 0.755 font ",30"  tc rgb "#FFFFFF""  center front
-  # set label 8 "60 dB SPL" at screen 0.25, screen 0.425 font ",30"  tc rgb "#FFFFFF""  center front
-  # set label 9 "40 dB SPL" at screen 0.25, screen 0.095 font ",30"  tc rgb "#FFFFFF""  center front
-  # set label 10 "20 dB SPL" at screen 0.25, screen 0.095 font ",30"  tc rgb "#FFFFFF""  center front
-  
-  
-  # with lines lc rgb "#007700"
   
   set xlabel "CF (kHz)" font "Helvetica,24"
   set pm3d map # interpolate 0,0
@@ -100,118 +152,164 @@
   set logscale x 10
   set xrange [0.2:40] #2.805:27.017] #[40:90]
   
-  set zrange [0:*]
-  set cbrange [0:*]
+  set zrange [0:RATEMAX]
+  set cbrange [0:RATEMAX]
   set yrange [-10:90]
   set palette functions sqrt(gray),sqrt(gray),sqrt(gray) negative
   # set palette gray negative
-  splot  datapath.'RateLevel/response_area.'.INDEX.'.dat' u ($3/1000):1:($4*FRATE)
+  splot  datapath.'RateLevel/response_area.'.INDEX.'.dat' u ($3/1000):1:($4)
   set cblabel "Firing Rate (sp/s)" font "Helvetica,24"
   set yrange [0:110]
-  splot  datapath.'NoiseRateLevel/response_area.'.INDEX.'.dat' u ($3/1000):1:($4*FRATE)
-  
-  
+  splot  datapath.'NoiseRateLevel/response_area.'.INDEX.'.dat' u ($3/1000):1:($4)
+    
   unset pm3d
   set border 3
   set ytics nomirror
-  unset yrange
+  set yrange [0:RATEMAX]
   unset xrange
   unset zrange
   unset cbrange
   set xlabel "Sound Level (dB SPL)" font "Helvetica,24"
   set ylabel "Firing Rate (spikes/sec)" font "Helvetica,24"
   unset logscale x
-  plot  '<grep -e ''\s50\s'' '.sprintf("%s/RateLevel/response_area.%d.dat",datapath,INDEX)  u 1:($4*FRATE) w lp lc "black" lw 1.5 ps 2
-  plot  '<grep -e ''\s50\s'' '.datapath.'NoiseRateLevel/response_area.'.INDEX.'.dat' u 1:($4*FRATE) w lp  lc "black" lw 1.5 ps 2
-  
+  plot  '<grep -e ''\s50\s'' '.sprintf("%s/RateLevel/response_area.%d.dat",datapath,INDEX)  u 1:($4) w lp lc "black" lw 1 pt 4 ps 2
+  plot  '<grep -e ''\s50\s'' '.sprintf("%s/NoiseRateLevel/response_area.%d.dat",datapath,INDEX) u 1:($4) w lp  lc "black" lw 1 pt 4 ps 2
   
   unset multiplot
+
+  
+#+END_SRC
+
+#+name:  ratelevel-AN.gpi
+#+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-AN.gpi :export none
+
+  INDEX=4;
+  <<CSdatapath>>
+  <<ratelevel-AN>>
   
 #+END_SRC
 
 
-#+call: ratelevel[ :file ./gfx/Responses/ratelevel-4.eps ](THRESH=60,FRATE=100,INDEX=4,datapath=<<CSdatapath>>) :results none :export none
+#+call: ratelevel[ :file ./gfx/Responses/ratelevel-4.eps ](FRATE=100,INDEX=4,datapath=<<CSdatapath>>) :results none :export none
 
 #+name:  ratelevel-4.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-4.gpi :export none
 
-  THRESH=55;
-  FRATE=(20/0.05);
   INDEX=4;
+  RATEMAX=300;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-4.eps'
   <<CSdatapath>>
   <<ratelevel>>
-  !fixbb './gfx/Responses/ratelevel-4.eps'
+ !fixbb './gfx/Responses/ratelevel-4.eps'
+ !epstopdf './gfx/Responses/ratelevel-4.eps'
+ !rm -f './gfx/Responses/ratelevel-4.eps'
+
 #+END_SRC
 
 #+name:  ratelevel-5.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-5.gpi :export none
 
-  THRESH=2;
-  FRATE=(20/0.05);
   INDEX=5;
+  RATEMAX=200;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-5.eps'
   <<CSdatapath>>
   <<ratelevel>>
-  !fixbb './gfx/Responses/ratelevel-5.eps'
+ !fixbb './gfx/Responses/ratelevel-5.eps'
+ !epstopdf './gfx/Responses/ratelevel-5.eps'
+ !rm -f './gfx/Responses/ratelevel-5.eps'
+
 #+END_SRC
 
 
 #+name:  ratelevel-3.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-3.gpi :export none
 
-  THRESH=2;
-  FRATE=(5/0.05);
   INDEX=3;
+  RATEMAX=100;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-3.eps'
   <<CSdatapath>>
   <<ratelevel>>
-  !fixbb './gfx/Responses/ratelevel-3.eps'
+ !fixbb './gfx/Responses/ratelevel-3.eps'
+ !epstopdf './gfx/Responses/ratelevel-3.eps'
+ !rm -f './gfx/Responses/ratelevel-3.eps'
+
 #+END_SRC
 
 
 #+name:  ratelevel-2.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-2.gpi :export none
 
-  THRESH=2;
-  FRATE=(10/0.05);
   INDEX=2;
+  RATEMAX=200;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-2.eps'
   <<CSdatapath>>
   <<ratelevel>>
-  !fixbb './gfx/Responses/ratelevel-2.eps'
+ !fixbb './gfx/Responses/ratelevel-2.eps'
+ !epstopdf './gfx/Responses/ratelevel-2.eps'
+ !rm -f './gfx/Responses/ratelevel-2.eps'
 #+END_SRC
 
 
 #+name:  ratelevel-1.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-1.gpi :export none
 
-  THRESH=2;
-  FRATE=(10/0.05);
   INDEX=1;
+  RATEMAX=100;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-1.eps'
   <<CSdatapath>>
   <<ratelevel>>
-  !fixbb './gfx/Responses/ratelevel-1.eps'
+ !fixbb './gfx/Responses/ratelevel-1.eps'
+ !epstopdf './gfx/Responses/ratelevel-1.eps'
+ !rm -f './gfx/Responses/ratelevel-1.eps'
 #+END_SRC
 
 #+name:  ratelevel-0-ChS.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-0-ChS.gpi :export none
 
-  THRESH=2;
-  FRATE=(10/0.05);
   INDEX=0;
+  RATEMAX=200;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-0-ChS.eps'
   <<CSdatapath>>
   <<ratelevel>>
-  !fixbb './gfx/Responses/ratelevel-0-ChS.eps'
+ !fixbb './gfx/Responses/ratelevel-0-ChS.eps'
+ !epstopdf './gfx/Responses/ratelevel-0-ChS.eps'
+ !rm -f './gfx/Responses/ratelevel-0-ChS.eps'
 #+END_SRC
+
+#+name:  ratelevel-0-ChT1.gpi
+#+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-0-ChT1.gpi :export none
+
+  INDEX=0;
+  RATEMAX=200;
+  set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
+  set output './gfx/Responses/ratelevel-0-ChT1.eps'
+  <<CTonedatapath>>
+  <<ratelevel>>
+ !fixbb './gfx/Responses/ratelevel-0-ChT1.eps'
+ !epstopdf './gfx/Responses/ratelevel-0-ChT1.eps'
+ !rm -f './gfx/Responses/ratelevel-0-ChT1.eps'
+#+END_SRC
+
+#+name:  ratelevel-0-ChT2.gpi
+#+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-0-ChT2.gpi :export none
+
+  INDEX=0;
+  RATEMAX=200;
+  set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
+  set output './gfx/Responses/ratelevel-0-ChT2.eps'
+  <<CTtwodatapath>>
+  <<ratelevel>>
+ !fixbb './gfx/Responses/ratelevel-0-ChT2.eps'
+ !epstopdf './gfx/Responses/ratelevel-0-ChT2.eps'
+ !rm -f './gfx/Responses/ratelevel-0-ChT2.eps'
+#+END_SRC
+
 
 ** psthblock
 
