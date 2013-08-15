@@ -11,7 +11,7 @@
          \textbf{Connectivity}          & Gaussian spread dependent on morphology and afferent connections  \\\hline
          \textbf{Input model}           & ANF~model: Instantaneous-rate Poisson neural model  \citep{ZilanyBruceEtAl:2009} \\\hline
 \multirow{2}{*}{\textbf{Neuron model}}  & \GLG cell: \GLG neural model (see Section \ref{sec:Ch3:GolgiModel}).\\
-                                        & DS cell model: Type I-II \RM single compartment neural model\\ \hline
+                                        & \DS cell model: Type I-II \RM single compartment neural model\\ \hline
         \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b} \\\hline
 \multirow{2}{*}{\textbf{Synapse model}} & Excitatory: \AMPA glutamatergic receptor (single-exponential)\\
                                         & Inhibitory: \GABAA GABAergic receptor (double-exponential), \GlyR glycinergic receptor (double-exponential) \\\hline
@@ -42,9 +42,9 @@
  \HSR,\,\LSR
 %\end{center} \end{minipage}}
 &       \DS       &
-Skewed Gaussian convergence, centred on CF, spread below  CF $\sigma^2 = \sANFDSl$, spread above CF $\sigma^2 = \sANFDSh$, delay  \dANFDS.  Weight and number differ for HSR and  LSR connections ( \wHSRDS,  \nHSRDS, \wLSRDS, \nLSRDS) \\\hline
-       $\GLGDS$         &       \GLG       &       \DS        &
-Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGDS$, uniform weight \wGLGDS, number \nGLGDS, delay \dGLGDS \\\hline
+Skewed Gaussian convergence, centred on-CF, spread below  CF $\sANFDSl=40$, spread above CF $\sANFDSh=20$, delay  $\dANFDS=0.8$ msec.  Weight and number for HSR and  LSR connections ( \wHSRDS,  \nHSRDS, \wLSRDS, \nLSRDS)  optimised.\\\hline
+       \GLGDS         &       \GLG       &       \DS        &
+Gaussian convergence, centred on-CF, spread $\sGLGDS=3$, delay $\dGLGDS=0.4$ msec. Weight (\wGLGDS) and number (\nGLGDS) parameters optimised. \\\hline
 \multicolumn{4}{|X|}{\ANFGLG from previous section, see Table~\ref{tab:GolgiCellModelSummary}C.}\\\hline
 \end{tabularx}
 \vspace{1ex}
@@ -84,12 +84,10 @@ $\tau_{\rm GABA-2}$,
 \begin{tabularx}{\textwidth}{|l|X|}\hline %
 \hdr{2}{F}{Optimisation - Rate Level}\\\hline
 \textbf{Input Stimulus}  & 1. Tone rate Level function, 11.1~kHz tone at 30 to 100 dB SPL in 5 dB intervals (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay). 2. Noise rate level, broad-band noise at 40 to 95 db SPL in 5 dB intervals   (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay). \\\hline
-\textbf{Parameters}      &
-      \wGLGDS, \nGLGDS,
-      \wHSRDS, \nHSRDS,
-      \wLSRDS, \nLSRDS
+\textbf{Parameters}      &     \wHSRDS, \nHSRDS,
+      \wLSRDS, \nLSRDS,      \wGLGDS, \nGLGDS
           \\\hline
-\textbf{Fitness Function} & RMS error between \DS cell model (CF 11.1 kHz) and experimental \OnC unit \citep[CF~10.9~kHz,][]{ArnottWallaceEtAl:2004} at each input stimulus in tone and noise rate levels. \\\hline
+\textbf{Fitness Function} & \RMS error between \DS cell model (CF 11.1 kHz) and experimental \OnC unit \citep[CF~10.9~kHz,][]{ArnottWallaceEtAl:2004} at each input stimulus in tone and noise rate levels. \\\hline
 \end{tabularx}
 \end{table}
 }

@@ -9,11 +9,11 @@
 \hdr{2}{A}{Model Summary}\\
          \textbf{Populations}          & HSR and LSR ANFs, Golgi, DS, and TV cells \\\hline
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
-        \textbf{Connectivity}          & ANF$\to$\{GLG, DS, TV\}, GLG$\to$DS, DS$\to$TV  \\\hline
+        \textbf{Connectivity}          & ANF$\to$\{GLG, DS, TV\}, GLG$\to$DS, DS$\to$TV, GLG$\to$TV  \\\hline
          \textbf{Input model}          & ANF~model: Instantaneous-rate Poisson neural model \citep{ZilanyBruceEtAl:2009} \\ \hline
 \multirow{3}{*}{\textbf{Neuron model}} & \GLG cell: \GLG neural model (see Section \ref{sec:Ch3:GolgiModel}).\\
                                        & \DS cell: Type I-II \RM model (see Section \ref{sec:Ch3:DSCellModel}).\\ 
-                                       & TV: HH-like single-compartment model (classic Type I \RM model) \\\hline
+                                       & \TV cell: classic Type I \RM model \\\hline
        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
 \multirow{2}{*}{\textbf{Synapse model}} & Excitatory: \AMPA glutamatergic receptor (single-exponential)\\
 &  Inhibitory: \GABAa GABAergic receptor (double-exponential), \GlyR glycinergic receptor (double-exponential) \\\hline
@@ -43,10 +43,12 @@
 \textbf{Name}  & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
 %   ANF$\to$DS &       ANF       &   D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
     \ANFTV     &    LSR, HSR     &       TV        & 
-Narrowband connection on CF, zero spread, weight \wLSRTV and \wHSRTV, number \nLSRTV and \nHSRTV, delay \dANFTV \\\hline
+Narrowband connection on-CF, zero spread, number \nLSRTV=20 and \nHSRTV=20, delay $\dANFTV=2.0$ msec. Weight parameters (\wHSRTV and \wLSRTV) optimised. \\\hline
 %   GLG$\to$DS &      Golgi      &   D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
+    \GLGTV      &       GLG        &       TV        & 
+Gaussian convergence, centered on-CF, spread \protect{$\sGLGTV=20$},  number $\nGLGTV=10$, delay $\dGLGTV=0.5$ msec. Weight parameter \wGLGTV optimised.\\\hline
     \DSTV      &       DS        &       TV        & 
-Gaussian convergence, centered on CF, spread \protect{$\sigma^2=\sGLGDS$}, weight \wGLGDS, number \nGLGDS, delay $\dGLGDS=0.5$ msec \\\hline
+Off centred Gaussian convergence, spread \protect{$\sDSTV$}, number \nDSTV=30, delay $\dDSTV=0.5$ msec. Offset (\oDSTV) set to zero in rate level routine and optimised in notch routine. Weight parameter (\wDSTV) optimised in rate level routine.  \\\hline
 \multicolumn{4}{|>{\raggedleft}c|}{\ANFGLG, \ANFDS, and \GLGDS from Table~\ref{tab:DScellModelSummary}.}\\\hline
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
@@ -98,41 +100,28 @@ Gaussian convergence, centered on CF, spread \protect{$\sigma^2=\sGLGDS$}, weigh
 %Table~\ref{tab:TVModelSummary}: Tuberculoventral cell model summary - continued
 \begin{tabularx}{\textwidth}{|l|X|} %
 \hdr{2}{E}{Optimisation}\\
-\multirow{2}{*}{\textbf{Input Stimulus}} & Tone Rate Level: 4.9~kHz tone at SPL 20 to 47 dB SPL in 3 dB steps (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay)\\\hline 
-& Noise Rate Level: BBN at 50 to 95 dB SPL in 5 dB steps (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay)\\\hline 
+\multirow{2}{*}{\textbf{Input Stimulus}} & Tone Rate Level: 4.5~kHz tone at SPL 0 to 95 dB SPL in 5 dB steps (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay)\\\hline 
+& Noise Rate Level: BBN at 20 to 95 dB SPL in 5 dB steps (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay)\\\hline 
 %\textbf{Input Stimulus} & Notch-noise stimulus based on \citet{ReissYoung:2005}. Stop-band filtered white noise (60 dB SPL, 50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay), 30 dB half-octave stop-band width, centered on the middle of the network (5.8 kHz)\\\hline
 %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth} \includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps} \end{minipage}}\\\hline
-    \textbf{Parameters}      &
-  \wLSRTV, 
-  \wHSRTV, 
-  \wDSTV, \nDSTV, 
-\TV E$_{{rev}}$ \\\hline
+  \textbf{Parameters}      &
+  \wLSRTV, \wHSRTV, 
+  \wDSTV, \wGLGTV \\\hline
 \textbf{Fitness Function} & 
 %Mean squared error of rate-level responses between \TV model (channel 50, CF=5.8 kHz), with and without \DS inhibition, and target \TV cell in \citet{SpirouDavisEtAl:1999}, with and without strychnine.  Spiking output of 2 TV units at the centre channel (CF=4.9 kHz) recorded over 25 repetitions, one unit had no DS cell inhibitory inputs. \\
 % %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth} \includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/AN_rateplace_12.5_0.5.eps}\end{minipage}}\\\hline
 %\textbf{Measurements}    & PSTH sampled at each click for 2 msec to measure click recovery\\\hline
 % %\textbf{Optimisation}    & Parameters for \GLGDS are optimised based on experimental click recovery date from \citet{BackoffPalombiEtAl:1997}. The praxis method is used for optimisation.  \\\hline
-     Mean squared error of noise rate-level responses between \TV model (channel 50, CF=5.8 kHz) and target \TV cell in \citet{SpirouDavisEtAl:1999}.
- PSTH of TV units calculated for mean firing rate at different sound levels for tones and BBN stimuli. Fitting data was compared against experimental data of a Type II \DCN unit \citep[See~Figure~\ref{fig:SpirouFig8}]{SpirouDavisEtAl:1999} \\\hline 
-
+     Mean squared error of noise rate-level responses between \TV model (channel 50, CF=4.5 kHz) and target \TV cell in Figure 8A in \citet{SpirouDavisEtAl:1999}.
+ PSTH of TV units calculated for mean firing rate at different sound levels for tones and BBN stimuli. 
+%Fitting data was compared against experimental data of a Type II \DCN unit \citep[See~Figure~\ref{fig:SpirouFig8}]{SpirouDavisEtAl:1999}. 
+\\\hline 
 \end{tabularx}
 %\vspace{1ex}
 
 %  \textbf{Assumptions}    & The spread ANF to DS cells (\sANFDSh,\sANFDSl) is arbitrary at this point and will be explored in the next experiment.\\ \hline
 %   \textbf{Function}     & Weighted mean squared error see listing below  \\ \hline
 
-
-% % D~----------------------------------
-% \begin{tabularx}{\linewidth}{|X|c|c|c|}
-% \hdr{4}{F}{Optimisation} \\ \hline
-%               \textbf{Parameters}                & \textbf{Name} & \textbf{Range} & \textbf{Best Values} \\\hline 
-%         Weight of DS syn on TV  ($\mu$S)         &    \wDSTV     &  [1e-5,0.005]  & 0.0029 \\
-%        Weight of ANF syn on TV  ($\mu$S)         &    \wANFTV    &  [1e-5,0.005]  & 0.00017 \\
-%          Number of synapses, LSR to TV           &    \nLSRTV    &     [0,64]     & 8           \\
-%          Number of synapses, HSR to TV           &    \nHSRTV    &     [0,64]     & 14          \\
-% Spread of DS connections onto TV (channel units) &    \sDSTV     &     [0,10]     & 2.1         \\
-% Offset of DS connections onto TV (channel units) &    \oDSTV     &     [0,10]     & 0.24        \\ \hline
-% \end{tabularx}
 \end{table}
 }
 
