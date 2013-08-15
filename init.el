@@ -35,9 +35,9 @@
 
 
 ;; org-babel
-					;(add-to-list 'load-path "~/elisp/org-mode/contrib/babel/")
-					;(add-to-list 'load-path "~/elisp/org-mode/contrib/babel/lisp/")
-					;(add-to-list 'load-path "~/elisp/org-mode/contrib/babel/lisp/langs/")
+;(add-to-list 'load-path "~/elisp/org-mode/contrib/babel/")
+;(add-to-list 'load-path "~/elisp/org-mode/contrib/babel/lisp/")
+;(add-to-list 'load-path "~/elisp/org-mode/contrib/babel/lisp/langs/")
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -70,7 +70,7 @@
 ;					 (:exports . "none")))
 
 
-
+(org-babel-lob-ingest "~/elisp/org-mode/doc/library-of-babel.org")
 
 
 ;; don't use the full set of Org-mode latex packages
