@@ -26,14 +26,14 @@ neuron model \\\hline
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|X|}%
 \hdr{3}{B}{Populations}\\
-\textbf{Name} &                         \textbf{Elements}                          & \textbf{Number} \\\hline
+\textbf{Name} &       \textbf{Elements}   & \textbf{Number} \\\hline
      HSR      & \ANF model
      \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & Rate models only,
      1 per channel\\\hline
      LSR      & \ANF model
      \citep{ZilanyBruce:2007,ZilanyBruceEtAl:2009} & Rate models only,
      1 per channel \\\hline
-     GLG      &                 Instantaneous-rate Poisson neuron model                  & 1 unit (CF 22.7 kHz, channel 76)  \\\hline
+     \GLG      &                 Instantaneous-rate Poisson neuron model                  & 1 unit (CF 22.7 kHz, channel 76)  \\\hline
 \end{tabularx}
 \vspace{1ex}
 
@@ -42,9 +42,9 @@ neuron model \\\hline
 \begin{tabularx}{\textwidth}{|l|l|l|X|}%
 \hdr{4}{C}{Connectivity}    \\
      \textbf{Name}       & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-\multirow{2}{*}{\ANFGLG} &     {\HSR}      &      GLG      & 
-Gaussian spatial convergence, centred on CF, spread parameter
-(\sHSRGLG = 2). Weight (\wHSRGLG) to be optimised. \\
+\multirow{2}{*}{\ANFGLG} &     {\HSR}      &      \GLG      & 
+Gaussian spatial convergence, centred on-CF, spread parameter
+(\sHSRGLG=2). Weight (\wHSRGLG) to be optimised. \\
    &     {\LSR}      &      GLG      & 
 Gaussian spatial convergence, centred on \CF.  Spread (\sLSRGLG) and weight (\wLSRGLG) to be optimised. \\\hline
 \end{tabularx}

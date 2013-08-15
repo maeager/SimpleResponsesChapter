@@ -9,12 +9,12 @@
 \hdr{2}{A}{Model Summary}\\
          \textbf{Populations}          & Six: \HSR and \LSR ANFs, \GLG, \DS, \TV and \TS cells \\\hline
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
-        \textbf{Connectivity}          & \ANF$\to$\{\GLG,\DS,\TV,\TS\}, GLG$\to$\{\DS,\TS\}, \DS$\to$\{\TV,\TS\}, and \TVTS  \\\hline
+        \textbf{Connectivity}          & \ANF$\to$\{\GLG,\DS,\TV,\TS\}, \protect{GLG$\to$\{\DS,\TS\}}, \protect{\DS$\to$\{\TV,\TS\}}, and \TVTS  \\\hline
          \textbf{Input model}          & ANF~model: Instantaneous-rate Poisson neural model \citep{ZilanyBruce:2007} \\\hline
 \multirow{4}{*}{\textbf{Neuron model}} & \GLG cell: \GLG neural model (see Section \ref{sec:Ch3:GolgiModel}).\\
                                        & \DS cell: Type I-II \RM model (see Section \ref{sec:Ch3:DSCellModel}).\\ 
                                        & \TV cell: Type I-c \RM model (see Section \ref{sec:Ch3:TVCellModel}).\\
-                                       & T~stellate cell: HH-like single-compartment Type I-t \RM model\\ \hline
+                                       & \TS cell: HH-like single-compartment Type I-t \RM model\\ \hline
        \textbf{Channel models}         & \INa, \Ileak, \IKHT, \IKLT, \IKA, and \Ih \citep{RothmanManis:2003b}\\\hline
         \textbf{Synapse model}         & \AMPA (single exponential), \GABAa and \GlyR (double exponential) \\\hline
 %            \textbf{Input}             & Pure tones at CF of designated exemplar neuron.\\\hline
@@ -43,17 +43,17 @@
 \textbf{Name} & \textbf{Source} & \textbf{Target}  & \textbf{Pattern} \\\hline
  %   \ANFDS   &       ANF       &    D~Stellate    & Skewed Gaussian, centred at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
  %   \ANFTV   &       ANF       & Tuberculoventral & Narrowband connection at CF, zero spread \\\hline
-   \ANFTS     &       ANF       &        TS        & 
-Narrowband connection at CF, zero spread, weight \wLSRTS and \wHSRTS, number \nLSRTS and \nHSRTS, delay \dANFTS \\\hline
+   \ANFTS     &       \ANF       &       \ TS        & 
+Narrowband connection at CF, zero spread, number \nLSRTS=30 and \nHSRTS=30, delay \dANFTS=1.6 msec. Weight parameters optimised (\wLSRTS and \wHSRTS). \\\hline
  %   \GLGDS   &      Golgi      &    D~Stellate    & Gaussian, centred at CF with spread \sGLGDS \\\hline
  %    \DSTV   &   D~Stellate    & Tuberculoventral & Gaussian, centred at CF with spread \sDSTV \\\hline
-   \GLGTS     &       GLG       &        TS        & 
-Gaussian convergence, centred on CF, spread $\sigma^2 = \sGLGTS$, weight \wGLGTS, number \nGLGTS, delay $\dGLGTS=0.5$ msec \\\hline
-    \DSTS     &       DS        &        TS        & 
-Gaussian convergence, centred on CF, spread $\sigma^2 = \sDSTS$, weight \wDSTS, number \nDSTS, delay $\dDSTS=0.5$ msec \\\hline
-    \TVTS     &       TV        &        TS        & 
-Gaussian convergence, centred on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, number \nTVTS, delay $\dTVTS=1.0$ msec \\\hline
-\multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model in Table~\ref{tab:TVNotchModelSummary}C. }\\\hline
+   \GLGTS     &       \GLG       &        \TS        & 
+Gaussian convergence, centred on-CF, spread \sGLGTS=20, number \nGLGTS=20, delay $\dGLGTS=0.5$ msec. Weight \wGLGTS optimised. \\\hline
+    \DSTS     &       \DS        &        \TS        & 
+Gaussian convergence, centred on-CF, spread \sDSTS=20, number \nDSTS=20, delay $\dDSTS=0.5$ msec. Weight \wDSTS optimised. \\\hline
+    \TVTS     &       \TV        &       \TS        & 
+Gaussian convergence, centred on-CF, spread \sTVTS=3, number \nTVTS=20, delay $\dTVTS=1.0$ msec. Weight \wTVTS optimised \\\hline
+\multicolumn{4}{|X|}{\ANFGLG, \ANFDS, \ANFTV, \GLGDS, \DSTV from previous CN model in Table~\ref{tab:TVModelSummary}C. }\\\hline
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS and \nHSRDS, delay \dANFDS
 \vspace{1ex}
@@ -66,9 +66,9 @@ Gaussian convergence, centred on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, 
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}
 \hdr{2}{D}{Neuron and Synapse Model}\\
- \textbf{Name} & DS, TV and TS cell models \\\hline
- \textbf{Type} & \RM \citep{RothmanManis:2003b}, conductance synapse input \\\hline
-\textbf{Subthreshold dynamics} & \INa, \IKA, \IKHT, \Ih, and \Ileak currents \\\hline
+ \textbf{Name} & \DS, \TV and \TS cell models \\\hline
+ \textbf{Type} & Type I-II, I-c and I-t\RM neural models \citep{RothmanManis:2003b}, conductance synapse input \\\hline
+\textbf{Subthreshold dynamics} & \INa, \IKA, \IKHT, \Ih, and \Ileak currents. See Chapter \ref{sec:MethodsChapter}. \\\hline
  \textbf{Spiking} & Emit spike when $V(t)\geq \theta$  \\\hline
  \end{tabularx}
 \vspace{1ex}
@@ -103,14 +103,13 @@ Gaussian convergence, centred on CF, spread $\sigma^2 = \sTVTS$, weight \wTVTS, 
 \noindent
 \begin{tabularx}{\textwidth}{|l|X|}%
 \hdr{2}{E}{Optimisation}\\
-\textbf{Input Stimulus} & Pure tone stimuli with 50 msec duration, 2 msec cosine squared on\slash off ramp, and 20 msec delay. Optimisation of each chopper unit used the CF and 30 dB relative to the threshold sound level of the exemplar unit: CS (3.9~kHz 40 dB SPL), CT1 (8.2 kHz, 85 dB SPL), CT2 (12.4~kHz 35 dB SPL). \\\hline 
+\textbf{Input Stimulus} & Pure tone stimuli with 50 msec duration, 2 msec cosine squared on\slash off ramp, and 20 msec delay. Optimisation of each chopper unit used the CF and 30 dB relative to the threshold sound level of the exemplar unit: CS (CF 3.9~kHz, thresh 40 dB SPL), CT1 (CF 8.2 kHz, thresh 85 dB SPL), CT2 (CF 12.4~kHz, thresh 35 dB SPL). \\\hline 
      \textbf{Parameters}      & 
-      \wHSRTS, \nHSRTS,    
-      \wLSRTS, \nLSRTS,   
-      \wDSTS,  \nDSTS,   
-      \wTVTS,  \nTVTS, 
-  \wGLGTS, \nGLGTS 
-      \TS \gleak, \TS \gh    \\\hline
+      \wHSRTS,  
+      \wLSRTS,  
+      \wDSTS,  
+      \wTVTS,  
+      \wGLGTS \\\hline
 \textbf{Fitness Function}    &  Input stimulus was presented to the CNSM model with intracellular voltage and spike timing output recorded from one \TS cell model. Special \AIV measures and spike statistics were calculated.  \CV statistics were measured in 10 msec windows from 2.5 msec after the stimulus onset. Three intracellular voltage statistic values and four CV values were compared against similarly calculated experimental data and were combined to a single fitness value through mean squares method.  \\\hline
 \end{tabularx}
 \vspace{1ex}
