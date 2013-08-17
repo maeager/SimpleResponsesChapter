@@ -2474,25 +2474,6 @@ and a steady increase in firing rate with increasing level (Figure
 suggest a continuous monotonic inhibition that regulates the activity
 
 
-
-The discrepancies in the rate level optimisation present more limitations of the
-CNSM model and the optimisation process.  Acoustic threshold and the gradient of
-the rate-level response in each of input cell types play a critical role in the
-output responses of TV cells, which are considered as simple integrators
-\citep{ZhangOertel:1993b}.  The cytoarchitecture of TV cells and their synaptic
-inputs may be more complex than originally proposed
-\citep{Rubio:2005,Rubio:2006,Alibardi:2006,MunirathinamOstapoffEtAl:2004}.  The
-\TV cell receives more complex inputs in the deep layer of the DCN that are not
-accounted for in the model.  The complexities of the DCN circuit are similar to
-the cerebellum, with TV cells aiding the detection of spectral notch cues at
-high frequencies in DCN principal cells \citep{DavisYoung:2000,YoungDavis:2002}.
-The inclusion of \GLG cell inputs to the TV cell model were used as a
-replacement of GABA and mixed GABA-glycinergic neurons with complex EIRA
-responses. This may not be the best fit or design but the responses in the control
-scenario, with all inputs simulated, was a satisfactory demonstration of a TV cell
-model with all the features of a Type II EIRA DCN unit: no spontaneous activity;
-non-linear rate level response to tones and no response to noise.
-
 # \citep{ReissYoung:2005,NeuertVerheyEtAl:2004,Rhode:1999}
 
 
@@ -2857,11 +2838,26 @@ the \TS cell rate spectrum but only for stimuli with a narrow spectrum.
 
 # \yellownote{DG:  TV cell fitting discrepancies in Fig 3.22 – have you discussed the results sufficiently? See next paragraph}
 
-Similarly to the rate-level optimisation in the DS cell model, the discrepancy
-between the TV cell model and the experimental reference data is a complication
-of fitting to particular cell responses in a noisy \BNN model. The complications were
-evident in having to adjust the rate-level responses to accommodate acoustic
-threshold alignment.
+
+The discrepancies in the rate level optimisation present more limitations of the
+CNSM model and the optimisation process.  Acoustic threshold and the gradient of
+the rate-level response in each of input cell types play a critical role in the
+output responses of TV cells, which are considered as simple integrators
+\citep{ZhangOertel:1993b}.  The cytoarchitecture of TV cells and their synaptic
+inputs may be more complex than originally proposed
+\citep{Rubio:2005,Rubio:2006,Alibardi:2006,MunirathinamOstapoffEtAl:2004}.  The
+\TV cell receives more complex inputs in the deep layer of the DCN that are not
+accounted for in the model.  The complexities of the DCN circuit are similar to
+the cerebellum, with TV cells aiding the detection of spectral notch cues at
+high frequencies in DCN principal cells \citep{DavisYoung:2000,YoungDavis:2002}.
+The inclusion of \GLG cell inputs to the TV cell model were used as a
+replacement of GABA and mixed GABA-glycinergic neurons with complex EIRA
+responses. This may not be the best fit or design but the responses in the control
+scenario, with all inputs simulated, was a satisfactory demonstration of a TV cell
+model with all the features of a Type II EIRA DCN unit: no spontaneous activity;
+non-linear rate level response to tones and no response to noise.
+
+
 
 The results of the notch noise optimisation do not exclusively confirm or deny
 the hypothesis presented by \citet{ReissYoung:2005} whether wide-band inhibitory
