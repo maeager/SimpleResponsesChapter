@@ -527,8 +527,8 @@ presented to the \CNSM model included:
 # 3. Masked rate-level response with pure tones varied in level from 0 to 100 dB
 #   \SPL and simultaneous with noise at 50 dB \SPL.
 
-Figure \ref{fig:ANFVerificationRL} shows the output of the HSR and LSR ANFs in the \CNSM model to the verification stimuli.
-\yellownote{More text here}
+Figure \ref{fig:ANFVerificationRL} shows the output of the HSR and LSR ANFs in
+the \CNSM model to the verification stimuli.  \yellownote{More text here}
 #+BEGIN_LaTeX
   {%
     \begin{figure}[tp!]
@@ -1936,7 +1936,7 @@ compression in the AN model.
 
 ** Discussion of the DS Cell Model
 
-\yellownote{DG: D stellate cell fitting discrepancies in Figs 3.14 and 3.16 – have you discussed the results sufficiently?  See third paragraph down}
+
 
 The \DS cell model within the \CNSM model adopted the rate level and click
 recovery characteristics of a typical \OnC unit of the \VCN.  The network
@@ -2502,7 +2502,6 @@ non-linear rate level response to tones and no response to noise.
 # \ref{fig:TVRateLevelResult}B) were a poorer fit to the experimental reference
 # data due to the stronger \DS cell activation. The \RMS error for control and no
 # \DS cell input results for noise was 51.84 and 67.28 sp/s, respectively.
-# \yellownote{Add GABA results}
 
 
 
@@ -2535,9 +2534,17 @@ non-linear rate level response to tones and no response to noise.
  %dat = load('~/Work/cnstellate/TV_RateLevel/TV_RateLevel.Fit.dat');
  dat = load('../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat');
  % Relative error
- RE_control= mean(abs((dat(1:end,2) - dat(1:end,4))./max(dat(1:end,[2 4]))));
- RE_nods= mean(abs((dat(1:end,3) - dat(1:end,5))./max(dat(1:end,[3 5]))));
- RE_noglg= mean(abs((dat(1:end,10) - dat(1:end,11))./max(dat(1:end,[10 11]))));
+ RE_control= mean(abs(dat(1:end,2) - dat(1:end,4))'./max(dat(1:end,[2 4])'));
+ RE_nods= mean(abs(dat(1:end,3) - dat(1:end,5))'./max(dat(1:end,[3 5])'));
+ RE_noglg= mean(abs(dat(1:end,10) - dat(1:end,11))'./max(dat(1:end,[10 11])'));
+
+ RE_tone_control= mean(abs(dat(16:end,2) - dat(16:end,4))'./max(dat(16:end,[2 4])'));
+ RE_tone_nods= mean(abs(dat(16:end,3) - dat(16:end,5))'./max(dat(16:end,[3 5])'));
+ RE_tone_noglg= mean(abs(dat(16:end,10) - dat(16:end,11))'./max(dat(16:end,[10 11])'));
+ RE_noise_control= mean(abs(dat(1:15,2) - dat(1:15,4))'./max(dat(1:15,[2 4])'));
+ RE_noise_nods= mean(abs(dat(1:15,3) - dat(1:15,5))'./max(dat(1:15,[3 5])'));
+ RE_noise_noglg= mean(abs(dat(1:15,10) - dat(1:15,11))'./max(dat(1:15,[10 11])'));
+
  
  % root mean squared error
  RMS_tone_control= sqrt(meansq((dat(16:end,2) - dat(16:end,4))));
@@ -2556,35 +2563,23 @@ non-linear rate level response to tones and no response to noise.
 #+END_SRC
 
 #+RESULTS: TVRL_RMS
-44.6% 22.6% 13.3%     11.82 (53.51 + 27.27 +644.89 + 142.83 +92.94 + 181.24)65.5% 65.5% 96.8%
+75.6% 33.1% 71.7%     644.89 (142.83 + 92.94 +181.24 + 65.53 +65.53 + 96.81)
+
+
 
 
 
 ** Verification of the TV Cell Model
-
-\yellownote{DG: Section 3.5.4 is incomplete }
-# Rate-level response to tones and noise was used to verify the optimisation of the network parameters influencing \TV cells.
-
-# TODO: more work to be done here. Possibly need calculations on
-# Q10 values of TV units. Calculation of threshold to tone and noise.
-
-# The Tuberculoventral cell model's optimised parameters were applied to \TV units across the whole \CNSM # network and tested using tones, noise and tones plus noise stimuli.
-# Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model.
-# Adding masking noise increases the width of the activity across the
-# CF of the central unit (Figure \ref{fig:DSverification}D)
-# highlighting the broad inputs of \ANFs onto \DS units.
 
 
 #+BEGIN_LaTeX
   % \begin{figure}[tp!]
   % \resizebox{0.95\textwidth}{!}{
   %\includegraphics{../SimpleResponsesChapter/gfx/Spirou-Fig7-TV-2tone-StrychAB.png}}
-  % %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\
-  
+  % %    \figfont{C}\hspace{0.5\textwidth}\figfont{D}\hfill\\  
   % \resizebox{0.95\textwidth}{!}{%
   % \includegraphics{MaskedResponseCurve/15/TV_masked.pdf}%
   % \includegraphics{MaskedResponseCurve/30/TV_masked}}\\
-  
   % \resizebox{0.95\textwidth}{!}{%
   % \includegraphics{MaskedResponseCurve/45/TV_masked}%
   % \includegraphics{MaskedResponseCurve/60/TV_masked}}
@@ -2597,8 +2592,20 @@ non-linear rate level response to tones and no response to noise.
   % \end{figure}
 #+END_LaTeX
 
-\yellownote{Discuss plots in text. Needs editing to check any updates to the
-plots.}
+
+# \yellownote{DG: Section 3.5.4 is incomplete }
+# Rate-level response to tones and noise was used to verify the optimisation of
+# the network parameters influencing \TV cells.
+
+# TODO: more work to be done here. Possibly need calculations on
+# Q10 values of TV units. Calculation of threshold to tone and noise.
+
+# Figure \ref{fig:TVverification} shows the responses of the optimised \TV cell model.
+# Adding masking noise increases the width of the activity across the
+# CF of the central unit (Figure \ref{fig:DSverification}D)
+# highlighting the broad inputs of \ANFs onto \DS units.
+
+
 #+BEGIN_LaTeX
   \begin{figure}[t!]
     \centering
@@ -2607,12 +2614,12 @@ plots.}
   %  %   \includegraphics{ResponsesNoComp/TV_ratelevel_combined}%
   %  % \includegraphics{}\hfill}\\
   %  %  {\figfont{A}\hspace{0.5\textwidth}\figfont{B}\hfill}\\
-  {\hfill\resizebox{0.5\textwidth}{!}{%
+  {\hfill\resizebox{0.8\textwidth}{!}{%
   \includegraphics{../SimpleResponsesChapter/gfx/Responses/psthblock-1.pdf}}%
   \hfill}\\
   %  %  {\figfont{C}\hspace{0.5\textwidth}\figfont{F}\hfill}\\
-       \caption[Optimised TV cell model PSTH responses]{PSTH response of optimised TV cell model at the centre of the network (CF 5.8\ kHz) to CF tones and noise.
-      PSTH responses to CF tones at 50 (A) and 90\ dB SPL (B), and broad-band noise (BBN) at 60 (C) and 100\ dB\ SPL (D).
+       \caption[Optimised TV cell model PSTH responses]{PSTH response of optimised TV cell model at the centre of the network (CF 5.8\ kHz) to CF tones and noise (50 msec duration, 50 repetitions).
+      PSTH responses to CF tones at 40 (A) and 70\ dB SPL (B), and broad-band noise (BBN) at 40 (C) and 90\ dB\ SPL (D).
   } \label{fig:TVVerificationPSTH}
   \end{figure}
 #+END_LaTeX
@@ -2636,39 +2643,54 @@ plots.}
     B. Noise rate level response map of the TV cells to broad-band noise (50 msec, 100 repetitions). 
     C. Rate level responses of the central TV unit to a pure CF tone.
     D. Noise rate level response of the central TV unit to BNN. }    
-  \label{fig:TVVerification}
+  \label{fig:TVVerificationRL}
   \end{figure}
 #+END_LaTeX
 
-The optimised parameters for inputs to the \TV cell model were applied to \TV
-units across 100 frequency channels (the whole \CNSM model) and their responses
-to tones and noise  stimuli were recorded.  Unlike the \GLG
-cell and \DS cell models, the rate-level response of \TV cells is non-linear and the noise
-rate-level is strongly inhibited (Figure \ref{fig:TVverification}A).  This is
-typical of the Type II \EIRA units in the deep layer of the \DCN
-\citep{SpirouDavisEtAl:1999,Rhode:1999}.  The PSTH response of the central \TV
-unit (\CF 4.5 kHz) at 90 dB \SPL is a simple chopping response, characteristic
-of the Type I-c \RM neural model (Figure \ref{fig:TVVerificationPSTH}A)
-\citep{RothmanManis:2003b}. The minimum first spikes occur at 4.3 msec after the
-stimulus onset (similar to the un-optimised \TV cell model's mean \FSL in
-Section [[Synaptic Delays]]).
+The TV cell model, with optimised parameters from both the rate level and notch
+optimisations, were tested using tones and noise stimuli across the whole \CNSM
+network.  Figure \ref{fig:TVVerificationPSTH}A shows the PSTH response of the
+central \TV unit (\CF 4.5 kHz) at 40 dB \SPL is classified as \OnL.  The minimum
+first spikes occur at 4.3 msec after the stimulus onset (similar to the
+un-optimised \TV cell model's mean \FSL in Section [[Synaptic Delays]]).  The
+characteristic chopping response of the Type I-c \RM neural model
+\citep{RothmanManis:2003b} is restricted from repetitive firing due to GABA and
+glycinergic inhibition particularly at the onset of excitation.  With increasing
+sound intensities the PSTH become highly irregular and suppressed (Figure
+\ref{fig:TVVerificationPSTH}B).  In noise, the PSTH of the TV cell model had
+minimal activity at 40 and 90 dB SPL (Figure \ref{fig:TVVerificationPSTH}C and
+D) typical of the Type II \EIRA units in the deep layer of the \DCN
+\citep{SpirouDavisEtAl:1999,Rhode:1999,DavisYoung:2000}.
 
-Due to the strong \DS inhibition, the peak \FSL of the optimised \TV cell model
-was delayed to 6.5 msec for a 50 dB \SPL tone (Figure
-\ref{fig:TVverification}A). In response to loud noise, the onset spike and the
-chopping behaviour was suppressed (Figure \ref{fig:TVverification}B).
+
+Figure \ref{fig:TVVerificationRL} shows the response of all the TV cells to the
+full battery of stimuli.  The rate response to tones (Figure
+\ref{fig:TVVerificationRL}A) is limited to a narrow field around the central
+channel (CF 4.513 kHz).  The bandwidth of active units 10 dB above threshold was
+only three channels with a \Qten of 0.143 octaves , measured at 20 dB SPL.  Due
+to the strong \DS cell inhibition, the responses above 60 dB SPL were suppressed
+for all TV cells. The on-CF tone rate level response in Figure
+\ref{fig:TVVerificationRL}C shows a rapid rise in excitation at 10 dB SPL
+followed by a gradual rate reduction at 40 dB SPL and then a sudden drop in rate
+from 65 dB SPL.  The TV cell model's response to noise was suppressed for all
+units (Figure \ref{fig:TVVerificationRL}B).  Activity above small spontaneous
+rates was present only at low sound levels that follow the acoustic threshold
+curve in the ANF inputs.  The central unit's maximum rate was 38 sp/s at 40 dB
+SPL (Figure \ref{fig:TVVerificationRL}D) was less than half the maximum rate for
+all TV cell's to noise (98 sp/s in unit 93, CF 30.8 kHz, 40 dB SPL).
 # The \TV model outputs' behaviour is shown in Figure \ref{fig:TVverification},
 # similar to the \GLG cell model Figure \ref{fig:Golgiverification}.
-Figure \ref{fig:TVverification}A and B show the response of the central \TV
-model (\CF 4.5 kHz). The PSTH in Figure \ref{fig:TVverification}B is a wide
-chopper, generated from regular firing Type I-c \RM neural model and the strong
-onset inhibition from \DS cells. Figure \ref{fig:TVverification}C shows the wide
-response of all \TV units in the network to a 5.8 kHz tone with increasing sound
-level.  The masked response curves (Figure \ref{fig:TVverification}D) show the
-wide-band inhibition particularly for tones above \CF. The responses of all \TV
-units to pure tones replicate the single channel excitatory inputs from \ANFs
-and wide-band inhibition from \DS units (Figure \ref{fig:TVverification}C and
-D).
+
+# Figure \ref{fig:TVverification}A and B show the response of the central \TV
+# model (\CF 4.5 kHz). The PSTH in Figure \ref{fig:TVverification}B is a wide
+# chopper, generated from regular firing Type I-c \RM neural model and the strong
+# onset inhibition from \DS cells. Figure \ref{fig:TVverification}C shows the wide
+# response of all \TV units in the network to a 5.8 kHz tone with increasing sound
+# level.  The masked response curves (Figure \ref{fig:TVverification}D) show the
+# wide-band inhibition particularly for tones above \CF. The responses of all \TV
+# units to pure tones replicate the single channel excitatory inputs from \ANFs
+# and wide-band inhibition from \DS units (Figure \ref{fig:TVverification}C and
+# D).
 
 \clearpage
 
@@ -2833,7 +2855,8 @@ cells diminishes the rate \TV cells to stimuli with a broad spectrum. The
 functional role of \TV cells in the \CNSM model is the enhancement of peaks in
 the \TS cell rate spectrum but only for stimuli with a narrow spectrum.
 
-\yellownote{DG:  TV cell fitting discrepancies in Fig 3.22 – have you discussed the results sufficiently? See next paragraph}
+# \yellownote{DG:  TV cell fitting discrepancies in Fig 3.22 – have you discussed the results sufficiently? See next paragraph}
+
 Similarly to the rate-level optimisation in the DS cell model, the discrepancy
 between the TV cell model and the experimental reference data is a complication
 of fitting to particular cell responses in a noisy \BNN model. The complications were
