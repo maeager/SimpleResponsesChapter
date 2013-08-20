@@ -41,12 +41,12 @@
 \begin{tabularx}{\textwidth}{|l|l|l|X|}
 \hdr{4}{C}{Connectivity}\\
 \textbf{Name}  & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
-%   ANF$\to$DS &       ANF       &   D~Stellate    & Skewed Gaussian, centered at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
+%   ANF$\to$DS &       ANF       &   D~Stellate    & Skewed Gaussian, centred at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
     \ANFTV     &    LSR, HSR     &       TV        & 
 Narrowband connection on-CF, zero spread, number \nLSRTV=20 and \nHSRTV=20, delay $\dANFTV=2.0$ msec. Weight parameters (\wHSRTV and \wLSRTV) optimised. \\\hline
-%   GLG$\to$DS &      Golgi      &   D~Stellate    & Gaussian, centered at CF with spread \sGLGDS \\\hline
+%   GLG$\to$DS &      Golgi      &   D~Stellate    & Gaussian, centred at CF with spread \sGLGDS \\\hline
     \GLGTV      &       GLG        &       TV        & 
-Gaussian convergence, centered on-CF, spread \protect{$\sGLGTV=20$},  number $\nGLGTV=10$, delay $\dGLGTV=0.5$ msec. Weight parameter \wGLGTV optimised.\\\hline
+Gaussian convergence, centred on-CF, spread \protect{$\sGLGTV=20$},  number $\nGLGTV=10$, delay $\dGLGTV=0.5$ msec. Weight parameter \wGLGTV optimised.\\\hline
     \DSTV      &       DS        &       TV        & 
 Off centred Gaussian convergence, spread \protect{$\sDSTV$}, number \nDSTV=30, delay $\dDSTV=0.5$ msec. Offset (\oDSTV) set to zero in rate level routine and optimised in notch routine. Weight parameter (\wDSTV) optimised in rate level routine.  \\\hline
 \multicolumn{4}{|>{\raggedleft}c|}{\ANFGLG, \ANFDS, and \GLGDS from Table~\ref{tab:DScellModelSummary}.}\\\hline
@@ -102,7 +102,7 @@ Off centred Gaussian convergence, spread \protect{$\sDSTV$}, number \nDSTV=30, d
 \hdr{2}{E}{Optimisation}\\
 \multirow{2}{*}{\textbf{Input Stimulus}} & Tone Rate Level: 4.5~kHz tone at SPL 0 to 95 dB SPL in 5 dB steps (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay)\\\hline 
 & Noise Rate Level: BBN at 20 to 95 dB SPL in 5 dB steps (50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay)\\\hline 
-%\textbf{Input Stimulus} & Notch-noise stimulus based on \citet{ReissYoung:2005}. Stop-band filtered white noise (60 dB SPL, 50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay), 30 dB half-octave stop-band width, centered on the middle of the network (5.8 kHz)\\\hline
+%\textbf{Input Stimulus} & Notch-noise stimulus based on \citet{ReissYoung:2005}. Stop-band filtered white noise (60 dB SPL, 50 msec duration, 2 msec cosine squared on\slash off ramp, 20 msec delay), 30 dB half-octave stop-band width, centred on the middle of the network (5.8 kHz)\\\hline
 %\multicolumn{2}{|c|}{\begin{minipage}[c]{0.8\textwidth} \includegraphics[width=0.8\textwidth,keepaspectratio]{./gfx/Notch-Wl-12.5kHz-0.5.eps} \end{minipage}}\\\hline
   \textbf{Parameters}      &
   \wLSRTV, \wHSRTV, 
