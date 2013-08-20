@@ -2195,7 +2195,7 @@ narrow tuning and weak response to noise \citep{SpirouDavisEtAl:1999}.
 
 
 #+ATTR_LATEX: height=0.5\textheight,keepaspectratio
-#+CAPTION: [Response area and rate-level responses of a typical	 Type II DCN unit]{Response area and rate-level responses to tones and noise of a single Type II DCN unit. Reproduced from Figure 1 in \citet{SpirouDavisEtAl:1999}.}
+#+CAPTION: [Typical responses of a Type II DCN unit]{Response area and rate-level responses to tones and noise of a single Type II DCN unit. Reproduced from Figure 1 in \citet{SpirouDavisEtAl:1999}.}
 #+LABEL:  fig:SpirouFig1
 [[../SimpleResponsesChapter/gfx/Spirou-Fig1-type2.pdf]]
 
@@ -2804,8 +2804,7 @@ similar \CF (\TV unit 70, \CF 12.76 kHz) to notch and band-pass noise.
     %\resizebox{\textwidth}{!}{\includegraphics{NoFigure}}
     \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TV_Notch/Reiss_Fig9_E+F.png}}\\
     \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TV_Notch/BestSweep.pdf}}\\
-    \caption[Response of optimised TV cell (CF 12.76 kHz) to notch and
-    bandsweeps]{Response of optimised TV cell (CF 12.76 kHz) to notch and band-pass
+    \caption[Response of optimised TV cell to notch noise and band-pass noise sweeps]{Response of optimised TV cell (CF 12.76 kHz) to notch and band-pass
       filtered noise sweeps with stimulus sound level at 50 dB \SPL\@.  Mean rate responses are
       plotted against the rising edge frequency of the notch and falling edge of
       the band-pass in octaves relative to 12.7 kHz.  Top row is reproduced from Figure 9 E and F in \citet{ReissYoung:2005}. }
@@ -2945,7 +2944,7 @@ and the signal-to-noise ratio of synaptic inputs \citep{SvirskisRinzel:2003}.
     \subfloat[Chopper Transient 1]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT1-01-857-007}}\hfill%\\
     \subfloat[Chopper Transient 2]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT2-01-305-014}}%\quad%
     % \subfloat[Onset Chopper]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/OC-99-812-013}}}
-    \caption[Average intracellular response to BF tones in \TS cells]{Average intracellular response to BF tone 30 dB above depolarisation threshold in chopper units (TS cells) in rats \citep[Reproduced from Fig.~2, ][]{PaoliniClareyEtAl:2005}.
+    \caption[Average intracellular response to BF tones in TS cells]{Average intracellular response to BF tone 30 dB above depolarisation threshold in chopper units (TS cells) in rats \citep[Reproduced from Fig.~2, ][]{PaoliniClareyEtAl:2005}.
       A. Sustained chopper unit 01-864-004, CF 3.8 kHz,
       B. Transient chopper type 1 unit 01-857-007, CF 8.9 kHz.
       C. Transient chopper type 2 unit 01-305-014 CF 12.3 kHz.
@@ -3703,9 +3702,7 @@ with the greatest weighting from the CV data.
 # The \FSL at 30 dB re $\theta$ (call_CT2_fsl(SPLreTh=40)[:results replace raw] msec) showed a precise first spike.
 # At 40 dB re $\theta$ the
 
-** Overview of TS cell model results
-
-
+** Overview of TS Cell Model Results
 
 The expected output of gradual increase in the strength of inhibition from \ChS
 to \ChTone to \ChTtwo is only present in \GLG cell inputs to the TS cell models.
@@ -3847,7 +3844,7 @@ and capabilities of the stellate microcircuit.  This section sets out the
 limitations of the CNSM model and its implications for optimisation methods in
 other BNN models.
 
-** CNSM Model's Optimised Parameters
+** Optimised Parameters of the CNSM Model 
 
 
 Table \ref{tab:Finalparams} show the aggregated optimised parameter values of
@@ -3877,7 +3874,7 @@ stellate microcircuit and help to identify its key components.
   \begin{table}[htb!]
     \centering
     \footnotesize
-    \caption[Optimised Synaptic weight and number of connections in the CNSM model]{Optimised Synaptic weight and number of connections in the CNSM model.  The units of synaptic weight are in $10^{-9}$ Seimens with the exception of GLG cell inputs that are unitless.}
+    \caption[Optimised synaptic weight and number of connections in the CNSM model]{Optimised synaptic weight and number of connections in the CNSM model.  The units of synaptic weight are in $10^{-9}$ Seimens with the exception of GLG cell inputs that are unitless.}
     \label{tab:Finalparams}
     <<booktabz(table=finalparams,align="lXXXXXX",env="tabularx",width="\\textwidth")>> 
   \end{table}
@@ -4274,7 +4271,7 @@ different species.
 # \citet{ZilanyBruce:2006} model, and it was superseded by the addition
 # of a power-law functions in the synapse \citep{ZilanyBruceEtAl:2009}}
 
-** Implications for \BNN Optimisation
+** Implications for BNN Optimisation
 
 # Bring it back to BNNs
 # -------
