@@ -2250,7 +2250,6 @@ the response thresholds of \VCN neurons.  \citet{SpirouDavisEtAl:1999} propose
 that the responses of \DCN principal cells are strongly inhibited by this
 narrowband source, especially at sharp spectral peaks close to their \BF.
 
-
 *** Modelling of Tuberculoventral cells
 
 
@@ -2327,7 +2326,7 @@ local neurons (Golgi-stellate and cartwheel cells) that are not included in the
 CNSM model.  These units have a similar Type I/III EIRA characteristic to \GLG
 cells.  The weights (\wLSRTV, \wHSRTV) of \ANF synapses were used in the
 optimisation procedures to allow for fine adjustments to the strength of
-excitation. The number of synapses (\nLSRTV=20, \nHSRTV=0, \nDSTV=30,
+excitation. The number of synapses (\nLSRTV=20, \nHSRTV=20, \nDSTV=30,
 \nGLGTV=10) were fixed at appropriate values.  The \TV cell model received \ANF
 inputs on-\CF from only one frequency channel at the same \CF (\sANFTV=0).  The
 strength of inhibition in the \TV cell model was controlled by the weight of \DS
@@ -2391,24 +2390,27 @@ and noise rate level response of each of the inputs to the TV cell model.
 The optimised TV cell model response in Figure \ref{fig:TVRateLevelResult}C
 shows a poor fit for the control tone rate-level output, especially at high
 SPL. The \RMS of the tone rate level response in the experimental control and
-optimised \TV cell model was call_TV_RMS_error(errstr="# RL Error") sp/s.  This
+optimised \TV cell model was 
+call_TV_RMS_error(errstr="# RL Error ") sp/s.  This
 response was non-linear and showed strong inhibitory effects without recovery to
 a stable firing rate. The discrepancy is problematic for this particular
 experimental data, but the TV cell model's response is similar to other Type II
 DCN units in Figures \ref{fig:SpirouFig1}B and C also showed strong suppression
 of \CF tones at high level.  The noise rate level \RMS error was significantly
-better at call_TV_RMS_error(errstr="# NRL Error") sp/s, an important factor in the
+better at 
+call_TV_RMS_error(errstr="# NRL Error ") sp/s, an important factor in the
 Type II EIRA response of the TV cell model.  For the strychnine-affected
 experimental data and response of the \TV cell model without \DS cell inputs
 (Figures \ref{fig:TVRateLevelResult}E and F), the \RMS error for the tone and
-noise rate level was call_TV_RMS_error(errstr="# RL without DS Error") and
+noise rate level was 
+call_TV_RMS_error(errstr="# RL without DS Error") and
 call_TV_RMS_error(errstr="# NRL without DS Error ") sp/s, respectively.  The
 model's response was well fitted, with only a limited degree of error in
 mid-level tones and a shift in threshold by 15 dB in noise stimuli.  For the
 bicuculine-affected experimental data and equivalent TV cell model (Figures
 \ref{fig:TVRateLevelResult}G and H), the \RMS errors were
-call_TV_RMS_error(errstr="# RL wo GLG Error ") and call_TV_RMS_error(errstr="# NRL
-wo GLG Error ") sp/s, for tone and noise rate level, respectively.  The DS cell
+call_TV_RMS_error(errstr="# RL wo GLG Error ") and 
+call_TV_RMS_error(errstr="# NRL wo GLG Error ") sp/s, for tone and noise rate level, respectively.  The DS cell
 inhibition present in the bicuculine-affected scenario reduced the maximal
 output and saturation rate of the model's rate level response.  The timing and
 coincidence of onset inhibition dramatically affected the TV cell model where
@@ -2417,8 +2419,7 @@ stimulus. In response to noise, the DS cell model's rate level was slightly high
 LSR noise rate level flattened out (Figure \ref{fig:TVRateLevelResult}B)
 contributing to a low saturation rate in the TV cell model (Figure
 \ref{fig:TVRateLevelResult}H).  The final error used in the optimisation routine
-was a summation of the \RMS errors (call_TV_RMS_error(errstr="# Final error ")
-sp/s).
+was call_TV_RMS_error(errstr="# Final error ") sp/s, a summation of the \RMS errors.
 
 # RL Error = 149.797
 # NRL Error = 6.8213
@@ -2485,8 +2486,6 @@ suggesting a continuous monotonic GABA inhibition regulating the activity in the
 # data due to the stronger \DS cell activation. The \RMS error for control and no
 # \DS cell input results for noise was 51.84 and 67.28 sp/s, respectively.
 
-
-
 **** Source block: TV RL RMS code                                  :noexport:
 
 # Get optimisation parameter: Floating point with optional exponent format
@@ -2544,10 +2543,6 @@ suggesting a continuous monotonic GABA inhibition regulating the activity in the
   RMS_noise_nods, RMS_noise_noglg)
 #+END_SRC
 75.6% 33.1% 71.7%     644.89 (142.83 + 92.94 +181.24 + 65.53 +65.53 + 96.81)
-
-
-
-
 
 ** Verification of the TV Cell Model
 
@@ -2671,7 +2666,7 @@ all TV cell's to noise (98 sp/s in unit 93, CF 30.8 kHz, 40 dB SPL).
 # and wide-band inhibition from \DS units (Figure \ref{fig:TVverification}C and
 # D).
 
-\clearpage
+# \clearpage
 
 ** Results of Notch Noise Optimisation
   :PROPERTIES:
@@ -3307,13 +3302,9 @@ the TS cell models to improve comparison of optimised parameters.
 
 ** Optimisation Results
 
-
-
-
 #  \begin{figure}[t!] \centering\resizebox{0.95\textwidth}{!}{%
 #  \includegraphics{RateLevel/psthsingle90.0}% %
 #  \includegraphics{RateLevel/TS_ratelevel}} \end{figure}
-
 
 **** Source blocks 						   :noexport:
 
@@ -3418,13 +3409,10 @@ sqrt(meansq (dat(9:12,2)-dat(9:12,3))))
 
 call_grabTSdata[:in-file ./gfx/TStellate2_CS/TStellate.Fit.dat ](regexp="#  Input Resistance =",ind=5)[:results replace raw]
 
-
-
 #+name: grabTSdata
 #+BEGIN_SRC awk :in-file ./gfx/TStellate2_CS/TStellate.Fit.dat  :export none :var regexp="#  Input Resistance =" :var ind="5"
  /$regexp/ {print $$ind}
 #+END_SRC
-
 
 *** Sustained Chopper
 
@@ -3561,7 +3549,7 @@ of \HSR activity.
     statistics of unit 01-857-007 \citep[CF 8.2~kHz, threshold 55 dB SPL][]{PaoliniClareyEtAl:2005}.
     The RMP for the reference unit and best parameter model was -55.98 and -64.97
     mV, respectively.  See Figure \ref{fig:CSresults} for figure configuration.
-    A. PSTH of the optimised \ChTone  model at 30 dB $\theta$ (50 reps, CF 9.1 kHz, 50 dB SPL).
+    A. PSTH of the optimised \ChTone  model at 30 dB $\theta$ (50 repetitions, CF 9.1 kHz, 50 dB SPL).
     B. CV statistics of spike times.
     C. AIVs over 50 repetitions of the optimised \ChTone model and experimental unit at 30 dB $\theta$. The temporal adjustment of onset peaks was 2.2 msec.
     adjustment to match the onset peaks was 2.5 msec.  D. AIV measures.}
@@ -3859,8 +3847,6 @@ and capabilities of the stellate microcircuit.  This section sets out the
 limitations of the CNSM model and its implications for optimisation methods in
 other BNN models.
 
-
-
 ** CNSM Model's Optimised Parameters
 
 
@@ -3887,23 +3873,20 @@ fine-grained detail of synaptic weights.  Further investigation of optimisation
 processes and routines will help understand the neural network dynamics in the
 stellate microcircuit and help to identify its key components.
 
-
 #+begin_src latex :exports results :results latex  :noweb yes
   \begin{table}[htb!]
     \centering
     \footnotesize
-    \caption[Optimised Synaptic weight and number of connections in the CNSM model]{Optimised Synaptic weight and number of connections in the CNSM model.  The units of synaptic weight are in nanoSeimens with the exception of GLG cell inputs that are unitless.}
+    \caption[Optimised Synaptic weight and number of connections in the CNSM model]{Optimised Synaptic weight and number of connections in the CNSM model.  The units of synaptic weight are in $10^{-9}$ Seimens with the exception of GLG cell inputs that are unitless.}
     \label{tab:Finalparams}
     <<booktabz(table=finalparams,align="lXXXXXX",env="tabularx",width="\\textwidth")>> 
   \end{table}
 #+end_src
 
-
 # # Delete all source block results -- incomplete, waiting on 
 # # + begin_src emacs-lisp
 #   (org-babel-map-src-blocks nil (org-babel-remove-result))
 # # + end_src
-
 
 **** Tmp tables 						   :noexport:
      :PROPERTIES:
@@ -4118,7 +4101,6 @@ stellate microcircuit and help to identify its key components.
 | \DS    | [s,d](w,n)                           | [s,d](w,n) | [s,d](w,n,$\tau$) | (-)          | (-)        |
 | \TV    | [s,d](w,n)                           | [s,d](w,n) | (-)               | [s,d](w,n,o) | (-)        |
 | \TS    | [s,d](w,n)                           | [s,d](w,n) | [s,d](w,n)        | [s,d](w,n)   | [s,d](w,n) |
-
 
 ** Limitations of the CNSM Model
 
