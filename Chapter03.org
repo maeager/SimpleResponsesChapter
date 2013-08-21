@@ -3555,7 +3555,7 @@ of \HSR activity.
     \label{fig:CT1results}
   \end{figure}
 #+END_LaTeX
-
+#     [[../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf]]
 The optimisation results of \ChTone are shown in Figure \ref{fig:CT1results}
 along with the experimental data for the \ChTone subtype 
 \citep[exemplar unit unit 01-857-007, \CF 8.2~kHz][]{PaoliniClareyEtAl:2005}.  
@@ -3580,7 +3580,7 @@ the \TS cell throughout the stimulus.
 
 # The leak conductance had a slight decrease (\gleak 4.098e-4 S/cm).
 
-#     [[../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf]]
+
 Figure \ref{fig:CT1results} shows the spike and \AIV statistical measures of the
 optimised \ChTone model.  The PSTH of the model at 30 dB re $\theta$ (70 dB \SPL) is
 shown in Figure \ref{fig:CT1results}A.  The mean rates for the optimised \ChT1
