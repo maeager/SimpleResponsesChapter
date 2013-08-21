@@ -25,21 +25,35 @@ This section provides an overview of the pragmatic details of the
 
 * [[latex:progname][NEURON]] Cochlear Nucleus Stellate Microcircuit Model
 
-The cochlear nucleus stellate microcircuit software code used in this
-chapter is called [[latex:progname][cnstellate]] and is implemented in [[latex:progname][NEURON]], [[latex:progname][NMODL]] and [[latex:progname][C]]
+The \CNSM software code used in
+Chapters 3 and 4 is called [[latex:progname][cnstellate]] and is implemented in [[latex:progname][NEURON]], [[latex:progname][NMODL]] and [[latex:progname][C]]
 source code.
 
-I acknowledge the contribution M.S.A. Zilany, Laurel Carney, Ian Bruce
-and colleagues for their work on the AN model.  I also thank Jason Rothman and Paul Manis for their
-investigation of membrane currents in \CN neurons that provided the basis for the \CNSM neural models. 
+The \AN models that can be used by the CNSM model include version 6 \citep{ZilanyBruceEtAl:2009}
+version 5 \citep{ZilanyBruce:2007,ZilanyBruce:2006},
+version 4 \citep{TanCarney:2003},
+version 3 \citep{HeinzZhangEtAl:2001}.  
+The first run of a stimulus may take some time if the AN responses have
+not been previously saved. The AN reponses are
+down-sampled to a lesser resolution for the spike generator and saved for
+further use.  The resolution of the spike generator is generally at or above 10
+kHz to match the simulations' time step of 0.05 or 0.1 ms.  Version 6 of the AN
+model \citep{ZilanyBruceEtAl:2009} only needs 200 kHz sampling rate for
+CF units above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.
+The directory for the saved AN responses is determined by the variable
+[[latex:progname][=ANsoundspath]]=.
+ 
+# I acknowledge the contribution M.S.A. Zilany, Laurel Carney, Ian Bruce
+# and colleagues for their work on the AN model.  I also thank Jason Rothman and Paul Manis for their
+# investigation of membrane currents in \CN neurons that provided the basis for the \CNSM neural models. 
 
-The organisation of the NEURON model and its the parallel capabilities is based on the NEURON
-network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006}
-(see SenseLab's ModelDB models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]]).
+# The organisation of the NEURON model and its the parallel capabilities is based on the NEURON
+# network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006}
+# (see SenseLab's ModelDB models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]]).  
 
 From the command line type:
 :    $ make gui
-:    $ ./gui/special TStellate.hoc -
+:    $ ./gui/special TStellate2.hoc -
 in the [[latex:textsf][cnstellate]] directory to simulate the
 optimisation for the T stellate model simulation and optimisation.
 The =make gui= command calls the standard [[latex:textsf][nrnivmodl]]
@@ -48,36 +62,28 @@ that can be imported into [[latex:progname][NEURON]]; then appends the
 =libresample= interface to the locally compiled
 [[latex:progname][NEURON]] executable /special/.
 
-The first run of a stimulus may take some time if the AN responses have
-not been previously saved, since the Zilany \& Bruce version 3 of the AN
-model \citep{ZilanyBruce:2007} requires a sampling rate of 500 kHz in
-the stimulus, primarily for the middle ear filter. This is then
-down-sampled to a lesser resolution for the spike generator and saved for
-further use.  The resolution of the spike generator is generally at or above 10
-kHz to match the simulations' time step of 0.1 ms.  Version 4 of the AN
-model \citep{ZilanyBruceEtAl:2009} only needs 200 kHz sampling rate for
-CF units above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.
-
-The directory for the saved AN responses is determined by the variable
-[[latex:progname][=ANsoundspath]]=.
 
 
-\yellownote{Discuss Listing headerlines} Listing \ref{lst:headerlines}
+# \yellownote{Discuss Listing headerlines} 
+Listing \ref{lst:headerlines} shows an example of the header lines in =TStellate.hoc=, which sets up the CNSM model for optimising the TS cell model's network parameters. 
 #+BEGIN_LaTeX
-  \begin{lstlisting}[label=lst:headerlines,caption={Headerlines in [[latex:progname][TStellate\.hoc]] show a typical setup in a [[latex:progname][cnstellate]] simulation or optimisation file.}]
+  \begin{lstlisting}[label=lst:headerlines,caption={Headerlines in [[latex:progname][TStellate2\.hoc]] show a typical setup in a [[latex:progname][cnstellate]] simulation or optimisation file.}]
   load_file("nrngui.hoc")
   //load_file("par_netpar.hoc")     //uncomment for parallel mode
   //load_file("par_init.hoc")       //uncomment for parallel mode
   load_file("mathslib.hoc")       //mathematical procedures from netmod
   load_file("Params.hoc")         //default parameters for cnstellate
-  load_file("Utilities.hoc")      //My utility functions
+  load_file("Utilities.hoc")      //stimulus generation and AN filterbank functions
   load_file("AuditoryNerve.hoc")  //ANChannel and AuditoryNerve classes
-  load_file("par_CNcell.tem")     //CNCell and Golgicell class
+  load_file("par_CNcell.tem")     //CNCell and Golgi cell classes
   
   //Load previously set optimisation parameters
   xopen("pvec_Golgi_RateLevel.hoc")
   xopen("pvec_DS_ClickRecovery.hoc")
+  xopen("pvec_DS_RateLevel.hoc")
+  xopen("pvec_TV_RateLevel.hoc")
   xopen("pvec_TV_Notch.hoc")
+
   
   //Setup CN Stellate Network model
   load_file("CochlearNucleus.hoc")    //Cells and network defined
@@ -181,7 +187,6 @@ frequencies.
 # \end{lstlisting}
 
 A procedure in [[latex:progname][Utilities.hoc]] called [[latex:progname][GetAudiogram()]] is used to get the
-
 [[latex:progname][MATLAB/GNU Octave]] audiogram data and then interpolate the data to centre
 frequencies in network's frequency channels.
 
@@ -219,17 +224,17 @@ frequencies in network's frequency channels.
   \end{figure}
 #+END_LaTeX
 
-\citep{ilanyCarney:2009,ZilanyCarney:2010}[fn:: http://www.urmc.rochester.edu/labs/Carney-Lab/publications/res/ZilanyCarney-JASAcode-2009.zip]
+\citep{ZilanyCarney:2009,ZilanyCarney:2010}[fn:: http://www.urmc.rochester.edu/labs/Carney-Lab/publications/res/ZilanyCarney-JASAcode-2009.zip]
 Steps for converting any Carney Auditory Model written in C for MATLAB
 to a NEURON NMODL compatible C file.
 
   1. Remove mex headers
-  2. Remove [[latex:progname][mexfunction]], this is replaced with equivalent NMODL function that
+  2. Remove the main [[latex:progname][mexfunction]], this is replaced with equivalent NMODL function that
      retrieves variables and returns the equivalent vectors
-  3. Find and replace all vector or memory allocation routines with functions in
+  3. Find and replace all vector or memory allocation routines with equivalent functions in
      scopmath.h
-    - [[latex:progname][mxCalloc]] $\Rightarrow$     [[latex:progname][makevector]]
-    - [[latex:progname][mxFree]] $\Rightarrow$      [[latex:progname][freevector]]
+    - [[latex:progname][mxCalloc]] $\Rightarrow$  [[latex:progname][makevector]]
+    - [[latex:progname][mxFree]] $\Rightarrow$    [[latex:progname][freevector]]
   4. Replace random generator functions [[latex:progname][drand48()]] to [[latex:progname][scop\_random()]] and let
      random seed be set in NEURON or replace [[latex:progname][srand(seed)]] with [[latex:progname][set\_seed(seed)]].
   5. Calls to MATLAB functions within a mex file converted to C functions from
@@ -239,11 +244,9 @@ to a NEURON NMODL compatible C file.
     - builtin [[latex:progname][randn]] $\Rightarrow$ generate an array gaussian random numbers with
       scoplib's [[latex:progname][normrand(0,1)]] function
     - builtin [[latex:progname][resample]] $\Rightarrow$ implementation of a reliable resampling
-      function in C, using a real-time resample library (libresample [reference
-      needed]).
-    - M-file [[latex:progname][ffGn]] $\Rightarrow$ generate a C function that implements a the fast
-      fractional Gaussian noise generator. The real-time resample library,
-      =libresample=, .
+      function in C, using a real-time resample library (libresample).
+    - M-file [[latex:progname][ffGn]] $\Rightarrow$ generate a C function that implements the fast
+      fractional Gaussian noise generator. 
 
 ** Spiking ANF Model 
 
@@ -650,7 +653,6 @@ the run time for =ResponseArea()= is excessive if not used on parallel
 architecture and the storage protocol should be reduced to mean
 discharge rates.
 
-
 The procedures for modulation transfer functions and f_0 responses are
 also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:AMChapter}
 [[file:../VowelProcessingChapter/Chapter04.org:*chapter]]. 
@@ -723,42 +725,6 @@ points from literature documents }
 
 
 ## set global variables for in-code blocks 
-
-
-* Prelude 							   :noexport:
-
-#+begin_src emacs-lisp results: silent
-    (setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %f"
-    "makeglossaries %b" "bibtex %b" "pdflatex -interaction nonstopmode %f"
-    "pdflatex -interaction nonstopmode %f" )) 
-   ;; (setq org-latex-to-pdf-process '("pdfquick %f")) 
-    (setq org-export-latex-title-command "")  
-    (add-to-list 'org-export-latex-classes '("UoM-draft-org-article"
-    "\\documentclass[11pt,a4paper,twoside,openright]{book}
-    \\usepackage{../org-manuscript/style/uomthesis}
-    \\input{../org-manuscript/user-defined}
-    \\usepackage[acronym]{glossaries}
-    \\input{../org-manuscript/misc/glossary} 
-    \\makeglossaries
-    \\graphicspath{{./gfx/}} 
-    \\pretolerance=150 
-    \\tolerance=100
-    \\setlength{\\emergencystretch}{3em} 
-    \\overfullrule=1mm %
-    % \\usepackage[notcite]{showkeys}
-    \\lfoot{\\footnotesize\\today\\ at \\thistime}
-      [NO-DEFAULT-PACKAGES]
-                 [NO-PACKAGES]" 
-  ("\\clearpage\\newpage\\section{%s}" . "\n\\clearpage\\section{%s}") 
-  ("\\subsection{%s}" . "\n\\clearpage\\subsection{%s}") 
-  ("\\subsubsection{%s}"  . "\n\\subsubsection{%s}") 
-  ("\\paragraph{%s}"  . "\n\\paragraph{%s}") 
-  ("\\subparagraph{%s}"  . "\n\\subparagraph{%s}")))
-  (setq org-export-latex-title-command "")  
-#+end_src
-
-#+RESULTS:
-
 
 
 
