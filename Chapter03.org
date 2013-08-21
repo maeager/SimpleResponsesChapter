@@ -1177,7 +1177,7 @@ reached half maximum rate at 53 dB \SPL.  Figure \ref{fig:GolgiVerificationRL}B
 shows the noise rate level response of all \GLG units. The non-uniform response
 to a linear broadband input reflects the species-specific audiogram compression
 in the \AN model.  The noise rate-level curve for the central \GLG unit in
-Figure \ref{fig:GolgiVerificationWhole}D was monotonic.  The average gradient of
+Figure \ref{fig:GolgiVerificationRL}D was monotonic.  The average gradient of
 the noise rate level curve between 70 and 120 dB \SPL was 2.02 spikes per second
 per dB.
 
@@ -2626,7 +2626,7 @@ optimisations, was tested using tones and noise stimuli across the whole \CNSM
 network.  Figure \ref{fig:TVVerificationPSTH}A shows the PSTH response of the
 central \TV unit (\CF 4.5 kHz) at 40 dB \SPL (classified as \OnL).  The 
 first spikes occur at 4.3 msec after the stimulus onset (similar to the
-non-optimised \TV cell model's mean \FSL in Section [[Synaptic Delays]]).  The
+non-optimised \TV cell model's mean \FSL in Section \ref{sec:Ch3:Delays}).  The
 characteristic chopping response of the Type I-c \RM neural model
 \citep{RothmanManis:2003b} is restricted from repetitive firing due to GABA and
 glycinergic inhibition, particularly at the onset of excitation.  With increasing
@@ -3557,12 +3557,13 @@ of \HSR activity.
 #+END_LaTeX
 
 The optimisation results of \ChTone are shown in Figure \ref{fig:CT1results}
-with best parameters as shown in Table \ref{tab:TSCellResults}.  The \ChTone
-unit chosen as the exemplar for the optimisation was unit 01-857-007
-\citep[\CF 8.2~kHz][]{PaoliniClareyEtAl:2005}.  The depolarisation threshold for
-the exemplar unit was 55 dB \SPL, close to the average 47.2 dB \SPL for all
-\ChTone units the relevant experimental study \citep{PaoliniClareyEtAl:2005}.
-
+along with the experimental data for the \ChTone subtype 
+\citep[exemplar unit unit 01-857-007, \CF 8.2~kHz][]{PaoliniClareyEtAl:2005}.  
+The depolarisation
+threshold for the exemplar unit was 55 dB \SPL, close to the average 47.2 dB
+\SPL for all \ChTone units \citep{PaoliniClareyEtAl:2005}.  
+The threshold for the simulated model was 20 dB SPL so that the three stimuli  
+to accommodate comparisons with the other chopper models and for consistency in the inputs to the model. 
 # The acoustic threso for the optimisation routine was a 40 dB \SPL and
 # had the reversal potential of $-63.9 mV$.
 
@@ -3578,7 +3579,6 @@ input stimulus (70 dB \SPL = 30 dB re $\theta$) would cause reasonable inhibitio
 the \TS cell throughout the stimulus.
 
 # The leak conductance had a slight decrease (\gleak 4.098e-4 S/cm).
-
 
 #     [[../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf]]
 Figure \ref{fig:CT1results} shows the spike and \AIV statistical measures of the
