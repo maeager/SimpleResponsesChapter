@@ -15,8 +15,8 @@
 #+LaTeX_CLASS: UoM-draft-org-article
 
 
-#\setcounter{chapter}{7}
-\chapter{ Chapter 3 Appendix } \label{sec:Ch3:Appendix}
+# \setcounter{chapter}{7}
+\chapter{Appendix B} \label{sec:Ch3:Appendix}
   
 This section provides an overview of the pragmatic details of the
 [[latex:progname][cnstellate]] NEURON model used in Chapter \ref{sec:ModelChapter}.
@@ -30,9 +30,8 @@ chapter is called [[latex:progname][cnstellate]] and is implemented in [[latex:p
 source code.
 
 I acknowledge the contribution M.S.A. Zilany, Laurel Carney, Ian Bruce
-and colleagues for their work on the AN model.  Also, for their
-investigation of membrane currents in \CN neurons, I would like to
-thank  Jason Rothman and Paul Manis. 
+and colleagues for their work on the AN model.  I also thank Jason Rothman and Paul Manis for their
+investigation of membrane currents in \CN neurons that provided the basis for the \CNSM neural models. 
 
 The organisation of the NEURON model and its the parallel capabilities is based on the NEURON
 network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006}
@@ -59,7 +58,8 @@ kHz to match the simulations' time step of 0.1 ms.  Version 4 of the AN
 model \citep{ZilanyBruceEtAl:2009} only needs 200 kHz sampling rate for
 CF units above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.
 
-The directory for the saved AN responses is determined by the variable [[latex:progname][=ANsoundspath]]=.
+The directory for the saved AN responses is determined by the variable
+[[latex:progname][=ANsoundspath]]=.
 
 
 \yellownote{Discuss Listing headerlines} Listing \ref{lst:headerlines}
@@ -618,7 +618,7 @@ The =IVMeasures()= procedure tries to replicate the similar measures
 hyperpolarisation) by \citet{PaoliniClareyEtAl:2005}.
 
 
-* Response to tones and noise procedures
+* Response to tones and noise procedures    			   :noexport:
 
 =Responses.hoc= is used to generate the many different responses from
 the optimised, with many of the procedures contained in
@@ -656,7 +656,7 @@ also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:AMChapter
 [[file:../VowelProcessingChapter/Chapter04.org:*chapter]]. 
  
 
-* General Neural Modelling Tools
+* General Neural Modelling Tools 				   :noexport:
 
 
 *** Data extraction
