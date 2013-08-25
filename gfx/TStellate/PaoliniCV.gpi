@@ -1,4 +1,6 @@
 
+## FONTSIZE=18
+
 set terminal postscript eps enhanced defaultplex \
    leveldefault color solid\
    dashlength 1.0 linewidth 2.0 butt noclip \
@@ -6,7 +8,7 @@ set terminal postscript eps enhanced defaultplex \
    "Helvetica" 18 
 #color solid 
 # set output "PaoliniCV.eps"
-## FONTSIZE=18
+set output '../SimpleResponsesChapter/gfx/TStellate/PaoliniCV.eps'
 
 
 load '../SimpleResponsesChapter/gfx/default.gpi'
@@ -28,3 +30,6 @@ plot './gfx/PaoliniBalancedInh-Fig2.png.dat' i 2 u 1:2:3  notitle w yerr lc rgb 
   '' i 0 u 1:2:3 notitle w yerr lc rgb '#00ad06', '' i 0 u 1:2 t "CT2" w lp ls 3
 
      
+!fixbb '../SimpleResponsesChapter/gfx/TStellate/PaoliniCV.eps'
+!epstopdf '../SimpleResponsesChapter/gfx/TStellate/PaoliniCV.eps'
+!rm -f '../SimpleResponsesChapter/gfx/TStellate/PaoliniCV.eps'

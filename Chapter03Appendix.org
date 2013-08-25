@@ -4,19 +4,16 @@
 #+OPTIONS: toc:nil H:5 author:nil <:t >:t 
 #+STARTUP: oddeven hideblocks fold align hidestars
 #+TODO: REFTEX
-
 #+LANGUAGE: en_GB
 #+LATEX_HEADER:\graphicspath{{./}{../SimpleResponsesChapter/gfx/}{../figures/}{/media/data/Work/cnstellate/}{/media/data/Work/cnstellate/ResponsesNoComp/ModulationTransferFunction/}}
 #+LATEX_HEADER:\setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
-
-
 #+BIBLIOGRAPHY: MyBib alphanat
 #+LaTeX_CLASS: UoM-draft-org-article
-
-
 # \setcounter{chapter}{7}
-\chapter{Appendix B} \label{sec:Ch3:Appendix}
+
+\chapter{Appendix B} 
+\label{sec:Ch3:Appendix}
   
 This section provides an overview of the pragmatic details of the
 [[latex:progname][cnstellate]] NEURON model used in Chapter \ref{sec:ModelChapter}.
@@ -34,7 +31,7 @@ version 5 \citep{ZilanyBruce:2007,ZilanyBruce:2006},
 version 4 \citep{TanCarney:2003},
 version 3 \citep{HeinzZhangEtAl:2001}.  
 The first run of a stimulus may take some time if the AN responses have
-not been previously saved. The AN reponses are
+not been previously saved. The AN responses are
 down-sampled to a lesser resolution for the spike generator and saved for
 further use.  The resolution of the spike generator is generally at or above 10
 kHz to match the simulations' time step of 0.05 or 0.1 ms.  Version 6 of the AN
@@ -357,7 +354,6 @@ inserted separately.
       ek = -70 // mV
    }//init
   ...
-  
   proc set_tstellate() {
      model = 0
      soma {
@@ -376,6 +372,7 @@ inserted separately.
           gleak_rm = nstomho(2)*qt()
      }
   }
+  ...
   endtemplate CNcell
   \end{lstlisting}
 #+END_LaTeX
@@ -386,8 +383,8 @@ inserted separately.
     :LABEL: sec:Apx:Praxis
     :END:
 
-\yellownote{Expand on praxis method, it's specific attributes, use of pvec for
-setting the parameters and the fitting procedure.}  
+# \yellownote{Expand on praxis method, it's specific attributes, use of pvec for
+# setting the parameters and the fitting procedure.}  
 
 The optimisation routine
 used in this chapter was NEURON's [[latex:progname][fit\_praxis]], which uses the algorithm PRAXIS
