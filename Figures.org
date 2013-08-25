@@ -47,6 +47,8 @@
   ${CNSTELLATEPATH}/fullbattery &
 #+END_SRC
 
+
+** ratelevel plots
 # + header: :term pdfcairo enhanced color solid font "Helvetica,18" linewidth 2.0 butt dashlength 1.0 size 7,7.86
 # + header : :term pngcairo size 700,1200 enhanced font 'Verdana,10'
 #+name: ratelevel-AN
@@ -152,7 +154,7 @@
   set logscale x 10
   set xrange [0.2:40] #2.805:27.017] #[40:90]
   
-  set zrange [0:RATEMAX]
+  set zrange [0:*]
   set cbrange [0:RATEMAX]
   set yrange [-10:90]
   set palette functions sqrt(gray),sqrt(gray),sqrt(gray) negative
@@ -227,7 +229,7 @@
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-3.gpi :export none
 
   INDEX=3;
-  RATEMAX=100;
+  RATEMAX=200;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-3.eps'
   <<CSdatapath>>
@@ -243,7 +245,7 @@
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-2.gpi :export none
 
   INDEX=2;
-  RATEMAX=200;
+  RATEMAX=350;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-2.eps'
   <<CSdatapath>>
@@ -258,7 +260,7 @@
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-1.gpi :export none
 
   INDEX=1;
-  RATEMAX=100;
+  RATEMAX=200;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-1.eps'
   <<CSdatapath>>
@@ -323,7 +325,8 @@
      solid dashlength 1.0 linewidth 2.0 butt noclip \
      palfuncparam 2000,0.003 \
      "Helvetica" 18
-    set output "./gfx/Responses/psthblock-".CELL.".eps" 
+  set output "./gfx/Responses/psthblock-".CELL.".eps"
+  CELL=substr(CELL,1,1) 
   #set border 3
   unset x2tics
   unset y2tics
@@ -370,54 +373,71 @@
 #+name:  psthblock-3.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/psthblock-3.gpi :export none
 
-  CELL=3;
+  CELL="3";
   <<CSdatapath>>
   <<psthblock>>
   !fixbb './gfx/Responses/psthblock-3.eps'
+  !epstopdf './gfx/Responses/psthblock-3.eps'
+  !rm -f './gfx/Responses/psthblock-3.eps'
+
 #+END_SRC
 
 
 #+name:  psthblock-2.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/psthblock-2.gpi :export none
 
-  CELL=2;
+  CELL="2";
   <<CSdatapath>>
   <<psthblock>>
   !fixbb './gfx/Responses/psthblock-2.eps'
+  !epstopdf './gfx/Responses/psthblock-2.eps'
+  !rm -f './gfx/Responses/psthblock-2.eps'
 #+END_SRC
 
 #+name:  psthblock-1.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/psthblock-1.gpi :export none
 
-  CELL=1;
+  CELL="1";
   <<CSdatapath>>
   <<psthblock>>
   !fixbb './gfx/Responses/psthblock-1.eps'
+  !epstopdf './gfx/Responses/psthblock-1.eps'
+  !rm -f './gfx/Responses/psthblock-1.eps'
+
 #+END_SRC
 
 #+name:  psthblock-0-ChS.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/psthblock-0-ChS.gpi :export none
 
-  CELL=0-ChS;
+  CELL="0-ChS";
   <<CSdatapath>>
   <<psthblock>>
   !fixbb './gfx/Responses/psthblock-0-ChS.eps'
+  !epstopdf './gfx/Responses/psthblock-0-ChS.eps'
+  !rm -f './gfx/Responses/psthblock-0-ChS.eps'
+
 #+END_SRC
 
 #+name:  psthblock-0-ChT1.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/psthblock-0-ChT1.gpi :export none
 
-  CELL=0-ChT1;
+  CELL="0-ChT1";
   <<CTonedatapath>>
   <<psthblock>>
   !fixbb './gfx/Responses/psthblock-0-ChT1.eps'
+  !epstopdf './gfx/Responses/psthblock-0-ChT1.eps'
+  !rm -f './gfx/Responses/psthblock-0-ChT1.eps'
+
 #+END_SRC
 
 #+name:  psthblock-0-ChT2.gpi
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/psthblock-0-ChT2.gpi :export none
 
-  CELL=0-ChT2;
+  CELL="0-ChT2";
   <<CTtwodatapath>>
   <<psthblock>>
   !fixbb './gfx/Responses/psthblock-0-ChT2.eps'
+  !epstopdf './gfx/Responses/psthblock-0-ChT2.eps'
+  !rm -f './gfx/Responses/psthblock-0-ChT2.eps'
+
 #+END_SRC

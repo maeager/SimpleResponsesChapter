@@ -18,7 +18,7 @@ set xtics nomirror out  (10, 20, 30, 40)
 set xrange [5:45]
  set yrange [*:*]
 set border 3
-set xlabel "Sound Level (dB re Threshold)" #font "Helvetica,22"
+set xlabel "Sound Level (dB re Threshold)" font "Helvetica,20"
 set ytics nomirror out # 0.1,0.1,0.5
 set style line 1 lc rgb "#0060ad" lt 1 lw 2 pt 7 ps 2.5 # --beautiful blue line and filled circle
 set style line 2 lc rgb "#dd181f" lt 1 lw 2 pt 5 ps 2.5 # --beautiful red line and square
@@ -27,7 +27,7 @@ set style line 4 lc rgb "#00ad06" lt 1 lw 2 pt 8 ps 2.5  # --green line and tria
 
 
 
-set ylabel "Adaptation (mV)" offset -1,0 #font "Helvetica,22"
+set ylabel "Adaptation (mV)" offset -1,0 font "Helvetica,20"
 set label 1 "{/Sans-Bold=36 A}" at screen 0.005, screen 1 font "Arial,36"
 set key on outside top horiz center  Right spacing 5 font "Helvetica,22" nobox
 
@@ -39,7 +39,7 @@ plot '< echo "30 \t 2.0175 "' u 1:2 t "CS" w lp ls 4, \
  
      
 set label 1 "{/Sans-Bold=36 B}" at screen 0.505, screen 1 font "Arial,36"
-set ylabel "Hyperpolarisation (mV)" offset -1,0  #font "Helvetica,22"
+set ylabel "Hyperpolarisation (mV)" offset -1,0  font "Helvetica,22"
 unset key
 plot  '../SimpleResponsesChapter/gfx/TStellate/PaoliniBalancedInh_Fig3_Offset.dat'  u 1:(-$2) not  w lp ls 4, \
      '< echo "30 \t 1.6 \t 1.0"' u 1:(-$2):3 notitle w yerr lc rgb "#00ad06", \
@@ -54,3 +54,4 @@ plot  '../SimpleResponsesChapter/gfx/TStellate/PaoliniBalancedInh_Fig3_Offset.da
 
 !fixbb '../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.eps'
 !epstopdf '../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.eps'
+!rm -f '../SimpleResponsesChapter/gfx/TStellate/PaoliniIV.eps'

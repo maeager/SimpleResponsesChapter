@@ -2940,9 +2940,9 @@ and the signal-to-noise ratio of synaptic inputs \citep{SvirskisRinzel:2003}.
 #+BEGIN_LaTeX
   \begin{figure}[t!]
     \centering%
-    \subfloat[Chopper Sustained]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CS-01-864-004}}\hfill%\quad%
-    \subfloat[Chopper Transient 1]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT1-01-857-007}}\hfill%\\
-    \subfloat[Chopper Transient 2]{\includegraphics[keepaspectratio,width=0.3\textwidth]{TStellate/CT2-01-305-014}}%\quad%
+    \subfloat[Chopper Sustained]{\includegraphics[keepaspectratio,width=0.3\textwidth]{../SimpleResponsesChapter/gfx/TStellate/CS-01-864-004}}\hfill%\quad%
+    \subfloat[Chopper Transient 1]{\includegraphics[keepaspectratio,width=0.3\textwidth]{../SimpleResponsesChapter/gfx/TStellate/CT1-01-857-007}}\hfill%\\
+    \subfloat[Chopper Transient 2]{\includegraphics[keepaspectratio,width=0.3\textwidth]{../SimpleResponsesChapter/gfx/TStellate/CT2-01-305-014}}%\quad%
     % \subfloat[Onset Chopper]{\resizebox{0.35\textwidth}{!}{\includegraphics{TStellate/OC-99-812-013}}}
     \caption[Average intracellular response to BF tones in TS cells]{Average intracellular response to BF tone 30 dB above depolarisation threshold in chopper units (TS cells) in rats \citep[Reproduced from Fig.~2, ][]{PaoliniClareyEtAl:2005}.
       A. Sustained chopper unit 01-864-004, CF 3.8 kHz,
@@ -3406,12 +3406,12 @@ sqrt(meansq (dat(9:12,2)-dat(9:12,3))))
 0.034  0.027 0.021 0.047
 
 
-call_grabTSdata[:in-file ./gfx/TStellate2_CS/TStellate.Fit.dat ](regexp="#  Input Resistance =",ind=5)[:results replace raw]
+# call _ grabTSdata[ : in-file ./gfx/TStellate2_CS/TStellate.Fit.dat ](regexp="#  Input Resistance =",ind=5)[:results replace raw]
 
-#+name: grabTSdata
-#+BEGIN_SRC awk :in-file ./gfx/TStellate2_CS/TStellate.Fit.dat  :export none :var regexp="#  Input Resistance =" :var ind="5"
- /$regexp/ {print $$ind}
-#+END_SRC
+# + name: grabTSdata
+# + BEGIN_SRC awk :in-file ./gfx/TStellate2_CS/TStellate.Fit.dat  :export none :var regexp="#  Input Resistance =" :var ind="5"
+#  /$regexp/ {print $$ind}
+# + END_SRC
 
 *** Sustained Chopper
 
@@ -3941,24 +3941,24 @@ stellate microcircuit and help to identify its key components.
 #+name: finalparams
 #+BEGIN_SRC octave :export none :results value vector 
   clear
-  [sysstat out] = system ("  grep -A6 -e '^# weights' gfx/TStellate2_CS/TStellate.Fit.dat | tail -5 | tr -d '#'");
+  [sysstat out] = system ("  grep -A6 -e '^# weights' ../SimpleResponsesChapter/gfx/TStellate2_CS/TStellate.Fit.dat | tail -5 | tr -d '#'");
   wchs = str2num(out);
-  [sysstat out] = system ("  grep -A6 -e '^# weights' gfx/TStellate2_CT1/TStellate.Fit.dat | tail -5 | tr -d '#'");
+  [sysstat out] = system ("  grep -A6 -e '^# weights' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat | tail -5 | tr -d '#'");
   wcht1 = str2num(out);
-  [sysstat out] = system ("  grep -A6 -e '^# weights' gfx/TStellate2_CT2/TStellate.Fit.dat | tail -5 | tr -d '#'");
+  [sysstat out] = system ("  grep -A6 -e '^# weights' ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | tail -5 | tr -d '#'");
   wcht2 = str2num(out);
-  [sysstat out] = system ("  grep -A6 -e '^# num. connections' gfx/TStellate2_CS/TStellate.Fit.dat | tail -5 | tr -d '#'");
+  [sysstat out] = system ("  grep -A6 -e '^# num. connections' ../SimpleResponsesChapter/gfx/TStellate2_CS/TStellate.Fit.dat | tail -5 | tr -d '#'");
   nchs = str2num(out);
-  [sysstat out] = system ("  grep -A6 -e '^# num. connections' gfx/TStellate2_CT1/TStellate.Fit.dat | tail -5 | tr -d '#'");
+  [sysstat out] = system ("  grep -A6 -e '^# num. connections' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat | tail -5 | tr -d '#'");
   ncht1 = str2num(out);
-  [sysstat out] = system ("  grep -A6 -e '^# num. connections' gfx/TStellate2_CT2/TStellate.Fit.dat | tail -5 | tr -d '#'");
+  [sysstat out] = system ("  grep -A6 -e '^# num. connections' ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | tail -5 | tr -d '#'");
   ncht2 = str2num(out);
 
-  [sysstat out] = system ("  grep -A6 -e '^# num. connections' gfx/TStellate2_CS/TStellate.Fit.dat | tail -5 | tr -d '#'");
+  [sysstat out] = system ("  grep -A6 -e '^# num. connections' ../SimpleResponsesChapter/gfx/TStellate2_CS/TStellate.Fit.dat | tail -5 | tr -d '#'");
   nchs = str2num(out);
-  [sysstat out] = system ("  grep -A6 -e '^# num. connections' gfx/TStellate2_CT1/TStellate.Fit.dat | tail -5 | tr -d '#'");
+  [sysstat out] = system ("  grep -A6 -e '^# num. connections' ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat | tail -5 | tr -d '#'");
   ncht1 = str2num(out);
-  [sysstat out] = system ("  grep -A6 -e '^# num. connections' gfx/TStellate2_CT2/TStellate.Fit.dat | tail -5 | tr -d '#'");
+  [sysstat out] = system ("  grep -A6 -e '^# num. connections' ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | tail -5 | tr -d '#'");
   ncht2 = str2num(out);
 
 
@@ -4006,25 +4006,12 @@ stellate microcircuit and help to identify its key components.
 | org_babel_eoe |
 
 
+# + BEGIN_SRC sh :export none
+#  grep -A6 -e '^# weights' ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | tail -5 | tr -d '#'
+# + END_SRC
 
 
-
-
-
-
-
-
-
-
-
-
-#+BEGIN_SRC sh
-  grep -A6 -e '^# weights' gfx/TStellate2_CT2/TStellate.Fit.dat | tail -5 | tr -d '#'
-
-#+END_SRC
-
-
-#+call: booktabs(table=bestopt,align="cXXXXXX",env="tabularx")[ :results latex :exports results ]
+# + call: booktabs (table=bestopt,align="cXXXXXX",env="tabularx")[ :results latex :exports results ]
 
 # # C, RA, \ENa, \EK, \Eh, \Qten
 
@@ -4063,7 +4050,7 @@ stellate microcircuit and help to identify its key components.
 # |           | \dGLGDS \tGABAone \sGLGDS  \tGABAtwo           | X     |     |
 # |           | *\wGLGDS     \nGLGDS *                         |       | X   |
 
-# call_opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000")[:results replace raw]
+# call _ opt_paramf(param="w.x[lsr][ts]",type="CS",factor="1000")[:results replace raw]
 
 
 #+tblname: months :export none
@@ -4073,7 +4060,7 @@ stellate microcircuit and help to identify its key components.
 |   2 | Feb.    |
 |   3 | Mar.    |
 
-#+call: booktabs(table=months, align="r|l") :results latex :exports results
+# + call : booktabs (table=months, align="r|l") :results latex :exports results
 
 
 

@@ -9,8 +9,6 @@ set terminal postscript eps enhanced defaultplex \
 #color solid
 set output "../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.eps"
 
-TOFFSET=3.9
-
 #set size 0.49,0.5
 set multiplot layout 2,2 scale 1.1, 0.9
 set style line 1 lc rgb "#0060ad" lt 1 lw 2 pt 7 ps 1.5 # --beautiful blue line and filled circle
@@ -84,6 +82,8 @@ set tics nomirror out
 #set autoscale x
 #set key center top title " " nobox
 set label 1 "{/Sans-Bold C}" at screen 0.075,screen 0.5 font "Arial,32"
+
+TOFFSET=system("grep IVOffset ../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat | awk 'NR==2 {print $4-$3}' ")
 
 plot '../SimpleResponsesChapter/gfx/TStellate2_CT1/TStellate.Fit.dat' u ($1-TOFFSET):2 t "Test" w l lt 1 lc "black", \
      '< tail -137 ../SimpleResponsesChapter/gfx/TStellate/CT1-01-857-007.png.dat' u 1:2 t "Reference" w l lt 1 lc rgb "#0060ad"
