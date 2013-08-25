@@ -2544,6 +2544,123 @@ suggesting a continuous monotonic GABA inhibition regulating the activity in the
 #+END_SRC
 75.6% 33.1% 71.7%     644.89 (142.83 + 92.94 +181.24 + 65.53 +65.53 + 96.81)
 
+
+** Results of Notch Noise Optimisation
+  :PROPERTIES:
+  :CUSTOM_ID: sec:Ch3:DSTV
+  :END:
+
+# of Wide-band Inhibition onto TV Cells Using Notch Noise Responses
+Table \ref{tab:TVNotchModelSummary} shows the implementation methods
+used in the \TV cell model notch noise optimisation.  The main purpose
+of this optimisation was to test whether \DS cell connection distribution
+variables (i.e.\space spread and offset) play a role in modifying the output
+of \TV cells (as suggested by \citet{ReissYoung:2005}).
+# The experimental data used in the fitness function, from
+# \citet{ReissYoung:2005} recorded from individual \TV neurons, is
+# adapted for a range of \TV cell models using a single notch stimulus.
+The experimental data in Figure \ref{fig:TVReissFig9} shows the average
+responses of Type II \DCN units to notch sweeps \citep{ReissYoung:2005}.  single
+notch presented across the whole network of \TV cells to avoid multiple notch
+sweeps.  Accordingly, the fitness function took the relative position of cells
+in the network into account when comparing the experimental data.  For example,
+when presented with a notch noise filtered between 5 kHz and 10 kHz, a unit with
+\CF of 5 kHz will see a falling edge of a 1 octave notch, whereas a unit with
+\CF of 10 kHz will see a rising edge of a half octave notch.  Figure
+\ref{fig:TVNotchDiagram} shows the combination of the Type II \DCN unit notch
+data for 1 octave.
+
+
+#+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
+
+#+ATTR_LATEX: width=0.9\textwidth
+#+CAPTION: [Experimental notch-noise data of a single Type II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from Figure 9 \citet{ReissYoung:2005}.}
+#+LABEL: fig:TVReissFig9
+[[../SimpleResponsesChapter/gfx/TV_Notch/Reiss_Fig9_E+F.png]]
+
+
+
+#+ATTR_LATEX: width=0.7\textwidth
+#+CAPTION: [TV model optimisation configuration]{Expected mean rate response to	 notch noise in the TV cells, created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge (augmented from Figure 9 in \citet{ReissYoung:2005}).}
+#+LABEL: fig:TVNotchDiagram
+[[../SimpleResponsesChapter/gfx/TV_Notch/TV_NotchDataConfig2.pdf]]
+
+
+The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated with
+logarithmically constant notch widths and notch centre frequencies ranging from
+1 octave below to 1 octave above \CF in $1/50$ octave steps. The single notch
+noise stimulus presented in this optimisation routine was generated in
+[[latex:progname][MATLAB/GNU Octave]] using frozen Gaussian noise (100 kHz sampling rate) and a
+Chebyshev Type II band reject filter.[fn:: The \textsf{[[latex:progname][cheby2}]] function is in
+the octave-forge signal package and MATLAB's Signal Processing Toolbox.]  The
+sound level in the \citet{ReissYoung:2005} data added further complexity. The
+power spectrum was maintained at a constant level per frequency band (dB per
+Hz$^{1/2}$) and this was scaled at each point in the notch sweep. For the single
+presentation used in this experiment the sound level plays an important part in
+stimulating the \ANFs and contributing interneurons. From the previous TV cell
+model optimisation, Section \ref{sec:Ch3:TVRL}, the preliminary response to
+noise in \TV cell models was linear between 40 to 80 dB \SPL.
+
+
+Higher thresholds in Type II \DCN units \citep{SpirouDavisEtAl:1999} and the
+presence of multiple inhibitory synapses \citep{Alibardi:2006} suggest \TV cells
+either receive a strong inhibitory influence or they have a lower \RMP due to a
+lower leak current reversal potential. A reduced resting membrane potential may
+increase the \AP threshold for excitatory inputs to generate action potentials. To
+allow for this, the reversal potential of the \TV cell model (\Erev) was used as
+a parameter in the optimisation routine with a range from -80 to -50 mV.
+
+#+ATTR_LATEX: width=0.6\textwidth
+#+CAPTION: [Best-fit result of TV cell model notch optimisation]{Best-fit result of TV cell model notch optimisation.}
+#+LABEL: fig:TVNotchresult
+[[../SimpleResponsesChapter/gfx/TV_Notch/TV_Notch_results.pdf]]
+
+
+Figure \ref{fig:TVNotchresult} shows the notch noise response of the \TV cell
+mode using the best parameters in Table \ref{tab:TVNotchresult}.  The eventual
+result of the \DS to \TV cell connection optimisation, highlighted in Table
+\ref{tab:TVNotchresult}, was derived from simulations using a 70 dB \SPL
+notch-noise stimulus.  The optimisation produced a better result for the offset
+parameter and the overall error value of the fitness function.  The offset of
+\DS onto \TV cells at 2.1 channels, equivalent to a mean of 0.14 octaves (0.34
+octaves at the lowest channel and 0.13 at the highest channel), was closer to
+the offset predicted by \citet{ReissYoung:2005}.
+
+# The results in the \TV cell model notch optimisation show the dominance of \LSR
+# over \HSR fibres in the number of synapses (29 to 1) and the increased need for
+# \DS cell inhibition with a high number of synapses, \nDSTV.  \LSR fibres have
+# not been proven to preference the deep layers of the \DCN
+# \citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
+
+
+#+BEGIN_LaTeX
+  {%\vspace{2ex}
+  \small\noindent%
+  \begin{table}[t!]
+  \centering
+  \caption{Best fit parameters of DS to TV cell connections using the notch optimisation.}
+  \label{tab:TVNotchresult}
+  \begin{tabularx}{0.6\linewidth}{X c D{,}{.}{2.4}}
+  \toprule
+   \textbf{Parameters (Units)}   &      \textbf{Range}      & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
+     \oDSTV  (channel)     &         [-10,30]         & 2,1    \\
+     \sDSTV  (channel)     &         [0,100]          & 13     \\
+      %       \nDSTV       &         [0,100]          & 17     \\
+     %    \wDSTV   (nS)    &         [0.01,5]         & 2,9    \\
+      %      \nLSRTV \hfill      &         [0,100]          & 29     \\
+      %      \nHSRTV \hfill      &         [0,100]          & 1      \\
+     %    \wLSRTV  (nS)    &         [1e-2,5]         & 0,17   \\
+     %    \wHSRTV  (nS)    &         [1e-2,5]         & 0,17   \\
+   %\Eleak$_{\rm TV}$\hfill (mV) &        [-80,-50]         & -68,9 \\
+  % \midrule
+  %          \multicolumn{2}{l}{RMS error \quad (spikes/s)} & \\
+  \bottomrule
+  \end{tabularx}
+  \end{table}\vspace{2ex}
+  }
+#+END_LaTeX
+
+
 ** Verification of the TV Cell Model
 
 
@@ -2668,122 +2785,8 @@ all TV cell's to noise (98 sp/s in unit 93, CF 30.8 kHz, 40 dB SPL).
 
 # \clearpage
 
-** Results of Notch Noise Optimisation
-  :PROPERTIES:
-  :CUSTOM_ID: sec:Ch3:DSTV
-  :END:
+# ** Verification of Notch Sweep Response in the TV Cell Model
 
-# of Wide-band Inhibition onto TV Cells Using Notch Noise Responses
-Table \ref{tab:TVNotchModelSummary} shows the implementation methods
-used in the \TV cell model notch noise optimisation.  The main purpose
-of this optimisation was to test whether \DS cell connection distribution
-variables (i.e.\space spread and offset) play a role in modifying the output
-of \TV cells (as suggested by \citet{ReissYoung:2005}).
-# The experimental data used in the fitness function, from
-# \citet{ReissYoung:2005} recorded from individual \TV neurons, is
-# adapted for a range of \TV cell models using a single notch stimulus.
-The experimental data in Figure \ref{fig:TVReissFig9} shows the average
-responses of Type II \DCN units to notch sweeps \citep{ReissYoung:2005}.  single
-notch presented across the whole network of \TV cells to avoid multiple notch
-sweeps.  Accordingly, the fitness function took the relative position of cells
-in the network into account when comparing the experimental data.  For example,
-when presented with a notch noise filtered between 5 kHz and 10 kHz, a unit with
-\CF of 5 kHz will see a falling edge of a 1 octave notch, whereas a unit with
-\CF of 10 kHz will see a rising edge of a half octave notch.  Figure
-\ref{fig:TVNotchDiagram} shows the combination of the Type II \DCN unit notch
-data for 1 octave.
-
-
-#+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
-
-#+ATTR_LATEX: width=0.9\textwidth
-#+CAPTION: [Experimental notch-noise data of a single Type II DCN unit]{Experimental notch-noise data of a single Type-II DCN unit, reproduced from Figure 9 \citet{ReissYoung:2005}.}
-#+LABEL: fig:TVReissFig9
-[[../SimpleResponsesChapter/gfx/TV_Notch/Reiss_Fig9_E+F.png]]
-
-
-
-#+ATTR_LATEX: width=0.7\textwidth
-#+CAPTION: [TV model optimisation configuration]{Expected mean rate response to	 notch noise in the TV cells, created from 1 octave notch sweeps (top) for  the falling edge and from half octave notch sweeps (bottom) for the rising  edge (augmented from Figure 9 in \citet{ReissYoung:2005}).}
-#+LABEL: fig:TVNotchDiagram
-[[../SimpleResponsesChapter/gfx/TV_Notch/TV_NotchDataConfig2.pdf]]
-
-
-The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated with
-logarithmically constant notch widths and notch centre frequencies ranging from
-1 octave below to 1 octave above \CF in $1/50$ octave steps. The single notch
-noise stimulus presented in this optimisation routine was generated in
-[[latex:progname][MATLAB/GNU Octave]] using frozen Gaussian noise (100 kHz sampling rate) and a
-Chebyshev Type II band reject filter.[fn:: The \textsf{[[latex:progname][cheby2}]] function is in
-the octave-forge signal package and MATLAB's Signal Processing Toolbox.]  The
-sound level in the \citet{ReissYoung:2005} data added further complexity. The
-power spectrum was maintained at a constant level per frequency band (dB per
-Hz$^{1/2}$) and this was scaled at each point in the notch sweep. For the single
-presentation used in this experiment the sound level plays an important part in
-stimulating the \ANFs and contributing interneurons. From the previous TV cell
-model optimisation, Section \ref{sec:Ch3:TVRL}, the preliminary response to
-noise in \TV cell models was linear between 40 to 80 dB \SPL.
-
-
-Higher thresholds in Type II \DCN units \citep{SpirouDavisEtAl:1999} and the
-presence of multiple inhibitory synapses \citep{Alibardi:2006} suggest \TV cells
-either receive a strong inhibitory influence or they have a lower \RMP due to a
-lower leak current reversal potential. A reduced resting membrane potential may
-increase the \AP threshold for excitatory inputs to generate action potentials. To
-allow for this, the reversal potential of the \TV cell model (\Erev) was used as
-a parameter in the optimisation routine with a range from -80 to -50 mV.
-
-#+ATTR_LATEX: width=0.6\textwidth
-#+CAPTION: [Best-fit result of TV cell model notch optimisation]{Best-fit result of TV cell model notch optimisation.}
-#+LABEL: fig:TVNotchresult
-[[../SimpleResponsesChapter/gfx/TV_Notch/TV_Notch_results.pdf]]
-
-
-Figure \ref{fig:TVNotchresult} shows the notch noise response of the \TV cell
-mode using the best parameters in Table \ref{tab:TVNotchresult}.  The eventual
-result of the \DS to \TV cell connection optimisation, highlighted in Table
-\ref{tab:TVNotchresult}, was derived from simulations using a 70 dB \SPL
-notch-noise stimulus.  The optimisation produced a better result for the offset
-parameter and the overall error value of the fitness function.  The offset of
-\DS onto \TV cells at 2.1 channels, equivalent to a mean of 0.14 octaves (0.34
-octaves at the lowest channel and 0.13 at the highest channel), was closer to
-the offset predicted by \citet{ReissYoung:2005}.
-
-# The results in the \TV cell model notch optimisation show the dominance of \LSR
-# over \HSR fibres in the number of synapses (29 to 1) and the increased need for
-# \DS cell inhibition with a high number of synapses, \nDSTV.  \LSR fibres have
-# not been proven to preference the deep layers of the \DCN
-# \citep{Ryugo:2008,MeltzerRyugo:2006,RyugoParks:2003,BabalianJacommeEtAl:2002}.
-
-
-#+BEGIN_LaTeX
-  {%\vspace{2ex}
-  \small\noindent%
-  \begin{table}[t!]
-  \centering
-  \caption{Best fit parameters of DS to TV cell connections using the notch optimisation.}
-  \label{tab:TVNotchresult}
-  \begin{tabularx}{0.6\linewidth}{X c D{,}{.}{2.4}}
-  \toprule
-   \textbf{Parameters (Units)}   &      \textbf{Range}      & \multicolumn{1}{c}{\textbf{Best Values}} \\\otoprule
-     \oDSTV  (channel)     &         [-10,30]         & 2,1    \\
-     \sDSTV  (channel)     &         [0,100]          & 13     \\
-      %       \nDSTV       &         [0,100]          & 17     \\
-     %    \wDSTV   (nS)    &         [0.01,5]         & 2,9    \\
-      %      \nLSRTV \hfill      &         [0,100]          & 29     \\
-      %      \nHSRTV \hfill      &         [0,100]          & 1      \\
-     %    \wLSRTV  (nS)    &         [1e-2,5]         & 0,17   \\
-     %    \wHSRTV  (nS)    &         [1e-2,5]         & 0,17   \\
-   %\Eleak$_{\rm TV}$\hfill (mV) &        [-80,-50]         & -68,9 \\
-  % \midrule
-  %          \multicolumn{2}{l}{RMS error \quad (spikes/s)} & \\
-  \bottomrule
-  \end{tabularx}
-  \end{table}\vspace{2ex}
-  }
-#+END_LaTeX
-
-** Verification of Notch Sweep Response in the TV Cell Model
 
 The response of individual Type II \DCN units to notch and band-pass sweeps in
 Figure \ref{fig:TVReissFig9} \citep[from Figure 9 in][]{ReissYoung:2005} was the
@@ -3614,7 +3617,7 @@ inhibitory synapses on dendrites, and (3) shunting of excitatory currents
 from distal inhibitory synapses. 
 
 
-\clearpage
+# \clearpage
 *** Transient Chopper 2
 
 #+BEGIN_LaTeX
@@ -3679,7 +3682,8 @@ subtypes (8.82 mV at 40 dB re $\theta$). The optimised \ChTtwo unit had a stable
 post-offset inhibition around 4 mV at the three stimulus levels.
 
 Excitatory synaptic weights (\wLSRTS
-call_opt_paramf(param="w.x[lsr][ts]",type="CT2",factor="1000")[:results replace raw] nS, \wHSRTS
+call_opt_paramf(param="w.x[lsr][ts]",type="CT2",factor="1000")[:results replace raw] nS, 
+\wHSRTS
 call_opt_paramf(param="w.x[hsr][ts]",type="CT2",factor="1000")[:results replace raw] nS)
 were balanced with moderate to low glycinergic synaptic input (\wDSTS
 call_opt_paramf(param="w.x[ds][ts]",type="CT2",factor="1000")[:results replace raw] nS, \wTVTS
@@ -3701,6 +3705,52 @@ with the greatest weighting from the CV data.
 
 # The \FSL at 30 dB re $\theta$ (call_CT2_fsl(SPLreTh=40)[:results replace raw] msec) showed a precise first spike.
 # At 40 dB re $\theta$ the
+
+** Verification of the TS Cell Models
+#+BEGIN_LaTeX
+  \begin{figure}[t!]
+  \centering
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/ratelevel-0-ChS.pdf}}\\
+  \caption[Whole network response of ChS TS cell model]{Response of the ChS subtype TS cell model across the
+    whole network to a pure tone (on centre unit's CF, 4.513 kHz) and broadband noise.
+    A. Rate level response map of the TS cells to a pure CF tone (4.5 kHz, 50 msec, 100 repetitions).
+    B. Noise rate level response map of the cells to broad-band noise (50 msec, 100 repetitions). 
+    C. Rate level responses of the central unit to a pure CF tone.
+    D. Noise rate level response of the central unit to BNN. }    
+  \label{fig:TVVerificationRL}
+  \end{figure}
+#+END_LaTeX
+
+#+BEGIN_LaTeX
+  \begin{figure}[t!]
+  \centering
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/ratelevel-0-ChT1.pdf}}\\
+  \caption[Whole network response of ChT1 TS cell model]{Response of the \ChTone subtype \TS cell model across the
+    whole network to a pure tone (on centre unit's CF, 4.513 kHz) and broadband noise.
+    A. Rate level response map of the TS cells to a pure CF tone (4.5 kHz, 50 msec, 100 repetitions).
+    B. Noise rate level response map of the cells to broad-band noise (50 msec, 100 repetitions). 
+    C. Rate level responses of the central unit to a pure CF tone.
+    D. Noise rate level response of the central unit to BNN. }    
+  \label{fig:TVVerificationRL}
+  \end{figure}
+#+END_LaTeX
+
+#+BEGIN_LaTeX
+  \begin{figure}[t!]
+  \centering
+  \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Responses/ratelevel-0-ChT2.pdf}}\\
+  \caption[Whole network response of ChT2 TS cell model]{Response of the \ChTtwo subtype TS cell model across the
+    whole network to a pure tone (on centre unit's CF, 4.513 kHz) and broadband noise.
+    A. Rate level response map of the TS cells to a pure CF tone (4.5 kHz, 50 msec, 100 repetitions).
+    B. Noise rate level response map of the cells to broad-band noise (50 msec, 100 repetitions). 
+    C. Rate level responses of the central unit to a pure CF tone.
+    D. Noise rate level response of the central unit to BNN. }    
+  \label{fig:TVVerificationRL}
+  \end{figure}
+#+END_LaTeX
+
+
+
 
 ** Overview of TS Cell Model Results
 
@@ -3970,6 +4020,12 @@ stellate microcircuit and help to identify its key components.
   wtable(:,4) = wchs([4 5 3 2 1],1)*1000.0;   ntable(:,4) = nchs([4 5 3 2 1],1);
   wtable(:,5) = wcht1([4 5 3 2 1],1)*1000.0;  ntable(:,5) = ncht1([4 5 3 2 1],1);
   wtable(:,6) = wcht2([4 5 3 2 1],1)*1000.0;  ntable(:,6) = ncht2([4 5 3 2 1],1);
+
+  ## FIX GLG INPUTS - GLG neural model does not use N
+  ntable(1,1)=1;
+  ntable(2,1)=1;
+
+
   ##  HEADER
   ## s=""; # 
   s="  \t\\GLG\t\\DS\t\\TV\t\\ChS\t\\ChTone\t\\ChTtwo \n--\t\t\t\t\t\t----\n"
