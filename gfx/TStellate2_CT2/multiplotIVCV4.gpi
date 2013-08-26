@@ -95,7 +95,8 @@ unset ytics
 unset obj
 set ylabel "\n Ratio " font "Helvetica,18" offset character +2, 0, 0
 set y2label "{/Symbol D}MP (mV)" font "Helvetica,18"
-set xtics nomirror out rotate by -20 offset -1,-1.25 ("Onset" 0,"Adaptation" 2,"Offset" 5)
+set xtics nomirror out offset -1,-1.25 ("Onset" 0,"      Adaptation" 2,"     Offset" 5) #rotate by -20 
+# set xtics nomirror out rotate by -20 offset -1,-1.25 ("Onset" 0,"Adaptation" 2,"Offset" 5)
 set label 2 "20dB" at 0.75,graph -0.1 font "Arial,14" rotate by -30 
 set label 3 "30dB" at 1.75,graph -0.1 font "Arial,14" rotate by -30 
 set label 4 "40dB" at 2.75,graph -0.1 font "Arial,14" rotate by -30 
