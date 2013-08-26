@@ -193,7 +193,7 @@ cells:
 #+ATTR_LATEX: width=0.9\linewidth
 #+CAPTION: [Cochlear nucleus stellate microcircuit model]{Cochlear nucleus stellate microcircuit (CNSM) model showing synaptic connections between cell-types in one iso-frequency channel. LSR and HSR ANFs are represented by the one line to TS and TV cells and as a fan of connections (from fibres in adjacent channels) for connections to GLG and DS cells.  GLG cell connections to TV cells replicate GABA inputs to TV cells from local Type I/III DCN units. Synaptic types: unfilled triangle = excitatory glutamatergic synapse with AMPA receptors; filled circle = inhibitory glycinergic synapse with GlyR receptors; filled rectangle = inhibitory GABAergic synapse with \GABAa receptors.}
 #+LABEL: fig:microcircuit
-[[../SimpleResponsesChapter/gfx/CNcircuit-detailed.pdf]]
+[[../SimpleResponsesChapter/gfx/CNcircuit-detailed2.pdf]]
 
 Optimisation of a detailed \BNN model requires a realistic input model with
 which to mimic the behaviour observed in live neural networks.  For a detailed
@@ -3717,7 +3717,7 @@ with the greatest weighting from the CV data.
     B. Noise rate level response map of the cells to broad-band noise (50 msec, 100 repetitions). 
     C. Rate level responses of the central unit to a pure CF tone.
     D. Noise rate level response of the central unit to BNN. }    
-  \label{fig:TVVerificationRL}
+  \label{fig:CSVerificationRL}
   \end{figure}
 #+END_LaTeX
 
@@ -3731,7 +3731,7 @@ with the greatest weighting from the CV data.
     B. Noise rate level response map of the cells to broad-band noise (50 msec, 100 repetitions). 
     C. Rate level responses of the central unit to a pure CF tone.
     D. Noise rate level response of the central unit to BNN. }    
-  \label{fig:TVVerificationRL}
+  \label{fig:CT1VerificationRL}
   \end{figure}
 #+END_LaTeX
 
@@ -3745,7 +3745,7 @@ with the greatest weighting from the CV data.
     B. Noise rate level response map of the cells to broad-band noise (50 msec, 100 repetitions). 
     C. Rate level responses of the central unit to a pure CF tone.
     D. Noise rate level response of the central unit to BNN. }    
-  \label{fig:TVVerificationRL}
+  \label{fig:CT2VerificationRL}
   \end{figure}
 #+END_LaTeX
 
