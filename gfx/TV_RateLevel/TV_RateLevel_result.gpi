@@ -124,7 +124,7 @@ set multiplot layout 4,2
 set yrange [0:600]
 set title "{/Sans-Bold=32 C}      TV Cell Tone Rate Level  (Control)   " font "Helvetica,24"
 #set key outside center top vertical Left noreverse enhanced autotitles nobox
-set key inside center top vertical Left noreverse enhanced autotitles nobox
+set key inside right top vertical Left noreverse enhanced autotitles nobox
 
 plot  [0:*] '../SimpleResponsesChapter/gfx/TV_RateLevel/TV_RateLevel.Fit.dat' i 1  using 1:2 title "TV Model"  with linespoints ls 1, \
       '' i 1 u 1:4 title "TV Exp. Control"  w lp ls 7
