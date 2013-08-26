@@ -12,8 +12,7 @@
 #+LaTeX_CLASS: UoM-draft-org-article
 # \setcounter{chapter}{7}
 
-\chapter{Appendix B} 
-\label{sec:Ch3:Appendix}
+\chapter{Appendix B}  \label{sec:Ch3:Appendix}
   
 This section provides an overview of the pragmatic details of the
 [[latex:progname][cnstellate]] NEURON model used in Chapter \ref{sec:ModelChapter}.
