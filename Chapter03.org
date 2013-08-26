@@ -1969,13 +1969,13 @@ cells centred on \CF with a fixed spread parameter, \sANFDSl=40 channels
 network), for inputs below \CF and spread reduced by a factor of 2 for inputs
 above \CF.
 
-The discrepancy in the rate level optimisation show a limitation in the fitting
+The discrepancy in the rate level optimisation show a limitation in fitting
 a \DS cell model to exemplar cell data  and has implications for the design of the
 \CNSM model.  These discrepancies can be explained by the homogeneity of inputs
 to the DS cell model.  The large number of ANFs (125 \HSR and 84 \LSR fibres)
 contact the \DS cell model with the same synaptic weight (HSR: 0.531 nS, LSR:
 8.25 nS) and narrow distributions of \SR (HSR: 50 sp/s, LSR: 0.1 sp/s).  The
-limitations in the ANF spontaneous rates has direct implications on the
+limitations in the ANF spontaneous rates has direct impact on the
 distribution of acoustic thresholds (CF tone HSR: approx.\space 0 dB SPL, LSR:
 approx.\space 30 dB SPL), which varies greatly in HSR units in cats and other
 mammals \citep{Schmiedt:1989,HeilNeubauerEtAl:2007,Liberman:1993,Liberman:1978,WangPowersEtAl:1997}.
@@ -1983,16 +1983,16 @@ Variation in acoustic thresholds and rate level responses is introduced to the
 \DS cell model through wide distribution (skewed Gaussian process) of ANFs
 across a wide section of the nucleus.  The same goes for GLG cell inputs to DS
 cells. The combination of ANFs and GLG cell inputs achieved a good match to
-acoustic threshold for CF tones and noise, however the DS cell model's responses
+acoustic threshold for CF tones and noise; however, the DS cell model's responses
 at high sound levels diverged from the experimental unit's response.  The errors
 in the \DS cell model's rate level optimisation are a consequence of
 parameterisation in the CNSM model and, so long as the DS cell model
 characteristics are categorically similar to experimental \DS cell responses any
-further development of the model is unnecessary.
+further development of the model is not necessary.
 
 
 The click recovery optimisation was used to modify the physiological dynamics of
-the \GLG cells' \GABAa synapse with \DS cells, particularly the \GABAa decay
+the \GLG cells' \GABAa synapses with \DS cells, particularly the \GABAa decay
 constant.  GABAergic inputs to \DS cells are well documented in the literature;
 in synaptic contacts and intracellular pharmacological studies, however, their
 distribution and network properties are unknown.  Electrophysiological evidence
@@ -2005,14 +2005,14 @@ visible at the soma.
 \GLG cells in the \GCD are the likely candidates for \GABAa synapses on the
 distal dendrites of \DS cells.
 
-Two important results came out of the click recovery optimisation.  Firstly, the
+Two important results came out of the click recovery optimisation.  First, the
 \GABAa synapse onto \DS cells needs to have a fast onset.  The initial response
-of the \DS cell model to click pairs separated by 2 msec had to have a probe
+of the \DS cell model to click pairs separated by 2 msec required a probe
 response 20\% less than the masker response.  The onset of inhibition is limited
 by the delay from \GLG cells and the rise time of the \GABAa synapse.  The
-optimisation found decay constant of 5.6 msec achieved the best results. In MNTB
+optimisation found a decay constant of 5.6 msec achieved the best results. In MNTB
 neurons of mature rats, the fast decay time constant of \GABAa \IPSPs had a mean
-of 7 msec standard deviation of 2 msec \cite{AwatramaniTurecekEtAl:2005}.
+of 7 msec and standard deviation of 2 msec \citep{AwatramaniTurecekEtAl:2005}.
 Slower components of the \GABAa synapse with slower decays and synapse depletion
 were ignored in the \CNSM model but may be important in more complex stimuli.
 
@@ -2037,7 +2037,7 @@ were ignored in the \CNSM model but may be important in more complex stimuli.
 The rate level optimisation used tone and noise responses from an exemplar \OnC
 unit to fit the weights and number of inputs of \HSR, \LSR and \GLG cells.  Of
 note in the optimised parameters was the difference between synaptic strengths
-of \LSR and \HSR \ANF inputs by an order of 66 (\HSR 0.167 nS, \LSR 11.03 nS).
+of \LSR and \HSR \ANF inputs (\HSR 0.167 nS, \LSR 11.03 nS).
 For this differential to occur in an actual \DS cell or in a morphologically
 detailed neural model, LSR fibres would have to contact the \DS cell on the soma
 or near to the site of activation and the \HSR fibres would be on distal
@@ -2045,9 +2045,9 @@ dendrites.
 # The \DS cell model is a single compartment neural model.
  The optimal \DS cell model also received five \GLG cell synapses with a
 synaptic weight of 0.532 nS.  The acoustic threshold for both the tone and noise
-responses was well fitted however the responses of the optimised model were
+responses was well fitted; however, the responses of the optimised model were
 unable to match the target at higher sound levels. At higher levels, HSR fibres
-are saturated, therefore the balance of \LSR and \GLG cell inputs is important
+are saturated; therefore, the balance of \LSR and \GLG cell inputs is important
 for maintaining the monotonic rate level response for both tones and noise.  The
 importance of acoustic threshold accuracy becomes critical in later simulations
 of \TV and \TS cells.  While it is acknowledged that a large discrepancy in the
@@ -2403,9 +2403,9 @@ Type II EIRA response of the TV cell model.  For the strychnine-affected
 experimental data and response of the \TV cell model without \DS cell inputs
 (Figures \ref{fig:TVRateLevelResult}E and F), the \RMS error for the tone and
 noise rate level was 
-call_TV_RMS_error(errstr="# RL without DS Error") and
+call_TV_RMS_error(errstr="# RL without DS Error ") and
 call_TV_RMS_error(errstr="# NRL without DS Error ") sp/s, respectively.  The
-model's response was well fitted, with only a limited degree of error in
+model's response was well fitted, with only a limited amount of error in
 mid-level tones and a shift in threshold by 15 dB in noise stimuli.  For the
 bicuculine-affected experimental data and equivalent TV cell model (Figures
 \ref{fig:TVRateLevelResult}G and H), the \RMS errors were
@@ -2419,7 +2419,7 @@ stimulus. In response to noise, the DS cell model's rate level was slightly high
 LSR noise rate level flattened out (Figure \ref{fig:TVRateLevelResult}B)
 contributing to a low saturation rate in the TV cell model (Figure
 \ref{fig:TVRateLevelResult}H).  The final error used in the optimisation routine
-was call_TV_RMS_error(errstr="# Final error ") sp/s, a summation of the \RMS errors.
+was call_TV_RMS_error(errstr="# Final error ") sp/s, a summation of the six rate-level \RMS errors.
 
 # RL Error = 149.797
 # NRL Error = 6.8213
@@ -2465,12 +2465,12 @@ call_TVopt_param(param="w.x[ds][tv]",factor="1000")[:results replace raw] nS.
 The \DS cell inputs were selected from frequency
 channels on and around the \CF of the \TV cell (Gaussian distribution, spread
 parameter \sDSTV = 30). 
-Due to the \OnC response properties of \DS cells the inhibition was most
+Due to the \OnC response properties of \DS cells, the inhibition was most
 effective at stimulus onset and at higher sound levels.  
 The weight of GLG cell
 inputs was comparable to \DS cells' synaptic weight (\wGLGTV =
 call_TVopt_param(param="w.x[glg][tv]",factor="1000")[:results replace raw] nS) as
-well as the same number of connections.  The GLG cell model had a low threshold
+well as the same number of connections.  The \GLG cell model had a low threshold
 and a steady increase in firing rate with increasing level (Figure
 \ref{fig:TVRateLevelResult}A and B), along with its longer time constant,
 suggesting a continuous monotonic GABA inhibition regulating the activity in the TV cell model.
@@ -2586,7 +2586,7 @@ data for 1 octave.
 [[../SimpleResponsesChapter/gfx/TV_Notch/TV_NotchDataConfig2.pdf]]
 
 
-The notch sweep sets used by \citeauthor{ReissYoung:2005} were generated with
+The notch sweep sets used by \citet{ReissYoung:2005} were generated with
 logarithmically constant notch widths and notch centre frequencies ranging from
 1 octave below to 1 octave above \CF in $1/50$ octave steps. The single notch
 noise stimulus presented in this optimisation routine was generated in
@@ -3422,7 +3422,7 @@ sqrt(meansq (dat(9:12,2)-dat(9:12,3))))
 \glsreset{ChS}
 
 #+BEGIN_LaTeX
-  \begin{figure}[thb]
+  \begin{figure}[tp!]
     \centering%
   \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate2_CS/multiplotIVCV4.pdf}}
   \caption[Sustained chopper optimisation results]{Optimisation results for the
@@ -3473,8 +3473,8 @@ causing a decrease in the input resistance from 163 M$\Omega$ to 120 M$\Omega$.
 
 
 The mean rates for the optimised \ChS unit at 20, 30 and 40 dB re $\theta$ were
-call_CS_rate(SPLreTh=30)[:results replace raw], call_CS_rate(SPLreTh=40)[:results replace raw]
- and call_CS_rate(SPLreTh=50)[:results replace raw]
+call_CS_rate(SPLreTh=40)[:results replace raw], call_CS_rate(SPLreTh=50)[:results replace raw]
+ and call_CS_rate(SPLreTh=60)[:results replace raw]
 spikes per second, respectively.  These results show the \ChS model had a high
 firing rate that was still increasing, which indicates the model was highly
 active and the stimuli range was in the upper \DR region of the rate level
@@ -3542,7 +3542,7 @@ of \HSR activity.
 *** Transient Chopper 1
 
 #+BEGIN_LaTeX
-  \begin{figure}[t!]
+  \begin{figure}[tp!]
     \centering
   \resizebox{0.95\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/TStellate2_CT1/multiplotIVCV4.pdf}}
   \caption[Transient chopper type 1 optimisation results]{Transient chopper type 1
@@ -3707,6 +3707,17 @@ with the greatest weighting from the CV data.
 # At 40 dB re $\theta$ the
 
 ** Verification of the TS Cell Models
+
+
+Figures \ref{fig:CSVerificationRL}, \ref{fig:CT1VerificationRL} and
+\ref{fig:CT2VerificationRL} show the responses of the \TS cell models across the
+nuclei to the verification stimuli, \CF tones in the central channel and
+broadband noise.  
+# The major difference between the optimised routine parameters
+# and the CNSM model used in the verification is the species (rat for
+# optimisation, cat for verification).  
+
+
 #+BEGIN_LaTeX
   \begin{figure}[t!]
   \centering
@@ -3750,8 +3761,6 @@ with the greatest weighting from the CV data.
 #+END_LaTeX
 
 
-
-
 ** Overview of TS Cell Model Results
 
 The expected output of gradual increase in the strength of inhibition from \ChS
@@ -3764,8 +3773,7 @@ differed from the exemplar units'.  In this case the input inhibitory cells
 range of possible input rates and dynamics of the experimental data.
 
 
-The primary purpose of the \CNSM model is to regulate the output behaviour of
-the \TS cells, its major output. The diversification of the physiological
+The primary purpose of the \CNSM model is to regulate the output behaviour of the main projection neurons, \TS cells. The diversification of the physiological
 responses of TS cells into three different chopper response categories required
 three optimisation procedures to fit unique synaptic parameters to their
 corresponding target responses.  The \TS cell optimisation study attempted to
@@ -4161,7 +4169,7 @@ available at the time of the model's development. Future work in this field may
 benefit from even more detailed \AN models.
 
 
-In the \CNSM model we elected to use 100 frequency channels, which established an
+In the \CNSM model, we elected to use 100 frequency channels, which established an
 average separation of 0.4 octaves in the middle of the network. This approach is
 suitable for on-\CF connections, but may limit the realistic responses from
 connections in adjacent frequency channels. While an increase in the number of
