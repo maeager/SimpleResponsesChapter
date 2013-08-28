@@ -3248,8 +3248,9 @@ depolarisation. Adaptation shift is caused by a combination of factors, but is
 mostly due to reduced excitation from \ANF inputs which is caused by adaptation
 at the IHC-AN synapse.  Due to simulation complications, adaptation measures
 were averaged over 5 msec rather than the 1 msec period used in the original
-paper \citep{PaoliniClareyEtAl:2005}. 
-The second adaptation measure was shifted from around 50 msec to 45 msec to avoid rapid \MP drop-off in some units with a delayed onset peak that shifted the AIV trace. 
+paper \citep{PaoliniClareyEtAl:2005}.  The second adaptation measure was shifted
+from around 50 msec to 45 msec to avoid rapid \AIV drop-off in some units with a
+delayed onset peak that shifted the AIV trace.
 
 The offset shift measures the effects of sustained inhibition and recovery of
 excitation 10 msec after the stimulus offset
