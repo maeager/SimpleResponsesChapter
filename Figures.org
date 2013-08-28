@@ -278,7 +278,7 @@
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-0-ChS.gpi :export none
 
   INDEX=0;
-  RATEMAX=200;
+  RATEMAX=400;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-0-ChS.eps'
   <<CSdatapath>>
@@ -292,7 +292,7 @@
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-0-ChT1.gpi :export none
 
   INDEX=0;
-  RATEMAX=200;
+  RATEMAX=400;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-0-ChT1.eps'
   <<CTonedatapath>>
@@ -306,7 +306,7 @@
 #+BEGIN_SRC gnuplot :noweb yes :tangle ./gfx/Responses/ratelevel-0-ChT2.gpi :export none
 
   INDEX=0;
-  RATEMAX=200;
+  RATEMAX=400;
   set term postscript eps size 7,7.86 enhanced defaultplex leveldefault colour solid dashlength 1.0 linewidth 2.0 butt noclip  palfuncparam 2000,0.003  "Helvetica" 18
   set output './gfx/Responses/ratelevel-0-ChT2.eps'
   <<CTtwodatapath>>
