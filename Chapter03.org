@@ -3724,6 +3724,13 @@ broadband noise.
 # and the CNSM model used in the verification is the species (rat for
 # optimisation, cat for verification).  
 
+The \ChS model's response area to tones, Figure \ref{fig:CSVerificationRL}A,
+show a narrow receptive field with a threshold at 10 dB SPL and a \Qten of 0.143
+octaves (three active channels at 20 dB SPL). The on-CF unit had a large dynamic
+range to tones ($>$60 dB, Figure \ref{fig:CSVerificationRL}C) due to similar
+strength of synaptic inputs from LSR and HSR fibres. The \ChS model's response
+to noise, Figures \ref{fig:CSVerificationRL}B and D, were monotonic with
+acoustic threshold dependent on HSR inputs.
 
 #+BEGIN_LaTeX
   \begin{figure}[t!]
@@ -3739,6 +3746,16 @@ broadband noise.
   \end{figure}
 #+END_LaTeX
 
+The \ChTone model's response area to tones, Figure \ref{fig:CT1VerificationRL}A,
+show a narrow receptive field with a threshold and \Qten similar to the \ChS
+model.  The on-CF unit had a small dynamic range (around 20 dB, Figure
+\ref{fig:CT1VerificationRL}C), saturating around 30 dB with rate just under 250
+sp/s. The unit also showed slight depression of the rate-level curve at high
+sound levels, likely due to inhibitory influences.  In response to noise, the
+\ChTone model's threshold increased and its saturation rate decreased to just
+over 200 sp/s (Figures \ref{fig:CSVerificationRL}B and D).
+
+
 #+BEGIN_LaTeX
   \begin{figure}[t!]
   \centering
@@ -3752,6 +3769,18 @@ broadband noise.
   \label{fig:CT1VerificationRL}
   \end{figure}
 #+END_LaTeX
+
+The \ChTtwo model's response area to tones and noise is shown in Figures
+\ref{fig:CT2VerificationRL}A and B.  The tuning of the tone response area is
+similar to the \ChS and \ChTone models but with higher firing rates.  The on-CF
+\ChTtwo unit had a high spontaneous rate ($>$100 sp/s) and a high maximum firing
+rate (over 350 sp/s) at 30 dB SPL Its tone rate level curve (Figure
+\ref{fig:CT2VerificationRL}C) had a small dynamic range (around 20 dB) and
+immediate linear depression.  In response to noise, the \ChTone model's had a
+compressed rate-level curve (Figure \ref{fig:CSVerificationRL}D) with increased
+threshold similar to the other models, reduction in its maximum firing rate and
+reduction of rate at high SPL similar to the \ChTone model.
+
 
 #+BEGIN_LaTeX
   \begin{figure}[t!]
@@ -3861,10 +3890,6 @@ range of possible input rates and dynamics of the experimental data.
 #    \end{table}\vspace{2ex}%
 #    }
 # # + END_LaTeX
-
-
-
-# \yellownote{TODO: Fix the TS verification figure \ref{fig:TSverification}.  and add text.  repeat for ChT1 and ChT2}
 
 # # + BEGIN_LaTeX
 #   \begin{figure}[t!]
