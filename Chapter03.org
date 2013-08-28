@@ -11,9 +11,9 @@
 #+LANGUAGE: en_GB-ise-wo_accents
 #+LaTeX_CLASS: UoM-draft-org-article
 #  +  LaTeX_CLASS_OPTIONS: [a4paper,11pt,twopage]
-#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../../cnstellate/Responses_CT1}{../../cnstellate/Responses_CS}{../../cnstellate/MASSIVE/cnstellateResponses_CT2}}
+#+LATEX_HEADER:\graphicspath{{../SimpleResponsesChapter/gfx/}{../../cnstellate/Responses_CT1}{../../cnstellate/Responses_CS}{../../cnstellate/MASSIVE/cnstellate/Responses_CT2}}
 # {/media/data/Work/cnstellate/}{../../cnstellate/ResponsesNoComp/ModulationTransferFunction/}{../../cnstellate/golgi/}{../../cnstellate/TV_RateLevel/}}
-#+LATEX_HEADER:\setcounter{secnumdepth}{5}
+#+LATEX_HEADER: \setcounter{secnumdepth}{5}
 #+LATEX_HEADER:\lfoot{\footnotesize\today\ at \thistime}
 #+LATEX_HEADER:  %\usepackage[notcite]{showkeys}
 #+BIBLIOGRAPHY: ../org-manuscript/bib/MyBib plainnat
@@ -2396,7 +2396,9 @@ response was non-linear and showed strong inhibitory effects without recovery to
 a stable firing rate. The discrepancy is problematic for this particular
 experimental data, but the TV cell model's response is similar to other Type II
 DCN units in Figures \ref{fig:SpirouFig1}B and C also showed strong suppression
-of \CF tones at high level.  The noise rate level \RMS error was significantly
+of \CF tones at high level. 
+The acoustic threshold in the HSR on-CF unit was 10 dB less than the experimental TV unit and was almost saturated at 20 dB SPL where the target TV cell was just beginning to fire.
+ The noise rate level \RMS error was significantly
 better at 
 call_TV_RMS_error(errstr="# NRL Error ") sp/s, an important factor in the
 Type II EIRA response of the TV cell model.  For the strychnine-affected
@@ -2420,6 +2422,18 @@ LSR noise rate level flattened out (Figure \ref{fig:TVRateLevelResult}B)
 contributing to a low saturation rate in the TV cell model (Figure
 \ref{fig:TVRateLevelResult}H).  The final error used in the optimisation routine
 was call_TV_RMS_error(errstr="# Final error ") sp/s, a summation of the six rate-level \RMS errors.
+
+
+Misalignment of the rate-level curve in the input on-CF HSR units had
+detrimental affect on the TV cell optimisation.  The acoustic thresholds of the
+HSR units to pure tones were 10 dB lower than the target TV unit (Figures
+\ref{fig:TVRateLevelResult}A and C for tones). The acoustic threshold of the TV
+cell exposed to strychnine (Figure \ref{fig:TVRateLevelResult}F) was 15 dB
+greater than the threshold of the HSR unit (Figure
+\ref{fig:TVRateLevelResult}B).  The control tone and noise comparisons were
+weighted five times more than the strychnine and bicuculine comparisons in the
+optimisation and the \wHSRTV parameter would be less favourable due to the
+misalignment of its rate-level response.
 
 # RL Error = 149.797
 # NRL Error = 6.8213
@@ -3763,17 +3777,9 @@ broadband noise.
 
 ** Overview of TS Cell Model Results
 
-The expected output of gradual increase in the strength of inhibition from \ChS
-to \ChTone to \ChTtwo is only present in \GLG cell inputs to the TS cell models.
-\DS cell inhibition is strongest in each of the TS models and the weights of TV
-cell inputs are considerably lower.  The \SPL of the three \CF tones used in
-each optimisation was set based on an acoustic threshold of 10 dB SPL that
-differed from the exemplar units'.  In this case the input inhibitory cells
-(GLG, DS and TV cells) were all moderately active and may have differed from the
-range of possible input rates and dynamics of the experimental data.
 
-
-The primary purpose of the \CNSM model is to regulate the output behaviour of the main projection neurons, \TS cells. The diversification of the physiological
+The primary purpose of the \CNSM model is to regulate the output behaviour of
+the main projection neurons, \TS cells. The diversification of the physiological
 responses of TS cells into three different chopper response categories required
 three optimisation procedures to fit unique synaptic parameters to their
 corresponding target responses.  The \TS cell optimisation study attempted to
@@ -3819,6 +3825,16 @@ difference measures. Increasing the morphological complexity of the neural model
 improve the optimisation match for the chopper subtypes.
 
 
+The expected output of gradual increase in the strength of inhibition from \ChS
+to \ChTone to \ChTtwo is only present in \GLG cell inputs to the TS cell models.
+\DS cell inhibition is strongest in each of the TS models and the weights of TV
+cell inputs are considerably lower.  The \SPL of the three \CF tones used in
+each optimisation was set based on an acoustic threshold of 10 dB SPL that
+differed from the exemplar units'.  In this case the input inhibitory cells
+(GLG, DS and TV cells) were all moderately active and may have differed from the
+range of possible input rates and dynamics of the experimental data.
+
+
 # Table \ref{tab:TSCellResults} reports the best-fit parameter values for the
 # three \TS cell subtypes. Further details on each subtype are provided below.
 
@@ -3853,7 +3869,7 @@ improve the optimisation match for the chopper subtypes.
 #    }
 # # + END_LaTeX
 
-# ** Verification of the TS Cell Model Subtypes
+
 
 # \yellownote{TODO: Fix the TS verification figure \ref{fig:TSverification}.  and add text.  repeat for ChT1 and ChT2}
 
@@ -3877,14 +3893,6 @@ improve the optimisation match for the chopper subtypes.
 #   \end{figure}
 # # + END_LaTeX
 
-# The primary purpose of this optimisation study was to translate intricate intracellular and spiking statistics
-
-# average intracellular membrane voltage and
-# spiking statistics
-# the
-
-# network parameters that regulate the major output of the \CN stellate
-# microcircuit.
 
 * Discussion
 :PROPERTIES:
