@@ -1,6 +1,6 @@
 {%
 \small%\linespread{0.5}
-\begin{table}[p!]
+\begin{table}[tp!]
     \caption{Tuberculoventral cell model summary}
     \label{tab:TVModelSummary}
 
@@ -11,8 +11,8 @@
           \textbf{Topology}            & Tono-topicity of the rat AN and CN \\\hline
         \textbf{Connectivity}          & ANF$\to$\{GLG, DS, TV\}, GLG$\to$DS, DS$\to$TV, GLG$\to$TV  \\\hline
          \textbf{Input model}          & ANF~model: Instantaneous-rate Poisson neural model \citep{ZilanyBruceEtAl:2009} \\ \hline
-\multirow{3}{*}{\textbf{Neuron model}} & \GLG cell: \GLG neural model (see Section \ref{sec:Ch3:GolgiModel}).\\
-                                       & \DS cell: Type I-II \RM model (see Section \ref{sec:Ch3:DSCellModel}).\\ 
+\multirow{3}{*}{\textbf{Neuron model}} & \GLG cell: \GLG neural model (see Section \ref{sec:Ch3:GolgiModel})\\
+                                       & \DS cell: Type I-II \RM model (see Section \ref{sec:Ch3:DSCellModel})\\ 
                                        & \TV cell: classic Type I \RM model \\\hline
        \textbf{Channel models}         & $I_{\textrm{Na}}$, $I_{\textrm{KHT}}$, $I_{\textrm{KLT}}$, $I_{\textrm{KA}}$ and $I_{\textrm{h}}$ \citep{RothmanManis:2003b}\\\hline
 \multirow{2}{*}{\textbf{Synapse model}} & Excitatory: \AMPA glutamatergic receptor (single-exponential)\\
@@ -43,12 +43,12 @@
 \textbf{Name}  & \textbf{Source} & \textbf{Target} & \textbf{Pattern} \\\hline
 %   ANF$\to$DS &       ANF       &   D~Stellate    & Skewed Gaussian, centred at CF, spread below CF \sANFDSl, spread above CF \sANFDSh \\\hline
     \ANFTV     &    LSR, HSR     &       TV        & 
-Narrowband connection on-CF, zero spread, number \nLSRTV=20 and \nHSRTV=20, delay $\dANFTV=2.0$ msec. Weight parameters (\wHSRTV and \wLSRTV) optimised. \\\hline
+Narrowband connection on-CF, zero spread, number $\nLSRTV=20$ and $\nHSRTV=20$, delay $\dANFTV=2.0$ msec. Weight parameters (\wHSRTV and \wLSRTV) optimised. \\\hline
 %   GLG$\to$DS &      Golgi      &   D~Stellate    & Gaussian, centred at CF with spread \sGLGDS \\\hline
     \GLGTV      &       GLG        &       TV        & 
 Gaussian convergence, centred on-CF, spread \protect{$\sGLGTV=20$},  number $\nGLGTV=10$, delay $\dGLGTV=0.5$ msec. Weight parameter \wGLGTV optimised.\\\hline
     \DSTV      &       DS        &       TV        & 
-Off centred Gaussian convergence, spread \protect{$\sDSTV$}, number \nDSTV=30, delay $\dDSTV=0.5$ msec. Offset (\oDSTV) set to zero in rate level routine and optimised in notch routine. Weight parameter (\wDSTV) optimised in rate level routine.  \\\hline
+Off centred Gaussian convergence, spread \protect{$\sDSTV$}, number $\nDSTV=30$, delay $\dDSTV=0.5$ msec. Offset (\oDSTV) set to zero in rate level routine and optimised in notch routine. Weight parameter (\wDSTV) optimised in rate level routine.  \\\hline
 \multicolumn{4}{|>{\raggedleft}c|}{\ANFGLG, \ANFDS, and \GLGDS from Table~\ref{tab:DScellModelSummary}.}\\\hline
 \end{tabularx}
 % , uniform weight \wANFDS for all synapses, number \nLSRDS \& \nHSRDS, delay \dANFDS
@@ -56,7 +56,7 @@ Off centred Gaussian convergence, spread \protect{$\sDSTV$}, number \nDSTV=30, d
 
 % - D ------------------------------------------------------------------------------
 \end{table}
-\begin{table}[p!]
+\begin{table}[tp!]
 {Table~\ref{tab:TVModelSummary}: Tuberculoventral cell model summary - continued} \\
 \noindent%
 \begin{tabularx}{\textwidth}{|l|X|}
