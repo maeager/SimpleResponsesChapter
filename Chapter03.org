@@ -2316,7 +2316,7 @@ circuit \citep{ReissYoung:2005,LomakinDavis:2008}.
 The implementation of the \TV cell model used in the \CNSM model and its
 optimisation routines are 
 described in Table \ref{tab:TVModelSummary}.  The \TV cell model was implemented
-with a single-compartment conductance neural model of Type I-c \RM neural model,
+with a single-compartment conductance Type I-c \RM neural model,
 a classic regular firing unit \citep{RothmanManis:2003b}.  The reversal
 potential of \TV cells (\Erev) was set to a lower \RMP (-70 mV) to increase the
 \AP threshold.  The synaptic inputs to the \TV cell model included excitation
@@ -2326,17 +2326,16 @@ local neurons (Golgi-stellate and cartwheel cells) that are not included in the
 CNSM model.  These units have a similar Type I/III EIRA characteristic to \GLG
 cells.  The weights (\wLSRTV, \wHSRTV) of \ANF synapses were used in the
 optimisation procedures to allow for fine adjustments to the strength of
-excitation. The number of synapses (\nLSRTV=20, \nHSRTV=20, \nDSTV=30,
+excitation. The numbers of synapses (\nLSRTV=20, \nHSRTV=20, \nDSTV=30,
 \nGLGTV=10) were fixed at appropriate values.  The \TV cell model received \ANF
 inputs on-\CF from only one frequency channel at the same \CF (\sANFTV=0).  The
 strength of inhibition in the \TV cell model was controlled by the weight of \DS
 and \GLG cell inputs (\wDSTV, \wGLGTV). The parameters controlling the
-distribution of \DS cell inputs to \TV cells were fixed (\sDSTV=30, \oDSTV=0) in
+distribution of \DS cell inputs to \TV cells were fixed ($\sDSTV=30$, $\oDSTV=0$) in
 the rate level optimisation. The offset parameter, \oDSTV, is the focus of the
-next section of this chapter, Section \ref{sec:Ch3:DSTV}.
+notch optimisation in Section \ref{sec:Ch3:DSTV}.
 
 #+LaTeX:\input{../SimpleResponsesChapter/TV_RateLevelTable}
-
 
 # \citet{ReissYoung:2005} performed their experiments on adult cats.
 # TODO: Give details about the \TV model implementation
@@ -2354,7 +2353,7 @@ shows a Type I/III EIRA unit in the deep layer of the \DCN.  The suppressed
 noise response in Figure \ref{fig:SpirouFig8}B categorises this neuron as a
 typical Type II EIRA unit.  The TV cell in Figure \ref{fig:SpirouFig8}B was used
 as the reference in the TV cell model optimisation.  The reference TV unit was
-recorded neurotransmitter blockers strychnine and bicuculine, which directly
+recorded with ionotopopheretic application of strychnine and bicuculine, which directly
 affect synaptic connections relevant to the CNSM model, e.g. glycinergic DS cell
 connections and \GABAa-ergic \GLG cell connections. For the TV cell model's rate
 level optimisation, three TV cell models were simulated. The first TV cell model
@@ -2362,7 +2361,7 @@ was simulated with all connections active and was compared against the control
 responses.  The second TV cell model was simulated without DS cell connections
 and compared against the strychnine responses.  The final TV cell model was
 simulated without DS or GLG connections and compared against bicuculine
-responses.  The sound level units (dB Attn.) were referenced from an acoustic
+responses.  The sound level units (dB Attenuation) were drawn from an acoustic
 calibration technique close to the ear drum of the animal
 \citep{SpirouYoung:1991,RiceYoungEtAl:1995}, where 0 dB attenuation is
 approximately 100 dB SPL.
@@ -2395,7 +2394,7 @@ call_TV_RMS_error(errstr="# RL Error ") sp/s.  This
 response was non-linear and showed strong inhibitory effects without recovery to
 a stable firing rate. The discrepancy is problematic for this particular
 experimental data, but the TV cell model's response is similar to other Type II
-DCN units in Figures \ref{fig:SpirouFig1}B and C also showed strong suppression
+DCN units in Figures \ref{fig:SpirouFig1}B and C which also showed strong suppression
 of \CF tones at high level. 
 The acoustic threshold in the HSR on-CF unit was 10 dB less than the experimental TV unit and was almost saturated at 20 dB SPL where the target TV cell was just beginning to fire.
  The noise rate level \RMS error was significantly
@@ -2423,7 +2422,6 @@ contributing to a low saturation rate in the TV cell model (Figure
 \ref{fig:TVRateLevelResult}H).  The final error used in the optimisation routine
 was call_TV_RMS_error(errstr="# Final error ") sp/s, a summation of the six rate-level \RMS errors.
 
-
 Misalignment of the rate-level curve in the input on-CF HSR units had
 detrimental affect on the TV cell optimisation.  The acoustic thresholds of the
 HSR units to pure tones were 10 dB lower than the target TV unit (Figures
@@ -2434,14 +2432,6 @@ greater than the threshold of the HSR unit (Figure
 weighted five times more than the strychnine and bicuculine comparisons in the
 optimisation and the \wHSRTV parameter would be less favourable due to the
 misalignment of its rate-level response.
-
-# RL Error = 149.797
-# NRL Error = 6.8213
-# RL without DS Error   = 97.4042
-# NRL without DS Error = 61.6979
-# RL wo GLG Error = 181.375
-# NRL wo GLG Error = 109.893
-# Final error = 606.988
 
 #+BEGIN_LaTeX
   {%
@@ -2464,7 +2454,6 @@ misalignment of its rate-level response.
   }
 #+END_LaTeX
 
-
 The optimised parameters of the \TV cell model in Table
 \ref{tab:TVRateLevelFig8B} are indicative of a strongly-inhibited neuron.  The
 excitation from \ANF inputs was moderate, with stronger weighting toward \LSR
@@ -2472,7 +2461,7 @@ fibres (\wLSRTV =
 call_TVopt_param(param="w.x[lsr][tv]",factor="1000")[:results replace raw] nS, \wHSRTV =
 call_TVopt_param(param="w.x[hsr][tv]",factor="1000")[:results replace raw] nS).
 Each of the input cell types to the \TV cell model had 30 synaptic inputs. All
-\ANF inputs were on \CF and were chosen from different \HSR and \LSR fibres in
+\ANF inputs were on-\CF and were chosen from different \HSR and \LSR fibres in
 the same frequency channel.   
 The optimum inhibitory weight from \DS cells was
 call_TVopt_param(param="w.x[ds][tv]",factor="1000")[:results replace raw] nS.
