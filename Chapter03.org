@@ -451,7 +451,7 @@ significantly different from the classic Type I \RM models in the \TV cell model
     \begin{table}[tp]
       \centering
       \caption{Additional delay component of ANF to CN cell types}\label{tab:Methods:AddDelay}
-      \begin{tabularx}{0.8\textwidth}{p{1.9in}XXXXX} \toprule
+      \begin{tabularx}{0.95\textwidth}{p{1.9in}XXXXX} \toprule
                           &       \ANF        &        \TS         &         \DS         &    \TV    & Golgi \\\otoprule
        \RM cell type      &                   &        I-t         &        I-II         &    I-c    & I-c\\
    Experimental FSL (msec)  & $2.4\pm0.73^{ 1}$ & $3.6\pm0.36 ^{ 1}$ & $2.8\pm0.09 ^{1,2}$ & 4.0$^{3}$ & 4.3$^{4}$\\
@@ -501,7 +501,7 @@ The units for \RMS error are dependant on the data points; for rate level cost f
  used to ensure there was no bias between data points with large variation
 in magnitude. The equation for \MAR error using rate level responses is
 #+BEGIN_LaTeX
-\begin{equation} \label{eq:Ch3:RMS}
+\begin{equation} \label{eq:Ch3:MAR}
 \frac{1}{N} \sum_{n=1}^{N}(\frac{\left|r(n)- r^{\ast}(n)\right|}{r^{\ast}(n)}.
 \end{equation}
 \noindent
@@ -1036,6 +1036,7 @@ the model response and the target response.  The optimal parameters of the \GLG
 cell model had a fitness score of 4.48 spikes per second using the \RMS error.  A normalised metric
 that takes into account the different firing rate magnitudes at each sound level
 relative to the target response showed a \MAR error of 21.5\%.
+The discrepancies at low SPL contributed the most to the \MAR error. 
 
 #+BEGIN_LaTeX
   {%
