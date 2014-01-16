@@ -79,7 +79,7 @@ set tics nomirror out
 set label 1 "{/Sans-Bold C}" at screen 0.075,screen 0.5 font "Arial,32"
 
 
-TOFFSET=system("grep IVOffset ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | awk 'NR==2 {print $4-$3}' ")
+TOFFSET=system("grep IVOffset ../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat | awk 'NR==2 {print $4-$3-2.5}' ")
 
 plot '../SimpleResponsesChapter/gfx/TStellate2_CT2/TStellate.Fit.dat' u ($1-TOFFSET):2 t "Test" w l lc "black", \
      '< tail -137 ../SimpleResponsesChapter/gfx/TStellate/CT2-01-305-014.png.dat' u 1:2 t "Reference" w l lt 1 lc rgb "#0060ad"
