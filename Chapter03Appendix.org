@@ -18,26 +18,22 @@ This section provides an overview of the pragmatic details of the
 [[latex:progname][cnstellate]] NEURON model used in Chapter \ref{sec:ModelChapter}.
 
 
-
 * [[latex:progname][NEURON]] Cochlear Nucleus Stellate Microcircuit Model
 
-The \CNSM software code used in
-Chapters 3 and 4 is called [[latex:progname][cnstellate]] and is implemented in [[latex:progname][NEURON]], [[latex:progname][NMODL]] and [[latex:progname][C]]
-source code.
+The \CNSM software code used in Chapters 3 and 4 is called [[latex:progname][cnstellate]] and is
+implemented in [[latex:progname][NEURON]], [[latex:progname][NMODL]] and [[latex:progname][C]] source code.
 
-The \AN models that can be used by the CNSM model include version 6 \citep{ZilanyBruceEtAl:2009}
-version 5 \citep{ZilanyBruce:2007,ZilanyBruce:2006},
-version 4 \citep{TanCarney:2003},
-version 3 \citep{HeinzZhangEtAl:2001}.  
-The first run of a stimulus may take some time if the AN responses have
-not been previously saved. The AN responses are
-down-sampled to a lesser resolution for the spike generator and saved for
+The \AN models that can be used by the CNSM model include version 6
+\citep{ZilanyBruceEtAl:2009} version 5
+\citep{ZilanyBruce:2007,ZilanyBruce:2006}, version 4 \citep{TanCarney:2003},
+version 3 \citep{HeinzZhangEtAl:2001}.  The first run of a stimulus may take
+some time if the AN responses have not been previously saved. The AN responses
+are down-sampled to a lesser resolution for the spike generator and saved for
 further use.  The resolution of the spike generator is generally at or above 10
 kHz to match the simulations' time step of 0.05 or 0.1 ms.  Version 6 of the AN
-model \citep{ZilanyBruceEtAl:2009} only needs 200 kHz sampling rate for
-CF units above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.
-The directory for the saved AN responses is determined by the variable
-[[latex:progname][=ANsoundspath]]=.
+model \citep{ZilanyBruceEtAl:2009} only needs 200 kHz sampling rate for CF units
+above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.  The directory
+for the saved AN responses is determined by the variable [[latex:progname][=ANsoundspath]]=.
  
 # I acknowledge the contribution M.S.A. Zilany, Laurel Carney, Ian Bruce
 # and colleagues for their work on the AN model.  I also thank Jason Rothman and Paul Manis for their
@@ -717,7 +713,6 @@ points from literature documents }
 #+include: ../../cnstellate/TStellate.hoc :lines "3-32"
 #+include: ../../cnstellate/TStellate.hoc :lines "65-193"
 \end{lstlisting}
-
 
 
 ## set global variables for in-code blocks 
