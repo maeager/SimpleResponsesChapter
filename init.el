@@ -183,10 +183,14 @@
 	    (while (re-search-forward "\\([0-9]\\) \\([\\\\A-Za-z]\\)" nil t)
 	      (replace-match "\\1\\\\ \\2" nil nil))
 
-	    ;; Force a space between numbers followed by text or acronym
+	    ;; Force a space after i.e.
 	    (goto-char (mark))
 	    (while (re-search-forward "i\\.e\\. " nil t)
 	      (replace-match "i.e.\\\\ " nil nil))
+	    ;; Force a space after e.g.
+	    (goto-char (mark))
+	    (while (re-search-forward "e\\.g\\. " nil t)
+	      (replace-match "e.g.\\\\ " nil nil))
 
 	    ;; Force  floating tables and figures to be at the top
 	    (goto-char (mark))
