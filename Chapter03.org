@@ -2575,15 +2575,17 @@ of \TV cells (as suggested by \citet{ReissYoung:2005}).
 # \citet{ReissYoung:2005} recorded from individual \TV neurons, is
 # adapted for a range of \TV cell models using a single notch stimulus.
 The experimental data in Figure \ref{fig:TVReissFig9} shows the average
-responses of Type II \DCN units to notch sweeps \citep{ReissYoung:2005}.  single
-notch presented across the whole network of \TV cells to avoid multiple notch
-sweeps. Accordingly, the fitness function took the relative position of cells
-in the network into account when comparing the experimental data. For example,
-when presented with a notch noise filtered between 5 kHz and 10 kHz, a unit with
-\CF of 5 kHz will see a falling edge of a 1 octave notch, whereas a unit with
-\CF of 10 kHz will see a rising edge of a half octave notch. Figure
-\ref{fig:TVNotchDiagram} shows the combination of the Type II \DCN unit notch
-data for 1 octave.
+responses of Type II \DCN units to notch sweeps \citep{ReissYoung:2005}.  The
+optimisation routine would be prohibitive if it used multiple notch sweeps
+simulated using a single neuron.  To avoid this outcome, the optimisation used a
+single notch presented across the whole network of \TV cells.  Accordingly, the
+fitness function took the relative position of cells in the network into account
+when comparing the experimental data.  For example, when presented with a notch
+noise filtered between 5 kHz and 10 kHz, a unit with \CF of 5 kHz will see a
+falling edge of a 1 octave notch, whereas a unit with \CF of 10 kHz will see a
+rising edge of a half octave notch.  Figure \ref{fig:TVNotchDiagram} shows the
+combination of the Type II \DCN unit notch data for 1 octave.
+
 
 
 #+LaTeX: \input{../SimpleResponsesChapter/TV_NotchTable}
