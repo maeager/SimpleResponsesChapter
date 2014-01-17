@@ -209,7 +209,7 @@ experimental data.
 # how the model was designed.
 
 The order of the optimisation routines is important because of the
-inter-dependencies within the isofrequency microcircuit and across the whole
+cross dependencies within the isofrequency microcircuit and across the whole
 nucleus. In the \CNSM model, Golgi cells only receive inputs from the \ANFs and
 are the first model and network parameters to be optimised. \DS cells are
 modeled next because they receive inputs from \ANFs and \GABA-ergic Golgi
@@ -488,7 +488,7 @@ the principal axis method without using the function's gradient. The fitness
 function converts the parameters to a single measure by simulating the \CNSM
 model using the parameters, then comparing selected neural outputs to
 experimental data. \Gls{RMS} error was used as the comparison measure of
-similar data points, e.g.\\space mean firing rate at different sound levels in a
+similar data points, e.g. mean firing rate at different sound levels in a
 rate-level simulation.
 The equation for \RMS error in a rate level response is
 #+BEGIN_LaTeX
@@ -1029,17 +1029,18 @@ optimisation are shown in Table \ref{tab:GolgiCellModelSummary}E.
 
 Figure \ref{fig:GolgiResult} shows the rate-level output of the \GLG cell model
 with its optimal combination of parameters as shown in Table
-\ref{tab:GolgiCellModelSummary}E. Twenty two sound levels from -15 dB \SPL to
-90 dB \SPL were used in the fitness function to compare the \GLG cell model (\CF
+\ref{tab:GolgiCellModelSummary}E. Twenty two sound levels from -15 dB \SPL to 90
+dB \SPL were used in the fitness function to compare the \GLG cell model (\CF
 22.7 kHz) with the experimental unit S03-07
 \citep[\CF~21~kHz,][]{GhoshalKim:1996a} representing the target response. The
 mean firing rate, generated from 25 repetitions at each level, was used in the
 fitness function to produce a square root of the mean squared difference between
 the model response and the target response. The optimal parameters of the \GLG
-cell model had a fitness score of 4.48 spikes per second using the \RMS error. A normalised metric
-that takes into account the different firing rate magnitudes at each sound level
-relative to the target response showed a \MAR error of 21.5\%.
-The discrepancies at low \SPL contributed the most to the \MAR error.
+cell model had a fitness score of 4.48 spikes per second using the \RMS error. A
+normalised metric that takes into account the different firing rate magnitudes
+at each sound level relative to the target response showed a \MAR error of
+21.5\%.  The discrepancies at low \SPL contributed the most to the \MAR error
+despite a reasonably good fit by observation.
 
 #+BEGIN_LaTeX
   {%
@@ -1517,7 +1518,7 @@ octaves of tonotopic frequencies) and occasionally project into the \GCD
 200 \um in the \GCD.
 #   # # and \ANF tonotopic organisation in the \GCD is less defined.
 The \GLG to \DS cell model connection within the \CNSM model was set to a spread
-of 2 channels (i.e.\space SD= $\sqrt{2}$) with zero offset, which corresponds to
+of 2 channels (i.e. SD= $\sqrt{2}$) with zero offset, which corresponds to
 a \DS cell receiving synapses from \GLG cell models in a narrow range of
 frequency channels.
 
@@ -2569,7 +2570,7 @@ suggesting a continuous monotonic \GABAa inhibition regulating the activity in t
 Table \ref{tab:TVNotchModelSummary} shows the implementation methods
 used in the \TV cell model notch noise optimisation. The main purpose
 of this optimisation was to test whether \DS cell connection distribution
-variables (i.e.\space spread and offset) play a role in modifying the output
+variables (i.e. spread and offset) play a role in modifying the output
 of \TV cells (as suggested by \citet{ReissYoung:2005}).
 # The experimental data used in the fitness function, from
 # \citet{ReissYoung:2005} recorded from individual \TV neurons, is
@@ -4090,7 +4091,7 @@ stellate microcircuit and help to identify its key components.
 
   stmp =sprintf("%.4g$\\,\\times\\,$%d \t",[wtable(1,:)' ntable(1,:)']'); s = sprintf("%s\\HSR\t %s\n",s,stmp);
   stmp =sprintf("%.4g$\\,\\times\\,$%d \t",[wtable(2,:)' ntable(2,:)']'); s = sprintf("%s\\LSR\t %s\n",s,stmp);
-  stmp =sprintf("%.4g$\\,\\times\\,$%d \t",[wtable(3,:)' ntable(3,:)']'); s = sprintf("%s\\GLG\t %s\n",s,stmp);
+  stmp =sprintf("%.3g$\\,\\times\\,$%d \t",[wtable(3,:)' ntable(3,:)']'); s = sprintf("%s\\GLG\t %s\n",s,stmp);
   stmp =sprintf("%.4g$\\,\\times\\,$%d \t",[wtable(4,:)' ntable(4,:)']'); s = sprintf("%s\\DS\t %s\n",s,stmp);
   stmp =sprintf("%.4g$\\,\\times\\,$%d \t",[wtable(5,:)' ntable(5,:)']'); s = sprintf("%s\\TV\t %s",s,stmp);
   sprintf("%s",s)
