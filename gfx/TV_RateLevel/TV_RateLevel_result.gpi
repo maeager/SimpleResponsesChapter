@@ -5,7 +5,7 @@
 ## FONTSIZE 18
 ## SIZE 7,5
 # reset
-set terminal postscript eps enhanced size 9,11 \
+set terminal postscript eps enhanced size 7,3.5 \
     defaultplex leveldefault color  \
     solid dashlength 1.0 linewidth 2.0 butt noclip \
     palfuncparam 2000,0.003 \
