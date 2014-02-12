@@ -275,5 +275,3 @@
 
 ;; don't use the full set of Org-mode latex packages
 (setq org-export-latex-default-packages-alist nil)
-
-

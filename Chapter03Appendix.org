@@ -1,7 +1,7 @@
 #+TITLE: Amplitude Modulation and Vowel Coding in the Stellate Microcircuit
 #+AUTHOR: Michael A Eager
 #+DATE:
-#+OPTIONS: toc:nil H:5 author:nil <:t >:t 
+#+OPTIONS: toc:nil H:5 author:nil <:t >:t
 #+STARTUP: oddeven hideblocks fold align hidestars
 #+TODO: REFTEX
 #+LANGUAGE: en_GB
@@ -13,7 +13,7 @@
 # \setcounter{chapter}{7}
 
 \chapter{Appendix B}  \label{sec:Ch3:Appendix}
-  
+
 This section provides an overview of the pragmatic details of the
 [[latex:progname][cnstellate]] NEURON model used in Chapter \ref{sec:ModelChapter}.
 
@@ -34,14 +34,14 @@ kHz to match the simulations' time step of 0.05 or 0.1 ms.  Version 6 of the AN
 model \citep{ZilanyBruceEtAl:2009} only needs 200 kHz sampling rate for CF units
 above 20 kHz, otherwise a sampling rate of 100 kHz is sufficient.  The directory
 for the saved AN responses is determined by the variable [[latex:progname][=ANsoundspath]]=.
- 
+
 # I acknowledge the contribution M.S.A. Zilany, Laurel Carney, Ian Bruce
 # and colleagues for their work on the AN model.  I also thank Jason Rothman and Paul Manis for their
-# investigation of membrane currents in \CN neurons that provided the basis for the \CNSM neural models. 
+# investigation of membrane currents in \CN neurons that provided the basis for the \CNSM neural models.
 
 # The organisation of the NEURON model and its the parallel capabilities is based on the NEURON
 # network model [[latex:progname][netmod]] \citet{MiglioreCanniaEtAl:2006}
-# (see SenseLab's ModelDB models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]]).  
+# (see SenseLab's ModelDB models [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=52034][52034]], [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=2730][2730]], and [[http://senselab.med.yale.edu/senselab/modeldb/ShowModel.asp?model=51781][51781]]).
 
 From the command line type:
 :    $ make gui
@@ -56,8 +56,8 @@ that can be imported into [[latex:progname][NEURON]]; then appends the
 
 
 
-# \yellownote{Discuss Listing headerlines} 
-Listing \ref{lst:headerlines} shows an example of the header lines in =TStellate.hoc=, which sets up the CNSM model for optimising the TS cell model's network parameters. 
+# \yellownote{Discuss Listing headerlines}
+Listing \ref{lst:headerlines} shows an example of the header lines in =TStellate.hoc=, which sets up the CNSM model for optimising the TS cell model's network parameters.
 #+BEGIN_LaTeX
   \begin{lstlisting}[label=lst:headerlines,caption={Headerlines in [[latex:progname][TStellate2\.hoc]] show a typical setup in a [[latex:progname][cnstellate]] simulation or optimisation file.}]
   load_file("nrngui.hoc")
@@ -68,7 +68,7 @@ Listing \ref{lst:headerlines} shows an example of the header lines in =TStellate
   load_file("Utilities.hoc")      //stimulus generation and AN filterbank functions
   load_file("AuditoryNerve.hoc")  //ANChannel and AuditoryNerve classes
   load_file("par_CNcell.tem")     //CNCell and Golgi cell classes
-  
+
   //Load previously set optimisation parameters
   xopen("pvec_Golgi_RateLevel.hoc")
   xopen("pvec_DS_ClickRecovery.hoc")
@@ -76,16 +76,16 @@ Listing \ref{lst:headerlines} shows an example of the header lines in =TStellate
   xopen("pvec_TV_RateLevel.hoc")
   xopen("pvec_TV_Notch.hoc")
 
-  
+
   //Setup CN Stellate Network model
   load_file("CochlearNucleus.hoc")    //Cells and network defined
   // xopen("par_CochlearNucleus.hoc") // Model setup for parallel mode
-  
+
   //Create CN model
   create_cells()
   connect_cells()
   connect_CNcells()
-  
+
   //Experiment routines
   load_file("par_experiment_TStellate.hoc")
   ...
@@ -118,7 +118,7 @@ to get the correct Zilany model compression values, given the acoustic
 thresholds of an animal.
 
 #+BEGIN_LaTeX
-  \begin{lstlisting}[label=lst:makeaudiogram,caption=Using  \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for  the cat.]  
+  \begin{lstlisting}[label=lst:makeaudiogram,caption=Using  \mbox{\textsf{fitaudiogram.m}} to create COHC and CIHC vectors for  the cat.]
   x=dlmread("heffner_1985a_felis_p347_3.txt",'\t',2,0);
   [Cohc,Cihc,OHC_Loss]=fitaudiogram(x(:,1),x(,2));
   dlmwrite("cat_audiogram.txt",[x co' ci'],'\t',0,0,"precision","%g");
@@ -238,9 +238,9 @@ to a NEURON NMODL compatible C file.
     - builtin [[latex:progname][resample]] $\Rightarrow$ implementation of a reliable resampling
       function in C, using a real-time resample library (libresample).
     - M-file [[latex:progname][ffGn]] $\Rightarrow$ generate a C function that implements the fast
-      fractional Gaussian noise generator. 
+      fractional Gaussian noise generator.
 
-** Spiking ANF Model 
+** Spiking ANF Model
 
 The ANF model in created in a NEURON template called =AuditoryNerve=, declared
 in =AuditoryNerve.hoc=.  All fibres are created in the =LSR= and =HSR= matrix
@@ -257,7 +257,7 @@ after the spiral ganglion cell, and declared in the [[latex:progname][NMODL]] fi
 
 # The method to initialise the =SCG_fast= requires a location variable between
 # zero and one representing where to place the point process on the currently
-# accessed section.  
+# accessed section.
 For example, in =CochlearNucleus.hoc= \HSR fibres in one frequency channel are
 created by calling:
 :   for j_cell = 0, HSRsperchannel-1 {
@@ -290,10 +290,10 @@ The cochlear nucleus cell models were introduced by
 currents of murine cochlear nucleus neurons
 \citep{RothmanManis:2003,RothmanManis:2003a}. The Rothman and Manis
 neural models were defined in the basic cell template =CNcell=, declared
-in =CNcell.tem=.  =CNcell= creates the single compartment 
+in =CNcell.tem=.  =CNcell= creates the single compartment
 (NEURON segment =soma=) containing the active currents, synapses receptors and a
 spike detector. The =CNcell= model can be adjusted to include dendrite and axon
-segments if required.  
+segments if required.
 # Internal variables and objects can be made publicly accessible using
 
 The [[latex:progname][rm_vect]] module loaded for each [[latex:progname][CNcell]] soma section is the condensed
@@ -323,7 +323,7 @@ inserted separately.
       if($1 == 3) set_golgi() //Golgi cell
       cf = $2
       channel=$3
-  
+
       soma {
   //insert Rothman and Manis default currents (Na, KHT, Ih, and leak)
         insert rm
@@ -358,7 +358,7 @@ inserted separately.
        L    = 19.5           //length of cell body
        diam = L              //diameter of cell body
        somaarea = PI*(L/1E4)^2   //um to cm2
-  
+
   //Set maximum conductance for each current
           gnabar_rm = nstomho(1000)*qt()
           gkhtbar_rm = nstomho(80)*qt()
@@ -379,7 +379,7 @@ inserted separately.
     :END:
 
 # \yellownote{Expand on praxis method, it's specific attributes, use of pvec for
-# setting the parameters and the fitting procedure.}  
+# setting the parameters and the fitting procedure.}
 
 The optimisation routine
 used in this chapter was NEURON's [[latex:progname][fit\_praxis]], which uses the algorithm PRAXIS
@@ -473,7 +473,7 @@ dynamics of golgi cells
       wLSR.apply("gaussian").mul(weight_sum_LSR)
       gaussian_variance = golgi_spatial_filter_variance_HSR
       wHSR.apply("gaussian").mul(weight_sum_HSR)
-  
+
     /* Add LSR and HSR vectors to tempsout, check weights */
       for i=0,nchannels-1 {
         if (wLSR.x[i]>0.001)
@@ -506,11 +506,10 @@ commands:
 :    $ make gui
 :    $ ./gui/special DSRecovery.hoc -
 
-
 Example optimisation points used by [[latex:progname][fit\_praxis]] are shown in Figure \ref{fig:praxis}.
 
 #+BEGIN_LaTeX
-  \begin{figure}[htb] 
+  \begin{figure}[htb]
   \centering
   \resizebox{0.9\textwidth}{!}{\includegraphics{../SimpleResponsesChapter/gfx/Praxis_123}%
   \includegraphics{../SimpleResponsesChapter/gfx/Praxis_456}}
@@ -523,33 +522,33 @@ Example optimisation points used by [[latex:progname][fit\_praxis]] are shown in
 
 # #+BEGIN_LaTeX
 #    \begin{lstlisting}
-#      func fun() {local f 
-#   //Modify Variables 
+#      func fun() {local f
+#   //Modify Variables
 #   param.w.x[glg][ds] = $2
-#      param.w.x[hsr][ds] = $3 
-#      param.w.x[lsr][ds] = $3 
+#      param.w.x[hsr][ds] = $3
+#      param.w.x[lsr][ds] = $3
 #   //Modify the network
-#      {create_cells() connect_cells(fileroot) SetRates()} 
-#   // Simulate the network for N repetitions 
-#      for j=0, reps-1 { 
-#        print j 
-#        GenSpikes() 
+#      {create_cells() connect_cells(fileroot) SetRates()}
+#   // Simulate the network for N repetitions
+#      for j=0, reps-1 {
+#        print j
+#        GenSpikes()
 #        run()
-#        DSvec.append(dstellate[50][0].spiketimes) 
-#   //print startsw()-x, "secs" 
+#        DSvec.append(dstellate[50][0].spiketimes)
+#   //print startsw()-x, "secs"
 #       }
 #  //Analyse the output
 #      DSvec = DSvec.histogram(0,tstop,0.1)
-#      objref errorvec 
-#      errorvec = new Vector() 
-#   //Find the mean number of spikes in the first click 
-#      maxrate = (DSvec.sum(240,260) + DSvec.sum(740,760) +   DSvec.sum(1340,1360))/3 
-#   //Calc ratio of number of spikes in second click   relative to mean first click 
+#      objref errorvec
+#      errorvec = new Vector()
+#   //Find the mean number of spikes in the first click
+#      maxrate = (DSvec.sum(240,260) + DSvec.sum(740,760) +   DSvec.sum(1340,1360))/3
+#   //Calc ratio of number of spikes in second click   relative to mean first click
 #      errorvec.append( DSvec.sum(260,280) / maxrate )
-#      errorvec.append( DSvec.sum(780,800) / maxrate ) 
-#      errorvec.append(DSvec.sum(1420,1440) / maxrate ) 
+#      errorvec.append( DSvec.sum(780,800) / maxrate )
+#      errorvec.append(DSvec.sum(1420,1440) / maxrate )
 #   //Return the normalised fitness function error score
-#      return  errorvec.meansqerr(targetclick) 
+#      return  errorvec.meansqerr(targetclick)
 #   }
 #   \end{lstlisting}
 # #+END_LaTeX
@@ -564,7 +563,7 @@ commands:
 
 
 The experimental data and results files are stored in the associated
-folder =TV_RateLevel=.  
+folder =TV_RateLevel=.
 
 The optimisation of \DS to \TV cell connectivity was generated using the
 hoc file [[latex:progname][TV\_Notch.hoc]] The procedure for =TV\Notch= is similar to the
@@ -573,7 +572,7 @@ simulation. In =experiment_TV_Notch.hoc= experimental data for one
 octave and half-octave sweeps at 22 dB SPL from a sample of \TV units
 are extrapolated to the effective response of all \TV units in response
 to a single stimulus.  The mean data was obtained from Figure 10 in
-\citet{ReissYoung:2005} using [[latex:progname][g3data]]. 
+\citet{ReissYoung:2005} using [[latex:progname][g3data]].
 
 The notch noise stimulus was generated in MATLAB\slash GNU Octave to
 simulate a half-octave stop-band filtered noise centred at the centre of
@@ -584,12 +583,12 @@ noise file.  Listing \ref{lst:Notch} shows how the stop bands and the
 depth variables are passed to the Octave function by using a system call
 with NEURON. The resulting *.wav file is retrieved then used to
 generated the required stimulus (50 ms duration, 5 ms rise-fall time; 20
-ms delay) and scaled to the correct sound level. 
+ms delay) and scaled to the correct sound level.
 
 #+BEGIN_LaTeX
   \begin{lstlisting}[label=lst:Notch,caption=Generating stop-band filtered white noise in \textsf{NEURON} is actually performed in GNU Octave using a system call (in \textsf{Utilities.hoc})]
   proc FilteredNoise(){
-  ------ 
+  ------
     sprint(wavdatafile,"./TV_Notch/Notch-sb%g-sb%g.dat",stopband1,notchwidth)
     sprint(tmpstr,"octave -f --eval \"pkg load signal;getnotchcheb(%d,%g,%g,%g,\\\"%s\\\")\" 2> /dev/null",int(srate),stopband1,stopband2,notchdepth,wavdatafile)
     system(tmpstr)
@@ -647,8 +646,8 @@ discharge rates.
 
 The procedures for modulation transfer functions and f_0 responses are
 also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:AMChapter}
-[[file:../VowelProcessingChapter/Chapter04.org:*chapter]]. 
- 
+[[file:../VowelProcessingChapter/Chapter04.org:*chapter]].
+
 
 * General Neural Modelling Tools 				   :noexport:
 
@@ -657,7 +656,6 @@ also found in =ResponsesRoutines.hoc= and are used in Chapter \ref{sec:AMChapter
     :PROPERTIES:
     :LABEL: sec:Apx:G3data
     :END:
-
 
 \yellownote{Special comments on the use of g3data to extract data
 points from literature documents }
@@ -673,49 +671,46 @@ points from literature documents }
 
 ** Base files for \textsf{cnstellate}
 
-\begin{lstlisting}[label=lbl:Params,caption=\textsf{Params.hoc}] 
-#+include: ../../cnstellate/Params.hoc 
-\end{lstlisting} 
+\begin{lstlisting}[label=lbl:Params,caption=\textsf{Params.hoc}]
+#+include: ../../cnstellate/Params.hoc
+\end{lstlisting}
 \clearpage
 \begin{lstlisting}[label=lbl:Utilities,caption=\textsf{Utilities.hoc}]
-#+include: ../../cnstellate/Utilities.hoc 
+#+include: ../../cnstellate/Utilities.hoc
 \end{lstlisting}
 \clearpage
-\begin{lstlisting}[label=lbl:NetworkParameters,caption=\textsf{NetworkParameters.hoc}] 
-#+include: ../../cnstellate/NetworkParameters.hoc 
+\begin{lstlisting}[label=lbl:NetworkParameters,caption=\textsf{NetworkParameters.hoc}]
+#+include: ../../cnstellate/NetworkParameters.hoc
 \end{lstlisting}
 \clearpage
-\begin{lstlisting}[label=lbl:AuditoryNerve,caption=\textsf{AuditoryNerve.hoc}] 
-#+include: ../../cnstellate/AuditoryNerve.hoc 
+\begin{lstlisting}[label=lbl:AuditoryNerve,caption=\textsf{AuditoryNerve.hoc}]
+#+include: ../../cnstellate/AuditoryNerve.hoc
 \end{lstlisting}
 \clearpage
-\begin{lstlisting}[label=lbl:CNcell,caption=\textsf{par\_CNcell.tem}] 
-#+include: ../../cnstellate/par_CNcell.tem 
+\begin{lstlisting}[label=lbl:CNcell,caption=\textsf{par\_CNcell.tem}]
+#+include: ../../cnstellate/par_CNcell.tem
 \end{lstlisting}
 \clearpage
 
-\begin{lstlisting}[label=lbl:CochlearNucleus,caption=\textsf{CochlearNucleus.hoc}] 
-#+include: ../../cnstellate/CochlearNucleus.hoc 
+\begin{lstlisting}[label=lbl:CochlearNucleus,caption=\textsf{CochlearNucleus.hoc}]
+#+include: ../../cnstellate/CochlearNucleus.hoc
 \end{lstlisting}
 \clearpage
- \begin{lstlisting}[label=lbl:calcisilag,caption=\textsf{calcisilag.hoc}] 
-#+include: ../../cnstellate/calcisilag.hoc 
+ \begin{lstlisting}[label=lbl:calcisilag,caption=\textsf{calcisilag.hoc}]
+#+include: ../../cnstellate/calcisilag.hoc
 \end{lstlisting}
 \clearpage
 
 ** Optimisation experiment files
 
-\begin{lstlisting}[label=lbl:TStellateExp,caption=\textsf{par\_experiment\_TStellate.hoc}. ] 
+\begin{lstlisting}[label=lbl:TStellateExp,caption=\textsf{par\_experiment\_TStellate.hoc}. ]
 #+include: ../../cnstellate/par_experiment_TStellate.hoc
 \end{lstlisting}\clearpage
 
-\begin{lstlisting}[label=lbl:TStellate,caption= Main body of \textsf{TStellate.hoc} used to optimise network parameters contacting TS cells.] 
+\begin{lstlisting}[label=lbl:TStellate,caption= Main body of \textsf{TStellate.hoc} used to optimise network parameters contacting TS cells.]
 #+include: ../../cnstellate/TStellate.hoc :lines "3-32"
 #+include: ../../cnstellate/TStellate.hoc :lines "65-193"
 \end{lstlisting}
 
 
-## set global variables for in-code blocks 
-
-
-
+## set global variables for in-code blocks

@@ -527,7 +527,7 @@ presented to the \CNSM model included:
 #   \SPL and simultaneous with noise at 50 dB \SPL.
 
 Figure \ref{fig:ANFVerificationRL} shows the output of the \HSR and \LSR \ANFs
-in the \CNSM model to the verification stimuli 
+in the \CNSM model to the verification stimuli
 \citep[modified~][ AN model]{ZilanyCarney:2010}. The V-shaped tuning of the \HSR \ANFs to pure tone
 bursts (Figure \ref{fig:ANFVerificationRL}A) has no inhibitory areas and is
 classified in \EIRA as Type I. The equivalent \Qten, bandwidth measured in
@@ -1727,7 +1727,7 @@ the only inhibitory input to the \DS cell model in the \CNSM model.
 # #+LABEL: fig:DSRateLevelFig3Result
 # [[../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel_result.6.3kHz.pdf]]
 
-
+#+ATTR_LATEX: width=0.9\textwidth
 #+CAPTION: [Rate level optimisation results in the DS cell model]{Tone and noise rate level responses in the DS cell model (CF 11.1 kHz, channel 67, red circles) were optimised to an OnC unit (CF 10.9 kHz, in figure 12 of \citet{ArnottWallaceEtAl:2004}). A. Tone rate level responses of HSR, LSR and GLG unit inputs to the DS cell model at frequency channel with CF 11.1 kHz. B. Noise rate level responses of HSR, LSR and GLG units at same CF as in A. B. Tone rate level responses of DS cell optimised model (CF 11.12 kHz) and target unit (CF 10.9 kHz). D. Noise rate level responses of optimised DS cell model and target unit. }
 #+LABEL: fig:DSRateLevelResult
 [[../SimpleResponsesChapter/gfx/DS_RateLevel/DS_RateLevel_result.pdf]]
