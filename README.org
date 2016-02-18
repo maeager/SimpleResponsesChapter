@@ -1,0 +1,20 @@
+* SimpleResponsesChapter
+Chapter 3 of my thesis - Sequential optimisation of network parameters using simple responses
+
+This can be compiled on its own using =latex-makefile=. Typing /make/ will create all the figures 
+and export org-mode to latex, then compile the PDF.
+
+The default output is Chapter03.pdf.
+
+This chapter requires Gnuplot, Octave/Matlab, emacs >23, org-mode>6.0, dia, inkscape, xz, and makeglossaries.  
+
+Many figures are cutouts from older academic articles. If you wish to use these, you responsible for obtaining permission 
+to publish any figures or illustrations that are protected by copyright, including figures published elsewhere.
+Otherwise, my code is free to use under the GPL 3 licence.
+
+* Figures.org
+
+This contains some examples of org-mode's brilliance at reproducible research.
+
+Gnuplot and octave source blocks were used to generate the appropriate script for the Makefile to then create the figure.
+
